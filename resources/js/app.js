@@ -1,0 +1,9 @@
+import './admin/quill';
+import './admin/form-feedback';
+import './admin/multiselect';
+import './front/frontsite-ajax-forms';
+import './front/frontsite-form-controls';
+import './front/home-featured-tabs';
+import './front/service-detail';
+import './front/tour-gallery-slider';
+import './front/travel-inquiry-modal';

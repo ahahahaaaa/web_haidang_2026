@@ -1,0 +1,332 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "resources/views/livewire/admin/cms/blogs/categories-index.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 89,
+      "nonEmptyLines": 83,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/blogs/editor.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 172,
+      "nonEmptyLines": 149,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/blogs/index.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 102,
+      "nonEmptyLines": 94,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/estimate-formula-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 449,
+      "nonEmptyLines": 421,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/estimate-keys-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 98,
+      "nonEmptyLines": 89,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/estimate-requests-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 291,
+      "nonEmptyLines": 270,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/landing-pages-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 2175,
+      "nonEmptyLines": 2022,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/landing-pages/index.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 106,
+      "nonEmptyLines": 98,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/media-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 271,
+      "nonEmptyLines": 242,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/menu-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 192,
+      "nonEmptyLines": 170,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/admin-group-submenu.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 49,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/blogs-submenu.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/faq-related-fields.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 111,
+      "nonEmptyLines": 99,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/geo-config-fields.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 78,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/home-layout-move-controls.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 12,
+      "nonEmptyLines": 12,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/home-section-config.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 347,
+      "nonEmptyLines": 318,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-estimate-config.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 239,
+      "nonEmptyLines": 210,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-faq-items.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 48,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-home-gallery-process-values.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 202,
+      "nonEmptyLines": 175,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-home-hero-services.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 188,
+      "nonEmptyLines": 168,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-home-insights-consultation.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 79,
+      "nonEmptyLines": 69,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-home-package-showcase.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 107,
+      "nonEmptyLines": 96,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-page-advanced-json.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 10,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-page-general.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 37,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-page-visual-gallery.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 120,
+      "nonEmptyLines": 106,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,2053 @@
+{
+  "projectRoot": "D:\\Project\\HaidangTravel",
+  "batchFiles": [
+    {
+      "path": "resources/views/themes/haidangtravel/partials/inquiry-form.blade.php",
+      "language": "php",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/inquiry-modal.blade.php",
+      "language": "php",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-content-blocks.blade.php",
+      "language": "php",
+      "sizeLines": 226,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-gallery-card.blade.php",
+      "language": "php",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-gallery.blade.php",
+      "language": "php",
+      "sizeLines": 144,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-hero-demo.blade.php",
+      "language": "php",
+      "sizeLines": 205,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-hero.blade.php",
+      "language": "php",
+      "sizeLines": 465,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/recaptcha-v3-field.blade.php",
+      "language": "php",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/recaptcha-v3-script.blade.php",
+      "language": "php",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/region-taxonomy-tabs.blade.php",
+      "language": "php",
+      "sizeLines": 242,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/review-grid.blade.php",
+      "language": "php",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/section-heading.blade.php",
+      "language": "php",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/shared-search-bar.blade.php",
+      "language": "php",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/social-share.blade.php",
+      "language": "php",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/taxonomy-card-carousel.blade.php",
+      "language": "php",
+      "sizeLines": 268,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tour-card.blade.php",
+      "language": "php",
+      "sizeLines": 370,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tour-taxonomy-tabs.blade.php",
+      "language": "php",
+      "sizeLines": 140,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tour-voucher-cta-button.blade.php",
+      "language": "php",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tracking-body.blade.php",
+      "language": "php",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tracking-head.blade.php",
+      "language": "php",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/travel-inquiry-form-fields.blade.php",
+      "language": "php",
+      "sizeLines": 298,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/trust-proof-section.blade.php",
+      "language": "php",
+      "sizeLines": 185,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/voucher-campaign-panel.blade.php",
+      "language": "php",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/voucher-promotion-block.blade.php",
+      "language": "php",
+      "sizeLines": 436,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/welcome.blade.php",
+      "language": "php",
+      "sizeLines": 204,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    ".gitattributes": [],
+    ".npmrc": [],
+    "AGENTS.md": [],
+    "app/Actions/Fortify/CreateNewUser.php": [
+      "app/Concerns/PasswordValidationRules.php",
+      "app/Concerns/ProfileValidationRules.php",
+      "app/Models/User.php"
+    ],
+    "app/Actions/Fortify/ResetUserPassword.php": [
+      "app/Concerns/PasswordValidationRules.php",
+      "app/Models/User.php"
+    ],
+    "app/Concerns/PasswordValidationRules.php": [],
+    "app/Concerns/ProfileValidationRules.php": [
+      "app/Models/User.php"
+    ],
+    "app/Console/Commands/BackfillHaidangTravelTourCoverImagesCommand.php": [
+      "app/Services/Travel/HaidangTravelTourCoverBackfillService.php"
+    ],
+    "app/Console/Commands/ClearFrontsiteCacheCommand.php": [
+      "app/Services/Frontsite/FrontsiteCache.php"
+    ],
+    "app/Console/Commands/Cms/RunBlogAutomationCommand.php": [
+      "app/Jobs/Cms/RunBlogAutomationJob.php",
+      "app/Models/User.php",
+      "app/Services/Cms/BlogAutomationRunner.php"
+    ],
+    "app/Console/Commands/ImportFrontendMediaCommand.php": [
+      "app/Services/Admin/FrontendHtmlImageImporter.php",
+      "app/Services/Admin/FrontendHtmlImageScanner.php"
+    ],
+    "app/Console/Commands/ImportHaidangTravelSnapshotCommand.php": [
+      "app/Services/Travel/HaidangTravelImportService.php"
+    ],
+    "app/Console/Commands/Seo/SeoGeneratePageCommand.php": [
+      "src/Domains/Seo/Jobs/GenerateSeoDraftJob.php"
+    ],
+    "app/Console/Commands/Seo/SeoPublishCommand.php": [
+      "src/Domains/Seo/Jobs/PublishSeoPageJob.php"
+    ],
+    "app/Console/Commands/Seo/SeoRunQaCommand.php": [
+      "src/Domains/Seo/Jobs/ValidateSeoPageJob.php"
+    ],
+    "app/Console/Commands/Seo/SeoSeedDemoPagesCommand.php": [
+      "src/Domains/Seo/Actions/SeedSeoDemoPagesAction.php"
+    ],
+    "app/Console/Commands/Seo/SeoSyncClustersCommand.php": [
+      "src/Domains/Seo/Actions/DispatchClusterGenerationAction.php",
+      "src/Domains/Seo/Repositories/SeoClusterRepository.php"
+    ],
+    "app/Console/Commands/SyncHaidangTravelHomepageCommand.php": [
+      "app/Services/Travel/HaidangTravelHomepageSyncService.php"
+    ],
+    "app/Console/Commands/WarmFrontsiteCacheCommand.php": [
+      "app/Services/Seo/SitemapBuilder.php"
+    ],
+    "app/Http/Controllers/Admin/Blogs/BlogAutomationController.php": [
+      "app/Http/Controllers/Controller.php",
+      "app/Http/Requests/Admin/Blogs/StoreBlogAutomationJobRequest.php",
+      "app/Jobs/Cms/RunBlogAutomationJob.php"
+    ],
+    "app/Http/Controllers/Admin/Blogs/BlogCategoryApiController.php": [
+      "app/Http/Controllers/Controller.php",
+      "app/Services/Cms/BlogPostManager.php",
+      "app/Support/ContentCategoryTree.php"
+    ],
+    "app/Http/Controllers/Admin/Blogs/BlogPostApiController.php": [
+      "app/Http/Controllers/Controller.php",
+      "app/Http/Requests/Admin/Blogs/StoreBlogPostRequest.php",
+      "app/Http/Requests/Admin/Blogs/UpdateBlogPostRequest.php",
+      "app/Http/Resources/Admin/Blogs/BlogPostResource.php",
+      "app/Services/Cms/BlogPostManager.php",
+      "src/Domains/Cms/Models/BlogPost.php"
+    ],
+    "app/Http/Controllers/Admin/Media/MediaBrowserController.php": [
+      "app/Http/Controllers/Controller.php",
+      "app/Services/Admin/MediaLibraryBrowser.php"
+    ],
+    "app/Http/Controllers/Admin/Media/MediaBrowserUploadController.php": [
+      "app/Http/Controllers/Controller.php",
+      "app/Services/Admin/MediaLibraryBrowser.php",
+      "app/Services/Admin/MediaLibraryUploader.php"
+    ],
+    "app/Http/Controllers/Admin/Seo/SeoAiController.php": [
+      "app/Http/Controllers/Controller.php",
+      "src/Domains/Seo/Models/SeoPage.php",
+      "src/Domains/Seo/Support/SeoPromptFactory.php"
+    ],
+    "app/Http/Controllers/Admin/Seo/SeoClusterController.php": [
+      "app/Http/Controllers/Controller.php",
+      "app/Http/Requests/Admin/Seo/StoreContentClusterRequest.php",
+      "src/Domains/Seo/Actions/CreateClusterAction.php",
+      "src/Domains/Seo/Actions/DispatchClusterGenerationAction.php",
+      "src/Domains/Seo/Enums/SeoClusterStatus.php"
+    ],
+    "app/Http/Controllers/Admin/Seo/SeoGenerationController.php": [
+      "app/Http/Controllers/Controller.php",
+      "src/Domains/Seo/Jobs/GenerateSeoDraftJob.php",
+      "src/Domains/Seo/Jobs/ValidateSeoPageJob.php",
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "app/Http/Controllers/Admin/Seo/SeoPageController.php": [
+      "app/Http/Controllers/Controller.php",
+      "app/Services/Cms/SiteSettingsManager.php",
+      "app/Services/Seo/PublicSeoPagePresenter.php",
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "app/Http/Controllers/Admin/Seo/SeoPublishController.php": [
+      "app/Http/Controllers/Controller.php",
+      "src/Domains/Seo/Actions/PublishSeoPageAction.php",
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "app/Http/Controllers/Admin/VoucherCampaignCodesExportController.php": [
+      "app/Http/Controllers/Controller.php",
+      "src/Domains/Cms/Models/VoucherCode.php"
+    ],
+    "app/Http/Controllers/Agency/TourExportController.php": [
+      "app/Http/Controllers/Controller.php",
+      "app/Http/Resources/Agency/TourExportResource.php",
+      "src/Domains/Cms/Models/Tour.php"
+    ],
+    "app/Http/Controllers/Controller.php": [],
+    "app/Http/Controllers/CustomerLoyaltyController.php": [
+      "app/Http/Requests/CustomerLoyaltyLookupRequest.php",
+      "app/Http/Requests/RedeemCustomerGiftRequest.php",
+      "app/Services/Travel/CustomerLoyaltyApi.php",
+      "app/Services/Travel/CustomerLoyaltyApiException.php",
+      "src/Domains/Cms/Models/Tour.php"
+    ],
+    "app/Http/Controllers/DashboardController.php": [
+      "app/Services/Cms/DashboardStatsService.php"
+    ],
+    "app/Http/Controllers/EstimateRequestController.php": [
+      "app/Http/Requests/StoreEstimateRequestRequest.php",
+      "app/Services/Cms/EstimateRequestService.php",
+      "app/Services/Cms/SiteSettingsManager.php",
+      "app/Support/EstimatePageContent.php",
+      "src/Domains/Cms/Models/LandingPage.php"
+    ],
+    "app/Http/Controllers/FrontsiteConsultationController.php": [
+      "app/Http/Requests/StoreFrontsiteConsultationRequest.php",
+      "app/Mail/FrontsiteConsultationRequestMail.php",
+      "app/Services/Cms/SiteSettingsManager.php",
+      "app/Support/HomePageContent.php",
+      "src/Domains/Cms/Models/LandingPage.php"
+    ],
+    "app/Http/Controllers/FrontsiteController.php": [
+      "app/Services/Cms/PublicBlogPostPresenter.php",
+      "app/Services/Cms/SiteSettingsManager.php",
+      "app/Services/Frontsite/FrontsiteGeoPresenter.php",
+      "app/Services/Travel/VoucherCampaignService.php",
+      "app/Support/ContentCategoryTree.php",
+      "app/Support/ContentGallery.php",
+      "app/Support/FrontsiteCardGrid.php",
+      "app/Support/FrontsiteGalleryData.php",
+      "app/Support/FrontsiteMedia.php",
+      "app/Support/LandingPageBlocks.php",
+      "app/Support/LandingPageVisuals.php",
+      "app/Support/ReviewContent.php",
+      "app/Support/RichText.php",
+      "app/Support/SliderLocations.php",
+      "app/Support/TravelHomePageConfig.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Region.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/Slider.php",
+      "src/Domains/Cms/Models/SliderItem.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php",
+      "src/Domains/Cms/Models/TourDeparture.php"
+    ],
+    "app/Http/Controllers/FrontsiteSeoPageController.php": [
+      "app/Services/Cms/SiteSettingsManager.php",
+      "app/Services/Seo/PublicSeoPagePresenter.php",
+      "src/Domains/Seo/Repositories/SeoPageRepository.php"
+    ],
+    "app/Http/Controllers/ServiceConsultationController.php": [
+      "app/Http/Requests/StoreServiceConsultationRequest.php",
+      "app/Mail/ServiceConsultationRequestMail.php",
+      "app/Services/Cms/SiteSettingsManager.php",
+      "src/Domains/Cms/Models/Service.php"
+    ],
+    "app/Http/Controllers/SitemapController.php": [
+      "app/Services/Seo/SitemapBuilder.php"
+    ],
+    "app/Http/Controllers/TourReviewSubmissionController.php": [
+      "app/Http/Requests/StoreTourReviewRequest.php",
+      "app/Http/Requests/UnlockTourReviewRequest.php",
+      "app/Support/FrontsiteMedia.php",
+      "app/Support/ReviewContent.php",
+      "app/Support/RichText.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourReviewBatch.php"
+    ],
+    "app/Http/Controllers/TravelInquiryController.php": [
+      "app/Http/Requests/StoreTravelInquiryRequest.php",
+      "app/Services/Travel/TravelInquiryService.php",
+      "app/Services/Travel/VoucherCampaignService.php"
+    ],
+    "app/Http/Controllers/VoucherCampaignController.php": [
+      "app/Services/Travel/VoucherCampaignService.php"
+    ],
+    "app/Http/Middleware/AddNoIndexHeaders.php": [],
+    "app/Http/Middleware/AuthenticateAgencyExportToken.php": [],
+    "app/Http/Middleware/CacheFrontsiteResponse.php": [
+      "app/Services/Frontsite/FrontsiteCache.php"
+    ],
+    "app/Http/Middleware/EnsureSeoAdminAccess.php": [],
+    "app/Http/Requests/Admin/Blogs/StoreBlogAutomationJobRequest.php": [],
+    "app/Http/Requests/Admin/Blogs/StoreBlogPostRequest.php": [],
+    "app/Http/Requests/Admin/Blogs/UpdateBlogPostRequest.php": [],
+    "app/Http/Requests/Admin/Seo/StoreContentClusterRequest.php": [
+      "src/Domains/Seo/Enums/SeoPageType.php"
+    ],
+    "app/Http/Requests/CustomerLoyaltyLookupRequest.php": [],
+    "app/Http/Requests/RedeemCustomerGiftRequest.php": [
+      "app/Services/Security/GoogleRecaptchaV3.php"
+    ],
+    "app/Http/Requests/StoreEstimateRequestRequest.php": [
+      "app/Services/Estimator/EstimateCatalogService.php",
+      "app/Services/Estimator/EstimatePayloadService.php",
+      "app/Support/EstimatePageContent.php",
+      "src/Domains/Cms/Models/EstimateAccessKey.php",
+      "src/Domains/Cms/Models/LandingPage.php"
+    ],
+    "app/Http/Requests/StoreFrontsiteConsultationRequest.php": [],
+    "app/Http/Requests/StoreServiceConsultationRequest.php": [],
+    "app/Http/Requests/StoreTourReviewRequest.php": [
+      "app/Services/Security/GoogleRecaptchaV3.php",
+      "app/Support/VietnamPhoneNumber.php"
+    ],
+    "app/Http/Requests/StoreTravelInquiryRequest.php": [
+      "app/Services/Security/GoogleRecaptchaV3.php",
+      "src/Domains/Cms/Enums/TravelInquirySource.php"
+    ],
+    "app/Http/Requests/UnlockTourReviewRequest.php": [],
+    "app/Http/Resources/Admin/Blogs/BlogPostResource.php": [
+      "app/Support/ContentCategoryTree.php"
+    ],
+    "app/Http/Resources/Agency/TourDepartureExportResource.php": [],
+    "app/Http/Resources/Agency/TourExportResource.php": [
+      "app/Models/User.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/TourDeparture.php"
+    ],
+    "app/Jobs/Cms/RunBlogAutomationJob.php": [
+      "app/Models/User.php",
+      "app/Services/Cms/BlogAutomationRunner.php"
+    ],
+    "app/Jobs/Seo/BuildSeoLinksJob.php": [],
+    "app/Jobs/Seo/GenerateSeoBriefJob.php": [
+      "app/Services/Seo/SeoGenerationOrchestrator.php"
+    ],
+    "app/Jobs/Seo/GenerateSeoDraftJob.php": [
+      "app/Services/Seo/SeoGenerationOrchestrator.php"
+    ],
+    "app/Jobs/Seo/PublishSeoPageJob.php": [],
+    "app/Jobs/Seo/ValidateSeoPageJob.php": [],
+    "app/Jobs/Travel/PushTourToAgencyJob.php": [
+      "app/Services/Travel/TourAgencyPushSyncRunService.php",
+      "app/Services/Travel/TourAgencyPushSyncService.php",
+      "src/Domains/Cms/Models/TourAgencyPushSyncRun.php"
+    ],
+    "app/Livewire/Actions/Logout.php": [],
+    "app/Livewire/Admin/Cms/AccountsManager.php": [
+      "app/Livewire/Admin/Cms/Concerns/AuthorizesAdminPermissions.php",
+      "app/Models/User.php",
+      "app/Services/Admin/CmsRolePermissionSynchronizer.php",
+      "app/Support/Admin/AdminNavigationRegistry.php"
+    ],
+    "app/Livewire/Admin/Cms/BlogsManager.php": [
+      "app/Livewire/Admin/Cms/Concerns/AuthorizesAdminPermissions.php",
+      "app/Livewire/Admin/Cms/Concerns/HandlesGeoConfig.php",
+      "app/Livewire/Admin/Cms/Concerns/HandlesMediaUploads.php",
+      "app/Livewire/Admin/Cms/Concerns/InteractsWithEditorContent.php",
+      "app/Support/ContentCategoryTree.php",
+      "app/Support/FaqContent.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php"
+    ],
+    "app/Livewire/Admin/Cms/Concerns/AuthorizesAdminPermissions.php": [],
+    "app/Livewire/Admin/Cms/Concerns/HandlesGeoConfig.php": [
+      "app/Support/GeoContent.php"
+    ],
+    "app/Livewire/Admin/Cms/Concerns/HandlesMediaUploads.php": [],
+    "app/Livewire/Admin/Cms/Concerns/InteractsWithEditorContent.php": [
+      "app/Support/RichText.php"
+    ],
+    "app/Livewire/Admin/Cms/EstimateFormulaManager.php": [
+      "app/Livewire/Admin/Cms/Concerns/InteractsWithEditorContent.php",
+      "app/Services/Cms/EstimateFormulaConfigService.php"
+    ],
+    "app/Livewire/Admin/Cms/EstimateKeysManager.php": [
+      "app/Services/Cms/EstimateKeyService.php",
+      "app/Support/EstimatePageContent.php",
+      "src/Domains/Cms/Models/EstimateAccessKey.php",
+      "src/Domains/Cms/Models/LandingPage.php"
+    ],
+    "app/Livewire/Admin/Cms/EstimateRequestsManager.php": [
+      "src/Domains/Cms/Models/EstimateRequest.php"
+    ],
+    "app/Livewire/Admin/Cms/LandingPagesManager.php": [
+      "app/Livewire/Admin/Cms/Concerns/AuthorizesAdminPermissions.php",
+      "app/Livewire/Admin/Cms/Concerns/HandlesGeoConfig.php",
+      "app/Livewire/Admin/Cms/Concerns/HandlesMediaUploads.php",
+      "app/Livewire/Admin/Cms/Concerns/InteractsWithEditorContent.php",
+      "app/Support/FaqContent.php",
+      "app/Support/LandingPageBlocks.php",
+      "app/Support/LandingPageVisuals.php",
+      "app/Support/TravelHomePageConfig.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Region.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/Slider.php",
+      "src/Domains/Cms/Models/TourCategory.php"
+    ],
+    "app/Livewire/Admin/Cms/MediaManager.php": [
+      "app/Services/Admin/MediaLibraryBrowser.php",
+      "app/Services/Admin/MediaLibraryFileAuditService.php",
+      "app/Services/Admin/MediaLibraryUploader.php"
+    ],
+    "app/Livewire/Admin/Cms/MenuManager.php": [
+      "app/Services/Cms/SiteSettingsManager.php",
+      "src/Domains/Cms/Models/Menu.php",
+      "src/Domains/Cms/Models/MenuItem.php"
+    ],
+    "app/Livewire/Admin/Cms/ProjectsManager.php": [
+      "app/Livewire/Admin/Cms/Concerns/HandlesMediaUploads.php",
+      "app/Livewire/Admin/Cms/Concerns/InteractsWithEditorContent.php",
+      "app/Support/ContentGallery.php",
+      "app/Support/FaqContent.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/Project.php",
+      "src/Domains/Cms/Models/ProjectType.php"
+    ],
+    "app/Livewire/Admin/Cms/ServicesManager.php": [
+      "app/Livewire/Admin/Cms/Concerns/AuthorizesAdminPermissions.php",
+      "app/Livewire/Admin/Cms/Concerns/HandlesGeoConfig.php",
+      "app/Livewire/Admin/Cms/Concerns/HandlesMediaUploads.php",
+      "app/Livewire/Admin/Cms/Concerns/InteractsWithEditorContent.php",
+      "app/Support/ContentGallery.php",
+      "app/Support/FaqContent.php",
+      "app/Support/ServiceDetailContent.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/Service.php"
+    ],
+    "app/Livewire/Admin/Cms/SlidersManager.php": [
+      "app/Livewire/Admin/Cms/Concerns/AuthorizesAdminPermissions.php",
+      "app/Livewire/Admin/Cms/Concerns/HandlesMediaUploads.php",
+      "app/Livewire/Admin/Cms/Concerns/InteractsWithEditorContent.php",
+      "app/Support/SliderAnimationEffects.php",
+      "app/Support/SliderLocations.php",
+      "src/Domains/Cms/Models/Slider.php",
+      "src/Domains/Cms/Models/SliderItem.php"
+    ],
+    "app/Livewire/Admin/Cms/ThemeSettingsManager.php": [
+      "app/Livewire/Admin/Cms/Concerns/HandlesMediaUploads.php",
+      "app/Livewire/Admin/Cms/Concerns/InteractsWithEditorContent.php",
+      "app/Services/Cms/SiteSettingsManager.php",
+      "app/Services/Frontsite/FrontsiteCache.php",
+      "app/Services/Travel/CustomerLoyaltyApi.php",
+      "app/Services/Travel/CustomerLoyaltyApiException.php",
+      "app/Support/FooterSocialLinks.php",
+      "app/Support/FrontsiteSectionHeadings.php",
+      "app/Support/GoogleMapsEmbedUrl.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "app/Livewire/Admin/Cms/TourAgencySyncQueueManager.php": [
+      "app/Livewire/Admin/Cms/Concerns/AuthorizesAdminPermissions.php",
+      "app/Services/Travel/TourAgencyPushSyncRunService.php",
+      "src/Domains/Cms/Models/TourAgencyPushSyncRun.php"
+    ],
+    "app/Livewire/Admin/Cms/ToursManager.php": [
+      "app/Jobs/Travel/PushTourToAgencyJob.php",
+      "app/Livewire/Admin/Cms/Concerns/AuthorizesAdminPermissions.php",
+      "app/Livewire/Admin/Cms/Concerns/HandlesGeoConfig.php",
+      "app/Livewire/Admin/Cms/Concerns/HandlesMediaUploads.php",
+      "app/Livewire/Admin/Cms/Concerns/InteractsWithEditorContent.php",
+      "app/Models/User.php",
+      "app/Services/Travel/HaidangAgencyApiException.php",
+      "app/Services/Travel/TourAgencyPushSyncRunService.php",
+      "app/Services/Travel/TourDepartureManualSyncService.php",
+      "app/Services/Travel/TourSyncSourceTourCatalog.php",
+      "app/Support/ContentGallery.php",
+      "app/Support/FaqContent.php",
+      "app/Support/QrCodeSvg.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/Region.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php",
+      "src/Domains/Cms/Models/TourDeparture.php",
+      "src/Domains/Cms/Models/TourDepartureSyncState.php",
+      "src/Domains/Cms/Models/TourReviewBatch.php"
+    ],
+    "app/Livewire/Admin/Cms/TravelInquiriesManager.php": [
+      "src/Domains/Cms/Models/TravelInquiry.php",
+      "src/Domains/Cms/Models/VoucherCampaign.php"
+    ],
+    "app/Livewire/Admin/Cms/TravelReviewsManager.php": [
+      "app/Livewire/Admin/Cms/Concerns/AuthorizesAdminPermissions.php",
+      "app/Livewire/Admin/Cms/Concerns/InteractsWithEditorContent.php",
+      "app/Support/QrCodeSvg.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php",
+      "src/Domains/Cms/Models/TourReviewBatch.php",
+      "src/Domains/Cms/Models/TravelReview.php"
+    ],
+    "app/Livewire/Admin/Cms/VoucherCampaignCodesManager.php": [
+      "app/Livewire/Admin/Cms/Concerns/AuthorizesAdminPermissions.php",
+      "src/Domains/Cms/Models/VoucherCode.php"
+    ],
+    "app/Livewire/Admin/Cms/VoucherCampaignsManager.php": [
+      "app/Livewire/Admin/Cms/Concerns/AuthorizesAdminPermissions.php",
+      "app/Services/Travel/VoucherCampaignService.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/VoucherCampaign.php",
+      "src/Domains/Cms/Models/VoucherCode.php"
+    ],
+    "app/Livewire/Admin/Estimator/EstimateCatalogManager.php": [
+      "src/Domains/Estimator/Models/EstimateCatalogItem.php",
+      "src/Domains/Estimator/Models/EstimateComponentNode.php",
+      "src/Domains/Estimator/Models/EstimatePriceBook.php"
+    ],
+    "app/Livewire/Admin/Estimator/EstimatePriceBooksManager.php": [
+      "src/Domains/Estimator/Models/EstimatePriceBook.php"
+    ],
+    "app/Livewire/Admin/Estimator/EstimateRoomTemplatesManager.php": [
+      "src/Domains/Estimator/Models/EstimateCatalogItem.php",
+      "src/Domains/Estimator/Models/EstimateRoomTemplate.php",
+      "src/Domains/Estimator/Models/EstimateRoomTemplateItem.php"
+    ],
+    "app/Livewire/Admin/Seo/SeoPageEditor.php": [
+      "app/Livewire/Admin/Cms/Concerns/InteractsWithEditorContent.php",
+      "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "src/Domains/Seo/Jobs/GenerateSeoDraftJob.php",
+      "src/Domains/Seo/Jobs/PublishSeoPageJob.php",
+      "src/Domains/Seo/Jobs/ValidateSeoPageJob.php",
+      "src/Domains/Seo/Models/SeoPage.php",
+      "src/Domains/Seo/Support/SeoSlugGenerator.php"
+    ],
+    "app/Livewire/Admin/Seo/SeoPagesIndex.php": [
+      "src/Domains/Seo/Actions/CreateClusterAction.php",
+      "src/Domains/Seo/Actions/CreateSeoPageAction.php",
+      "src/Domains/Seo/Actions/DispatchClusterGenerationAction.php",
+      "src/Domains/Seo/Actions/SeedSeoDemoPagesAction.php",
+      "src/Domains/Seo/Enums/SeoClusterStatus.php",
+      "src/Domains/Seo/Enums/SeoPageType.php",
+      "src/Domains/Seo/Jobs/GenerateSeoDraftJob.php",
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "app/Mail/EstimateCustomerResultMail.php": [
+      "src/Domains/Cms/Models/EstimateRequest.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "app/Mail/EstimateRequestMail.php": [
+      "src/Domains/Cms/Models/EstimateRequest.php"
+    ],
+    "app/Mail/FrontsiteConsultationRequestMail.php": [],
+    "app/Mail/ServiceConsultationRequestMail.php": [
+      "src/Domains/Cms/Models/Service.php"
+    ],
+    "app/Mail/TravelInquiryMail.php": [
+      "src/Domains/Cms/Models/TravelInquiry.php"
+    ],
+    "app/Models/User.php": [
+      "database/factories/UserFactory.php"
+    ],
+    "app/Providers/AppServiceProvider.php": [
+      "app/Models/User.php"
+    ],
+    "app/Providers/CmsServiceProvider.php": [
+      "app/Services/Cms/SiteSettingsManager.php",
+      "app/Services/Frontsite/FrontsiteCache.php",
+      "app/Services/Frontsite/FrontsiteCacheInvalidator.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Menu.php",
+      "src/Domains/Cms/Models/MenuItem.php",
+      "src/Domains/Cms/Models/Region.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Slider.php",
+      "src/Domains/Cms/Models/SliderItem.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php",
+      "src/Domains/Cms/Models/TourDeparture.php",
+      "src/Domains/Cms/Models/TourReviewBatch.php",
+      "src/Domains/Cms/Models/TravelReview.php",
+      "src/Domains/Cms/Models/VoucherCampaign.php"
+    ],
+    "app/Providers/FortifyServiceProvider.php": [
+      "app/Actions/Fortify/CreateNewUser.php",
+      "app/Actions/Fortify/ResetUserPassword.php",
+      "app/Models/User.php"
+    ],
+    "app/Providers/SeoAiServiceProvider.php": [
+      "app/Services/OpenAI/OpenAIResponsesClient.php",
+      "app/Services/Seo/SeoGenerationOrchestrator.php"
+    ],
+    "app/Providers/SeoDomainServiceProvider.php": [
+      "app/Services/OpenAI/OpenAIResponsesClient.php",
+      "app/Services/Seo/SeoAdminPresenter.php",
+      "src/Domains/Seo/Repositories/SeoClusterRepository.php",
+      "src/Domains/Seo/Repositories/SeoLinkRepository.php",
+      "src/Domains/Seo/Repositories/SeoPageRepository.php",
+      "src/Domains/Seo/Support/SeoGenerationCoordinator.php",
+      "src/Domains/Seo/Support/SeoPromptFactory.php",
+      "src/Domains/Seo/Support/SeoPublisher.php",
+      "src/Domains/Seo/Support/SeoQaValidator.php"
+    ],
+    "app/Services/Admin/CmsRolePermissionSynchronizer.php": [
+      "app/Support/Admin/AdminNavigationRegistry.php"
+    ],
+    "app/Services/Admin/FrontendHtmlImageImporter.php": [
+      "app/Services/Cms/SiteSettingsManager.php"
+    ],
+    "app/Services/Admin/FrontendHtmlImageScanner.php": [],
+    "app/Services/Admin/MediaLibraryBrowser.php": [],
+    "app/Services/Admin/MediaLibraryFileAuditService.php": [],
+    "app/Services/Admin/MediaLibraryUploader.php": [
+      "app/Services/Cms/SiteSettingsManager.php"
+    ],
+    "app/Services/Cms/BlogAutomationReferenceFetcher.php": [],
+    "app/Services/Cms/BlogAutomationRunner.php": [
+      "app/Models/User.php",
+      "app/Services/OpenAI/OpenAIResponsesClient.php",
+      "src/Domains/Cms/Models/BlogPost.php"
+    ],
+    "app/Services/Cms/BlogPostManager.php": [
+      "app/Support/ContentCategoryTree.php",
+      "app/Support/FaqContent.php",
+      "app/Support/RichText.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php"
+    ],
+    "app/Services/Cms/DashboardStatsService.php": [
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Menu.php",
+      "src/Domains/Cms/Models/MenuItem.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TravelInquiry.php"
+    ],
+    "app/Services/Cms/EstimateFormulaConfigService.php": [
+      "app/Support/EstimatePageContent.php"
+    ],
+    "app/Services/Cms/EstimateKeyService.php": [
+      "src/Domains/Cms/Models/EstimateAccessKey.php"
+    ],
+    "app/Services/Cms/EstimateRequestService.php": [
+      "app/Mail/EstimateCustomerResultMail.php",
+      "app/Mail/EstimateRequestMail.php",
+      "app/Services/Estimator/EstimateCatalogService.php",
+      "app/Services/Estimator/EstimatePayloadService.php",
+      "app/Support/EstimatePageContent.php",
+      "src/Domains/Cms/Models/EstimateRequest.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "app/Services/Cms/PublicBlogPostPresenter.php": [
+      "app/Support/RichText.php",
+      "src/Domains/Cms/Models/BlogPost.php"
+    ],
+    "app/Services/Cms/SiteSettingsManager.php": [
+      "src/Domains/Cms/Models/Menu.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "app/Services/Estimator/EstimateCatalogService.php": [
+      "src/Domains/Estimator/Models/EstimateCatalogItem.php",
+      "src/Domains/Estimator/Models/EstimateComponentNode.php",
+      "src/Domains/Estimator/Models/EstimatePriceBook.php",
+      "src/Domains/Estimator/Models/EstimateRoomTemplate.php"
+    ],
+    "app/Services/Estimator/EstimatePayloadService.php": [
+      "app/Support/EstimatePageContent.php"
+    ],
+    "app/Services/Frontsite/FrontsiteCache.php": [],
+    "app/Services/Frontsite/FrontsiteCacheInvalidator.php": [
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Menu.php",
+      "src/Domains/Cms/Models/MenuItem.php",
+      "src/Domains/Cms/Models/Region.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Slider.php",
+      "src/Domains/Cms/Models/SliderItem.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php",
+      "src/Domains/Cms/Models/TourDeparture.php",
+      "src/Domains/Cms/Models/TourReviewBatch.php",
+      "src/Domains/Cms/Models/TravelReview.php",
+      "src/Domains/Cms/Models/VoucherCampaign.php"
+    ],
+    "app/Services/Frontsite/FrontsiteGeoPresenter.php": [
+      "app/Services/Cms/SiteSettingsManager.php",
+      "app/Support/GeoContent.php",
+      "app/Support/RichText.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Region.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php"
+    ],
+    "app/Services/OpenAI/OpenAIResponsesClient.php": [],
+    "app/Services/Security/GoogleRecaptchaV3.php": [
+      "app/Services/Cms/SiteSettingsManager.php"
+    ],
+    "app/Services/Seo/PublicSeoPagePresenter.php": [
+      "app/Services/Cms/SiteSettingsManager.php",
+      "app/Support/RichText.php",
+      "src/Domains/Seo/Enums/SeoPageType.php",
+      "src/Domains/Seo/Models/SeoPage.php",
+      "src/Domains/Seo/Support/SeoSchemaFactory.php"
+    ],
+    "app/Services/Seo/SeoAdminPresenter.php": [
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "app/Services/Seo/SeoGenerationOrchestrator.php": [
+      "app/Services/OpenAI/OpenAIResponsesClient.php"
+    ],
+    "app/Services/Seo/SitemapBuilder.php": [
+      "app/Services/Frontsite/FrontsiteCache.php",
+      "app/Support/ContentCategoryTree.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Region.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php"
+    ],
+    "app/Services/Travel/CustomerLoyaltyApi.php": [
+      "app/Services/Cms/SiteSettingsManager.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "app/Services/Travel/CustomerLoyaltyApiException.php": [],
+    "app/Services/Travel/HaidangAgencyApiClient.php": [
+      "app/Services/Cms/SiteSettingsManager.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "app/Services/Travel/HaidangAgencyApiException.php": [],
+    "app/Services/Travel/HaidangTravelHomepageSyncService.php": [
+      "src/Domains/Cms/Models/Slider.php",
+      "src/Domains/Cms/Models/SliderItem.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php"
+    ],
+    "app/Services/Travel/HaidangTravelImportService.php": [
+      "app/Support/LandingPageBlocks.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Menu.php",
+      "src/Domains/Cms/Models/MenuItem.php",
+      "src/Domains/Cms/Models/Region.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Slider.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php",
+      "src/Domains/Cms/Models/TourDeparture.php"
+    ],
+    "app/Services/Travel/HaidangTravelSnapshotCrawler.php": [
+      "app/Support/ContentGallery.php",
+      "src/Domains/Cms/Enums/TourScope.php"
+    ],
+    "app/Services/Travel/HaidangTravelTourCoverBackfillService.php": [
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/Region.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php"
+    ],
+    "app/Services/Travel/TourAgencyPushSyncRunService.php": [
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourAgencyPushSyncRun.php",
+      "src/Domains/Cms/Models/TourDepartureSyncState.php"
+    ],
+    "app/Services/Travel/TourAgencyPushSyncService.php": [
+      "app/Models/User.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourDeparture.php",
+      "src/Domains/Cms/Models/TourDepartureSyncState.php"
+    ],
+    "app/Services/Travel/TourDepartureManualSyncService.php": [
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourDeparture.php",
+      "src/Domains/Cms/Models/TourDepartureSyncState.php"
+    ],
+    "app/Services/Travel/TourSyncSourceTourCatalog.php": [],
+    "app/Services/Travel/TravelInquiryService.php": [
+      "app/Mail/TravelInquiryMail.php",
+      "app/Services/Cms/SiteSettingsManager.php",
+      "src/Domains/Cms/Models/TravelInquiry.php"
+    ],
+    "app/Services/Travel/VoucherCampaignService.php": [
+      "app/Support/VietnamPhoneNumber.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/TravelInquiry.php",
+      "src/Domains/Cms/Models/VoucherCampaign.php",
+      "src/Domains/Cms/Models/VoucherCode.php"
+    ],
+    "app/Support/Admin/AdminNavigationRegistry.php": [],
+    "app/Support/ContentCategoryTree.php": [
+      "src/Domains/Cms/Models/ContentCategory.php"
+    ],
+    "app/Support/ContentGallery.php": [],
+    "app/Support/EstimatePageContent.php": [
+      "app/Services/Estimator/EstimateCatalogService.php"
+    ],
+    "app/Support/FaqContent.php": [],
+    "app/Support/FooterSocialLinks.php": [
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "app/Support/FrontsiteCardData.php": [
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourDeparture.php"
+    ],
+    "app/Support/FrontsiteCardGrid.php": [],
+    "app/Support/FrontsiteGalleryData.php": [
+      "src/Domains/Cms/Models/Tour.php"
+    ],
+    "app/Support/FrontsiteMedia.php": [
+      "src/Domains/Cms/Models/Tour.php"
+    ],
+    "app/Support/FrontsiteSectionHeadings.php": [],
+    "app/Support/GeoContent.php": [],
+    "app/Support/GoogleMapsEmbedUrl.php": [],
+    "app/Support/HomePageContent.php": [],
+    "app/Support/LandingPageBlocks.php": [],
+    "app/Support/LandingPageVisuals.php": [],
+    "app/Support/QrCodeSvg.php": [],
+    "app/Support/ResidentialPackageLandingContent.php": [],
+    "app/Support/ReviewContent.php": [],
+    "app/Support/RichText.php": [],
+    "app/Support/ServiceDetailContent.php": [],
+    "app/Support/SliderAnimationEffects.php": [],
+    "app/Support/SliderLocations.php": [],
+    "app/Support/TravelHomePageConfig.php": [],
+    "app/Support/VietnamPhoneNumber.php": [],
+    "artisan": [],
+    "blueprints/database_schema_blueprint.md": [],
+    "blueprints/laravel_model_relations_blueprint.md": [],
+    "blueprints/migration_blueprint.sql": [],
+    "boost.json": [],
+    "bootstrap/app.php": [
+      "app/Http/Middleware/AddNoIndexHeaders.php",
+      "app/Http/Middleware/AuthenticateAgencyExportToken.php",
+      "app/Http/Middleware/CacheFrontsiteResponse.php",
+      "app/Services/Cms/SiteSettingsManager.php"
+    ],
+    "bootstrap/cache/packages.php": [],
+    "bootstrap/cache/services.php": [],
+    "bootstrap/providers.php": [
+      "app/Providers/AppServiceProvider.php",
+      "app/Providers/CmsServiceProvider.php",
+      "app/Providers/FortifyServiceProvider.php"
+    ],
+    "composer.json": [],
+    "config/agency_export.php": [],
+    "config/app.php": [],
+    "config/auth.php": [
+      "app/Models/User.php"
+    ],
+    "config/blog_automation.php": [],
+    "config/cache.php": [],
+    "config/customer_loyalty.php": [],
+    "config/database.php": [],
+    "config/filesystems.php": [],
+    "config/fortify.php": [],
+    "config/frontsite_cache.php": [],
+    "config/frontsite_geo.php": [],
+    "config/frontsite_voucher.php": [],
+    "config/logging.php": [],
+    "config/mail.php": [],
+    "config/media-library.php": [],
+    "config/permission.php": [],
+    "config/queue.php": [],
+    "config/seo_ai.php": [],
+    "config/services.php": [],
+    "config/session.php": [],
+    "config/tour_sync.php": [],
+    "config/travel_reviews.php": [],
+    "database/factories/UserFactory.php": [
+      "app/Models/User.php"
+    ],
+    "database/migrations/0001_01_01_000000_create_users_table.php": [],
+    "database/migrations/0001_01_01_000001_create_cache_table.php": [],
+    "database/migrations/0001_01_01_000002_create_jobs_table.php": [],
+    "database/migrations/2025_08_14_170933_add_two_factor_columns_to_users_table.php": [],
+    "database/migrations/2026_04_01_000004_alter_seo_tables_for_domain_enums.php": [],
+    "database/migrations/2026_04_04_091637_create_media_table.php": [],
+    "database/migrations/2026_04_04_091637_create_permission_tables.php": [],
+    "database/migrations/2026_04_04_100000_create_cms_tables.php": [],
+    "database/migrations/2026_04_04_100100_expand_seo_tables.php": [],
+    "database/migrations/2026_04_04_220000_add_service_detail_config_columns.php": [],
+    "database/migrations/2026_04_05_120000_add_home_config_to_landing_pages_table.php": [],
+    "database/migrations/2026_04_10_214500_add_gallery_to_services_and_projects.php": [],
+    "database/migrations/2026_04_11_120000_add_parent_id_to_menu_items_table.php": [],
+    "database/migrations/2026_04_11_130000_add_estimate_config_to_landing_pages_table.php": [],
+    "database/migrations/2026_04_11_131000_create_estimate_requests_and_access_keys_tables.php": [],
+    "database/migrations/2026_04_12_090000_add_customer_mail_tracking_to_estimate_requests_table.php": [],
+    "database/migrations/2026_04_14_090000_add_messenger_url_to_site_settings_table.php": [],
+    "database/migrations/2026_04_14_140000_backfill_missing_seo_columns.php": [],
+    "database/migrations/2026_04_19_090000_add_faq_fields_to_cms_content_tables.php": [],
+    "database/migrations/2026_04_19_120000_create_estimator_master_tables.php": [],
+    "database/migrations/2026_04_20_000000_create_tours_table.php": [],
+    "database/migrations/2026_04_20_000100_create_travel_inquiries_table.php": [],
+    "database/migrations/2026_04_20_000200_add_travel_media_urls_to_cms_tables.php": [],
+    "database/migrations/2026_04_20_180000_create_travel_tour_catalog_tables.php": [],
+    "database/migrations/2026_04_21_090000_add_visual_config_to_landing_pages_and_slider_item_ctas.php": [],
+    "database/migrations/2026_04_21_140000_add_block_builder_fields_to_landing_pages_table.php": [],
+    "database/migrations/2026_04_22_090000_add_slider_item_display_toggles.php": [],
+    "database/migrations/2026_04_22_110000_add_instagram_url_to_site_settings_table.php": [],
+    "database/migrations/2026_04_23_120000_add_faq_fields_to_travel_taxonomies_and_blog_tables.php": [],
+    "database/migrations/2026_04_23_120100_add_tour_terms_fields_to_site_settings_table.php": [],
+    "database/migrations/2026_04_23_130000_add_reviews_to_travel_entities.php": [],
+    "database/migrations/2026_04_23_130000_add_tour_terms_items_to_site_settings_table.php": [],
+    "database/migrations/2026_04_23_140000_add_editor_mode_to_landing_pages_table.php": [],
+    "database/migrations/2026_04_23_140000_create_travel_reviews_table_and_rating_summary_columns.php": [],
+    "database/migrations/2026_04_23_150000_refactor_tour_taxonomies_remove_countries.php": [],
+    "database/migrations/2026_04_23_184111_add_tracking_fields_to_site_settings_table.php": [],
+    "database/migrations/2026_04_24_202425_add_parent_id_to_content_categories_table.php": [],
+    "database/migrations/2026_04_27_090000_add_tour_terms_items_to_tours_table.php": [],
+    "database/migrations/2026_04_28_090000_add_sitewide_html_fields_to_site_settings_table.php": [],
+    "database/migrations/2026_04_29_000000_add_sale_management_fields_to_users_and_tours.php": [],
+    "database/migrations/2026_04_30_103401_add_is_active_to_users_table.php": [],
+    "database/migrations/2026_05_03_000000_add_content_to_content_categories_table.php": [],
+    "database/migrations/2026_05_13_000000_add_geo_config_to_travel_public_tables.php": [],
+    "database/migrations/2026_05_14_000000_add_customer_loyalty_api_fields_to_site_settings_table.php": [],
+    "database/migrations/2026_05_14_150000_create_voucher_campaigns_table.php": [],
+    "database/migrations/2026_05_21_000000_create_tour_departure_sync_states_table.php": [],
+    "database/migrations/2026_05_22_000000_add_google_recaptcha_v3_fields_to_site_settings_table.php": [],
+    "database/migrations/2026_05_22_010000_ensure_google_recaptcha_v3_fields_on_site_settings_table.php": [],
+    "database/migrations/2026_05_24_000000_create_tour_agency_push_sync_runs_table.php": [],
+    "database/migrations/2026_05_31_000000_add_public_review_submission_fields.php": [],
+    "database/migrations/2026_05_31_010000_create_tour_review_batches_table.php": [],
+    "database/migrations/2026_06_01_000000_extend_voucher_code_usage_fields.php": [],
+    "database/migrations/2026_06_01_010000_add_code_valid_until_to_voucher_campaigns_table.php": [],
+    "database/migrations/2026_06_01_010100_backfill_voucher_campaign_code_valid_until.php": [],
+    "database/migrations/create_content_clusters_table.php": [],
+    "database/migrations/create_seo_links_table.php": [],
+    "database/migrations/create_seo_pages_table.php": [],
+    "database/migrations/zzzz_finalize_seo_schema_columns.php": [],
+    "database/seeders/CmsBootstrapSeeder.php": [
+      "app/Models/User.php",
+      "app/Support/Admin/AdminNavigationRegistry.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Menu.php",
+      "src/Domains/Cms/Models/MenuItem.php",
+      "src/Domains/Cms/Models/Project.php",
+      "src/Domains/Cms/Models/ProjectType.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Slider.php",
+      "src/Domains/Cms/Models/SliderItem.php"
+    ],
+    "database/seeders/CmsDemoContentSeeder.php": [
+      "app/Support/EstimatePageContent.php",
+      "app/Support/HomePageContent.php",
+      "app/Support/ServiceDetailContent.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Project.php",
+      "src/Domains/Cms/Models/ProjectType.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Slider.php",
+      "src/Domains/Cms/Models/SliderItem.php"
+    ],
+    "database/seeders/CmsEstimateBootstrapSeeder.php": [
+      "app/Support/EstimatePageContent.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Menu.php",
+      "src/Domains/Cms/Models/MenuItem.php"
+    ],
+    "database/seeders/CmsMissingFaqSeeder.php": [
+      "app/Support/EstimatePageContent.php",
+      "app/Support/FaqContent.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Project.php",
+      "src/Domains/Cms/Models/Service.php"
+    ],
+    "database/seeders/Data/blogs.php": [],
+    "database/seeders/Data/haidangtravel/core_snapshot.json": [],
+    "database/seeders/Data/projects.php": [],
+    "database/seeders/Data/services.php": [],
+    "database/seeders/DatabaseSeeder.php": [],
+    "database/seeders/EstimateCatalogSeeder.php": [
+      "src/Domains/Estimator/Models/EstimateCatalogItem.php",
+      "src/Domains/Estimator/Models/EstimateComponentNode.php",
+      "src/Domains/Estimator/Models/EstimatePriceBook.php",
+      "src/Domains/Estimator/Models/EstimateRoomTemplate.php",
+      "src/Domains/Estimator/Models/EstimateRoomTemplateItem.php",
+      "src/Domains/Estimator/Support/DefaultEstimatorCatalog.php"
+    ],
+    "database/seeders/HaidangTravelBootstrapSeeder.php": [
+      "app/Models/User.php",
+      "app/Services/Admin/CmsRolePermissionSynchronizer.php",
+      "app/Services/Travel/HaidangTravelImportService.php"
+    ],
+    "database/seeders/VoucherLandingPageSeeder.php": [
+      "app/Services/Travel/VoucherCampaignService.php",
+      "app/Support/LandingPageBlocks.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/VoucherCampaign.php"
+    ],
+    "docs/ADMIN_CMS.md": [],
+    "docs/AGENCY_TOUR_SYNC_API.md": [],
+    "docs/AGENCY_TOUR_SYNC_QUEUE_DESIGN.md": [],
+    "docs/AGENTS.md": [],
+    "docs/api-fix-requests/2026-05-23-agency-tour-sync-endpoints.md": [],
+    "docs/BACKEND_AGENT.md": [],
+    "docs/CUSTOMER_LOYALTY_API_REQUIREMENTS.md": [],
+    "docs/DESIGN_SYSTEM.md": [],
+    "docs/DOC_REFERENCE_MAP.md": [],
+    "docs/ENTITY_SCHEMA_GUIDE.md": [],
+    "docs/front_end/demo/blog_detail/code.html": [],
+    "docs/front_end/demo/blog/code.html": [],
+    "docs/front_end/demo/home_page_mobile/code.html": [],
+    "docs/front_end/demo/home_page/code.html": [],
+    "docs/front_end/demo/interior_detail/code.html": [],
+    "docs/front_end/demo/mobile_blog/code.html": [],
+    "docs/front_end/demo/mobile_project/code.html": [],
+    "docs/front_end/demo/mobile_service_detail/code.html": [],
+    "docs/front_end/demo/project_category/code.html": [],
+    "docs/front_end/demo/service_detail/code.html": [],
+    "docs/front_end/demo/steel_stone/DESIGN.md": [],
+    "docs/front_end/design_specification_construction_company_website.html": [],
+    "docs/front_end/product_requirements_document.md": [],
+    "docs/FRONTSITE_AGENT.md": [],
+    "docs/implementation-playbook.md": [],
+    "docs/PROJECT_START_GUIDE.md": [],
+    "docs/project-overview.md": [],
+    "docs/residential-construction-process-package-comparison.md": [],
+    "docs/SEO_PHASE_SUMMARY.md": [],
+    "docs/SEO_SCHEMA_MAPPING.md": [],
+    "docs/TECHNICAL_REQUIREMENTS.md": [],
+    "docs/TOUR_SITEMAP_BLOCKS.md": [],
+    "examples/blog_automation_request.json": [],
+    "examples/blog.schema.json": [],
+    "examples/company.schema.json": [],
+    "examples/project.schema.json": [],
+    "examples/seo_brief_example.json": [],
+    "examples/seo_draft_example.json": [],
+    "examples/service.schema.json": [],
+    "laravel": [],
+    "mobile-taxonomy-diagnostics.json": [],
+    "package.json": [],
+    "phpunit.xml": [],
+    "pint.json": [],
+    "public/.htaccess": [],
+    "public/index.php": [],
+    "public/site.webmanifest": [],
+    "README.md": [],
+    "RERENDER_NOTE.txt": [],
+    "resources/css/admin.css": [],
+    "resources/css/app.css": [],
+    "resources/css/frontsite-form-controls.css": [],
+    "resources/css/frontsite-icons.css": [],
+    "resources/css/frontsite.css": [],
+    "resources/js/admin.js": [
+      "resources/js/admin/form-feedback.js",
+      "resources/js/admin/multiselect.js",
+      "resources/js/admin/quill.js"
+    ],
+    "resources/js/admin/form-feedback.js": [],
+    "resources/js/admin/multiselect.js": [],
+    "resources/js/admin/quill.js": [],
+    "resources/js/app.js": [
+      "resources/js/admin/form-feedback.js",
+      "resources/js/admin/multiselect.js",
+      "resources/js/admin/quill.js",
+      "resources/js/front/frontsite-ajax-forms.js",
+      "resources/js/front/frontsite-form-controls.js",
+      "resources/js/front/home-featured-tabs.js",
+      "resources/js/front/service-detail.js",
+      "resources/js/front/tour-gallery-slider.js",
+      "resources/js/front/travel-inquiry-modal.js"
+    ],
+    "resources/js/front/customer-loyalty-redemption.js": [],
+    "resources/js/front/estimate-landing.js": [],
+    "resources/js/front/frontsite-ajax-forms.js": [],
+    "resources/js/front/frontsite-form-controls.js": [
+      "resources/css/frontsite-form-controls.css"
+    ],
+    "resources/js/front/frontsite-recaptcha-v3.js": [],
+    "resources/js/front/home-featured-tabs.js": [],
+    "resources/js/front/home-popup-slider.js": [],
+    "resources/js/front/service-detail.js": [],
+    "resources/js/front/tour-gallery-slider.js": [],
+    "resources/js/front/travel-inquiry-modal.js": [],
+    "resources/js/front/voucher-countdown.js": [],
+    "resources/js/front/voucher-redemption.js": [],
+    "resources/js/frontsite.js": [
+      "resources/js/front/customer-loyalty-redemption.js",
+      "resources/js/front/frontsite-ajax-forms.js",
+      "resources/js/front/frontsite-recaptcha-v3.js",
+      "resources/js/front/home-popup-slider.js",
+      "resources/js/front/travel-inquiry-modal.js",
+      "resources/js/front/voucher-countdown.js",
+      "resources/js/front/voucher-redemption.js"
+    ],
+    "resources/lang/en/pagination.php": [],
+    "resources/views/admin/seo/pages/edit.blade.php": [],
+    "resources/views/admin/seo/pages/index.blade.php": [],
+    "resources/views/components/action-message.blade.php": [],
+    "resources/views/components/admin/form-action-bar.blade.php": [],
+    "resources/views/components/admin/form-feedback.blade.php": [],
+    "resources/views/components/admin/image-dropzone.blade.php": [],
+    "resources/views/components/admin/quill-editor.blade.php": [],
+    "resources/views/components/app-logo-icon.blade.php": [],
+    "resources/views/components/app-logo.blade.php": [],
+    "resources/views/components/auth-header.blade.php": [],
+    "resources/views/components/auth-session-status.blade.php": [],
+    "resources/views/components/desktop-user-menu.blade.php": [],
+    "resources/views/components/placeholder-pattern.blade.php": [],
+    "resources/views/dashboard.blade.php": [],
+    "resources/views/emails/estimate-customer-result.blade.php": [],
+    "resources/views/emails/estimate-request.blade.php": [],
+    "resources/views/emails/frontsite-consultation-request.blade.php": [],
+    "resources/views/emails/service-consultation-request.blade.php": [],
+    "resources/views/emails/travel-inquiry.blade.php": [],
+    "resources/views/flux/icon/book-open-text.blade.php": [],
+    "resources/views/flux/icon/chevrons-up-down.blade.php": [],
+    "resources/views/flux/icon/folder-git-2.blade.php": [],
+    "resources/views/flux/icon/layout-grid.blade.php": [],
+    "resources/views/flux/navlist/group.blade.php": [],
+    "resources/views/layouts/app.blade.php": [],
+    "resources/views/layouts/app/header.blade.php": [],
+    "resources/views/layouts/app/sidebar.blade.php": [],
+    "resources/views/layouts/auth.blade.php": [],
+    "resources/views/layouts/auth/card.blade.php": [],
+    "resources/views/layouts/auth/simple.blade.php": [],
+    "resources/views/layouts/auth/split.blade.php": [],
+    "resources/views/livewire/admin/cms/accounts-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/blogs-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/blogs/categories-editor.blade.php": [],
+    "resources/views/livewire/admin/cms/blogs/categories-index.blade.php": [],
+    "resources/views/livewire/admin/cms/blogs/editor.blade.php": [],
+    "resources/views/livewire/admin/cms/blogs/index.blade.php": [],
+    "resources/views/livewire/admin/cms/estimate-formula-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/estimate-keys-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/estimate-requests-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/landing-pages-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/landing-pages/index.blade.php": [],
+    "resources/views/livewire/admin/cms/media-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/menu-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/admin-group-submenu.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/blogs-submenu.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/faq-related-fields.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/geo-config-fields.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/home-layout-move-controls.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/home-section-config.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/landing-estimate-config.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/landing-faq-items.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/landing-home-gallery-process-values.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/landing-home-hero-services.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/landing-home-insights-consultation.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/landing-home-package-showcase.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/landing-page-advanced-json.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/landing-page-general.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/landing-page-visual-gallery.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/landing-page-visual-hero.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/project-gallery.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/projects-submenu.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/service-basics.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/service-feature-blocks.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/service-gallery.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/service-hero-slider.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/service-pricing-block.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/service-process-block.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/service-seo.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/services-submenu.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/tour-gallery.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/tour-itinerary-pricing-fields.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/tours-submenu.blade.php": [],
+    "resources/views/livewire/admin/cms/partials/travel-inquiry-detail-panel.blade.php": [],
+    "resources/views/livewire/admin/cms/projects-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/projects/categories-editor.blade.php": [],
+    "resources/views/livewire/admin/cms/projects/categories-index.blade.php": [],
+    "resources/views/livewire/admin/cms/projects/editor.blade.php": [],
+    "resources/views/livewire/admin/cms/projects/index.blade.php": [],
+    "resources/views/livewire/admin/cms/projects/types-editor.blade.php": [],
+    "resources/views/livewire/admin/cms/projects/types-index.blade.php": [],
+    "resources/views/livewire/admin/cms/services-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/services/categories-editor.blade.php": [],
+    "resources/views/livewire/admin/cms/services/categories-index.blade.php": [],
+    "resources/views/livewire/admin/cms/services/editor.blade.php": [],
+    "resources/views/livewire/admin/cms/services/index.blade.php": [],
+    "resources/views/livewire/admin/cms/sliders-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/sliders/index.blade.php": [],
+    "resources/views/livewire/admin/cms/theme-settings-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/tours-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/tours/agency-sync-queue.blade.php": [],
+    "resources/views/livewire/admin/cms/tours/editor.blade.php": [],
+    "resources/views/livewire/admin/cms/tours/index.blade.php": [],
+    "resources/views/livewire/admin/cms/tours/taxonomies-editor.blade.php": [],
+    "resources/views/livewire/admin/cms/tours/taxonomies-index.blade.php": [],
+    "resources/views/livewire/admin/cms/travel-inquiries-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/travel-reviews/editor.blade.php": [],
+    "resources/views/livewire/admin/cms/travel-reviews/index.blade.php": [],
+    "resources/views/livewire/admin/cms/voucher-campaign-codes-manager.blade.php": [],
+    "resources/views/livewire/admin/cms/voucher-campaigns-manager.blade.php": [],
+    "resources/views/livewire/admin/estimator/estimate-catalog-manager.blade.php": [],
+    "resources/views/livewire/admin/estimator/estimate-price-books-manager.blade.php": [],
+    "resources/views/livewire/admin/estimator/estimate-room-templates-manager.blade.php": [],
+    "resources/views/livewire/admin/seo/page-editor.blade.php": [],
+    "resources/views/livewire/admin/seo/pages-index.blade.php": [],
+    "resources/views/pages/auth/confirm-password.blade.php": [],
+    "resources/views/pages/auth/forgot-password.blade.php": [],
+    "resources/views/pages/auth/login.blade.php": [],
+    "resources/views/pages/auth/register.blade.php": [],
+    "resources/views/pages/auth/reset-password.blade.php": [],
+    "resources/views/pages/auth/two-factor-challenge.blade.php": [],
+    "resources/views/pages/auth/verify-email.blade.php": [],
+    "resources/views/pages/settings/⚡appearance.blade.php": [],
+    "resources/views/pages/settings/⚡delete-user-form.blade.php": [],
+    "resources/views/pages/settings/⚡delete-user-modal.blade.php": [
+      "app/Concerns/PasswordValidationRules.php",
+      "app/Livewire/Actions/Logout.php"
+    ],
+    "resources/views/pages/settings/⚡profile.blade.php": [
+      "app/Concerns/ProfileValidationRules.php"
+    ],
+    "resources/views/pages/settings/⚡security.blade.php": [
+      "app/Concerns/PasswordValidationRules.php"
+    ],
+    "resources/views/pages/settings/⚡two-factor-setup-modal.blade.php": [],
+    "resources/views/pages/settings/layout.blade.php": [],
+    "resources/views/pages/settings/two-factor/⚡recovery-codes.blade.php": [],
+    "resources/views/partials/admin/media-browser.blade.php": [],
+    "resources/views/partials/head.blade.php": [],
+    "resources/views/partials/settings-heading.blade.php": [],
+    "resources/views/seo/robots.blade.php": [],
+    "resources/views/seo/sitemap.blade.php": [],
+    "resources/views/themes/haidangtravel/layouts/app.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/about.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/blog/index.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/blog/show.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/contact.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/customer-loyalty.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/errors/404.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/home.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/landing/show.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/seo/show.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/services/index.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/services/show.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/tours/index.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/tours/listing.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/tours/review-submit.blade.php": [],
+    "resources/views/themes/haidangtravel/pages/tours/show.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/article-card.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/blog-category-entry.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/breadcrumbs.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/cta-banner.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/expandable-rich-text.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/faq-accordion.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/faq-block.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/footer.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/frontsite-gallery-lightbox.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/frontsite-media-gallery.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/geo-answer-panel.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/head.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/header-desktop-nav-item.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/header-desktop-nav-tree.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/header-mobile-nav-item.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/header.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/home-destination-slider.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/home-popup-slider.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/home-section.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/home-tour-topics.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/inquiry-cta-panel.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/inquiry-form.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/inquiry-modal.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/landing-content-blocks.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/landing-gallery-card.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/landing-gallery.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/landing-hero-demo.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/landing-hero.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/recaptcha-v3-field.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/recaptcha-v3-script.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/region-taxonomy-tabs.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/review-grid.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/section-heading.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/shared-search-bar.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/social-share.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/taxonomy-card-carousel.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/tour-card.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/tour-taxonomy-tabs.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/tour-voucher-cta-button.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/tracking-body.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/tracking-head.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/travel-inquiry-form-fields.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/trust-proof-section.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/voucher-campaign-panel.blade.php": [],
+    "resources/views/themes/haidangtravel/partials/voucher-promotion-block.blade.php": [],
+    "resources/views/welcome.blade.php": [],
+    "routes/admin_api.php": [
+      "app/Http/Controllers/Admin/Blogs/BlogCategoryApiController.php",
+      "app/Http/Controllers/Admin/Blogs/BlogPostApiController.php"
+    ],
+    "routes/admin_seo.php": [
+      "app/Http/Controllers/Admin/Seo/SeoPageController.php"
+    ],
+    "routes/admin.php": [
+      "app/Http/Controllers/Admin/Media/MediaBrowserController.php",
+      "app/Http/Controllers/Admin/Media/MediaBrowserUploadController.php",
+      "app/Http/Controllers/Admin/VoucherCampaignCodesExportController.php",
+      "app/Livewire/Admin/Cms/AccountsManager.php",
+      "app/Livewire/Admin/Cms/BlogsManager.php",
+      "app/Livewire/Admin/Cms/LandingPagesManager.php",
+      "app/Livewire/Admin/Cms/MediaManager.php",
+      "app/Livewire/Admin/Cms/MenuManager.php",
+      "app/Livewire/Admin/Cms/ServicesManager.php",
+      "app/Livewire/Admin/Cms/SlidersManager.php",
+      "app/Livewire/Admin/Cms/ThemeSettingsManager.php",
+      "app/Livewire/Admin/Cms/TourAgencySyncQueueManager.php",
+      "app/Livewire/Admin/Cms/ToursManager.php",
+      "app/Livewire/Admin/Cms/TravelInquiriesManager.php",
+      "app/Livewire/Admin/Cms/TravelReviewsManager.php",
+      "app/Livewire/Admin/Cms/VoucherCampaignCodesManager.php",
+      "app/Livewire/Admin/Cms/VoucherCampaignsManager.php"
+    ],
+    "routes/ai.php": [
+      "app/Http/Controllers/Admin/Seo/SeoAiController.php"
+    ],
+    "routes/api_v1/seo.php": [
+      "app/Http/Controllers/Admin/Seo/SeoClusterController.php",
+      "app/Http/Controllers/Admin/Seo/SeoGenerationController.php",
+      "app/Http/Controllers/Admin/Seo/SeoPublishController.php"
+    ],
+    "routes/api.php": [
+      "app/Http/Controllers/Agency/TourExportController.php"
+    ],
+    "routes/console.php": [],
+    "routes/frontsite.php": [
+      "app/Http/Controllers/CustomerLoyaltyController.php",
+      "app/Http/Controllers/FrontsiteController.php",
+      "app/Http/Controllers/SitemapController.php",
+      "app/Http/Controllers/TourReviewSubmissionController.php",
+      "app/Http/Controllers/TravelInquiryController.php",
+      "app/Http/Controllers/VoucherCampaignController.php",
+      "app/Support/LandingPageBlocks.php"
+    ],
+    "routes/settings.php": [],
+    "routes/web.php": [
+      "app/Http/Controllers/DashboardController.php"
+    ],
+    "src/Domains/Cms/Enums/TourScope.php": [],
+    "src/Domains/Cms/Enums/TravelInquirySource.php": [],
+    "src/Domains/Cms/Models/BlogPost.php": [
+      "src/Domains/Cms/Models/Concerns/RegistersFrontsiteImageConversions.php"
+    ],
+    "src/Domains/Cms/Models/Concerns/RegistersFrontsiteImageConversions.php": [
+      "app/Support/FrontsiteMedia.php"
+    ],
+    "src/Domains/Cms/Models/ContentCategory.php": [
+      "src/Domains/Cms/Models/Concerns/RegistersFrontsiteImageConversions.php"
+    ],
+    "src/Domains/Cms/Models/Destination.php": [
+      "src/Domains/Cms/Models/Concerns/RegistersFrontsiteImageConversions.php"
+    ],
+    "src/Domains/Cms/Models/EstimateAccessKey.php": [],
+    "src/Domains/Cms/Models/EstimateRequest.php": [],
+    "src/Domains/Cms/Models/LandingPage.php": [
+      "src/Domains/Cms/Models/Concerns/RegistersFrontsiteImageConversions.php"
+    ],
+    "src/Domains/Cms/Models/Menu.php": [],
+    "src/Domains/Cms/Models/MenuItem.php": [],
+    "src/Domains/Cms/Models/Project.php": [],
+    "src/Domains/Cms/Models/ProjectType.php": [],
+    "src/Domains/Cms/Models/Region.php": [
+      "src/Domains/Cms/Models/Concerns/RegistersFrontsiteImageConversions.php"
+    ],
+    "src/Domains/Cms/Models/Service.php": [
+      "src/Domains/Cms/Models/Concerns/RegistersFrontsiteImageConversions.php"
+    ],
+    "src/Domains/Cms/Models/SiteSetting.php": [
+      "src/Domains/Cms/Models/Concerns/RegistersFrontsiteImageConversions.php"
+    ],
+    "src/Domains/Cms/Models/Slider.php": [],
+    "src/Domains/Cms/Models/SliderItem.php": [
+      "src/Domains/Cms/Models/Concerns/RegistersFrontsiteImageConversions.php"
+    ],
+    "src/Domains/Cms/Models/Tour.php": [
+      "app/Models/User.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/Concerns/RegistersFrontsiteImageConversions.php"
+    ],
+    "src/Domains/Cms/Models/TourAgencyPushSyncRun.php": [
+      "app/Models/User.php"
+    ],
+    "src/Domains/Cms/Models/TourCategory.php": [
+      "src/Domains/Cms/Models/Concerns/RegistersFrontsiteImageConversions.php"
+    ],
+    "src/Domains/Cms/Models/TourDeparture.php": [],
+    "src/Domains/Cms/Models/TourDepartureSyncState.php": [],
+    "src/Domains/Cms/Models/TourReviewBatch.php": [],
+    "src/Domains/Cms/Models/TravelInquiry.php": [
+      "src/Domains/Cms/Enums/TravelInquirySource.php"
+    ],
+    "src/Domains/Cms/Models/TravelReview.php": [],
+    "src/Domains/Cms/Models/VoucherCampaign.php": [],
+    "src/Domains/Cms/Models/VoucherCode.php": [
+      "app/Models/User.php"
+    ],
+    "src/Domains/Estimator/Models/EstimateCatalogItem.php": [],
+    "src/Domains/Estimator/Models/EstimateComponentNode.php": [],
+    "src/Domains/Estimator/Models/EstimatePriceBook.php": [],
+    "src/Domains/Estimator/Models/EstimateRoomTemplate.php": [],
+    "src/Domains/Estimator/Models/EstimateRoomTemplateItem.php": [],
+    "src/Domains/Estimator/Support/DefaultEstimatorCatalog.php": [],
+    "src/Domains/Seo/Actions/CreateClusterAction.php": [
+      "src/Domains/Seo/Models/ContentCluster.php"
+    ],
+    "src/Domains/Seo/Actions/CreateSeoPageAction.php": [
+      "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "src/Domains/Seo/Models/SeoPage.php",
+      "src/Domains/Seo/Support/SeoSlugGenerator.php",
+      "src/Domains/Seo/Support/SeoUrlBuilder.php"
+    ],
+    "src/Domains/Seo/Actions/DispatchClusterGenerationAction.php": [
+      "src/Domains/Seo/Jobs/GenerateSeoBriefJob.php",
+      "src/Domains/Seo/Models/ContentCluster.php"
+    ],
+    "src/Domains/Seo/Actions/PublishSeoPageAction.php": [
+      "src/Domains/Seo/Jobs/PublishSeoPageJob.php",
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "src/Domains/Seo/Actions/SeedSeoDemoPagesAction.php": [
+      "src/Domains/Seo/Enums/SeoClusterStatus.php",
+      "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "src/Domains/Seo/Enums/SeoPageType.php",
+      "src/Domains/Seo/Models/ContentCluster.php",
+      "src/Domains/Seo/Models/SeoLink.php",
+      "src/Domains/Seo/Models/SeoPage.php",
+      "src/Domains/Seo/Support/SeoMetaFactory.php",
+      "src/Domains/Seo/Support/SeoQaValidator.php",
+      "src/Domains/Seo/Support/SeoSchemaFactory.php",
+      "src/Domains/Seo/Support/SeoSlugGenerator.php",
+      "src/Domains/Seo/Support/SeoUrlBuilder.php"
+    ],
+    "src/Domains/Seo/DTOs/SeoBriefData.php": [],
+    "src/Domains/Seo/DTOs/SeoDraftData.php": [],
+    "src/Domains/Seo/Enums/SeoClusterStatus.php": [],
+    "src/Domains/Seo/Enums/SeoPageStatus.php": [],
+    "src/Domains/Seo/Enums/SeoPageType.php": [],
+    "src/Domains/Seo/Jobs/BuildSeoLinksJob.php": [
+      "src/Domains/Seo/Repositories/SeoLinkRepository.php",
+      "src/Domains/Seo/Repositories/SeoPageRepository.php"
+    ],
+    "src/Domains/Seo/Jobs/GenerateSeoBriefJob.php": [
+      "src/Domains/Seo/Enums/SeoClusterStatus.php",
+      "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "src/Domains/Seo/Repositories/SeoClusterRepository.php",
+      "src/Domains/Seo/Repositories/SeoPageRepository.php",
+      "src/Domains/Seo/Support/SeoGenerationCoordinator.php",
+      "src/Domains/Seo/Support/SeoSlugGenerator.php",
+      "src/Domains/Seo/Support/SeoUrlBuilder.php"
+    ],
+    "src/Domains/Seo/Jobs/GenerateSeoDraftJob.php": [
+      "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "src/Domains/Seo/Repositories/SeoPageRepository.php",
+      "src/Domains/Seo/Support/SeoGenerationCoordinator.php",
+      "src/Domains/Seo/Support/SeoMetaFactory.php",
+      "src/Domains/Seo/Support/SeoSchemaFactory.php"
+    ],
+    "src/Domains/Seo/Jobs/PublishSeoPageJob.php": [
+      "src/Domains/Seo/Repositories/SeoPageRepository.php",
+      "src/Domains/Seo/Support/SeoPublisher.php"
+    ],
+    "src/Domains/Seo/Jobs/ValidateSeoPageJob.php": [
+      "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "src/Domains/Seo/Repositories/SeoPageRepository.php",
+      "src/Domains/Seo/Support/SeoQaValidator.php",
+      "src/Domains/Seo/Support/SeoSchemaFactory.php"
+    ],
+    "src/Domains/Seo/Models/ContentCluster.php": [
+      "src/Domains/Seo/Enums/SeoClusterStatus.php",
+      "src/Domains/Seo/Enums/SeoPageType.php"
+    ],
+    "src/Domains/Seo/Models/SeoLink.php": [],
+    "src/Domains/Seo/Models/SeoPage.php": [
+      "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "src/Domains/Seo/Enums/SeoPageType.php"
+    ],
+    "src/Domains/Seo/Policies/SeoPagePolicy.php": [
+      "app/Models/User.php",
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "src/Domains/Seo/Repositories/SeoClusterRepository.php": [
+      "src/Domains/Seo/Enums/SeoClusterStatus.php",
+      "src/Domains/Seo/Models/ContentCluster.php"
+    ],
+    "src/Domains/Seo/Repositories/SeoLinkRepository.php": [
+      "src/Domains/Seo/Models/SeoLink.php",
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "src/Domains/Seo/Repositories/SeoPageRepository.php": [
+      "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "src/Domains/Seo/Enums/SeoPageType.php",
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "src/Domains/Seo/Support/SeoGenerationCoordinator.php": [
+      "app/Services/OpenAI/OpenAIResponsesClient.php",
+      "src/Domains/Seo/DTOs/SeoBriefData.php",
+      "src/Domains/Seo/DTOs/SeoDraftData.php",
+      "src/Domains/Seo/Models/ContentCluster.php",
+      "src/Domains/Seo/Models/SeoPage.php",
+      "src/Domains/Seo/Repositories/SeoPageRepository.php"
+    ],
+    "src/Domains/Seo/Support/SeoMetaFactory.php": [
+      "src/Domains/Seo/Enums/SeoPageType.php",
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "src/Domains/Seo/Support/SeoPromptFactory.php": [
+      "src/Domains/Seo/Models/ContentCluster.php",
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "src/Domains/Seo/Support/SeoPublisher.php": [
+      "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "src/Domains/Seo/Support/SeoQaValidator.php": [
+      "src/Domains/Seo/Enums/SeoPageType.php",
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "src/Domains/Seo/Support/SeoSchemaFactory.php": [
+      "src/Domains/Seo/Enums/SeoPageType.php",
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "src/Domains/Seo/Support/SeoSlugGenerator.php": [],
+    "src/Domains/Seo/Support/SeoUrlBuilder.php": [
+      "src/Domains/Seo/Enums/SeoPageType.php"
+    ],
+    "tests/Feature/Admin/AccountsManagerTest.php": [
+      "app/Livewire/Admin/Cms/AccountsManager.php",
+      "app/Models/User.php",
+      "app/Support/Admin/AdminNavigationRegistry.php",
+      "database/seeders/CmsBootstrapSeeder.php"
+    ],
+    "tests/Feature/Admin/AdminNoIndexHeadersTest.php": [
+      "app/Models/User.php",
+      "database/seeders/CmsBootstrapSeeder.php"
+    ],
+    "tests/Feature/Admin/AdminSidebarPermissionsTest.php": [
+      "app/Models/User.php",
+      "database/seeders/CmsBootstrapSeeder.php"
+    ],
+    "tests/Feature/Admin/BlogApiTest.php": [
+      "app/Jobs/Cms/RunBlogAutomationJob.php",
+      "app/Models/User.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "tests/Feature/Admin/BlogsManagerTest.php": [
+      "app/Livewire/Admin/Cms/BlogsManager.php",
+      "app/Models/User.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "tests/Feature/Admin/EstimateFormulaManagerTest.php": [
+      "app/Models/User.php",
+      "database/seeders/CmsEstimateBootstrapSeeder.php"
+    ],
+    "tests/Feature/Admin/EstimateMasterDataManagersTest.php": [
+      "app/Livewire/Admin/Estimator/EstimateCatalogManager.php",
+      "app/Livewire/Admin/Estimator/EstimatePriceBooksManager.php",
+      "app/Livewire/Admin/Estimator/EstimateRoomTemplatesManager.php",
+      "app/Models/User.php",
+      "database/seeders/CmsEstimateBootstrapSeeder.php"
+    ],
+    "tests/Feature/Admin/EstimateRequestsManagerTest.php": [
+      "app/Models/User.php",
+      "database/seeders/CmsEstimateBootstrapSeeder.php",
+      "src/Domains/Cms/Models/EstimateRequest.php"
+    ],
+    "tests/Feature/Admin/ImportFrontendMediaCommandTest.php": [
+      "database/seeders/CmsBootstrapSeeder.php"
+    ],
+    "tests/Feature/Admin/LandingPagesManagerTest.php": [
+      "app/Livewire/Admin/Cms/LandingPagesManager.php",
+      "app/Models/User.php",
+      "app/Support/LandingPageBlocks.php",
+      "app/Support/TravelHomePageConfig.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Region.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php"
+    ],
+    "tests/Feature/Admin/MediaManagerTest.php": [
+      "app/Models/User.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "tests/Feature/Admin/ProjectsManagerTest.php": [
+      "app/Livewire/Admin/Cms/ProjectsManager.php",
+      "app/Models/User.php",
+      "app/Support/ContentGallery.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/Project.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "tests/Feature/Admin/RunBlogAutomationCommandTest.php": [
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/BlogPost.php"
+    ],
+    "tests/Feature/Admin/SeoPageEditorTest.php": [
+      "app/Livewire/Admin/Seo/SeoPageEditor.php",
+      "app/Models/User.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "src/Domains/Seo/Enums/SeoPageType.php",
+      "src/Domains/Seo/Models/SeoPage.php",
+      "src/Domains/Seo/Support/SeoSlugGenerator.php"
+    ],
+    "tests/Feature/Admin/SeoPagePreviewTest.php": [
+      "app/Models/User.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "src/Domains/Seo/Enums/SeoPageType.php",
+      "src/Domains/Seo/Models/ContentCluster.php",
+      "src/Domains/Seo/Models/SeoLink.php",
+      "src/Domains/Seo/Models/SeoPage.php"
+    ],
+    "tests/Feature/Admin/ServicesManagerTest.php": [
+      "app/Livewire/Admin/Cms/ServicesManager.php",
+      "app/Models/User.php",
+      "app/Support/ContentGallery.php",
+      "app/Support/ServiceDetailContent.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "tests/Feature/Admin/SlidersManagerTest.php": [
+      "app/Models/User.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Slider.php",
+      "src/Domains/Cms/Models/SliderItem.php"
+    ],
+    "tests/Feature/Admin/ThemeSettingsManagerTest.php": [
+      "app/Livewire/Admin/Cms/ThemeSettingsManager.php",
+      "app/Models/User.php",
+      "app/Services/Frontsite/FrontsiteCache.php",
+      "app/Support/FooterSocialLinks.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "tests/Feature/Admin/TourAgencySyncQueueManagerTest.php": [
+      "app/Livewire/Admin/Cms/TourAgencySyncQueueManager.php",
+      "app/Models/User.php",
+      "app/Services/Cms/SiteSettingsManager.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourAgencyPushSyncRun.php",
+      "src/Domains/Cms/Models/TourDepartureSyncState.php"
+    ],
+    "tests/Feature/Admin/ToursManagerTest.php": [
+      "app/Jobs/Travel/PushTourToAgencyJob.php",
+      "app/Livewire/Admin/Cms/ToursManager.php",
+      "app/Models/User.php",
+      "app/Services/Cms/SiteSettingsManager.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourAgencyPushSyncRun.php",
+      "src/Domains/Cms/Models/TourCategory.php",
+      "src/Domains/Cms/Models/TourDeparture.php",
+      "src/Domains/Cms/Models/TourDepartureSyncState.php",
+      "src/Domains/Cms/Models/TourReviewBatch.php"
+    ],
+    "tests/Feature/Admin/TravelInquiriesManagerTest.php": [
+      "app/Livewire/Admin/Cms/TravelInquiriesManager.php",
+      "app/Models/User.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Enums/TravelInquirySource.php",
+      "src/Domains/Cms/Models/TravelInquiry.php"
+    ],
+    "tests/Feature/Admin/TravelReviewsManagerTest.php": [
+      "app/Livewire/Admin/Cms/TravelReviewsManager.php",
+      "app/Models/User.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php",
+      "src/Domains/Cms/Models/TourReviewBatch.php",
+      "src/Domains/Cms/Models/TravelReview.php"
+    ],
+    "tests/Feature/Admin/VoucherCampaignsManagerTest.php": [
+      "app/Livewire/Admin/Cms/VoucherCampaignCodesManager.php",
+      "app/Livewire/Admin/Cms/VoucherCampaignsManager.php",
+      "app/Models/User.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Enums/TravelInquirySource.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/TravelInquiry.php",
+      "src/Domains/Cms/Models/VoucherCampaign.php",
+      "src/Domains/Cms/Models/VoucherCode.php"
+    ],
+    "tests/Feature/AgencyTourExportApiTest.php": [
+      "app/Models/User.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourDeparture.php"
+    ],
+    "tests/Feature/AgencyTourPushSyncTest.php": [
+      "app/Jobs/Travel/PushTourToAgencyJob.php",
+      "app/Models/User.php",
+      "app/Services/Cms/SiteSettingsManager.php",
+      "app/Services/Travel/HaidangAgencyApiClient.php",
+      "app/Services/Travel/HaidangAgencyApiException.php",
+      "app/Services/Travel/TourAgencyPushSyncRunService.php",
+      "app/Services/Travel/TourAgencyPushSyncService.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourAgencyPushSyncRun.php",
+      "src/Domains/Cms/Models/TourDepartureSyncState.php"
+    ],
+    "tests/Feature/Auth/AuthenticationTest.php": [
+      "app/Models/User.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "tests/Feature/Auth/EmailVerificationTest.php": [
+      "app/Models/User.php"
+    ],
+    "tests/Feature/Auth/PasswordConfirmationTest.php": [
+      "app/Models/User.php"
+    ],
+    "tests/Feature/Auth/PasswordResetTest.php": [
+      "app/Models/User.php"
+    ],
+    "tests/Feature/Auth/RegistrationTest.php": [],
+    "tests/Feature/Auth/TwoFactorChallengeTest.php": [
+      "app/Models/User.php"
+    ],
+    "tests/Feature/CmsMissingFaqSeederTest.php": [
+      "app/Support/FaqContent.php",
+      "database/seeders/CmsEstimateBootstrapSeeder.php",
+      "database/seeders/CmsMissingFaqSeeder.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Project.php",
+      "src/Domains/Cms/Models/Service.php"
+    ],
+    "tests/Feature/CustomerLoyaltyPageTest.php": [
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Tour.php"
+    ],
+    "tests/Feature/CustomLandingPageBlocksTest.php": [
+      "app/Livewire/Admin/Cms/LandingPagesManager.php",
+      "app/Models/User.php",
+      "app/Support/LandingPageBlocks.php",
+      "app/Support/TravelHomePageConfig.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Region.php",
+      "src/Domains/Cms/Models/Slider.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php",
+      "src/Domains/Cms/Models/TourDeparture.php",
+      "src/Domains/Cms/Models/VoucherCampaign.php"
+    ],
+    "tests/Feature/DashboardTest.php": [
+      "app/Models/User.php"
+    ],
+    "tests/Feature/EstimateRequestTest.php": [
+      "app/Mail/EstimateCustomerResultMail.php",
+      "app/Mail/EstimateRequestMail.php",
+      "app/Services/Cms/EstimateRequestService.php",
+      "app/Support/EstimatePageContent.php",
+      "database/seeders/CmsEstimateBootstrapSeeder.php",
+      "src/Domains/Cms/Models/EstimateAccessKey.php",
+      "src/Domains/Cms/Models/EstimateRequest.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "tests/Feature/ExampleTest.php": [],
+    "tests/Feature/FooterSocialLinksTest.php": [
+      "app/Support/FooterSocialLinks.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/Menu.php",
+      "src/Domains/Cms/Models/MenuItem.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "tests/Feature/FrontsiteFaviconTest.php": [
+      "app/Support/FrontsiteMedia.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "tests/Feature/FrontsiteGeoComponentsTest.php": [
+      "app/Services/Frontsite/FrontsiteCacheInvalidator.php",
+      "app/Services/Frontsite/FrontsiteGeoPresenter.php",
+      "app/Support/LandingPageBlocks.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Region.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php"
+    ],
+    "tests/Feature/FrontsiteNotFoundPageTest.php": [
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php"
+    ],
+    "tests/Feature/FrontsitePagesTest.php": [
+      "app/Support/FrontsiteCardData.php",
+      "app/Support/FrontsiteMedia.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "database/seeders/CmsEstimateBootstrapSeeder.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/Project.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "tests/Feature/FrontsiteSchemaCoverageTest.php": [
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/BlogPost.php",
+      "src/Domains/Cms/Models/Service.php"
+    ],
+    "tests/Feature/FrontsiteTrackingScriptsTest.php": [
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "tests/Feature/LandingPageVisualsFrontsiteTest.php": [
+      "app/Support/LandingPageVisuals.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/Slider.php"
+    ],
+    "tests/Feature/PublicSeoPagesTest.php": [
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "src/Domains/Seo/Enums/SeoPageType.php",
+      "src/Domains/Seo/Models/ContentCluster.php",
+      "src/Domains/Seo/Models/SeoLink.php",
+      "src/Domains/Seo/Models/SeoPage.php",
+      "src/Domains/Seo/Support/SeoSchemaFactory.php"
+    ],
+    "tests/Feature/SeoAiServicePageTypeRulesTest.php": [
+      "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "src/Domains/Seo/Enums/SeoPageType.php",
+      "src/Domains/Seo/Models/SeoLink.php",
+      "src/Domains/Seo/Models/SeoPage.php",
+      "src/Domains/Seo/Support/SeoPromptFactory.php",
+      "src/Domains/Seo/Support/SeoQaValidator.php",
+      "src/Domains/Seo/Support/SeoSchemaFactory.php",
+      "src/Domains/Seo/Support/SeoUrlBuilder.php"
+    ],
+    "tests/Feature/ServiceConsultationTest.php": [
+      "app/Mail/ServiceConsultationRequestMail.php",
+      "database/seeders/CmsBootstrapSeeder.php",
+      "src/Domains/Cms/Models/Service.php"
+    ],
+    "tests/Feature/ServiceSeoFrontsiteTest.php": [
+      "src/Domains/Cms/Models/ContentCategory.php",
+      "src/Domains/Cms/Models/Service.php",
+      "src/Domains/Cms/Models/SiteSetting.php"
+    ],
+    "tests/Feature/Settings/ProfileUpdateTest.php": [
+      "app/Models/User.php"
+    ],
+    "tests/Feature/Settings/SecurityTest.php": [
+      "app/Models/User.php"
+    ],
+    "tests/Feature/TourReviewSubmissionTest.php": [
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TravelReview.php"
+    ],
+    "tests/Feature/TourScopeLandingBlocksTest.php": [
+      "app/Support/LandingPageBlocks.php",
+      "database/seeders/HaidangTravelBootstrapSeeder.php",
+      "src/Domains/Cms/Models/LandingPage.php"
+    ],
+    "tests/Feature/TourSitemapAndBlocksTest.php": [
+      "app/Support/ContentGallery.php",
+      "app/Support/FrontsiteCardData.php",
+      "app/Support/FrontsiteMedia.php",
+      "src/Domains/Cms/Enums/TourScope.php",
+      "src/Domains/Cms/Models/Destination.php",
+      "src/Domains/Cms/Models/Region.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/Tour.php",
+      "src/Domains/Cms/Models/TourCategory.php",
+      "src/Domains/Cms/Models/TourDeparture.php",
+      "src/Domains/Cms/Models/TravelReview.php"
+    ],
+    "tests/Feature/TravelInquiryFormTest.php": [
+      "app/Mail/TravelInquiryMail.php",
+      "src/Domains/Cms/Enums/TravelInquirySource.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/TravelInquiry.php"
+    ],
+    "tests/Feature/VoucherCampaignFlowTest.php": [
+      "app/Mail/TravelInquiryMail.php",
+      "src/Domains/Cms/Enums/TravelInquirySource.php",
+      "src/Domains/Cms/Models/LandingPage.php",
+      "src/Domains/Cms/Models/SiteSetting.php",
+      "src/Domains/Cms/Models/TravelInquiry.php",
+      "src/Domains/Cms/Models/VoucherCampaign.php",
+      "src/Domains/Cms/Models/VoucherCode.php"
+    ],
+    "tests/Fixtures/front_end/importable/blog/code.html": [],
+    "tests/Fixtures/front_end/importable/home/code.html": [],
+    "tests/TestCase.php": [],
+    "tests/Unit/EstimateFormulaConfigServiceTest.php": [
+      "app/Services/Cms/EstimateFormulaConfigService.php"
+    ],
+    "tests/Unit/EstimatePageContentTest.php": [
+      "app/Support/EstimatePageContent.php",
+      "database/seeders/CmsEstimateBootstrapSeeder.php"
+    ],
+    "tests/Unit/EstimatePayloadServiceTest.php": [
+      "app/Services/Estimator/EstimatePayloadService.php",
+      "app/Support/EstimatePageContent.php",
+      "database/seeders/CmsEstimateBootstrapSeeder.php"
+    ],
+    "tests/Unit/ExampleTest.php": [],
+    "tests/Unit/FaqContentTest.php": [
+      "app/Support/FaqContent.php"
+    ],
+    "tests/Unit/FrontendHtmlImageScannerTest.php": [
+      "app/Services/Admin/FrontendHtmlImageScanner.php"
+    ],
+    "tests/Unit/HomePageContentTest.php": [
+      "app/Support/HomePageContent.php"
+    ],
+    "tests/Unit/ReviewContentTest.php": [
+      "app/Support/ReviewContent.php"
+    ],
+    "tests/Unit/RichTextTest.php": [
+      "app/Support/RichText.php"
+    ],
+    "vite.config.js": []
+  }
+}

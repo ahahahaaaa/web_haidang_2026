@@ -1,0 +1,19 @@
+{
+  "level": "level_1",
+  "input": {
+    "length": 4,
+    "width": 14,
+    "floors": 2,
+    "has_terrace": true,
+    "garden_type": "none",
+    "has_mezzanine": false,
+    "tum_area": 21,
+    "terrace_area": 49,
+    "terrace_cover_type": "uncovered",
+    "roof_type": "btct_no_tile",
+    "foundation_type": "strip_or_pile",
+    "has_concrete_ground": false,
+    "has_basement": false,
+    "finish_package": "standard_plus"
+  }
+}

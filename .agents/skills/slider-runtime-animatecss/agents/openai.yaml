@@ -1,0 +1,4 @@
+interface:
+  display_name: "Slider Runtime AnimateCSS"
+  short_description: "Shared slider runtime and admin effect flow"
+  default_prompt: "Use $slider-runtime-animatecss to update the shared slider manager, banner-location runtime, or Animate.css slide-effect contract."

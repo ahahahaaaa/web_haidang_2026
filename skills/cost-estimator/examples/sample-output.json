@@ -1,0 +1,58 @@
+{
+  "level": "level_1",
+  "formula_version": "v1",
+  "derived": {
+    "base_area": 56,
+    "typical_floor_count": 0,
+    "terrace_rooftop_area": 70,
+    "terrace_default_tum_area": 21,
+    "terrace_default_area": 49,
+    "tum_effective_area": 21,
+    "terrace_effective_area": 49,
+    "roof_effective_area": 21,
+    "basement_effective_area": 56
+  },
+  "components": [
+    {
+      "key": "ground_floor",
+      "label": "Tổng Trệt",
+      "area": 56,
+      "coefficient": 1,
+      "converted_area": 56
+    },
+    {
+      "key": "tum",
+      "label": "Tum",
+      "area": 21,
+      "coefficient": 1,
+      "converted_area": 21
+    },
+    {
+      "key": "terrace",
+      "label": "Sân thượng",
+      "area": 49,
+      "coefficient": 0.5,
+      "converted_area": 24.5
+    },
+    {
+      "key": "roof",
+      "label": "Hệ mái",
+      "area": 21,
+      "coefficient": 0.5,
+      "converted_area": 10.5
+    },
+    {
+      "key": "foundation",
+      "label": "Móng",
+      "area": 56,
+      "coefficient": 0.5,
+      "converted_area": 28
+    }
+  ],
+  "totals": {
+    "converted_area": 140
+  },
+  "pricing": {
+    "packages": []
+  }
+}

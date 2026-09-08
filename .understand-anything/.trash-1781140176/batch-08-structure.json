@@ -1,0 +1,4098 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Enums/SeoPageType.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 110,
+      "nonEmptyLines": 98,
+      "callGraph": [
+        {
+          "caller": "isTravelHub",
+          "callee": "in_array",
+          "lineNumber": 70
+        },
+        {
+          "caller": "usesLocationContext",
+          "callee": "in_array",
+          "lineNumber": 80
+        },
+        {
+          "caller": "adminOptions",
+          "callee": "self::TourCategory->label",
+          "lineNumber": 90
+        },
+        {
+          "caller": "adminOptions",
+          "callee": "self::Destination->label",
+          "lineNumber": 91
+        },
+        {
+          "caller": "adminOptions",
+          "callee": "self::Region->label",
+          "lineNumber": 92
+        },
+        {
+          "caller": "adminOptions",
+          "callee": "self::ServiceCategory->label",
+          "lineNumber": 93
+        },
+        {
+          "caller": "adminOptions",
+          "callee": "self::Service->label",
+          "lineNumber": 94
+        },
+        {
+          "caller": "adminOptions",
+          "callee": "self::Blog->label",
+          "lineNumber": 95
+        },
+        {
+          "caller": "adminOptions",
+          "callee": "self::Contact->label",
+          "lineNumber": 96
+        },
+        {
+          "caller": "labels",
+          "callee": "self::cases",
+          "lineNumber": 104
+        },
+        {
+          "caller": "labels",
+          "callee": "$case->label",
+          "lineNumber": 105
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Jobs/BuildSeoLinksJob.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 22,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 16,
+          "endLine": 16,
+          "params": []
+        },
+        {
+          "name": "handle",
+          "startLine": 18,
+          "endLine": 25,
+          "params": [
+            "$pages",
+            "$links"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BuildSeoLinksJob",
+          "startLine": 13,
+          "endLine": 26,
+          "methods": [
+            "__construct",
+            "handle"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BuildSeoLinksJob",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__construct",
+          "callee": "$this->onQueue",
+          "lineNumber": 16
+        },
+        {
+          "caller": "__construct",
+          "callee": "config",
+          "lineNumber": 16
+        },
+        {
+          "caller": "handle",
+          "callee": "$pages->find",
+          "lineNumber": 20
+        },
+        {
+          "caller": "handle",
+          "callee": "$pages->relatedTargetsFor",
+          "lineNumber": 21
+        },
+        {
+          "caller": "handle",
+          "callee": "$links->suggest",
+          "lineNumber": 22
+        },
+        {
+          "caller": "handle",
+          "callee": "ValidateSeoPageJob::dispatch($page->getKey())->onQueue",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handle",
+          "callee": "ValidateSeoPageJob::dispatch",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handle",
+          "callee": "$page->getKey",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handle",
+          "callee": "config",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Jobs/GenerateSeoBriefJob.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 43,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 21,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "handle",
+          "startLine": 23,
+          "endLine": 50,
+          "params": [
+            "$clusters",
+            "$pages",
+            "$coordinator",
+            "$slugGenerator",
+            "$urlBuilder"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "GenerateSeoBriefJob",
+          "startLine": 18,
+          "endLine": 51,
+          "methods": [
+            "__construct",
+            "handle"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "GenerateSeoBriefJob",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__construct",
+          "callee": "$this->onQueue",
+          "lineNumber": 21
+        },
+        {
+          "caller": "__construct",
+          "callee": "config",
+          "lineNumber": 21
+        },
+        {
+          "caller": "handle",
+          "callee": "$clusters->find",
+          "lineNumber": 25
+        },
+        {
+          "caller": "handle",
+          "callee": "$cluster->save",
+          "lineNumber": 27
+        },
+        {
+          "caller": "handle",
+          "callee": "$coordinator->generateBrief",
+          "lineNumber": 29
+        },
+        {
+          "caller": "handle",
+          "callee": "$slugGenerator->generate",
+          "lineNumber": 30
+        },
+        {
+          "caller": "handle",
+          "callee": "$pages->create",
+          "lineNumber": 32
+        },
+        {
+          "caller": "handle",
+          "callee": "$cluster->getKey",
+          "lineNumber": 33
+        },
+        {
+          "caller": "handle",
+          "callee": "$urlBuilder->canonicalUrl",
+          "lineNumber": 37
+        },
+        {
+          "caller": "handle",
+          "callee": "$cluster->save",
+          "lineNumber": 47
+        },
+        {
+          "caller": "handle",
+          "callee": "GenerateSeoDraftJob::dispatch($page->getKey())->onQueue",
+          "lineNumber": 49
+        },
+        {
+          "caller": "handle",
+          "callee": "GenerateSeoDraftJob::dispatch",
+          "lineNumber": 49
+        },
+        {
+          "caller": "handle",
+          "callee": "$page->getKey",
+          "lineNumber": 49
+        },
+        {
+          "caller": "handle",
+          "callee": "config",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Jobs/GenerateSeoDraftJob.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 19,
+          "endLine": 19,
+          "params": []
+        },
+        {
+          "name": "handle",
+          "startLine": 21,
+          "endLine": 37,
+          "params": [
+            "$pages",
+            "$coordinator",
+            "$metaFactory",
+            "$schemaFactory"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "GenerateSeoDraftJob",
+          "startLine": 16,
+          "endLine": 38,
+          "methods": [
+            "__construct",
+            "handle"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "GenerateSeoDraftJob",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__construct",
+          "callee": "$this->onQueue",
+          "lineNumber": 19
+        },
+        {
+          "caller": "__construct",
+          "callee": "config",
+          "lineNumber": 19
+        },
+        {
+          "caller": "handle",
+          "callee": "$pages->find",
+          "lineNumber": 23
+        },
+        {
+          "caller": "handle",
+          "callee": "$coordinator->generateDraft",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handle",
+          "callee": "$metaFactory->forPage",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handle",
+          "callee": "$schemaFactory->forPage",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handle",
+          "callee": "array_merge",
+          "lineNumber": 32
+        },
+        {
+          "caller": "handle",
+          "callee": "$page->save",
+          "lineNumber": 34
+        },
+        {
+          "caller": "handle",
+          "callee": "BuildSeoLinksJob::dispatch($page->getKey())->onQueue",
+          "lineNumber": 36
+        },
+        {
+          "caller": "handle",
+          "callee": "BuildSeoLinksJob::dispatch",
+          "lineNumber": 36
+        },
+        {
+          "caller": "handle",
+          "callee": "$page->getKey",
+          "lineNumber": 36
+        },
+        {
+          "caller": "handle",
+          "callee": "config",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Jobs/PublishSeoPageJob.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 18,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 16,
+          "endLine": 16,
+          "params": []
+        },
+        {
+          "name": "handle",
+          "startLine": 18,
+          "endLine": 21,
+          "params": [
+            "$pages",
+            "$publisher"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PublishSeoPageJob",
+          "startLine": 13,
+          "endLine": 22,
+          "methods": [
+            "__construct",
+            "handle"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PublishSeoPageJob",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__construct",
+          "callee": "$this->onQueue",
+          "lineNumber": 16
+        },
+        {
+          "caller": "__construct",
+          "callee": "config",
+          "lineNumber": 16
+        },
+        {
+          "caller": "handle",
+          "callee": "$publisher->publish",
+          "lineNumber": 20
+        },
+        {
+          "caller": "handle",
+          "callee": "$pages->find",
+          "lineNumber": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Jobs/ValidateSeoPageJob.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 18,
+          "endLine": 18,
+          "params": []
+        },
+        {
+          "name": "handle",
+          "startLine": 20,
+          "endLine": 30,
+          "params": [
+            "$pages",
+            "$validator",
+            "$schemaFactory"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ValidateSeoPageJob",
+          "startLine": 15,
+          "endLine": 31,
+          "methods": [
+            "__construct",
+            "handle"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ValidateSeoPageJob",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__construct",
+          "callee": "$this->onQueue",
+          "lineNumber": 18
+        },
+        {
+          "caller": "__construct",
+          "callee": "config",
+          "lineNumber": 18
+        },
+        {
+          "caller": "handle",
+          "callee": "$pages->find($this->pageId)\n            ->load(['outgoingLinks.targetPage.cluster'])->loadCount",
+          "lineNumber": 22
+        },
+        {
+          "caller": "handle",
+          "callee": "$pages->find($this->pageId)->load",
+          "lineNumber": 22
+        },
+        {
+          "caller": "handle",
+          "callee": "$pages->find",
+          "lineNumber": 22
+        },
+        {
+          "caller": "handle",
+          "callee": "$schemaFactory->forPage",
+          "lineNumber": 25
+        },
+        {
+          "caller": "handle",
+          "callee": "$validator->validate",
+          "lineNumber": 26
+        },
+        {
+          "caller": "handle",
+          "callee": "$page->save",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Models/ContentCluster.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 22,
+      "functions": [
+        {
+          "name": "seoPages",
+          "startLine": 24,
+          "endLine": 27,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ContentCluster",
+          "startLine": 10,
+          "endLine": 28,
+          "methods": [
+            "seoPages"
+          ],
+          "properties": [
+            "table",
+            "fillable",
+            "casts"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ContentCluster",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "seoPages",
+          "callee": "$this->hasMany",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Models/SeoLink.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 11,
+      "functions": [
+        {
+          "name": "sourcePage",
+          "startLine": 13,
+          "endLine": 13,
+          "params": []
+        },
+        {
+          "name": "targetPage",
+          "startLine": 14,
+          "endLine": 14,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoLink",
+          "startLine": 8,
+          "endLine": 15,
+          "methods": [
+            "sourcePage",
+            "targetPage"
+          ],
+          "properties": [
+            "table",
+            "fillable"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoLink",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "sourcePage",
+          "callee": "$this->belongsTo",
+          "lineNumber": 13
+        },
+        {
+          "caller": "targetPage",
+          "callee": "$this->belongsTo",
+          "lineNumber": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Models/SeoPage.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "cluster",
+          "startLine": 33,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "outgoingLinks",
+          "startLine": 34,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "incomingLinks",
+          "startLine": 35,
+          "endLine": 35,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoPage",
+          "startLine": 11,
+          "endLine": 36,
+          "methods": [
+            "cluster",
+            "outgoingLinks",
+            "incomingLinks"
+          ],
+          "properties": [
+            "table",
+            "fillable",
+            "casts"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoPage",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "cluster",
+          "callee": "$this->belongsTo",
+          "lineNumber": 33
+        },
+        {
+          "caller": "outgoingLinks",
+          "callee": "$this->hasMany",
+          "lineNumber": 34
+        },
+        {
+          "caller": "incomingLinks",
+          "callee": "$this->hasMany",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Repositories/SeoClusterRepository.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 12,
+      "nonEmptyLines": 9,
+      "functions": [
+        {
+          "name": "find",
+          "startLine": 10,
+          "endLine": 10,
+          "params": [
+            "$id"
+          ]
+        },
+        {
+          "name": "approvedForSync",
+          "startLine": 11,
+          "endLine": 11,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoClusterRepository",
+          "startLine": 8,
+          "endLine": 12,
+          "methods": [
+            "find",
+            "approvedForSync"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoClusterRepository",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "find",
+          "callee": "ContentCluster::query()->findOrFail",
+          "lineNumber": 10
+        },
+        {
+          "caller": "find",
+          "callee": "ContentCluster::query",
+          "lineNumber": 10
+        },
+        {
+          "caller": "approvedForSync",
+          "callee": "ContentCluster::query()->where",
+          "lineNumber": 11
+        },
+        {
+          "caller": "approvedForSync",
+          "callee": "ContentCluster::query",
+          "lineNumber": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Repositories/SeoLinkRepository.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 19,
+      "functions": [
+        {
+          "name": "suggest",
+          "startLine": 10,
+          "endLine": 21,
+          "params": [
+            "$source",
+            "$target",
+            "$anchor"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoLinkRepository",
+          "startLine": 8,
+          "endLine": 22,
+          "methods": [
+            "suggest"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoLinkRepository",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "suggest",
+          "callee": "SeoLink::query()->firstOrCreate",
+          "lineNumber": 12
+        },
+        {
+          "caller": "suggest",
+          "callee": "SeoLink::query",
+          "lineNumber": 12
+        },
+        {
+          "caller": "suggest",
+          "callee": "$source->getKey",
+          "lineNumber": 13
+        },
+        {
+          "caller": "suggest",
+          "callee": "$target->getKey",
+          "lineNumber": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Repositories/SeoPageRepository.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "find",
+          "startLine": 11,
+          "endLine": 11,
+          "params": [
+            "$id"
+          ]
+        },
+        {
+          "name": "create",
+          "startLine": 12,
+          "endLine": 12,
+          "params": [
+            "$attributes"
+          ]
+        },
+        {
+          "name": "relatedTargetsFor",
+          "startLine": 13,
+          "endLine": 15,
+          "params": [
+            "$page",
+            "$limit"
+          ]
+        },
+        {
+          "name": "findPublishedBySlug",
+          "startLine": 17,
+          "endLine": 37,
+          "params": [
+            "$slug",
+            "$expectedType"
+          ]
+        },
+        {
+          "name": "publishedForSitemap",
+          "startLine": 39,
+          "endLine": 46,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoPageRepository",
+          "startLine": 9,
+          "endLine": 47,
+          "methods": [
+            "find",
+            "create",
+            "relatedTargetsFor",
+            "findPublishedBySlug",
+            "publishedForSitemap"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoPageRepository",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "find",
+          "callee": "SeoPage::query()->findOrFail",
+          "lineNumber": 11
+        },
+        {
+          "caller": "find",
+          "callee": "SeoPage::query",
+          "lineNumber": 11
+        },
+        {
+          "caller": "create",
+          "callee": "SeoPage::query()->create",
+          "lineNumber": 12
+        },
+        {
+          "caller": "create",
+          "callee": "SeoPage::query",
+          "lineNumber": 12
+        },
+        {
+          "caller": "relatedTargetsFor",
+          "callee": "SeoPage::query()->whereKeyNot($page->getKey())->where('status', '!=', 'archived')->limit($limit)->get",
+          "lineNumber": 14
+        },
+        {
+          "caller": "relatedTargetsFor",
+          "callee": "SeoPage::query()->whereKeyNot($page->getKey())->where('status', '!=', 'archived')->limit",
+          "lineNumber": 14
+        },
+        {
+          "caller": "relatedTargetsFor",
+          "callee": "SeoPage::query()->whereKeyNot($page->getKey())->where",
+          "lineNumber": 14
+        },
+        {
+          "caller": "relatedTargetsFor",
+          "callee": "SeoPage::query()->whereKeyNot",
+          "lineNumber": 14
+        },
+        {
+          "caller": "relatedTargetsFor",
+          "callee": "SeoPage::query",
+          "lineNumber": 14
+        },
+        {
+          "caller": "relatedTargetsFor",
+          "callee": "$page->getKey",
+          "lineNumber": 14
+        },
+        {
+          "caller": "findPublishedBySlug",
+          "callee": "SeoPage::query()\n            ->with([\n                'cluster',\n                'outgoingLinks.targetPage.cluster',\n            ])\n            ->where('slug', $slug)\n            ->where('status', SeoPageStatus::Published->value)\n            ->when($expectedType !== null, function ($query) use ($expectedType) {\n                if (is_array($expectedType)) {\n                    $query->whereIn('page_type', $expectedType);\n\n                    return;\n                }\n\n                $query->where('page_type', $expectedType);\n            })\n            ->where('page_type', '!=', SeoPageType::Homepage->value)->firstOrFail",
+          "lineNumber": 19
+        },
+        {
+          "caller": "findPublishedBySlug",
+          "callee": "SeoPage::query()\n            ->with([\n                'cluster',\n                'outgoingLinks.targetPage.cluster',\n            ])\n            ->where('slug', $slug)\n            ->where('status', SeoPageStatus::Published->value)\n            ->when($expectedType !== null, function ($query) use ($expectedType) {\n                if (is_array($expectedType)) {\n                    $query->whereIn('page_type', $expectedType);\n\n                    return;\n                }\n\n                $query->where('page_type', $expectedType);\n            })->where",
+          "lineNumber": 19
+        },
+        {
+          "caller": "findPublishedBySlug",
+          "callee": "SeoPage::query()\n            ->with([\n                'cluster',\n                'outgoingLinks.targetPage.cluster',\n            ])\n            ->where('slug', $slug)\n            ->where('status', SeoPageStatus::Published->value)->when",
+          "lineNumber": 19
+        },
+        {
+          "caller": "findPublishedBySlug",
+          "callee": "SeoPage::query()\n            ->with([\n                'cluster',\n                'outgoingLinks.targetPage.cluster',\n            ])\n            ->where('slug', $slug)->where",
+          "lineNumber": 19
+        },
+        {
+          "caller": "findPublishedBySlug",
+          "callee": "SeoPage::query()\n            ->with([\n                'cluster',\n                'outgoingLinks.targetPage.cluster',\n            ])->where",
+          "lineNumber": 19
+        },
+        {
+          "caller": "findPublishedBySlug",
+          "callee": "SeoPage::query()->with",
+          "lineNumber": 19
+        },
+        {
+          "caller": "findPublishedBySlug",
+          "callee": "SeoPage::query",
+          "lineNumber": 19
+        },
+        {
+          "caller": "findPublishedBySlug",
+          "callee": "is_array",
+          "lineNumber": 27
+        },
+        {
+          "caller": "findPublishedBySlug",
+          "callee": "$query->whereIn",
+          "lineNumber": 28
+        },
+        {
+          "caller": "findPublishedBySlug",
+          "callee": "$query->where",
+          "lineNumber": 33
+        },
+        {
+          "caller": "publishedForSitemap",
+          "callee": "SeoPage::query()\n            ->where('status', SeoPageStatus::Published->value)\n            ->where('page_type', '!=', SeoPageType::Homepage->value)\n            ->orderByDesc('published_at')->get",
+          "lineNumber": 41
+        },
+        {
+          "caller": "publishedForSitemap",
+          "callee": "SeoPage::query()\n            ->where('status', SeoPageStatus::Published->value)\n            ->where('page_type', '!=', SeoPageType::Homepage->value)->orderByDesc",
+          "lineNumber": 41
+        },
+        {
+          "caller": "publishedForSitemap",
+          "callee": "SeoPage::query()\n            ->where('status', SeoPageStatus::Published->value)->where",
+          "lineNumber": 41
+        },
+        {
+          "caller": "publishedForSitemap",
+          "callee": "SeoPage::query()->where",
+          "lineNumber": 41
+        },
+        {
+          "caller": "publishedForSitemap",
+          "callee": "SeoPage::query",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoGenerationCoordinator.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 14,
+          "endLine": 18,
+          "params": []
+        },
+        {
+          "name": "generateBrief",
+          "startLine": 20,
+          "endLine": 24,
+          "params": [
+            "$cluster"
+          ]
+        },
+        {
+          "name": "generateDraft",
+          "startLine": 26,
+          "endLine": 35,
+          "params": [
+            "$page",
+            "$meta",
+            "$schema"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoGenerationCoordinator",
+          "startLine": 12,
+          "endLine": 36,
+          "methods": [
+            "__construct",
+            "generateBrief",
+            "generateDraft"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoGenerationCoordinator",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "generateBrief",
+          "callee": "$this->client->respond",
+          "lineNumber": 22
+        },
+        {
+          "caller": "generateBrief",
+          "callee": "$this->promptFactory->brief",
+          "lineNumber": 22
+        },
+        {
+          "caller": "generateBrief",
+          "callee": "SeoBriefData::fromArray",
+          "lineNumber": 23
+        },
+        {
+          "caller": "generateBrief",
+          "callee": "json_decode",
+          "lineNumber": 23
+        },
+        {
+          "caller": "generateBrief",
+          "callee": "$this->client->outputText",
+          "lineNumber": 23
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "$this->client->respond",
+          "lineNumber": 28
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "$this->promptFactory->draft",
+          "lineNumber": 28
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "$this->client->outputText",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoMetaFactory.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 106,
+      "nonEmptyLines": 88,
+      "functions": [
+        {
+          "name": "forPage",
+          "startLine": 10,
+          "endLine": 44,
+          "params": [
+            "$page"
+          ]
+        },
+        {
+          "name": "fallbackDescription",
+          "startLine": 46,
+          "endLine": 72,
+          "params": [
+            "$page",
+            "$focusLabel",
+            "$location"
+          ]
+        },
+        {
+          "name": "focusLabel",
+          "startLine": 74,
+          "endLine": 85,
+          "params": [
+            "$page"
+          ]
+        },
+        {
+          "name": "joinTitle",
+          "startLine": 87,
+          "endLine": 93,
+          "params": [
+            "$parts"
+          ]
+        },
+        {
+          "name": "limit",
+          "startLine": 95,
+          "endLine": 98,
+          "params": [
+            "$value",
+            "$max"
+          ]
+        },
+        {
+          "name": "resolveLocation",
+          "startLine": 100,
+          "endLine": 105,
+          "params": [
+            "$page"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoMetaFactory",
+          "startLine": 8,
+          "endLine": 106,
+          "methods": [
+            "forPage",
+            "fallbackDescription",
+            "focusLabel",
+            "joinTitle",
+            "limit",
+            "resolveLocation"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoMetaFactory",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "forPage",
+          "callee": "trim",
+          "lineNumber": 12
+        },
+        {
+          "caller": "forPage",
+          "callee": "trim",
+          "lineNumber": 13
+        },
+        {
+          "caller": "forPage",
+          "callee": "trim",
+          "lineNumber": 14
+        },
+        {
+          "caller": "forPage",
+          "callee": "config",
+          "lineNumber": 14
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->focusLabel",
+          "lineNumber": 15
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->resolveLocation",
+          "lineNumber": 16
+        },
+        {
+          "caller": "forPage",
+          "callee": "SeoPageType::tryFrom",
+          "lineNumber": 19
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->limit",
+          "lineNumber": 22
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->joinTitle",
+          "lineNumber": 22
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->limit",
+          "lineNumber": 23
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->joinTitle",
+          "lineNumber": 23
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->limit",
+          "lineNumber": 24
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->joinTitle",
+          "lineNumber": 24
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->limit",
+          "lineNumber": 25
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->joinTitle",
+          "lineNumber": 25
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->limit",
+          "lineNumber": 26
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->limit",
+          "lineNumber": 27
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->limit",
+          "lineNumber": 28
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->limit",
+          "lineNumber": 29
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->joinTitle",
+          "lineNumber": 29
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->limit",
+          "lineNumber": 30
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->joinTitle",
+          "lineNumber": 30
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->limit",
+          "lineNumber": 31
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->joinTitle",
+          "lineNumber": 31
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->limit",
+          "lineNumber": 32
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->joinTitle",
+          "lineNumber": 32
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->fallbackDescription",
+          "lineNumber": 35
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->limit",
+          "lineNumber": 36
+        },
+        {
+          "caller": "fallbackDescription",
+          "callee": "trim",
+          "lineNumber": 48
+        },
+        {
+          "caller": "fallbackDescription",
+          "callee": "strip_tags",
+          "lineNumber": 48
+        },
+        {
+          "caller": "fallbackDescription",
+          "callee": "trim",
+          "lineNumber": 54
+        },
+        {
+          "caller": "fallbackDescription",
+          "callee": "SeoPageType::tryFrom",
+          "lineNumber": 57
+        },
+        {
+          "caller": "focusLabel",
+          "callee": "$this->resolveLocation",
+          "lineNumber": 76
+        },
+        {
+          "caller": "focusLabel",
+          "callee": "trim",
+          "lineNumber": 82
+        },
+        {
+          "caller": "joinTitle",
+          "callee": "implode",
+          "lineNumber": 89
+        },
+        {
+          "caller": "joinTitle",
+          "callee": "array_values",
+          "lineNumber": 89
+        },
+        {
+          "caller": "joinTitle",
+          "callee": "array_filter",
+          "lineNumber": 89
+        },
+        {
+          "caller": "joinTitle",
+          "callee": "array_map",
+          "lineNumber": 89
+        },
+        {
+          "caller": "joinTitle",
+          "callee": "trim",
+          "lineNumber": 90
+        },
+        {
+          "caller": "limit",
+          "callee": "trim",
+          "lineNumber": 97
+        },
+        {
+          "caller": "limit",
+          "callee": "mb_substr",
+          "lineNumber": 97
+        },
+        {
+          "caller": "resolveLocation",
+          "callee": "trim",
+          "lineNumber": 102
+        },
+        {
+          "caller": "resolveLocation",
+          "callee": "data_get",
+          "lineNumber": 102
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoPromptFactory.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 90,
+      "nonEmptyLines": 79,
+      "functions": [
+        {
+          "name": "brief",
+          "startLine": 10,
+          "endLine": 48,
+          "params": [
+            "$cluster"
+          ]
+        },
+        {
+          "name": "draft",
+          "startLine": 50,
+          "endLine": 89,
+          "params": [
+            "$page"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoPromptFactory",
+          "startLine": 8,
+          "endLine": 90,
+          "methods": [
+            "brief",
+            "draft"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoPromptFactory",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "brief",
+          "callee": "implode",
+          "lineNumber": 12
+        },
+        {
+          "caller": "brief",
+          "callee": "implode",
+          "lineNumber": 13
+        },
+        {
+          "caller": "brief",
+          "callee": "trim",
+          "lineNumber": 15
+        },
+        {
+          "caller": "brief",
+          "callee": "data_get",
+          "lineNumber": 15
+        },
+        {
+          "caller": "brief",
+          "callee": "trim",
+          "lineNumber": 16
+        },
+        {
+          "caller": "brief",
+          "callee": "data_get",
+          "lineNumber": 16
+        },
+        {
+          "caller": "brief",
+          "callee": "trim",
+          "lineNumber": 17
+        },
+        {
+          "caller": "brief",
+          "callee": "data_get",
+          "lineNumber": 17
+        },
+        {
+          "caller": "draft",
+          "callee": "implode",
+          "lineNumber": 52
+        },
+        {
+          "caller": "draft",
+          "callee": "trim",
+          "lineNumber": 54
+        },
+        {
+          "caller": "draft",
+          "callee": "data_get",
+          "lineNumber": 54
+        },
+        {
+          "caller": "draft",
+          "callee": "trim",
+          "lineNumber": 55
+        },
+        {
+          "caller": "draft",
+          "callee": "data_get",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoPublisher.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "publish",
+          "startLine": 11,
+          "endLine": 26,
+          "params": [
+            "$page"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoPublisher",
+          "startLine": 9,
+          "endLine": 27,
+          "methods": [
+            "publish"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoPublisher",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "publish",
+          "callee": "in_array",
+          "lineNumber": 17
+        },
+        {
+          "caller": "publish",
+          "callee": "now",
+          "lineNumber": 22
+        },
+        {
+          "caller": "publish",
+          "callee": "$page->save",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoQaValidator.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 308,
+      "nonEmptyLines": 254,
+      "functions": [
+        {
+          "name": "validate",
+          "startLine": 10,
+          "endLine": 95,
+          "params": [
+            "$page",
+            "$outgoingLinksCount"
+          ]
+        },
+        {
+          "name": "pageTypeErrors",
+          "startLine": 97,
+          "endLine": 110,
+          "params": [
+            "$pageType",
+            "$page",
+            "$contentText",
+            "$location"
+          ]
+        },
+        {
+          "name": "projectErrors",
+          "startLine": 112,
+          "endLine": 125,
+          "params": [
+            "$page",
+            "$contentText"
+          ]
+        },
+        {
+          "name": "serviceCategoryErrors",
+          "startLine": 127,
+          "endLine": 140,
+          "params": [
+            "$page",
+            "$contentText"
+          ]
+        },
+        {
+          "name": "serviceErrors",
+          "startLine": 142,
+          "endLine": 155,
+          "params": [
+            "$page",
+            "$contentText"
+          ]
+        },
+        {
+          "name": "tourCategoryErrors",
+          "startLine": 157,
+          "endLine": 170,
+          "params": [
+            "$page",
+            "$contentText"
+          ]
+        },
+        {
+          "name": "geoHubErrors",
+          "startLine": 172,
+          "endLine": 202,
+          "params": [
+            "$page",
+            "$contentText",
+            "$location"
+          ]
+        },
+        {
+          "name": "contactErrors",
+          "startLine": 204,
+          "endLine": 211,
+          "params": [
+            "$contentText"
+          ]
+        },
+        {
+          "name": "locationLandingErrors",
+          "startLine": 213,
+          "endLine": 238,
+          "params": [
+            "$page",
+            "$contentText",
+            "$location"
+          ]
+        },
+        {
+          "name": "requiredSchemaTypes",
+          "startLine": 240,
+          "endLine": 253,
+          "params": [
+            "$pageType"
+          ]
+        },
+        {
+          "name": "schemaTypes",
+          "startLine": 255,
+          "endLine": 271,
+          "params": [
+            "$schema"
+          ]
+        },
+        {
+          "name": "plainText",
+          "startLine": 273,
+          "endLine": 276,
+          "params": [
+            "$content"
+          ]
+        },
+        {
+          "name": "wordCount",
+          "startLine": 278,
+          "endLine": 287,
+          "params": [
+            "$content"
+          ]
+        },
+        {
+          "name": "containsAny",
+          "startLine": 289,
+          "endLine": 300,
+          "params": [
+            "$content",
+            "$needles"
+          ]
+        },
+        {
+          "name": "resolveLocation",
+          "startLine": 302,
+          "endLine": 307,
+          "params": [
+            "$page"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoQaValidator",
+          "startLine": 8,
+          "endLine": 308,
+          "methods": [
+            "validate",
+            "pageTypeErrors",
+            "projectErrors",
+            "serviceCategoryErrors",
+            "serviceErrors",
+            "tourCategoryErrors",
+            "geoHubErrors",
+            "contactErrors",
+            "locationLandingErrors",
+            "requiredSchemaTypes",
+            "schemaTypes",
+            "plainText",
+            "wordCount",
+            "containsAny",
+            "resolveLocation"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoQaValidator",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "validate",
+          "callee": "$this->plainText",
+          "lineNumber": 12
+        },
+        {
+          "caller": "validate",
+          "callee": "$this->wordCount",
+          "lineNumber": 13
+        },
+        {
+          "caller": "validate",
+          "callee": "SeoPageType::tryFrom",
+          "lineNumber": 16
+        },
+        {
+          "caller": "validate",
+          "callee": "config",
+          "lineNumber": 18
+        },
+        {
+          "caller": "validate",
+          "callee": "config",
+          "lineNumber": 19
+        },
+        {
+          "caller": "validate",
+          "callee": "config",
+          "lineNumber": 20
+        },
+        {
+          "caller": "validate",
+          "callee": "config",
+          "lineNumber": 21
+        },
+        {
+          "caller": "validate",
+          "callee": "config",
+          "lineNumber": 22
+        },
+        {
+          "caller": "validate",
+          "callee": "config",
+          "lineNumber": 23
+        },
+        {
+          "caller": "validate",
+          "callee": "config",
+          "lineNumber": 24
+        },
+        {
+          "caller": "validate",
+          "callee": "config",
+          "lineNumber": 25
+        },
+        {
+          "caller": "validate",
+          "callee": "config",
+          "lineNumber": 26
+        },
+        {
+          "caller": "validate",
+          "callee": "mb_strlen",
+          "lineNumber": 29
+        },
+        {
+          "caller": "validate",
+          "callee": "trim",
+          "lineNumber": 29
+        },
+        {
+          "caller": "validate",
+          "callee": "mb_strlen",
+          "lineNumber": 30
+        },
+        {
+          "caller": "validate",
+          "callee": "trim",
+          "lineNumber": 30
+        },
+        {
+          "caller": "validate",
+          "callee": "$this->schemaTypes",
+          "lineNumber": 31
+        },
+        {
+          "caller": "validate",
+          "callee": "$this->requiredSchemaTypes",
+          "lineNumber": 32
+        },
+        {
+          "caller": "validate",
+          "callee": "$this->resolveLocation",
+          "lineNumber": 33
+        },
+        {
+          "caller": "validate",
+          "callee": "trim",
+          "lineNumber": 36
+        },
+        {
+          "caller": "validate",
+          "callee": "trim",
+          "lineNumber": 39
+        },
+        {
+          "caller": "validate",
+          "callee": "trim",
+          "lineNumber": 42
+        },
+        {
+          "caller": "validate",
+          "callee": "trim",
+          "lineNumber": 45
+        },
+        {
+          "caller": "validate",
+          "callee": "trim",
+          "lineNumber": 48
+        },
+        {
+          "caller": "validate",
+          "callee": "empty",
+          "lineNumber": 51
+        },
+        {
+          "caller": "validate",
+          "callee": "config",
+          "lineNumber": 54
+        },
+        {
+          "caller": "validate",
+          "callee": "config",
+          "lineNumber": 57
+        },
+        {
+          "caller": "validate",
+          "callee": "config",
+          "lineNumber": 60
+        },
+        {
+          "caller": "validate",
+          "callee": "config",
+          "lineNumber": 63
+        },
+        {
+          "caller": "validate",
+          "callee": "config",
+          "lineNumber": 69
+        },
+        {
+          "caller": "validate",
+          "callee": "in_array",
+          "lineNumber": 74
+        },
+        {
+          "caller": "validate",
+          "callee": "$this->pageTypeErrors",
+          "lineNumber": 79
+        },
+        {
+          "caller": "validate",
+          "callee": "empty",
+          "lineNumber": 84
+        },
+        {
+          "caller": "pageTypeErrors",
+          "callee": "$this->contactErrors",
+          "lineNumber": 100
+        },
+        {
+          "caller": "pageTypeErrors",
+          "callee": "$this->serviceCategoryErrors",
+          "lineNumber": 101
+        },
+        {
+          "caller": "pageTypeErrors",
+          "callee": "$this->serviceErrors",
+          "lineNumber": 102
+        },
+        {
+          "caller": "pageTypeErrors",
+          "callee": "$this->tourCategoryErrors",
+          "lineNumber": 103
+        },
+        {
+          "caller": "pageTypeErrors",
+          "callee": "$this->geoHubErrors",
+          "lineNumber": 105
+        },
+        {
+          "caller": "pageTypeErrors",
+          "callee": "$this->projectErrors",
+          "lineNumber": 106
+        },
+        {
+          "caller": "pageTypeErrors",
+          "callee": "$this->locationLandingErrors",
+          "lineNumber": 107
+        },
+        {
+          "caller": "projectErrors",
+          "callee": "trim",
+          "lineNumber": 116
+        },
+        {
+          "caller": "projectErrors",
+          "callee": "$this->containsAny",
+          "lineNumber": 120
+        },
+        {
+          "caller": "serviceCategoryErrors",
+          "callee": "trim",
+          "lineNumber": 131
+        },
+        {
+          "caller": "serviceCategoryErrors",
+          "callee": "$this->containsAny",
+          "lineNumber": 135
+        },
+        {
+          "caller": "serviceErrors",
+          "callee": "trim",
+          "lineNumber": 146
+        },
+        {
+          "caller": "serviceErrors",
+          "callee": "$this->containsAny",
+          "lineNumber": 150
+        },
+        {
+          "caller": "tourCategoryErrors",
+          "callee": "trim",
+          "lineNumber": 161
+        },
+        {
+          "caller": "tourCategoryErrors",
+          "callee": "$this->containsAny",
+          "lineNumber": 165
+        },
+        {
+          "caller": "geoHubErrors",
+          "callee": "trim",
+          "lineNumber": 175
+        },
+        {
+          "caller": "geoHubErrors",
+          "callee": "mb_strtolower",
+          "lineNumber": 184
+        },
+        {
+          "caller": "geoHubErrors",
+          "callee": "trim",
+          "lineNumber": 184
+        },
+        {
+          "caller": "geoHubErrors",
+          "callee": "mb_strtolower",
+          "lineNumber": 185
+        },
+        {
+          "caller": "geoHubErrors",
+          "callee": "trim",
+          "lineNumber": 185
+        },
+        {
+          "caller": "geoHubErrors",
+          "callee": "mb_strtolower",
+          "lineNumber": 186
+        },
+        {
+          "caller": "geoHubErrors",
+          "callee": "mb_strtolower",
+          "lineNumber": 188
+        },
+        {
+          "caller": "geoHubErrors",
+          "callee": "collect($haystacks)->contains",
+          "lineNumber": 190
+        },
+        {
+          "caller": "geoHubErrors",
+          "callee": "collect",
+          "lineNumber": 190
+        },
+        {
+          "caller": "geoHubErrors",
+          "callee": "str_contains",
+          "lineNumber": 191
+        },
+        {
+          "caller": "geoHubErrors",
+          "callee": "$this->containsAny",
+          "lineNumber": 197
+        },
+        {
+          "caller": "contactErrors",
+          "callee": "$this->containsAny",
+          "lineNumber": 206
+        },
+        {
+          "caller": "locationLandingErrors",
+          "callee": "mb_strtolower",
+          "lineNumber": 224
+        },
+        {
+          "caller": "locationLandingErrors",
+          "callee": "trim",
+          "lineNumber": 224
+        },
+        {
+          "caller": "locationLandingErrors",
+          "callee": "mb_strtolower",
+          "lineNumber": 225
+        },
+        {
+          "caller": "locationLandingErrors",
+          "callee": "trim",
+          "lineNumber": 225
+        },
+        {
+          "caller": "locationLandingErrors",
+          "callee": "mb_strtolower",
+          "lineNumber": 226
+        },
+        {
+          "caller": "locationLandingErrors",
+          "callee": "mb_strtolower",
+          "lineNumber": 228
+        },
+        {
+          "caller": "locationLandingErrors",
+          "callee": "collect($haystacks)->contains",
+          "lineNumber": 230
+        },
+        {
+          "caller": "locationLandingErrors",
+          "callee": "collect",
+          "lineNumber": 230
+        },
+        {
+          "caller": "locationLandingErrors",
+          "callee": "str_contains",
+          "lineNumber": 231
+        },
+        {
+          "caller": "schemaTypes",
+          "callee": "collect($schema)\n            ->map(function ($item) {\n                $type = data_get($item, '@type');\n\n                if (is_array($type)) {\n                    return array_values(array_filter($type));\n                }\n\n                return $type ? [$type] : [];\n            })\n            ->flatten()\n            ->unique()\n            ->values()->all",
+          "lineNumber": 257
+        },
+        {
+          "caller": "schemaTypes",
+          "callee": "collect($schema)\n            ->map(function ($item) {\n                $type = data_get($item, '@type');\n\n                if (is_array($type)) {\n                    return array_values(array_filter($type));\n                }\n\n                return $type ? [$type] : [];\n            })\n            ->flatten()\n            ->unique()->values",
+          "lineNumber": 257
+        },
+        {
+          "caller": "schemaTypes",
+          "callee": "collect($schema)\n            ->map(function ($item) {\n                $type = data_get($item, '@type');\n\n                if (is_array($type)) {\n                    return array_values(array_filter($type));\n                }\n\n                return $type ? [$type] : [];\n            })\n            ->flatten()->unique",
+          "lineNumber": 257
+        },
+        {
+          "caller": "schemaTypes",
+          "callee": "collect($schema)\n            ->map(function ($item) {\n                $type = data_get($item, '@type');\n\n                if (is_array($type)) {\n                    return array_values(array_filter($type));\n                }\n\n                return $type ? [$type] : [];\n            })->flatten",
+          "lineNumber": 257
+        },
+        {
+          "caller": "schemaTypes",
+          "callee": "collect($schema)->map",
+          "lineNumber": 257
+        },
+        {
+          "caller": "schemaTypes",
+          "callee": "collect",
+          "lineNumber": 257
+        },
+        {
+          "caller": "schemaTypes",
+          "callee": "data_get",
+          "lineNumber": 259
+        },
+        {
+          "caller": "schemaTypes",
+          "callee": "is_array",
+          "lineNumber": 261
+        },
+        {
+          "caller": "schemaTypes",
+          "callee": "array_values",
+          "lineNumber": 262
+        },
+        {
+          "caller": "schemaTypes",
+          "callee": "array_filter",
+          "lineNumber": 262
+        },
+        {
+          "caller": "plainText",
+          "callee": "trim",
+          "lineNumber": 275
+        },
+        {
+          "caller": "plainText",
+          "callee": "preg_replace",
+          "lineNumber": 275
+        },
+        {
+          "caller": "plainText",
+          "callee": "strip_tags",
+          "lineNumber": 275
+        },
+        {
+          "caller": "wordCount",
+          "callee": "preg_match_all",
+          "lineNumber": 284
+        },
+        {
+          "caller": "wordCount",
+          "callee": "count",
+          "lineNumber": 286
+        },
+        {
+          "caller": "containsAny",
+          "callee": "mb_strtolower",
+          "lineNumber": 291
+        },
+        {
+          "caller": "containsAny",
+          "callee": "str_contains",
+          "lineNumber": 294
+        },
+        {
+          "caller": "containsAny",
+          "callee": "mb_strtolower",
+          "lineNumber": 294
+        },
+        {
+          "caller": "resolveLocation",
+          "callee": "trim",
+          "lineNumber": 304
+        },
+        {
+          "caller": "resolveLocation",
+          "callee": "data_get",
+          "lineNumber": 304
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 15,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoSchemaFactory.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 276,
+      "nonEmptyLines": 247,
+      "functions": [
+        {
+          "name": "forPage",
+          "startLine": 10,
+          "endLine": 124,
+          "params": [
+            "$page"
+          ]
+        },
+        {
+          "name": "breadcrumbSchema",
+          "startLine": 126,
+          "endLine": 155,
+          "params": [
+            "$page",
+            "$sectionName"
+          ]
+        },
+        {
+          "name": "itemListSchema",
+          "startLine": 157,
+          "endLine": 189,
+          "params": [
+            "$page"
+          ]
+        },
+        {
+          "name": "faqSchema",
+          "startLine": 191,
+          "endLine": 224,
+          "params": [
+            "$faqItems"
+          ]
+        },
+        {
+          "name": "organizationSchema",
+          "startLine": 226,
+          "endLine": 263,
+          "params": [
+            "$withContext"
+          ]
+        },
+        {
+          "name": "articleAuthorSchema",
+          "startLine": 265,
+          "endLine": 268,
+          "params": []
+        },
+        {
+          "name": "resolveLocation",
+          "startLine": 270,
+          "endLine": 275,
+          "params": [
+            "$page"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoSchemaFactory",
+          "startLine": 8,
+          "endLine": 276,
+          "methods": [
+            "forPage",
+            "breadcrumbSchema",
+            "itemListSchema",
+            "faqSchema",
+            "organizationSchema",
+            "articleAuthorSchema",
+            "resolveLocation"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoSchemaFactory",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "forPage",
+          "callee": "$page->loadMissing",
+          "lineNumber": 12
+        },
+        {
+          "caller": "forPage",
+          "callee": "SeoPageType::tryFrom",
+          "lineNumber": 19
+        },
+        {
+          "caller": "forPage",
+          "callee": "array_values",
+          "lineNumber": 21
+        },
+        {
+          "caller": "forPage",
+          "callee": "array_filter",
+          "lineNumber": 21
+        },
+        {
+          "caller": "forPage",
+          "callee": "config",
+          "lineNumber": 25
+        },
+        {
+          "caller": "forPage",
+          "callee": "config",
+          "lineNumber": 26
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->organizationSchema",
+          "lineNumber": 28
+        },
+        {
+          "caller": "forPage",
+          "callee": "array_values",
+          "lineNumber": 30
+        },
+        {
+          "caller": "forPage",
+          "callee": "array_filter",
+          "lineNumber": 30
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->organizationSchema",
+          "lineNumber": 36
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->breadcrumbSchema",
+          "lineNumber": 39
+        },
+        {
+          "caller": "forPage",
+          "callee": "SeoPageType::Service->sectionLabel",
+          "lineNumber": 39
+        },
+        {
+          "caller": "forPage",
+          "callee": "array_values",
+          "lineNumber": 41
+        },
+        {
+          "caller": "forPage",
+          "callee": "array_filter",
+          "lineNumber": 41
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->breadcrumbSchema",
+          "lineNumber": 50
+        },
+        {
+          "caller": "forPage",
+          "callee": "SeoPageType::ServiceCategory->sectionLabel",
+          "lineNumber": 50
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->itemListSchema",
+          "lineNumber": 51
+        },
+        {
+          "caller": "forPage",
+          "callee": "array_values",
+          "lineNumber": 53
+        },
+        {
+          "caller": "forPage",
+          "callee": "array_filter",
+          "lineNumber": 53
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->articleAuthorSchema",
+          "lineNumber": 57
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->breadcrumbSchema",
+          "lineNumber": 62
+        },
+        {
+          "caller": "forPage",
+          "callee": "SeoPageType::Blog->sectionLabel",
+          "lineNumber": 62
+        },
+        {
+          "caller": "forPage",
+          "callee": "array_values",
+          "lineNumber": 64
+        },
+        {
+          "caller": "forPage",
+          "callee": "array_filter",
+          "lineNumber": 64
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->organizationSchema",
+          "lineNumber": 71
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->organizationSchema",
+          "lineNumber": 73
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->breadcrumbSchema",
+          "lineNumber": 74
+        },
+        {
+          "caller": "forPage",
+          "callee": "SeoPageType::Contact->sectionLabel",
+          "lineNumber": 74
+        },
+        {
+          "caller": "forPage",
+          "callee": "array_values",
+          "lineNumber": 78
+        },
+        {
+          "caller": "forPage",
+          "callee": "array_filter",
+          "lineNumber": 78
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->breadcrumbSchema",
+          "lineNumber": 86
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->itemListSchema",
+          "lineNumber": 87
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->organizationSchema",
+          "lineNumber": 95
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->breadcrumbSchema",
+          "lineNumber": 98
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->resolveLocation",
+          "lineNumber": 106
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->organizationSchema",
+          "lineNumber": 107
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->breadcrumbSchema",
+          "lineNumber": 110
+        },
+        {
+          "caller": "forPage",
+          "callee": "$this->faqSchema",
+          "lineNumber": 116
+        },
+        {
+          "caller": "forPage",
+          "callee": "array_values",
+          "lineNumber": 123
+        },
+        {
+          "caller": "forPage",
+          "callee": "array_filter",
+          "lineNumber": 123
+        },
+        {
+          "caller": "breadcrumbSchema",
+          "callee": "rtrim",
+          "lineNumber": 128
+        },
+        {
+          "caller": "breadcrumbSchema",
+          "callee": "config",
+          "lineNumber": 128
+        },
+        {
+          "caller": "itemListSchema",
+          "callee": "collect($page->outgoingLinks ?? [])\n            ->sortByDesc('priority')\n            ->map(function ($link, int $index) {\n                $target = $link->targetPage;\n\n                if (! $target) {\n                    return null;\n                }\n\n                return [\n                    '@type' => 'ListItem',\n                    'position' => $index + 1,\n                    'url' => $target->canonical_url ?: url('/seo-pages/'.$target->slug),\n                    'name' => $link->anchor_text ?: ($target->h1 ?: $target->title ?: $target->primary_keyword),\n                ];\n            })\n            ->filter()\n            ->take(8)\n            ->values()->all",
+          "lineNumber": 159
+        },
+        {
+          "caller": "itemListSchema",
+          "callee": "collect($page->outgoingLinks ?? [])\n            ->sortByDesc('priority')\n            ->map(function ($link, int $index) {\n                $target = $link->targetPage;\n\n                if (! $target) {\n                    return null;\n                }\n\n                return [\n                    '@type' => 'ListItem',\n                    'position' => $index + 1,\n                    'url' => $target->canonical_url ?: url('/seo-pages/'.$target->slug),\n                    'name' => $link->anchor_text ?: ($target->h1 ?: $target->title ?: $target->primary_keyword),\n                ];\n            })\n            ->filter()\n            ->take(8)->values",
+          "lineNumber": 159
+        },
+        {
+          "caller": "itemListSchema",
+          "callee": "collect($page->outgoingLinks ?? [])\n            ->sortByDesc('priority')\n            ->map(function ($link, int $index) {\n                $target = $link->targetPage;\n\n                if (! $target) {\n                    return null;\n                }\n\n                return [\n                    '@type' => 'ListItem',\n                    'position' => $index + 1,\n                    'url' => $target->canonical_url ?: url('/seo-pages/'.$target->slug),\n                    'name' => $link->anchor_text ?: ($target->h1 ?: $target->title ?: $target->primary_keyword),\n                ];\n            })\n            ->filter()->take",
+          "lineNumber": 159
+        },
+        {
+          "caller": "itemListSchema",
+          "callee": "collect($page->outgoingLinks ?? [])\n            ->sortByDesc('priority')\n            ->map(function ($link, int $index) {\n                $target = $link->targetPage;\n\n                if (! $target) {\n                    return null;\n                }\n\n                return [\n                    '@type' => 'ListItem',\n                    'position' => $index + 1,\n                    'url' => $target->canonical_url ?: url('/seo-pages/'.$target->slug),\n                    'name' => $link->anchor_text ?: ($target->h1 ?: $target->title ?: $target->primary_keyword),\n                ];\n            })->filter",
+          "lineNumber": 159
+        },
+        {
+          "caller": "itemListSchema",
+          "callee": "collect($page->outgoingLinks ?? [])\n            ->sortByDesc('priority')->map",
+          "lineNumber": 159
+        },
+        {
+          "caller": "itemListSchema",
+          "callee": "collect($page->outgoingLinks ?? [])->sortByDesc",
+          "lineNumber": 159
+        },
+        {
+          "caller": "itemListSchema",
+          "callee": "collect",
+          "lineNumber": 159
+        },
+        {
+          "caller": "itemListSchema",
+          "callee": "url",
+          "lineNumber": 171
+        },
+        {
+          "caller": "faqSchema",
+          "callee": "collect($faqItems)\n            ->map(function ($item) {\n                $question = trim((string) (is_array($item) ? ($item['question'] ?? $item['title'] ?? '') : $item));\n                $answer = trim((string) (is_array($item) ? ($item['answer'] ?? '') : ''));\n\n                if ($question === '') {\n                    return null;\n                }\n\n                return [\n                    '@type' => 'Question',\n                    'name' => $question,\n                    'acceptedAnswer' => [\n                        '@type' => 'Answer',\n                        'text' => $answer !== '' ? $answer : 'Liên hệ để được tư vấn chi tiết theo nhu cầu lịch trình thực tế.',\n                    ],\n                ];\n            })\n            ->filter()\n            ->values()->all",
+          "lineNumber": 193
+        },
+        {
+          "caller": "faqSchema",
+          "callee": "collect($faqItems)\n            ->map(function ($item) {\n                $question = trim((string) (is_array($item) ? ($item['question'] ?? $item['title'] ?? '') : $item));\n                $answer = trim((string) (is_array($item) ? ($item['answer'] ?? '') : ''));\n\n                if ($question === '') {\n                    return null;\n                }\n\n                return [\n                    '@type' => 'Question',\n                    'name' => $question,\n                    'acceptedAnswer' => [\n                        '@type' => 'Answer',\n                        'text' => $answer !== '' ? $answer : 'Liên hệ để được tư vấn chi tiết theo nhu cầu lịch trình thực tế.',\n                    ],\n                ];\n            })\n            ->filter()->values",
+          "lineNumber": 193
+        },
+        {
+          "caller": "faqSchema",
+          "callee": "collect($faqItems)\n            ->map(function ($item) {\n                $question = trim((string) (is_array($item) ? ($item['question'] ?? $item['title'] ?? '') : $item));\n                $answer = trim((string) (is_array($item) ? ($item['answer'] ?? '') : ''));\n\n                if ($question === '') {\n                    return null;\n                }\n\n                return [\n                    '@type' => 'Question',\n                    'name' => $question,\n                    'acceptedAnswer' => [\n                        '@type' => 'Answer',\n                        'text' => $answer !== '' ? $answer : 'Liên hệ để được tư vấn chi tiết theo nhu cầu lịch trình thực tế.',\n                    ],\n                ];\n            })->filter",
+          "lineNumber": 193
+        },
+        {
+          "caller": "faqSchema",
+          "callee": "collect($faqItems)->map",
+          "lineNumber": 193
+        },
+        {
+          "caller": "faqSchema",
+          "callee": "collect",
+          "lineNumber": 193
+        },
+        {
+          "caller": "faqSchema",
+          "callee": "trim",
+          "lineNumber": 195
+        },
+        {
+          "caller": "faqSchema",
+          "callee": "is_array",
+          "lineNumber": 195
+        },
+        {
+          "caller": "faqSchema",
+          "callee": "trim",
+          "lineNumber": 196
+        },
+        {
+          "caller": "faqSchema",
+          "callee": "is_array",
+          "lineNumber": 196
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "config",
+          "lineNumber": 230
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "rtrim",
+          "lineNumber": 231
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "config",
+          "lineNumber": 231
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "trim",
+          "lineNumber": 234
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "config",
+          "lineNumber": 234
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "trim",
+          "lineNumber": 243
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "config",
+          "lineNumber": 243
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "array_filter",
+          "lineNumber": 247
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "trim",
+          "lineNumber": 249
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "config",
+          "lineNumber": 249
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "trim",
+          "lineNumber": 250
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "config",
+          "lineNumber": 250
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "trim",
+          "lineNumber": 251
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "config",
+          "lineNumber": 251
+        },
+        {
+          "caller": "organizationSchema",
+          "callee": "count",
+          "lineNumber": 254
+        },
+        {
+          "caller": "articleAuthorSchema",
+          "callee": "$this->organizationSchema",
+          "lineNumber": 267
+        },
+        {
+          "caller": "resolveLocation",
+          "callee": "trim",
+          "lineNumber": 272
+        },
+        {
+          "caller": "resolveLocation",
+          "callee": "data_get",
+          "lineNumber": 272
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoSlugGenerator.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 18,
+      "functions": [
+        {
+          "name": "generate",
+          "startLine": 9,
+          "endLine": 20,
+          "params": [
+            "$input"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoSlugGenerator",
+          "startLine": 7,
+          "endLine": 21,
+          "methods": [
+            "generate"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoSlugGenerator",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "generate",
+          "callee": "mb_substr",
+          "lineNumber": 11
+        },
+        {
+          "caller": "generate",
+          "callee": "Str::of($input)->ascii()->lower()\n                ->replaceMatches('/[^a-z0-9\\s-]/', '')\n                ->replaceMatches('/\\s+/', '-')\n                ->replaceMatches('/-+/', '-')\n                ->trim('-')->value",
+          "lineNumber": 12
+        },
+        {
+          "caller": "generate",
+          "callee": "Str::of($input)->ascii()->lower()\n                ->replaceMatches('/[^a-z0-9\\s-]/', '')\n                ->replaceMatches('/\\s+/', '-')\n                ->replaceMatches('/-+/', '-')->trim",
+          "lineNumber": 12
+        },
+        {
+          "caller": "generate",
+          "callee": "Str::of($input)->ascii()->lower()\n                ->replaceMatches('/[^a-z0-9\\s-]/', '')\n                ->replaceMatches('/\\s+/', '-')->replaceMatches",
+          "lineNumber": 12
+        },
+        {
+          "caller": "generate",
+          "callee": "Str::of($input)->ascii()->lower()\n                ->replaceMatches('/[^a-z0-9\\s-]/', '')->replaceMatches",
+          "lineNumber": 12
+        },
+        {
+          "caller": "generate",
+          "callee": "Str::of($input)->ascii()->lower()->replaceMatches",
+          "lineNumber": 12
+        },
+        {
+          "caller": "generate",
+          "callee": "Str::of($input)->ascii()->lower",
+          "lineNumber": 12
+        },
+        {
+          "caller": "generate",
+          "callee": "Str::of($input)->ascii",
+          "lineNumber": 12
+        },
+        {
+          "caller": "generate",
+          "callee": "Str::of",
+          "lineNumber": 12
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoUrlBuilder.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 18,
+      "functions": [
+        {
+          "name": "canonicalUrl",
+          "startLine": 9,
+          "endLine": 23,
+          "params": [
+            "$pageType",
+            "$slug"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoUrlBuilder",
+          "startLine": 7,
+          "endLine": 24,
+          "methods": [
+            "canonicalUrl"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoUrlBuilder",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "canonicalUrl",
+          "callee": "rtrim",
+          "lineNumber": 11
+        },
+        {
+          "caller": "canonicalUrl",
+          "callee": "config",
+          "lineNumber": 11
+        },
+        {
+          "caller": "canonicalUrl",
+          "callee": "SeoPageType::tryFrom",
+          "lineNumber": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Feature/Admin/SeoPageEditorTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "startLine": 20,
+          "endLine": 46,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoPageEditorTest",
+          "startLine": 16,
+          "endLine": 47,
+          "methods": [
+            "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoPageEditorTest",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "$this->seed",
+          "lineNumber": 22
+        },
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "User::query()->where('email', 'test@example.com')->firstOrFail",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "User::query()->where",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "User::query",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "SeoPage::query()->create",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "SeoPage::query",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "$this->actingAs",
+          "lineNumber": 34
+        },
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "Livewire::test",
+          "lineNumber": 36
+        },
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "$component->instance",
+          "lineNumber": 38
+        },
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "$component->instance",
+          "lineNumber": 39
+        },
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "$component->instance()->save",
+          "lineNumber": 41
+        },
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "$component->instance",
+          "lineNumber": 41
+        },
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "app",
+          "lineNumber": 41
+        },
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "$page->refresh",
+          "lineNumber": 43
+        },
+        {
+          "caller": "test_seo_page_editor_can_regenerate_slug_from_title_when_left_blank",
+          "callee": "$this->assertSame",
+          "lineNumber": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Feature/Admin/SeoPagePreviewTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 84,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "startLine": 19,
+          "endLine": 83,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoPagePreviewTest",
+          "startLine": 15,
+          "endLine": 84,
+          "methods": [
+            "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoPagePreviewTest",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$this->seed",
+          "lineNumber": 21
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "User::query()->where('email', 'test@example.com')->firstOrFail",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "User::query()->where",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "User::query",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$user->forceFill(['email_verified_at' => now()])->save",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$user->forceFill",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "now",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "ContentCluster::query()->create",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "ContentCluster::query",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "SeoPage::query()->create",
+          "lineNumber": 40
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "SeoPage::query",
+          "lineNumber": 40
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$cluster->getKey",
+          "lineNumber": 41
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "url",
+          "lineNumber": 45
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "now",
+          "lineNumber": 51
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "SeoPage::query()->create",
+          "lineNumber": 53
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "SeoPage::query",
+          "lineNumber": 53
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$cluster->getKey",
+          "lineNumber": 54
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "url",
+          "lineNumber": 58
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "SeoLink::query()->create",
+          "lineNumber": 65
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "SeoLink::query",
+          "lineNumber": 65
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$page->getKey",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$relatedPage->getKey",
+          "lineNumber": 67
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$this->actingAs($user)\n            ->get(route('admin.seo.pages.preview', $page))\n            ->assertOk()\n            ->assertHeader('X-Robots-Tag', 'noindex, nofollow, noarchive')\n            ->assertSee('Chế độ xem trước frontsite cho SEO page này', false)\n            ->assertSee('meta name=\"robots\" content=\"noindex,nofollow\"', false)\n            ->assertSeeText('Tour Phú Quốc giá tốt, lịch khởi hành mới nhất')\n            ->assertSeeText('Điểm cần chốt trước khi mở rộng cụm nội dung quanh Phú Quốc')->assertSeeText",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$this->actingAs($user)\n            ->get(route('admin.seo.pages.preview', $page))\n            ->assertOk()\n            ->assertHeader('X-Robots-Tag', 'noindex, nofollow, noarchive')\n            ->assertSee('Chế độ xem trước frontsite cho SEO page này', false)\n            ->assertSee('meta name=\"robots\" content=\"noindex,nofollow\"', false)\n            ->assertSeeText('Tour Phú Quốc giá tốt, lịch khởi hành mới nhất')->assertSeeText",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$this->actingAs($user)\n            ->get(route('admin.seo.pages.preview', $page))\n            ->assertOk()\n            ->assertHeader('X-Robots-Tag', 'noindex, nofollow, noarchive')\n            ->assertSee('Chế độ xem trước frontsite cho SEO page này', false)\n            ->assertSee('meta name=\"robots\" content=\"noindex,nofollow\"', false)->assertSeeText",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$this->actingAs($user)\n            ->get(route('admin.seo.pages.preview', $page))\n            ->assertOk()\n            ->assertHeader('X-Robots-Tag', 'noindex, nofollow, noarchive')\n            ->assertSee('Chế độ xem trước frontsite cho SEO page này', false)->assertSee",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$this->actingAs($user)\n            ->get(route('admin.seo.pages.preview', $page))\n            ->assertOk()\n            ->assertHeader('X-Robots-Tag', 'noindex, nofollow, noarchive')->assertSee",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$this->actingAs($user)\n            ->get(route('admin.seo.pages.preview', $page))\n            ->assertOk()->assertHeader",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$this->actingAs($user)\n            ->get(route('admin.seo.pages.preview', $page))->assertOk",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$this->actingAs($user)->get",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "$this->actingAs",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_seo_admin_can_preview_draft_destination_page_in_frontsite_shell",
+          "callee": "route",
+          "lineNumber": 75
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Feature/PublicSeoPagesTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 200,
+      "nonEmptyLines": 176,
+      "functions": [
+        {
+          "name": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "startLine": 20,
+          "endLine": 122,
+          "params": []
+        },
+        {
+          "name": "test_non_published_seo_page_is_not_publicly_accessible",
+          "startLine": 124,
+          "endLine": 140,
+          "params": []
+        },
+        {
+          "name": "test_blog_seo_page_schema_includes_article_author",
+          "startLine": 142,
+          "endLine": 165,
+          "params": []
+        },
+        {
+          "name": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "startLine": 167,
+          "endLine": 199,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "PublicSeoPagesTest",
+          "startLine": 16,
+          "endLine": 200,
+          "methods": [
+            "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+            "test_non_published_seo_page_is_not_publicly_accessible",
+            "test_blog_seo_page_schema_includes_article_author",
+            "test_published_contact_seo_page_renders_travel_contact_sections"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PublicSeoPagesTest",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->seed",
+          "lineNumber": 22
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "SiteSetting::query()->firstOrFail()->update",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "SiteSetting::query()->firstOrFail",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "SiteSetting::query",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "ContentCluster::query()->create",
+          "lineNumber": 30
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "ContentCluster::query",
+          "lineNumber": 30
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "SeoPage::query()->create",
+          "lineNumber": 46
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "SeoPage::query",
+          "lineNumber": 46
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$cluster->getKey",
+          "lineNumber": 47
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "url",
+          "lineNumber": 51
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "str_repeat",
+          "lineNumber": 56
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "now",
+          "lineNumber": 58
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "SeoPage::query()->create",
+          "lineNumber": 61
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "SeoPage::query",
+          "lineNumber": 61
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$cluster->getKey",
+          "lineNumber": 62
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "url",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "implode",
+          "lineNumber": 71
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "str_repeat",
+          "lineNumber": 73
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "str_repeat",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "str_repeat",
+          "lineNumber": 77
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "now",
+          "lineNumber": 91
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "SeoLink::query()->create",
+          "lineNumber": 94
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "SeoLink::query",
+          "lineNumber": 94
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$page->getKey",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$relatedPage->getKey",
+          "lineNumber": 96
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "parse_url",
+          "lineNumber": 103
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get($path)\n            ->assertOk()\n            ->assertSeeText('Tour Phú Quốc giá tốt, lịch khởi hành mới nhất')\n            ->assertSeeText('Điểm đến')\n            ->assertSeeText('Điểm cần chốt trước khi mở rộng cụm nội dung quanh Phú Quốc')\n            ->assertSee('data-ai-summary', false)\n            ->assertSeeText('danh mục tour trong nước')\n            ->assertSee(url('/danh-muc-tour/tour-trong-nuoc'), false)\n            ->assertSeeText('Đi Phú Quốc nên chọn tour mấy ngày?')\n            ->assertSeeText('Tùy quỹ thời gian, tour 3 ngày 2 đêm thường phù hợp với nhóm khách muốn kết hợp nghỉ dưỡng và tham quan các điểm chính.')\n            ->assertSee(url('/tour-phu-quoc'), false)\n            ->assertSee('\"@type\":\"CollectionPage\"', false)->assertSee",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get($path)\n            ->assertOk()\n            ->assertSeeText('Tour Phú Quốc giá tốt, lịch khởi hành mới nhất')\n            ->assertSeeText('Điểm đến')\n            ->assertSeeText('Điểm cần chốt trước khi mở rộng cụm nội dung quanh Phú Quốc')\n            ->assertSee('data-ai-summary', false)\n            ->assertSeeText('danh mục tour trong nước')\n            ->assertSee(url('/danh-muc-tour/tour-trong-nuoc'), false)\n            ->assertSeeText('Đi Phú Quốc nên chọn tour mấy ngày?')\n            ->assertSeeText('Tùy quỹ thời gian, tour 3 ngày 2 đêm thường phù hợp với nhóm khách muốn kết hợp nghỉ dưỡng và tham quan các điểm chính.')\n            ->assertSee(url('/tour-phu-quoc'), false)->assertSee",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get($path)\n            ->assertOk()\n            ->assertSeeText('Tour Phú Quốc giá tốt, lịch khởi hành mới nhất')\n            ->assertSeeText('Điểm đến')\n            ->assertSeeText('Điểm cần chốt trước khi mở rộng cụm nội dung quanh Phú Quốc')\n            ->assertSee('data-ai-summary', false)\n            ->assertSeeText('danh mục tour trong nước')\n            ->assertSee(url('/danh-muc-tour/tour-trong-nuoc'), false)\n            ->assertSeeText('Đi Phú Quốc nên chọn tour mấy ngày?')\n            ->assertSeeText('Tùy quỹ thời gian, tour 3 ngày 2 đêm thường phù hợp với nhóm khách muốn kết hợp nghỉ dưỡng và tham quan các điểm chính.')->assertSee",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get($path)\n            ->assertOk()\n            ->assertSeeText('Tour Phú Quốc giá tốt, lịch khởi hành mới nhất')\n            ->assertSeeText('Điểm đến')\n            ->assertSeeText('Điểm cần chốt trước khi mở rộng cụm nội dung quanh Phú Quốc')\n            ->assertSee('data-ai-summary', false)\n            ->assertSeeText('danh mục tour trong nước')\n            ->assertSee(url('/danh-muc-tour/tour-trong-nuoc'), false)\n            ->assertSeeText('Đi Phú Quốc nên chọn tour mấy ngày?')->assertSeeText",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get($path)\n            ->assertOk()\n            ->assertSeeText('Tour Phú Quốc giá tốt, lịch khởi hành mới nhất')\n            ->assertSeeText('Điểm đến')\n            ->assertSeeText('Điểm cần chốt trước khi mở rộng cụm nội dung quanh Phú Quốc')\n            ->assertSee('data-ai-summary', false)\n            ->assertSeeText('danh mục tour trong nước')\n            ->assertSee(url('/danh-muc-tour/tour-trong-nuoc'), false)->assertSeeText",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get($path)\n            ->assertOk()\n            ->assertSeeText('Tour Phú Quốc giá tốt, lịch khởi hành mới nhất')\n            ->assertSeeText('Điểm đến')\n            ->assertSeeText('Điểm cần chốt trước khi mở rộng cụm nội dung quanh Phú Quốc')\n            ->assertSee('data-ai-summary', false)\n            ->assertSeeText('danh mục tour trong nước')->assertSee",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get($path)\n            ->assertOk()\n            ->assertSeeText('Tour Phú Quốc giá tốt, lịch khởi hành mới nhất')\n            ->assertSeeText('Điểm đến')\n            ->assertSeeText('Điểm cần chốt trước khi mở rộng cụm nội dung quanh Phú Quốc')\n            ->assertSee('data-ai-summary', false)->assertSeeText",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get($path)\n            ->assertOk()\n            ->assertSeeText('Tour Phú Quốc giá tốt, lịch khởi hành mới nhất')\n            ->assertSeeText('Điểm đến')\n            ->assertSeeText('Điểm cần chốt trước khi mở rộng cụm nội dung quanh Phú Quốc')->assertSee",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get($path)\n            ->assertOk()\n            ->assertSeeText('Tour Phú Quốc giá tốt, lịch khởi hành mới nhất')\n            ->assertSeeText('Điểm đến')->assertSeeText",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get($path)\n            ->assertOk()\n            ->assertSeeText('Tour Phú Quốc giá tốt, lịch khởi hành mới nhất')->assertSeeText",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get($path)\n            ->assertOk()->assertSeeText",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get($path)->assertOk",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "url",
+          "lineNumber": 112
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "url",
+          "lineNumber": 115
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get(route('sitemap'))\n            ->assertOk()->assertSee",
+          "lineNumber": 119
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get(route('sitemap'))->assertOk",
+          "lineNumber": 119
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "$this->get",
+          "lineNumber": 119
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "route",
+          "lineNumber": 119
+        },
+        {
+          "caller": "test_published_destination_seo_page_renders_travel_hub_with_internal_links_and_faq",
+          "callee": "url",
+          "lineNumber": 121
+        },
+        {
+          "caller": "test_non_published_seo_page_is_not_publicly_accessible",
+          "callee": "$this->seed",
+          "lineNumber": 126
+        },
+        {
+          "caller": "test_non_published_seo_page_is_not_publicly_accessible",
+          "callee": "SeoPage::query()->create",
+          "lineNumber": 128
+        },
+        {
+          "caller": "test_non_published_seo_page_is_not_publicly_accessible",
+          "callee": "SeoPage::query",
+          "lineNumber": 128
+        },
+        {
+          "caller": "test_non_published_seo_page_is_not_publicly_accessible",
+          "callee": "url",
+          "lineNumber": 132
+        },
+        {
+          "caller": "test_non_published_seo_page_is_not_publicly_accessible",
+          "callee": "$this->get('/tour-ban-nhap-diem-den')->assertNotFound",
+          "lineNumber": 139
+        },
+        {
+          "caller": "test_non_published_seo_page_is_not_publicly_accessible",
+          "callee": "$this->get",
+          "lineNumber": 139
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "$this->seed",
+          "lineNumber": 144
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "SeoPage::query()->create",
+          "lineNumber": 146
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "SeoPage::query",
+          "lineNumber": 146
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "url",
+          "lineNumber": 150
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "str_repeat",
+          "lineNumber": 154
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "now",
+          "lineNumber": 156
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "collect(app(SeoSchemaFactory::class)->forPage($page))->firstWhere",
+          "lineNumber": 159
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "collect",
+          "lineNumber": 159
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "app(SeoSchemaFactory::class)->forPage",
+          "lineNumber": 159
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "app",
+          "lineNumber": 159
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "$this->assertNotNull",
+          "lineNumber": 162
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "$this->assertSame",
+          "lineNumber": 163
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "data_get",
+          "lineNumber": 163
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "$this->assertSame",
+          "lineNumber": 164
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "config",
+          "lineNumber": 164
+        },
+        {
+          "caller": "test_blog_seo_page_schema_includes_article_author",
+          "callee": "data_get",
+          "lineNumber": 164
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "$this->seed",
+          "lineNumber": 169
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "SiteSetting::query()->firstOrFail()->update",
+          "lineNumber": 171
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "SiteSetting::query()->firstOrFail",
+          "lineNumber": 171
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "SiteSetting::query",
+          "lineNumber": 171
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "SeoPage::query()->create",
+          "lineNumber": 177
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "SeoPage::query",
+          "lineNumber": 177
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "url",
+          "lineNumber": 181
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "now",
+          "lineNumber": 187
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "parse_url",
+          "lineNumber": 190
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "$this->get($path)\n            ->assertOk()\n            ->assertSeeText('Kênh liên hệ phù hợp cho từng nhu cầu')\n            ->assertSeeText('Chuẩn bị brief trước khi gửi yêu cầu')\n            ->assertSeeText('0909 999 222')\n            ->assertSeeText('tour@haidangtravel.com')->assertSeeText",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "$this->get($path)\n            ->assertOk()\n            ->assertSeeText('Kênh liên hệ phù hợp cho từng nhu cầu')\n            ->assertSeeText('Chuẩn bị brief trước khi gửi yêu cầu')\n            ->assertSeeText('0909 999 222')->assertSeeText",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "$this->get($path)\n            ->assertOk()\n            ->assertSeeText('Kênh liên hệ phù hợp cho từng nhu cầu')\n            ->assertSeeText('Chuẩn bị brief trước khi gửi yêu cầu')->assertSeeText",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "$this->get($path)\n            ->assertOk()\n            ->assertSeeText('Kênh liên hệ phù hợp cho từng nhu cầu')->assertSeeText",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "$this->get($path)\n            ->assertOk()->assertSeeText",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "$this->get($path)->assertOk",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_published_contact_seo_page_renders_travel_contact_sections",
+          "callee": "$this->get",
+          "lineNumber": 192
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Feature/SeoAiServicePageTypeRulesTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 138,
+      "nonEmptyLines": 120,
+      "functions": [
+        {
+          "name": "test_service_and_service_category_page_types_use_canonical_travel_paths",
+          "startLine": 20,
+          "endLine": 27,
+          "params": []
+        },
+        {
+          "name": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "startLine": 29,
+          "endLine": 76,
+          "params": []
+        },
+        {
+          "name": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "startLine": 78,
+          "endLine": 126,
+          "params": []
+        },
+        {
+          "name": "lowerSeoQaThresholds",
+          "startLine": 128,
+          "endLine": 137,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoAiServicePageTypeRulesTest",
+          "startLine": 16,
+          "endLine": 138,
+          "methods": [
+            "test_service_and_service_category_page_types_use_canonical_travel_paths",
+            "test_service_category_page_type_has_collection_schema_and_qa_rules",
+            "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+            "lowerSeoQaThresholds"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoAiServicePageTypeRulesTest",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_service_and_service_category_page_types_use_canonical_travel_paths",
+          "callee": "SeoPageType::adminOptions",
+          "lineNumber": 22
+        },
+        {
+          "caller": "test_service_and_service_category_page_types_use_canonical_travel_paths",
+          "callee": "$this->assertSame",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_service_and_service_category_page_types_use_canonical_travel_paths",
+          "callee": "$this->assertSame",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_service_and_service_category_page_types_use_canonical_travel_paths",
+          "callee": "url",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_service_and_service_category_page_types_use_canonical_travel_paths",
+          "callee": "app(SeoUrlBuilder::class)->canonicalUrl",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_service_and_service_category_page_types_use_canonical_travel_paths",
+          "callee": "app",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_service_and_service_category_page_types_use_canonical_travel_paths",
+          "callee": "$this->assertSame",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_service_and_service_category_page_types_use_canonical_travel_paths",
+          "callee": "url",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_service_and_service_category_page_types_use_canonical_travel_paths",
+          "callee": "app(SeoUrlBuilder::class)->canonicalUrl",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_service_and_service_category_page_types_use_canonical_travel_paths",
+          "callee": "app",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "$this->lowerSeoQaThresholds",
+          "lineNumber": 31
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "SeoPage::query()->create",
+          "lineNumber": 33
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "SeoPage::query",
+          "lineNumber": 33
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "url",
+          "lineNumber": 37
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "SeoPage::query()->create",
+          "lineNumber": 45
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "SeoPage::query",
+          "lineNumber": 45
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "url",
+          "lineNumber": 49
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "str_repeat",
+          "lineNumber": 53
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "SeoLink::query()->create",
+          "lineNumber": 59
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "SeoLink::query",
+          "lineNumber": 59
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "$page->getKey",
+          "lineNumber": 60
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "$target->getKey",
+          "lineNumber": 61
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "app(SeoSchemaFactory::class)->forPage",
+          "lineNumber": 68
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "app",
+          "lineNumber": 68
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "app(SeoQaValidator::class)->validate",
+          "lineNumber": 69
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "app",
+          "lineNumber": 69
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "$page->forceFill",
+          "lineNumber": 69
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "$this->assertContains",
+          "lineNumber": 71
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "$this->assertContains",
+          "lineNumber": 72
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "$this->assertContains",
+          "lineNumber": 73
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "$this->assertSame",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_service_category_page_type_has_collection_schema_and_qa_rules",
+          "callee": "$this->assertSame",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "$this->lowerSeoQaThresholds",
+          "lineNumber": 80
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "SeoPage::query()->create",
+          "lineNumber": 82
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "SeoPage::query",
+          "lineNumber": 82
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "url",
+          "lineNumber": 86
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "str_repeat",
+          "lineNumber": 91
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "SeoPage::query()->create",
+          "lineNumber": 97
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "SeoPage::query",
+          "lineNumber": 97
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "url",
+          "lineNumber": 101
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "SeoLink::query()->create",
+          "lineNumber": 107
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "SeoLink::query",
+          "lineNumber": 107
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "$page->getKey",
+          "lineNumber": 108
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "$related->getKey",
+          "lineNumber": 109
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "app(SeoSchemaFactory::class)->forPage",
+          "lineNumber": 116
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "app",
+          "lineNumber": 116
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "app(SeoQaValidator::class)->validate",
+          "lineNumber": 117
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "app",
+          "lineNumber": 117
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "$page->forceFill",
+          "lineNumber": 117
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "app(SeoPromptFactory::class)->draft",
+          "lineNumber": 118
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "app",
+          "lineNumber": 118
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "$this->assertContains",
+          "lineNumber": 120
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "$this->assertContains",
+          "lineNumber": 121
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "$this->assertSame",
+          "lineNumber": 122
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "$this->assertSame",
+          "lineNumber": 123
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "$this->assertStringContainsString",
+          "lineNumber": 124
+        },
+        {
+          "caller": "test_service_page_type_requires_service_schema_and_uses_service_prompt_guidance",
+          "callee": "$this->assertStringContainsString",
+          "lineNumber": 125
+        },
+        {
+          "caller": "lowerSeoQaThresholds",
+          "callee": "config",
+          "lineNumber": 130
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    }
+  ]
+}

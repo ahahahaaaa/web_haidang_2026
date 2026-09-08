@@ -1,0 +1,3315 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 20,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "app/Actions/Fortify/CreateNewUser.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "create",
+          "startLine": 20,
+          "endLine": 32,
+          "params": [
+            "$input"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CreateNewUser",
+          "startLine": 11,
+          "endLine": 33,
+          "methods": [
+            "create"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CreateNewUser",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create",
+          "callee": "Validator::make($input, [\n            ...$this->profileRules(),\n            'password' => $this->passwordRules(),\n        ])->validate",
+          "lineNumber": 22
+        },
+        {
+          "caller": "create",
+          "callee": "Validator::make",
+          "lineNumber": 22
+        },
+        {
+          "caller": "create",
+          "callee": "$this->profileRules",
+          "lineNumber": 23
+        },
+        {
+          "caller": "create",
+          "callee": "$this->passwordRules",
+          "lineNumber": 24
+        },
+        {
+          "caller": "create",
+          "callee": "User::create",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Actions/Fortify/ResetUserPassword.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 24,
+      "functions": [
+        {
+          "name": "reset",
+          "startLine": 19,
+          "endLine": 28,
+          "params": [
+            "$user",
+            "$input"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ResetUserPassword",
+          "startLine": 10,
+          "endLine": 29,
+          "methods": [
+            "reset"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ResetUserPassword",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "reset",
+          "callee": "Validator::make($input, [\n            'password' => $this->passwordRules(),\n        ])->validate",
+          "lineNumber": 21
+        },
+        {
+          "caller": "reset",
+          "callee": "Validator::make",
+          "lineNumber": 21
+        },
+        {
+          "caller": "reset",
+          "callee": "$this->passwordRules",
+          "lineNumber": 22
+        },
+        {
+          "caller": "reset",
+          "callee": "$user->forceFill([\n            'password' => $input['password'],\n        ])->save",
+          "lineNumber": 25
+        },
+        {
+          "caller": "reset",
+          "callee": "$user->forceFill",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Concerns/PasswordValidationRules.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 25,
+      "callGraph": [
+        {
+          "caller": "passwordRules",
+          "callee": "Password::default",
+          "lineNumber": 17
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/Concerns/ProfileValidationRules.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 45,
+      "callGraph": [
+        {
+          "caller": "profileRules",
+          "callee": "$this->nameRules",
+          "lineNumber": 18
+        },
+        {
+          "caller": "profileRules",
+          "callee": "$this->emailRules",
+          "lineNumber": 19
+        },
+        {
+          "caller": "emailRules",
+          "callee": "Rule::unique",
+          "lineNumber": 46
+        },
+        {
+          "caller": "emailRules",
+          "callee": "Rule::unique(User::class)->ignore",
+          "lineNumber": 47
+        },
+        {
+          "caller": "emailRules",
+          "callee": "Rule::unique",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/Console/Commands/Cms/RunBlogAutomationCommand.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 106,
+      "nonEmptyLines": 81,
+      "functions": [
+        {
+          "name": "handle",
+          "startLine": 21,
+          "endLine": 61,
+          "params": [
+            "$runner"
+          ]
+        },
+        {
+          "name": "loadPayload",
+          "startLine": 66,
+          "endLine": 85,
+          "params": [
+            "$path"
+          ]
+        },
+        {
+          "name": "resolvePath",
+          "startLine": 87,
+          "endLine": 94,
+          "params": [
+            "$path"
+          ]
+        },
+        {
+          "name": "resolveActor",
+          "startLine": 96,
+          "endLine": 105,
+          "params": [
+            "$email"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RunBlogAutomationCommand",
+          "startLine": 12,
+          "endLine": 106,
+          "methods": [
+            "handle",
+            "loadPayload",
+            "resolvePath",
+            "resolveActor"
+          ],
+          "properties": [
+            "signature",
+            "description"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RunBlogAutomationCommand",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "handle",
+          "callee": "$this->loadPayload",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handle",
+          "callee": "$this->argument",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handle",
+          "callee": "$this->error",
+          "lineNumber": 26
+        },
+        {
+          "caller": "handle",
+          "callee": "$exception->getMessage",
+          "lineNumber": 26
+        },
+        {
+          "caller": "handle",
+          "callee": "$this->resolveActor",
+          "lineNumber": 31
+        },
+        {
+          "caller": "handle",
+          "callee": "$this->option",
+          "lineNumber": 31
+        },
+        {
+          "caller": "handle",
+          "callee": "$this->option",
+          "lineNumber": 33
+        },
+        {
+          "caller": "handle",
+          "callee": "RunBlogAutomationJob::dispatch($payload, $actor?->getKey())->onQueue",
+          "lineNumber": 34
+        },
+        {
+          "caller": "handle",
+          "callee": "RunBlogAutomationJob::dispatch",
+          "lineNumber": 34
+        },
+        {
+          "caller": "handle",
+          "callee": "config",
+          "lineNumber": 35
+        },
+        {
+          "caller": "handle",
+          "callee": "$this->info",
+          "lineNumber": 37
+        },
+        {
+          "caller": "handle",
+          "callee": "$runner->run",
+          "lineNumber": 43
+        },
+        {
+          "caller": "handle",
+          "callee": "report",
+          "lineNumber": 45
+        },
+        {
+          "caller": "handle",
+          "callee": "$this->error",
+          "lineNumber": 46
+        },
+        {
+          "caller": "handle",
+          "callee": "$exception->getMessage",
+          "lineNumber": 46
+        },
+        {
+          "caller": "handle",
+          "callee": "$this->table",
+          "lineNumber": 51
+        },
+        {
+          "caller": "handle",
+          "callee": "$post->getKey",
+          "lineNumber": 52
+        },
+        {
+          "caller": "handle",
+          "callee": "$this->line",
+          "lineNumber": 58
+        },
+        {
+          "caller": "handle",
+          "callee": "route",
+          "lineNumber": 58
+        },
+        {
+          "caller": "loadPayload",
+          "callee": "$this->resolvePath",
+          "lineNumber": 68
+        },
+        {
+          "caller": "loadPayload",
+          "callee": "File::exists",
+          "lineNumber": 70
+        },
+        {
+          "caller": "loadPayload",
+          "callee": "json_decode",
+          "lineNumber": 75
+        },
+        {
+          "caller": "loadPayload",
+          "callee": "File::get",
+          "lineNumber": 75
+        },
+        {
+          "caller": "loadPayload",
+          "callee": "is_array",
+          "lineNumber": 80
+        },
+        {
+          "caller": "resolvePath",
+          "callee": "preg_match",
+          "lineNumber": 89
+        },
+        {
+          "caller": "resolvePath",
+          "callee": "str_starts_with",
+          "lineNumber": 89
+        },
+        {
+          "caller": "resolvePath",
+          "callee": "str_starts_with",
+          "lineNumber": 89
+        },
+        {
+          "caller": "resolvePath",
+          "callee": "base_path",
+          "lineNumber": 93
+        },
+        {
+          "caller": "resolveActor",
+          "callee": "trim",
+          "lineNumber": 98
+        },
+        {
+          "caller": "resolveActor",
+          "callee": "User::query()->where('email', $email)->first",
+          "lineNumber": 104
+        },
+        {
+          "caller": "resolveActor",
+          "callee": "User::query()->where",
+          "lineNumber": 104
+        },
+        {
+          "caller": "resolveActor",
+          "callee": "User::query",
+          "lineNumber": 104
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Http/Controllers/Admin/Blogs/BlogAutomationController.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 24,
+      "functions": [
+        {
+          "name": "__invoke",
+          "startLine": 12,
+          "endLine": 27,
+          "params": [
+            "$request"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BlogAutomationController",
+          "startLine": 10,
+          "endLine": 28,
+          "methods": [
+            "__invoke"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BlogAutomationController",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__invoke",
+          "callee": "RunBlogAutomationJob::dispatch(\n            payload: $request->validated(),\n            actorId: $request->user()?->getKey(),\n        )->onQueue",
+          "lineNumber": 14
+        },
+        {
+          "caller": "__invoke",
+          "callee": "RunBlogAutomationJob::dispatch",
+          "lineNumber": 14
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$request->validated",
+          "lineNumber": 15
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$request->user",
+          "lineNumber": 16
+        },
+        {
+          "caller": "__invoke",
+          "callee": "config",
+          "lineNumber": 17
+        },
+        {
+          "caller": "__invoke",
+          "callee": "response()->json",
+          "lineNumber": 19
+        },
+        {
+          "caller": "__invoke",
+          "callee": "response",
+          "lineNumber": 19
+        },
+        {
+          "caller": "__invoke",
+          "callee": "count",
+          "lineNumber": 23
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$request->validated",
+          "lineNumber": 23
+        },
+        {
+          "caller": "__invoke",
+          "callee": "config",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Http/Controllers/Agency/TourExportController.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 68,
+      "nonEmptyLines": 59,
+      "functions": [
+        {
+          "name": "__invoke",
+          "startLine": 15,
+          "endLine": 67,
+          "params": [
+            "$request"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TourExportController",
+          "startLine": 13,
+          "endLine": 68,
+          "methods": [
+            "__invoke"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TourExportController",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__invoke",
+          "callee": "max",
+          "lineNumber": 17
+        },
+        {
+          "caller": "__invoke",
+          "callee": "config",
+          "lineNumber": 17
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$request->validate",
+          "lineNumber": 18
+        },
+        {
+          "caller": "__invoke",
+          "callee": "min",
+          "lineNumber": 24
+        },
+        {
+          "caller": "__invoke",
+          "callee": "max",
+          "lineNumber": 25
+        },
+        {
+          "caller": "__invoke",
+          "callee": "config",
+          "lineNumber": 25
+        },
+        {
+          "caller": "__invoke",
+          "callee": "Tour::query()\n            ->with([\n                'manager.roles',\n                'departures' => fn ($departureQuery) => $departureQuery\n                    ->orderBy('departure_date')\n                    ->orderBy('sort_order')\n                    ->orderBy('id'),\n            ])->orderBy",
+          "lineNumber": 29
+        },
+        {
+          "caller": "__invoke",
+          "callee": "Tour::query()->with",
+          "lineNumber": 29
+        },
+        {
+          "caller": "__invoke",
+          "callee": "Tour::query",
+          "lineNumber": 29
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$departureQuery\n                    ->orderBy('departure_date')\n                    ->orderBy('sort_order')->orderBy",
+          "lineNumber": 32
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$departureQuery\n                    ->orderBy('departure_date')->orderBy",
+          "lineNumber": 32
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$departureQuery->orderBy",
+          "lineNumber": 32
+        },
+        {
+          "caller": "__invoke",
+          "callee": "filled",
+          "lineNumber": 39
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$query->whereKey",
+          "lineNumber": 40
+        },
+        {
+          "caller": "__invoke",
+          "callee": "filled",
+          "lineNumber": 43
+        },
+        {
+          "caller": "__invoke",
+          "callee": "Carbon::parse",
+          "lineNumber": 44
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$query->where",
+          "lineNumber": 46
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$changedQuery\n                    ->where('updated_at', '>=', $updatedSince)->orWhereHas",
+          "lineNumber": 47
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$changedQuery->where",
+          "lineNumber": 47
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$departureQuery->where",
+          "lineNumber": 49
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$query->paginate",
+          "lineNumber": 54
+        },
+        {
+          "caller": "__invoke",
+          "callee": "response()->json",
+          "lineNumber": 56
+        },
+        {
+          "caller": "__invoke",
+          "callee": "response",
+          "lineNumber": 56
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$tours->getCollection()\n                ->map(fn (Tour $tour): array => (new TourExportResource($tour))->toArray($request))->values",
+          "lineNumber": 57
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$tours->getCollection()->map",
+          "lineNumber": 57
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$tours->getCollection",
+          "lineNumber": 57
+        },
+        {
+          "caller": "__invoke",
+          "callee": "(new TourExportResource($tour))->toArray",
+          "lineNumber": 58
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$tours->currentPage",
+          "lineNumber": 61
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$tours->lastPage",
+          "lineNumber": 62
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$tours->perPage",
+          "lineNumber": 63
+        },
+        {
+          "caller": "__invoke",
+          "callee": "$tours->total",
+          "lineNumber": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Http/Requests/Admin/Blogs/StoreBlogAutomationJobRequest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "authorize",
+          "startLine": 10,
+          "endLine": 13,
+          "params": []
+        },
+        {
+          "name": "rules",
+          "startLine": 15,
+          "endLine": 43,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "StoreBlogAutomationJobRequest",
+          "startLine": 8,
+          "endLine": 44,
+          "methods": [
+            "authorize",
+            "rules"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "StoreBlogAutomationJobRequest",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "authorize",
+          "callee": "$this->user",
+          "lineNumber": 12
+        },
+        {
+          "caller": "rules",
+          "callee": "max",
+          "lineNumber": 17
+        },
+        {
+          "caller": "rules",
+          "callee": "config",
+          "lineNumber": 17
+        },
+        {
+          "caller": "rules",
+          "callee": "Rule::exists('content_categories', 'id')->where",
+          "lineNumber": 24
+        },
+        {
+          "caller": "rules",
+          "callee": "Rule::exists",
+          "lineNumber": 24
+        },
+        {
+          "caller": "rules",
+          "callee": "Rule::exists('content_categories', 'slug')->where",
+          "lineNumber": 25
+        },
+        {
+          "caller": "rules",
+          "callee": "Rule::exists",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Http/Resources/Agency/TourExportResource.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 58,
+      "functions": [
+        {
+          "name": "toArray",
+          "startLine": 13,
+          "endLine": 41,
+          "params": [
+            "$request"
+          ]
+        },
+        {
+          "name": "managerPayload",
+          "startLine": 43,
+          "endLine": 57,
+          "params": [
+            "$manager"
+          ]
+        },
+        {
+          "name": "sellingPrice",
+          "startLine": 59,
+          "endLine": 64,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TourExportResource",
+          "startLine": 11,
+          "endLine": 65,
+          "methods": [
+            "toArray",
+            "managerPayload",
+            "sellingPrice"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TourExportResource",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "toArray",
+          "callee": "$this->sellingPrice",
+          "lineNumber": 15
+        },
+        {
+          "caller": "toArray",
+          "callee": "$this->managerPayload",
+          "lineNumber": 31
+        },
+        {
+          "caller": "toArray",
+          "callee": "optional",
+          "lineNumber": 32
+        },
+        {
+          "caller": "toArray",
+          "callee": "optional",
+          "lineNumber": 33
+        },
+        {
+          "caller": "toArray",
+          "callee": "$this->whenLoaded",
+          "lineNumber": 34
+        },
+        {
+          "caller": "toArray",
+          "callee": "$this->departures\n                    ->map(fn (TourDeparture $departure): array => (new TourDepartureExportResource($departure))->toArray($request))\n                    ->values()->all",
+          "lineNumber": 35
+        },
+        {
+          "caller": "toArray",
+          "callee": "$this->departures\n                    ->map(fn (TourDeparture $departure): array => (new TourDepartureExportResource($departure))->toArray($request))->values",
+          "lineNumber": 35
+        },
+        {
+          "caller": "toArray",
+          "callee": "$this->departures->map",
+          "lineNumber": 35
+        },
+        {
+          "caller": "toArray",
+          "callee": "(new TourDepartureExportResource($departure))->toArray",
+          "lineNumber": 36
+        },
+        {
+          "caller": "managerPayload",
+          "callee": "$manager->getKey",
+          "lineNumber": 50
+        },
+        {
+          "caller": "managerPayload",
+          "callee": "method_exists",
+          "lineNumber": 55
+        },
+        {
+          "caller": "managerPayload",
+          "callee": "$manager->getRoleNames()->values()->all",
+          "lineNumber": 55
+        },
+        {
+          "caller": "managerPayload",
+          "callee": "$manager->getRoleNames()->values",
+          "lineNumber": 55
+        },
+        {
+          "caller": "managerPayload",
+          "callee": "$manager->getRoleNames",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Jobs/Cms/RunBlogAutomationJob.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 23,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "backoff",
+          "startLine": 33,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "handle",
+          "startLine": 38,
+          "endLine": 43,
+          "params": [
+            "$runner"
+          ]
+        },
+        {
+          "name": "failed",
+          "startLine": 45,
+          "endLine": 50,
+          "params": [
+            "$exception"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RunBlogAutomationJob",
+          "startLine": 14,
+          "endLine": 51,
+          "methods": [
+            "__construct",
+            "backoff",
+            "handle",
+            "failed"
+          ],
+          "properties": [
+            "tries"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RunBlogAutomationJob",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__construct",
+          "callee": "$this->onQueue",
+          "lineNumber": 27
+        },
+        {
+          "caller": "__construct",
+          "callee": "config",
+          "lineNumber": 27
+        },
+        {
+          "caller": "handle",
+          "callee": "User::query()->find",
+          "lineNumber": 40
+        },
+        {
+          "caller": "handle",
+          "callee": "User::query",
+          "lineNumber": 40
+        },
+        {
+          "caller": "handle",
+          "callee": "$runner->run",
+          "lineNumber": 42
+        },
+        {
+          "caller": "failed",
+          "callee": "report",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Jobs/Seo/GenerateSeoBriefJob.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 19,
+          "endLine": 22,
+          "params": []
+        },
+        {
+          "name": "handle",
+          "startLine": 24,
+          "endLine": 47,
+          "params": [
+            "$orchestrator",
+            "$slugService"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "GenerateSeoBriefJob",
+          "startLine": 15,
+          "endLine": 48,
+          "methods": [
+            "__construct",
+            "handle"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "GenerateSeoBriefJob",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__construct",
+          "callee": "$this->onQueue",
+          "lineNumber": 21
+        },
+        {
+          "caller": "__construct",
+          "callee": "config",
+          "lineNumber": 21
+        },
+        {
+          "caller": "handle",
+          "callee": "ContentCluster::findOrFail",
+          "lineNumber": 28
+        },
+        {
+          "caller": "handle",
+          "callee": "$orchestrator->generateBrief",
+          "lineNumber": 30
+        },
+        {
+          "caller": "handle",
+          "callee": "SeoPage::create",
+          "lineNumber": 32
+        },
+        {
+          "caller": "handle",
+          "callee": "$slugService->generate",
+          "lineNumber": 36
+        },
+        {
+          "caller": "handle",
+          "callee": "rtrim",
+          "lineNumber": 37
+        },
+        {
+          "caller": "handle",
+          "callee": "config",
+          "lineNumber": 37
+        },
+        {
+          "caller": "handle",
+          "callee": "$slugService->generate",
+          "lineNumber": 37
+        },
+        {
+          "caller": "handle",
+          "callee": "GenerateSeoDraftJob::dispatch",
+          "lineNumber": 46
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Jobs/Seo/GenerateSeoDraftJob.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 17,
+          "endLine": 20,
+          "params": []
+        },
+        {
+          "name": "handle",
+          "startLine": 22,
+          "endLine": 41,
+          "params": [
+            "$orchestrator"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "GenerateSeoDraftJob",
+          "startLine": 13,
+          "endLine": 42,
+          "methods": [
+            "__construct",
+            "handle"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "GenerateSeoDraftJob",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__construct",
+          "callee": "$this->onQueue",
+          "lineNumber": 19
+        },
+        {
+          "caller": "__construct",
+          "callee": "config",
+          "lineNumber": 19
+        },
+        {
+          "caller": "handle",
+          "callee": "SeoPage::findOrFail",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handle",
+          "callee": "$orchestrator->generateDraft",
+          "lineNumber": 26
+        },
+        {
+          "caller": "handle",
+          "callee": "array_merge",
+          "lineNumber": 34
+        },
+        {
+          "caller": "handle",
+          "callee": "$page->save",
+          "lineNumber": 38
+        },
+        {
+          "caller": "handle",
+          "callee": "BuildSeoLinksJob::dispatch",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Livewire/Actions/Logout.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 17,
+      "functions": [
+        {
+          "name": "__invoke",
+          "startLine": 13,
+          "endLine": 21,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Logout",
+          "startLine": 8,
+          "endLine": 22,
+          "methods": [
+            "__invoke"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Logout",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__invoke",
+          "callee": "Auth::guard('web')->logout",
+          "lineNumber": 15
+        },
+        {
+          "caller": "__invoke",
+          "callee": "Auth::guard",
+          "lineNumber": 15
+        },
+        {
+          "caller": "__invoke",
+          "callee": "Session::invalidate",
+          "lineNumber": 17
+        },
+        {
+          "caller": "__invoke",
+          "callee": "Session::regenerateToken",
+          "lineNumber": 18
+        },
+        {
+          "caller": "__invoke",
+          "callee": "redirect",
+          "lineNumber": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/AccountsManager.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 366,
+      "nonEmptyLines": 288,
+      "functions": [
+        {
+          "name": "mount",
+          "startLine": 35,
+          "endLine": 43,
+          "params": [
+            "$user"
+          ]
+        },
+        {
+          "name": "createAccount",
+          "startLine": 45,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "editAccount",
+          "startLine": 53,
+          "endLine": 75,
+          "params": [
+            "$id"
+          ]
+        },
+        {
+          "name": "render",
+          "startLine": 77,
+          "endLine": 101,
+          "params": []
+        },
+        {
+          "name": "save",
+          "startLine": 103,
+          "endLine": 186,
+          "params": []
+        },
+        {
+          "name": "disableUser",
+          "startLine": 188,
+          "endLine": 210,
+          "params": [
+            "$id"
+          ]
+        },
+        {
+          "name": "enableUser",
+          "startLine": 212,
+          "endLine": 224,
+          "params": [
+            "$id"
+          ]
+        },
+        {
+          "name": "deleteUser",
+          "startLine": 226,
+          "endLine": 251,
+          "params": [
+            "$id"
+          ]
+        },
+        {
+          "name": "updatingSearch",
+          "startLine": 253,
+          "endLine": 256,
+          "params": []
+        },
+        {
+          "name": "updatingRoleFilter",
+          "startLine": 258,
+          "endLine": 261,
+          "params": []
+        },
+        {
+          "name": "updatingStatusFilter",
+          "startLine": 263,
+          "endLine": 266,
+          "params": []
+        },
+        {
+          "name": "isEditorRoute",
+          "startLine": 268,
+          "endLine": 271,
+          "params": []
+        },
+        {
+          "name": "resetForm",
+          "startLine": 273,
+          "endLine": 285,
+          "params": []
+        },
+        {
+          "name": "roleTypeFor",
+          "startLine": 287,
+          "endLine": 294,
+          "params": [
+            "$user"
+          ]
+        },
+        {
+          "name": "synchronizeCmsAccess",
+          "startLine": 296,
+          "endLine": 299,
+          "params": []
+        },
+        {
+          "name": "authorizeAccountAdministration",
+          "startLine": 301,
+          "endLine": 310,
+          "params": []
+        },
+        {
+          "name": "currentUserCanManageAccounts",
+          "startLine": 312,
+          "endLine": 317,
+          "params": []
+        },
+        {
+          "name": "findUserForAccountAction",
+          "startLine": 319,
+          "endLine": 322,
+          "params": [
+            "$id"
+          ]
+        },
+        {
+          "name": "canDeactivateOrDelete",
+          "startLine": 324,
+          "endLine": 339,
+          "params": [
+            "$user"
+          ]
+        },
+        {
+          "name": "wouldRemoveLastActiveAdministrator",
+          "startLine": 341,
+          "endLine": 356,
+          "params": [
+            "$user",
+            "$targetRoleType",
+            "$targetIsActive"
+          ]
+        },
+        {
+          "name": "clearUserSessions",
+          "startLine": 358,
+          "endLine": 365,
+          "params": [
+            "$user"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AccountsManager",
+          "startLine": 16,
+          "endLine": 366,
+          "methods": [
+            "mount",
+            "createAccount",
+            "editAccount",
+            "render",
+            "save",
+            "disableUser",
+            "enableUser",
+            "deleteUser",
+            "updatingSearch",
+            "updatingRoleFilter",
+            "updatingStatusFilter",
+            "isEditorRoute",
+            "resetForm",
+            "roleTypeFor",
+            "synchronizeCmsAccess",
+            "authorizeAccountAdministration",
+            "currentUserCanManageAccounts",
+            "findUserForAccountAction",
+            "canDeactivateOrDelete",
+            "wouldRemoveLastActiveAdministrator",
+            "clearUserSessions"
+          ],
+          "properties": [
+            "currentRouteName",
+            "form",
+            "roleFilter",
+            "search",
+            "selectedId",
+            "statusFilter"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AccountsManager",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "mount",
+          "callee": "request()->route",
+          "lineNumber": 37
+        },
+        {
+          "caller": "mount",
+          "callee": "request",
+          "lineNumber": 37
+        },
+        {
+          "caller": "mount",
+          "callee": "$this->resetForm",
+          "lineNumber": 38
+        },
+        {
+          "caller": "mount",
+          "callee": "$this->isEditorRoute",
+          "lineNumber": 40
+        },
+        {
+          "caller": "mount",
+          "callee": "$this->editAccount",
+          "lineNumber": 41
+        },
+        {
+          "caller": "mount",
+          "callee": "$user->getKey",
+          "lineNumber": 41
+        },
+        {
+          "caller": "createAccount",
+          "callee": "$this->authorizeAdminPermission",
+          "lineNumber": 47
+        },
+        {
+          "caller": "createAccount",
+          "callee": "$this->resetForm",
+          "lineNumber": 50
+        },
+        {
+          "caller": "editAccount",
+          "callee": "$this->authorizeAdminPermission",
+          "lineNumber": 55
+        },
+        {
+          "caller": "editAccount",
+          "callee": "User::query()->with(['roles', 'permissions'])->findOrFail",
+          "lineNumber": 57
+        },
+        {
+          "caller": "editAccount",
+          "callee": "User::query()->with",
+          "lineNumber": 57
+        },
+        {
+          "caller": "editAccount",
+          "callee": "User::query",
+          "lineNumber": 57
+        },
+        {
+          "caller": "editAccount",
+          "callee": "AdminNavigationRegistry::defaultContentPermissions",
+          "lineNumber": 58
+        },
+        {
+          "caller": "editAccount",
+          "callee": "$user->getKey",
+          "lineNumber": 60
+        },
+        {
+          "caller": "editAccount",
+          "callee": "$this->roleTypeFor",
+          "lineNumber": 67
+        },
+        {
+          "caller": "editAccount",
+          "callee": "$user->permissions\n                ->pluck('name')\n                ->reject(fn (string $permission) => in_array($permission, $defaults, true))\n                ->values()->all",
+          "lineNumber": 69
+        },
+        {
+          "caller": "editAccount",
+          "callee": "$user->permissions\n                ->pluck('name')\n                ->reject(fn (string $permission) => in_array($permission, $defaults, true))->values",
+          "lineNumber": 69
+        },
+        {
+          "caller": "editAccount",
+          "callee": "$user->permissions\n                ->pluck('name')->reject",
+          "lineNumber": 69
+        },
+        {
+          "caller": "editAccount",
+          "callee": "$user->permissions->pluck",
+          "lineNumber": 69
+        },
+        {
+          "caller": "editAccount",
+          "callee": "in_array",
+          "lineNumber": 71
+        },
+        {
+          "caller": "render",
+          "callee": "view",
+          "lineNumber": 79
+        },
+        {
+          "caller": "render",
+          "callee": "AdminNavigationRegistry::groups",
+          "lineNumber": 80
+        },
+        {
+          "caller": "render",
+          "callee": "$this->currentUserCanManageAccounts",
+          "lineNumber": 81
+        },
+        {
+          "caller": "render",
+          "callee": "auth()->id",
+          "lineNumber": 82
+        },
+        {
+          "caller": "render",
+          "callee": "auth",
+          "lineNumber": 82
+        },
+        {
+          "caller": "render",
+          "callee": "User::query()->find",
+          "lineNumber": 83
+        },
+        {
+          "caller": "render",
+          "callee": "User::query",
+          "lineNumber": 83
+        },
+        {
+          "caller": "render",
+          "callee": "User::query()\n                ->with('roles')\n                ->when($this->search !== '', function ($query) {\n                    $query->where(function ($nested) {\n                        $nested\n                            ->where('name', 'like', '%'.$this->search.'%')\n                            ->orWhere('email', 'like', '%'.$this->search.'%');\n                    });\n                })\n                ->when($this->roleFilter === 'content', fn ($query) => $query->whereHas('roles', fn ($roleQuery) => $roleQuery->where('name', 'content')))\n                ->when($this->roleFilter === 'sale', fn ($query) => $query->whereHas('roles', fn ($roleQuery) => $roleQuery->where('name', 'sale')))\n                ->when($this->roleFilter === 'admin', fn ($query) => $query->whereDoesntHave('roles', fn ($roleQuery) => $roleQuery->whereIn('name', ['content', 'sale'])))\n                ->when($this->statusFilter === 'active', fn ($query) => $query->where('is_active', true))\n                ->when($this->statusFilter === 'inactive', fn ($query) => $query->where('is_active', false))\n                ->orderBy('name')->paginate",
+          "lineNumber": 84
+        },
+        {
+          "caller": "render",
+          "callee": "User::query()\n                ->with('roles')\n                ->when($this->search !== '', function ($query) {\n                    $query->where(function ($nested) {\n                        $nested\n                            ->where('name', 'like', '%'.$this->search.'%')\n                            ->orWhere('email', 'like', '%'.$this->search.'%');\n                    });\n                })\n                ->when($this->roleFilter === 'content', fn ($query) => $query->whereHas('roles', fn ($roleQuery) => $roleQuery->where('name', 'content')))\n                ->when($this->roleFilter === 'sale', fn ($query) => $query->whereHas('roles', fn ($roleQuery) => $roleQuery->where('name', 'sale')))\n                ->when($this->roleFilter === 'admin', fn ($query) => $query->whereDoesntHave('roles', fn ($roleQuery) => $roleQuery->whereIn('name', ['content', 'sale'])))\n                ->when($this->statusFilter === 'active', fn ($query) => $query->where('is_active', true))\n                ->when($this->statusFilter === 'inactive', fn ($query) => $query->where('is_active', false))->orderBy",
+          "lineNumber": 84
+        },
+        {
+          "caller": "render",
+          "callee": "User::query()\n                ->with('roles')\n                ->when($this->search !== '', function ($query) {\n                    $query->where(function ($nested) {\n                        $nested\n                            ->where('name', 'like', '%'.$this->search.'%')\n                            ->orWhere('email', 'like', '%'.$this->search.'%');\n                    });\n                })\n                ->when($this->roleFilter === 'content', fn ($query) => $query->whereHas('roles', fn ($roleQuery) => $roleQuery->where('name', 'content')))\n                ->when($this->roleFilter === 'sale', fn ($query) => $query->whereHas('roles', fn ($roleQuery) => $roleQuery->where('name', 'sale')))\n                ->when($this->roleFilter === 'admin', fn ($query) => $query->whereDoesntHave('roles', fn ($roleQuery) => $roleQuery->whereIn('name', ['content', 'sale'])))\n                ->when($this->statusFilter === 'active', fn ($query) => $query->where('is_active', true))->when",
+          "lineNumber": 84
+        },
+        {
+          "caller": "render",
+          "callee": "User::query()\n                ->with('roles')\n                ->when($this->search !== '', function ($query) {\n                    $query->where(function ($nested) {\n                        $nested\n                            ->where('name', 'like', '%'.$this->search.'%')\n                            ->orWhere('email', 'like', '%'.$this->search.'%');\n                    });\n                })\n                ->when($this->roleFilter === 'content', fn ($query) => $query->whereHas('roles', fn ($roleQuery) => $roleQuery->where('name', 'content')))\n                ->when($this->roleFilter === 'sale', fn ($query) => $query->whereHas('roles', fn ($roleQuery) => $roleQuery->where('name', 'sale')))\n                ->when($this->roleFilter === 'admin', fn ($query) => $query->whereDoesntHave('roles', fn ($roleQuery) => $roleQuery->whereIn('name', ['content', 'sale'])))->when",
+          "lineNumber": 84
+        },
+        {
+          "caller": "render",
+          "callee": "User::query()\n                ->with('roles')\n                ->when($this->search !== '', function ($query) {\n                    $query->where(function ($nested) {\n                        $nested\n                            ->where('name', 'like', '%'.$this->search.'%')\n                            ->orWhere('email', 'like', '%'.$this->search.'%');\n                    });\n                })\n                ->when($this->roleFilter === 'content', fn ($query) => $query->whereHas('roles', fn ($roleQuery) => $roleQuery->where('name', 'content')))\n                ->when($this->roleFilter === 'sale', fn ($query) => $query->whereHas('roles', fn ($roleQuery) => $roleQuery->where('name', 'sale')))->when",
+          "lineNumber": 84
+        },
+        {
+          "caller": "render",
+          "callee": "User::query()\n                ->with('roles')\n                ->when($this->search !== '', function ($query) {\n                    $query->where(function ($nested) {\n                        $nested\n                            ->where('name', 'like', '%'.$this->search.'%')\n                            ->orWhere('email', 'like', '%'.$this->search.'%');\n                    });\n                })\n                ->when($this->roleFilter === 'content', fn ($query) => $query->whereHas('roles', fn ($roleQuery) => $roleQuery->where('name', 'content')))->when",
+          "lineNumber": 84
+        },
+        {
+          "caller": "render",
+          "callee": "User::query()\n                ->with('roles')\n                ->when($this->search !== '', function ($query) {\n                    $query->where(function ($nested) {\n                        $nested\n                            ->where('name', 'like', '%'.$this->search.'%')\n                            ->orWhere('email', 'like', '%'.$this->search.'%');\n                    });\n                })->when",
+          "lineNumber": 84
+        },
+        {
+          "caller": "render",
+          "callee": "User::query()\n                ->with('roles')->when",
+          "lineNumber": 84
+        },
+        {
+          "caller": "render",
+          "callee": "User::query()->with",
+          "lineNumber": 84
+        },
+        {
+          "caller": "render",
+          "callee": "User::query",
+          "lineNumber": 84
+        },
+        {
+          "caller": "render",
+          "callee": "$query->where",
+          "lineNumber": 87
+        },
+        {
+          "caller": "render",
+          "callee": "$nested\n                            ->where('name', 'like', '%'.$this->search.'%')->orWhere",
+          "lineNumber": 88
+        },
+        {
+          "caller": "render",
+          "callee": "$nested->where",
+          "lineNumber": 88
+        },
+        {
+          "caller": "render",
+          "callee": "$query->whereHas",
+          "lineNumber": 93
+        },
+        {
+          "caller": "render",
+          "callee": "$roleQuery->where",
+          "lineNumber": 93
+        },
+        {
+          "caller": "render",
+          "callee": "$query->whereHas",
+          "lineNumber": 94
+        },
+        {
+          "caller": "render",
+          "callee": "$roleQuery->where",
+          "lineNumber": 94
+        },
+        {
+          "caller": "render",
+          "callee": "$query->whereDoesntHave",
+          "lineNumber": 95
+        },
+        {
+          "caller": "render",
+          "callee": "$roleQuery->whereIn",
+          "lineNumber": 95
+        },
+        {
+          "caller": "render",
+          "callee": "$query->where",
+          "lineNumber": 96
+        },
+        {
+          "caller": "render",
+          "callee": "$query->where",
+          "lineNumber": 97
+        },
+        {
+          "caller": "save",
+          "callee": "$this->authorizeAdminPermission",
+          "lineNumber": 105
+        },
+        {
+          "caller": "save",
+          "callee": "$this->validate",
+          "lineNumber": 109
+        },
+        {
+          "caller": "save",
+          "callee": "Rule::unique('users', 'email')->ignore",
+          "lineNumber": 115
+        },
+        {
+          "caller": "save",
+          "callee": "Rule::unique",
+          "lineNumber": 115
+        },
+        {
+          "caller": "save",
+          "callee": "Rule::in",
+          "lineNumber": 119
+        },
+        {
+          "caller": "save",
+          "callee": "Rule::in",
+          "lineNumber": 122
+        },
+        {
+          "caller": "save",
+          "callee": "AdminNavigationRegistry::permissionKeys",
+          "lineNumber": 122
+        },
+        {
+          "caller": "save",
+          "callee": "User::query()->findOrNew",
+          "lineNumber": 125
+        },
+        {
+          "caller": "save",
+          "callee": "User::query",
+          "lineNumber": 125
+        },
+        {
+          "caller": "save",
+          "callee": "$user->is",
+          "lineNumber": 128
+        },
+        {
+          "caller": "save",
+          "callee": "auth()->user",
+          "lineNumber": 128
+        },
+        {
+          "caller": "save",
+          "callee": "auth",
+          "lineNumber": 128
+        },
+        {
+          "caller": "save",
+          "callee": "$this->addError",
+          "lineNumber": 129
+        },
+        {
+          "caller": "save",
+          "callee": "$user->is",
+          "lineNumber": 134
+        },
+        {
+          "caller": "save",
+          "callee": "auth()->user",
+          "lineNumber": 134
+        },
+        {
+          "caller": "save",
+          "callee": "auth",
+          "lineNumber": 134
+        },
+        {
+          "caller": "save",
+          "callee": "$this->addError",
+          "lineNumber": 135
+        },
+        {
+          "caller": "save",
+          "callee": "$this->wouldRemoveLastActiveAdministrator",
+          "lineNumber": 140
+        },
+        {
+          "caller": "save",
+          "callee": "$this->addError",
+          "lineNumber": 141
+        },
+        {
+          "caller": "save",
+          "callee": "filled",
+          "lineNumber": 151
+        },
+        {
+          "caller": "save",
+          "callee": "$user->save",
+          "lineNumber": 155
+        },
+        {
+          "caller": "save",
+          "callee": "$this->synchronizeCmsAccess",
+          "lineNumber": 156
+        },
+        {
+          "caller": "save",
+          "callee": "$user->hasRole",
+          "lineNumber": 159
+        },
+        {
+          "caller": "save",
+          "callee": "$user->syncRoles",
+          "lineNumber": 160
+        },
+        {
+          "caller": "save",
+          "callee": "$user->syncPermissions",
+          "lineNumber": 161
+        },
+        {
+          "caller": "save",
+          "callee": "$user->syncRoles",
+          "lineNumber": 163
+        },
+        {
+          "caller": "save",
+          "callee": "$user->syncPermissions",
+          "lineNumber": 164
+        },
+        {
+          "caller": "save",
+          "callee": "$user->syncRoles",
+          "lineNumber": 166
+        },
+        {
+          "caller": "save",
+          "callee": "AdminNavigationRegistry::defaultContentPermissions",
+          "lineNumber": 167
+        },
+        {
+          "caller": "save",
+          "callee": "collect($validated['form']['extra_permissions'] ?? [])\n                ->reject(fn (string $permission) => in_array($permission, $defaultPermissions, true))\n                ->values()->all",
+          "lineNumber": 168
+        },
+        {
+          "caller": "save",
+          "callee": "collect($validated['form']['extra_permissions'] ?? [])\n                ->reject(fn (string $permission) => in_array($permission, $defaultPermissions, true))->values",
+          "lineNumber": 168
+        },
+        {
+          "caller": "save",
+          "callee": "collect($validated['form']['extra_permissions'] ?? [])->reject",
+          "lineNumber": 168
+        },
+        {
+          "caller": "save",
+          "callee": "collect",
+          "lineNumber": 168
+        },
+        {
+          "caller": "save",
+          "callee": "in_array",
+          "lineNumber": 169
+        },
+        {
+          "caller": "save",
+          "callee": "$user->syncPermissions",
+          "lineNumber": 173
+        },
+        {
+          "caller": "save",
+          "callee": "$this->clearUserSessions",
+          "lineNumber": 177
+        },
+        {
+          "caller": "save",
+          "callee": "$user->getKey",
+          "lineNumber": 180
+        },
+        {
+          "caller": "save",
+          "callee": "$this->editAccount",
+          "lineNumber": 181
+        },
+        {
+          "caller": "save",
+          "callee": "$user->getKey",
+          "lineNumber": 181
+        },
+        {
+          "caller": "save",
+          "callee": "session()->flash",
+          "lineNumber": 183
+        },
+        {
+          "caller": "save",
+          "callee": "session",
+          "lineNumber": 183
+        },
+        {
+          "caller": "save",
+          "callee": "$this->redirectRoute",
+          "lineNumber": 185
+        },
+        {
+          "caller": "disableUser",
+          "callee": "$this->authorizeAccountAdministration",
+          "lineNumber": 190
+        },
+        {
+          "caller": "disableUser",
+          "callee": "$this->findUserForAccountAction",
+          "lineNumber": 192
+        },
+        {
+          "caller": "disableUser",
+          "callee": "$this->canDeactivateOrDelete",
+          "lineNumber": 194
+        },
+        {
+          "caller": "disableUser",
+          "callee": "$user->forceFill([\n            'is_active' => false,\n            'remember_token' => null,\n        ])->save",
+          "lineNumber": 198
+        },
+        {
+          "caller": "disableUser",
+          "callee": "$user->forceFill",
+          "lineNumber": 198
+        },
+        {
+          "caller": "disableUser",
+          "callee": "$this->clearUserSessions",
+          "lineNumber": 203
+        },
+        {
+          "caller": "disableUser",
+          "callee": "$user->getKey",
+          "lineNumber": 205
+        },
+        {
+          "caller": "disableUser",
+          "callee": "$this->editAccount",
+          "lineNumber": 206
+        },
+        {
+          "caller": "disableUser",
+          "callee": "$user->getKey",
+          "lineNumber": 206
+        },
+        {
+          "caller": "disableUser",
+          "callee": "session()->flash",
+          "lineNumber": 209
+        },
+        {
+          "caller": "disableUser",
+          "callee": "session",
+          "lineNumber": 209
+        },
+        {
+          "caller": "enableUser",
+          "callee": "$this->authorizeAccountAdministration",
+          "lineNumber": 214
+        },
+        {
+          "caller": "enableUser",
+          "callee": "$this->findUserForAccountAction",
+          "lineNumber": 216
+        },
+        {
+          "caller": "enableUser",
+          "callee": "$user->forceFill(['is_active' => true])->save",
+          "lineNumber": 217
+        },
+        {
+          "caller": "enableUser",
+          "callee": "$user->forceFill",
+          "lineNumber": 217
+        },
+        {
+          "caller": "enableUser",
+          "callee": "$user->getKey",
+          "lineNumber": 219
+        },
+        {
+          "caller": "enableUser",
+          "callee": "$this->editAccount",
+          "lineNumber": 220
+        },
+        {
+          "caller": "enableUser",
+          "callee": "$user->getKey",
+          "lineNumber": 220
+        },
+        {
+          "caller": "enableUser",
+          "callee": "session()->flash",
+          "lineNumber": 223
+        },
+        {
+          "caller": "enableUser",
+          "callee": "session",
+          "lineNumber": 223
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "$this->authorizeAccountAdministration",
+          "lineNumber": 228
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "$this->findUserForAccountAction",
+          "lineNumber": 230
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "$this->canDeactivateOrDelete",
+          "lineNumber": 232
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "$this->clearUserSessions",
+          "lineNumber": 238
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "$user->delete",
+          "lineNumber": 239
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "$this->resetForm",
+          "lineNumber": 243
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "session()->flash",
+          "lineNumber": 246
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "session",
+          "lineNumber": 246
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "$this->isEditorRoute",
+          "lineNumber": 248
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "$this->redirectRoute",
+          "lineNumber": 249
+        },
+        {
+          "caller": "updatingSearch",
+          "callee": "$this->resetPage",
+          "lineNumber": 255
+        },
+        {
+          "caller": "updatingRoleFilter",
+          "callee": "$this->resetPage",
+          "lineNumber": 260
+        },
+        {
+          "caller": "updatingStatusFilter",
+          "callee": "$this->resetPage",
+          "lineNumber": 265
+        },
+        {
+          "caller": "isEditorRoute",
+          "callee": "in_array",
+          "lineNumber": 270
+        },
+        {
+          "caller": "roleTypeFor",
+          "callee": "$user->hasRole",
+          "lineNumber": 289
+        },
+        {
+          "caller": "roleTypeFor",
+          "callee": "$user->hasRole",
+          "lineNumber": 293
+        },
+        {
+          "caller": "synchronizeCmsAccess",
+          "callee": "app(CmsRolePermissionSynchronizer::class)->sync",
+          "lineNumber": 298
+        },
+        {
+          "caller": "synchronizeCmsAccess",
+          "callee": "app",
+          "lineNumber": 298
+        },
+        {
+          "caller": "authorizeAccountAdministration",
+          "callee": "$this->authorizeAdminPermission",
+          "lineNumber": 303
+        },
+        {
+          "caller": "authorizeAccountAdministration",
+          "callee": "abort_unless",
+          "lineNumber": 305
+        },
+        {
+          "caller": "authorizeAccountAdministration",
+          "callee": "$this->currentUserCanManageAccounts",
+          "lineNumber": 306
+        },
+        {
+          "caller": "currentUserCanManageAccounts",
+          "callee": "auth()->user",
+          "lineNumber": 314
+        },
+        {
+          "caller": "currentUserCanManageAccounts",
+          "callee": "auth",
+          "lineNumber": 314
+        },
+        {
+          "caller": "currentUserCanManageAccounts",
+          "callee": "$user->hasAnyRole",
+          "lineNumber": 316
+        },
+        {
+          "caller": "findUserForAccountAction",
+          "callee": "User::query()->with('roles')->findOrFail",
+          "lineNumber": 321
+        },
+        {
+          "caller": "findUserForAccountAction",
+          "callee": "User::query()->with",
+          "lineNumber": 321
+        },
+        {
+          "caller": "findUserForAccountAction",
+          "callee": "User::query",
+          "lineNumber": 321
+        },
+        {
+          "caller": "canDeactivateOrDelete",
+          "callee": "$user->is",
+          "lineNumber": 326
+        },
+        {
+          "caller": "canDeactivateOrDelete",
+          "callee": "auth()->user",
+          "lineNumber": 326
+        },
+        {
+          "caller": "canDeactivateOrDelete",
+          "callee": "auth",
+          "lineNumber": 326
+        },
+        {
+          "caller": "canDeactivateOrDelete",
+          "callee": "$this->addError",
+          "lineNumber": 327
+        },
+        {
+          "caller": "canDeactivateOrDelete",
+          "callee": "$this->wouldRemoveLastActiveAdministrator",
+          "lineNumber": 332
+        },
+        {
+          "caller": "canDeactivateOrDelete",
+          "callee": "$this->addError",
+          "lineNumber": 333
+        },
+        {
+          "caller": "wouldRemoveLastActiveAdministrator",
+          "callee": "$user->hasAnyRole",
+          "lineNumber": 343
+        },
+        {
+          "caller": "wouldRemoveLastActiveAdministrator",
+          "callee": "User::query()\n            ->where('is_active', true)\n            ->whereKeyNot($user->getKey())\n            ->whereHas('roles', fn ($query) => $query->whereIn('name', ['admin', 'super_admin']))->doesntExist",
+          "lineNumber": 351
+        },
+        {
+          "caller": "wouldRemoveLastActiveAdministrator",
+          "callee": "User::query()\n            ->where('is_active', true)\n            ->whereKeyNot($user->getKey())->whereHas",
+          "lineNumber": 351
+        },
+        {
+          "caller": "wouldRemoveLastActiveAdministrator",
+          "callee": "User::query()\n            ->where('is_active', true)->whereKeyNot",
+          "lineNumber": 351
+        },
+        {
+          "caller": "wouldRemoveLastActiveAdministrator",
+          "callee": "User::query()->where",
+          "lineNumber": 351
+        },
+        {
+          "caller": "wouldRemoveLastActiveAdministrator",
+          "callee": "User::query",
+          "lineNumber": 351
+        },
+        {
+          "caller": "wouldRemoveLastActiveAdministrator",
+          "callee": "$user->getKey",
+          "lineNumber": 353
+        },
+        {
+          "caller": "wouldRemoveLastActiveAdministrator",
+          "callee": "$query->whereIn",
+          "lineNumber": 354
+        },
+        {
+          "caller": "clearUserSessions",
+          "callee": "$user->forceFill(['remember_token' => null])->save",
+          "lineNumber": 360
+        },
+        {
+          "caller": "clearUserSessions",
+          "callee": "$user->forceFill",
+          "lineNumber": 360
+        },
+        {
+          "caller": "clearUserSessions",
+          "callee": "DB::table('sessions')\n            ->where('user_id', $user->getKey())->delete",
+          "lineNumber": 362
+        },
+        {
+          "caller": "clearUserSessions",
+          "callee": "DB::table('sessions')->where",
+          "lineNumber": 362
+        },
+        {
+          "caller": "clearUserSessions",
+          "callee": "DB::table",
+          "lineNumber": 362
+        },
+        {
+          "caller": "clearUserSessions",
+          "callee": "$user->getKey",
+          "lineNumber": 363
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 21,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Models/User.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 43,
+      "functions": [
+        {
+          "name": "casts",
+          "startLine": 28,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "initials",
+          "startLine": 40,
+          "endLine": 47,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "User",
+          "startLine": 16,
+          "endLine": 48,
+          "methods": [
+            "casts",
+            "initials"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "User",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "initials",
+          "callee": "Str::of($this->name)\n            ->explode(' ')\n            ->take(2)\n            ->map(fn ($word) => Str::substr($word, 0, 1))->implode",
+          "lineNumber": 42
+        },
+        {
+          "caller": "initials",
+          "callee": "Str::of($this->name)\n            ->explode(' ')\n            ->take(2)->map",
+          "lineNumber": 42
+        },
+        {
+          "caller": "initials",
+          "callee": "Str::of($this->name)\n            ->explode(' ')->take",
+          "lineNumber": 42
+        },
+        {
+          "caller": "initials",
+          "callee": "Str::of($this->name)->explode",
+          "lineNumber": 42
+        },
+        {
+          "caller": "initials",
+          "callee": "Str::of",
+          "lineNumber": 42
+        },
+        {
+          "caller": "initials",
+          "callee": "Str::substr",
+          "lineNumber": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Providers/AppServiceProvider.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 50,
+      "functions": [
+        {
+          "name": "register",
+          "startLine": 19,
+          "endLine": 22,
+          "params": []
+        },
+        {
+          "name": "boot",
+          "startLine": 27,
+          "endLine": 30,
+          "params": []
+        },
+        {
+          "name": "configureDefaults",
+          "startLine": 35,
+          "endLine": 57,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AppServiceProvider",
+          "startLine": 14,
+          "endLine": 58,
+          "methods": [
+            "register",
+            "boot",
+            "configureDefaults"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AppServiceProvider",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "boot",
+          "callee": "$this->configureDefaults",
+          "lineNumber": 29
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "Date::use",
+          "lineNumber": 37
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "Model::preventLazyLoading",
+          "lineNumber": 38
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "app()->isProduction",
+          "lineNumber": 38
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "app",
+          "lineNumber": 38
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "DB::prohibitDestructiveCommands",
+          "lineNumber": 40
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "app()->isProduction",
+          "lineNumber": 41
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "app",
+          "lineNumber": 41
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "Password::defaults",
+          "lineNumber": 44
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "app()->isProduction",
+          "lineNumber": 44
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "app",
+          "lineNumber": 44
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "Password::min(12)\n                ->mixedCase()\n                ->letters()\n                ->numbers()\n                ->symbols()->uncompromised",
+          "lineNumber": 45
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "Password::min(12)\n                ->mixedCase()\n                ->letters()\n                ->numbers()->symbols",
+          "lineNumber": 45
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "Password::min(12)\n                ->mixedCase()\n                ->letters()->numbers",
+          "lineNumber": 45
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "Password::min(12)\n                ->mixedCase()->letters",
+          "lineNumber": 45
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "Password::min(12)->mixedCase",
+          "lineNumber": 45
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "Password::min",
+          "lineNumber": 45
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "Gate::before",
+          "lineNumber": 54
+        },
+        {
+          "caller": "configureDefaults",
+          "callee": "$user->hasRole",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Providers/FortifyServiceProvider.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 93,
+      "nonEmptyLines": 81,
+      "functions": [
+        {
+          "name": "register",
+          "startLine": 21,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "boot",
+          "startLine": 29,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "configureActions",
+          "startLine": 40,
+          "endLine": 44,
+          "params": []
+        },
+        {
+          "name": "configureAuthentication",
+          "startLine": 49,
+          "endLine": 62,
+          "params": []
+        },
+        {
+          "name": "configureViews",
+          "startLine": 67,
+          "endLine": 76,
+          "params": []
+        },
+        {
+          "name": "configureRateLimiting",
+          "startLine": 81,
+          "endLine": 92,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "FortifyServiceProvider",
+          "startLine": 16,
+          "endLine": 93,
+          "methods": [
+            "register",
+            "boot",
+            "configureActions",
+            "configureAuthentication",
+            "configureViews",
+            "configureRateLimiting"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "FortifyServiceProvider",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "boot",
+          "callee": "$this->configureActions",
+          "lineNumber": 31
+        },
+        {
+          "caller": "boot",
+          "callee": "$this->configureAuthentication",
+          "lineNumber": 32
+        },
+        {
+          "caller": "boot",
+          "callee": "$this->configureViews",
+          "lineNumber": 33
+        },
+        {
+          "caller": "boot",
+          "callee": "$this->configureRateLimiting",
+          "lineNumber": 34
+        },
+        {
+          "caller": "configureActions",
+          "callee": "Fortify::resetUserPasswordsUsing",
+          "lineNumber": 42
+        },
+        {
+          "caller": "configureActions",
+          "callee": "Fortify::createUsersUsing",
+          "lineNumber": 43
+        },
+        {
+          "caller": "configureAuthentication",
+          "callee": "Fortify::authenticateUsing",
+          "lineNumber": 51
+        },
+        {
+          "caller": "configureAuthentication",
+          "callee": "User::query()\n                ->where(Fortify::username(), $request->input(Fortify::username()))->first",
+          "lineNumber": 52
+        },
+        {
+          "caller": "configureAuthentication",
+          "callee": "User::query()->where",
+          "lineNumber": 52
+        },
+        {
+          "caller": "configureAuthentication",
+          "callee": "User::query",
+          "lineNumber": 52
+        },
+        {
+          "caller": "configureAuthentication",
+          "callee": "Fortify::username",
+          "lineNumber": 53
+        },
+        {
+          "caller": "configureAuthentication",
+          "callee": "$request->input",
+          "lineNumber": 53
+        },
+        {
+          "caller": "configureAuthentication",
+          "callee": "Fortify::username",
+          "lineNumber": 53
+        },
+        {
+          "caller": "configureAuthentication",
+          "callee": "Hash::check",
+          "lineNumber": 56
+        },
+        {
+          "caller": "configureAuthentication",
+          "callee": "$request->input",
+          "lineNumber": 56
+        },
+        {
+          "caller": "configureViews",
+          "callee": "Fortify::loginView",
+          "lineNumber": 69
+        },
+        {
+          "caller": "configureViews",
+          "callee": "view",
+          "lineNumber": 69
+        },
+        {
+          "caller": "configureViews",
+          "callee": "Fortify::verifyEmailView",
+          "lineNumber": 70
+        },
+        {
+          "caller": "configureViews",
+          "callee": "view",
+          "lineNumber": 70
+        },
+        {
+          "caller": "configureViews",
+          "callee": "Fortify::twoFactorChallengeView",
+          "lineNumber": 71
+        },
+        {
+          "caller": "configureViews",
+          "callee": "view",
+          "lineNumber": 71
+        },
+        {
+          "caller": "configureViews",
+          "callee": "Fortify::confirmPasswordView",
+          "lineNumber": 72
+        },
+        {
+          "caller": "configureViews",
+          "callee": "view",
+          "lineNumber": 72
+        },
+        {
+          "caller": "configureViews",
+          "callee": "Fortify::registerView",
+          "lineNumber": 73
+        },
+        {
+          "caller": "configureViews",
+          "callee": "view",
+          "lineNumber": 73
+        },
+        {
+          "caller": "configureViews",
+          "callee": "Fortify::resetPasswordView",
+          "lineNumber": 74
+        },
+        {
+          "caller": "configureViews",
+          "callee": "view",
+          "lineNumber": 74
+        },
+        {
+          "caller": "configureViews",
+          "callee": "Fortify::requestPasswordResetLinkView",
+          "lineNumber": 75
+        },
+        {
+          "caller": "configureViews",
+          "callee": "view",
+          "lineNumber": 75
+        },
+        {
+          "caller": "configureRateLimiting",
+          "callee": "RateLimiter::for",
+          "lineNumber": 83
+        },
+        {
+          "caller": "configureRateLimiting",
+          "callee": "Limit::perMinute(5)->by",
+          "lineNumber": 84
+        },
+        {
+          "caller": "configureRateLimiting",
+          "callee": "Limit::perMinute",
+          "lineNumber": 84
+        },
+        {
+          "caller": "configureRateLimiting",
+          "callee": "$request->session()->get",
+          "lineNumber": 84
+        },
+        {
+          "caller": "configureRateLimiting",
+          "callee": "$request->session",
+          "lineNumber": 84
+        },
+        {
+          "caller": "configureRateLimiting",
+          "callee": "RateLimiter::for",
+          "lineNumber": 87
+        },
+        {
+          "caller": "configureRateLimiting",
+          "callee": "Str::transliterate",
+          "lineNumber": 88
+        },
+        {
+          "caller": "configureRateLimiting",
+          "callee": "Str::lower",
+          "lineNumber": 88
+        },
+        {
+          "caller": "configureRateLimiting",
+          "callee": "$request->input",
+          "lineNumber": 88
+        },
+        {
+          "caller": "configureRateLimiting",
+          "callee": "Fortify::username",
+          "lineNumber": 88
+        },
+        {
+          "caller": "configureRateLimiting",
+          "callee": "$request->ip",
+          "lineNumber": 88
+        },
+        {
+          "caller": "configureRateLimiting",
+          "callee": "Limit::perMinute(5)->by",
+          "lineNumber": 90
+        },
+        {
+          "caller": "configureRateLimiting",
+          "callee": "Limit::perMinute",
+          "lineNumber": 90
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Providers/SeoAiServiceProvider.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 33,
+      "functions": [
+        {
+          "name": "register",
+          "startLine": 11,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "boot",
+          "startLine": 33,
+          "endLine": 38,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoAiServiceProvider",
+          "startLine": 9,
+          "endLine": 39,
+          "methods": [
+            "register",
+            "boot"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoAiServiceProvider",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "register",
+          "callee": "$this->mergeConfigFrom",
+          "lineNumber": 13
+        },
+        {
+          "caller": "register",
+          "callee": "config_path",
+          "lineNumber": 13
+        },
+        {
+          "caller": "register",
+          "callee": "$this->app->singleton",
+          "lineNumber": 15
+        },
+        {
+          "caller": "register",
+          "callee": "config",
+          "lineNumber": 17
+        },
+        {
+          "caller": "register",
+          "callee": "config",
+          "lineNumber": 18
+        },
+        {
+          "caller": "register",
+          "callee": "config",
+          "lineNumber": 19
+        },
+        {
+          "caller": "register",
+          "callee": "$this->app->singleton",
+          "lineNumber": 23
+        },
+        {
+          "caller": "register",
+          "callee": "$app->make",
+          "lineNumber": 25
+        },
+        {
+          "caller": "register",
+          "callee": "$app->make",
+          "lineNumber": 26
+        },
+        {
+          "caller": "register",
+          "callee": "$app->make",
+          "lineNumber": 27
+        },
+        {
+          "caller": "register",
+          "callee": "$app->make",
+          "lineNumber": 28
+        },
+        {
+          "caller": "boot",
+          "callee": "$this->publishes",
+          "lineNumber": 35
+        },
+        {
+          "caller": "boot",
+          "callee": "config_path",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Services/Admin/CmsRolePermissionSynchronizer.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "sync",
+          "startLine": 13,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "ensurePermissions",
+          "startLine": 41,
+          "endLine": 47,
+          "params": [
+            "$permissions"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CmsRolePermissionSynchronizer",
+          "startLine": 11,
+          "endLine": 48,
+          "methods": [
+            "sync",
+            "ensurePermissions"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CmsRolePermissionSynchronizer",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "sync",
+          "callee": "app(PermissionRegistrar::class)->forgetCachedPermissions",
+          "lineNumber": 15
+        },
+        {
+          "caller": "sync",
+          "callee": "app",
+          "lineNumber": 15
+        },
+        {
+          "caller": "sync",
+          "callee": "$this->ensurePermissions",
+          "lineNumber": 17
+        },
+        {
+          "caller": "sync",
+          "callee": "AdminNavigationRegistry::fullAdminPermissions",
+          "lineNumber": 18
+        },
+        {
+          "caller": "sync",
+          "callee": "AdminNavigationRegistry::legacyPermissionKeys",
+          "lineNumber": 19
+        },
+        {
+          "caller": "sync",
+          "callee": "$this->ensurePermissions",
+          "lineNumber": 22
+        },
+        {
+          "caller": "sync",
+          "callee": "AdminNavigationRegistry::defaultContentPermissions",
+          "lineNumber": 23
+        },
+        {
+          "caller": "sync",
+          "callee": "$this->ensurePermissions",
+          "lineNumber": 25
+        },
+        {
+          "caller": "sync",
+          "callee": "AdminNavigationRegistry::defaultSalePermissions",
+          "lineNumber": 26
+        },
+        {
+          "caller": "sync",
+          "callee": "Role::findOrCreate('super_admin', 'web')->syncPermissions",
+          "lineNumber": 29
+        },
+        {
+          "caller": "sync",
+          "callee": "Role::findOrCreate",
+          "lineNumber": 29
+        },
+        {
+          "caller": "sync",
+          "callee": "Role::findOrCreate('admin', 'web')->syncPermissions",
+          "lineNumber": 30
+        },
+        {
+          "caller": "sync",
+          "callee": "Role::findOrCreate",
+          "lineNumber": 30
+        },
+        {
+          "caller": "sync",
+          "callee": "Role::findOrCreate('content', 'web')->syncPermissions",
+          "lineNumber": 31
+        },
+        {
+          "caller": "sync",
+          "callee": "Role::findOrCreate",
+          "lineNumber": 31
+        },
+        {
+          "caller": "sync",
+          "callee": "Role::findOrCreate('sale', 'web')->syncPermissions",
+          "lineNumber": 32
+        },
+        {
+          "caller": "sync",
+          "callee": "Role::findOrCreate",
+          "lineNumber": 32
+        },
+        {
+          "caller": "sync",
+          "callee": "app(PermissionRegistrar::class)->forgetCachedPermissions",
+          "lineNumber": 34
+        },
+        {
+          "caller": "sync",
+          "callee": "app",
+          "lineNumber": 34
+        },
+        {
+          "caller": "ensurePermissions",
+          "callee": "collect($permissions)\n            ->unique()\n            ->map(fn (string $permission) => Permission::findOrCreate($permission, 'web'))->values",
+          "lineNumber": 43
+        },
+        {
+          "caller": "ensurePermissions",
+          "callee": "collect($permissions)\n            ->unique()->map",
+          "lineNumber": 43
+        },
+        {
+          "caller": "ensurePermissions",
+          "callee": "collect($permissions)->unique",
+          "lineNumber": 43
+        },
+        {
+          "caller": "ensurePermissions",
+          "callee": "collect",
+          "lineNumber": 43
+        },
+        {
+          "caller": "ensurePermissions",
+          "callee": "Permission::findOrCreate",
+          "lineNumber": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Services/Cms/BlogAutomationRunner.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 178,
+      "nonEmptyLines": 159,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 14,
+          "endLine": 19,
+          "params": []
+        },
+        {
+          "name": "run",
+          "startLine": 21,
+          "endLine": 65,
+          "params": [
+            "$payload",
+            "$actor"
+          ]
+        },
+        {
+          "name": "generateDraft",
+          "startLine": 71,
+          "endLine": 115,
+          "params": [
+            "$payload",
+            "$references",
+            "$existingPost"
+          ]
+        },
+        {
+          "name": "buildPromptInput",
+          "startLine": 121,
+          "endLine": 161,
+          "params": [
+            "$payload",
+            "$references",
+            "$existingPost",
+            "$siteContext"
+          ]
+        },
+        {
+          "name": "decodeJsonPayload",
+          "startLine": 166,
+          "endLine": 177,
+          "params": [
+            "$text"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BlogAutomationRunner",
+          "startLine": 12,
+          "endLine": 178,
+          "methods": [
+            "__construct",
+            "run",
+            "generateDraft",
+            "buildPromptInput",
+            "decodeJsonPayload"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BlogAutomationRunner",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "$this->fetcher->fetchMany",
+          "lineNumber": 23
+        },
+        {
+          "caller": "run",
+          "callee": "empty",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run",
+          "callee": "BlogPost::query()->findOrFail",
+          "lineNumber": 33
+        },
+        {
+          "caller": "run",
+          "callee": "BlogPost::query",
+          "lineNumber": 33
+        },
+        {
+          "caller": "run",
+          "callee": "$this->generateDraft",
+          "lineNumber": 36
+        },
+        {
+          "caller": "run",
+          "callee": "Arr::only",
+          "lineNumber": 38
+        },
+        {
+          "caller": "run",
+          "callee": "$this->posts->save",
+          "lineNumber": 60
+        },
+        {
+          "caller": "run",
+          "callee": "array_merge",
+          "lineNumber": 61
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "blank",
+          "lineNumber": 73
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "config",
+          "lineNumber": 73
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "$this->siteSettings->current",
+          "lineNumber": 77
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "$this->client->respond",
+          "lineNumber": 78
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "implode",
+          "lineNumber": 79
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "$this->buildPromptInput",
+          "lineNumber": 87
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "$this->decodeJsonPayload",
+          "lineNumber": 95
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "$this->client->outputText",
+          "lineNumber": 95
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "is_array",
+          "lineNumber": 97
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "blank",
+          "lineNumber": 97
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "blank",
+          "lineNumber": 97
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "trim",
+          "lineNumber": 102
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "trim",
+          "lineNumber": 103
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "config",
+          "lineNumber": 113
+        },
+        {
+          "caller": "buildPromptInput",
+          "callee": "json_encode",
+          "lineNumber": 123
+        },
+        {
+          "caller": "buildPromptInput",
+          "callee": "config",
+          "lineNumber": 129
+        },
+        {
+          "caller": "buildPromptInput",
+          "callee": "$existingPost->getKey",
+          "lineNumber": 136
+        },
+        {
+          "caller": "buildPromptInput",
+          "callee": "Str::limit",
+          "lineNumber": 140
+        },
+        {
+          "caller": "decodeJsonPayload",
+          "callee": "trim",
+          "lineNumber": 168
+        },
+        {
+          "caller": "decodeJsonPayload",
+          "callee": "preg_match",
+          "lineNumber": 170
+        },
+        {
+          "caller": "decodeJsonPayload",
+          "callee": "json_decode",
+          "lineNumber": 174
+        },
+        {
+          "caller": "decodeJsonPayload",
+          "callee": "is_array",
+          "lineNumber": 176
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    }
+  ]
+}

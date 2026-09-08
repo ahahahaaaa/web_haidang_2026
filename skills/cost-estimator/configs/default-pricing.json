@@ -1,0 +1,38 @@
+{
+    "meta": {
+        "code": "default",
+        "version": "v1"
+    },
+    "packages": [
+        {
+            "key": "design_basic",
+            "label": "Thiết kế miễn phí",
+            "unit_price": 0,
+            "currency": "VND"
+        },
+        {
+            "key": "design_interior",
+            "label": "Thiết kế Nội thất",
+            "unit_price": 150000,
+            "currency": "VND"
+        },
+        {
+            "key": "design_premium",
+            "label": "Thiết kế Premium",
+            "unit_price": 300000,
+            "currency": "VND"
+        },
+        {
+            "key": "construction_standard",
+            "label": "Thi công phần thô + nhân công hoàn thiện tiêu chuẩn",
+            "unit_price": 3800000,
+            "currency": "VND"
+        },
+        {
+            "key": "construction_high",
+            "label": "Thi công phần thô + nhân công hoàn thiện cao cấp",
+            "unit_price": 4500000,
+            "currency": "VND"
+        }
+    ]
+}

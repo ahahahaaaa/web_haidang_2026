@@ -1,0 +1,2993 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "database/migrations/2026_05_13_000000_add_geo_config_to_travel_public_tables.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 42,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::hasTable",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::table",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('geo_config')->nullable",
+          "lineNumber": 31
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json",
+          "lineNumber": 31
+        },
+        {
+          "caller": "down",
+          "callee": "array_reverse",
+          "lineNumber": 38
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasTable",
+          "lineNumber": 39
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 39
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::table",
+          "lineNumber": 43
+        },
+        {
+          "caller": "down",
+          "callee": "$table->dropColumn",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/2026_05_14_000000_add_customer_loyalty_api_fields_to_site_settings_table.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 31,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('customer_loyalty_api_base_url')->nullable()->after",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('customer_loyalty_api_base_url')->nullable",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('customer_loyalty_api_username')->nullable()->after",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('customer_loyalty_api_username')->nullable",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('customer_loyalty_api_password')->nullable()->after",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('customer_loyalty_api_password')->nullable",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('customer_loyalty_api_token')->nullable()->after",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('customer_loyalty_api_token')->nullable",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('customer_loyalty_api_token_expires_at')->nullable()->after",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('customer_loyalty_api_token_expires_at')->nullable",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('customer_loyalty_api_token_refreshed_at')->nullable()->after",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('customer_loyalty_api_token_refreshed_at')->nullable",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp",
+          "lineNumber": 17
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::table",
+          "lineNumber": 23
+        },
+        {
+          "caller": "down",
+          "callee": "$table->dropColumn",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/2026_05_14_150000_create_voucher_campaigns_table.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 45,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::create",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "$table->id",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('landing_page_id')->nullable()->constrained('landing_pages')->nullOnDelete",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('landing_page_id')->nullable()->constrained",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('landing_page_id')->nullable",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('slug')->unique",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('description')->nullable",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('frame_image_url')->nullable",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('code_prefix')->nullable",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedInteger('code_quantity')->default",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedInteger",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('code_set_version', 64)->index",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('starts_at')->nullable()->index",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('starts_at')->nullable",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('ends_at')->nullable()->index",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('ends_at')->nullable",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean('is_active')->default(true)->index",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean('is_active')->default",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('meta')->nullable",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('codes_refreshed_at')->nullable",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamps",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::create",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "$table->id",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('voucher_campaign_id')->constrained('voucher_campaigns')->cascadeOnDelete",
+          "lineNumber": 31
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('voucher_campaign_id')->constrained",
+          "lineNumber": 31
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId",
+          "lineNumber": 31
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('travel_inquiry_id')->nullable()->constrained('travel_inquiries')->nullOnDelete",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('travel_inquiry_id')->nullable()->constrained",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('travel_inquiry_id')->nullable",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 33
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('status')->default('available')->index",
+          "lineNumber": 34
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('status')->default",
+          "lineNumber": 34
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 34
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('cookie_token', 80)->nullable()->index",
+          "lineNumber": 35
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('cookie_token', 80)->nullable",
+          "lineNumber": 35
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 35
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('customer_phone_hash', 64)->nullable()->index",
+          "lineNumber": 36
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('customer_phone_hash', 64)->nullable",
+          "lineNumber": 36
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 36
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('claimed_at')->nullable()->index",
+          "lineNumber": 37
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('claimed_at')->nullable",
+          "lineNumber": 37
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp",
+          "lineNumber": 37
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamps",
+          "lineNumber": 38
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unique",
+          "lineNumber": 40
+        },
+        {
+          "caller": "up",
+          "callee": "$table->index",
+          "lineNumber": 41
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::dropIfExists",
+          "lineNumber": 47
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::dropIfExists",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/2026_05_21_000000_create_tour_departure_sync_states_table.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 26,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::create",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "$table->id",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_id')->constrained('tours')->cascadeOnDelete",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_id')->constrained",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_departure_id')->nullable()->constrained('tour_departures')->nullOnDelete",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_departure_id')->nullable()->constrained",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_departure_id')->nullable",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedBigInteger('source_tour_id')->nullable()->index",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedBigInteger('source_tour_id')->nullable",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedBigInteger",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('tour_code')->nullable()->index",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('tour_code')->nullable",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedBigInteger('source_startdate_id')->nullable",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedBigInteger",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('source_checksum', 64)->nullable",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('last_synced_at')->nullable",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamps",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unique",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::dropIfExists",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/2026_05_22_000000_add_google_recaptcha_v3_fields_to_site_settings_table.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 44,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::hasTable",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::table",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean('google_recaptcha_v3_enabled')->default(false)->after",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean('google_recaptcha_v3_enabled')->default",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('google_recaptcha_v3_site_key')->nullable()->after",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('google_recaptcha_v3_site_key')->nullable",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('google_recaptcha_v3_secret_key')->nullable()->after",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('google_recaptcha_v3_secret_key')->nullable",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "$table->decimal('google_recaptcha_v3_min_score', 3, 2)->default(0.50)->after",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "$table->decimal('google_recaptcha_v3_min_score', 3, 2)->default",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "$table->decimal",
+          "lineNumber": 29
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasTable",
+          "lineNumber": 36
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::table",
+          "lineNumber": 40
+        },
+        {
+          "caller": "down",
+          "callee": "array_values",
+          "lineNumber": 41
+        },
+        {
+          "caller": "down",
+          "callee": "array_filter",
+          "lineNumber": 41
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 42
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 43
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 44
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 45
+        },
+        {
+          "caller": "down",
+          "callee": "$table->dropColumn",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/2026_05_22_010000_ensure_google_recaptcha_v3_fields_on_site_settings_table.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 62,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::hasTable",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "$this->addColumnIfMissing",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean('google_recaptcha_v3_enabled')->default",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$this->addColumnIfMissing",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('google_recaptcha_v3_site_key')->nullable",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "$this->addColumnIfMissing",
+          "lineNumber": 27
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('google_recaptcha_v3_secret_key')->nullable",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "$this->addColumnIfMissing",
+          "lineNumber": 33
+        },
+        {
+          "caller": "up",
+          "callee": "$table->decimal('google_recaptcha_v3_min_score', 3, 2)->default",
+          "lineNumber": 35
+        },
+        {
+          "caller": "up",
+          "callee": "$table->decimal",
+          "lineNumber": 35
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasTable",
+          "lineNumber": 42
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::table",
+          "lineNumber": 46
+        },
+        {
+          "caller": "down",
+          "callee": "array_values",
+          "lineNumber": 47
+        },
+        {
+          "caller": "down",
+          "callee": "array_filter",
+          "lineNumber": 47
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 48
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 49
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 50
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 51
+        },
+        {
+          "caller": "down",
+          "callee": "$table->dropColumn",
+          "lineNumber": 55
+        },
+        {
+          "caller": "addColumnIfMissing",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 62
+        },
+        {
+          "caller": "addColumnIfMissing",
+          "callee": "Schema::table",
+          "lineNumber": 66
+        },
+        {
+          "caller": "addColumnIfMissing",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 69
+        },
+        {
+          "caller": "addColumnIfMissing",
+          "callee": "$columnDefinition->after",
+          "lineNumber": 70
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/2026_05_24_000000_create_tour_agency_push_sync_runs_table.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 35,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::create",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "$table->id",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_id')->nullable()->constrained('tours')->nullOnDelete",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_id')->nullable()->constrained",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_id')->nullable",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('created_by_user_id')->nullable()->constrained('users')->nullOnDelete",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('created_by_user_id')->nullable()->constrained",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('created_by_user_id')->nullable",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('tour_title')->nullable",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedBigInteger('source_tour_id')->nullable()->index",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedBigInteger('source_tour_id')->nullable",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedBigInteger",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('tour_code')->nullable()->index",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('tour_code')->nullable",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('trigger')->default('tour_saved')->index",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('trigger')->default",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('status')->default('pending')->index",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('status')->default",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('queue_name')->default('default')->index",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('queue_name')->default",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedInteger('attempts')->default",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedInteger",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('deleted_departures')->nullable",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('summary')->nullable",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('last_error')->nullable",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('queued_at')->nullable",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('started_at')->nullable",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('finished_at')->nullable",
+          "lineNumber": 27
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp",
+          "lineNumber": 27
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamps",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "$table->index",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "$table->index",
+          "lineNumber": 31
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::dropIfExists",
+          "lineNumber": 37
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/2026_05_31_000000_add_public_review_submission_fields.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 84,
+      "nonEmptyLines": 71,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::hasTable",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::table",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean('review_submission_enabled')->default(false)->after('rating_count')->index",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean('review_submission_enabled')->default(false)->after",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean('review_submission_enabled')->default",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('review_submission_password')->nullable()->after",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('review_submission_password')->nullable",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('review_submission_token', 64)->nullable()->unique()->after",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('review_submission_token', 64)->nullable()->unique",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('review_submission_token', 64)->nullable",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasTable",
+          "lineNumber": 27
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::table",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('author_email')->nullable()->after",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('author_email')->nullable",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 33
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('author_phone', 50)->nullable()->after",
+          "lineNumber": 34
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('author_phone', 50)->nullable",
+          "lineNumber": 34
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 34
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 37
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('source', 40)->default('admin')->after('status')->index",
+          "lineNumber": 38
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('source', 40)->default('admin')->after",
+          "lineNumber": 38
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('source', 40)->default",
+          "lineNumber": 38
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 38
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 41
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('submitted_at')->nullable()->after('published_at')->index",
+          "lineNumber": 42
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('submitted_at')->nullable()->after",
+          "lineNumber": 42
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('submitted_at')->nullable",
+          "lineNumber": 42
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp",
+          "lineNumber": 42
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 45
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('metadata')->nullable()->after",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('metadata')->nullable",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json",
+          "lineNumber": 46
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasTable",
+          "lineNumber": 54
+        },
+        {
+          "caller": "down",
+          "callee": "collect([\n                'author_email',\n                'author_phone',\n                'source',\n                'submitted_at',\n                'metadata',\n            ])->filter(fn (string $column): bool => Schema::hasColumn('travel_reviews', $column))->all",
+          "lineNumber": 55
+        },
+        {
+          "caller": "down",
+          "callee": "collect([\n                'author_email',\n                'author_phone',\n                'source',\n                'submitted_at',\n                'metadata',\n            ])->filter",
+          "lineNumber": 55
+        },
+        {
+          "caller": "down",
+          "callee": "collect",
+          "lineNumber": 55
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 61
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::table",
+          "lineNumber": 64
+        },
+        {
+          "caller": "down",
+          "callee": "$table->dropColumn",
+          "lineNumber": 65
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasTable",
+          "lineNumber": 70
+        },
+        {
+          "caller": "down",
+          "callee": "collect([\n                'review_submission_enabled',\n                'review_submission_password',\n                'review_submission_token',\n            ])->filter(fn (string $column): bool => Schema::hasColumn('tours', $column))->all",
+          "lineNumber": 71
+        },
+        {
+          "caller": "down",
+          "callee": "collect([\n                'review_submission_enabled',\n                'review_submission_password',\n                'review_submission_token',\n            ])->filter",
+          "lineNumber": 71
+        },
+        {
+          "caller": "down",
+          "callee": "collect",
+          "lineNumber": 71
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 75
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::table",
+          "lineNumber": 78
+        },
+        {
+          "caller": "down",
+          "callee": "$table->dropColumn",
+          "lineNumber": 79
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/2026_05_31_010000_create_tour_review_batches_table.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 89,
+      "nonEmptyLines": 78,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::hasTable",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::create",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->id",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_id')->constrained('tours')->cascadeOnDelete",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_id')->constrained",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_departure_id')->nullable()->constrained('tour_departures')->nullOnDelete",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_departure_id')->nullable()->constrained",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_departure_id')->nullable",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->date('departure_date')->nullable()->index",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->date('departure_date')->nullable",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->date",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('label')->nullable",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean('enabled')->default(true)->index",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean('enabled')->default",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "$table->boolean",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('password')->nullable",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('token', 64)->unique",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedInteger('sort_order')->default",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedInteger",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamps",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "$table->index",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasTable",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::table",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_review_batch_id')\n                    ->nullable()\n                    ->after('reviewable_id')\n                    ->constrained('tour_review_batches')->nullOnDelete",
+          "lineNumber": 31
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_review_batch_id')\n                    ->nullable()\n                    ->after('reviewable_id')->constrained",
+          "lineNumber": 31
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_review_batch_id')\n                    ->nullable()->after",
+          "lineNumber": 31
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('tour_review_batch_id')->nullable",
+          "lineNumber": 31
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId",
+          "lineNumber": 31
+        },
+        {
+          "caller": "up",
+          "callee": "$this->backfillLegacyTourReviewLinks",
+          "lineNumber": 39
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasTable",
+          "lineNumber": 44
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 44
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::table",
+          "lineNumber": 45
+        },
+        {
+          "caller": "down",
+          "callee": "$table->dropConstrainedForeignId",
+          "lineNumber": 46
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::dropIfExists",
+          "lineNumber": 50
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "Schema::hasTable",
+          "lineNumber": 55
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "Schema::hasTable",
+          "lineNumber": 56
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 57
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "DB::table('tours')\n            ->select(['id', 'review_submission_enabled', 'review_submission_password', 'review_submission_token'])\n            ->whereNotNull('review_submission_token')\n            ->where('review_submission_token', '<>', '')\n            ->orderBy('id')->chunkById",
+          "lineNumber": 61
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "DB::table('tours')\n            ->select(['id', 'review_submission_enabled', 'review_submission_password', 'review_submission_token'])\n            ->whereNotNull('review_submission_token')\n            ->where('review_submission_token', '<>', '')->orderBy",
+          "lineNumber": 61
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "DB::table('tours')\n            ->select(['id', 'review_submission_enabled', 'review_submission_password', 'review_submission_token'])\n            ->whereNotNull('review_submission_token')->where",
+          "lineNumber": 61
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "DB::table('tours')\n            ->select(['id', 'review_submission_enabled', 'review_submission_password', 'review_submission_token'])->whereNotNull",
+          "lineNumber": 61
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "DB::table('tours')->select",
+          "lineNumber": 61
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "DB::table",
+          "lineNumber": 61
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "trim",
+          "lineNumber": 68
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "DB::table('tour_review_batches')->where('token', $token)->exists",
+          "lineNumber": 70
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "DB::table('tour_review_batches')->where",
+          "lineNumber": 70
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "DB::table",
+          "lineNumber": 70
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "DB::table('tour_review_batches')->insert",
+          "lineNumber": 74
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "DB::table",
+          "lineNumber": 74
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "now",
+          "lineNumber": 75
+        },
+        {
+          "caller": "backfillLegacyTourReviewLinks",
+          "callee": "now",
+          "lineNumber": 84
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/2026_06_01_000000_extend_voucher_code_usage_fields.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 47,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::table",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('code_set_version', 64)->nullable()->after('code')->index",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('code_set_version', 64)->nullable()->after",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('code_set_version', 64)->nullable",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('used_by')->nullable()->after('claimed_at')->constrained('users')->nullOnDelete",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('used_by')->nullable()->after('claimed_at')->constrained",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('used_by')->nullable()->after",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('used_by')->nullable",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('used_at')->nullable()->after('used_by')->index",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('used_at')->nullable()->after",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('used_at')->nullable",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('used_note')->nullable()->after",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('used_note')->nullable",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->index",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->index",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "DB::table('voucher_codes')\n            ->whereNull('code_set_version')\n            ->orderBy('id')->chunkById",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "DB::table('voucher_codes')\n            ->whereNull('code_set_version')->orderBy",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "DB::table('voucher_codes')->whereNull",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "DB::table",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "DB::table('voucher_campaigns')\n                    ->whereIn('id', $codes->pluck('voucher_campaign_id')->unique()->values())->pluck",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "DB::table('voucher_campaigns')->whereIn",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "DB::table",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "$codes->pluck('voucher_campaign_id')->unique()->values",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "$codes->pluck('voucher_campaign_id')->unique",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "$codes->pluck",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "DB::table('voucher_codes')\n                        ->where('id', $code->id)->update",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "DB::table('voucher_codes')->where",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "DB::table",
+          "lineNumber": 30
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::table",
+          "lineNumber": 41
+        },
+        {
+          "caller": "down",
+          "callee": "$table->dropIndex",
+          "lineNumber": 42
+        },
+        {
+          "caller": "down",
+          "callee": "$table->dropIndex",
+          "lineNumber": 43
+        },
+        {
+          "caller": "down",
+          "callee": "$table->dropConstrainedForeignId",
+          "lineNumber": 44
+        },
+        {
+          "caller": "down",
+          "callee": "$table->dropColumn",
+          "lineNumber": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/2026_06_01_010000_add_code_valid_until_to_voucher_campaigns_table.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 19,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('code_valid_until')->nullable()->after('ends_at')->index",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('code_valid_until')->nullable()->after",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('code_valid_until')->nullable",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp",
+          "lineNumber": 12
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::table",
+          "lineNumber": 18
+        },
+        {
+          "caller": "down",
+          "callee": "$table->dropColumn",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/2026_06_01_010100_backfill_voucher_campaign_code_valid_until.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 20,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "DB::table('voucher_campaigns')\n            ->whereNull('code_valid_until')\n            ->whereNotNull('ends_at')->update",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "DB::table('voucher_campaigns')\n            ->whereNull('code_valid_until')->whereNotNull",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "DB::table('voucher_campaigns')->whereNull",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "DB::table",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "DB::raw",
+          "lineNumber": 13
+        },
+        {
+          "caller": "down",
+          "callee": "DB::table('voucher_campaigns')\n            ->whereNotNull('code_valid_until')\n            ->whereColumn('code_valid_until', 'ends_at')->update",
+          "lineNumber": 18
+        },
+        {
+          "caller": "down",
+          "callee": "DB::table('voucher_campaigns')\n            ->whereNotNull('code_valid_until')->whereColumn",
+          "lineNumber": 18
+        },
+        {
+          "caller": "down",
+          "callee": "DB::table('voucher_campaigns')->whereNotNull",
+          "lineNumber": 18
+        },
+        {
+          "caller": "down",
+          "callee": "DB::table",
+          "lineNumber": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/create_content_clusters_table.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 22,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::create",
+          "lineNumber": 8
+        },
+        {
+          "caller": "up",
+          "callee": "$table->id",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('secondary_keywords')->nullable",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('lsi_keywords')->nullable",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('intent')->nullable",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('target_page_type')->nullable",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('status')->default",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamps",
+          "lineNumber": 17
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::dropIfExists",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/create_seo_links_table.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 18,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::create",
+          "lineNumber": 8
+        },
+        {
+          "caller": "up",
+          "callee": "$table->id",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedBigInteger",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedBigInteger",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('anchor_text')->nullable",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamps",
+          "lineNumber": 13
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::dropIfExists",
+          "lineNumber": 17
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/create_seo_pages_table.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 23,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::create",
+          "lineNumber": 8
+        },
+        {
+          "caller": "up",
+          "callee": "$table->id",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId('content_cluster_id')->nullable",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "$table->foreignId",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('title')->nullable",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('content')->nullable",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('meta_title')->nullable",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('meta_description')->nullable",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('schema')->nullable",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('status')->default",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamps",
+          "lineNumber": 18
+        },
+        {
+          "caller": "down",
+          "callee": "Schema::dropIfExists",
+          "lineNumber": 22
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/migrations/zzzz_finalize_seo_schema_columns.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 103,
+      "nonEmptyLines": 82,
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Schema::hasTable",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::table",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedTinyInteger('business_value')->default(5)->after",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedTinyInteger('business_value')->default",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedTinyInteger",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedTinyInteger('priority_score')->default(50)->after",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedTinyInteger('priority_score')->default",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedTinyInteger",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('context')->nullable()->after",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('context')->nullable",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasTable",
+          "lineNumber": 27
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::table",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('page_type')->default('service')->after",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('page_type')->default",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 33
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('canonical_url')->nullable()->after",
+          "lineNumber": 34
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('canonical_url')->nullable",
+          "lineNumber": 34
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 34
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 37
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('primary_keyword')->nullable()->after",
+          "lineNumber": 38
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('primary_keyword')->nullable",
+          "lineNumber": 38
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 38
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 41
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('secondary_keywords')->nullable()->after",
+          "lineNumber": 42
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('secondary_keywords')->nullable",
+          "lineNumber": 42
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json",
+          "lineNumber": 42
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 45
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('h1')->nullable()->after",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('h1')->nullable",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 49
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('excerpt')->nullable()->after",
+          "lineNumber": 50
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('excerpt')->nullable",
+          "lineNumber": 50
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text",
+          "lineNumber": 50
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 53
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('og_title')->nullable()->after",
+          "lineNumber": 54
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('og_title')->nullable",
+          "lineNumber": 54
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 54
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 57
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('og_description')->nullable()->after",
+          "lineNumber": 58
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text('og_description')->nullable",
+          "lineNumber": 58
+        },
+        {
+          "caller": "up",
+          "callee": "$table->text",
+          "lineNumber": 58
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 61
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('og_image')->nullable()->after",
+          "lineNumber": 62
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('og_image')->nullable",
+          "lineNumber": 62
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 62
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 65
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('faq_items')->nullable()->after",
+          "lineNumber": 66
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('faq_items')->nullable",
+          "lineNumber": 66
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json",
+          "lineNumber": 66
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 69
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('qa_report')->nullable()->after",
+          "lineNumber": 70
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('qa_report')->nullable",
+          "lineNumber": 70
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json",
+          "lineNumber": 70
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 73
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('generation_payload')->nullable()->after",
+          "lineNumber": 74
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json('generation_payload')->nullable",
+          "lineNumber": 74
+        },
+        {
+          "caller": "up",
+          "callee": "$table->json",
+          "lineNumber": 74
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 77
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('published_at')->nullable()->after",
+          "lineNumber": 78
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp('published_at')->nullable",
+          "lineNumber": 78
+        },
+        {
+          "caller": "up",
+          "callee": "$table->timestamp",
+          "lineNumber": 78
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasTable",
+          "lineNumber": 83
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::table",
+          "lineNumber": 84
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 85
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('link_type')->default('related')->after",
+          "lineNumber": 86
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('link_type')->default",
+          "lineNumber": 86
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 86
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 89
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedTinyInteger('priority')->default(50)->after",
+          "lineNumber": 90
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedTinyInteger('priority')->default",
+          "lineNumber": 90
+        },
+        {
+          "caller": "up",
+          "callee": "$table->unsignedTinyInteger",
+          "lineNumber": 90
+        },
+        {
+          "caller": "up",
+          "callee": "Schema::hasColumn",
+          "lineNumber": 93
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('status')->default('suggested')->after",
+          "lineNumber": 94
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string('status')->default",
+          "lineNumber": 94
+        },
+        {
+          "caller": "up",
+          "callee": "$table->string",
+          "lineNumber": 94
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/seeders/Data/blogs.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 465,
+      "nonEmptyLines": 463,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/seeders/Data/haidangtravel/core_snapshot.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 7774,
+      "nonEmptyLines": 7774,
+      "sections": [
+        {
+          "heading": "site",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "menus",
+          "level": 1,
+          "line": 51
+        },
+        {
+          "heading": "categories",
+          "level": 1,
+          "line": 113
+        },
+        {
+          "heading": "landing_pages",
+          "level": 1,
+          "line": 215
+        },
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 894
+        },
+        {
+          "heading": "tours",
+          "level": 1,
+          "line": 1119
+        },
+        {
+          "heading": "blog_posts",
+          "level": 1,
+          "line": 6003
+        },
+        {
+          "heading": "tour_categories",
+          "level": 1,
+          "line": 6097
+        },
+        {
+          "heading": "regions",
+          "level": 1,
+          "line": 6473
+        },
+        {
+          "heading": "destinations",
+          "level": 1,
+          "line": 6622
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 10
+      }
+    },
+    {
+      "path": "database/seeders/Data/projects.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 465,
+      "nonEmptyLines": 463,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/seeders/Data/services.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 28,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/seeders/DatabaseSeeder.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "functions": [
+        {
+          "name": "run",
+          "startLine": 12,
+          "endLine": 15,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DatabaseSeeder",
+          "startLine": 7,
+          "endLine": 16,
+          "methods": [
+            "run"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DatabaseSeeder",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "$this->call",
+          "lineNumber": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "docs/api-fix-requests/2026-05-23-agency-tour-sync-endpoints.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 283,
+      "nonEmptyLines": 234,
+      "sections": [
+        {
+          "heading": "Ticket: API Master Data DashBoard Cần Cung Cấp Endpoint Đồng Bộ Tour Hai Chiều",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Tóm Tắt",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Base URL Và Auth",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "Endpoint 1: Danh Sách Tour Nguồn",
+          "level": 2,
+          "line": 67
+        },
+        {
+          "heading": "Endpoint 2: Danh Sách Ngày Khởi Hành",
+          "level": 2,
+          "line": 100
+        },
+        {
+          "heading": "Endpoint 3: CMS Push Cập Nhật Về API Master Data DashBoard",
+          "level": 2,
+          "line": 143
+        },
+        {
+          "heading": "Quy Tắc Xử Lý Phía API Master Data DashBoard",
+          "level": 2,
+          "line": 234
+        },
+        {
+          "heading": "Acceptance Criteria",
+          "level": 2,
+          "line": 270
+        },
+        {
+          "heading": "Compatibility Risk",
+          "level": 2,
+          "line": 279
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "docs/front_end/demo/blog_detail/code.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 321,
+      "nonEmptyLines": 320,
+      "metrics": {}
+    },
+    {
+      "path": "docs/front_end/demo/blog/code.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 322,
+      "nonEmptyLines": 321,
+      "metrics": {}
+    },
+    {
+      "path": "docs/front_end/demo/home_page_mobile/code.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 319,
+      "nonEmptyLines": 318,
+      "metrics": {}
+    }
+  ]
+}

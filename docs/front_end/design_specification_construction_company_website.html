@@ -1,0 +1,132 @@
+Dưới đây là tài liệu thiết kế website (Design Spec) cho công ty xây dựng, sử dụng bộ màu từ logo bạn cung cấp và tham chiếu phong cách UI/UX tương tự fastcons.vn (hiện đại, clean, thiên về corporate + trust).
+1. Nhận diện thương hiệu (Brand System)
+1.1. Màu sắc chính (Color Palette)
+Dựa trên logo:
+RoleColorHexUsagePrimary Red🔴#E21B23CTA, button, highlightPrimary Blue🔵#2E3A8CHeading, text chínhAccent Blue🔷#1E40AFhover, linkNeutral Dark⚫#1F2937text bodyNeutral Gray⚙️#6B7280text phụBackground⚪#F9FAFBnềnDivider➖#E5E7EBborder
+1.2. Typography
+Heading: Montserrat / Poppins
+Body: Inter / Roboto
+Font-weight:
+H1: 700
+H2: 600
+Body: 400
+2. UI Style Guidelines (theo fastcons-like)
+2.1. Nguyên tắc thiết kế
+Layout: Grid 12 cột
+Spacing: 8px system
+Border radius: 8px – 12px
+Shadow: nhẹ (elevation 1–2)
+Icon: outline hoặc duotone
+2.2. Component chuẩn
+Button
+Primary: nền đỏ, chữ trắng
+Secondary: viền xanh, hover fill xanh
+CTA lớn: full width mobile
+Card
+Background trắng
+Shadow nhẹ
+Hover: lift + scale 1.02
+Section
+Padding: 80px desktop / 40px mobile
+3. Homepage Structure
+3.1. Hero Section
+Background: công trình thực tế
+Overlay: gradient xanh → đỏ nhẹ
+Content:
+Title lớn
+Subtitle
+CTA: "Nhận báo giá"
+3.2. Giới thiệu nhanh
+3–4 block:
+Kinh nghiệm
+Dự án
+Nhân sự
+Chứng chỉ
+3.3. Dịch vụ chính
+Grid 3–4 cột:
+Thi công nhà phố
+Biệt thự
+Sửa chữa
+Nội thất
+3.4. Dự án tiêu biểu
+Slider hoặc masonry
+Hover:
+Overlay + tên dự án
+3.5. Quy trình làm việc
+Step UI:
+Tư vấn
+Thiết kế
+Thi công
+Bàn giao
+3.6. Testimonial
+Card quote
+Avatar khách hàng
+3.7. CTA cuối
+Background đỏ
+Text trắng
+Button lớn
+4. Category Page (Danh mục dự án)
+Layout:
+Filter theo:
+Loại công trình
+Diện tích
+Grid:
+3 cột desktop
+1 cột mobile
+Card:
+Image
+Title
+Meta: diện tích / location
+5. Blog Page
+Layout:
+Left: danh sách bài
+Right: sidebar
+Sidebar:
+Category
+Bài viết mới
+CTA báo giá
+6. Service Page
+Structure:
+6.1. Hero
+Title dịch vụ
+Background ảnh thật
+6.2. Mô tả chi tiết
+Text + image xen kẽ
+6.3. Quy trình riêng
+Timeline UI
+6.4. Báo giá mẫu
+Table hoặc card
+6.5. CTA
+"Liên hệ ngay"
+7. UX Principles (quan trọng)
+7.1. Conversion Focus
+CTA luôn visible
+Sticky header + hotline
+7.2. Trust Building
+Logo đối tác
+Giấy phép
+Feedback thật
+7.3. Mobile-first
+Menu hamburger
+Button full width
+Font ≥ 16px
+8. Animation / Interaction
+Hover card: scale nhẹ
+Scroll reveal: fade + translateY
+CTA: pulse nhẹ
+Image: zoom on hover
+9. Technical Suggestion (phù hợp stack của bạn)
+Frontend: Nuxt + Tailwind
+Component:
+Swiper → project slider
+GLightbox → gallery
+SEO:
+Schema: LocalBusiness, Project
+Performance:
+Lazy image
+CDN (Cloudflare)
+10. Tone & Style
+Chuyên nghiệp (Corporate)
+Tin cậy (Trust)
+Hiện đại (Modern minimal)
+Không dùng quá nhiều màu → giữ 2 màu chính đỏ + xanh

@@ -1,0 +1,4273 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 20,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "app/Services/OpenAI/OpenAIResponsesClient.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 47,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 10,
+          "endLine": 14,
+          "params": []
+        },
+        {
+          "name": "respond",
+          "startLine": 16,
+          "endLine": 38,
+          "params": [
+            "$instructions",
+            "$input",
+            "$extra"
+          ]
+        },
+        {
+          "name": "outputText",
+          "startLine": 40,
+          "endLine": 56,
+          "params": [
+            "$response"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "OpenAIResponsesClient",
+          "startLine": 8,
+          "endLine": 57,
+          "methods": [
+            "__construct",
+            "respond",
+            "outputText"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "OpenAIResponsesClient",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "respond",
+          "callee": "array_merge",
+          "lineNumber": 18
+        },
+        {
+          "caller": "respond",
+          "callee": "Http::baseUrl(rtrim($this->baseUrl, '/'))\n            ->withToken($this->apiKey)\n            ->acceptJson()\n            ->asJson()\n            ->timeout(180)\n            ->post('/responses', $payload)\n            ->throw()->json",
+          "lineNumber": 24
+        },
+        {
+          "caller": "respond",
+          "callee": "Http::baseUrl(rtrim($this->baseUrl, '/'))\n            ->withToken($this->apiKey)\n            ->acceptJson()\n            ->asJson()\n            ->timeout(180)\n            ->post('/responses', $payload)->throw",
+          "lineNumber": 24
+        },
+        {
+          "caller": "respond",
+          "callee": "Http::baseUrl(rtrim($this->baseUrl, '/'))\n            ->withToken($this->apiKey)\n            ->acceptJson()\n            ->asJson()\n            ->timeout(180)->post",
+          "lineNumber": 24
+        },
+        {
+          "caller": "respond",
+          "callee": "Http::baseUrl(rtrim($this->baseUrl, '/'))\n            ->withToken($this->apiKey)\n            ->acceptJson()\n            ->asJson()->timeout",
+          "lineNumber": 24
+        },
+        {
+          "caller": "respond",
+          "callee": "Http::baseUrl(rtrim($this->baseUrl, '/'))\n            ->withToken($this->apiKey)\n            ->acceptJson()->asJson",
+          "lineNumber": 24
+        },
+        {
+          "caller": "respond",
+          "callee": "Http::baseUrl(rtrim($this->baseUrl, '/'))\n            ->withToken($this->apiKey)->acceptJson",
+          "lineNumber": 24
+        },
+        {
+          "caller": "respond",
+          "callee": "Http::baseUrl(rtrim($this->baseUrl, '/'))->withToken",
+          "lineNumber": 24
+        },
+        {
+          "caller": "respond",
+          "callee": "Http::baseUrl",
+          "lineNumber": 24
+        },
+        {
+          "caller": "respond",
+          "callee": "rtrim",
+          "lineNumber": 24
+        },
+        {
+          "caller": "respond",
+          "callee": "is_array",
+          "lineNumber": 33
+        },
+        {
+          "caller": "outputText",
+          "callee": "is_string",
+          "lineNumber": 42
+        },
+        {
+          "caller": "outputText",
+          "callee": "trim",
+          "lineNumber": 55
+        },
+        {
+          "caller": "outputText",
+          "callee": "implode",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Services/Seo/SeoGenerationOrchestrator.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 41,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 11,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "generateBrief",
+          "startLine": 19,
+          "endLine": 28,
+          "params": [
+            "$cluster"
+          ]
+        },
+        {
+          "name": "generateDraft",
+          "startLine": 30,
+          "endLine": 50,
+          "params": [
+            "$page"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoGenerationOrchestrator",
+          "startLine": 9,
+          "endLine": 51,
+          "methods": [
+            "__construct",
+            "generateBrief",
+            "generateDraft"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoGenerationOrchestrator",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "generateBrief",
+          "callee": "$this->promptBuilder->buildBriefPrompt",
+          "lineNumber": 22
+        },
+        {
+          "caller": "generateBrief",
+          "callee": "$this->client->createTextResponse",
+          "lineNumber": 24
+        },
+        {
+          "caller": "generateBrief",
+          "callee": "$this->client->extractOutputText",
+          "lineNumber": 25
+        },
+        {
+          "caller": "generateBrief",
+          "callee": "json_decode",
+          "lineNumber": 27
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "$this->promptBuilder->buildDraftPrompt",
+          "lineNumber": 33
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "$this->client->createTextResponse",
+          "lineNumber": 35
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "$this->client->extractOutputText",
+          "lineNumber": 36
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "$this->metaService->generateForPage",
+          "lineNumber": 38
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "$this->schemaService->generateForPage",
+          "lineNumber": 39
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "config",
+          "lineNumber": 40
+        },
+        {
+          "caller": "generateDraft",
+          "callee": "config",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Support/Admin/AdminNavigationRegistry.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 466,
+      "nonEmptyLines": 441,
+      "functions": [
+        {
+          "name": "cmsGroups",
+          "startLine": 14,
+          "endLine": 25,
+          "params": [
+            "$user"
+          ]
+        },
+        {
+          "name": "groups",
+          "startLine": 30,
+          "endLine": 307,
+          "params": []
+        },
+        {
+          "name": "group",
+          "startLine": 309,
+          "endLine": 312,
+          "params": [
+            "$groupKey"
+          ]
+        },
+        {
+          "name": "visibleActions",
+          "startLine": 317,
+          "endLine": 329,
+          "params": [
+            "$groupKey",
+            "$user"
+          ]
+        },
+        {
+          "name": "actionIsCurrent",
+          "startLine": 331,
+          "endLine": 339,
+          "params": [
+            "$action",
+            "$routeName"
+          ]
+        },
+        {
+          "name": "groupIsCurrent",
+          "startLine": 341,
+          "endLine": 351,
+          "params": [
+            "$groupKey",
+            "$routeName"
+          ]
+        },
+        {
+          "name": "permissionKeys",
+          "startLine": 356,
+          "endLine": 364,
+          "params": []
+        },
+        {
+          "name": "legacyPermissionKeys",
+          "startLine": 369,
+          "endLine": 383,
+          "params": []
+        },
+        {
+          "name": "fullAdminPermissions",
+          "startLine": 388,
+          "endLine": 394,
+          "params": []
+        },
+        {
+          "name": "defaultContentPermissions",
+          "startLine": 399,
+          "endLine": 408,
+          "params": []
+        },
+        {
+          "name": "defaultSalePermissions",
+          "startLine": 413,
+          "endLine": 420,
+          "params": []
+        },
+        {
+          "name": "permissionForRoute",
+          "startLine": 422,
+          "endLine": 437,
+          "params": [
+            "$routeName"
+          ]
+        },
+        {
+          "name": "action",
+          "startLine": 439,
+          "endLine": 454,
+          "params": [
+            "$permission",
+            "$label",
+            "$description",
+            "$route",
+            "$routeNames"
+          ]
+        },
+        {
+          "name": "userCanAccess",
+          "startLine": 456,
+          "endLine": 465,
+          "params": [
+            "$user",
+            "$permission"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AdminNavigationRegistry",
+          "startLine": 9,
+          "endLine": 466,
+          "methods": [
+            "cmsGroups",
+            "groups",
+            "group",
+            "visibleActions",
+            "actionIsCurrent",
+            "groupIsCurrent",
+            "permissionKeys",
+            "legacyPermissionKeys",
+            "fullAdminPermissions",
+            "defaultContentPermissions",
+            "defaultSalePermissions",
+            "permissionForRoute",
+            "action",
+            "userCanAccess"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AdminNavigationRegistry",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "cmsGroups",
+          "callee": "collect(self::groups())\n            ->map(function (array $group) use ($user): array {\n                $group['actions'] = self::visibleActions($group['key'], $user);\n\n                return $group;\n            })\n            ->filter(fn (array $group) => $group['actions'] !== [])\n            ->values()->all",
+          "lineNumber": 16
+        },
+        {
+          "caller": "cmsGroups",
+          "callee": "collect(self::groups())\n            ->map(function (array $group) use ($user): array {\n                $group['actions'] = self::visibleActions($group['key'], $user);\n\n                return $group;\n            })\n            ->filter(fn (array $group) => $group['actions'] !== [])->values",
+          "lineNumber": 16
+        },
+        {
+          "caller": "cmsGroups",
+          "callee": "collect(self::groups())\n            ->map(function (array $group) use ($user): array {\n                $group['actions'] = self::visibleActions($group['key'], $user);\n\n                return $group;\n            })->filter",
+          "lineNumber": 16
+        },
+        {
+          "caller": "cmsGroups",
+          "callee": "collect(self::groups())->map",
+          "lineNumber": 16
+        },
+        {
+          "caller": "cmsGroups",
+          "callee": "collect",
+          "lineNumber": 16
+        },
+        {
+          "caller": "cmsGroups",
+          "callee": "self::groups",
+          "lineNumber": 16
+        },
+        {
+          "caller": "cmsGroups",
+          "callee": "self::visibleActions",
+          "lineNumber": 18
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 38
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 45
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 52
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 59
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 66
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 73
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 80
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 87
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 94
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 108
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 115
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 122
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 129
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 143
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 150
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 157
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 164
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 178
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 185
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 192
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 199
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 206
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 220
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 227
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 241
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 255
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 269
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 276
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 290
+        },
+        {
+          "caller": "groups",
+          "callee": "self::action",
+          "lineNumber": 297
+        },
+        {
+          "caller": "group",
+          "callee": "collect(self::groups())->firstWhere",
+          "lineNumber": 311
+        },
+        {
+          "caller": "group",
+          "callee": "collect",
+          "lineNumber": 311
+        },
+        {
+          "caller": "group",
+          "callee": "self::groups",
+          "lineNumber": 311
+        },
+        {
+          "caller": "visibleActions",
+          "callee": "self::group",
+          "lineNumber": 319
+        },
+        {
+          "caller": "visibleActions",
+          "callee": "collect($group['actions'])\n            ->filter(fn (array $action) => self::userCanAccess($user, $action['permission']))\n            ->values()->all",
+          "lineNumber": 325
+        },
+        {
+          "caller": "visibleActions",
+          "callee": "collect($group['actions'])\n            ->filter(fn (array $action) => self::userCanAccess($user, $action['permission']))->values",
+          "lineNumber": 325
+        },
+        {
+          "caller": "visibleActions",
+          "callee": "collect($group['actions'])->filter",
+          "lineNumber": 325
+        },
+        {
+          "caller": "visibleActions",
+          "callee": "collect",
+          "lineNumber": 325
+        },
+        {
+          "caller": "visibleActions",
+          "callee": "self::userCanAccess",
+          "lineNumber": 326
+        },
+        {
+          "caller": "actionIsCurrent",
+          "callee": "filled",
+          "lineNumber": 333
+        },
+        {
+          "caller": "actionIsCurrent",
+          "callee": "collect($action['active_patterns'] ?? [])->contains",
+          "lineNumber": 337
+        },
+        {
+          "caller": "actionIsCurrent",
+          "callee": "collect",
+          "lineNumber": 337
+        },
+        {
+          "caller": "actionIsCurrent",
+          "callee": "Str::is",
+          "lineNumber": 338
+        },
+        {
+          "caller": "groupIsCurrent",
+          "callee": "self::group",
+          "lineNumber": 343
+        },
+        {
+          "caller": "groupIsCurrent",
+          "callee": "collect($group['actions'])->contains",
+          "lineNumber": 349
+        },
+        {
+          "caller": "groupIsCurrent",
+          "callee": "collect",
+          "lineNumber": 349
+        },
+        {
+          "caller": "groupIsCurrent",
+          "callee": "self::actionIsCurrent",
+          "lineNumber": 350
+        },
+        {
+          "caller": "permissionKeys",
+          "callee": "collect(self::groups())\n            ->flatMap(fn (array $group) => collect($group['actions'])->pluck('permission'))\n            ->filter()\n            ->unique()\n            ->values()->all",
+          "lineNumber": 358
+        },
+        {
+          "caller": "permissionKeys",
+          "callee": "collect(self::groups())\n            ->flatMap(fn (array $group) => collect($group['actions'])->pluck('permission'))\n            ->filter()\n            ->unique()->values",
+          "lineNumber": 358
+        },
+        {
+          "caller": "permissionKeys",
+          "callee": "collect(self::groups())\n            ->flatMap(fn (array $group) => collect($group['actions'])->pluck('permission'))\n            ->filter()->unique",
+          "lineNumber": 358
+        },
+        {
+          "caller": "permissionKeys",
+          "callee": "collect(self::groups())\n            ->flatMap(fn (array $group) => collect($group['actions'])->pluck('permission'))->filter",
+          "lineNumber": 358
+        },
+        {
+          "caller": "permissionKeys",
+          "callee": "collect(self::groups())->flatMap",
+          "lineNumber": 358
+        },
+        {
+          "caller": "permissionKeys",
+          "callee": "collect",
+          "lineNumber": 358
+        },
+        {
+          "caller": "permissionKeys",
+          "callee": "self::groups",
+          "lineNumber": 358
+        },
+        {
+          "caller": "permissionKeys",
+          "callee": "collect($group['actions'])->pluck",
+          "lineNumber": 359
+        },
+        {
+          "caller": "permissionKeys",
+          "callee": "collect",
+          "lineNumber": 359
+        },
+        {
+          "caller": "fullAdminPermissions",
+          "callee": "array_values",
+          "lineNumber": 390
+        },
+        {
+          "caller": "fullAdminPermissions",
+          "callee": "array_unique",
+          "lineNumber": 390
+        },
+        {
+          "caller": "fullAdminPermissions",
+          "callee": "self::permissionKeys",
+          "lineNumber": 392
+        },
+        {
+          "caller": "permissionForRoute",
+          "callee": "filled",
+          "lineNumber": 424
+        },
+        {
+          "caller": "permissionForRoute",
+          "callee": "self::groups",
+          "lineNumber": 428
+        },
+        {
+          "caller": "permissionForRoute",
+          "callee": "in_array",
+          "lineNumber": 430
+        },
+        {
+          "caller": "permissionForRoute",
+          "callee": "Arr::wrap",
+          "lineNumber": 430
+        },
+        {
+          "caller": "userCanAccess",
+          "callee": "method_exists",
+          "lineNumber": 462
+        },
+        {
+          "caller": "userCanAccess",
+          "callee": "$user->can",
+          "lineNumber": 463
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 14,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "bootstrap/providers.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 9,
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "config/auth.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 117,
+      "nonEmptyLines": 103,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "database/factories/UserFactory.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 54,
+      "functions": [
+        {
+          "name": "definition",
+          "startLine": 25,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "unverified",
+          "startLine": 42,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "withTwoFactor",
+          "startLine": 52,
+          "endLine": 59,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "UserFactory",
+          "startLine": 13,
+          "endLine": 60,
+          "methods": [
+            "definition",
+            "unverified",
+            "withTwoFactor"
+          ],
+          "properties": [
+            "password"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserFactory",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "definition",
+          "callee": "fake()->name",
+          "lineNumber": 28
+        },
+        {
+          "caller": "definition",
+          "callee": "fake",
+          "lineNumber": 28
+        },
+        {
+          "caller": "definition",
+          "callee": "fake()->unique()->safeEmail",
+          "lineNumber": 29
+        },
+        {
+          "caller": "definition",
+          "callee": "fake()->unique",
+          "lineNumber": 29
+        },
+        {
+          "caller": "definition",
+          "callee": "fake",
+          "lineNumber": 29
+        },
+        {
+          "caller": "definition",
+          "callee": "now",
+          "lineNumber": 30
+        },
+        {
+          "caller": "definition",
+          "callee": "Hash::make",
+          "lineNumber": 31
+        },
+        {
+          "caller": "definition",
+          "callee": "Str::random",
+          "lineNumber": 32
+        },
+        {
+          "caller": "unverified",
+          "callee": "$this->state",
+          "lineNumber": 44
+        },
+        {
+          "caller": "withTwoFactor",
+          "callee": "$this->state",
+          "lineNumber": 54
+        },
+        {
+          "caller": "withTwoFactor",
+          "callee": "encrypt",
+          "lineNumber": 55
+        },
+        {
+          "caller": "withTwoFactor",
+          "callee": "encrypt",
+          "lineNumber": 56
+        },
+        {
+          "caller": "withTwoFactor",
+          "callee": "json_encode",
+          "lineNumber": 56
+        },
+        {
+          "caller": "withTwoFactor",
+          "callee": "now",
+          "lineNumber": 57
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "resources/views/pages/settings/⚡delete-user-modal.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 39,
+      "callGraph": [
+        {
+          "caller": "deleteUser",
+          "callee": "$this->validate",
+          "lineNumber": 18
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "$this->currentPasswordRules",
+          "lineNumber": 19
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "tap(Auth::user(), $logout(...))->delete",
+          "lineNumber": 22
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "tap",
+          "lineNumber": 22
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "Auth::user",
+          "lineNumber": 22
+        },
+        {
+          "caller": "deleteUser",
+          "callee": "$this->redirect",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/pages/settings/⚡profile.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 126,
+      "nonEmptyLines": 99,
+      "callGraph": [
+        {
+          "caller": "mount",
+          "callee": "Auth::user",
+          "lineNumber": 22
+        },
+        {
+          "caller": "mount",
+          "callee": "Auth::user",
+          "lineNumber": 23
+        },
+        {
+          "caller": "updateProfileInformation",
+          "callee": "Auth::user",
+          "lineNumber": 31
+        },
+        {
+          "caller": "updateProfileInformation",
+          "callee": "$this->validate",
+          "lineNumber": 33
+        },
+        {
+          "caller": "updateProfileInformation",
+          "callee": "$this->profileRules",
+          "lineNumber": 33
+        },
+        {
+          "caller": "updateProfileInformation",
+          "callee": "$user->fill",
+          "lineNumber": 35
+        },
+        {
+          "caller": "updateProfileInformation",
+          "callee": "$user->isDirty",
+          "lineNumber": 37
+        },
+        {
+          "caller": "updateProfileInformation",
+          "callee": "$user->save",
+          "lineNumber": 41
+        },
+        {
+          "caller": "updateProfileInformation",
+          "callee": "$this->dispatch",
+          "lineNumber": 43
+        },
+        {
+          "caller": "resendVerificationNotification",
+          "callee": "Auth::user",
+          "lineNumber": 51
+        },
+        {
+          "caller": "resendVerificationNotification",
+          "callee": "$user->hasVerifiedEmail",
+          "lineNumber": 53
+        },
+        {
+          "caller": "resendVerificationNotification",
+          "callee": "$this->redirectIntended",
+          "lineNumber": 54
+        },
+        {
+          "caller": "resendVerificationNotification",
+          "callee": "route",
+          "lineNumber": 54
+        },
+        {
+          "caller": "resendVerificationNotification",
+          "callee": "$user->sendEmailVerificationNotification",
+          "lineNumber": 59
+        },
+        {
+          "caller": "resendVerificationNotification",
+          "callee": "Session::flash",
+          "lineNumber": 61
+        },
+        {
+          "caller": "hasUnverifiedEmail",
+          "callee": "Auth::user",
+          "lineNumber": 67
+        },
+        {
+          "caller": "hasUnverifiedEmail",
+          "callee": "Auth::user()->hasVerifiedEmail",
+          "lineNumber": 67
+        },
+        {
+          "caller": "hasUnverifiedEmail",
+          "callee": "Auth::user",
+          "lineNumber": 67
+        },
+        {
+          "caller": "showDeleteUser",
+          "callee": "Auth::user",
+          "lineNumber": 73
+        },
+        {
+          "caller": "showDeleteUser",
+          "callee": "Auth::user",
+          "lineNumber": 74
+        },
+        {
+          "caller": "showDeleteUser",
+          "callee": "Auth::user()->hasVerifiedEmail",
+          "lineNumber": 74
+        },
+        {
+          "caller": "showDeleteUser",
+          "callee": "Auth::user",
+          "lineNumber": 74
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/pages/settings/⚡security.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 178,
+      "nonEmptyLines": 150,
+      "callGraph": [
+        {
+          "caller": "mount",
+          "callee": "Features::canManageTwoFactorAuthentication",
+          "lineNumber": 31
+        },
+        {
+          "caller": "mount",
+          "callee": "Fortify::confirmsTwoFactorAuthentication",
+          "lineNumber": 34
+        },
+        {
+          "caller": "mount",
+          "callee": "is_null",
+          "lineNumber": 34
+        },
+        {
+          "caller": "mount",
+          "callee": "auth()->user",
+          "lineNumber": 34
+        },
+        {
+          "caller": "mount",
+          "callee": "auth",
+          "lineNumber": 34
+        },
+        {
+          "caller": "mount",
+          "callee": "auth()->user",
+          "lineNumber": 35
+        },
+        {
+          "caller": "mount",
+          "callee": "auth",
+          "lineNumber": 35
+        },
+        {
+          "caller": "mount",
+          "callee": "auth()->user()->hasEnabledTwoFactorAuthentication",
+          "lineNumber": 38
+        },
+        {
+          "caller": "mount",
+          "callee": "auth()->user",
+          "lineNumber": 38
+        },
+        {
+          "caller": "mount",
+          "callee": "auth",
+          "lineNumber": 38
+        },
+        {
+          "caller": "mount",
+          "callee": "Features::optionEnabled",
+          "lineNumber": 39
+        },
+        {
+          "caller": "mount",
+          "callee": "Features::twoFactorAuthentication",
+          "lineNumber": 39
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "$this->validate",
+          "lineNumber": 49
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "$this->currentPasswordRules",
+          "lineNumber": 50
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "$this->passwordRules",
+          "lineNumber": 51
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "$this->reset",
+          "lineNumber": 54
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "Auth::user()->update",
+          "lineNumber": 59
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "Auth::user",
+          "lineNumber": 59
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "$this->reset",
+          "lineNumber": 63
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "$this->dispatch",
+          "lineNumber": 65
+        },
+        {
+          "caller": "disable",
+          "callee": "auth()->user",
+          "lineNumber": 82
+        },
+        {
+          "caller": "disable",
+          "callee": "auth",
+          "lineNumber": 82
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "routes/api.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 9,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/Domains/Seo/Policies/SeoPagePolicy.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "viewSeoAdmin",
+          "startLine": 10,
+          "endLine": 15,
+          "params": [
+            "$user"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 17,
+          "endLine": 17,
+          "params": [
+            "$user",
+            "$page"
+          ]
+        },
+        {
+          "name": "publish",
+          "startLine": 18,
+          "endLine": 18,
+          "params": [
+            "$user",
+            "$page"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeoPagePolicy",
+          "startLine": 8,
+          "endLine": 19,
+          "methods": [
+            "viewSeoAdmin",
+            "update",
+            "publish"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeoPagePolicy",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "viewSeoAdmin",
+          "callee": "method_exists",
+          "lineNumber": 12
+        },
+        {
+          "caller": "viewSeoAdmin",
+          "callee": "$user->hasRole",
+          "lineNumber": 13
+        },
+        {
+          "caller": "viewSeoAdmin",
+          "callee": "$user->hasRole",
+          "lineNumber": 13
+        },
+        {
+          "caller": "update",
+          "callee": "$this->viewSeoAdmin",
+          "lineNumber": 17
+        },
+        {
+          "caller": "publish",
+          "callee": "$this->viewSeoAdmin",
+          "lineNumber": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Feature/Admin/AccountsManagerTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 234,
+      "nonEmptyLines": 179,
+      "functions": [
+        {
+          "name": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "startLine": 19,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "test_switching_account_to_admin_clears_direct_content_extras",
+          "startLine": 45,
+          "endLine": 68,
+          "params": []
+        },
+        {
+          "name": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "startLine": 70,
+          "endLine": 97,
+          "params": []
+        },
+        {
+          "name": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "startLine": 99,
+          "endLine": 124,
+          "params": []
+        },
+        {
+          "name": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "startLine": 126,
+          "endLine": 141,
+          "params": []
+        },
+        {
+          "name": "test_admin_can_disable_and_enable_user_account",
+          "startLine": 143,
+          "endLine": 176,
+          "params": []
+        },
+        {
+          "name": "test_admin_can_delete_other_user_account",
+          "startLine": 178,
+          "endLine": 193,
+          "params": []
+        },
+        {
+          "name": "test_admin_cannot_disable_or_delete_own_account",
+          "startLine": 195,
+          "endLine": 214,
+          "params": []
+        },
+        {
+          "name": "test_admin_cannot_disable_own_account_from_editor_form",
+          "startLine": 216,
+          "endLine": 233,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AccountsManagerTest",
+          "startLine": 15,
+          "endLine": 234,
+          "methods": [
+            "test_admin_can_create_content_account_with_extra_sidebar_permission",
+            "test_switching_account_to_admin_clears_direct_content_extras",
+            "test_missing_content_role_is_recreated_before_saving_content_account",
+            "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+            "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+            "test_admin_can_disable_and_enable_user_account",
+            "test_admin_can_delete_other_user_account",
+            "test_admin_cannot_disable_or_delete_own_account",
+            "test_admin_cannot_disable_own_account_from_editor_form"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AccountsManagerTest",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "$this->seed",
+          "lineNumber": 21
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "User::query()->where('email', 'test@example.com')->firstOrFail",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "User::query()->where",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "User::query",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "$this->actingAs",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Content Tours')\n            ->set('form.email', 'content-tours@example.com')\n            ->set('form.password', 'password123')\n            ->set('form.password_confirmation', 'password123')\n            ->set('form.role_type', 'content')\n            ->set('form.extra_permissions', ['admin.tours.index'])\n            ->call('save')->assertHasNoErrors",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Content Tours')\n            ->set('form.email', 'content-tours@example.com')\n            ->set('form.password', 'password123')\n            ->set('form.password_confirmation', 'password123')\n            ->set('form.role_type', 'content')\n            ->set('form.extra_permissions', ['admin.tours.index'])->call",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Content Tours')\n            ->set('form.email', 'content-tours@example.com')\n            ->set('form.password', 'password123')\n            ->set('form.password_confirmation', 'password123')\n            ->set('form.role_type', 'content')->set",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Content Tours')\n            ->set('form.email', 'content-tours@example.com')\n            ->set('form.password', 'password123')\n            ->set('form.password_confirmation', 'password123')->set",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Content Tours')\n            ->set('form.email', 'content-tours@example.com')\n            ->set('form.password', 'password123')->set",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Content Tours')\n            ->set('form.email', 'content-tours@example.com')->set",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Content Tours')->set",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "Livewire::test(AccountsManager::class)->set",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "Livewire::test",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "User::query()->where('email', 'content-tours@example.com')->firstOrFail",
+          "lineNumber": 36
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "User::query()->where",
+          "lineNumber": 36
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "User::query",
+          "lineNumber": 36
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "$this->assertTrue",
+          "lineNumber": 38
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "$user->hasRole",
+          "lineNumber": 38
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "$this->assertTrue",
+          "lineNumber": 39
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "$this->assertTrue",
+          "lineNumber": 40
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "$user->can",
+          "lineNumber": 40
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "$this->assertTrue",
+          "lineNumber": 41
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "$user->can",
+          "lineNumber": 41
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "$this->assertFalse",
+          "lineNumber": 42
+        },
+        {
+          "caller": "test_admin_can_create_content_account_with_extra_sidebar_permission",
+          "callee": "$user->can",
+          "lineNumber": 42
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "$this->seed",
+          "lineNumber": 47
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "User::query()->where('email', 'test@example.com')->firstOrFail",
+          "lineNumber": 49
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "User::query()->where",
+          "lineNumber": 49
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "User::query",
+          "lineNumber": 49
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "User::query()->where('email', 'content@example.com')->firstOrFail",
+          "lineNumber": 50
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "User::query()->where",
+          "lineNumber": 50
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "User::query",
+          "lineNumber": 50
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "$user->givePermissionTo",
+          "lineNumber": 51
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "$this->actingAs",
+          "lineNumber": 53
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "Livewire::test(AccountsManager::class, ['user' => $user])\n            ->call('editAccount', $user->id)\n            ->set('form.role_type', 'admin')\n            ->set('form.password', '')\n            ->set('form.password_confirmation', '')\n            ->call('save')->assertHasNoErrors",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "Livewire::test(AccountsManager::class, ['user' => $user])\n            ->call('editAccount', $user->id)\n            ->set('form.role_type', 'admin')\n            ->set('form.password', '')\n            ->set('form.password_confirmation', '')->call",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "Livewire::test(AccountsManager::class, ['user' => $user])\n            ->call('editAccount', $user->id)\n            ->set('form.role_type', 'admin')\n            ->set('form.password', '')->set",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "Livewire::test(AccountsManager::class, ['user' => $user])\n            ->call('editAccount', $user->id)\n            ->set('form.role_type', 'admin')->set",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "Livewire::test(AccountsManager::class, ['user' => $user])\n            ->call('editAccount', $user->id)->set",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "Livewire::test(AccountsManager::class, ['user' => $user])->call",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "Livewire::test",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "$user->refresh",
+          "lineNumber": 63
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "$this->assertTrue",
+          "lineNumber": 65
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "$user->hasRole",
+          "lineNumber": 65
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "$this->assertCount",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "$this->assertTrue",
+          "lineNumber": 67
+        },
+        {
+          "caller": "test_switching_account_to_admin_clears_direct_content_extras",
+          "callee": "$user->can",
+          "lineNumber": 67
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "$this->seed",
+          "lineNumber": 72
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "User::query()->where('email', 'test@example.com')->firstOrFail",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "User::query()->where",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "User::query",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "Role::findByName('content', 'web')->delete",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "Role::findByName",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "$this->actingAs",
+          "lineNumber": 77
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Content Recovery')\n            ->set('form.email', 'content-recovery@example.com')\n            ->set('form.password', 'password123')\n            ->set('form.password_confirmation', 'password123')\n            ->set('form.role_type', 'content')\n            ->set('form.extra_permissions', ['admin.tours.index'])\n            ->call('save')->assertHasNoErrors",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Content Recovery')\n            ->set('form.email', 'content-recovery@example.com')\n            ->set('form.password', 'password123')\n            ->set('form.password_confirmation', 'password123')\n            ->set('form.role_type', 'content')\n            ->set('form.extra_permissions', ['admin.tours.index'])->call",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Content Recovery')\n            ->set('form.email', 'content-recovery@example.com')\n            ->set('form.password', 'password123')\n            ->set('form.password_confirmation', 'password123')\n            ->set('form.role_type', 'content')->set",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Content Recovery')\n            ->set('form.email', 'content-recovery@example.com')\n            ->set('form.password', 'password123')\n            ->set('form.password_confirmation', 'password123')->set",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Content Recovery')\n            ->set('form.email', 'content-recovery@example.com')\n            ->set('form.password', 'password123')->set",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Content Recovery')\n            ->set('form.email', 'content-recovery@example.com')->set",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Content Recovery')->set",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "Livewire::test(AccountsManager::class)->set",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "Livewire::test",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "User::query()->where('email', 'content-recovery@example.com')->firstOrFail",
+          "lineNumber": 89
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "User::query()->where",
+          "lineNumber": 89
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "User::query",
+          "lineNumber": 89
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "Role::findByName",
+          "lineNumber": 90
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "$this->assertTrue",
+          "lineNumber": 92
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "$user->hasRole",
+          "lineNumber": 92
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "$this->assertEqualsCanonicalizing",
+          "lineNumber": 93
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "AdminNavigationRegistry::defaultContentPermissions",
+          "lineNumber": 94
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "$contentRole->permissions->pluck('name')->all",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_missing_content_role_is_recreated_before_saving_content_account",
+          "callee": "$contentRole->permissions->pluck",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "$this->seed",
+          "lineNumber": 101
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "User::query()->where('email', 'test@example.com')->firstOrFail",
+          "lineNumber": 103
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "User::query()->where",
+          "lineNumber": 103
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "User::query",
+          "lineNumber": 103
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "$this->actingAs",
+          "lineNumber": 104
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Sale Tour')\n            ->set('form.email', 'sale-tour@example.com')\n            ->set('form.phone', '0911 222 288')\n            ->set('form.password', 'password123')\n            ->set('form.password_confirmation', 'password123')\n            ->set('form.role_type', 'sale')\n            ->call('save')->assertHasNoErrors",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Sale Tour')\n            ->set('form.email', 'sale-tour@example.com')\n            ->set('form.phone', '0911 222 288')\n            ->set('form.password', 'password123')\n            ->set('form.password_confirmation', 'password123')\n            ->set('form.role_type', 'sale')->call",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Sale Tour')\n            ->set('form.email', 'sale-tour@example.com')\n            ->set('form.phone', '0911 222 288')\n            ->set('form.password', 'password123')\n            ->set('form.password_confirmation', 'password123')->set",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Sale Tour')\n            ->set('form.email', 'sale-tour@example.com')\n            ->set('form.phone', '0911 222 288')\n            ->set('form.password', 'password123')->set",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Sale Tour')\n            ->set('form.email', 'sale-tour@example.com')\n            ->set('form.phone', '0911 222 288')->set",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Sale Tour')\n            ->set('form.email', 'sale-tour@example.com')->set",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->set('form.name', 'Sale Tour')->set",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "Livewire::test(AccountsManager::class)->set",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "Livewire::test",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "User::query()->where('email', 'sale-tour@example.com')->firstOrFail",
+          "lineNumber": 116
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "User::query()->where",
+          "lineNumber": 116
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "User::query",
+          "lineNumber": 116
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "$this->assertTrue",
+          "lineNumber": 118
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "$user->hasRole",
+          "lineNumber": 118
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "$this->assertSame",
+          "lineNumber": 119
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "$this->assertTrue",
+          "lineNumber": 120
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "$user->can",
+          "lineNumber": 120
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "$this->assertTrue",
+          "lineNumber": 121
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "$user->can",
+          "lineNumber": 121
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "$this->assertFalse",
+          "lineNumber": 122
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "$user->can",
+          "lineNumber": 122
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "$this->assertFalse",
+          "lineNumber": 123
+        },
+        {
+          "caller": "test_admin_can_create_sale_account_with_tour_only_permissions_and_phone",
+          "callee": "$user->can",
+          "lineNumber": 123
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "$this->seed",
+          "lineNumber": 128
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "User::query()->where('email', 'test@example.com')->firstOrFail",
+          "lineNumber": 130
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "User::query()->where",
+          "lineNumber": 130
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "User::query",
+          "lineNumber": 130
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "User::query()->where('email', 'content@example.com')->firstOrFail",
+          "lineNumber": 131
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "User::query()->where",
+          "lineNumber": 131
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "User::query",
+          "lineNumber": 131
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "$this->actingAs",
+          "lineNumber": 133
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "$this->get(route('admin.accounts'))\n            ->assertOk()\n            ->assertSeeText('Tất cả trạng thái')\n            ->assertSee('wire:click=\"disableUser('.$contentUser->id.')\"', false)\n            ->assertSee('wire:click=\"deleteUser('.$contentUser->id.')\"', false)->assertDontSee",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "$this->get(route('admin.accounts'))\n            ->assertOk()\n            ->assertSeeText('Tất cả trạng thái')\n            ->assertSee('wire:click=\"disableUser('.$contentUser->id.')\"', false)->assertSee",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "$this->get(route('admin.accounts'))\n            ->assertOk()\n            ->assertSeeText('Tất cả trạng thái')->assertSee",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "$this->get(route('admin.accounts'))\n            ->assertOk()->assertSeeText",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "$this->get(route('admin.accounts'))->assertOk",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "$this->get",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_admin_account_index_shows_status_filter_and_destructive_actions_for_other_users",
+          "callee": "route",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "$this->seed",
+          "lineNumber": 145
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "User::query()->where('email', 'test@example.com')->firstOrFail",
+          "lineNumber": 147
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "User::query()->where",
+          "lineNumber": 147
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "User::query",
+          "lineNumber": 147
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "User::factory()->create",
+          "lineNumber": 148
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "User::factory",
+          "lineNumber": 148
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "$user->assignRole",
+          "lineNumber": 149
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "DB::table('sessions')->insert",
+          "lineNumber": 151
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "DB::table",
+          "lineNumber": 151
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "now",
+          "lineNumber": 157
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "$this->actingAs",
+          "lineNumber": 160
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->call('disableUser', $user->id)->assertHasNoErrors",
+          "lineNumber": 162
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "Livewire::test(AccountsManager::class)->call",
+          "lineNumber": 162
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "Livewire::test",
+          "lineNumber": 162
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "$user->refresh",
+          "lineNumber": 166
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "$this->assertFalse",
+          "lineNumber": 168
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "$this->assertDatabaseMissing",
+          "lineNumber": 169
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->call('enableUser', $user->id)->assertHasNoErrors",
+          "lineNumber": 171
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "Livewire::test(AccountsManager::class)->call",
+          "lineNumber": 171
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "Livewire::test",
+          "lineNumber": 171
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "$this->assertTrue",
+          "lineNumber": 175
+        },
+        {
+          "caller": "test_admin_can_disable_and_enable_user_account",
+          "callee": "$user->refresh",
+          "lineNumber": 175
+        },
+        {
+          "caller": "test_admin_can_delete_other_user_account",
+          "callee": "$this->seed",
+          "lineNumber": 180
+        },
+        {
+          "caller": "test_admin_can_delete_other_user_account",
+          "callee": "User::query()->where('email', 'test@example.com')->firstOrFail",
+          "lineNumber": 182
+        },
+        {
+          "caller": "test_admin_can_delete_other_user_account",
+          "callee": "User::query()->where",
+          "lineNumber": 182
+        },
+        {
+          "caller": "test_admin_can_delete_other_user_account",
+          "callee": "User::query",
+          "lineNumber": 182
+        },
+        {
+          "caller": "test_admin_can_delete_other_user_account",
+          "callee": "User::factory()->create",
+          "lineNumber": 183
+        },
+        {
+          "caller": "test_admin_can_delete_other_user_account",
+          "callee": "User::factory",
+          "lineNumber": 183
+        },
+        {
+          "caller": "test_admin_can_delete_other_user_account",
+          "callee": "$user->assignRole",
+          "lineNumber": 184
+        },
+        {
+          "caller": "test_admin_can_delete_other_user_account",
+          "callee": "$this->actingAs",
+          "lineNumber": 186
+        },
+        {
+          "caller": "test_admin_can_delete_other_user_account",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->call('deleteUser', $user->id)->assertHasNoErrors",
+          "lineNumber": 188
+        },
+        {
+          "caller": "test_admin_can_delete_other_user_account",
+          "callee": "Livewire::test(AccountsManager::class)->call",
+          "lineNumber": 188
+        },
+        {
+          "caller": "test_admin_can_delete_other_user_account",
+          "callee": "Livewire::test",
+          "lineNumber": 188
+        },
+        {
+          "caller": "test_admin_can_delete_other_user_account",
+          "callee": "$this->assertModelMissing",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_admin_cannot_disable_or_delete_own_account",
+          "callee": "$this->seed",
+          "lineNumber": 197
+        },
+        {
+          "caller": "test_admin_cannot_disable_or_delete_own_account",
+          "callee": "User::query()->where('email', 'test@example.com')->firstOrFail",
+          "lineNumber": 199
+        },
+        {
+          "caller": "test_admin_cannot_disable_or_delete_own_account",
+          "callee": "User::query()->where",
+          "lineNumber": 199
+        },
+        {
+          "caller": "test_admin_cannot_disable_or_delete_own_account",
+          "callee": "User::query",
+          "lineNumber": 199
+        },
+        {
+          "caller": "test_admin_cannot_disable_or_delete_own_account",
+          "callee": "$this->actingAs",
+          "lineNumber": 201
+        },
+        {
+          "caller": "test_admin_cannot_disable_or_delete_own_account",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->call('disableUser', $admin->id)->assertHasErrors",
+          "lineNumber": 203
+        },
+        {
+          "caller": "test_admin_cannot_disable_or_delete_own_account",
+          "callee": "Livewire::test(AccountsManager::class)->call",
+          "lineNumber": 203
+        },
+        {
+          "caller": "test_admin_cannot_disable_or_delete_own_account",
+          "callee": "Livewire::test",
+          "lineNumber": 203
+        },
+        {
+          "caller": "test_admin_cannot_disable_or_delete_own_account",
+          "callee": "$this->assertTrue",
+          "lineNumber": 207
+        },
+        {
+          "caller": "test_admin_cannot_disable_or_delete_own_account",
+          "callee": "$admin->refresh",
+          "lineNumber": 207
+        },
+        {
+          "caller": "test_admin_cannot_disable_or_delete_own_account",
+          "callee": "Livewire::test(AccountsManager::class)\n            ->call('deleteUser', $admin->id)->assertHasErrors",
+          "lineNumber": 209
+        },
+        {
+          "caller": "test_admin_cannot_disable_or_delete_own_account",
+          "callee": "Livewire::test(AccountsManager::class)->call",
+          "lineNumber": 209
+        },
+        {
+          "caller": "test_admin_cannot_disable_or_delete_own_account",
+          "callee": "Livewire::test",
+          "lineNumber": 209
+        },
+        {
+          "caller": "test_admin_cannot_disable_or_delete_own_account",
+          "callee": "$this->assertModelExists",
+          "lineNumber": 213
+        },
+        {
+          "caller": "test_admin_cannot_disable_own_account_from_editor_form",
+          "callee": "$this->seed",
+          "lineNumber": 218
+        },
+        {
+          "caller": "test_admin_cannot_disable_own_account_from_editor_form",
+          "callee": "User::query()->where('email', 'test@example.com')->firstOrFail",
+          "lineNumber": 220
+        },
+        {
+          "caller": "test_admin_cannot_disable_own_account_from_editor_form",
+          "callee": "User::query()->where",
+          "lineNumber": 220
+        },
+        {
+          "caller": "test_admin_cannot_disable_own_account_from_editor_form",
+          "callee": "User::query",
+          "lineNumber": 220
+        },
+        {
+          "caller": "test_admin_cannot_disable_own_account_from_editor_form",
+          "callee": "$this->actingAs",
+          "lineNumber": 222
+        },
+        {
+          "caller": "test_admin_cannot_disable_own_account_from_editor_form",
+          "callee": "Livewire::test(AccountsManager::class, ['user' => $admin])\n            ->call('editAccount', $admin->id)\n            ->set('form.is_active', false)\n            ->set('form.password', '')\n            ->set('form.password_confirmation', '')\n            ->call('save')->assertHasErrors",
+          "lineNumber": 224
+        },
+        {
+          "caller": "test_admin_cannot_disable_own_account_from_editor_form",
+          "callee": "Livewire::test(AccountsManager::class, ['user' => $admin])\n            ->call('editAccount', $admin->id)\n            ->set('form.is_active', false)\n            ->set('form.password', '')\n            ->set('form.password_confirmation', '')->call",
+          "lineNumber": 224
+        },
+        {
+          "caller": "test_admin_cannot_disable_own_account_from_editor_form",
+          "callee": "Livewire::test(AccountsManager::class, ['user' => $admin])\n            ->call('editAccount', $admin->id)\n            ->set('form.is_active', false)\n            ->set('form.password', '')->set",
+          "lineNumber": 224
+        },
+        {
+          "caller": "test_admin_cannot_disable_own_account_from_editor_form",
+          "callee": "Livewire::test(AccountsManager::class, ['user' => $admin])\n            ->call('editAccount', $admin->id)\n            ->set('form.is_active', false)->set",
+          "lineNumber": 224
+        },
+        {
+          "caller": "test_admin_cannot_disable_own_account_from_editor_form",
+          "callee": "Livewire::test(AccountsManager::class, ['user' => $admin])\n            ->call('editAccount', $admin->id)->set",
+          "lineNumber": 224
+        },
+        {
+          "caller": "test_admin_cannot_disable_own_account_from_editor_form",
+          "callee": "Livewire::test(AccountsManager::class, ['user' => $admin])->call",
+          "lineNumber": 224
+        },
+        {
+          "caller": "test_admin_cannot_disable_own_account_from_editor_form",
+          "callee": "Livewire::test",
+          "lineNumber": 224
+        },
+        {
+          "caller": "test_admin_cannot_disable_own_account_from_editor_form",
+          "callee": "$this->assertTrue",
+          "lineNumber": 232
+        },
+        {
+          "caller": "test_admin_cannot_disable_own_account_from_editor_form",
+          "callee": "$admin->refresh",
+          "lineNumber": 232
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Feature/Admin/BlogApiTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 120,
+      "nonEmptyLines": 98,
+      "functions": [
+        {
+          "name": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "startLine": 20,
+          "endLine": 60,
+          "params": []
+        },
+        {
+          "name": "test_admin_can_update_existing_blog_post_via_api",
+          "startLine": 62,
+          "endLine": 89,
+          "params": []
+        },
+        {
+          "name": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "startLine": 91,
+          "endLine": 119,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "BlogApiTest",
+          "startLine": 16,
+          "endLine": 120,
+          "methods": [
+            "test_admin_can_create_blog_post_via_api_with_library_cover",
+            "test_admin_can_update_existing_blog_post_via_api",
+            "test_admin_can_dispatch_blog_automation_job_via_api"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BlogApiTest",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "Storage::fake",
+          "lineNumber": 22
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "$this->seed",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "User::query()->where('email', 'test@example.com')->firstOrFail",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "User::query()->where",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "User::query",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "$this->actingAs",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "SiteSetting::query()\n            ->findOrFail(1)\n            ->addMedia(UploadedFile::fake()->image('api-blog-cover.jpg', 1400, 900))\n            ->usingName('API blog cover')\n            ->usingFileName('api-blog-cover.jpg')\n            ->withCustomProperties(['alt' => 'Alt từ thư viện'])->toMediaCollection",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "SiteSetting::query()\n            ->findOrFail(1)\n            ->addMedia(UploadedFile::fake()->image('api-blog-cover.jpg', 1400, 900))\n            ->usingName('API blog cover')\n            ->usingFileName('api-blog-cover.jpg')->withCustomProperties",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "SiteSetting::query()\n            ->findOrFail(1)\n            ->addMedia(UploadedFile::fake()->image('api-blog-cover.jpg', 1400, 900))\n            ->usingName('API blog cover')->usingFileName",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "SiteSetting::query()\n            ->findOrFail(1)\n            ->addMedia(UploadedFile::fake()->image('api-blog-cover.jpg', 1400, 900))->usingName",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "SiteSetting::query()\n            ->findOrFail(1)->addMedia",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "SiteSetting::query()->findOrFail",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "SiteSetting::query",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "UploadedFile::fake()->image",
+          "lineNumber": 30
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "UploadedFile::fake",
+          "lineNumber": 30
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "$this->postJson",
+          "lineNumber": 36
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "route",
+          "lineNumber": 36
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "$libraryMedia->getKey",
+          "lineNumber": 43
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "$response\n            ->assertCreated()\n            ->assertJsonPath('data.title', 'Bài blog tạo bằng API')\n            ->assertJsonPath('data.author_name', 'API Editor')\n            ->assertJsonPath('data.category.slug', 'kien-thuc-xay-dung')->assertJsonPath",
+          "lineNumber": 48
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "$response\n            ->assertCreated()\n            ->assertJsonPath('data.title', 'Bài blog tạo bằng API')\n            ->assertJsonPath('data.author_name', 'API Editor')->assertJsonPath",
+          "lineNumber": 48
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "$response\n            ->assertCreated()\n            ->assertJsonPath('data.title', 'Bài blog tạo bằng API')->assertJsonPath",
+          "lineNumber": 48
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "$response\n            ->assertCreated()->assertJsonPath",
+          "lineNumber": 48
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "$response->assertCreated",
+          "lineNumber": 48
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "BlogPost::query()->where('slug', 'bai-blog-tao-bang-api')->firstOrFail",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "BlogPost::query()->where",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "BlogPost::query",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "$this->assertSame",
+          "lineNumber": 57
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "$this->assertSame",
+          "lineNumber": 58
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "$this->assertNotNull",
+          "lineNumber": 59
+        },
+        {
+          "caller": "test_admin_can_create_blog_post_via_api_with_library_cover",
+          "callee": "$post->getFirstMedia",
+          "lineNumber": 59
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "$this->seed",
+          "lineNumber": 64
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "User::query()->where('email', 'test@example.com')->firstOrFail",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "User::query()->where",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "User::query",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "$this->actingAs",
+          "lineNumber": 67
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "BlogPost::query()->where('slug', 'xu-huong-xay-dung-hien-dai-2026')->firstOrFail",
+          "lineNumber": 69
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "BlogPost::query()->where",
+          "lineNumber": 69
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "BlogPost::query",
+          "lineNumber": 69
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "$this->patchJson",
+          "lineNumber": 71
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "route",
+          "lineNumber": 71
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "$response\n            ->assertOk()\n            ->assertJsonPath('data.title', 'Blog demo đã cập nhật')\n            ->assertJsonPath('data.is_featured', true)->assertJsonPath",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "$response\n            ->assertOk()\n            ->assertJsonPath('data.title', 'Blog demo đã cập nhật')->assertJsonPath",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "$response\n            ->assertOk()->assertJsonPath",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "$response->assertOk",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "$post->refresh",
+          "lineNumber": 84
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "$this->assertSame",
+          "lineNumber": 86
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "$this->assertTrue",
+          "lineNumber": 87
+        },
+        {
+          "caller": "test_admin_can_update_existing_blog_post_via_api",
+          "callee": "$this->assertSame",
+          "lineNumber": 88
+        },
+        {
+          "caller": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "callee": "Queue::fake",
+          "lineNumber": 93
+        },
+        {
+          "caller": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "callee": "$this->seed",
+          "lineNumber": 94
+        },
+        {
+          "caller": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "callee": "User::query()->where('email', 'test@example.com')->firstOrFail",
+          "lineNumber": 96
+        },
+        {
+          "caller": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "callee": "User::query()->where",
+          "lineNumber": 96
+        },
+        {
+          "caller": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "callee": "User::query",
+          "lineNumber": 96
+        },
+        {
+          "caller": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "callee": "$this->actingAs",
+          "lineNumber": 97
+        },
+        {
+          "caller": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "callee": "$this->postJson",
+          "lineNumber": 99
+        },
+        {
+          "caller": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "callee": "route",
+          "lineNumber": 99
+        },
+        {
+          "caller": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "callee": "$response\n            ->assertAccepted()\n            ->assertJsonPath('meta.queued', true)->assertJsonPath",
+          "lineNumber": 110
+        },
+        {
+          "caller": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "callee": "$response\n            ->assertAccepted()->assertJsonPath",
+          "lineNumber": 110
+        },
+        {
+          "caller": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "callee": "$response->assertAccepted",
+          "lineNumber": 110
+        },
+        {
+          "caller": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "callee": "Queue::assertPushed",
+          "lineNumber": 115
+        },
+        {
+          "caller": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "callee": "$user->getKey",
+          "lineNumber": 116
+        },
+        {
+          "caller": "test_admin_can_dispatch_blog_automation_job_via_api",
+          "callee": "count",
+          "lineNumber": 117
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Feature/Auth/EmailVerificationTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 88,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "setUp",
+          "startLine": 17,
+          "endLine": 22,
+          "params": []
+        },
+        {
+          "name": "test_email_verification_screen_can_be_rendered",
+          "startLine": 24,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "test_email_can_be_verified",
+          "startLine": 33,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "test_email_is_not_verified_with_invalid_hash",
+          "startLine": 53,
+          "endLine": 66,
+          "params": []
+        },
+        {
+          "name": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "startLine": 68,
+          "endLine": 87,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "EmailVerificationTest",
+          "startLine": 13,
+          "endLine": 88,
+          "methods": [
+            "setUp",
+            "test_email_verification_screen_can_be_rendered",
+            "test_email_can_be_verified",
+            "test_email_is_not_verified_with_invalid_hash",
+            "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "EmailVerificationTest",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setUp",
+          "callee": "parent::setUp",
+          "lineNumber": 19
+        },
+        {
+          "caller": "setUp",
+          "callee": "$this->skipUnlessFortifyHas",
+          "lineNumber": 21
+        },
+        {
+          "caller": "setUp",
+          "callee": "Features::emailVerification",
+          "lineNumber": 21
+        },
+        {
+          "caller": "test_email_verification_screen_can_be_rendered",
+          "callee": "User::factory()->unverified()->create",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_email_verification_screen_can_be_rendered",
+          "callee": "User::factory()->unverified",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_email_verification_screen_can_be_rendered",
+          "callee": "User::factory",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_email_verification_screen_can_be_rendered",
+          "callee": "$this->actingAs($user)->get",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_email_verification_screen_can_be_rendered",
+          "callee": "$this->actingAs",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_email_verification_screen_can_be_rendered",
+          "callee": "route",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_email_verification_screen_can_be_rendered",
+          "callee": "$response->assertOk",
+          "lineNumber": 30
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "User::factory()->unverified()->create",
+          "lineNumber": 35
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "User::factory()->unverified",
+          "lineNumber": 35
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "User::factory",
+          "lineNumber": 35
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "Event::fake",
+          "lineNumber": 37
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "URL::temporarySignedRoute",
+          "lineNumber": 39
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "now()->addMinutes",
+          "lineNumber": 41
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "now",
+          "lineNumber": 41
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "sha1",
+          "lineNumber": 42
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "$this->actingAs($user)->get",
+          "lineNumber": 45
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "$this->actingAs",
+          "lineNumber": 45
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "Event::assertDispatched",
+          "lineNumber": 47
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "$this->assertTrue",
+          "lineNumber": 49
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "$user->fresh()->hasVerifiedEmail",
+          "lineNumber": 49
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "$user->fresh",
+          "lineNumber": 49
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "$response->assertRedirect",
+          "lineNumber": 50
+        },
+        {
+          "caller": "test_email_can_be_verified",
+          "callee": "route",
+          "lineNumber": 50
+        },
+        {
+          "caller": "test_email_is_not_verified_with_invalid_hash",
+          "callee": "User::factory()->unverified()->create",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_email_is_not_verified_with_invalid_hash",
+          "callee": "User::factory()->unverified",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_email_is_not_verified_with_invalid_hash",
+          "callee": "User::factory",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_email_is_not_verified_with_invalid_hash",
+          "callee": "URL::temporarySignedRoute",
+          "lineNumber": 57
+        },
+        {
+          "caller": "test_email_is_not_verified_with_invalid_hash",
+          "callee": "now()->addMinutes",
+          "lineNumber": 59
+        },
+        {
+          "caller": "test_email_is_not_verified_with_invalid_hash",
+          "callee": "now",
+          "lineNumber": 59
+        },
+        {
+          "caller": "test_email_is_not_verified_with_invalid_hash",
+          "callee": "sha1",
+          "lineNumber": 60
+        },
+        {
+          "caller": "test_email_is_not_verified_with_invalid_hash",
+          "callee": "$this->actingAs($user)->get",
+          "lineNumber": 63
+        },
+        {
+          "caller": "test_email_is_not_verified_with_invalid_hash",
+          "callee": "$this->actingAs",
+          "lineNumber": 63
+        },
+        {
+          "caller": "test_email_is_not_verified_with_invalid_hash",
+          "callee": "$this->assertFalse",
+          "lineNumber": 65
+        },
+        {
+          "caller": "test_email_is_not_verified_with_invalid_hash",
+          "callee": "$user->fresh()->hasVerifiedEmail",
+          "lineNumber": 65
+        },
+        {
+          "caller": "test_email_is_not_verified_with_invalid_hash",
+          "callee": "$user->fresh",
+          "lineNumber": 65
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "User::factory()->create",
+          "lineNumber": 70
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "User::factory",
+          "lineNumber": 70
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "now",
+          "lineNumber": 71
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "Event::fake",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "URL::temporarySignedRoute",
+          "lineNumber": 76
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "now()->addMinutes",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "now",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "sha1",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "$this->actingAs($user)->get($verificationUrl)->assertRedirect",
+          "lineNumber": 82
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "$this->actingAs($user)->get",
+          "lineNumber": 82
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "$this->actingAs",
+          "lineNumber": 82
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "route",
+          "lineNumber": 83
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "$this->assertTrue",
+          "lineNumber": 85
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "$user->fresh()->hasVerifiedEmail",
+          "lineNumber": 85
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "$user->fresh",
+          "lineNumber": 85
+        },
+        {
+          "caller": "test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again",
+          "callee": "Event::assertNotDispatched",
+          "lineNumber": 86
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Feature/Auth/PasswordConfirmationTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "test_confirm_password_screen_can_be_rendered",
+          "startLine": 13,
+          "endLine": 20,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "PasswordConfirmationTest",
+          "startLine": 9,
+          "endLine": 21,
+          "methods": [
+            "test_confirm_password_screen_can_be_rendered"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PasswordConfirmationTest",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_confirm_password_screen_can_be_rendered",
+          "callee": "User::factory()->create",
+          "lineNumber": 15
+        },
+        {
+          "caller": "test_confirm_password_screen_can_be_rendered",
+          "callee": "User::factory",
+          "lineNumber": 15
+        },
+        {
+          "caller": "test_confirm_password_screen_can_be_rendered",
+          "callee": "$this->actingAs($user)->get",
+          "lineNumber": 17
+        },
+        {
+          "caller": "test_confirm_password_screen_can_be_rendered",
+          "callee": "$this->actingAs",
+          "lineNumber": 17
+        },
+        {
+          "caller": "test_confirm_password_screen_can_be_rendered",
+          "callee": "route",
+          "lineNumber": 17
+        },
+        {
+          "caller": "test_confirm_password_screen_can_be_rendered",
+          "callee": "$response->assertOk",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Feature/Auth/PasswordResetTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 58,
+      "functions": [
+        {
+          "name": "setUp",
+          "startLine": 16,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "test_reset_password_link_screen_can_be_rendered",
+          "startLine": 23,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "test_reset_password_link_can_be_requested",
+          "startLine": 30,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "test_reset_password_screen_can_be_rendered",
+          "startLine": 41,
+          "endLine": 56,
+          "params": []
+        },
+        {
+          "name": "test_password_can_be_reset_with_valid_token",
+          "startLine": 58,
+          "endLine": 80,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "PasswordResetTest",
+          "startLine": 12,
+          "endLine": 81,
+          "methods": [
+            "setUp",
+            "test_reset_password_link_screen_can_be_rendered",
+            "test_reset_password_link_can_be_requested",
+            "test_reset_password_screen_can_be_rendered",
+            "test_password_can_be_reset_with_valid_token"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PasswordResetTest",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setUp",
+          "callee": "parent::setUp",
+          "lineNumber": 18
+        },
+        {
+          "caller": "setUp",
+          "callee": "$this->skipUnlessFortifyHas",
+          "lineNumber": 20
+        },
+        {
+          "caller": "setUp",
+          "callee": "Features::resetPasswords",
+          "lineNumber": 20
+        },
+        {
+          "caller": "test_reset_password_link_screen_can_be_rendered",
+          "callee": "$this->get",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_reset_password_link_screen_can_be_rendered",
+          "callee": "route",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_reset_password_link_screen_can_be_rendered",
+          "callee": "$response->assertOk",
+          "lineNumber": 27
+        },
+        {
+          "caller": "test_reset_password_link_can_be_requested",
+          "callee": "Notification::fake",
+          "lineNumber": 32
+        },
+        {
+          "caller": "test_reset_password_link_can_be_requested",
+          "callee": "User::factory()->create",
+          "lineNumber": 34
+        },
+        {
+          "caller": "test_reset_password_link_can_be_requested",
+          "callee": "User::factory",
+          "lineNumber": 34
+        },
+        {
+          "caller": "test_reset_password_link_can_be_requested",
+          "callee": "$this->post",
+          "lineNumber": 36
+        },
+        {
+          "caller": "test_reset_password_link_can_be_requested",
+          "callee": "route",
+          "lineNumber": 36
+        },
+        {
+          "caller": "test_reset_password_link_can_be_requested",
+          "callee": "Notification::assertSentTo",
+          "lineNumber": 38
+        },
+        {
+          "caller": "test_reset_password_screen_can_be_rendered",
+          "callee": "Notification::fake",
+          "lineNumber": 43
+        },
+        {
+          "caller": "test_reset_password_screen_can_be_rendered",
+          "callee": "User::factory()->create",
+          "lineNumber": 45
+        },
+        {
+          "caller": "test_reset_password_screen_can_be_rendered",
+          "callee": "User::factory",
+          "lineNumber": 45
+        },
+        {
+          "caller": "test_reset_password_screen_can_be_rendered",
+          "callee": "$this->post",
+          "lineNumber": 47
+        },
+        {
+          "caller": "test_reset_password_screen_can_be_rendered",
+          "callee": "route",
+          "lineNumber": 47
+        },
+        {
+          "caller": "test_reset_password_screen_can_be_rendered",
+          "callee": "Notification::assertSentTo",
+          "lineNumber": 49
+        },
+        {
+          "caller": "test_reset_password_screen_can_be_rendered",
+          "callee": "$this->get",
+          "lineNumber": 50
+        },
+        {
+          "caller": "test_reset_password_screen_can_be_rendered",
+          "callee": "route",
+          "lineNumber": 50
+        },
+        {
+          "caller": "test_reset_password_screen_can_be_rendered",
+          "callee": "$response->assertOk",
+          "lineNumber": 52
+        },
+        {
+          "caller": "test_password_can_be_reset_with_valid_token",
+          "callee": "Notification::fake",
+          "lineNumber": 60
+        },
+        {
+          "caller": "test_password_can_be_reset_with_valid_token",
+          "callee": "User::factory()->create",
+          "lineNumber": 62
+        },
+        {
+          "caller": "test_password_can_be_reset_with_valid_token",
+          "callee": "User::factory",
+          "lineNumber": 62
+        },
+        {
+          "caller": "test_password_can_be_reset_with_valid_token",
+          "callee": "$this->post",
+          "lineNumber": 64
+        },
+        {
+          "caller": "test_password_can_be_reset_with_valid_token",
+          "callee": "route",
+          "lineNumber": 64
+        },
+        {
+          "caller": "test_password_can_be_reset_with_valid_token",
+          "callee": "Notification::assertSentTo",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test_password_can_be_reset_with_valid_token",
+          "callee": "$this->post",
+          "lineNumber": 67
+        },
+        {
+          "caller": "test_password_can_be_reset_with_valid_token",
+          "callee": "route",
+          "lineNumber": 67
+        },
+        {
+          "caller": "test_password_can_be_reset_with_valid_token",
+          "callee": "$response\n                ->assertSessionHasNoErrors()->assertRedirect",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_password_can_be_reset_with_valid_token",
+          "callee": "$response->assertSessionHasNoErrors",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_password_can_be_reset_with_valid_token",
+          "callee": "route",
+          "lineNumber": 76
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Feature/Auth/TwoFactorChallengeTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "setUp",
+          "startLine": 14,
+          "endLine": 19,
+          "params": []
+        },
+        {
+          "name": "test_two_factor_challenge_redirects_to_login_when_not_authenticated",
+          "startLine": 21,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "test_two_factor_challenge_can_be_rendered",
+          "startLine": 28,
+          "endLine": 41,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TwoFactorChallengeTest",
+          "startLine": 10,
+          "endLine": 42,
+          "methods": [
+            "setUp",
+            "test_two_factor_challenge_redirects_to_login_when_not_authenticated",
+            "test_two_factor_challenge_can_be_rendered"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TwoFactorChallengeTest",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setUp",
+          "callee": "parent::setUp",
+          "lineNumber": 16
+        },
+        {
+          "caller": "setUp",
+          "callee": "$this->skipUnlessFortifyHas",
+          "lineNumber": 18
+        },
+        {
+          "caller": "setUp",
+          "callee": "Features::twoFactorAuthentication",
+          "lineNumber": 18
+        },
+        {
+          "caller": "test_two_factor_challenge_redirects_to_login_when_not_authenticated",
+          "callee": "$this->get",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_two_factor_challenge_redirects_to_login_when_not_authenticated",
+          "callee": "route",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_two_factor_challenge_redirects_to_login_when_not_authenticated",
+          "callee": "$response->assertRedirect",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_two_factor_challenge_redirects_to_login_when_not_authenticated",
+          "callee": "route",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_two_factor_challenge_can_be_rendered",
+          "callee": "Features::twoFactorAuthentication",
+          "lineNumber": 30
+        },
+        {
+          "caller": "test_two_factor_challenge_can_be_rendered",
+          "callee": "User::factory()->withTwoFactor()->create",
+          "lineNumber": 35
+        },
+        {
+          "caller": "test_two_factor_challenge_can_be_rendered",
+          "callee": "User::factory()->withTwoFactor",
+          "lineNumber": 35
+        },
+        {
+          "caller": "test_two_factor_challenge_can_be_rendered",
+          "callee": "User::factory",
+          "lineNumber": 35
+        },
+        {
+          "caller": "test_two_factor_challenge_can_be_rendered",
+          "callee": "$this->post(route('login.store'), [\n            'email' => $user->email,\n            'password' => 'password',\n        ])->assertRedirect",
+          "lineNumber": 37
+        },
+        {
+          "caller": "test_two_factor_challenge_can_be_rendered",
+          "callee": "$this->post",
+          "lineNumber": 37
+        },
+        {
+          "caller": "test_two_factor_challenge_can_be_rendered",
+          "callee": "route",
+          "lineNumber": 37
+        },
+        {
+          "caller": "test_two_factor_challenge_can_be_rendered",
+          "callee": "route",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Feature/DashboardTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "test_guests_are_redirected_to_the_login_page",
+          "startLine": 13,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "test_authenticated_users_can_visit_the_dashboard",
+          "startLine": 19,
+          "endLine": 26,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DashboardTest",
+          "startLine": 9,
+          "endLine": 27,
+          "methods": [
+            "test_guests_are_redirected_to_the_login_page",
+            "test_authenticated_users_can_visit_the_dashboard"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DashboardTest",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_guests_are_redirected_to_the_login_page",
+          "callee": "$this->get",
+          "lineNumber": 15
+        },
+        {
+          "caller": "test_guests_are_redirected_to_the_login_page",
+          "callee": "route",
+          "lineNumber": 15
+        },
+        {
+          "caller": "test_guests_are_redirected_to_the_login_page",
+          "callee": "$response->assertRedirect",
+          "lineNumber": 16
+        },
+        {
+          "caller": "test_guests_are_redirected_to_the_login_page",
+          "callee": "route",
+          "lineNumber": 16
+        },
+        {
+          "caller": "test_authenticated_users_can_visit_the_dashboard",
+          "callee": "User::factory()->create",
+          "lineNumber": 21
+        },
+        {
+          "caller": "test_authenticated_users_can_visit_the_dashboard",
+          "callee": "User::factory",
+          "lineNumber": 21
+        },
+        {
+          "caller": "test_authenticated_users_can_visit_the_dashboard",
+          "callee": "$this->actingAs",
+          "lineNumber": 22
+        },
+        {
+          "caller": "test_authenticated_users_can_visit_the_dashboard",
+          "callee": "$this->get",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_authenticated_users_can_visit_the_dashboard",
+          "callee": "route",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_authenticated_users_can_visit_the_dashboard",
+          "callee": "$response->assertOk",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Feature/Settings/ProfileUpdateTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 89,
+      "nonEmptyLines": 63,
+      "functions": [
+        {
+          "name": "test_profile_page_is_displayed",
+          "startLine": 14,
+          "endLine": 19,
+          "params": []
+        },
+        {
+          "name": "test_profile_information_can_be_updated",
+          "startLine": 21,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "test_email_verification_status_is_unchanged_when_email_address_is_unchanged",
+          "startLine": 41,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "test_user_can_delete_their_account",
+          "startLine": 57,
+          "endLine": 73,
+          "params": []
+        },
+        {
+          "name": "test_correct_password_must_be_provided_to_delete_account",
+          "startLine": 75,
+          "endLine": 88,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProfileUpdateTest",
+          "startLine": 10,
+          "endLine": 89,
+          "methods": [
+            "test_profile_page_is_displayed",
+            "test_profile_information_can_be_updated",
+            "test_email_verification_status_is_unchanged_when_email_address_is_unchanged",
+            "test_user_can_delete_their_account",
+            "test_correct_password_must_be_provided_to_delete_account"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProfileUpdateTest",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_profile_page_is_displayed",
+          "callee": "$this->actingAs",
+          "lineNumber": 16
+        },
+        {
+          "caller": "test_profile_page_is_displayed",
+          "callee": "User::factory()->create",
+          "lineNumber": 16
+        },
+        {
+          "caller": "test_profile_page_is_displayed",
+          "callee": "User::factory",
+          "lineNumber": 16
+        },
+        {
+          "caller": "test_profile_page_is_displayed",
+          "callee": "$this->get(route('profile.edit'))->assertOk",
+          "lineNumber": 18
+        },
+        {
+          "caller": "test_profile_page_is_displayed",
+          "callee": "$this->get",
+          "lineNumber": 18
+        },
+        {
+          "caller": "test_profile_page_is_displayed",
+          "callee": "route",
+          "lineNumber": 18
+        },
+        {
+          "caller": "test_profile_information_can_be_updated",
+          "callee": "User::factory()->create",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_profile_information_can_be_updated",
+          "callee": "User::factory",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_profile_information_can_be_updated",
+          "callee": "$this->actingAs",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_profile_information_can_be_updated",
+          "callee": "Livewire::test('pages::settings.profile')\n            ->set('name', 'Test User')\n            ->set('email', 'test@example.com')->call",
+          "lineNumber": 27
+        },
+        {
+          "caller": "test_profile_information_can_be_updated",
+          "callee": "Livewire::test('pages::settings.profile')\n            ->set('name', 'Test User')->set",
+          "lineNumber": 27
+        },
+        {
+          "caller": "test_profile_information_can_be_updated",
+          "callee": "Livewire::test('pages::settings.profile')->set",
+          "lineNumber": 27
+        },
+        {
+          "caller": "test_profile_information_can_be_updated",
+          "callee": "Livewire::test",
+          "lineNumber": 27
+        },
+        {
+          "caller": "test_profile_information_can_be_updated",
+          "callee": "$response->assertHasNoErrors",
+          "lineNumber": 32
+        },
+        {
+          "caller": "test_profile_information_can_be_updated",
+          "callee": "$user->refresh",
+          "lineNumber": 34
+        },
+        {
+          "caller": "test_profile_information_can_be_updated",
+          "callee": "$this->assertEquals",
+          "lineNumber": 36
+        },
+        {
+          "caller": "test_profile_information_can_be_updated",
+          "callee": "$this->assertEquals",
+          "lineNumber": 37
+        },
+        {
+          "caller": "test_profile_information_can_be_updated",
+          "callee": "$this->assertNull",
+          "lineNumber": 38
+        },
+        {
+          "caller": "test_email_verification_status_is_unchanged_when_email_address_is_unchanged",
+          "callee": "User::factory()->create",
+          "lineNumber": 43
+        },
+        {
+          "caller": "test_email_verification_status_is_unchanged_when_email_address_is_unchanged",
+          "callee": "User::factory",
+          "lineNumber": 43
+        },
+        {
+          "caller": "test_email_verification_status_is_unchanged_when_email_address_is_unchanged",
+          "callee": "$this->actingAs",
+          "lineNumber": 45
+        },
+        {
+          "caller": "test_email_verification_status_is_unchanged_when_email_address_is_unchanged",
+          "callee": "Livewire::test('pages::settings.profile')\n            ->set('name', 'Test User')\n            ->set('email', $user->email)->call",
+          "lineNumber": 47
+        },
+        {
+          "caller": "test_email_verification_status_is_unchanged_when_email_address_is_unchanged",
+          "callee": "Livewire::test('pages::settings.profile')\n            ->set('name', 'Test User')->set",
+          "lineNumber": 47
+        },
+        {
+          "caller": "test_email_verification_status_is_unchanged_when_email_address_is_unchanged",
+          "callee": "Livewire::test('pages::settings.profile')->set",
+          "lineNumber": 47
+        },
+        {
+          "caller": "test_email_verification_status_is_unchanged_when_email_address_is_unchanged",
+          "callee": "Livewire::test",
+          "lineNumber": 47
+        },
+        {
+          "caller": "test_email_verification_status_is_unchanged_when_email_address_is_unchanged",
+          "callee": "$response->assertHasNoErrors",
+          "lineNumber": 52
+        },
+        {
+          "caller": "test_email_verification_status_is_unchanged_when_email_address_is_unchanged",
+          "callee": "$this->assertNotNull",
+          "lineNumber": 54
+        },
+        {
+          "caller": "test_email_verification_status_is_unchanged_when_email_address_is_unchanged",
+          "callee": "$user->refresh",
+          "lineNumber": 54
+        },
+        {
+          "caller": "test_user_can_delete_their_account",
+          "callee": "User::factory()->create",
+          "lineNumber": 59
+        },
+        {
+          "caller": "test_user_can_delete_their_account",
+          "callee": "User::factory",
+          "lineNumber": 59
+        },
+        {
+          "caller": "test_user_can_delete_their_account",
+          "callee": "$this->actingAs",
+          "lineNumber": 61
+        },
+        {
+          "caller": "test_user_can_delete_their_account",
+          "callee": "Livewire::test('pages::settings.delete-user-modal')\n            ->set('password', 'password')->call",
+          "lineNumber": 63
+        },
+        {
+          "caller": "test_user_can_delete_their_account",
+          "callee": "Livewire::test('pages::settings.delete-user-modal')->set",
+          "lineNumber": 63
+        },
+        {
+          "caller": "test_user_can_delete_their_account",
+          "callee": "Livewire::test",
+          "lineNumber": 63
+        },
+        {
+          "caller": "test_user_can_delete_their_account",
+          "callee": "$response\n            ->assertHasNoErrors()->assertRedirect",
+          "lineNumber": 67
+        },
+        {
+          "caller": "test_user_can_delete_their_account",
+          "callee": "$response->assertHasNoErrors",
+          "lineNumber": 67
+        },
+        {
+          "caller": "test_user_can_delete_their_account",
+          "callee": "$this->assertNull",
+          "lineNumber": 71
+        },
+        {
+          "caller": "test_user_can_delete_their_account",
+          "callee": "$user->fresh",
+          "lineNumber": 71
+        },
+        {
+          "caller": "test_user_can_delete_their_account",
+          "callee": "$this->assertFalse",
+          "lineNumber": 72
+        },
+        {
+          "caller": "test_user_can_delete_their_account",
+          "callee": "auth()->check",
+          "lineNumber": 72
+        },
+        {
+          "caller": "test_user_can_delete_their_account",
+          "callee": "auth",
+          "lineNumber": 72
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_delete_account",
+          "callee": "User::factory()->create",
+          "lineNumber": 77
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_delete_account",
+          "callee": "User::factory",
+          "lineNumber": 77
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_delete_account",
+          "callee": "$this->actingAs",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_delete_account",
+          "callee": "Livewire::test('pages::settings.delete-user-modal')\n            ->set('password', 'wrong-password')->call",
+          "lineNumber": 81
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_delete_account",
+          "callee": "Livewire::test('pages::settings.delete-user-modal')->set",
+          "lineNumber": 81
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_delete_account",
+          "callee": "Livewire::test",
+          "lineNumber": 81
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_delete_account",
+          "callee": "$response->assertHasErrors",
+          "lineNumber": 85
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_delete_account",
+          "callee": "$this->assertNotNull",
+          "lineNumber": 87
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_delete_account",
+          "callee": "$user->fresh",
+          "lineNumber": 87
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Feature/Settings/SecurityTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 122,
+      "nonEmptyLines": 93,
+      "functions": [
+        {
+          "name": "setUp",
+          "startLine": 16,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "test_security_settings_page_can_be_rendered",
+          "startLine": 28,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "test_security_settings_page_requires_password_confirmation_when_enabled",
+          "startLine": 40,
+          "endLine": 48,
+          "params": []
+        },
+        {
+          "name": "test_security_settings_page_renders_without_two_factor_when_feature_is_disabled",
+          "startLine": 50,
+          "endLine": 62,
+          "params": []
+        },
+        {
+          "name": "test_two_factor_authentication_disabled_when_confirmation_abandoned_between_requests",
+          "startLine": 64,
+          "endLine": 85,
+          "params": []
+        },
+        {
+          "name": "test_password_can_be_updated",
+          "startLine": 87,
+          "endLine": 104,
+          "params": []
+        },
+        {
+          "name": "test_correct_password_must_be_provided_to_update_password",
+          "startLine": 106,
+          "endLine": 121,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SecurityTest",
+          "startLine": 12,
+          "endLine": 122,
+          "methods": [
+            "setUp",
+            "test_security_settings_page_can_be_rendered",
+            "test_security_settings_page_requires_password_confirmation_when_enabled",
+            "test_security_settings_page_renders_without_two_factor_when_feature_is_disabled",
+            "test_two_factor_authentication_disabled_when_confirmation_abandoned_between_requests",
+            "test_password_can_be_updated",
+            "test_correct_password_must_be_provided_to_update_password"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SecurityTest",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setUp",
+          "callee": "parent::setUp",
+          "lineNumber": 18
+        },
+        {
+          "caller": "setUp",
+          "callee": "$this->skipUnlessFortifyHas",
+          "lineNumber": 20
+        },
+        {
+          "caller": "setUp",
+          "callee": "Features::twoFactorAuthentication",
+          "lineNumber": 20
+        },
+        {
+          "caller": "setUp",
+          "callee": "Features::twoFactorAuthentication",
+          "lineNumber": 22
+        },
+        {
+          "caller": "test_security_settings_page_can_be_rendered",
+          "callee": "User::factory()->create",
+          "lineNumber": 30
+        },
+        {
+          "caller": "test_security_settings_page_can_be_rendered",
+          "callee": "User::factory",
+          "lineNumber": 30
+        },
+        {
+          "caller": "test_security_settings_page_can_be_rendered",
+          "callee": "$this->actingAs($user)\n            ->withSession(['auth.password_confirmed_at' => time()])\n            ->get(route('security.edit'))\n            ->assertOk()\n            ->assertSee('Two-factor authentication')->assertSee",
+          "lineNumber": 32
+        },
+        {
+          "caller": "test_security_settings_page_can_be_rendered",
+          "callee": "$this->actingAs($user)\n            ->withSession(['auth.password_confirmed_at' => time()])\n            ->get(route('security.edit'))\n            ->assertOk()->assertSee",
+          "lineNumber": 32
+        },
+        {
+          "caller": "test_security_settings_page_can_be_rendered",
+          "callee": "$this->actingAs($user)\n            ->withSession(['auth.password_confirmed_at' => time()])\n            ->get(route('security.edit'))->assertOk",
+          "lineNumber": 32
+        },
+        {
+          "caller": "test_security_settings_page_can_be_rendered",
+          "callee": "$this->actingAs($user)\n            ->withSession(['auth.password_confirmed_at' => time()])->get",
+          "lineNumber": 32
+        },
+        {
+          "caller": "test_security_settings_page_can_be_rendered",
+          "callee": "$this->actingAs($user)->withSession",
+          "lineNumber": 32
+        },
+        {
+          "caller": "test_security_settings_page_can_be_rendered",
+          "callee": "$this->actingAs",
+          "lineNumber": 32
+        },
+        {
+          "caller": "test_security_settings_page_can_be_rendered",
+          "callee": "time",
+          "lineNumber": 33
+        },
+        {
+          "caller": "test_security_settings_page_can_be_rendered",
+          "callee": "route",
+          "lineNumber": 34
+        },
+        {
+          "caller": "test_security_settings_page_requires_password_confirmation_when_enabled",
+          "callee": "User::factory()->create",
+          "lineNumber": 42
+        },
+        {
+          "caller": "test_security_settings_page_requires_password_confirmation_when_enabled",
+          "callee": "User::factory",
+          "lineNumber": 42
+        },
+        {
+          "caller": "test_security_settings_page_requires_password_confirmation_when_enabled",
+          "callee": "$this->actingAs($user)->get",
+          "lineNumber": 44
+        },
+        {
+          "caller": "test_security_settings_page_requires_password_confirmation_when_enabled",
+          "callee": "$this->actingAs",
+          "lineNumber": 44
+        },
+        {
+          "caller": "test_security_settings_page_requires_password_confirmation_when_enabled",
+          "callee": "route",
+          "lineNumber": 45
+        },
+        {
+          "caller": "test_security_settings_page_requires_password_confirmation_when_enabled",
+          "callee": "$response->assertRedirect",
+          "lineNumber": 47
+        },
+        {
+          "caller": "test_security_settings_page_requires_password_confirmation_when_enabled",
+          "callee": "route",
+          "lineNumber": 47
+        },
+        {
+          "caller": "test_security_settings_page_renders_without_two_factor_when_feature_is_disabled",
+          "callee": "config",
+          "lineNumber": 52
+        },
+        {
+          "caller": "test_security_settings_page_renders_without_two_factor_when_feature_is_disabled",
+          "callee": "User::factory()->create",
+          "lineNumber": 54
+        },
+        {
+          "caller": "test_security_settings_page_renders_without_two_factor_when_feature_is_disabled",
+          "callee": "User::factory",
+          "lineNumber": 54
+        },
+        {
+          "caller": "test_security_settings_page_renders_without_two_factor_when_feature_is_disabled",
+          "callee": "$this->actingAs($user)\n            ->withSession(['auth.password_confirmed_at' => time()])\n            ->get(route('security.edit'))\n            ->assertOk()\n            ->assertSee('Update password')->assertDontSee",
+          "lineNumber": 56
+        },
+        {
+          "caller": "test_security_settings_page_renders_without_two_factor_when_feature_is_disabled",
+          "callee": "$this->actingAs($user)\n            ->withSession(['auth.password_confirmed_at' => time()])\n            ->get(route('security.edit'))\n            ->assertOk()->assertSee",
+          "lineNumber": 56
+        },
+        {
+          "caller": "test_security_settings_page_renders_without_two_factor_when_feature_is_disabled",
+          "callee": "$this->actingAs($user)\n            ->withSession(['auth.password_confirmed_at' => time()])\n            ->get(route('security.edit'))->assertOk",
+          "lineNumber": 56
+        },
+        {
+          "caller": "test_security_settings_page_renders_without_two_factor_when_feature_is_disabled",
+          "callee": "$this->actingAs($user)\n            ->withSession(['auth.password_confirmed_at' => time()])->get",
+          "lineNumber": 56
+        },
+        {
+          "caller": "test_security_settings_page_renders_without_two_factor_when_feature_is_disabled",
+          "callee": "$this->actingAs($user)->withSession",
+          "lineNumber": 56
+        },
+        {
+          "caller": "test_security_settings_page_renders_without_two_factor_when_feature_is_disabled",
+          "callee": "$this->actingAs",
+          "lineNumber": 56
+        },
+        {
+          "caller": "test_security_settings_page_renders_without_two_factor_when_feature_is_disabled",
+          "callee": "time",
+          "lineNumber": 57
+        },
+        {
+          "caller": "test_security_settings_page_renders_without_two_factor_when_feature_is_disabled",
+          "callee": "route",
+          "lineNumber": 58
+        },
+        {
+          "caller": "test_two_factor_authentication_disabled_when_confirmation_abandoned_between_requests",
+          "callee": "User::factory()->create",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test_two_factor_authentication_disabled_when_confirmation_abandoned_between_requests",
+          "callee": "User::factory",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test_two_factor_authentication_disabled_when_confirmation_abandoned_between_requests",
+          "callee": "$user->forceFill([\n            'two_factor_secret' => encrypt('test-secret'),\n            'two_factor_recovery_codes' => encrypt(json_encode(['code1', 'code2'])),\n            'two_factor_confirmed_at' => null,\n        ])->save",
+          "lineNumber": 68
+        },
+        {
+          "caller": "test_two_factor_authentication_disabled_when_confirmation_abandoned_between_requests",
+          "callee": "$user->forceFill",
+          "lineNumber": 68
+        },
+        {
+          "caller": "test_two_factor_authentication_disabled_when_confirmation_abandoned_between_requests",
+          "callee": "encrypt",
+          "lineNumber": 69
+        },
+        {
+          "caller": "test_two_factor_authentication_disabled_when_confirmation_abandoned_between_requests",
+          "callee": "encrypt",
+          "lineNumber": 70
+        },
+        {
+          "caller": "test_two_factor_authentication_disabled_when_confirmation_abandoned_between_requests",
+          "callee": "json_encode",
+          "lineNumber": 70
+        },
+        {
+          "caller": "test_two_factor_authentication_disabled_when_confirmation_abandoned_between_requests",
+          "callee": "$this->actingAs",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_two_factor_authentication_disabled_when_confirmation_abandoned_between_requests",
+          "callee": "Livewire::test",
+          "lineNumber": 76
+        },
+        {
+          "caller": "test_two_factor_authentication_disabled_when_confirmation_abandoned_between_requests",
+          "callee": "$component->assertSet",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test_two_factor_authentication_disabled_when_confirmation_abandoned_between_requests",
+          "callee": "$this->assertDatabaseHas",
+          "lineNumber": 80
+        },
+        {
+          "caller": "test_password_can_be_updated",
+          "callee": "User::factory()->create",
+          "lineNumber": 89
+        },
+        {
+          "caller": "test_password_can_be_updated",
+          "callee": "User::factory",
+          "lineNumber": 89
+        },
+        {
+          "caller": "test_password_can_be_updated",
+          "callee": "Hash::make",
+          "lineNumber": 90
+        },
+        {
+          "caller": "test_password_can_be_updated",
+          "callee": "$this->actingAs",
+          "lineNumber": 93
+        },
+        {
+          "caller": "test_password_can_be_updated",
+          "callee": "Livewire::test('pages::settings.security')\n            ->set('current_password', 'password')\n            ->set('password', 'new-password')\n            ->set('password_confirmation', 'new-password')->call",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_password_can_be_updated",
+          "callee": "Livewire::test('pages::settings.security')\n            ->set('current_password', 'password')\n            ->set('password', 'new-password')->set",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_password_can_be_updated",
+          "callee": "Livewire::test('pages::settings.security')\n            ->set('current_password', 'password')->set",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_password_can_be_updated",
+          "callee": "Livewire::test('pages::settings.security')->set",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_password_can_be_updated",
+          "callee": "Livewire::test",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_password_can_be_updated",
+          "callee": "$response->assertHasNoErrors",
+          "lineNumber": 101
+        },
+        {
+          "caller": "test_password_can_be_updated",
+          "callee": "$this->assertTrue",
+          "lineNumber": 103
+        },
+        {
+          "caller": "test_password_can_be_updated",
+          "callee": "Hash::check",
+          "lineNumber": 103
+        },
+        {
+          "caller": "test_password_can_be_updated",
+          "callee": "$user->refresh",
+          "lineNumber": 103
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_update_password",
+          "callee": "User::factory()->create",
+          "lineNumber": 108
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_update_password",
+          "callee": "User::factory",
+          "lineNumber": 108
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_update_password",
+          "callee": "Hash::make",
+          "lineNumber": 109
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_update_password",
+          "callee": "$this->actingAs",
+          "lineNumber": 112
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_update_password",
+          "callee": "Livewire::test('pages::settings.security')\n            ->set('current_password', 'wrong-password')\n            ->set('password', 'new-password')\n            ->set('password_confirmation', 'new-password')->call",
+          "lineNumber": 114
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_update_password",
+          "callee": "Livewire::test('pages::settings.security')\n            ->set('current_password', 'wrong-password')\n            ->set('password', 'new-password')->set",
+          "lineNumber": 114
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_update_password",
+          "callee": "Livewire::test('pages::settings.security')\n            ->set('current_password', 'wrong-password')->set",
+          "lineNumber": 114
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_update_password",
+          "callee": "Livewire::test('pages::settings.security')->set",
+          "lineNumber": 114
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_update_password",
+          "callee": "Livewire::test",
+          "lineNumber": 114
+        },
+        {
+          "caller": "test_correct_password_must_be_provided_to_update_password",
+          "callee": "$response->assertHasErrors",
+          "lineNumber": 120
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    }
+  ]
+}

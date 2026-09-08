@@ -1,0 +1,332 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "resources/views/livewire/admin/cms/services/editor.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 49,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/services/index.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 96,
+      "nonEmptyLines": 88,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/sliders-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 266,
+      "nonEmptyLines": 241,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/sliders/index.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 80,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/theme-settings-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 819,
+      "nonEmptyLines": 721,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/tours-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 193,
+      "nonEmptyLines": 175,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/tours/agency-sync-queue.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 194,
+      "nonEmptyLines": 184,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/tours/editor.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 435,
+      "nonEmptyLines": 386,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/tours/index.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 319,
+      "nonEmptyLines": 299,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/tours/taxonomies-editor.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 184,
+      "nonEmptyLines": 160,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/tours/taxonomies-index.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 103,
+      "nonEmptyLines": 97,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/travel-inquiries-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 139,
+      "nonEmptyLines": 130,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/travel-reviews/editor.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 67,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/travel-reviews/index.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 189,
+      "nonEmptyLines": 176,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/voucher-campaign-codes-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 193,
+      "nonEmptyLines": 181,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/voucher-campaigns-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 400,
+      "nonEmptyLines": 363,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/estimator/estimate-catalog-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 153,
+      "nonEmptyLines": 141,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/estimator/estimate-price-books-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 85,
+      "nonEmptyLines": 77,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/estimator/estimate-room-templates-manager.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 73,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/seo/page-editor.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 145,
+      "nonEmptyLines": 132,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/livewire/admin/seo/pages-index.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 272,
+      "nonEmptyLines": 243,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/pages/auth/confirm-password.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 24,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/pages/auth/forgot-password.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 26,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/pages/auth/login.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 98,
+      "nonEmptyLines": 86,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/pages/auth/register.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 60,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

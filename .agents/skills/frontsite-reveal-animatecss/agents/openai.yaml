@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontsite Reveal AnimateCSS"
+  short_description: "Shared frontsite reveal animation contract"
+  default_prompt: "Use $frontsite-reveal-animatecss to add or refine Animate.css-based text, section, or hero reveal behavior in the Haidang Travel frontsite."

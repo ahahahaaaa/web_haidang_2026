@@ -1,0 +1,21 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Phong Thành Đạt",
+  "url": "https://example.com",
+  "logo": "https://example.com/storage/settings/logo.png",
+  "telephone": "0909 123 456",
+  "email": "hello@phongthanhdat.vn",
+  "description": "Phong Thành Đạt tập trung vào giải pháp thi công rõ phạm vi, rõ tiến độ và rõ điểm kiểm soát chất lượng cho từng nhóm công trình.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Đường Mẫu",
+    "addressLocality": "Thành phố Hồ Chí Minh",
+    "addressCountry": "VN"
+  },
+  "sameAs": [
+    "https://facebook.com/phongthanhdat",
+    "https://youtube.com/@phongthanhdat",
+    "https://linkedin.com/company/phongthanhdat"
+  ]
+}

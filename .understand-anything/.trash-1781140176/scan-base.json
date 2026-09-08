@@ -1,0 +1,4105 @@
+{
+  "scriptCompleted": true,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "language": "unknown",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".npmrc",
+      "language": "unknown",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "AGENTS.md",
+      "language": "markdown",
+      "sizeLines": 75,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "app/Actions/Fortify/CreateNewUser.php",
+      "language": "php",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Actions/Fortify/ResetUserPassword.php",
+      "language": "php",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Concerns/PasswordValidationRules.php",
+      "language": "php",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Concerns/ProfileValidationRules.php",
+      "language": "php",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Console/Commands/BackfillHaidangTravelTourCoverImagesCommand.php",
+      "language": "php",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Console/Commands/ClearFrontsiteCacheCommand.php",
+      "language": "php",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Console/Commands/Cms/RunBlogAutomationCommand.php",
+      "language": "php",
+      "sizeLines": 106,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Console/Commands/ImportFrontendMediaCommand.php",
+      "language": "php",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Console/Commands/ImportHaidangTravelSnapshotCommand.php",
+      "language": "php",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Console/Commands/Seo/SeoGeneratePageCommand.php",
+      "language": "php",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Console/Commands/Seo/SeoPublishCommand.php",
+      "language": "php",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Console/Commands/Seo/SeoRunQaCommand.php",
+      "language": "php",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Console/Commands/Seo/SeoSeedDemoPagesCommand.php",
+      "language": "php",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Console/Commands/Seo/SeoSyncClustersCommand.php",
+      "language": "php",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Console/Commands/SyncHaidangTravelHomepageCommand.php",
+      "language": "php",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Console/Commands/WarmFrontsiteCacheCommand.php",
+      "language": "php",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/Admin/Blogs/BlogAutomationController.php",
+      "language": "php",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/Admin/Blogs/BlogCategoryApiController.php",
+      "language": "php",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/Admin/Blogs/BlogPostApiController.php",
+      "language": "php",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/Admin/Media/MediaBrowserController.php",
+      "language": "php",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/Admin/Media/MediaBrowserUploadController.php",
+      "language": "php",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/Admin/Seo/SeoAiController.php",
+      "language": "php",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/Admin/Seo/SeoClusterController.php",
+      "language": "php",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/Admin/Seo/SeoGenerationController.php",
+      "language": "php",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/Admin/Seo/SeoPageController.php",
+      "language": "php",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/Admin/Seo/SeoPublishController.php",
+      "language": "php",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/Admin/VoucherCampaignCodesExportController.php",
+      "language": "php",
+      "sizeLines": 128,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/Agency/TourExportController.php",
+      "language": "php",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/Controller.php",
+      "language": "php",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/CustomerLoyaltyController.php",
+      "language": "php",
+      "sizeLines": 217,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/DashboardController.php",
+      "language": "php",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/EstimateRequestController.php",
+      "language": "php",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/FrontsiteConsultationController.php",
+      "language": "php",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/FrontsiteController.php",
+      "language": "php",
+      "sizeLines": 4947,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/FrontsiteSeoPageController.php",
+      "language": "php",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/ServiceConsultationController.php",
+      "language": "php",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/SitemapController.php",
+      "language": "php",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/TourReviewSubmissionController.php",
+      "language": "php",
+      "sizeLines": 207,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/TravelInquiryController.php",
+      "language": "php",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Controllers/VoucherCampaignController.php",
+      "language": "php",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Middleware/AddNoIndexHeaders.php",
+      "language": "php",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Middleware/AuthenticateAgencyExportToken.php",
+      "language": "php",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Middleware/CacheFrontsiteResponse.php",
+      "language": "php",
+      "sizeLines": 194,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Middleware/EnsureSeoAdminAccess.php",
+      "language": "php",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Requests/Admin/Blogs/StoreBlogAutomationJobRequest.php",
+      "language": "php",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Requests/Admin/Blogs/StoreBlogPostRequest.php",
+      "language": "php",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Requests/Admin/Blogs/UpdateBlogPostRequest.php",
+      "language": "php",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Requests/Admin/Seo/StoreContentClusterRequest.php",
+      "language": "php",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Requests/CustomerLoyaltyLookupRequest.php",
+      "language": "php",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Requests/RedeemCustomerGiftRequest.php",
+      "language": "php",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Requests/StoreEstimateRequestRequest.php",
+      "language": "php",
+      "sizeLines": 199,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Requests/StoreFrontsiteConsultationRequest.php",
+      "language": "php",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Requests/StoreServiceConsultationRequest.php",
+      "language": "php",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Requests/StoreTourReviewRequest.php",
+      "language": "php",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Requests/StoreTravelInquiryRequest.php",
+      "language": "php",
+      "sizeLines": 227,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Requests/UnlockTourReviewRequest.php",
+      "language": "php",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Resources/Admin/Blogs/BlogPostResource.php",
+      "language": "php",
+      "sizeLines": 62,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Resources/Agency/TourDepartureExportResource.php",
+      "language": "php",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Http/Resources/Agency/TourExportResource.php",
+      "language": "php",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Jobs/Cms/RunBlogAutomationJob.php",
+      "language": "php",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Jobs/Seo/BuildSeoLinksJob.php",
+      "language": "php",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Jobs/Seo/GenerateSeoBriefJob.php",
+      "language": "php",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Jobs/Seo/GenerateSeoDraftJob.php",
+      "language": "php",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Jobs/Seo/PublishSeoPageJob.php",
+      "language": "php",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Jobs/Seo/ValidateSeoPageJob.php",
+      "language": "php",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Jobs/Travel/PushTourToAgencyJob.php",
+      "language": "php",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Actions/Logout.php",
+      "language": "php",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/AccountsManager.php",
+      "language": "php",
+      "sizeLines": 366,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/BlogsManager.php",
+      "language": "php",
+      "sizeLines": 742,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/Concerns/AuthorizesAdminPermissions.php",
+      "language": "php",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/Concerns/HandlesGeoConfig.php",
+      "language": "php",
+      "sizeLines": 114,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/Concerns/HandlesMediaUploads.php",
+      "language": "php",
+      "sizeLines": 290,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/Concerns/InteractsWithEditorContent.php",
+      "language": "php",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/EstimateFormulaManager.php",
+      "language": "php",
+      "sizeLines": 229,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/EstimateKeysManager.php",
+      "language": "php",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/EstimateRequestsManager.php",
+      "language": "php",
+      "sizeLines": 94,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/LandingPagesManager.php",
+      "language": "php",
+      "sizeLines": 1868,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/MediaManager.php",
+      "language": "php",
+      "sizeLines": 214,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/MenuManager.php",
+      "language": "php",
+      "sizeLines": 349,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/ProjectsManager.php",
+      "language": "php",
+      "sizeLines": 731,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/ServicesManager.php",
+      "language": "php",
+      "sizeLines": 1123,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/SlidersManager.php",
+      "language": "php",
+      "sizeLines": 392,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/ThemeSettingsManager.php",
+      "language": "php",
+      "sizeLines": 598,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/TourAgencySyncQueueManager.php",
+      "language": "php",
+      "sizeLines": 385,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/ToursManager.php",
+      "language": "php",
+      "sizeLines": 2423,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/TravelInquiriesManager.php",
+      "language": "php",
+      "sizeLines": 122,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/TravelReviewsManager.php",
+      "language": "php",
+      "sizeLines": 444,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/VoucherCampaignCodesManager.php",
+      "language": "php",
+      "sizeLines": 221,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Cms/VoucherCampaignsManager.php",
+      "language": "php",
+      "sizeLines": 421,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Estimator/EstimateCatalogManager.php",
+      "language": "php",
+      "sizeLines": 200,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Estimator/EstimatePriceBooksManager.php",
+      "language": "php",
+      "sizeLines": 131,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Estimator/EstimateRoomTemplatesManager.php",
+      "language": "php",
+      "sizeLines": 146,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Seo/SeoPageEditor.php",
+      "language": "php",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Livewire/Admin/Seo/SeoPagesIndex.php",
+      "language": "php",
+      "sizeLines": 240,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Mail/EstimateCustomerResultMail.php",
+      "language": "php",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Mail/EstimateRequestMail.php",
+      "language": "php",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Mail/FrontsiteConsultationRequestMail.php",
+      "language": "php",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Mail/ServiceConsultationRequestMail.php",
+      "language": "php",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Mail/TravelInquiryMail.php",
+      "language": "php",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Models/User.php",
+      "language": "php",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Providers/AppServiceProvider.php",
+      "language": "php",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Providers/CmsServiceProvider.php",
+      "language": "php",
+      "sizeLines": 292,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Providers/FortifyServiceProvider.php",
+      "language": "php",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Providers/SeoAiServiceProvider.php",
+      "language": "php",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Providers/SeoDomainServiceProvider.php",
+      "language": "php",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Admin/CmsRolePermissionSynchronizer.php",
+      "language": "php",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Admin/FrontendHtmlImageImporter.php",
+      "language": "php",
+      "sizeLines": 244,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Admin/FrontendHtmlImageScanner.php",
+      "language": "php",
+      "sizeLines": 167,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Admin/MediaLibraryBrowser.php",
+      "language": "php",
+      "sizeLines": 107,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Admin/MediaLibraryFileAuditService.php",
+      "language": "php",
+      "sizeLines": 142,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Admin/MediaLibraryUploader.php",
+      "language": "php",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Cms/BlogAutomationReferenceFetcher.php",
+      "language": "php",
+      "sizeLines": 154,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Cms/BlogAutomationRunner.php",
+      "language": "php",
+      "sizeLines": 178,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Cms/BlogPostManager.php",
+      "language": "php",
+      "sizeLines": 250,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Cms/DashboardStatsService.php",
+      "language": "php",
+      "sizeLines": 134,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Cms/EstimateFormulaConfigService.php",
+      "language": "php",
+      "sizeLines": 404,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Cms/EstimateKeyService.php",
+      "language": "php",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Cms/EstimateRequestService.php",
+      "language": "php",
+      "sizeLines": 171,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Cms/PublicBlogPostPresenter.php",
+      "language": "php",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Cms/SiteSettingsManager.php",
+      "language": "php",
+      "sizeLines": 125,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Estimator/EstimateCatalogService.php",
+      "language": "php",
+      "sizeLines": 202,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Estimator/EstimatePayloadService.php",
+      "language": "php",
+      "sizeLines": 168,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Frontsite/FrontsiteCache.php",
+      "language": "php",
+      "sizeLines": 196,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Frontsite/FrontsiteCacheInvalidator.php",
+      "language": "php",
+      "sizeLines": 200,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Frontsite/FrontsiteGeoPresenter.php",
+      "language": "php",
+      "sizeLines": 393,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/OpenAI/OpenAIResponsesClient.php",
+      "language": "php",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Security/GoogleRecaptchaV3.php",
+      "language": "php",
+      "sizeLines": 105,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Seo/PublicSeoPagePresenter.php",
+      "language": "php",
+      "sizeLines": 463,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Seo/SeoAdminPresenter.php",
+      "language": "php",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Seo/SeoGenerationOrchestrator.php",
+      "language": "php",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Seo/SitemapBuilder.php",
+      "language": "php",
+      "sizeLines": 157,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Travel/CustomerLoyaltyApi.php",
+      "language": "php",
+      "sizeLines": 914,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Travel/CustomerLoyaltyApiException.php",
+      "language": "php",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Travel/HaidangAgencyApiClient.php",
+      "language": "php",
+      "sizeLines": 431,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Travel/HaidangAgencyApiException.php",
+      "language": "php",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Travel/HaidangTravelHomepageSyncService.php",
+      "language": "php",
+      "sizeLines": 750,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Travel/HaidangTravelImportService.php",
+      "language": "php",
+      "sizeLines": 798,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Travel/HaidangTravelSnapshotCrawler.php",
+      "language": "php",
+      "sizeLines": 543,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Travel/HaidangTravelTourCoverBackfillService.php",
+      "language": "php",
+      "sizeLines": 187,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Travel/TourAgencyPushSyncRunService.php",
+      "language": "php",
+      "sizeLines": 177,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Travel/TourAgencyPushSyncService.php",
+      "language": "php",
+      "sizeLines": 584,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Travel/TourDepartureManualSyncService.php",
+      "language": "php",
+      "sizeLines": 446,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Travel/TourSyncSourceTourCatalog.php",
+      "language": "php",
+      "sizeLines": 155,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Travel/TravelInquiryService.php",
+      "language": "php",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Services/Travel/VoucherCampaignService.php",
+      "language": "php",
+      "sizeLines": 362,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/Admin/AdminNavigationRegistry.php",
+      "language": "php",
+      "sizeLines": 466,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/ContentCategoryTree.php",
+      "language": "php",
+      "sizeLines": 187,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/ContentGallery.php",
+      "language": "php",
+      "sizeLines": 255,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/EstimatePageContent.php",
+      "language": "php",
+      "sizeLines": 1336,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/FaqContent.php",
+      "language": "php",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/FooterSocialLinks.php",
+      "language": "php",
+      "sizeLines": 231,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/FrontsiteCardData.php",
+      "language": "php",
+      "sizeLines": 385,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/FrontsiteCardGrid.php",
+      "language": "php",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/FrontsiteGalleryData.php",
+      "language": "php",
+      "sizeLines": 254,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/FrontsiteMedia.php",
+      "language": "php",
+      "sizeLines": 432,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/FrontsiteSectionHeadings.php",
+      "language": "php",
+      "sizeLines": 221,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/GeoContent.php",
+      "language": "php",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/GoogleMapsEmbedUrl.php",
+      "language": "php",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/HomePageContent.php",
+      "language": "php",
+      "sizeLines": 470,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/LandingPageBlocks.php",
+      "language": "php",
+      "sizeLines": 1084,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/LandingPageVisuals.php",
+      "language": "php",
+      "sizeLines": 128,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/QrCodeSvg.php",
+      "language": "php",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/ResidentialPackageLandingContent.php",
+      "language": "php",
+      "sizeLines": 518,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/ReviewContent.php",
+      "language": "php",
+      "sizeLines": 207,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/RichText.php",
+      "language": "php",
+      "sizeLines": 683,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/ServiceDetailContent.php",
+      "language": "php",
+      "sizeLines": 270,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/SliderAnimationEffects.php",
+      "language": "php",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/SliderLocations.php",
+      "language": "php",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/TravelHomePageConfig.php",
+      "language": "php",
+      "sizeLines": 694,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/Support/VietnamPhoneNumber.php",
+      "language": "php",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "artisan",
+      "language": "unknown",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "blueprints/database_schema_blueprint.md",
+      "language": "markdown",
+      "sizeLines": 222,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "blueprints/laravel_model_relations_blueprint.md",
+      "language": "markdown",
+      "sizeLines": 202,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "blueprints/migration_blueprint.sql",
+      "language": "sql",
+      "sizeLines": 262,
+      "fileCategory": "data"
+    },
+    {
+      "path": "boost.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "bootstrap/app.php",
+      "language": "php",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bootstrap/cache/packages.php",
+      "language": "php",
+      "sizeLines": 125,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bootstrap/cache/services.php",
+      "language": "php",
+      "sizeLines": 287,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bootstrap/providers.php",
+      "language": "php",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "composer.json",
+      "language": "json",
+      "sizeLines": 109,
+      "fileCategory": "config"
+    },
+    {
+      "path": "config/agency_export.php",
+      "language": "php",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/app.php",
+      "language": "php",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/auth.php",
+      "language": "php",
+      "sizeLines": 117,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/blog_automation.php",
+      "language": "php",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/cache.php",
+      "language": "php",
+      "sizeLines": 130,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/customer_loyalty.php",
+      "language": "php",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/database.php",
+      "language": "php",
+      "sizeLines": 184,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/filesystems.php",
+      "language": "php",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/fortify.php",
+      "language": "php",
+      "sizeLines": 157,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/frontsite_cache.php",
+      "language": "php",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/frontsite_geo.php",
+      "language": "php",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/frontsite_voucher.php",
+      "language": "php",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/logging.php",
+      "language": "php",
+      "sizeLines": 132,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/mail.php",
+      "language": "php",
+      "sizeLines": 118,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/media-library.php",
+      "language": "php",
+      "sizeLines": 303,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/permission.php",
+      "language": "php",
+      "sizeLines": 202,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/queue.php",
+      "language": "php",
+      "sizeLines": 129,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/seo_ai.php",
+      "language": "php",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/services.php",
+      "language": "php",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/session.php",
+      "language": "php",
+      "sizeLines": 233,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/tour_sync.php",
+      "language": "php",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/travel_reviews.php",
+      "language": "php",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/factories/UserFactory.php",
+      "language": "php",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/0001_01_01_000000_create_users_table.php",
+      "language": "php",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/0001_01_01_000001_create_cache_table.php",
+      "language": "php",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/0001_01_01_000002_create_jobs_table.php",
+      "language": "php",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2025_08_14_170933_add_two_factor_columns_to_users_table.php",
+      "language": "php",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_01_000004_alter_seo_tables_for_domain_enums.php",
+      "language": "php",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_04_091637_create_media_table.php",
+      "language": "php",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_04_091637_create_permission_tables.php",
+      "language": "php",
+      "sizeLines": 137,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_04_100000_create_cms_tables.php",
+      "language": "php",
+      "sizeLines": 230,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_04_100100_expand_seo_tables.php",
+      "language": "php",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_04_220000_add_service_detail_config_columns.php",
+      "language": "php",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_05_120000_add_home_config_to_landing_pages_table.php",
+      "language": "php",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_10_214500_add_gallery_to_services_and_projects.php",
+      "language": "php",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_11_120000_add_parent_id_to_menu_items_table.php",
+      "language": "php",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_11_130000_add_estimate_config_to_landing_pages_table.php",
+      "language": "php",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_11_131000_create_estimate_requests_and_access_keys_tables.php",
+      "language": "php",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_12_090000_add_customer_mail_tracking_to_estimate_requests_table.php",
+      "language": "php",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_14_090000_add_messenger_url_to_site_settings_table.php",
+      "language": "php",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_14_140000_backfill_missing_seo_columns.php",
+      "language": "php",
+      "sizeLines": 163,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_19_090000_add_faq_fields_to_cms_content_tables.php",
+      "language": "php",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_19_120000_create_estimator_master_tables.php",
+      "language": "php",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_20_000000_create_tours_table.php",
+      "language": "php",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_20_000100_create_travel_inquiries_table.php",
+      "language": "php",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_20_000200_add_travel_media_urls_to_cms_tables.php",
+      "language": "php",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_20_180000_create_travel_tour_catalog_tables.php",
+      "language": "php",
+      "sizeLines": 154,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_21_090000_add_visual_config_to_landing_pages_and_slider_item_ctas.php",
+      "language": "php",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_21_140000_add_block_builder_fields_to_landing_pages_table.php",
+      "language": "php",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_22_090000_add_slider_item_display_toggles.php",
+      "language": "php",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_22_110000_add_instagram_url_to_site_settings_table.php",
+      "language": "php",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_23_120000_add_faq_fields_to_travel_taxonomies_and_blog_tables.php",
+      "language": "php",
+      "sizeLines": 62,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_23_120100_add_tour_terms_fields_to_site_settings_table.php",
+      "language": "php",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_23_130000_add_reviews_to_travel_entities.php",
+      "language": "php",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_23_130000_add_tour_terms_items_to_site_settings_table.php",
+      "language": "php",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_23_140000_add_editor_mode_to_landing_pages_table.php",
+      "language": "php",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_23_140000_create_travel_reviews_table_and_rating_summary_columns.php",
+      "language": "php",
+      "sizeLines": 173,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_23_150000_refactor_tour_taxonomies_remove_countries.php",
+      "language": "php",
+      "sizeLines": 134,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_23_184111_add_tracking_fields_to_site_settings_table.php",
+      "language": "php",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_24_202425_add_parent_id_to_content_categories_table.php",
+      "language": "php",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_27_090000_add_tour_terms_items_to_tours_table.php",
+      "language": "php",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_28_090000_add_sitewide_html_fields_to_site_settings_table.php",
+      "language": "php",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_29_000000_add_sale_management_fields_to_users_and_tours.php",
+      "language": "php",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_04_30_103401_add_is_active_to_users_table.php",
+      "language": "php",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_05_03_000000_add_content_to_content_categories_table.php",
+      "language": "php",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_05_13_000000_add_geo_config_to_travel_public_tables.php",
+      "language": "php",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_05_14_000000_add_customer_loyalty_api_fields_to_site_settings_table.php",
+      "language": "php",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_05_14_150000_create_voucher_campaigns_table.php",
+      "language": "php",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_05_21_000000_create_tour_departure_sync_states_table.php",
+      "language": "php",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_05_22_000000_add_google_recaptcha_v3_fields_to_site_settings_table.php",
+      "language": "php",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_05_22_010000_ensure_google_recaptcha_v3_fields_on_site_settings_table.php",
+      "language": "php",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_05_24_000000_create_tour_agency_push_sync_runs_table.php",
+      "language": "php",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_05_31_000000_add_public_review_submission_fields.php",
+      "language": "php",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_05_31_010000_create_tour_review_batches_table.php",
+      "language": "php",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_06_01_000000_extend_voucher_code_usage_fields.php",
+      "language": "php",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_06_01_010000_add_code_valid_until_to_voucher_campaigns_table.php",
+      "language": "php",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/2026_06_01_010100_backfill_voucher_campaign_code_valid_until.php",
+      "language": "php",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/create_content_clusters_table.php",
+      "language": "php",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/create_seo_links_table.php",
+      "language": "php",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/create_seo_pages_table.php",
+      "language": "php",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/migrations/zzzz_finalize_seo_schema_columns.php",
+      "language": "php",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/seeders/CmsBootstrapSeeder.php",
+      "language": "php",
+      "sizeLines": 322,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/seeders/CmsDemoContentSeeder.php",
+      "language": "php",
+      "sizeLines": 730,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/seeders/CmsEstimateBootstrapSeeder.php",
+      "language": "php",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/seeders/CmsMissingFaqSeeder.php",
+      "language": "php",
+      "sizeLines": 169,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/seeders/Data/blogs.php",
+      "language": "php",
+      "sizeLines": 465,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/seeders/Data/haidangtravel/core_snapshot.json",
+      "language": "json",
+      "sizeLines": 7774,
+      "fileCategory": "config"
+    },
+    {
+      "path": "database/seeders/Data/projects.php",
+      "language": "php",
+      "sizeLines": 465,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/seeders/Data/services.php",
+      "language": "php",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/seeders/DatabaseSeeder.php",
+      "language": "php",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/seeders/EstimateCatalogSeeder.php",
+      "language": "php",
+      "sizeLines": 105,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/seeders/HaidangTravelBootstrapSeeder.php",
+      "language": "php",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "database/seeders/VoucherLandingPageSeeder.php",
+      "language": "php",
+      "sizeLines": 218,
+      "fileCategory": "code"
+    },
+    {
+      "path": "docs/ADMIN_CMS.md",
+      "language": "markdown",
+      "sizeLines": 130,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/AGENCY_TOUR_SYNC_API.md",
+      "language": "markdown",
+      "sizeLines": 414,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/AGENCY_TOUR_SYNC_QUEUE_DESIGN.md",
+      "language": "markdown",
+      "sizeLines": 474,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/AGENTS.md",
+      "language": "markdown",
+      "sizeLines": 209,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/api-fix-requests/2026-05-23-agency-tour-sync-endpoints.md",
+      "language": "markdown",
+      "sizeLines": 283,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/BACKEND_AGENT.md",
+      "language": "markdown",
+      "sizeLines": 322,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/CUSTOMER_LOYALTY_API_REQUIREMENTS.md",
+      "language": "markdown",
+      "sizeLines": 366,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/DESIGN_SYSTEM.md",
+      "language": "markdown",
+      "sizeLines": 601,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/DOC_REFERENCE_MAP.md",
+      "language": "markdown",
+      "sizeLines": 249,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/ENTITY_SCHEMA_GUIDE.md",
+      "language": "markdown",
+      "sizeLines": 466,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/front_end/demo/blog_detail/code.html",
+      "language": "html",
+      "sizeLines": 320,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "docs/front_end/demo/blog/code.html",
+      "language": "html",
+      "sizeLines": 321,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "docs/front_end/demo/home_page_mobile/code.html",
+      "language": "html",
+      "sizeLines": 318,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "docs/front_end/demo/home_page/code.html",
+      "language": "html",
+      "sizeLines": 394,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "docs/front_end/demo/interior_detail/code.html",
+      "language": "html",
+      "sizeLines": 342,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "docs/front_end/demo/mobile_blog/code.html",
+      "language": "html",
+      "sizeLines": 256,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "docs/front_end/demo/mobile_project/code.html",
+      "language": "html",
+      "sizeLines": 278,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "docs/front_end/demo/mobile_service_detail/code.html",
+      "language": "html",
+      "sizeLines": 281,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "docs/front_end/demo/project_category/code.html",
+      "language": "html",
+      "sizeLines": 393,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "docs/front_end/demo/service_detail/code.html",
+      "language": "html",
+      "sizeLines": 394,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "docs/front_end/demo/steel_stone/DESIGN.md",
+      "language": "markdown",
+      "sizeLines": 78,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/front_end/design_specification_construction_company_website.html",
+      "language": "html",
+      "sizeLines": 131,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "docs/front_end/product_requirements_document.md",
+      "language": "markdown",
+      "sizeLines": 197,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/FRONTSITE_AGENT.md",
+      "language": "markdown",
+      "sizeLines": 899,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/implementation-playbook.md",
+      "language": "markdown",
+      "sizeLines": 38,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/PROJECT_START_GUIDE.md",
+      "language": "markdown",
+      "sizeLines": 115,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/project-overview.md",
+      "language": "markdown",
+      "sizeLines": 20,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/residential-construction-process-package-comparison.md",
+      "language": "markdown",
+      "sizeLines": 226,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/SEO_PHASE_SUMMARY.md",
+      "language": "markdown",
+      "sizeLines": 52,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/SEO_SCHEMA_MAPPING.md",
+      "language": "markdown",
+      "sizeLines": 298,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/TECHNICAL_REQUIREMENTS.md",
+      "language": "markdown",
+      "sizeLines": 468,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/TOUR_SITEMAP_BLOCKS.md",
+      "language": "markdown",
+      "sizeLines": 646,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "examples/blog_automation_request.json",
+      "language": "json",
+      "sizeLines": 12,
+      "fileCategory": "config"
+    },
+    {
+      "path": "examples/blog.schema.json",
+      "language": "json",
+      "sizeLines": 19,
+      "fileCategory": "config"
+    },
+    {
+      "path": "examples/company.schema.json",
+      "language": "json",
+      "sizeLines": 21,
+      "fileCategory": "config"
+    },
+    {
+      "path": "examples/project.schema.json",
+      "language": "json",
+      "sizeLines": 11,
+      "fileCategory": "config"
+    },
+    {
+      "path": "examples/seo_brief_example.json",
+      "language": "json",
+      "sizeLines": 14,
+      "fileCategory": "config"
+    },
+    {
+      "path": "examples/seo_draft_example.json",
+      "language": "json",
+      "sizeLines": 11,
+      "fileCategory": "config"
+    },
+    {
+      "path": "examples/service.schema.json",
+      "language": "json",
+      "sizeLines": 12,
+      "fileCategory": "config"
+    },
+    {
+      "path": "laravel",
+      "language": "unknown",
+      "sizeLines": 1029,
+      "fileCategory": "code"
+    },
+    {
+      "path": "mobile-taxonomy-diagnostics.json",
+      "language": "json",
+      "sizeLines": 765,
+      "fileCategory": "config"
+    },
+    {
+      "path": "package.json",
+      "language": "json",
+      "sizeLines": 28,
+      "fileCategory": "config"
+    },
+    {
+      "path": "phpunit.xml",
+      "language": "xml",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    },
+    {
+      "path": "pint.json",
+      "language": "json",
+      "sizeLines": 3,
+      "fileCategory": "config"
+    },
+    {
+      "path": "public/.htaccess",
+      "language": "unknown",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "public/index.php",
+      "language": "php",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "public/site.webmanifest",
+      "language": "webmanifest",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 121,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "RERENDER_NOTE.txt",
+      "language": "txt",
+      "sizeLines": 1,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "resources/css/admin.css",
+      "language": "css",
+      "sizeLines": 11,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "resources/css/app.css",
+      "language": "css",
+      "sizeLines": 4560,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "resources/css/frontsite-form-controls.css",
+      "language": "css",
+      "sizeLines": 2,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "resources/css/frontsite-icons.css",
+      "language": "css",
+      "sizeLines": 124,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "resources/css/frontsite.css",
+      "language": "css",
+      "sizeLines": 7,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "resources/js/admin.js",
+      "language": "javascript",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/admin/form-feedback.js",
+      "language": "javascript",
+      "sizeLines": 178,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/admin/multiselect.js",
+      "language": "javascript",
+      "sizeLines": 182,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/admin/quill.js",
+      "language": "javascript",
+      "sizeLines": 1118,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/app.js",
+      "language": "javascript",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/front/customer-loyalty-redemption.js",
+      "language": "javascript",
+      "sizeLines": 266,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/front/estimate-landing.js",
+      "language": "javascript",
+      "sizeLines": 2484,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/front/frontsite-ajax-forms.js",
+      "language": "javascript",
+      "sizeLines": 398,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/front/frontsite-form-controls.js",
+      "language": "javascript",
+      "sizeLines": 177,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/front/frontsite-recaptcha-v3.js",
+      "language": "javascript",
+      "sizeLines": 161,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/front/home-featured-tabs.js",
+      "language": "javascript",
+      "sizeLines": 182,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/front/home-popup-slider.js",
+      "language": "javascript",
+      "sizeLines": 228,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/front/service-detail.js",
+      "language": "javascript",
+      "sizeLines": 1227,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/front/tour-gallery-slider.js",
+      "language": "javascript",
+      "sizeLines": 336,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/front/travel-inquiry-modal.js",
+      "language": "javascript",
+      "sizeLines": 215,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/front/voucher-countdown.js",
+      "language": "javascript",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/front/voucher-redemption.js",
+      "language": "javascript",
+      "sizeLines": 371,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/js/frontsite.js",
+      "language": "javascript",
+      "sizeLines": 150,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/lang/en/pagination.php",
+      "language": "php",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/admin/seo/pages/edit.blade.php",
+      "language": "php",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/admin/seo/pages/index.blade.php",
+      "language": "php",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/components/action-message.blade.php",
+      "language": "php",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/components/admin/form-action-bar.blade.php",
+      "language": "php",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/components/admin/form-feedback.blade.php",
+      "language": "php",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/components/admin/image-dropzone.blade.php",
+      "language": "php",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/components/admin/quill-editor.blade.php",
+      "language": "php",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/components/app-logo-icon.blade.php",
+      "language": "php",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/components/app-logo.blade.php",
+      "language": "php",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/components/auth-header.blade.php",
+      "language": "php",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/components/auth-session-status.blade.php",
+      "language": "php",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/components/desktop-user-menu.blade.php",
+      "language": "php",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/components/placeholder-pattern.blade.php",
+      "language": "php",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/dashboard.blade.php",
+      "language": "php",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/emails/estimate-customer-result.blade.php",
+      "language": "php",
+      "sizeLines": 185,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/emails/estimate-request.blade.php",
+      "language": "php",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/emails/frontsite-consultation-request.blade.php",
+      "language": "php",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/emails/service-consultation-request.blade.php",
+      "language": "php",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/emails/travel-inquiry.blade.php",
+      "language": "php",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/flux/icon/book-open-text.blade.php",
+      "language": "php",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/flux/icon/chevrons-up-down.blade.php",
+      "language": "php",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/flux/icon/folder-git-2.blade.php",
+      "language": "php",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/flux/icon/layout-grid.blade.php",
+      "language": "php",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/flux/navlist/group.blade.php",
+      "language": "php",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/layouts/app.blade.php",
+      "language": "php",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/layouts/app/header.blade.php",
+      "language": "php",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/layouts/app/sidebar.blade.php",
+      "language": "php",
+      "sizeLines": 209,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/layouts/auth.blade.php",
+      "language": "php",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/layouts/auth/card.blade.php",
+      "language": "php",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/layouts/auth/simple.blade.php",
+      "language": "php",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/layouts/auth/split.blade.php",
+      "language": "php",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/accounts-manager.blade.php",
+      "language": "php",
+      "sizeLines": 289,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/blogs-manager.blade.php",
+      "language": "php",
+      "sizeLines": 252,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/blogs/categories-editor.blade.php",
+      "language": "php",
+      "sizeLines": 130,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/blogs/categories-index.blade.php",
+      "language": "php",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/blogs/editor.blade.php",
+      "language": "php",
+      "sizeLines": 172,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/blogs/index.blade.php",
+      "language": "php",
+      "sizeLines": 102,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/estimate-formula-manager.blade.php",
+      "language": "php",
+      "sizeLines": 449,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/estimate-keys-manager.blade.php",
+      "language": "php",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/estimate-requests-manager.blade.php",
+      "language": "php",
+      "sizeLines": 291,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/landing-pages-manager.blade.php",
+      "language": "php",
+      "sizeLines": 2175,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/landing-pages/index.blade.php",
+      "language": "php",
+      "sizeLines": 106,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/media-manager.blade.php",
+      "language": "php",
+      "sizeLines": 271,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/menu-manager.blade.php",
+      "language": "php",
+      "sizeLines": 192,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/admin-group-submenu.blade.php",
+      "language": "php",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/blogs-submenu.blade.php",
+      "language": "php",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/faq-related-fields.blade.php",
+      "language": "php",
+      "sizeLines": 111,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/geo-config-fields.blade.php",
+      "language": "php",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/home-layout-move-controls.blade.php",
+      "language": "php",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/home-section-config.blade.php",
+      "language": "php",
+      "sizeLines": 347,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-estimate-config.blade.php",
+      "language": "php",
+      "sizeLines": 239,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-faq-items.blade.php",
+      "language": "php",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-home-gallery-process-values.blade.php",
+      "language": "php",
+      "sizeLines": 202,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-home-hero-services.blade.php",
+      "language": "php",
+      "sizeLines": 188,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-home-insights-consultation.blade.php",
+      "language": "php",
+      "sizeLines": 79,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-home-package-showcase.blade.php",
+      "language": "php",
+      "sizeLines": 107,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-page-advanced-json.blade.php",
+      "language": "php",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-page-general.blade.php",
+      "language": "php",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-page-visual-gallery.blade.php",
+      "language": "php",
+      "sizeLines": 120,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/landing-page-visual-hero.blade.php",
+      "language": "php",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/project-gallery.blade.php",
+      "language": "php",
+      "sizeLines": 119,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/projects-submenu.blade.php",
+      "language": "php",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/service-basics.blade.php",
+      "language": "php",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/service-feature-blocks.blade.php",
+      "language": "php",
+      "sizeLines": 115,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/service-gallery.blade.php",
+      "language": "php",
+      "sizeLines": 117,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/service-hero-slider.blade.php",
+      "language": "php",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/service-pricing-block.blade.php",
+      "language": "php",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/service-process-block.blade.php",
+      "language": "php",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/service-seo.blade.php",
+      "language": "php",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/services-submenu.blade.php",
+      "language": "php",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/tour-gallery.blade.php",
+      "language": "php",
+      "sizeLines": 133,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/tour-itinerary-pricing-fields.blade.php",
+      "language": "php",
+      "sizeLines": 111,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/tours-submenu.blade.php",
+      "language": "php",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/partials/travel-inquiry-detail-panel.blade.php",
+      "language": "php",
+      "sizeLines": 94,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/projects-manager.blade.php",
+      "language": "php",
+      "sizeLines": 216,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/projects/categories-editor.blade.php",
+      "language": "php",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/projects/categories-index.blade.php",
+      "language": "php",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/projects/editor.blade.php",
+      "language": "php",
+      "sizeLines": 123,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/projects/index.blade.php",
+      "language": "php",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/projects/types-editor.blade.php",
+      "language": "php",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/projects/types-index.blade.php",
+      "language": "php",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/services-manager.blade.php",
+      "language": "php",
+      "sizeLines": 144,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/services/categories-editor.blade.php",
+      "language": "php",
+      "sizeLines": 128,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/services/categories-index.blade.php",
+      "language": "php",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/services/editor.blade.php",
+      "language": "php",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/services/index.blade.php",
+      "language": "php",
+      "sizeLines": 96,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/sliders-manager.blade.php",
+      "language": "php",
+      "sizeLines": 266,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/sliders/index.blade.php",
+      "language": "php",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/theme-settings-manager.blade.php",
+      "language": "php",
+      "sizeLines": 819,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/tours-manager.blade.php",
+      "language": "php",
+      "sizeLines": 193,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/tours/agency-sync-queue.blade.php",
+      "language": "php",
+      "sizeLines": 194,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/tours/editor.blade.php",
+      "language": "php",
+      "sizeLines": 435,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/tours/index.blade.php",
+      "language": "php",
+      "sizeLines": 319,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/tours/taxonomies-editor.blade.php",
+      "language": "php",
+      "sizeLines": 184,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/tours/taxonomies-index.blade.php",
+      "language": "php",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/travel-inquiries-manager.blade.php",
+      "language": "php",
+      "sizeLines": 139,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/travel-reviews/editor.blade.php",
+      "language": "php",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/travel-reviews/index.blade.php",
+      "language": "php",
+      "sizeLines": 189,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/voucher-campaign-codes-manager.blade.php",
+      "language": "php",
+      "sizeLines": 193,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/cms/voucher-campaigns-manager.blade.php",
+      "language": "php",
+      "sizeLines": 400,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/estimator/estimate-catalog-manager.blade.php",
+      "language": "php",
+      "sizeLines": 153,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/estimator/estimate-price-books-manager.blade.php",
+      "language": "php",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/estimator/estimate-room-templates-manager.blade.php",
+      "language": "php",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/seo/page-editor.blade.php",
+      "language": "php",
+      "sizeLines": 145,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/livewire/admin/seo/pages-index.blade.php",
+      "language": "php",
+      "sizeLines": 272,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/auth/confirm-password.blade.php",
+      "language": "php",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/auth/forgot-password.blade.php",
+      "language": "php",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/auth/login.blade.php",
+      "language": "php",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/auth/register.blade.php",
+      "language": "php",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/auth/reset-password.blade.php",
+      "language": "php",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/auth/two-factor-challenge.blade.php",
+      "language": "php",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/auth/verify-email.blade.php",
+      "language": "php",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/settings/⚡appearance.blade.php",
+      "language": "php",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/settings/⚡delete-user-form.blade.php",
+      "language": "php",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/settings/⚡delete-user-modal.blade.php",
+      "language": "php",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/settings/⚡profile.blade.php",
+      "language": "php",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/settings/⚡security.blade.php",
+      "language": "php",
+      "sizeLines": 178,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/settings/⚡two-factor-setup-modal.blade.php",
+      "language": "php",
+      "sizeLines": 304,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/settings/layout.blade.php",
+      "language": "php",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/pages/settings/two-factor/⚡recovery-codes.blade.php",
+      "language": "php",
+      "sizeLines": 136,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/partials/admin/media-browser.blade.php",
+      "language": "php",
+      "sizeLines": 154,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/partials/head.blade.php",
+      "language": "php",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/partials/settings-heading.blade.php",
+      "language": "php",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/seo/robots.blade.php",
+      "language": "php",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/seo/sitemap.blade.php",
+      "language": "php",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/layouts/app.blade.php",
+      "language": "php",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/about.blade.php",
+      "language": "php",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/blog/index.blade.php",
+      "language": "php",
+      "sizeLines": 210,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/blog/show.blade.php",
+      "language": "php",
+      "sizeLines": 227,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/contact.blade.php",
+      "language": "php",
+      "sizeLines": 145,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/customer-loyalty.blade.php",
+      "language": "php",
+      "sizeLines": 426,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/errors/404.blade.php",
+      "language": "php",
+      "sizeLines": 168,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/home.blade.php",
+      "language": "php",
+      "sizeLines": 257,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/landing/show.blade.php",
+      "language": "php",
+      "sizeLines": 77,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/seo/show.blade.php",
+      "language": "php",
+      "sizeLines": 230,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/services/index.blade.php",
+      "language": "php",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/services/show.blade.php",
+      "language": "php",
+      "sizeLines": 212,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/tours/index.blade.php",
+      "language": "php",
+      "sizeLines": 191,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/tours/listing.blade.php",
+      "language": "php",
+      "sizeLines": 279,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/tours/review-submit.blade.php",
+      "language": "php",
+      "sizeLines": 220,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/tours/show.blade.php",
+      "language": "php",
+      "sizeLines": 1189,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/article-card.blade.php",
+      "language": "php",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/blog-category-entry.blade.php",
+      "language": "php",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/breadcrumbs.blade.php",
+      "language": "php",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/cta-banner.blade.php",
+      "language": "php",
+      "sizeLines": 168,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/expandable-rich-text.blade.php",
+      "language": "php",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/faq-accordion.blade.php",
+      "language": "php",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/faq-block.blade.php",
+      "language": "php",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/footer.blade.php",
+      "language": "php",
+      "sizeLines": 191,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/frontsite-gallery-lightbox.blade.php",
+      "language": "php",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/frontsite-media-gallery.blade.php",
+      "language": "php",
+      "sizeLines": 205,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/geo-answer-panel.blade.php",
+      "language": "php",
+      "sizeLines": 109,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/head.blade.php",
+      "language": "php",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/header-desktop-nav-item.blade.php",
+      "language": "php",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/header-desktop-nav-tree.blade.php",
+      "language": "php",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/header-mobile-nav-item.blade.php",
+      "language": "php",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/header.blade.php",
+      "language": "php",
+      "sizeLines": 138,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/home-destination-slider.blade.php",
+      "language": "php",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/home-popup-slider.blade.php",
+      "language": "php",
+      "sizeLines": 174,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/home-section.blade.php",
+      "language": "php",
+      "sizeLines": 322,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/home-tour-topics.blade.php",
+      "language": "php",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/inquiry-cta-panel.blade.php",
+      "language": "php",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/inquiry-form.blade.php",
+      "language": "php",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/inquiry-modal.blade.php",
+      "language": "php",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-content-blocks.blade.php",
+      "language": "php",
+      "sizeLines": 226,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-gallery-card.blade.php",
+      "language": "php",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-gallery.blade.php",
+      "language": "php",
+      "sizeLines": 144,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-hero-demo.blade.php",
+      "language": "php",
+      "sizeLines": 205,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-hero.blade.php",
+      "language": "php",
+      "sizeLines": 465,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/recaptcha-v3-field.blade.php",
+      "language": "php",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/recaptcha-v3-script.blade.php",
+      "language": "php",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/region-taxonomy-tabs.blade.php",
+      "language": "php",
+      "sizeLines": 242,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/review-grid.blade.php",
+      "language": "php",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/section-heading.blade.php",
+      "language": "php",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/shared-search-bar.blade.php",
+      "language": "php",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/social-share.blade.php",
+      "language": "php",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/taxonomy-card-carousel.blade.php",
+      "language": "php",
+      "sizeLines": 268,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tour-card.blade.php",
+      "language": "php",
+      "sizeLines": 370,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tour-taxonomy-tabs.blade.php",
+      "language": "php",
+      "sizeLines": 140,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tour-voucher-cta-button.blade.php",
+      "language": "php",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tracking-body.blade.php",
+      "language": "php",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tracking-head.blade.php",
+      "language": "php",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/travel-inquiry-form-fields.blade.php",
+      "language": "php",
+      "sizeLines": 298,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/trust-proof-section.blade.php",
+      "language": "php",
+      "sizeLines": 185,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/voucher-campaign-panel.blade.php",
+      "language": "php",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/voucher-promotion-block.blade.php",
+      "language": "php",
+      "sizeLines": 436,
+      "fileCategory": "code"
+    },
+    {
+      "path": "resources/views/welcome.blade.php",
+      "language": "php",
+      "sizeLines": 204,
+      "fileCategory": "code"
+    },
+    {
+      "path": "routes/admin_api.php",
+      "language": "php",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "routes/admin_seo.php",
+      "language": "php",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "routes/admin.php",
+      "language": "php",
+      "sizeLines": 109,
+      "fileCategory": "code"
+    },
+    {
+      "path": "routes/ai.php",
+      "language": "php",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "routes/api_v1/seo.php",
+      "language": "php",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "routes/api.php",
+      "language": "php",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "routes/console.php",
+      "language": "php",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "routes/frontsite.php",
+      "language": "php",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "routes/settings.php",
+      "language": "php",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "routes/web.php",
+      "language": "php",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Enums/TourScope.php",
+      "language": "php",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Enums/TravelInquirySource.php",
+      "language": "php",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/BlogPost.php",
+      "language": "php",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/Concerns/RegistersFrontsiteImageConversions.php",
+      "language": "php",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/ContentCategory.php",
+      "language": "php",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/Destination.php",
+      "language": "php",
+      "sizeLines": 112,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/EstimateAccessKey.php",
+      "language": "php",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/EstimateRequest.php",
+      "language": "php",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/LandingPage.php",
+      "language": "php",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/Menu.php",
+      "language": "php",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/MenuItem.php",
+      "language": "php",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/Project.php",
+      "language": "php",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/ProjectType.php",
+      "language": "php",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/Region.php",
+      "language": "php",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/Service.php",
+      "language": "php",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/SiteSetting.php",
+      "language": "php",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/Slider.php",
+      "language": "php",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/SliderItem.php",
+      "language": "php",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/Tour.php",
+      "language": "php",
+      "sizeLines": 283,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/TourAgencyPushSyncRun.php",
+      "language": "php",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/TourCategory.php",
+      "language": "php",
+      "sizeLines": 105,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/TourDeparture.php",
+      "language": "php",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/TourDepartureSyncState.php",
+      "language": "php",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/TourReviewBatch.php",
+      "language": "php",
+      "sizeLines": 79,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/TravelInquiry.php",
+      "language": "php",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/TravelReview.php",
+      "language": "php",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/VoucherCampaign.php",
+      "language": "php",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Cms/Models/VoucherCode.php",
+      "language": "php",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Estimator/Models/EstimateCatalogItem.php",
+      "language": "php",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Estimator/Models/EstimateComponentNode.php",
+      "language": "php",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Estimator/Models/EstimatePriceBook.php",
+      "language": "php",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Estimator/Models/EstimateRoomTemplate.php",
+      "language": "php",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Estimator/Models/EstimateRoomTemplateItem.php",
+      "language": "php",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Estimator/Support/DefaultEstimatorCatalog.php",
+      "language": "php",
+      "sizeLines": 208,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Actions/CreateClusterAction.php",
+      "language": "php",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Actions/CreateSeoPageAction.php",
+      "language": "php",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Actions/DispatchClusterGenerationAction.php",
+      "language": "php",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Actions/PublishSeoPageAction.php",
+      "language": "php",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Actions/SeedSeoDemoPagesAction.php",
+      "language": "php",
+      "sizeLines": 393,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/DTOs/SeoBriefData.php",
+      "language": "php",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/DTOs/SeoDraftData.php",
+      "language": "php",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Enums/SeoClusterStatus.php",
+      "language": "php",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Enums/SeoPageStatus.php",
+      "language": "php",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Enums/SeoPageType.php",
+      "language": "php",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Jobs/BuildSeoLinksJob.php",
+      "language": "php",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Jobs/GenerateSeoBriefJob.php",
+      "language": "php",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Jobs/GenerateSeoDraftJob.php",
+      "language": "php",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Jobs/PublishSeoPageJob.php",
+      "language": "php",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Jobs/ValidateSeoPageJob.php",
+      "language": "php",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Models/ContentCluster.php",
+      "language": "php",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Models/SeoLink.php",
+      "language": "php",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Models/SeoPage.php",
+      "language": "php",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Policies/SeoPagePolicy.php",
+      "language": "php",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Repositories/SeoClusterRepository.php",
+      "language": "php",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Repositories/SeoLinkRepository.php",
+      "language": "php",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Repositories/SeoPageRepository.php",
+      "language": "php",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoGenerationCoordinator.php",
+      "language": "php",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoMetaFactory.php",
+      "language": "php",
+      "sizeLines": 106,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoPromptFactory.php",
+      "language": "php",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoPublisher.php",
+      "language": "php",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoQaValidator.php",
+      "language": "php",
+      "sizeLines": 308,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoSchemaFactory.php",
+      "language": "php",
+      "sizeLines": 276,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoSlugGenerator.php",
+      "language": "php",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Domains/Seo/Support/SeoUrlBuilder.php",
+      "language": "php",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/AccountsManagerTest.php",
+      "language": "php",
+      "sizeLines": 234,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/AdminNoIndexHeadersTest.php",
+      "language": "php",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/AdminSidebarPermissionsTest.php",
+      "language": "php",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/BlogApiTest.php",
+      "language": "php",
+      "sizeLines": 120,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/BlogsManagerTest.php",
+      "language": "php",
+      "sizeLines": 260,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/EstimateFormulaManagerTest.php",
+      "language": "php",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/EstimateMasterDataManagersTest.php",
+      "language": "php",
+      "sizeLines": 94,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/EstimateRequestsManagerTest.php",
+      "language": "php",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/ImportFrontendMediaCommandTest.php",
+      "language": "php",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/LandingPagesManagerTest.php",
+      "language": "php",
+      "sizeLines": 882,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/MediaManagerTest.php",
+      "language": "php",
+      "sizeLines": 111,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/ProjectsManagerTest.php",
+      "language": "php",
+      "sizeLines": 289,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/RunBlogAutomationCommandTest.php",
+      "language": "php",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/SeoPageEditorTest.php",
+      "language": "php",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/SeoPagePreviewTest.php",
+      "language": "php",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/ServicesManagerTest.php",
+      "language": "php",
+      "sizeLines": 514,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/SlidersManagerTest.php",
+      "language": "php",
+      "sizeLines": 214,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/ThemeSettingsManagerTest.php",
+      "language": "php",
+      "sizeLines": 455,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/TourAgencySyncQueueManagerTest.php",
+      "language": "php",
+      "sizeLines": 458,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/ToursManagerTest.php",
+      "language": "php",
+      "sizeLines": 921,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/TravelInquiriesManagerTest.php",
+      "language": "php",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/TravelReviewsManagerTest.php",
+      "language": "php",
+      "sizeLines": 214,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Admin/VoucherCampaignsManagerTest.php",
+      "language": "php",
+      "sizeLines": 349,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/AgencyTourExportApiTest.php",
+      "language": "php",
+      "sizeLines": 257,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/AgencyTourPushSyncTest.php",
+      "language": "php",
+      "sizeLines": 628,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Auth/AuthenticationTest.php",
+      "language": "php",
+      "sizeLines": 148,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Auth/EmailVerificationTest.php",
+      "language": "php",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Auth/PasswordConfirmationTest.php",
+      "language": "php",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Auth/PasswordResetTest.php",
+      "language": "php",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Auth/RegistrationTest.php",
+      "language": "php",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Auth/TwoFactorChallengeTest.php",
+      "language": "php",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/CmsMissingFaqSeederTest.php",
+      "language": "php",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/CustomerLoyaltyPageTest.php",
+      "language": "php",
+      "sizeLines": 533,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/CustomLandingPageBlocksTest.php",
+      "language": "php",
+      "sizeLines": 1006,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/DashboardTest.php",
+      "language": "php",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/EstimateRequestTest.php",
+      "language": "php",
+      "sizeLines": 418,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/ExampleTest.php",
+      "language": "php",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/FooterSocialLinksTest.php",
+      "language": "php",
+      "sizeLines": 143,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/FrontsiteFaviconTest.php",
+      "language": "php",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/FrontsiteGeoComponentsTest.php",
+      "language": "php",
+      "sizeLines": 368,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/FrontsiteNotFoundPageTest.php",
+      "language": "php",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/FrontsitePagesTest.php",
+      "language": "php",
+      "sizeLines": 609,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/FrontsiteSchemaCoverageTest.php",
+      "language": "php",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/FrontsiteTrackingScriptsTest.php",
+      "language": "php",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/LandingPageVisualsFrontsiteTest.php",
+      "language": "php",
+      "sizeLines": 324,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/PublicSeoPagesTest.php",
+      "language": "php",
+      "sizeLines": 200,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/SeoAiServicePageTypeRulesTest.php",
+      "language": "php",
+      "sizeLines": 138,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/ServiceConsultationTest.php",
+      "language": "php",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/ServiceSeoFrontsiteTest.php",
+      "language": "php",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Settings/ProfileUpdateTest.php",
+      "language": "php",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/Settings/SecurityTest.php",
+      "language": "php",
+      "sizeLines": 122,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/TourReviewSubmissionTest.php",
+      "language": "php",
+      "sizeLines": 236,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/TourScopeLandingBlocksTest.php",
+      "language": "php",
+      "sizeLines": 404,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/TourSitemapAndBlocksTest.php",
+      "language": "php",
+      "sizeLines": 1447,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/TravelInquiryFormTest.php",
+      "language": "php",
+      "sizeLines": 211,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Feature/VoucherCampaignFlowTest.php",
+      "language": "php",
+      "sizeLines": 218,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Fixtures/front_end/importable/blog/code.html",
+      "language": "html",
+      "sizeLines": 6,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "tests/Fixtures/front_end/importable/home/code.html",
+      "language": "html",
+      "sizeLines": 8,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "tests/TestCase.php",
+      "language": "php",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Unit/EstimateFormulaConfigServiceTest.php",
+      "language": "php",
+      "sizeLines": 189,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Unit/EstimatePageContentTest.php",
+      "language": "php",
+      "sizeLines": 160,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Unit/EstimatePayloadServiceTest.php",
+      "language": "php",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Unit/ExampleTest.php",
+      "language": "php",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Unit/FaqContentTest.php",
+      "language": "php",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Unit/FrontendHtmlImageScannerTest.php",
+      "language": "php",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Unit/HomePageContentTest.php",
+      "language": "php",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Unit/ReviewContentTest.php",
+      "language": "php",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/Unit/RichTextTest.php",
+      "language": "php",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "vite.config.js",
+      "language": "javascript",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    }
+  ],
+  "totalFiles": 679,
+  "filteredByIgnore": 2296,
+  "estimatedComplexity": "very-large",
+  "stats": {
+    "filesScanned": 679,
+    "byCategory": {
+      "code": 620,
+      "docs": 26,
+      "data": 1,
+      "config": 14,
+      "markup": 18
+    },
+    "byLanguage": {
+      "unknown": 5,
+      "markdown": 25,
+      "php": 595,
+      "sql": 1,
+      "json": 13,
+      "html": 13,
+      "xml": 1,
+      "webmanifest": 1,
+      "txt": 1,
+      "css": 5,
+      "javascript": 19
+    }
+  }
+}

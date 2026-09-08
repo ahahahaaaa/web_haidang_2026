@@ -1,0 +1,11 @@
+@import './app.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import 'quill/dist/quill.snow.css';
+@import 'sweetalert2/dist/sweetalert2.min.css';
+@import 'tom-select/dist/css/tom-select.css';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source '../views/**/*.blade.php';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';

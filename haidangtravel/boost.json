@@ -1,0 +1,17 @@
+{
+    "agents": [
+        "codex",
+        "gemini",
+        "claude_code"
+    ],
+    "packages": [
+        "laravel/fortify"
+    ],
+    "skills": [
+        "laravel-best-practices",
+        "fluxui-development",
+        "livewire-development",
+        "tailwindcss-development",
+        "fortify-development"
+    ]
+}

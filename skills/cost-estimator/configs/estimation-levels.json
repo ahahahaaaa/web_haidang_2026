@@ -1,0 +1,89 @@
+{
+    "levels": {
+        "level_1": {
+            "name": "Dự toán nhanh",
+            "purpose": "lead generation and quick estimate",
+            "fields": [
+                "length",
+                "width",
+                "floors",
+                "has_terrace",
+                "garden_type",
+                "garden_area",
+                "has_mezzanine",
+                "mezzanine_area",
+                "void_area",
+                "tum_area",
+                "terrace_area",
+                "terrace_cover_type",
+                "roof_type",
+                "foundation_type",
+                "has_concrete_ground",
+                "has_basement",
+                "basement_type",
+                "finish_package"
+            ]
+        },
+        "level_2": {
+            "name": "Dự toán nâng cao",
+            "purpose": "sales consultation and more realistic estimate",
+            "fields": [
+                "balcony_area",
+                "balcony_open_sides",
+                "front_yard_area",
+                "back_yard_area",
+                "roof_area",
+                "roof_slope_factor",
+                "roof_count",
+                "basement_area",
+                "building_type",
+                "usage_type",
+                "bedroom_count",
+                "wc_count",
+                "location_zone",
+                "district_zone",
+                "access_condition",
+                "material_staging_condition",
+                "adjacent_house_condition",
+                "soil_type",
+                "has_elevator",
+                "elevator_service_floors",
+                "has_pool",
+                "pool_area",
+                "pool_type",
+                "special_structure",
+                "floor_finish_type",
+                "door_type",
+                "sanitary_package",
+                "electrical_package",
+                "facade_finish_type"
+            ],
+            "extends": "level_1"
+        },
+        "level_3": {
+            "name": "Dự toán nội bộ",
+            "purpose": "internal technical and commercial estimate",
+            "fields": [
+                "soil_class",
+                "groundwater_level",
+                "pile_type",
+                "pile_depth",
+                "pile_count",
+                "retaining_wall",
+                "floor_height",
+                "long_span_structure",
+                "contract_scope",
+                "include_permit",
+                "include_pile",
+                "include_completion",
+                "vat_mode",
+                "discount_percent",
+                "surcharge_percent",
+                "price_set",
+                "formula_set",
+                "internal_notes"
+            ],
+            "extends": "level_2"
+        }
+    }
+}

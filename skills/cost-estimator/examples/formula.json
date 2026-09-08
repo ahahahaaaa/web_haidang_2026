@@ -1,0 +1,168 @@
+{
+    "meta": {
+        "code": "default",
+        "version": "v1",
+        "name": "Default Cost Estimator Formula",
+        "supports_levels": [
+            "level_1",
+            "level_2",
+            "level_3"
+        ]
+    },
+    "derived": {
+        "base_area": "length * width",
+        "typical_floor_count": "has_terrace == true ? Math.max((floors ?? 0) - 2, 0) : Math.max((floors ?? 0) - 1, 0)",
+        "terrace_rooftop_area": "has_terrace == true ? (base_area * 1.25) : 0",
+        "terrace_default_tum_area": "has_terrace == true ? (terrace_rooftop_area * 0.3) : 0",
+        "terrace_default_area": "has_terrace == true ? (terrace_rooftop_area - terrace_default_tum_area) : 0",
+        "tum_effective_area": "has_terrace == true ? (tum_area ?? terrace_default_tum_area) : 0",
+        "terrace_effective_area": "has_terrace == true ? (terrace_area ?? terrace_default_area) : 0",
+        "roof_effective_area": "roof_area ?? (has_terrace == true ? tum_effective_area : (base_area * (roof_slope_factor ?? 1)))",
+        "basement_effective_area": "basement_area ?? base_area"
+    },
+    "components": [
+        {
+            "key": "ground_floor",
+            "section": "floor",
+            "label": "Tổng Trệt",
+            "area": "base_area",
+            "coefficient": 1
+        },
+        {
+            "key": "garden",
+            "section": "yard",
+            "label": "Sân vườn / sân BTCT",
+            "area": "garden_area ?? base_area",
+            "condition": "garden_type != 'none'",
+            "coefficient_from_option": {
+                "none": 0,
+                "standard_yard": 0.5,
+                "btct_yard": 0.7
+            },
+            "option_field": "garden_type"
+        },
+        {
+            "key": "front_yard",
+            "section": "yard",
+            "label": "Sân trước",
+            "area": "front_yard_area",
+            "condition": "front_yard_area > 0",
+            "coefficient": 0.5
+        },
+        {
+            "key": "back_yard",
+            "section": "yard",
+            "label": "Sân sau",
+            "area": "back_yard_area",
+            "condition": "back_yard_area > 0",
+            "coefficient": 0.5
+        },
+        {
+            "key": "mezzanine",
+            "section": "floor",
+            "label": "Tầng lửng",
+            "area": "mezzanine_area ?? base_area",
+            "condition": "has_mezzanine == true",
+            "coefficient": 1
+        },
+        {
+            "key": "mezzanine_void",
+            "section": "void",
+            "label": "Thông tầng lửng",
+            "area": "void_area",
+            "condition": "void_area > 0",
+            "coefficient_from_expression": "void_area < 8 ? 1.0 : 0.5"
+        },
+        {
+            "key": "upper_floors",
+            "section": "floor",
+            "label": "Lầu điển hình",
+            "area": "typical_floor_count * base_area",
+            "condition": "typical_floor_count > 0",
+            "coefficient": 1
+        },
+        {
+            "key": "tum",
+            "section": "rooftop",
+            "label": "Tum",
+            "area": "tum_effective_area",
+            "condition": "tum_effective_area > 0",
+            "coefficient": 1
+        },
+        {
+            "key": "terrace",
+            "section": "rooftop",
+            "label": "Sân thượng",
+            "area": "terrace_effective_area",
+            "condition": "terrace_effective_area > 0",
+            "coefficient_from_expression": "terrace_cover_type == 'covered' ? 1 : (has_terrace == true ? 0.5 : 0.7)"
+        },
+        {
+            "key": "balcony",
+            "section": "balcony",
+            "label": "Ban công",
+            "area": "balcony_area",
+            "condition": "balcony_area > 0",
+            "coefficient_from_expression": "balcony_open_sides == 3 ? 0.7 : 1.0"
+        },
+        {
+            "key": "roof",
+            "section": "roof",
+            "label": "Hệ mái",
+            "area": "roof_effective_area",
+            "condition": "roof_type != null",
+            "coefficient_from_option": {
+                "btct_no_tile": 0.5,
+                "btct_tile": 0.7,
+                "metal_sheet": 0.3,
+                "tile_steel_frame": 0.7,
+                "tile_btct_1_2": 0.8,
+                "tile_btct_3_plus": 1
+            },
+            "option_field": "roof_type"
+        },
+        {
+            "key": "foundation",
+            "section": "foundation",
+            "label": "Móng",
+            "area": "base_area",
+            "condition": "foundation_type != null",
+            "coefficient_from_option": {
+                "strip_or_pile": 0.5,
+                "two_way_strip": 0.65,
+                "raft": 0.5,
+                "isolated": 0.3
+            },
+            "option_field": "foundation_type"
+        },
+        {
+            "key": "ground_concrete",
+            "section": "foundation",
+            "label": "Đổ bê tông nền trệt",
+            "area": "base_area",
+            "condition": "has_concrete_ground == true",
+            "coefficient": 0.2
+        },
+        {
+            "key": "basement_main",
+            "section": "basement",
+            "label": "Hầm chính",
+            "area": "basement_effective_area",
+            "condition": "has_basement == true",
+            "coefficient_from_option": {
+                "depth_1_5_2": 1.5,
+                "depth_2_2_5": 1.7,
+                "depth_2_5_3": 2
+            },
+            "option_field": "basement_type"
+        },
+        {
+            "key": "basement_small_area_surcharge",
+            "section": "basement",
+            "label": "Phụ hệ số hầm nhỏ hơn 70m2",
+            "area": "basement_effective_area",
+            "condition": "has_basement == true && basement_effective_area < 70 && apply_small_basement_surcharge == true",
+            "coefficient": 0.2
+        }
+    ]
+}

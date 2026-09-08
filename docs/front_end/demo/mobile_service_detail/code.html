@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#610005",
+              "on-background": "#121c2a",
+              "surface-variant": "#d9e3f6",
+              "primary-fixed": "#ffdad6",
+              "on-secondary-fixed-variant": "#333f91",
+              "tertiary-container": "#0f36a6",
+              "inverse-primary": "#ffb4ac",
+              "surface": "#f8f9ff",
+              "surface-container-high": "#dee9fc",
+              "surface-container-highest": "#d9e3f6",
+              "surface-bright": "#f8f9ff",
+              "on-primary-container": "#ff9085",
+              "on-tertiary-fixed-variant": "#173bab",
+              "secondary-fixed-dim": "#bcc3ff",
+              "on-tertiary": "#ffffff",
+              "inverse-on-surface": "#eaf1ff",
+              "tertiary-fixed-dim": "#b8c4ff",
+              "on-error-container": "#93000a",
+              "background": "#f8f9ff",
+              "primary-container": "#8b000c",
+              "on-surface": "#121c2a",
+              "on-secondary-container": "#2b3789",
+              "on-secondary-fixed": "#000d60",
+              "secondary": "#4b57aa",
+              "tertiary": "#00227a",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed": "#410002",
+              "error-container": "#ffdad6",
+              "surface-tint": "#c00015",
+              "on-primary": "#ffffff",
+              "secondary-container": "#99a5fe",
+              "outline": "#767682",
+              "outline-variant": "#c6c5d3",
+              "secondary-fixed": "#dfe0ff",
+              "on-tertiary-container": "#97abff",
+              "on-primary-fixed-variant": "#93000d",
+              "surface-container-low": "#eff4ff",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#dde1ff",
+              "primary-fixed-dim": "#ffb4ac",
+              "surface-container": "#e6eeff",
+              "surface-dim": "#d0dbed",
+              "on-surface-variant": "#454651",
+              "inverse-surface": "#27313f",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed": "#001453",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-grid {
+            background-image: radial-gradient(circle at 1px 1px, rgba(198, 197, 211, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .asymmetric-cut {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body antialiased">
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-outline-variant/15 flex justify-between items-center px-8 py-4 max-w-full mx-auto shadow-xl shadow-slate-900/5">
+<div class="text-2xl font-black text-on-surface dark:text-white tracking-tighter font-headline">FastCons</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[#610005]">call</span>
+<span class="material-symbols-outlined text-on-surface-variant">menu</span>
+</div>
+</nav>
+<main class="pt-16 pb-24">
+<!-- Hero Section -->
+<section class="relative h-[707px] flex items-end overflow-hidden asymmetric-cut">
+<img alt="Luxury Villa" class="absolute inset-0 w-full h-full object-cover" data-alt="Modern luxury villa with white concrete walls, large glass windows, and a turquoise swimming pool at sunset with warm architectural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEBAlhEAvvFZESRsGq9he5UuWldgJY8X7x_lNmMdcyKYCPqoWKe2LA6-Iyl_FDUMH22agt9ZZOG_3kowVTZbBNyjSnBqD2g42zFSd1szqOCSAd6sJQwa5VSBIZDk44lZLvGhp5crpx9XA7cQZKZzFKWA18e8NWUIpc4rkNffPeXgyXwDzHQaD_sLDU-nEmz1PVtbAkJb2_PJQBvuknQ_meZJR1X_brFf2U57DkIeN9faQZ017aqN4kndFNDzwvLT6JwMEM0syyPCo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent"></div>
+<div class="relative z-10 px-6 pb-16 w-full">
+<div class="inline-block bg-primary-container text-white px-3 py-1 mb-4 rounded-sm font-headline text-xs font-bold tracking-widest uppercase">Dịch vụ cao cấp</div>
+<h1 class="font-headline text-4xl md:text-5xl font-extrabold text-white leading-none tracking-tighter mb-4">THI CÔNG<br/>BIỆT THỰ</h1>
+<p class="text-white/80 text-sm max-w-[280px] font-body leading-relaxed">Kiến tạo không gian sống đẳng cấp với quy trình thi công chuẩn mực và tinh tế trong từng chi tiết kiến trúc.</p>
+</div>
+</section>
+<!-- Description Section -->
+<section class="px-6 py-16 blueprint-grid">
+<div class="mb-8">
+<span class="text-primary font-headline font-bold text-xs tracking-widest uppercase block mb-2">01. Giải pháp kiến trúc</span>
+<h2 class="font-headline text-3xl font-extrabold text-on-background leading-tight">Vững chãi từ nền móng, tinh tế từng mảng tường.</h2>
+</div>
+<div class="space-y-6">
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-primary">
+<p class="text-on-surface-variant leading-relaxed italic">
+                        "Tại FastCons, chúng tôi không chỉ xây nhà; chúng tôi hiện thực hóa những biểu tượng cá nhân. Mỗi công trình biệt thự là một tác phẩm nghệ thuật đòi hỏi sự chính xác tuyệt đối của kỹ thuật xây dựng hiện đại."
+                    </p>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div class="flex items-start gap-4 p-4 bg-surface-container-lowest shadow-sm rounded-lg">
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-2 rounded-lg">architecture</span>
+<div>
+<h4 class="font-bold font-headline text-sm">Thiết kế độc bản</h4>
+<p class="text-xs text-on-surface-variant">Tối ưu hóa công năng và phong thủy theo yêu cầu riêng biệt của gia chủ.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-surface-container-lowest shadow-sm rounded-lg">
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-2 rounded-lg">foundation</span>
+<div>
+<h4 class="font-bold font-headline text-sm">Kết cấu bền vững</h4>
+<p class="text-xs text-on-surface-variant">Sử dụng công nghệ bê tông cốt thép dự ứng lực cho khẩu độ lớn.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quality Standards Section -->
+<section class="bg-surface-container-low py-16 px-6">
+<div class="text-center mb-12">
+<h2 class="font-headline text-2xl font-extrabold mb-2 uppercase tracking-tighter">Tiêu chuẩn chất lượng</h2>
+<div class="h-1 w-12 bg-primary mx-auto"></div>
+</div>
+<div class="flex flex-col gap-8">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-10"></div>
+<div class="relative bg-surface-container-lowest p-8 rounded-xl flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-5xl font-black text-outline-variant/20 font-headline">01</span>
+</div>
+<h3 class="font-headline font-bold text-lg">Vật liệu loại A</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Kiểm định nghiêm ngặt đầu vào từ thép Hòa Phát, xi măng Insee đến gạch không nung tiêu chuẩn.</p>
+</div>
+</div>
+<div class="relative group">
+<div class="relative bg-surface-container-lowest p-8 rounded-xl flex flex-col gap-4 border-l-4 border-secondary">
+<div class="flex justify-between items-center">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">engineering</span>
+<span class="text-5xl font-black text-outline-variant/20 font-headline">02</span>
+</div>
+<h3 class="font-headline font-bold text-lg">Giám sát 24/7</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Hệ thống camera giám sát công trường trực tuyến và báo cáo tiến độ hàng ngày qua ứng dụng.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeline Process -->
+<section class="py-16 px-6 bg-surface">
+<h2 class="font-headline text-2xl font-extrabold mb-10 text-center tracking-tighter">QUY TRÌNH TRIỂN KHAI</h2>
+<div class="relative border-l-2 border-outline-variant/30 ml-4 space-y-12">
+<div class="relative pl-8">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary ring-4 ring-primary-fixed"></div>
+<h4 class="font-headline font-bold text-primary text-sm uppercase mb-1">Giai đoạn 1: Chuẩn bị</h4>
+<p class="text-xs font-bold text-on-surface-variant mb-2">Tuần 1 - 2</p>
+<p class="text-sm text-on-surface-variant">Khảo sát địa chất, giải phóng mặt bằng và lắp đặt lán trại tạm thời cho công nhân.</p>
+</div>
+<div class="relative pl-8">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-secondary ring-4 ring-secondary-fixed"></div>
+<h4 class="font-headline font-bold text-secondary text-sm uppercase mb-1">Giai đoạn 2: Phần thô</h4>
+<p class="text-xs font-bold text-on-surface-variant mb-2">Tháng 1 - 4</p>
+<p class="text-sm text-on-surface-variant">Thi công móng cọc, dầm sàn, cột và xây tường bao che theo đúng bản vẽ kỹ thuật.</p>
+</div>
+<div class="relative pl-8">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-on-surface-variant ring-4 ring-surface-variant"></div>
+<h4 class="font-headline font-bold text-on-surface-variant text-sm uppercase mb-1">Giai đoạn 3: Hoàn thiện</h4>
+<p class="text-xs font-bold text-on-surface-variant mb-2">Tháng 5 - 8</p>
+<p class="text-sm text-on-surface-variant">Chống thấm, ốp lát, sơn bả và lắp đặt hệ thống cơ điện (MEP) tinh xảo.</p>
+</div>
+</div>
+</section>
+<!-- Price Reference Table -->
+<section class="py-16 px-4">
+<div class="bg-inverse-surface text-inverse-on-surface rounded-2xl overflow-hidden shadow-2xl">
+<div class="p-6 bg-primary">
+<h2 class="font-headline text-xl font-bold text-white">Bảng giá tham khảo</h2>
+<p class="text-white/60 text-xs">Cập nhật quý III/2024</p>
+</div>
+<div class="p-2">
+<div class="flex flex-col gap-2">
+<div class="bg-white/5 p-4 rounded-lg flex justify-between items-center">
+<div>
+<span class="block text-[10px] uppercase tracking-widest text-primary-fixed/50">Gói Tiêu Chuẩn</span>
+<span class="font-headline font-bold">Xây thô &amp; Nhân công</span>
+</div>
+<div class="text-right">
+<span class="block font-headline font-black text-lg text-primary-fixed">3.8 Tr</span>
+<span class="text-[10px]">VNĐ/m²</span>
+</div>
+</div>
+<div class="bg-white/10 p-4 rounded-lg flex justify-between items-center border border-primary/30">
+<div>
+<span class="block text-[10px] uppercase tracking-widest text-primary-fixed/50">Gói Cao Cấp</span>
+<span class="font-headline font-bold">Chìa khóa trao tay</span>
+</div>
+<div class="text-right">
+<span class="block font-headline font-black text-lg text-primary-fixed">12.5 Tr</span>
+<span class="text-[10px]">VNĐ/m²</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 text-[10px] text-center text-inverse-on-surface/40 leading-relaxed italic">
+                    * Đơn giá có thể thay đổi tùy thuộc vào vị trí địa lý, địa chất và yêu cầu vật liệu cụ thể của chủ đầu tư.
+                </div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-6 py-8">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-5 rounded-xl font-headline font-bold text-sm shadow-lg flex items-center justify-center gap-2">
+                NHẬN BÁO GIÁ CHI TIẾT
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</section>
+</main>
+<footer class="bg-[#121c2a] text-slate-400 w-full pt-16 pb-24 px-8">
+<div class="grid grid-cols-1 gap-12 max-w-7xl mx-auto">
+<div class="space-y-4">
+<div class="text-white font-bold text-xl font-headline">FastCons</div>
+<p class="text-sm leading-relaxed">Đơn vị thi công biệt thự hàng đầu với hơn 15 năm kinh nghiệm và hàng trăm công trình tiêu biểu trên toàn quốc.</p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-3">
+<span class="text-white font-bold text-xs uppercase tracking-widest mb-2">Dịch vụ</span>
+<a class="text-sm hover:text-red-400 transition-colors" href="#">Thi công Thô</a>
+<a class="text-sm hover:text-red-400 transition-colors" href="#">Trọn gói</a>
+<a class="text-sm hover:text-red-400 transition-colors" href="#">Nội thất</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-white font-bold text-xs uppercase tracking-widest mb-2">Pháp lý</span>
+<a class="text-sm hover:text-red-400 transition-colors" href="#">Quy chuẩn</a>
+<a class="text-sm hover:text-red-400 transition-colors" href="#">Bảo hành</a>
+<a class="text-sm hover:text-red-400 transition-colors" href="#">Bảo mật</a>
+</div>
+</div>
+<div class="border-t border-slate-800 pt-8 text-center text-xs">
+                © 2024 FastCons. Building Excellence.
+            </div>
+</div>
+</footer>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface/95 dark:bg-slate-900/95 backdrop-blur-lg border-t border-outline-variant/10 flex justify-around items-center px-4 py-3 pb-safe shadow-[0_-10px_30px_rgba(0,0,0,0.1)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-plus-jakarta text-[10px] font-bold uppercase tracking-tighter">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#610005] dark:text-red-400" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">foundation</span>
+<span class="font-plus-jakarta text-[10px] font-bold uppercase tracking-tighter">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined mb-1">call</span>
+<span class="font-plus-jakarta text-[10px] font-bold uppercase tracking-tighter">Call Us</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined mb-1">request_quote</span>
+<span class="font-plus-jakarta text-[10px] font-bold uppercase tracking-tighter">Quotes</span>
+</a>
+</nav>
+</body></html>

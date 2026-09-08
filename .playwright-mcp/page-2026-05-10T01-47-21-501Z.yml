@@ -1,0 +1,1058 @@
+- generic [active] [ref=e1]:
+  - link "Bỏ qua điều hướng & tới nội dung chính" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=e5] [cursor=pointer]:
+        - /url: https://haidangtravel.dtaa-tech.com
+        - img "Du Lịch Hải Đăng Travel" [ref=e7]
+      - group [ref=e8]:
+        - generic "Mở menu" [ref=e9]:
+          - generic [ref=e11]: Mở menu
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - img "tour ha giang sapa tron goi may bay fansipan song nho que haidangtravel" [ref=e15]
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]:
+            - heading "Du lịch hè 2026 cùng Haidangtravel" [level=1] [ref=e21]
+            - paragraph [ref=e22]: Trải nghiệm hành trình tinh tế cùng Haidangtravel. Lịch trình độc bản, dịch vụ thượng lưu, tận hưởng mùa hè trọn vẹn trong từng khoảnh khắc.
+          - generic [ref=e23]:
+            - button "Gửi yêu cầu" [ref=e24]: Gửi yêu cầu
+            - link "Xem tour nổi bật" [ref=e26] [cursor=pointer]:
+              - /url: https://haidangtravel.dtaa-tech.com/tour-trong-nuoc
+          - generic [ref=e27]:
+            - generic [ref=e28]: "0911222288"
+            - generic [ref=e30]: info@haidangtravel.com
+            - generic [ref=e32]: 79-723/2017/TCDL-GP LHQT
+        - complementary [ref=e34]:
+          - generic [ref=e35]:
+            - heading "TOUR GIẢM ĐẾN 55%" [level=2] [ref=e37]
+            - link "Gọi hotline tư vấn" [ref=e38] [cursor=pointer]:
+              - /url: tel:0911222288
+          - generic [ref=e40]:
+            - link "4 tour nổi bật Xem tour trong nước" [ref=e41] [cursor=pointer]:
+              - /url: https://haidangtravel.dtaa-tech.com/tour-trong-nuoc
+              - generic [ref=e43]: 4 tour nổi bật
+              - paragraph [ref=e44]: Xem tour trong nước
+            - link "4 tour nổi bật Xem tour nước ngoài" [ref=e45] [cursor=pointer]:
+              - /url: https://haidangtravel.dtaa-tech.com/tour-nuoc-ngoai
+              - generic [ref=e47]: 4 tour nổi bật
+              - paragraph [ref=e48]: Xem tour nước ngoài
+            - link "1 tour nổi bật Xem tour đoàn" [ref=e49] [cursor=pointer]:
+              - /url: https://haidangtravel.dtaa-tech.com/tour-doan
+              - generic [ref=e51]: 1 tour nổi bật
+              - paragraph [ref=e52]: Xem tour đoàn
+          - generic [ref=e53]:
+            - 'heading "Tour Hà Giang - Sapa Trọn Gói 5N4Đ: Chinh Phục Cực Bắc - Đỉnh Fansipan" [level=3] [ref=e54]'
+            - generic [ref=e55]:
+              - generic [ref=e56]:
+                - generic [ref=e57]: Khởi hành
+                - generic [ref=e58]: HCM
+              - generic [ref=e59]:
+                - generic [ref=e60]: Thời lượng
+                - generic [ref=e61]: 5 ngày 4 đêm
+              - generic [ref=e62]:
+                - generic [ref=e63]: Giá
+                - generic [ref=e64]: 8.990.000 đ
+            - link "Xem chi tiết tour" [ref=e65] [cursor=pointer]:
+              - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-ha-giang-sapa-tron-goi-may-bay
+              - text: Xem chi tiết tour
+    - generic [ref=e70]:
+      - textbox [ref=e74]:
+        - /placeholder: Bạn muốn đi đâu?
+      - button "Tìm" [ref=e75]: Tìm
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - generic [ref=e81]:
+          - heading "CHỦ ĐỀ TOUR" [level=2] [ref=e82]
+          - paragraph [ref=e83]: Chủ đề tour tiêu biểu năm 2026 với lịch trình độc bản. Từ hành trình hành hương tâm linh đến nghỉ dưỡng biển đảo đẳng cấp, Haidangtravel mang đến những trải nghiệm tinh tế và trọn gói nhất.
+        - generic [ref=e84]:
+          - button "Xem chủ đề tour trước" [disabled] [ref=e85]
+          - button "Xem chủ đề tour tiếp theo" [disabled] [ref=e87]
+      - generic [ref=e90]:
+        - link "tour-hanh-huong-tam-linh-chiem-bai-dat-phat-haidangtravel Tour Hành Hương 2026" [ref=e92] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/danh-muc-tour/tour-hanh-huong
+          - img "tour-hanh-huong-tam-linh-chiem-bai-dat-phat-haidangtravel" [ref=e94]
+          - heading "Tour Hành Hương 2026" [level=3] [ref=e95]
+        - link "tour du lich he trong va ngoai nuoc du lich bien 2026 haidangtravel Du lịch hè 2026" [ref=e97] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/danh-muc-tour/du-lich-mua-he
+          - img "tour du lich he trong va ngoai nuoc du lich bien 2026 haidangtravel" [ref=e99]
+          - heading "Du lịch hè 2026" [level=3] [ref=e100]
+        - link "tour du lich xe limousine da lat nha trang mui ne mien tay haidangtravel Du lịch bằng xe Limousine" [ref=e102] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/danh-muc-tour/du-lich-xe-limousine
+          - img "tour du lich xe limousine da lat nha trang mui ne mien tay haidangtravel" [ref=e104]
+          - heading "Du lịch bằng xe Limousine" [level=3] [ref=e105]
+        - link "tour du lich dao phu quoc nam du con dao binh ba ky co cu lao cham haidangtravel Du Lịch Đảo Việt Nam" [ref=e107] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/danh-muc-tour/tour-du-lich-dao
+          - img "tour du lich dao phu quoc nam du con dao binh ba ky co cu lao cham haidangtravel" [ref=e109]
+          - heading "Du Lịch Đảo Việt Nam" [level=3] [ref=e110]
+        - link "tour du lich tau lua sai gon nha trang tau ket noi di san hue da nang tau hoa da lat haidangtravel Du Lịch Tàu Lửa" [ref=e112] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/danh-muc-tour/du-lich-tau-lua
+          - img "tour du lich tau lua sai gon nha trang tau ket noi di san hue da nang tau hoa da lat haidangtravel" [ref=e114]
+          - heading "Du Lịch Tàu Lửa" [level=3] [ref=e115]
+        - link "tour du lich may bay noi dia phu quoc da nang ha noi sapa haidangtravel Du lich máy bay" [ref=e117] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/danh-muc-tour/du-lich-may-bay
+          - img "tour du lich may bay noi dia phu quoc da nang ha noi sapa haidangtravel" [ref=e119]
+          - heading "Du lich máy bay" [level=3] [ref=e120]
+    - generic [ref=e122]:
+      - generic [ref=e123]:
+        - generic [ref=e124]:
+          - heading "TOUR HOT TRONG THÁNG" [level=2] [ref=e125]
+          - paragraph [ref=e126]: Tổng hợp các tour trọn gói và tour du lịch đoàn cho nghiệp đang được ưu thích nhất trong tháng
+        - link "Xem danh sách tour" [ref=e127] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/tour-trong-nuoc
+          - text: Xem danh sách tour
+      - tablist "Nhóm tour" [ref=e129]:
+        - tab "TOUR TRONG NƯỚC 4" [selected] [ref=e130]:
+          - text: TOUR TRONG NƯỚC
+          - generic [ref=e131]: "4"
+        - tab "TOUR NƯỚC NGOÀI 4" [ref=e132]:
+          - text: TOUR NƯỚC NGOÀI
+          - generic [ref=e133]: "4"
+        - tab "TOUR ĐOÀN DOANH NGHIỆP 1" [ref=e134]:
+          - text: TOUR ĐOÀN DOANH NGHIỆP
+          - generic [ref=e135]: "1"
+      - tabpanel "TOUR TRONG NƯỚC 4" [ref=e137]:
+        - generic [ref=e138]:
+          - article [ref=e139]:
+            - link "tour ha giang sapa tron goi may bay fansipan song nho que haidangtravel Tour trong nước 17/04/2026 Hà Nội HCM 20 chỗ còn" [ref=e140] [cursor=pointer]:
+              - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-ha-giang-sapa-tron-goi-may-bay
+              - img "tour ha giang sapa tron goi may bay fansipan song nho que haidangtravel" [ref=e141]
+              - generic [ref=e142]:
+                - generic [ref=e143]: Tour trong nước
+                - generic [ref=e145]: 17/04/2026
+              - generic [ref=e147]:
+                - generic [ref=e148]:
+                  - paragraph [ref=e149]:
+                    - generic [ref=e151]: Hà Nội
+                  - paragraph [ref=e152]: HCM
+                - generic [ref=e153]: 20 chỗ còn
+            - generic [ref=e155]:
+              - generic [ref=e156]:
+                - generic [ref=e157]: 3 sao
+                - generic [ref=e158]:
+                  - text: 5,0/5
+                  - generic [ref=e160]: • 21 đánh giá
+                - generic [ref=e161]: Du lich máy bay
+              - 'heading "Tour Hà Giang - Sapa Trọn Gói 5N4Đ: Chinh Phục Cực Bắc - Đỉnh Fansipan" [level=3] [ref=e162]':
+                - 'link "Tour Hà Giang - Sapa Trọn Gói 5N4Đ: Chinh Phục Cực Bắc - Đỉnh Fansipan" [ref=e163] [cursor=pointer]':
+                  - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-ha-giang-sapa-tron-goi-may-bay
+              - generic [ref=e164]:
+                - generic [ref=e168]:
+                  - generic [ref=e169]: "Khởi Hành:"
+                  - generic [ref=e170]: 17/04/2026
+                - generic [ref=e175]: 5 ngày 4 đêm
+                - generic [ref=e180]: Máy bay
+              - generic [ref=e181]:
+                - generic [ref=e182]:
+                  - generic [ref=e183]:
+                    - paragraph [ref=e184]: Giá từ
+                    - paragraph [ref=e185]: 12.590.000 đ
+                  - paragraph [ref=e186]: 10.590.000 đ
+                - link "Xem" [ref=e188] [cursor=pointer]:
+                  - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-ha-giang-sapa-tron-goi-may-bay
+                  - text: Xem
+          - article [ref=e190]:
+            - link "tour mang den nga 3 dong duong bo y kon tum pleiku haidangtravel Tour trong nước 22/05/2026 Măng Đen HCM 20 chỗ còn" [ref=e191] [cursor=pointer]:
+              - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-mang-den-nga-3-dong-duong
+              - img "tour mang den nga 3 dong duong bo y kon tum pleiku haidangtravel" [ref=e192]
+              - generic [ref=e193]:
+                - generic [ref=e194]: Tour trong nước
+                - generic [ref=e196]: 22/05/2026
+              - generic [ref=e198]:
+                - generic [ref=e199]:
+                  - paragraph [ref=e200]:
+                    - generic [ref=e202]: Măng Đen
+                  - paragraph [ref=e203]: HCM
+                - generic [ref=e204]: 20 chỗ còn
+            - generic [ref=e206]:
+              - generic [ref=e207]:
+                - generic [ref=e208]: Biệt thự + 3 sao
+                - generic [ref=e209]:
+                  - text: 4,9/5
+                  - generic [ref=e211]: • 245 đánh giá
+                - generic [ref=e212]: Du lich máy bay
+              - 'heading "Tour Tây Nguyên: Chinh Phục Ngã 3 Đông Dương - Nàng Thơ Măng Đen" [level=3] [ref=e213]':
+                - 'link "Tour Tây Nguyên: Chinh Phục Ngã 3 Đông Dương - Nàng Thơ Măng Đen" [ref=e214] [cursor=pointer]':
+                  - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-mang-den-nga-3-dong-duong
+              - generic [ref=e215]:
+                - generic [ref=e219]:
+                  - generic [ref=e220]: "Khởi Hành:"
+                  - generic [ref=e221]: 22/05/2026
+                - generic [ref=e226]: 3 ngày 2 đêm
+                - generic [ref=e231]: Máy bay
+              - generic [ref=e232]:
+                - generic [ref=e233]:
+                  - generic [ref=e234]:
+                    - paragraph [ref=e235]: Giá từ
+                    - paragraph [ref=e236]: 6.889.999 đ
+                  - paragraph [ref=e237]: 6.590.000 đ
+                - link "Xem" [ref=e239] [cursor=pointer]:
+                  - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-mang-den-nga-3-dong-duong
+                  - text: Xem
+          - article [ref=e241]:
+            - link "tour-mien-bac-fansipan-sapa-ha-long Tour trong nước Tư vấn lịch Hạ Long HCM4 Tư vấn thêm" [ref=e242] [cursor=pointer]:
+              - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-mien-bac-fansipan-sapa-ha-long
+              - img "tour-mien-bac-fansipan-sapa-ha-long" [ref=e243]
+              - generic [ref=e244]:
+                - generic [ref=e245]: Tour trong nước
+                - generic [ref=e247]: Tư vấn lịch
+              - generic [ref=e249]:
+                - generic [ref=e250]:
+                  - paragraph [ref=e251]:
+                    - generic [ref=e253]: Hạ Long
+                  - paragraph [ref=e254]: HCM4
+                - generic [ref=e255]: Tư vấn thêm
+            - generic [ref=e257]:
+              - generic [ref=e258]:
+                - generic [ref=e259]: Liên hệ
+                - generic [ref=e260]:
+                  - text: 4,9/5
+                  - generic [ref=e262]: • 231 đánh giá
+                - generic [ref=e263]: Du lich máy bay
+              - 'heading "Tour Miền Bắc: Chinh Phục Fansipan – Hạ Long – Tràng An – Sapa" [level=3] [ref=e264]':
+                - 'link "Tour Miền Bắc: Chinh Phục Fansipan – Hạ Long – Tràng An – Sapa" [ref=e265] [cursor=pointer]':
+                  - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-mien-bac-fansipan-sapa-ha-long
+              - generic [ref=e266]:
+                - generic [ref=e270]:
+                  - generic [ref=e271]: "Khởi Hành:"
+                  - generic [ref=e272]: Liên hệ
+                - generic [ref=e277]: 5 ngày 0 đêm
+                - generic [ref=e282]: Máy bay
+              - generic [ref=e283]:
+                - generic [ref=e284]:
+                  - generic [ref=e285]:
+                    - paragraph [ref=e286]: Giá từ
+                    - paragraph [ref=e287]: 12.590.000 đ
+                  - paragraph [ref=e288]: 10.590.000 đ
+                - link "Xem" [ref=e290] [cursor=pointer]:
+                  - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-mien-bac-fansipan-sapa-ha-long
+                  - text: Xem
+          - article [ref=e292]:
+            - link "tour mien trung da nang hoi an hue quang binh tron goi may bay haidangtravel Tour trong nước Tư vấn lịch Đà Nẵng HCM Tư vấn thêm" [ref=e293] [cursor=pointer]:
+              - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-da-nang-hue-hoi-an-quang-binh-tron-goi-may-bay
+              - img "tour mien trung da nang hoi an hue quang binh tron goi may bay haidangtravel" [ref=e294]
+              - generic [ref=e295]:
+                - generic [ref=e296]: Tour trong nước
+                - generic [ref=e298]: Tư vấn lịch
+              - generic [ref=e300]:
+                - generic [ref=e301]:
+                  - paragraph [ref=e302]:
+                    - generic [ref=e304]: Đà Nẵng
+                  - paragraph [ref=e305]: HCM
+                - generic [ref=e306]: Tư vấn thêm
+            - generic [ref=e308]:
+              - generic [ref=e309]:
+                - generic [ref=e310]: 3 sao - 4 sao
+                - generic [ref=e311]:
+                  - text: 4,9/5
+                  - generic [ref=e313]: • 211 đánh giá
+                - generic [ref=e314]: Du lich máy bay
+              - 'heading "Tour Miền Trung Trọn Gói 4N3Đ: Đà Nẵng - Hội An - Huế - Động Phong Nha" [level=3] [ref=e315]':
+                - 'link "Tour Miền Trung Trọn Gói 4N3Đ: Đà Nẵng - Hội An - Huế - Động Phong Nha" [ref=e316] [cursor=pointer]':
+                  - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-da-nang-hue-hoi-an-quang-binh-tron-goi-may-bay
+              - generic [ref=e317]:
+                - generic [ref=e321]:
+                  - generic [ref=e322]: "Khởi Hành:"
+                  - generic [ref=e323]: Liên hệ
+                - generic [ref=e328]: 4 ngày 3 đêm
+                - generic [ref=e333]: Máy bay
+              - generic [ref=e334]:
+                - generic [ref=e335]:
+                  - generic [ref=e336]:
+                    - paragraph [ref=e337]: Giá từ
+                    - paragraph [ref=e338]: 7.490.000 đ
+                  - paragraph [ref=e339]: 6.990.000 đ
+                - link "Xem" [ref=e341] [cursor=pointer]:
+                  - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-da-nang-hue-hoi-an-quang-binh-tron-goi-may-bay
+                  - text: Xem
+    - generic [ref=e344]:
+      - generic [ref=e345]:
+        - generic [ref=e346]:
+          - heading "Du lịch hè 2026" [level=2] [ref=e347]
+          - paragraph [ref=e348]: Đón mùa hè rực rỡ cùng Haidangtravel với chùm tour du lịch hè 2026 trong và ngoài nước cực hấp dẫn. Từ những bãi biển xanh ngắt tại Việt Nam, thiên đường nghỉ dưỡng Bali đến những kinh đô hoa lệ tại Châu Âu mát mẻ. Dịch vụ trọn gói, khởi hành liên tục, ưu đãi đặc biệt cho nhóm gia đình.
+        - link "Xem danh sách tour" [ref=e349] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/danh-muc-tour/du-lich-mua-he
+          - text: Xem danh sách tour
+      - tablist "Tour theo vùng, điểm đến và chủ đề" [ref=e351]:
+        - tab "Du lịch hè 2026 8" [selected] [ref=e352]:
+          - text: Du lịch hè 2026
+          - generic [ref=e353]: "8"
+        - tab "Du lịch bằng xe Limousine 6" [ref=e354]:
+          - text: Du lịch bằng xe Limousine
+          - generic [ref=e355]: "6"
+        - tab "Du Lịch Tàu Lửa 8" [ref=e356]:
+          - text: Du Lịch Tàu Lửa
+          - generic [ref=e357]: "8"
+        - tab "Tour Hành Hương 2026 3" [ref=e358]:
+          - text: Tour Hành Hương 2026
+          - generic [ref=e359]: "3"
+      - tabpanel "Du lịch hè 2026 8" [ref=e361]:
+        - generic [ref=e362]:
+          - generic [ref=e363]:
+            - button "Xem nhóm tour trước" [disabled] [ref=e364]
+            - button "Xem nhóm tour tiếp theo" [disabled] [ref=e366]
+          - generic [ref=e368]:
+            - article [ref=e370]:
+              - link "tour mien trung da nang hoi an hue quang binh tron goi may bay haidangtravel Tour trong nước Tư vấn lịch Đà Nẵng HCM Tư vấn thêm" [ref=e371] [cursor=pointer]:
+                - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-da-nang-hue-hoi-an-quang-binh-tron-goi-may-bay
+                - img "tour mien trung da nang hoi an hue quang binh tron goi may bay haidangtravel" [ref=e372]
+                - generic [ref=e373]:
+                  - generic [ref=e374]: Tour trong nước
+                  - generic [ref=e376]: Tư vấn lịch
+                - generic [ref=e378]:
+                  - generic [ref=e379]:
+                    - paragraph [ref=e380]:
+                      - generic [ref=e382]: Đà Nẵng
+                    - paragraph [ref=e383]: HCM
+                  - generic [ref=e384]: Tư vấn thêm
+              - generic [ref=e386]:
+                - generic [ref=e387]:
+                  - generic [ref=e388]: 3 sao - 4 sao
+                  - generic [ref=e389]: Du lich máy bay
+                - 'heading "Tour Miền Trung Trọn Gói 4N3Đ: Đà Nẵng - Hội An - Huế - Động Phong Nha" [level=3] [ref=e390]':
+                  - 'link "Tour Miền Trung Trọn Gói 4N3Đ: Đà Nẵng - Hội An - Huế - Động Phong Nha" [ref=e391] [cursor=pointer]':
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-da-nang-hue-hoi-an-quang-binh-tron-goi-may-bay
+                - generic [ref=e392]:
+                  - generic [ref=e396]:
+                    - generic [ref=e397]: "Khởi Hành:"
+                    - generic [ref=e398]: Liên hệ
+                  - generic [ref=e403]: 4 ngày 3 đêm
+                  - generic [ref=e408]: Máy bay
+                - generic [ref=e409]:
+                  - generic [ref=e410]:
+                    - generic [ref=e411]:
+                      - paragraph [ref=e412]: Giá từ
+                      - paragraph [ref=e413]: 7.490.000 đ
+                    - paragraph [ref=e414]: 6.990.000 đ
+                  - link "Xem" [ref=e416] [cursor=pointer]:
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-da-nang-hue-hoi-an-quang-binh-tron-goi-may-bay
+                    - text: Xem
+            - article [ref=e419]:
+              - link "tour-tau-hoa-ly-son-dao-be-haidangtravel-vong-quoc-toi Tour trong nước Tư vấn lịch Đảo Lý Sơn HCM Tư vấn thêm" [ref=e420] [cursor=pointer]:
+                - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-ly-son-dao-be-tron-goi-tau-lua
+                - img "tour-tau-hoa-ly-son-dao-be-haidangtravel-vong-quoc-toi" [ref=e421]
+                - generic [ref=e422]:
+                  - generic [ref=e423]: Tour trong nước
+                  - generic [ref=e425]: Tư vấn lịch
+                - generic [ref=e427]:
+                  - generic [ref=e428]:
+                    - paragraph [ref=e429]:
+                      - generic [ref=e431]: Đảo Lý Sơn
+                    - paragraph [ref=e432]: HCM
+                  - generic [ref=e433]: Tư vấn thêm
+              - generic [ref=e435]:
+                - generic [ref=e436]:
+                  - generic [ref=e437]: Tiêu chuẩn
+                  - generic [ref=e438]: Du Lịch Tàu Lửa
+                - 'heading "Tour Lý Sơn – Đảo Bé Trọn Gói Tàu Lửa: Hành Trình Qua Lăng Cửa Sổ" [level=3] [ref=e439]':
+                  - 'link "Tour Lý Sơn – Đảo Bé Trọn Gói Tàu Lửa: Hành Trình Qua Lăng Cửa Sổ" [ref=e440] [cursor=pointer]':
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-ly-son-dao-be-tron-goi-tau-lua
+                - generic [ref=e441]:
+                  - generic [ref=e445]:
+                    - generic [ref=e446]: "Khởi Hành:"
+                    - generic [ref=e447]: Liên hệ
+                  - generic [ref=e452]: 3 ngày 4 đêm
+                  - generic [ref=e457]: Tàu lửa
+                - generic [ref=e458]:
+                  - generic [ref=e459]:
+                    - generic [ref=e460]:
+                      - paragraph [ref=e461]: Giá từ
+                      - paragraph [ref=e462]: 5.990.000 đ
+                    - paragraph [ref=e463]: 4.990.000 đ
+                  - link "Xem" [ref=e465] [cursor=pointer]:
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-ly-son-dao-be-tron-goi-tau-lua
+                    - text: Xem
+            - article [ref=e468]:
+              - link "tour ninh chu binh hung tron goi tau lua tanyoli tom hum haidangtravel Tour trong nước Tư vấn lịch Ninh Chữ HCM Tư vấn thêm" [ref=e469] [cursor=pointer]:
+                - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-ninh-chu-binh-hung-gia-re-tau-lua
+                - img "tour ninh chu binh hung tron goi tau lua tanyoli tom hum haidangtravel" [ref=e470]
+                - generic [ref=e471]:
+                  - generic [ref=e472]: Tour trong nước
+                  - generic [ref=e474]: Tư vấn lịch
+                - generic [ref=e476]:
+                  - generic [ref=e477]:
+                    - paragraph [ref=e478]:
+                      - generic [ref=e480]: Ninh Chữ
+                    - paragraph [ref=e481]: HCM
+                  - generic [ref=e482]: Tư vấn thêm
+              - generic [ref=e484]:
+                - generic [ref=e485]:
+                  - generic [ref=e486]: 3 sao
+                  - generic [ref=e487]: Du Lịch Tàu Lửa
+                - 'heading "Tour Ninh Chữ Tanyoli - Đảo Bình Hưng Trọn Gói 3N2Đ: Trải Nghiệm Tàu Lửa - Nghỉ Dưỡng 3 Sao" [level=3] [ref=e488]':
+                  - 'link "Tour Ninh Chữ Tanyoli - Đảo Bình Hưng Trọn Gói 3N2Đ: Trải Nghiệm Tàu Lửa - Nghỉ Dưỡng 3 Sao" [ref=e489] [cursor=pointer]':
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-ninh-chu-binh-hung-gia-re-tau-lua
+                - generic [ref=e490]:
+                  - generic [ref=e494]:
+                    - generic [ref=e495]: "Khởi Hành:"
+                    - generic [ref=e496]: Liên hệ
+                  - generic [ref=e501]: 3 ngày 2 đêm
+                  - generic [ref=e506]: Tàu lửa
+                - generic [ref=e507]:
+                  - generic [ref=e508]:
+                    - generic [ref=e509]:
+                      - paragraph [ref=e510]: Giá từ
+                      - paragraph [ref=e511]: 4.290.000 đ
+                    - paragraph [ref=e512]: 3.990.000 đ
+                  - link "Xem" [ref=e514] [cursor=pointer]:
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-ninh-chu-binh-hung-gia-re-tau-lua
+                    - text: Xem
+            - article [ref=e517]:
+              - link "tour binh hung ninh chu tron goi tau lua tanyoli bao tom hum haidangtravel Tour trong nước Tư vấn lịch Ninh Chữ HCM Tư vấn thêm" [ref=e518] [cursor=pointer]:
+                - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-binh-hung-ninh-chu-tron-goi-tau-lua
+                - img "tour binh hung ninh chu tron goi tau lua tanyoli bao tom hum haidangtravel" [ref=e519]
+                - generic [ref=e520]:
+                  - generic [ref=e521]: Tour trong nước
+                  - generic [ref=e523]: Tư vấn lịch
+                - generic [ref=e525]:
+                  - generic [ref=e526]:
+                    - paragraph [ref=e527]:
+                      - generic [ref=e529]: Ninh Chữ
+                    - paragraph [ref=e530]: HCM
+                  - generic [ref=e531]: Tư vấn thêm
+              - generic [ref=e533]:
+                - generic [ref=e534]:
+                  - generic [ref=e535]: 4 sao
+                  - generic [ref=e536]: Du Lịch Tàu Lửa
+                - 'heading "Tour Bình Hưng - Ninh Chữ Trọn Gói 2N3Đ: Trải Nghiệm Tàu Lửa - Thưởng Thức Tôm Hùm" [level=3] [ref=e537]':
+                  - 'link "Tour Bình Hưng - Ninh Chữ Trọn Gói 2N3Đ: Trải Nghiệm Tàu Lửa - Thưởng Thức Tôm Hùm" [ref=e538] [cursor=pointer]':
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-binh-hung-ninh-chu-tron-goi-tau-lua
+                - generic [ref=e539]:
+                  - generic [ref=e543]:
+                    - generic [ref=e544]: "Khởi Hành:"
+                    - generic [ref=e545]: Liên hệ
+                  - generic [ref=e550]: 2 ngày 3 đêm
+                  - generic [ref=e555]: Tàu lửa
+                - generic [ref=e556]:
+                  - generic [ref=e557]:
+                    - generic [ref=e558]:
+                      - paragraph [ref=e559]: Giá từ
+                      - paragraph [ref=e560]: 3.790.000 đ
+                    - paragraph [ref=e561]: 3.490.000 đ
+                  - link "Xem" [ref=e563] [cursor=pointer]:
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-binh-hung-ninh-chu-tron-goi-tau-lua
+                    - text: Xem
+            - article [ref=e566]:
+              - link "tour-du-lich-tay-tang-cung-dien-potala Tour nước ngoài Tư vấn lịch Tây Tạng HCM Tư vấn thêm" [ref=e567] [cursor=pointer]:
+                - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-du-lich-tay-tang-cung-dien-potala
+                - img "tour-du-lich-tay-tang-cung-dien-potala" [ref=e568]
+                - generic [ref=e569]:
+                  - generic [ref=e570]: Tour nước ngoài
+                  - generic [ref=e572]: Tư vấn lịch
+                - generic [ref=e574]:
+                  - generic [ref=e575]:
+                    - paragraph [ref=e576]:
+                      - generic [ref=e578]: Tây Tạng
+                    - paragraph [ref=e579]: HCM
+                  - generic [ref=e580]: Tư vấn thêm
+              - generic [ref=e582]:
+                - generic [ref=e583]:
+                  - generic [ref=e584]: 4 sao
+                  - generic [ref=e585]: Du lịch hè 2026
+                - 'heading "Tour Tây Tạng Bản Đặc Biệt: Hành Trình Huyền Bí 6N5Đ – Chạm Vào Nóc Nhà Thế Giới" [level=3] [ref=e586]':
+                  - 'link "Tour Tây Tạng Bản Đặc Biệt: Hành Trình Huyền Bí 6N5Đ – Chạm Vào Nóc Nhà Thế Giới" [ref=e587] [cursor=pointer]':
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-du-lich-tay-tang-cung-dien-potala
+                - generic [ref=e588]:
+                  - generic [ref=e592]:
+                    - generic [ref=e593]: "Khởi Hành:"
+                    - generic [ref=e594]: Liên hệ
+                  - generic [ref=e599]: 6 ngày 5 đêm
+                  - generic [ref=e604]: Máy bay
+                - generic [ref=e605]:
+                  - generic [ref=e606]:
+                    - generic [ref=e607]:
+                      - paragraph [ref=e608]: Giá từ
+                      - paragraph [ref=e609]: 36.000.000 đ
+                    - paragraph [ref=e610]: 33.000.000 đ
+                  - link "Xem" [ref=e612] [cursor=pointer]:
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-du-lich-tay-tang-cung-dien-potala
+                    - text: Xem
+            - article [ref=e615]:
+              - link "tour-du-lich-dai-loan-cao-hung-dai-trung-dai-bac Tour nước ngoài Tư vấn lịch Đài Loan HCM Tư vấn thêm" [ref=e616] [cursor=pointer]:
+                - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-dai-loan-cao-hung-dai-trung-dai-bac
+                - img "tour-du-lich-dai-loan-cao-hung-dai-trung-dai-bac" [ref=e617]
+                - generic [ref=e618]:
+                  - generic [ref=e619]: Tour nước ngoài
+                  - generic [ref=e621]: Tư vấn lịch
+                - generic [ref=e623]:
+                  - generic [ref=e624]:
+                    - paragraph [ref=e625]:
+                      - generic [ref=e627]: Đài Loan
+                    - paragraph [ref=e628]: HCM
+                  - generic [ref=e629]: Tư vấn thêm
+              - generic [ref=e631]:
+                - generic [ref=e632]:
+                  - generic [ref=e633]: 3 sao
+                  - generic [ref=e634]: Du lịch hè 2026
+                - 'heading "Tour Đài Loan: Cao Hùng – Đài Trung – Đài Bắc cùng Eva Air | Đặt Ngay Ưu Đãi Lớn" [level=3] [ref=e635]':
+                  - 'link "Tour Đài Loan: Cao Hùng – Đài Trung – Đài Bắc cùng Eva Air | Đặt Ngay Ưu Đãi Lớn" [ref=e636] [cursor=pointer]':
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-dai-loan-cao-hung-dai-trung-dai-bac
+                - generic [ref=e637]:
+                  - generic [ref=e641]:
+                    - generic [ref=e642]: "Khởi Hành:"
+                    - generic [ref=e643]: Liên hệ
+                  - generic [ref=e648]: 5 ngày 4 đêm
+                  - generic [ref=e653]: Máy bay
+                - generic [ref=e654]:
+                  - generic [ref=e655]:
+                    - generic [ref=e656]:
+                      - paragraph [ref=e657]: Giá từ
+                      - paragraph [ref=e658]: 17.390.000 đ
+                    - paragraph [ref=e659]: 14.390.000 đ
+                  - link "Xem" [ref=e661] [cursor=pointer]:
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-dai-loan-cao-hung-dai-trung-dai-bac
+                    - text: Xem
+            - article [ref=e664]:
+              - link "tour-du-lich-han-quoc-busan-seoul Tour nước ngoài Tư vấn lịch Hàn Quốc HCM Tư vấn thêm" [ref=e665] [cursor=pointer]:
+                - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-du-lich-han-quoc-busan-seoul
+                - img "tour-du-lich-han-quoc-busan-seoul" [ref=e666]
+                - generic [ref=e667]:
+                  - generic [ref=e668]: Tour nước ngoài
+                  - generic [ref=e670]: Tư vấn lịch
+                - generic [ref=e672]:
+                  - generic [ref=e673]:
+                    - paragraph [ref=e674]:
+                      - generic [ref=e676]: Hàn Quốc
+                    - paragraph [ref=e677]: HCM
+                  - generic [ref=e678]: Tư vấn thêm
+              - generic [ref=e680]:
+                - generic [ref=e681]:
+                  - generic [ref=e682]: Liên hệ
+                  - generic [ref=e683]: Du lịch hè 2026
+                - 'heading "Tour Hàn Quốc: Khám Phá Busan - Seoul Cao Cấp - Đặt Ngay Nhận Ưu Đãi!" [level=3] [ref=e684]':
+                  - 'link "Tour Hàn Quốc: Khám Phá Busan - Seoul Cao Cấp - Đặt Ngay Nhận Ưu Đãi!" [ref=e685] [cursor=pointer]':
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-du-lich-han-quoc-busan-seoul
+                - generic [ref=e686]:
+                  - generic [ref=e690]:
+                    - generic [ref=e691]: "Khởi Hành:"
+                    - generic [ref=e692]: Liên hệ
+                  - generic [ref=e697]: 6 ngày 5 đêm
+                  - generic [ref=e702]: Máy bay
+                - generic [ref=e703]:
+                  - generic [ref=e704]:
+                    - generic [ref=e705]:
+                      - paragraph [ref=e706]: Giá từ
+                      - paragraph [ref=e707]: 19.820.000 đ
+                    - paragraph [ref=e708]: 18.620.000 đ
+                  - link "Xem" [ref=e710] [cursor=pointer]:
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-du-lich-han-quoc-busan-seoul
+                    - text: Xem
+            - article [ref=e713]:
+              - link "tour-singapore-malaysia-5-ngay-4-dem Tour nước ngoài Tư vấn lịch Singapore HCM Tư vấn thêm" [ref=e714] [cursor=pointer]:
+                - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-du-lich-singapore-malaysia-5-ngay-4-dem
+                - img "tour-singapore-malaysia-5-ngay-4-dem" [ref=e715]
+                - generic [ref=e716]:
+                  - generic [ref=e717]: Tour nước ngoài
+                  - generic [ref=e719]: Tư vấn lịch
+                - generic [ref=e721]:
+                  - generic [ref=e722]:
+                    - paragraph [ref=e723]:
+                      - generic [ref=e725]: Singapore
+                    - paragraph [ref=e726]: HCM
+                  - generic [ref=e727]: Tư vấn thêm
+              - generic [ref=e729]:
+                - generic [ref=e730]:
+                  - generic [ref=e731]: 4 sao
+                  - generic [ref=e732]: Du lịch hè 2026
+                - 'heading "Tour Singapore Malaysia 5N4Đ: Chinh Phục Đỉnh Genting & Đại Tiệc Cua Sốt – Ưu Đãi Cực Cháy!" [level=3] [ref=e733]':
+                  - 'link "Tour Singapore Malaysia 5N4Đ: Chinh Phục Đỉnh Genting & Đại Tiệc Cua Sốt – Ưu Đãi Cực Cháy!" [ref=e734] [cursor=pointer]':
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-du-lich-singapore-malaysia-5-ngay-4-dem
+                - generic [ref=e735]:
+                  - generic [ref=e739]:
+                    - generic [ref=e740]: "Khởi Hành:"
+                    - generic [ref=e741]: Liên hệ
+                  - generic [ref=e746]: 5 ngày 4 đêm
+                  - generic [ref=e751]: Máy bay
+                - generic [ref=e752]:
+                  - generic [ref=e753]:
+                    - generic [ref=e754]:
+                      - paragraph [ref=e755]: Giá từ
+                      - paragraph [ref=e756]: 14.590.000 đ
+                    - paragraph [ref=e757]: 11.590.000 đ
+                  - link "Xem" [ref=e759] [cursor=pointer]:
+                    - /url: https://haidangtravel.dtaa-tech.com/chuong-trinh/tour-du-lich-singapore-malaysia-5-ngay-4-dem
+                    - text: Xem
+    - generic [ref=e762]:
+      - heading "TOUR THEO VÙNG MIỀN" [level=2] [ref=e764]
+      - generic [ref=e765]:
+        - tablist "Vùng miền nổi bật" [ref=e767]:
+          - tab "Châu Á 8" [selected] [ref=e768]:
+            - generic [ref=e769]: Châu Á
+            - generic [ref=e770]: "8"
+          - tab "Châu Âu 3" [ref=e771]:
+            - generic [ref=e772]: Châu Âu
+            - generic [ref=e773]: "3"
+          - tab "Châu Mỹ 1" [ref=e774]:
+            - generic [ref=e775]: Châu Mỹ
+            - generic [ref=e776]: "1"
+          - tab "Miền Bắc 4" [ref=e777]:
+            - generic [ref=e778]: Miền Bắc
+            - generic [ref=e779]: "4"
+          - tab "Miền Nam 3" [ref=e780]:
+            - generic [ref=e781]: Miền Nam
+            - generic [ref=e782]: "3"
+          - tab "Miền Trung 8" [ref=e783]:
+            - generic [ref=e784]: Miền Trung
+            - generic [ref=e785]: "8"
+          - tab "Tây Nguyên 4" [ref=e786]:
+            - generic [ref=e787]: Tây Nguyên
+            - generic [ref=e788]: "4"
+        - generic [ref=e789]:
+          - generic [ref=e790]:
+            - generic [ref=e791]:
+              - heading "Châu Á" [level=3] [ref=e792]
+              - paragraph [ref=e793]: Khám phá sự đa dạng văn hóa và cảnh quan kỳ thú tại lục địa lớn nhất thế giới. Từ thiên đường mua sắm Thái Lan, vẻ đẹp hiện đại của Nhật Bản, Hàn Quốc đến những vùng đất huyền bí như Bhutan hay kỳ quan Trương Gia Giới. Các Tour du lịch Châu Á tại Haidangtravel mang đến trải nghiệm độc đáo, lịch trình mới lạ với chi phí tối ưu nhất.
+            - link "Xem tất cả tour" [ref=e794] [cursor=pointer]:
+              - /url: https://haidangtravel.dtaa-tech.com/vung-mien/chau-a
+              - text: Xem tất cả tour
+          - tabpanel "Châu Á 8" [ref=e797]:
+            - generic [ref=e798]:
+              - generic [ref=e799]:
+                - button "Xem điểm đến trước" [disabled] [ref=e800]
+                - button "Xem điểm đến tiếp theo" [disabled] [ref=e802]
+              - generic [ref=e804]:
+                - link "du lich an do nepal tu dong tam den taj mahal song hang kathmandu Ấn Độ - Nepal Khám phá Ấn Độ - Nepal – hành trình thiêng liêng đưa du khách về với \"Tứ Động Tâm\", nơi ghi dấu những cột mốc quan trọng..." [ref=e806] [cursor=pointer]:
+                  - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-an-do-nepal
+                  - generic [ref=e807]:
+                    - img "du lich an do nepal tu dong tam den taj mahal song hang kathmandu" [ref=e808]
+                    - generic:
+                      - generic:
+                        - heading "Ấn Độ - Nepal" [level=3]
+                        - generic:
+                          - paragraph: Khám phá Ấn Độ - Nepal – hành trình thiêng liêng đưa du khách về với "Tứ Động Tâm", nơi ghi dấu những cột mốc quan trọng...
+                - link "du lich bhutan tu vien tiger nest punakha dzong thimphu du lich hanh phuc Bhutan Khám phá Bhutan – quốc gia nằm dưới chân dãy Himalaya hùng vĩ, nơi hạnh phúc được đo lường bằng sự an lạc trong tâm hồn...." [ref=e811] [cursor=pointer]:
+                  - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-bhutan
+                  - generic [ref=e812]:
+                    - img "du lich bhutan tu vien tiger nest punakha dzong thimphu du lich hanh phuc" [ref=e813]
+                    - generic:
+                      - generic:
+                        - heading "Bhutan" [level=3]
+                        - generic:
+                          - paragraph: Khám phá Bhutan – quốc gia nằm dưới chân dãy Himalaya hùng vĩ, nơi hạnh phúc được đo lường bằng sự an lạc trong tâm hồn....
+                - link "du lich tay tang cung dien potala lhasa ho namtso hanh huong tay tang Tây Tạng Khám phá Tây Tạng – vùng đất huyền bí nằm trên cao nguyên cao nhất thế giới, nơi sở hữu những tu viện uy nghiêm, hồ nước..." [ref=e816] [cursor=pointer]:
+                  - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-tay-tang
+                  - generic [ref=e817]:
+                    - img "du lich tay tang cung dien potala lhasa ho namtso hanh huong tay tang" [ref=e818]
+                    - generic:
+                      - generic:
+                        - heading "Tây Tạng" [level=3]
+                        - generic:
+                          - paragraph: Khám phá Tây Tạng – vùng đất huyền bí nằm trên cao nguyên cao nhất thế giới, nơi sở hữu những tu viện uy nghiêm, hồ nước...
+                - link "du lich thai lan bangkok pattaya chua phat ngoc muang boran Thái Lan Khám phá Thái Lan – thiên đường du lịch Đông Nam Á với những cung điện lộng lẫy, các khu chợ sầm uất và những hòn đảo xa..." [ref=e821] [cursor=pointer]:
+                  - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-thai-lan
+                  - generic [ref=e822]:
+                    - img "du lich thai lan bangkok pattaya chua phat ngoc muang boran" [ref=e823]
+                    - generic:
+                      - generic:
+                        - heading "Thái Lan" [level=3]
+                        - generic:
+                          - paragraph: Khám phá Thái Lan – thiên đường du lịch Đông Nam Á với những cung điện lộng lẫy, các khu chợ sầm uất và những hòn đảo xa...
+                - link "du lich trung quoc truong gia gioi phuong hoang co tran thien mon son Trung Quốc Khám phá Trung Quốc – hành trình lạc vào tiên cảnh với những di sản ngàn năm, những dãy núi hùng vĩ và các cổ trấn thơ m..." [ref=e826] [cursor=pointer]:
+                  - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-trung-quoc
+                  - generic [ref=e827]:
+                    - img "du lich trung quoc truong gia gioi phuong hoang co tran thien mon son" [ref=e828]
+                    - generic:
+                      - generic:
+                        - heading "Trung Quốc" [level=3]
+                        - generic:
+                          - paragraph: Khám phá Trung Quốc – hành trình lạc vào tiên cảnh với những di sản ngàn năm, những dãy núi hùng vĩ và các cổ trấn thơ m...
+                - link "BA Bali Khám phá Bali – hòn đảo quyến rũ nhất hành tinh với những ngôi đền cổ kính linh thiêng, những bãi biển xanh ngắt và ruộn..." [ref=e831] [cursor=pointer]:
+                  - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-bali
+                  - generic [ref=e832]:
+                    - generic [ref=e834]: BA
+                    - generic:
+                      - generic:
+                        - heading "Bali" [level=3]
+                        - generic:
+                          - paragraph: Khám phá Bali – hòn đảo quyến rũ nhất hành tinh với những ngôi đền cổ kính linh thiêng, những bãi biển xanh ngắt và ruộn...
+                - link "ĐÀ Đài Loan Khám phá Đài Loan – hòn đảo xinh đẹp nơi hiện đại hòa quyện cùng nét cổ kính. Trải nghiệm thả đèn trời tại Thập Phần, dạ..." [ref=e837] [cursor=pointer]:
+                  - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-dai-loan
+                  - generic [ref=e838]:
+                    - generic [ref=e840]: ĐÀ
+                    - generic:
+                      - generic:
+                        - heading "Đài Loan" [level=3]
+                        - generic:
+                          - paragraph: Khám phá Đài Loan – hòn đảo xinh đẹp nơi hiện đại hòa quyện cùng nét cổ kính. Trải nghiệm thả đèn trời tại Thập Phần, dạ...
+                - link "HÀ Hàn Quốc Khám phá Hàn Quốc – sự kết hợp hoàn mỹ giữa nét đẹp truyền thống và sự năng động hiện đại. Check-in những cung điện hoàn..." [ref=e843] [cursor=pointer]:
+                  - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-han-quoc
+                  - generic [ref=e844]:
+                    - generic [ref=e846]: HÀ
+                    - generic:
+                      - generic:
+                        - heading "Hàn Quốc" [level=3]
+                        - generic:
+                          - paragraph: Khám phá Hàn Quốc – sự kết hợp hoàn mỹ giữa nét đẹp truyền thống và sự năng động hiện đại. Check-in những cung điện hoàn...
+    - generic [ref=e850]:
+      - generic [ref=e851]:
+        - generic [ref=e852]:
+          - heading "TOUR THEO ĐIỂM ĐẾN" [level=2] [ref=e853]
+          - paragraph [ref=e854]: Tổng hợp các tour du lịch theo điểm đến đang được quan tâm nhất trong tháng
+        - generic [ref=e855]:
+          - button "Xem điểm đến trước" [disabled] [ref=e856]
+          - button "Xem điểm đến tiếp theo" [disabled] [ref=e858]
+      - generic [ref=e861]:
+        - link "du lich thai lan bangkok pattaya chua phat ngoc muang boran 1 tour Thái Lan Khám phá Thái Lan – thiên đường du lịch Đông Nam Á với những cung điện lộng lẫy, các khu chợ sầm uất và những hòn đảo xanh như ngọ... Xem tất cả" [ref=e863] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-thai-lan
+          - generic [ref=e864]:
+            - img "du lich thai lan bangkok pattaya chua phat ngoc muang boran" [ref=e865]
+            - generic [ref=e866]: 1 tour
+          - generic [ref=e867]:
+            - heading "Thái Lan" [level=3] [ref=e868]
+            - paragraph [ref=e869]: Khám phá Thái Lan – thiên đường du lịch Đông Nam Á với những cung điện lộng lẫy, các khu chợ sầm uất và những hòn đảo xanh như ngọ...
+            - generic [ref=e870]: Xem tất cả
+        - link "du lich ta dung dak nong vinh ha long tay nguyen 1 tour Tà Đùng Khám phá Tà Đùng – \"Vịnh Hạ Long giữa lòng Tây Nguyên\" với hơn 40 hòn đảo lớn nhỏ nhấp nhô giữa mặt hồ xanh ngắt. Trải nghiệm khôn... Xem tất cả" [ref=e873] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-ta-dung
+          - generic [ref=e874]:
+            - img "du lich ta dung dak nong vinh ha long tay nguyen" [ref=e875]
+            - generic [ref=e876]: 1 tour
+          - generic [ref=e877]:
+            - heading "Tà Đùng" [level=3] [ref=e878]
+            - paragraph [ref=e879]: Khám phá Tà Đùng – "Vịnh Hạ Long giữa lòng Tây Nguyên" với hơn 40 hòn đảo lớn nhỏ nhấp nhô giữa mặt hồ xanh ngắt. Trải nghiệm khôn...
+            - generic [ref=e880]: Xem tất cả
+        - link "du lich da lat langbiang thung lung tinh yeu ho xuan huong 4 tour Đà Lạt Khám phá Đà Lạt – \"Thành phố ngàn hoa\" với khí hậu ôn đới quanh năm, những đồi thông mộng mơ và vô vàn điểm check-in cực hot. Trải... Xem tất cả" [ref=e883] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-da-lat
+          - generic [ref=e884]:
+            - img "du lich da lat langbiang thung lung tinh yeu ho xuan huong" [ref=e885]
+            - generic [ref=e886]: 4 tour
+          - generic [ref=e887]:
+            - heading "Đà Lạt" [level=3] [ref=e888]
+            - paragraph [ref=e889]: Khám phá Đà Lạt – "Thành phố ngàn hoa" với khí hậu ôn đới quanh năm, những đồi thông mộng mơ và vô vàn điểm check-in cực hot. Trải...
+            - generic [ref=e890]: Xem tất cả
+        - link "du lich mang den ho dak ke duc me mang den thac pa sy 1 tour Măng Đen Khám phá Măng Đen – thiên đường nghỉ dưỡng giữa đại ngàn Kon Tum với khí hậu se lạnh quanh năm, những rừng thông bạt ngàn và hồ Đă... Xem tất cả" [ref=e893] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-mang-den
+          - generic [ref=e894]:
+            - img "du lich mang den ho dak ke duc me mang den thac pa sy" [ref=e895]
+            - generic [ref=e896]: 1 tour
+          - generic [ref=e897]:
+            - heading "Măng Đen" [level=3] [ref=e898]
+            - paragraph [ref=e899]: Khám phá Măng Đen – thiên đường nghỉ dưỡng giữa đại ngàn Kon Tum với khí hậu se lạnh quanh năm, những rừng thông bạt ngàn và hồ Đă...
+            - generic [ref=e900]: Xem tất cả
+        - link "du lich phu quoc grand world vinwonders bai sao cap treo hon thom 1 tour Phú Quốc Khám phá Phú Quốc – hòn đảo lớn nhất Việt Nam với những bãi cát trắng mịn, nước biển xanh màu ngọc bích và các tổ hợp giải trí hàn... Xem tất cả" [ref=e903] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-phu-quoc
+          - generic [ref=e904]:
+            - img "du lich phu quoc grand world vinwonders bai sao cap treo hon thom" [ref=e905]
+            - generic [ref=e906]: 1 tour
+          - generic [ref=e907]:
+            - heading "Phú Quốc" [level=3] [ref=e908]
+            - paragraph [ref=e909]: Khám phá Phú Quốc – hòn đảo lớn nhất Việt Nam với những bãi cát trắng mịn, nước biển xanh màu ngọc bích và các tổ hợp giải trí hàn...
+            - generic [ref=e910]: Xem tất cả
+        - link "SI 2 tour Singapore Khám phá Singapore – quốc đảo sư tử hiện đại bậc nhất Châu Á với những công trình kiến trúc tương lai, không gian xanh phủ khắp ph... Xem tất cả" [ref=e913] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-singapore
+          - generic [ref=e914]:
+            - generic [ref=e916]: SI
+            - generic [ref=e917]: 2 tour
+          - generic [ref=e918]:
+            - heading "Singapore" [level=3] [ref=e919]
+            - paragraph [ref=e920]: Khám phá Singapore – quốc đảo sư tử hiện đại bậc nhất Châu Á với những công trình kiến trúc tương lai, không gian xanh phủ khắp ph...
+            - generic [ref=e921]: Xem tất cả
+        - link "HÀ 2 tour Hàn Quốc Khám phá Hàn Quốc – sự kết hợp hoàn mỹ giữa nét đẹp truyền thống và sự năng động hiện đại. Check-in những cung điện hoàng gia cổ k... Xem tất cả" [ref=e924] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/tour-du-lich-han-quoc
+          - generic [ref=e925]:
+            - generic [ref=e927]: HÀ
+            - generic [ref=e928]: 2 tour
+          - generic [ref=e929]:
+            - heading "Hàn Quốc" [level=3] [ref=e930]
+            - paragraph [ref=e931]: Khám phá Hàn Quốc – sự kết hợp hoàn mỹ giữa nét đẹp truyền thống và sự năng động hiện đại. Check-in những cung điện hoàng gia cổ k...
+            - generic [ref=e932]: Xem tất cả
+    - generic [ref=e935]:
+      - generic [ref=e936]:
+        - heading "DỊCH VỤ KHÁC" [level=2] [ref=e937]
+        - paragraph [ref=e938]: Giải pháp toàn diện đáp ứng mọi nhu cầu di chuyển và lưu trú của quý khách
+      - generic [ref=e939]:
+        - link "Cho thuê xe Đa dạng xe từ 4 chỗ đến 45 chỗ, xe giường nằm, xe Limousine. Tài xế chuyên nghiệp, giá tốt nhất. Xem chi tiết" [ref=e940] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/thue-xe-du-lich
+          - generic [ref=e941]:
+            - heading "Cho thuê xe" [level=3] [ref=e944]
+            - paragraph [ref=e945]: Đa dạng xe từ 4 chỗ đến 45 chỗ, xe giường nằm, xe Limousine. Tài xế chuyên nghiệp, giá tốt nhất.
+            - generic [ref=e946]: Xem chi tiết
+        - link "Vé máy bay Đại lý chính thức của các hãng bay nội địa và quốc tế. Giá tốt, hỗ trợ đổi/hoàn vé linh hoạt. Xem chi tiết" [ref=e948] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/ve-may-bay-gia-re
+          - generic [ref=e949]:
+            - heading "Vé máy bay" [level=3] [ref=e952]
+            - paragraph [ref=e953]: Đại lý chính thức của các hãng bay nội địa và quốc tế. Giá tốt, hỗ trợ đổi/hoàn vé linh hoạt.
+            - generic [ref=e954]: Xem chi tiết
+        - link "Dịch vụ Visa Hỗ trợ xin visa các nước Châu Á, Châu Âu, Châu Mỹ, Châu Úc. Tỷ lệ đậu cao, thủ tục nhanh. Xem chi tiết" [ref=e956] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/visa-passport
+          - generic [ref=e957]:
+            - heading "Dịch vụ Visa" [level=3] [ref=e960]
+            - paragraph [ref=e961]: Hỗ trợ xin visa các nước Châu Á, Châu Âu, Châu Mỹ, Châu Úc. Tỷ lệ đậu cao, thủ tục nhanh.
+            - generic [ref=e962]: Xem chi tiết
+        - link "Tư vấn du học Định hướng lộ trình, chọn trường, hoàn thiện hồ sơ du học các nước. Hỗ trợ săn học bổng. Xem chi tiết" [ref=e964] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/tu-van-du-hoc
+          - generic [ref=e965]:
+            - heading "Tư vấn du học" [level=3] [ref=e968]
+            - paragraph [ref=e969]: Định hướng lộ trình, chọn trường, hoàn thiện hồ sơ du học các nước. Hỗ trợ săn học bổng.
+            - generic [ref=e970]: Xem chi tiết
+    - generic [ref=e974]:
+      - link "Tour đoàn doanh nghiệp - Hải Đăng Travel tổ chức teambuilding, MICE, Gala Dinner chuyên nghiệp" [ref=e975] [cursor=pointer]:
+        - /url: "#"
+        - img "Tour đoàn doanh nghiệp - Hải Đăng Travel tổ chức teambuilding, MICE, Gala Dinner chuyên nghiệp" [ref=e976]
+      - link "Dịch vụ visa du lịch, công tác, du học - Hải Đăng Travel tư vấn visa các nước uy tín" [ref=e977] [cursor=pointer]:
+        - /url: "#"
+        - img "Dịch vụ visa du lịch, công tác, du học - Hải Đăng Travel tư vấn visa các nước uy tín" [ref=e978]
+      - link "Vé máy bay giá rẻ và cho thuê xe du lịch - Hải Đăng Travel đối tác các hãng hàng không lớn" [ref=e979] [cursor=pointer]:
+        - /url: "#"
+        - img "Vé máy bay giá rẻ và cho thuê xe du lịch - Hải Đăng Travel đối tác các hãng hàng không lớn" [ref=e980]
+    - generic [ref=e982]:
+      - generic [ref=e983]:
+        - heading "HAIDANGTRAVEL – HỆ SINH THÁI LỮ HÀNH TOÀN CẦU" [level=2] [ref=e984]
+        - paragraph [ref=e985]: Với mạng lưới đối tác toàn cầu và hệ thống vận hành chuyên nghiệp, Haidangtravel tự hào là đơn vị lữ hành uy tín hàng đầu, cung cấp giải pháp du lịch toàn diện cho hàng triệu khách hàng cá nhân và doanh nghiệp mỗi năm.
+      - generic [ref=e986]:
+        - article [ref=e987]:
+          - generic [ref=e990]:
+            - generic [ref=e991]: DỊCH VỤ TOÀN DIỆN
+            - generic [ref=e992]:
+              - heading "Một Điểm Đến, Trọn Dịch Vụ" [level=3] [ref=e993]
+              - generic [ref=e994]: "01"
+            - paragraph [ref=e995]: "Cung ứng toàn diện: Tour nội địa & Quốc tế, Visa, Vé máy bay, Xe cao cấp và Sự kiện (MICE). Quản lý tập trung, tối ưu ngân sách cho mọi đoàn khách."
+        - generic [ref=e996]:
+          - article [ref=e997]:
+            - generic [ref=e998]:
+              - generic [ref=e999]: VẬN HÀNH CHUYÊN NGHIỆP
+              - generic [ref=e1000]: "02"
+            - heading "Quy Trình Tinh Gọn, Chốt Tour Tức Thì" [level=3] [ref=e1001]
+            - paragraph [ref=e1002]: Hệ thống giữ chỗ trực tuyến và báo giá siêu tốc. Logic xử lý thông tin chuyên nghiệp giúp khách hàng chọn phương án tốt nhất trong thời gian ngắn nhất.
+          - article [ref=e1003]:
+            - generic [ref=e1004]:
+              - generic [ref=e1005]: CAM KẾT VỮNG BỀN
+              - generic [ref=e1006]: "03"
+            - heading "Hành Trình An Tâm, Hỗ Trợ Toàn Cầu" [level=3] [ref=e1007]
+            - paragraph [ref=e1008]: Phục vụ tận tâm 24/7 từ lúc khởi hành đến khi kết thúc. Đội ngũ chuyên gia giàu kinh nghiệm luôn sẵn sàng xử lý mọi tình huống, đảm bảo trải nghiệm hoàn mỹ.
+      - generic [ref=e1009]:
+        - generic [ref=e1010]:
+          - paragraph [ref=e1011]: 19+
+          - paragraph [ref=e1012]: Năm kinh nghiệm
+        - generic [ref=e1013]:
+          - paragraph [ref=e1014]: "50.000"
+          - paragraph [ref=e1015]: Lượt khách & chương trình
+        - generic [ref=e1016]:
+          - paragraph [ref=e1017]: 150+
+          - paragraph [ref=e1018]: Nhân sự hỗ trợ
+        - generic [ref=e1019]:
+          - paragraph [ref=e1020]: 79-723/2017/TCDL-GP LHQT
+          - paragraph [ref=e1021]: Pháp lý & năng lực
+    - generic [ref=e1023]:
+      - heading "DỊCH VỤ TOUR DOANH NGHIỆP" [level=2] [ref=e1025]
+      - generic [ref=e1026]:
+        - article [ref=e1027]:
+          - generic [ref=e1028]:
+            - generic [ref=e1029]: "01"
+            - heading "THIẾT KẾ TOUR ĐOÀN" [level=3] [ref=e1030]
+            - paragraph [ref=e1031]: Tư vấn và thiết kế lịch trình tour trong và ngoài nước riêng biệt, tối ưu ngân sách và phù hợp với đặc thù từng doanh nghiệp.
+        - article [ref=e1032]:
+          - generic [ref=e1033]:
+            - generic [ref=e1034]: "02"
+            - heading "TỔ CHỨC TEAMBUILDING" [level=3] [ref=e1035]
+            - paragraph [ref=e1036]: Xây dựng kịch bản Teambuilding sáng tạo, truyền tải thông điệp thương hiệu và thắt chặt tinh thần đồng đội cho tập thể.
+        - article [ref=e1037]:
+          - generic [ref=e1038]:
+            - generic [ref=e1039]: "03"
+            - heading "TỔ CHỨC MICE" [level=3] [ref=e1040]
+            - paragraph [ref=e1041]: Giải pháp tổ chức hội nghị, hội thảo và du lịch khen thưởng trọn gói tại các không gian sang trọng, đảm bảo vận hành chỉn chu.
+        - article [ref=e1042]:
+          - generic [ref=e1043]:
+            - generic [ref=e1044]: "04"
+            - heading "TỔ CHỨC GALA DINNER" [level=3] [ref=e1045]
+            - paragraph [ref=e1046]: Hiện thực hóa đêm tiệc Gala Dinner ấn tượng, kết hợp dịch vụ bổ trợ trọn gói (Visa, xe, vé máy bay) mang lại trải nghiệm hoàn hảo.
+    - generic [ref=e1048]:
+      - generic [ref=e1049]:
+        - heading "TIN TỨC KHUYẾN MÃI" [level=2] [ref=e1051]
+        - link "Xem tất cả bài viết" [ref=e1052] [cursor=pointer]:
+          - /url: https://haidangtravel.dtaa-tech.com/danh-muc/khuyen-mai-haidangtravel
+          - text: Xem tất cả bài viết
+      - generic [ref=e1054]:
+        - article [ref=e1055]:
+          - link "Checklist đồ dùng cần thiết khi đi du lịch Phú Quốc – hành lý gọn nhẹ đầy đủ Mùa đẹp" [ref=e1056] [cursor=pointer]:
+            - /url: https://haidangtravel.dtaa-tech.com/blog/di-du-lich-phu-quoc-nen-mang-theo-gi-goi-y-checklist-do-dung-can-thiet
+            - img "Checklist đồ dùng cần thiết khi đi du lịch Phú Quốc – hành lý gọn nhẹ đầy đủ" [ref=e1057]
+            - generic [ref=e1059]: Mùa đẹp
+          - generic [ref=e1061]:
+            - generic [ref=e1062]: NN
+            - generic [ref=e1064]:
+              - generic [ref=e1065]: 28/04/2026
+              - generic [ref=e1066]: "|"
+              - generic [ref=e1067]: Nguyễn Ngọc
+              - generic [ref=e1068]: "|"
+              - generic [ref=e1069]: Cẩm nang du lịch / Kinh nghiệm du lịch
+          - generic [ref=e1070]:
+            - heading "Đi du lịch Phú Quốc nên mang theo gì? Gợi ý checklist đồ dùng cần thiết" [level=3] [ref=e1071]:
+              - link "Đi du lịch Phú Quốc nên mang theo gì? Gợi ý checklist đồ dùng cần thiết" [ref=e1072] [cursor=pointer]:
+                - /url: https://haidangtravel.dtaa-tech.com/blog/di-du-lich-phu-quoc-nen-mang-theo-gi-goi-y-checklist-do-dung-can-thiet
+            - paragraph [ref=e1073]: Giúp bạn chọn thời điểm đi phù hợp để không lệch mùa trải nghiệm và ngân sách. Đi Phú Quốc muốn vui trọn vẹn thì chuẩn bị hành lý đúng là bước quan trọng nhất. Bài viết này sẽ gợi ý che...
+            - link "Xem thêm" [ref=e1075] [cursor=pointer]:
+              - /url: https://haidangtravel.dtaa-tech.com/blog/di-du-lich-phu-quoc-nen-mang-theo-gi-goi-y-checklist-do-dung-can-thiet
+              - text: Xem thêm
+        - article [ref=e1077]:
+          - link "Kinh nghiệm du lịch Phú Quốc tự túc 2026 cho người đi lần đầu Mùa đẹp" [ref=e1078] [cursor=pointer]:
+            - /url: https://haidangtravel.dtaa-tech.com/blog/kinh-nghiem-du-lich-phu-quoc-tu-tuc-2026-lich-trinh-an-choi-tu-a-z
+            - img "Kinh nghiệm du lịch Phú Quốc tự túc 2026 cho người đi lần đầu" [ref=e1079]
+            - generic [ref=e1081]: Mùa đẹp
+          - generic [ref=e1083]:
+            - generic [ref=e1084]: Q
+            - generic [ref=e1086]:
+              - generic [ref=e1087]: 28/04/2026
+              - generic [ref=e1088]: "|"
+              - generic [ref=e1089]: quantri
+              - generic [ref=e1090]: "|"
+              - generic [ref=e1091]: Cẩm nang du lịch / Kinh nghiệm du lịch
+          - generic [ref=e1092]:
+            - 'heading "Kinh nghiệm du lịch Phú Quốc tự túc 2026: Lịch trình ăn chơi từ A-Z" [level=3] [ref=e1093]':
+              - 'link "Kinh nghiệm du lịch Phú Quốc tự túc 2026: Lịch trình ăn chơi từ A-Z" [ref=e1094] [cursor=pointer]':
+                - /url: https://haidangtravel.dtaa-tech.com/blog/kinh-nghiem-du-lich-phu-quoc-tu-tuc-2026-lich-trinh-an-choi-tu-a-z
+            - paragraph [ref=e1095]: Giúp bạn chọn thời điểm đi phù hợp để không lệch mùa trải nghiệm và ngân sách. Phú Quốc không chỉ là "Đảo Ngọc" với biển xanh cát trắng, mà còn là thiên đường của những trải nghiệm nghỉ...
+            - link "Xem thêm" [ref=e1097] [cursor=pointer]:
+              - /url: https://haidangtravel.dtaa-tech.com/blog/kinh-nghiem-du-lich-phu-quoc-tu-tuc-2026-lich-trinh-an-choi-tu-a-z
+              - text: Xem thêm
+        - article [ref=e1099]:
+          - link "Review lịch trình du lịch Phú Quốc 3 ngày 2 đêm tối ưu và tiết kiệm nhất Mùa đẹp" [ref=e1100] [cursor=pointer]:
+            - /url: https://haidangtravel.dtaa-tech.com/blog/review-lich-trinh-du-lich-phu-quoc-3-ngay-2-dem-toi-uu-va-tiet-kiem-nhat
+            - img "Review lịch trình du lịch Phú Quốc 3 ngày 2 đêm tối ưu và tiết kiệm nhất" [ref=e1101]
+            - generic [ref=e1103]: Mùa đẹp
+          - generic [ref=e1105]:
+            - generic [ref=e1106]: NN
+            - generic [ref=e1108]:
+              - generic [ref=e1109]: 28/04/2026
+              - generic [ref=e1110]: "|"
+              - generic [ref=e1111]: Nguyễn Ngọc
+              - generic [ref=e1112]: "|"
+              - generic [ref=e1113]: Cẩm nang du lịch / Kinh nghiệm du lịch
+          - generic [ref=e1114]:
+            - heading "Review lịch trình du lịch Phú Quốc 3 ngày 2 đêm tối ưu và tiết kiệm nhất" [level=3] [ref=e1115]:
+              - link "Review lịch trình du lịch Phú Quốc 3 ngày 2 đêm tối ưu và tiết kiệm nhất" [ref=e1116] [cursor=pointer]:
+                - /url: https://haidangtravel.dtaa-tech.com/blog/review-lich-trinh-du-lich-phu-quoc-3-ngay-2-dem-toi-uu-va-tiet-kiem-nhat
+            - paragraph [ref=e1117]: Giúp bạn chọn thời điểm đi phù hợp để không lệch mùa trải nghiệm và ngân sách. Bạn chỉ có 3 ngày 2 đêm nhưng vẫn muốn khám phá Phú Quốc trọn vẹn mà không “đau ví”? Bài review này sẽ gợi...
+            - link "Xem thêm" [ref=e1119] [cursor=pointer]:
+              - /url: https://haidangtravel.dtaa-tech.com/blog/review-lich-trinh-du-lich-phu-quoc-3-ngay-2-dem-toi-uu-va-tiet-kiem-nhat
+              - text: Xem thêm
+        - article [ref=e1121]:
+          - link "thời điểm du lịch Phú Quốc đẹp nhất để chụp ảnh biển và hoàng hôn Mùa đẹp" [ref=e1122] [cursor=pointer]:
+            - /url: https://haidangtravel.dtaa-tech.com/blog/du-lich-phu-quoc-mua-nao-dep-nhat-de-co-nhung-tam-anh-trieu-view
+            - img "thời điểm du lịch Phú Quốc đẹp nhất để chụp ảnh biển và hoàng hôn" [ref=e1123]
+            - generic [ref=e1125]: Mùa đẹp
+          - generic [ref=e1127]:
+            - generic [ref=e1128]: NN
+            - generic [ref=e1130]:
+              - generic [ref=e1131]: 07/05/2026
+              - generic [ref=e1132]: "|"
+              - generic [ref=e1133]: Nguyễn Ngọc
+              - generic [ref=e1134]: "|"
+              - generic [ref=e1135]: Cẩm nang du lịch / Kinh nghiệm du lịch
+          - generic [ref=e1136]:
+            - heading "Du lịch Phú Quốc mùa nào đẹp nhất để có những tấm ảnh triệu view?" [level=3] [ref=e1137]:
+              - link "Du lịch Phú Quốc mùa nào đẹp nhất để có những tấm ảnh triệu view?" [ref=e1138] [cursor=pointer]:
+                - /url: https://haidangtravel.dtaa-tech.com/blog/du-lich-phu-quoc-mua-nao-dep-nhat-de-co-nhung-tam-anh-trieu-view
+            - paragraph [ref=e1139]: Giúp bạn chọn thời điểm đi phù hợp để không lệch mùa trải nghiệm và ngân sách. Phú Quốc mỗi mùa lại mang một vẻ đẹp rất riêng, nhưng đâu mới là “thời điểm vàng” để săn ảnh biển xanh – c...
+            - link "Xem thêm" [ref=e1141] [cursor=pointer]:
+              - /url: https://haidangtravel.dtaa-tech.com/blog/du-lich-phu-quoc-mua-nao-dep-nhat-de-co-nhung-tam-anh-trieu-view
+              - text: Xem thêm
+    - generic [ref=e1146]:
+      - generic [ref=e1147]:
+        - heading "NHẬN ƯU ĐÃI - CẦN TƯ VẤN?" [level=2] [ref=e1148]
+        - paragraph [ref=e1149]: Chỉ cần để lại yêu cầu, đội ngũ chuyên gia Hải Đăng Travel sẽ gửi đến bạn giải pháp lữ hành tối ưu nhất.
+      - generic [ref=e1150]:
+        - generic [ref=e1151]:
+          - heading "Hotline" [level=3] [ref=e1152]
+          - link "0911222288" [ref=e1153] [cursor=pointer]:
+            - /url: tel:0911222288
+          - paragraph [ref=e1154]: Hỗ trợ tư vấn nhanh theo ngày đi, số lượng khách và nhu cầu hành trình.
+        - generic [ref=e1155]:
+          - heading "Email" [level=3] [ref=e1156]
+          - link "info@haidangtravel.com" [ref=e1157] [cursor=pointer]:
+            - /url: mailto:info@haidangtravel.com
+          - paragraph [ref=e1158]: Phù hợp khi bạn cần gửi yêu cầu chi tiết hoặc để lại thêm thông tin cho đội ngũ xử lý.
+      - generic [ref=e1159]:
+        - generic [ref=e1160]:
+          - generic [ref=e1161]:
+            - text: Họ tên
+            - textbox "Họ tên" [ref=e1162]:
+              - /placeholder: Nhập họ tên
+          - generic [ref=e1163]:
+            - text: Số điện thoại
+            - textbox "Số điện thoại" [ref=e1164]:
+              - /placeholder: Nhập số điện thoại
+        - generic [ref=e1165]:
+          - text: Nội dung
+          - textbox "Nội dung" [ref=e1166]:
+            - /placeholder: Mô tả ngắn nhu cầu tour, ngày đi hoặc số lượng khách
+        - generic [ref=e1167]:
+          - button "Gửi yêu cầu" [ref=e1168]: Gửi yêu cầu
+          - link "Xem tour nổi bật" [ref=e1170] [cursor=pointer]:
+            - /url: https://haidangtravel.dtaa-tech.com/tour-trong-nuoc
+  - contentinfo [ref=e1171]:
+    - generic [ref=e1172]:
+      - generic [ref=e1173]:
+        - generic [ref=e1174]: Du Lịch Hải Đăng Travel
+        - paragraph [ref=e1175]: Haidang Travel chuyên tổ chức du lịch, teambuilding, event trong và ngoài nước.
+        - generic [ref=e1176]:
+          - paragraph [ref=e1177]: Tòa nhà Building Haidang 367 Tân Sơn, Phường Tân Sơn, thành phố Hồ Chí Minh
+          - paragraph [ref=e1178]: 19002011 · 0911222288
+          - paragraph [ref=e1179]: info@haidangtravel.com
+      - generic [ref=e1181]:
+        - heading "Đi nhanh" [level=2] [ref=e1182]
+        - list [ref=e1183]:
+          - listitem [ref=e1184]:
+            - link "Tour trong nước" [ref=e1185] [cursor=pointer]:
+              - /url: /tour-trong-nuoc
+          - listitem [ref=e1186]:
+            - link "Tour nước ngoài" [ref=e1187] [cursor=pointer]:
+              - /url: /tour-nuoc-ngoai
+          - listitem [ref=e1188]:
+            - link "Tour đoàn" [ref=e1189] [cursor=pointer]:
+              - /url: /tour-doan
+          - listitem [ref=e1190]:
+            - link "Dịch vụ" [ref=e1191] [cursor=pointer]:
+              - /url: /dich-vu
+          - listitem [ref=e1192]:
+            - link "Blog" [ref=e1193] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=e1194]:
+            - link "Liên hệ" [ref=e1195] [cursor=pointer]:
+              - /url: /lien-he
+      - generic [ref=e1196]:
+        - heading "Kênh hỗ trợ" [level=2] [ref=e1197]
+        - generic [ref=e1198]:
+          - paragraph [ref=e1199]: "Đặt tour: 19002011"
+          - paragraph [ref=e1200]: "Tư vấn: 0911222288"
+          - paragraph [ref=e1201]: "Email: info@haidangtravel.com"
+        - generic [ref=e1202]:
+          - link "Zalo" [ref=e1203] [cursor=pointer]:
+            - /url: https://zalo.me/0911222288
+            - generic [ref=e1204]: Zalo
+          - link "Facebook" [ref=e1205] [cursor=pointer]:
+            - /url: https://www.facebook.com/haidangtraveltanson
+            - generic [ref=e1207]: Facebook
+          - link "YouTube" [ref=e1208] [cursor=pointer]:
+            - /url: https://www.youtube.com/@haidangtraveltanson
+            - generic [ref=e1210]: YouTube
+          - link "TikTok" [ref=e1211] [cursor=pointer]:
+            - /url: https://www.tiktok.com/@hddiscovery
+            - generic [ref=e1213]: TikTok
+        - generic [ref=e1214]:
+          - link "Đã thông báo Bộ Công Thương":
+            - /url: http://online.gov.vn/Home/WebDetails/15656
+            - img "Đã thông báo Bộ Công Thương"
+          - link "DMCA.com Protection Status" [ref=e1215] [cursor=pointer]:
+            - /url: https://www.dmca.com/Protection/Status.aspx?ID=0b22a7b7-ed93-4820-acbf-7bd6d1caaf34
+            - img "DMCA.com Protection Status" [ref=e1216]
+    - generic [ref=e1217]: © Công ty CPXD Du Lịch Hải Đăng
+  - iframe [ref=e1219]:
+    - generic [ref=f1e3]:
+      - generic:
+        - generic:
+          - generic [ref=f1e5]:
+            - generic [ref=f1e6]:
+              - figure [ref=f1e7]
+              - paragraph [ref=f1e10]: Hải Đăng Travel
+            - generic [ref=f1e11]:
+              - generic [ref=f1e13] [cursor=pointer]: 
+              - generic [ref=f1e15] [cursor=pointer]: 
+          - generic [ref=f1e17]:
+            - paragraph [ref=f1e19]: Bắt đầu trò chuyện với Hải Đăng Travel
+            - generic [ref=f1e20] [cursor=pointer]: Chat bằng Zalo
+            - generic [ref=f1e21] [cursor=pointer]: Chat nhanh
+          - generic [ref=f1e25]:
+            - generic [ref=f1e26] [cursor=pointer]: Tiếng Việt
+            - generic [ref=f1e27] [cursor=pointer]: English

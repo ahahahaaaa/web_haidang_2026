@@ -1,0 +1,332 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "resources/views/themes/haidangtravel/partials/inquiry-form.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 44,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/inquiry-modal.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 97,
+      "nonEmptyLines": 93,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-content-blocks.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 226,
+      "nonEmptyLines": 204,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-gallery-card.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 110,
+      "nonEmptyLines": 102,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-gallery.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 144,
+      "nonEmptyLines": 134,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-hero-demo.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 205,
+      "nonEmptyLines": 189,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/landing-hero.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 465,
+      "nonEmptyLines": 433,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/recaptcha-v3-field.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/recaptcha-v3-script.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 18,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/region-taxonomy-tabs.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 242,
+      "nonEmptyLines": 228,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/review-grid.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 83,
+      "nonEmptyLines": 76,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/section-heading.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 30,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/shared-search-bar.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 71,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/social-share.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 104,
+      "nonEmptyLines": 96,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/taxonomy-card-carousel.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 268,
+      "nonEmptyLines": 261,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tour-card.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 370,
+      "nonEmptyLines": 345,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tour-taxonomy-tabs.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 140,
+      "nonEmptyLines": 132,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tour-voucher-cta-button.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 28,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tracking-body.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 11,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/tracking-head.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 23,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/travel-inquiry-form-fields.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 298,
+      "nonEmptyLines": 284,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/trust-proof-section.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 185,
+      "nonEmptyLines": 169,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/voucher-campaign-panel.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 20,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/partials/voucher-promotion-block.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 436,
+      "nonEmptyLines": 397,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/welcome.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 204,
+      "nonEmptyLines": 193,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

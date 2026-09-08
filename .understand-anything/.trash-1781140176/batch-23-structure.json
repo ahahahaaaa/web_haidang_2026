@@ -1,0 +1,5753 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "docs/front_end/demo/home_page/code.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 395,
+      "nonEmptyLines": 394,
+      "metrics": {}
+    },
+    {
+      "path": "docs/front_end/demo/interior_detail/code.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 343,
+      "nonEmptyLines": 342,
+      "metrics": {}
+    },
+    {
+      "path": "docs/front_end/demo/mobile_blog/code.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 257,
+      "nonEmptyLines": 256,
+      "metrics": {}
+    },
+    {
+      "path": "docs/front_end/demo/mobile_project/code.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 279,
+      "nonEmptyLines": 278,
+      "metrics": {}
+    },
+    {
+      "path": "docs/front_end/demo/mobile_service_detail/code.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 282,
+      "nonEmptyLines": 281,
+      "metrics": {}
+    },
+    {
+      "path": "docs/front_end/demo/project_category/code.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 394,
+      "nonEmptyLines": 393,
+      "metrics": {}
+    },
+    {
+      "path": "docs/front_end/demo/service_detail/code.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 395,
+      "nonEmptyLines": 394,
+      "metrics": {}
+    },
+    {
+      "path": "docs/front_end/demo/steel_stone/DESIGN.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 79,
+      "nonEmptyLines": 56,
+      "sections": [
+        {
+          "heading": "Design System Document: Architectural Precision",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Overview & Creative North Star: \"The Structural Monolith\"",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2. Colors & Materiality",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The \"No-Line\" Rule",
+          "level": 3,
+          "line": 13
+        },
+        {
+          "heading": "Surface Hierarchy & Nesting",
+          "level": 3,
+          "line": 16
+        },
+        {
+          "heading": "The \"Glass & Gradient\" Rule",
+          "level": 3,
+          "line": 22
+        },
+        {
+          "heading": "3. Typography: Editorial Authority",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "4. Elevation & Depth: Tonal Layering",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "5. Components",
+          "level": 2,
+          "line": 47
+        },
+        {
+          "heading": "Buttons: The \"Beams\"",
+          "level": 3,
+          "line": 49
+        },
+        {
+          "heading": "Cards: The \"Modules\"",
+          "level": 3,
+          "line": 54
+        },
+        {
+          "heading": "Input Fields: The \"Blueprints\"",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "Architectural Components (Context Specific)",
+          "level": 3,
+          "line": 63
+        },
+        {
+          "heading": "6. Do's and Don'ts",
+          "level": 2,
+          "line": 69
+        },
+        {
+          "heading": "Do:",
+          "level": 3,
+          "line": 71
+        },
+        {
+          "heading": "Don't:",
+          "level": 3,
+          "line": 76
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 16
+      }
+    },
+    {
+      "path": "docs/front_end/design_specification_construction_company_website.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 132,
+      "nonEmptyLines": 132,
+      "metrics": {}
+    },
+    {
+      "path": "docs/front_end/product_requirements_document.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 198,
+      "nonEmptyLines": 132,
+      "sections": [
+        {
+          "heading": "**Project Brief / Product Requirements Document (PRD) Template**",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "**1. Executive Summary**",
+          "level": 3,
+          "line": 30
+        },
+        {
+          "heading": "**2. Problem Statement**",
+          "level": 3,
+          "line": 38
+        },
+        {
+          "heading": "**3. Goals & Objectives (SMART)**",
+          "level": 3,
+          "line": 47
+        },
+        {
+          "heading": "**4. Target Audience / Users**",
+          "level": 3,
+          "line": 63
+        },
+        {
+          "heading": "**5. Proposed Solution / Product Overview**",
+          "level": 3,
+          "line": 71
+        },
+        {
+          "heading": "**6. User Stories / Use Cases**",
+          "level": 3,
+          "line": 80
+        },
+        {
+          "heading": "**7. Functional Requirements**",
+          "level": 3,
+          "line": 92
+        },
+        {
+          "heading": "**8. Non-Functional Requirements**",
+          "level": 3,
+          "line": 104
+        },
+        {
+          "heading": "**9. Scope (In / Out)**",
+          "level": 3,
+          "line": 118
+        },
+        {
+          "heading": "**10. Success Metrics & KPIs**",
+          "level": 3,
+          "line": 129
+        },
+        {
+          "heading": "**11. Dependencies & Integrations**",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "**12. High-Level Timeline / Phases**",
+          "level": 3,
+          "line": 156
+        },
+        {
+          "heading": "**13. Risks & Assumptions**",
+          "level": 3,
+          "line": 168
+        },
+        {
+          "heading": "**14. Open Questions / Decisions Needed**",
+          "level": 3,
+          "line": 175
+        },
+        {
+          "heading": "**15. Future Considerations / Phased Approach**",
+          "level": 3,
+          "line": 182
+        },
+        {
+          "heading": "**16. Appendices (Optional but Recommended)**",
+          "level": 3,
+          "line": 189
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 17
+      }
+    },
+    {
+      "path": "laravel",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1030,
+      "nonEmptyLines": 1029,
+      "metrics": {}
+    },
+    {
+      "path": "public/.htaccess",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 20,
+      "metrics": {}
+    },
+    {
+      "path": "public/index.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 14,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "public/site.webmanifest",
+      "language": "webmanifest",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "resources/js/front/estimate-landing.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 2484,
+      "nonEmptyLines": 2125,
+      "functions": [
+        {
+          "name": "initEstimateLanding",
+          "startLine": 1,
+          "endLine": 2476,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "initEstimateLanding",
+          "callee": "document.querySelector",
+          "lineNumber": 2
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 10
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "JSON.parse",
+          "lineNumber": 14
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Array.from",
+          "lineNumber": 19
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelectorAll",
+          "lineNumber": 19
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Array.from",
+          "lineNumber": 20
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelectorAll",
+          "lineNumber": 20
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Array.from",
+          "lineNumber": 21
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelectorAll",
+          "lineNumber": 21
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Array.from",
+          "lineNumber": 22
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelectorAll",
+          "lineNumber": 22
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 23
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 24
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 25
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 26
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 27
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 28
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 29
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 30
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 31
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 32
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 33
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 34
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Array.from",
+          "lineNumber": 35
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "document.querySelectorAll",
+          "lineNumber": 35
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 36
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 37
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 38
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 39
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 40
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 41
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 42
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 43
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 44
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 45
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.querySelector",
+          "lineNumber": 46
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "document.querySelector",
+          "lineNumber": 47
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelector",
+          "lineNumber": 48
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelector",
+          "lineNumber": 49
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelector",
+          "lineNumber": 50
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelector",
+          "lineNumber": 51
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelector",
+          "lineNumber": 52
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelector",
+          "lineNumber": 53
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelector",
+          "lineNumber": 54
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelector",
+          "lineNumber": 55
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelector",
+          "lineNumber": 56
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelector",
+          "lineNumber": 57
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelector",
+          "lineNumber": 58
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelector",
+          "lineNumber": 59
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelector",
+          "lineNumber": 60
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "document.querySelector",
+          "lineNumber": 63
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "guideModal?.querySelector",
+          "lineNumber": 64
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "guideModal?.querySelector",
+          "lineNumber": 65
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "guideModal?.querySelector",
+          "lineNumber": 66
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "guideModal?.querySelector",
+          "lineNumber": 67
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "JSON.parse",
+          "lineNumber": 81
+        },
+        {
+          "caller": "escapeHtml",
+          "callee": "`${value ?? ''}`\n        .replaceAll('&', '&amp;')\n        .replaceAll('<', '&lt;')\n        .replaceAll('>', '&gt;')\n        .replaceAll('\"', '&quot;')\n        .replaceAll",
+          "lineNumber": 86
+        },
+        {
+          "caller": "escapeHtml",
+          "callee": "`${value ?? ''}`\n        .replaceAll('&', '&amp;')\n        .replaceAll('<', '&lt;')\n        .replaceAll('>', '&gt;')\n        .replaceAll",
+          "lineNumber": 86
+        },
+        {
+          "caller": "escapeHtml",
+          "callee": "`${value ?? ''}`\n        .replaceAll('&', '&amp;')\n        .replaceAll('<', '&lt;')\n        .replaceAll",
+          "lineNumber": 86
+        },
+        {
+          "caller": "escapeHtml",
+          "callee": "`${value ?? ''}`\n        .replaceAll('&', '&amp;')\n        .replaceAll",
+          "lineNumber": 86
+        },
+        {
+          "caller": "escapeHtml",
+          "callee": "`${value ?? ''}`\n        .replaceAll",
+          "lineNumber": 86
+        },
+        {
+          "caller": "parseLevelList",
+          "callee": "`${value ?? ''}`\n        .split(',')\n        .map((item) => item.trim())\n        .filter",
+          "lineNumber": 93
+        },
+        {
+          "caller": "parseLevelList",
+          "callee": "`${value ?? ''}`\n        .split(',')\n        .map",
+          "lineNumber": 93
+        },
+        {
+          "caller": "parseLevelList",
+          "callee": "`${value ?? ''}`\n        .split",
+          "lineNumber": 93
+        },
+        {
+          "caller": "parseLevelList",
+          "callee": "item.trim",
+          "lineNumber": 95
+        },
+        {
+          "caller": "roundArea",
+          "callee": "Number",
+          "lineNumber": 99
+        },
+        {
+          "caller": "roundArea",
+          "callee": "Number.isFinite",
+          "lineNumber": 101
+        },
+        {
+          "caller": "roundArea",
+          "callee": "Math.round",
+          "lineNumber": 105
+        },
+        {
+          "caller": "formatArea",
+          "callee": "areaFormatter.format",
+          "lineNumber": 108
+        },
+        {
+          "caller": "formatArea",
+          "callee": "roundArea",
+          "lineNumber": 108
+        },
+        {
+          "caller": "formatPercent",
+          "callee": "areaFormatter.format",
+          "lineNumber": 109
+        },
+        {
+          "caller": "formatPercent",
+          "callee": "roundArea",
+          "lineNumber": 109
+        },
+        {
+          "caller": "formatPercent",
+          "callee": "Number",
+          "lineNumber": 109
+        },
+        {
+          "caller": "formatCurrency",
+          "callee": "currencyFormatter.format",
+          "lineNumber": 110
+        },
+        {
+          "caller": "formatCurrency",
+          "callee": "Number",
+          "lineNumber": 110
+        },
+        {
+          "caller": "maskCurrency",
+          "callee": "Math.max",
+          "lineNumber": 112
+        },
+        {
+          "caller": "maskCurrency",
+          "callee": "Math.round",
+          "lineNumber": 112
+        },
+        {
+          "caller": "maskCurrency",
+          "callee": "Number",
+          "lineNumber": 112
+        },
+        {
+          "caller": "maskCurrency",
+          "callee": "Number.isFinite",
+          "lineNumber": 115
+        },
+        {
+          "caller": "maskCurrency",
+          "callee": "'x'.repeat",
+          "lineNumber": 119
+        },
+        {
+          "caller": "maskCurrency",
+          "callee": "Math.max",
+          "lineNumber": 119
+        },
+        {
+          "caller": "maskCurrency",
+          "callee": "maskedDigits.slice",
+          "lineNumber": 121
+        },
+        {
+          "caller": "maskCurrency",
+          "callee": "groups.push",
+          "lineNumber": 124
+        },
+        {
+          "caller": "maskCurrency",
+          "callee": "maskedDigits.slice",
+          "lineNumber": 124
+        },
+        {
+          "caller": "maskCurrency",
+          "callee": "groups.join",
+          "lineNumber": 127
+        },
+        {
+          "caller": "getFieldOptions",
+          "callee": "Array.isArray",
+          "lineNumber": 130
+        },
+        {
+          "caller": "getFieldRow",
+          "callee": "fieldRows.find",
+          "lineNumber": 131
+        },
+        {
+          "caller": "getFieldControl",
+          "callee": "getFieldRow(key)?.querySelector",
+          "lineNumber": 132
+        },
+        {
+          "caller": "getFieldControl",
+          "callee": "getFieldRow",
+          "lineNumber": 132
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Array.isArray",
+          "lineNumber": 133
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Array.isArray",
+          "lineNumber": 134
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Array.isArray",
+          "lineNumber": 135
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Array.isArray",
+          "lineNumber": 136
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Array.isArray",
+          "lineNumber": 137
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Array.isArray",
+          "lineNumber": 138
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "levelDefinitions.find",
+          "lineNumber": 139
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "(estimatorUi?.groups || []).find",
+          "lineNumber": 140
+        },
+        {
+          "caller": "flattenCatalogTree",
+          "callee": "(Array.isArray(nodes) ? nodes : [])\n        .flatMap",
+          "lineNumber": 141
+        },
+        {
+          "caller": "flattenCatalogTree",
+          "callee": "Array.isArray",
+          "lineNumber": 141
+        },
+        {
+          "caller": "flattenCatalogTree",
+          "callee": "Array.isArray",
+          "lineNumber": 148
+        },
+        {
+          "caller": "flattenCatalogTree",
+          "callee": "flattenCatalogTree",
+          "lineNumber": 150
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "flattenCatalogTree",
+          "lineNumber": 152
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "nodeList.map",
+          "lineNumber": 153
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "catalogItems.map",
+          "lineNumber": 154
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "roomTemplates.map",
+          "lineNumber": 155
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "roomTypes.map",
+          "lineNumber": 156
+        },
+        {
+          "caller": "normalizeCodeValue",
+          "callee": "`${value.code || value.value || ''}`.trim",
+          "lineNumber": 167
+        },
+        {
+          "caller": "normalizeCodeValue",
+          "callee": "`${value ?? ''}`.trim",
+          "lineNumber": 170
+        },
+        {
+          "caller": "uniqueCodes",
+          "callee": "Array.from",
+          "lineNumber": 172
+        },
+        {
+          "caller": "uniqueCodes",
+          "callee": "(Array.isArray(values) ? values : [])\n        .map((value) => normalizeCodeValue(value))\n        .filter",
+          "lineNumber": 172
+        },
+        {
+          "caller": "uniqueCodes",
+          "callee": "(Array.isArray(values) ? values : [])\n        .map",
+          "lineNumber": 172
+        },
+        {
+          "caller": "uniqueCodes",
+          "callee": "Array.isArray",
+          "lineNumber": 172
+        },
+        {
+          "caller": "uniqueCodes",
+          "callee": "normalizeCodeValue",
+          "lineNumber": 173
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "(Array.isArray(initialGroupedState?.room_program) ? initialGroupedState.room_program : []).map",
+          "lineNumber": 175
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Array.isArray",
+          "lineNumber": 175
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "normalizeCodeValue",
+          "lineNumber": 176
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Math.max",
+          "lineNumber": 177
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Math.trunc",
+          "lineNumber": 177
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Number",
+          "lineNumber": 177
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "normalizeCodeValue",
+          "lineNumber": 178
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "uniqueCodes",
+          "lineNumber": 179
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Array.isArray",
+          "lineNumber": 179
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "uniqueCodes",
+          "lineNumber": 181
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "uniqueCodes",
+          "lineNumber": 182
+        },
+        {
+          "caller": "formatInputNumber",
+          "callee": "roundArea",
+          "lineNumber": 184
+        },
+        {
+          "caller": "formatInputNumber",
+          "callee": "Number.isFinite",
+          "lineNumber": 186
+        },
+        {
+          "caller": "setControlNumericValue",
+          "callee": "getFieldControl",
+          "lineNumber": 189
+        },
+        {
+          "caller": "setControlNumericValue",
+          "callee": "Number.isFinite",
+          "lineNumber": 195
+        },
+        {
+          "caller": "setControlNumericValue",
+          "callee": "Number",
+          "lineNumber": 195
+        },
+        {
+          "caller": "setControlNumericValue",
+          "callee": "formatInputNumber",
+          "lineNumber": 195
+        },
+        {
+          "caller": "fieldGroupLabel",
+          "callee": "(estimatorUi?.groups || []).find",
+          "lineNumber": 202
+        },
+        {
+          "caller": "fieldGroupLabel",
+          "callee": "Array.isArray",
+          "lineNumber": 202
+        },
+        {
+          "caller": "fieldGroupLabel",
+          "callee": "item.fields.includes",
+          "lineNumber": 202
+        },
+        {
+          "caller": "formatGuideContent",
+          "callee": "`${value ?? ''}`.trim",
+          "lineNumber": 207
+        },
+        {
+          "caller": "formatGuideContent",
+          "callee": "/<[^>]+>/.test",
+          "lineNumber": 213
+        },
+        {
+          "caller": "formatGuideContent",
+          "callee": "escapeHtml(resolved).replace",
+          "lineNumber": 215
+        },
+        {
+          "caller": "formatGuideContent",
+          "callee": "escapeHtml",
+          "lineNumber": 215
+        },
+        {
+          "caller": "optionLabel",
+          "callee": "getFieldOptions(field).find",
+          "lineNumber": 219
+        },
+        {
+          "caller": "optionLabel",
+          "callee": "getFieldOptions",
+          "lineNumber": 219
+        },
+        {
+          "caller": "optionLabel",
+          "callee": "`${value ?? ''}`.trim",
+          "lineNumber": 221
+        },
+        {
+          "caller": "displayValue",
+          "callee": "`${field?.unit || ''}`.trim",
+          "lineNumber": 226
+        },
+        {
+          "caller": "displayValue",
+          "callee": "(Array.isArray(value) ? value : [])\n                .map((item) => optionLabel(field, item))\n                .filter(Boolean)\n                .join",
+          "lineNumber": 237
+        },
+        {
+          "caller": "displayValue",
+          "callee": "(Array.isArray(value) ? value : [])\n                .map((item) => optionLabel(field, item))\n                .filter",
+          "lineNumber": 237
+        },
+        {
+          "caller": "displayValue",
+          "callee": "(Array.isArray(value) ? value : [])\n                .map",
+          "lineNumber": 237
+        },
+        {
+          "caller": "displayValue",
+          "callee": "Array.isArray",
+          "lineNumber": 237
+        },
+        {
+          "caller": "displayValue",
+          "callee": "optionLabel",
+          "lineNumber": 238
+        },
+        {
+          "caller": "displayValue",
+          "callee": "getFieldOptions",
+          "lineNumber": 243
+        },
+        {
+          "caller": "displayValue",
+          "callee": "optionLabel",
+          "lineNumber": 244
+        },
+        {
+          "caller": "displayValue",
+          "callee": "areaFormatter.format",
+          "lineNumber": 248
+        },
+        {
+          "caller": "displayValue",
+          "callee": "Number",
+          "lineNumber": 248
+        },
+        {
+          "caller": "displayValue",
+          "callee": "`${value}`.trim",
+          "lineNumber": 253
+        },
+        {
+          "caller": "isEmptyValue",
+          "callee": "Array.isArray",
+          "lineNumber": 259
+        },
+        {
+          "caller": "isEmptyValue",
+          "callee": "`${value}`.trim",
+          "lineNumber": 263
+        },
+        {
+          "caller": "selectedTab",
+          "callee": "tabs.find",
+          "lineNumber": 266
+        },
+        {
+          "caller": "selectedTab",
+          "callee": "tab.getAttribute",
+          "lineNumber": 266
+        },
+        {
+          "caller": "activeLevelCode",
+          "callee": "selectedTab",
+          "lineNumber": 267
+        },
+        {
+          "caller": "levelRows",
+          "callee": "activeLevelCode",
+          "lineNumber": 268
+        },
+        {
+          "caller": "levelRows",
+          "callee": "fieldRows.filter",
+          "lineNumber": 268
+        },
+        {
+          "caller": "levelRows",
+          "callee": "parseLevelList(row.dataset.visibleLevels).includes",
+          "lineNumber": 268
+        },
+        {
+          "caller": "levelRows",
+          "callee": "parseLevelList",
+          "lineNumber": 268
+        },
+        {
+          "caller": "fieldControlValue",
+          "callee": "Array.from",
+          "lineNumber": 272
+        },
+        {
+          "caller": "fieldControlValue",
+          "callee": "row.querySelectorAll",
+          "lineNumber": 272
+        },
+        {
+          "caller": "fieldControlValue",
+          "callee": "controls\n                .filter((control) => control.checked)\n                .map((control) => `${control.value}`.trim())\n                .filter",
+          "lineNumber": 275
+        },
+        {
+          "caller": "fieldControlValue",
+          "callee": "controls\n                .filter((control) => control.checked)\n                .map",
+          "lineNumber": 275
+        },
+        {
+          "caller": "fieldControlValue",
+          "callee": "controls\n                .filter",
+          "lineNumber": 275
+        },
+        {
+          "caller": "fieldControlValue",
+          "callee": "`${control.value}`.trim",
+          "lineNumber": 277
+        },
+        {
+          "caller": "fieldControlValue",
+          "callee": "`${control.value ?? ''}`.trim",
+          "lineNumber": 287
+        },
+        {
+          "caller": "fieldControlValue",
+          "callee": "Number",
+          "lineNumber": 298
+        },
+        {
+          "caller": "fieldControlValue",
+          "callee": "Number.isFinite",
+          "lineNumber": 300
+        },
+        {
+          "caller": "fieldControlValue",
+          "callee": "Number",
+          "lineNumber": 304
+        },
+        {
+          "caller": "fieldControlValue",
+          "callee": "Number.isFinite",
+          "lineNumber": 306
+        },
+        {
+          "caller": "fieldControlValue",
+          "callee": "Math.trunc",
+          "lineNumber": 306
+        },
+        {
+          "caller": "buildLevelInputMap",
+          "callee": "activeLevelCode",
+          "lineNumber": 312
+        },
+        {
+          "caller": "buildLevelInputMap",
+          "callee": "levelRows(levelCode)\n        .reduce",
+          "lineNumber": 312
+        },
+        {
+          "caller": "buildLevelInputMap",
+          "callee": "levelRows",
+          "lineNumber": 312
+        },
+        {
+          "caller": "buildLevelInputMap",
+          "callee": "fieldControlValue",
+          "lineNumber": 320
+        },
+        {
+          "caller": "buildLevelInputMap",
+          "callee": "getFieldMeta",
+          "lineNumber": 320
+        },
+        {
+          "caller": "levelDefinition",
+          "callee": "activeLevelCode",
+          "lineNumber": 324
+        },
+        {
+          "caller": "levelDefinition",
+          "callee": "levelDefinitions.find",
+          "lineNumber": 324
+        },
+        {
+          "caller": "currentBuildingType",
+          "callee": "activeLevelCode",
+          "lineNumber": 325
+        },
+        {
+          "caller": "currentBuildingType",
+          "callee": "buildLevelInputMap",
+          "lineNumber": 325
+        },
+        {
+          "caller": "currentBuildingType",
+          "callee": "normalizeCodeValue",
+          "lineNumber": 325
+        },
+        {
+          "caller": "supportsLevel",
+          "callee": "activeLevelCode",
+          "lineNumber": 326
+        },
+        {
+          "caller": "supportsLevel",
+          "callee": "Array.isArray",
+          "lineNumber": 327
+        },
+        {
+          "caller": "supportsLevel",
+          "callee": "levels.includes",
+          "lineNumber": 329
+        },
+        {
+          "caller": "matchesBuildingType",
+          "callee": "currentBuildingType",
+          "lineNumber": 331
+        },
+        {
+          "caller": "matchesBuildingType",
+          "callee": "Array.isArray",
+          "lineNumber": 332
+        },
+        {
+          "caller": "matchesBuildingType",
+          "callee": "buildingTypes.includes",
+          "lineNumber": 334
+        },
+        {
+          "caller": "compatibleRoomTypes",
+          "callee": "activeLevelCode",
+          "lineNumber": 336
+        },
+        {
+          "caller": "compatibleRoomTypes",
+          "callee": "currentBuildingType",
+          "lineNumber": 336
+        },
+        {
+          "caller": "compatibleRoomTypes",
+          "callee": "roomTypes\n        .filter((roomType) => matchesBuildingType(roomType, buildingType))\n        .sort",
+          "lineNumber": 336
+        },
+        {
+          "caller": "compatibleRoomTypes",
+          "callee": "roomTypes\n        .filter",
+          "lineNumber": 336
+        },
+        {
+          "caller": "compatibleRoomTypes",
+          "callee": "matchesBuildingType",
+          "lineNumber": 337
+        },
+        {
+          "caller": "compatibleRoomTypes",
+          "callee": "`${left.label || left.name || ''}`.localeCompare",
+          "lineNumber": 338
+        },
+        {
+          "caller": "compatibleTemplates",
+          "callee": "activeLevelCode",
+          "lineNumber": 339
+        },
+        {
+          "caller": "compatibleTemplates",
+          "callee": "currentBuildingType",
+          "lineNumber": 339
+        },
+        {
+          "caller": "compatibleTemplates",
+          "callee": "roomTemplates\n        .filter((template) => template.room_type === roomTypeCode && matchesBuildingType(template, buildingType))\n        .sort",
+          "lineNumber": 339
+        },
+        {
+          "caller": "compatibleTemplates",
+          "callee": "roomTemplates\n        .filter",
+          "lineNumber": 339
+        },
+        {
+          "caller": "compatibleTemplates",
+          "callee": "matchesBuildingType",
+          "lineNumber": 340
+        },
+        {
+          "caller": "compatibleTemplates",
+          "callee": "Number",
+          "lineNumber": 341
+        },
+        {
+          "caller": "compatibleTemplates",
+          "callee": "Number",
+          "lineNumber": 341
+        },
+        {
+          "caller": "compatibleRoomExtraItems",
+          "callee": "activeLevelCode",
+          "lineNumber": 342
+        },
+        {
+          "caller": "compatibleRoomExtraItems",
+          "callee": "currentBuildingType",
+          "lineNumber": 342
+        },
+        {
+          "caller": "compatibleRoomExtraItems",
+          "callee": "catalogItems\n        .filter((item) => supportsLevel(item, levelCode)\n            && matchesBuildingType(item, buildingType)\n            && ['interior', 'addon'].includes(`${item.item_type || ''}`)\n            && (item.component_node_code === roomTypeCode || item.component_node_code === 'interior_finish'))\n        .sort",
+          "lineNumber": 342
+        },
+        {
+          "caller": "compatibleRoomExtraItems",
+          "callee": "catalogItems\n        .filter",
+          "lineNumber": 342
+        },
+        {
+          "caller": "compatibleRoomExtraItems",
+          "callee": "supportsLevel",
+          "lineNumber": 343
+        },
+        {
+          "caller": "compatibleRoomExtraItems",
+          "callee": "matchesBuildingType",
+          "lineNumber": 344
+        },
+        {
+          "caller": "compatibleRoomExtraItems",
+          "callee": "['interior', 'addon'].includes",
+          "lineNumber": 345
+        },
+        {
+          "caller": "compatibleRoomExtraItems",
+          "callee": "`${left.name || ''}`.localeCompare",
+          "lineNumber": 347
+        },
+        {
+          "caller": "compatibleDesignItems",
+          "callee": "activeLevelCode",
+          "lineNumber": 348
+        },
+        {
+          "caller": "compatibleDesignItems",
+          "callee": "currentBuildingType",
+          "lineNumber": 348
+        },
+        {
+          "caller": "compatibleDesignItems",
+          "callee": "catalogItems\n        .filter((item) => supportsLevel(item, levelCode) && matchesBuildingType(item, buildingType) && `${item.item_type || ''}` === 'design')\n        .sort",
+          "lineNumber": 348
+        },
+        {
+          "caller": "compatibleDesignItems",
+          "callee": "catalogItems\n        .filter",
+          "lineNumber": 348
+        },
+        {
+          "caller": "compatibleDesignItems",
+          "callee": "supportsLevel",
+          "lineNumber": 349
+        },
+        {
+          "caller": "compatibleDesignItems",
+          "callee": "matchesBuildingType",
+          "lineNumber": 349
+        },
+        {
+          "caller": "compatibleDesignItems",
+          "callee": "`${left.name || ''}`.localeCompare",
+          "lineNumber": 350
+        },
+        {
+          "caller": "compatibleSpecialAddons",
+          "callee": "activeLevelCode",
+          "lineNumber": 351
+        },
+        {
+          "caller": "compatibleSpecialAddons",
+          "callee": "currentBuildingType",
+          "lineNumber": 351
+        },
+        {
+          "caller": "compatibleSpecialAddons",
+          "callee": "catalogItems\n        .filter((item) => supportsLevel(item, levelCode)\n            && matchesBuildingType(item, buildingType)\n            && !['design', 'interior'].includes(`${item.item_type || ''}`)\n            && !['elevator_standard', 'pool_standard', 'pool_overflow', 'pool_jacuzzi', 'loose_furniture_upgrade'].includes(`${item.code || ''}`))\n        .sort",
+          "lineNumber": 351
+        },
+        {
+          "caller": "compatibleSpecialAddons",
+          "callee": "catalogItems\n        .filter",
+          "lineNumber": 351
+        },
+        {
+          "caller": "compatibleSpecialAddons",
+          "callee": "supportsLevel",
+          "lineNumber": 352
+        },
+        {
+          "caller": "compatibleSpecialAddons",
+          "callee": "matchesBuildingType",
+          "lineNumber": 353
+        },
+        {
+          "caller": "compatibleSpecialAddons",
+          "callee": "['design', 'interior'].includes",
+          "lineNumber": 354
+        },
+        {
+          "caller": "compatibleSpecialAddons",
+          "callee": "['elevator_standard', 'pool_standard', 'pool_overflow', 'pool_jacuzzi', 'loose_furniture_upgrade'].includes",
+          "lineNumber": 355
+        },
+        {
+          "caller": "compatibleSpecialAddons",
+          "callee": "`${left.name || ''}`.localeCompare",
+          "lineNumber": 356
+        },
+        {
+          "caller": "defaultRoomProgramRow",
+          "callee": "activeLevelCode",
+          "lineNumber": 357
+        },
+        {
+          "caller": "defaultRoomProgramRow",
+          "callee": "currentBuildingType",
+          "lineNumber": 357
+        },
+        {
+          "caller": "defaultRoomProgramRow",
+          "callee": "compatibleRoomTypes",
+          "lineNumber": 358
+        },
+        {
+          "caller": "defaultRoomProgramRow",
+          "callee": "compatibleTemplates",
+          "lineNumber": 359
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "activeLevelCode",
+          "lineNumber": 368
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "buildLevelInputMap",
+          "lineNumber": 368
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "currentBuildingType",
+          "lineNumber": 369
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "compatibleRoomTypes(levelCode, buildingType).map",
+          "lineNumber": 370
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "compatibleRoomTypes",
+          "lineNumber": 370
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "roomProgramState\n            .map((row) => {\n                const roomType = allowedRoomTypes.includes(normalizeCodeValue(row?.room_type))\n                    ? normalizeCodeValue(row?.room_type)\n                    : '';\n                const templates = compatibleTemplates(roomType, levelCode, buildingType);\n                const extraItems = compatibleRoomExtraItems(roomType, levelCode, buildingType).map((item) => item.code);\n                const template = templates.some((item) => item.code === normalizeCodeValue(row?.template))\n                    ? normalizeCodeValue(row?.template)\n                    : (templates[0]?.code || '');\n\n                return {\n                    room_type: roomType,\n                    count: Math.max(1, Math.trunc(Number(row?.count || 1))),\n                    template,\n                    extra_items: uniqueCodes(row?.extra_items).filter((code) => extraItems.includes(code)),\n                };\n            })\n            .filter",
+          "lineNumber": 372
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "roomProgramState\n            .map",
+          "lineNumber": 372
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "allowedRoomTypes.includes",
+          "lineNumber": 374
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "normalizeCodeValue",
+          "lineNumber": 374
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "normalizeCodeValue",
+          "lineNumber": 375
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "compatibleTemplates",
+          "lineNumber": 377
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "compatibleRoomExtraItems(roomType, levelCode, buildingType).map",
+          "lineNumber": 378
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "compatibleRoomExtraItems",
+          "lineNumber": 378
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "templates.some",
+          "lineNumber": 379
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "normalizeCodeValue",
+          "lineNumber": 379
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "normalizeCodeValue",
+          "lineNumber": 380
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "Math.max",
+          "lineNumber": 385
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "Math.trunc",
+          "lineNumber": 385
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "Number",
+          "lineNumber": 385
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "uniqueCodes(row?.extra_items).filter",
+          "lineNumber": 387
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "uniqueCodes",
+          "lineNumber": 387
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "extraItems.includes",
+          "lineNumber": 387
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "designOptionState.filter",
+          "lineNumber": 392
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "compatibleDesignItems(levelCode, buildingType).some",
+          "lineNumber": 392
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "compatibleDesignItems",
+          "lineNumber": 392
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "specialAddonState.filter",
+          "lineNumber": 393
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "compatibleSpecialAddons(levelCode, buildingType).some",
+          "lineNumber": 393
+        },
+        {
+          "caller": "sanitizeRoomProgramState",
+          "callee": "compatibleSpecialAddons",
+          "lineNumber": 393
+        },
+        {
+          "caller": "baseAreaFromMap",
+          "callee": "roundArea",
+          "lineNumber": 402
+        },
+        {
+          "caller": "baseAreaFromMap",
+          "callee": "Number",
+          "lineNumber": 402
+        },
+        {
+          "caller": "baseAreaFromMap",
+          "callee": "Number",
+          "lineNumber": 402
+        },
+        {
+          "caller": "terraceRooftopAreaFromMap",
+          "callee": "roundArea",
+          "lineNumber": 403
+        },
+        {
+          "caller": "terraceRooftopAreaFromMap",
+          "callee": "baseAreaFromMap",
+          "lineNumber": 403
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "activeLevelCode",
+          "lineNumber": 406
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "buildLevelInputMap",
+          "lineNumber": 407
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "getFieldControl",
+          "lineNumber": 409
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "getFieldControl",
+          "lineNumber": 410
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "terraceRooftopAreaFromMap",
+          "lineNumber": 425
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "Number.isFinite",
+          "lineNumber": 427
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "roundArea",
+          "lineNumber": 431
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "roundArea",
+          "lineNumber": 432
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "`${tumControl.value ?? ''}`.trim",
+          "lineNumber": 433
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "`${terraceControl.value ?? ''}`.trim",
+          "lineNumber": 434
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "Number",
+          "lineNumber": 435
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "Number",
+          "lineNumber": 436
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "Number.isFinite",
+          "lineNumber": 437
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "Number.isFinite",
+          "lineNumber": 438
+        },
+        {
+          "caller": "clampArea",
+          "callee": "roundArea",
+          "lineNumber": 439
+        },
+        {
+          "caller": "clampArea",
+          "callee": "Math.min",
+          "lineNumber": 439
+        },
+        {
+          "caller": "clampArea",
+          "callee": "Math.max",
+          "lineNumber": 439
+        },
+        {
+          "caller": "clampArea",
+          "callee": "Number",
+          "lineNumber": 439
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "clampArea",
+          "lineNumber": 448
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "roundArea",
+          "lineNumber": 449
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "clampArea",
+          "lineNumber": 451
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "roundArea",
+          "lineNumber": 452
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "clampArea",
+          "lineNumber": 455
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "roundArea",
+          "lineNumber": 456
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "clampArea",
+          "lineNumber": 458
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "roundArea",
+          "lineNumber": 459
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "clampArea",
+          "lineNumber": 465
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "roundArea",
+          "lineNumber": 466
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "clampArea",
+          "lineNumber": 468
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "roundArea",
+          "lineNumber": 469
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "clampArea",
+          "lineNumber": 471
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "roundArea",
+          "lineNumber": 472
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "clampArea",
+          "lineNumber": 474
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "roundArea",
+          "lineNumber": 475
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "setControlNumericValue",
+          "lineNumber": 478
+        },
+        {
+          "caller": "syncTerraceInputs",
+          "callee": "setControlNumericValue",
+          "lineNumber": 479
+        },
+        {
+          "caller": "syncDynamicDefaults",
+          "callee": "activeLevelCode",
+          "lineNumber": 482
+        },
+        {
+          "caller": "syncDynamicDefaults",
+          "callee": "buildLevelInputMap",
+          "lineNumber": 483
+        },
+        {
+          "caller": "syncDynamicDefaults",
+          "callee": "Math.max",
+          "lineNumber": 484
+        },
+        {
+          "caller": "syncDynamicDefaults",
+          "callee": "Math.trunc",
+          "lineNumber": 484
+        },
+        {
+          "caller": "syncDynamicDefaults",
+          "callee": "Number",
+          "lineNumber": 484
+        },
+        {
+          "caller": "syncDynamicDefaults",
+          "callee": "getFieldControl",
+          "lineNumber": 485
+        },
+        {
+          "caller": "syncDynamicDefaults",
+          "callee": "getFieldControl",
+          "lineNumber": 486
+        },
+        {
+          "caller": "syncDynamicDefaults",
+          "callee": "`${elevatorControl.value ?? ''}`.trim",
+          "lineNumber": 489
+        },
+        {
+          "caller": "syncDynamicDefaults",
+          "callee": "Number.isFinite",
+          "lineNumber": 491
+        },
+        {
+          "caller": "syncDynamicDefaults",
+          "callee": "Number",
+          "lineNumber": 491
+        },
+        {
+          "caller": "syncDynamicDefaults",
+          "callee": "setControlNumericValue",
+          "lineNumber": 492
+        },
+        {
+          "caller": "syncDynamicDefaults",
+          "callee": "`${poolTypeControl.value ?? ''}`.trim",
+          "lineNumber": 496
+        },
+        {
+          "caller": "dependencyValue",
+          "callee": "Number",
+          "lineNumber": 507
+        },
+        {
+          "caller": "dependencyValue",
+          "callee": "Number.isFinite",
+          "lineNumber": 509
+        },
+        {
+          "caller": "dependencyValue",
+          "callee": "`${rawValue ?? ''}`.trim",
+          "lineNumber": 512
+        },
+        {
+          "caller": "dependencySatisfied",
+          "callee": "`${row.dataset.dependsOnField || ''}`.trim",
+          "lineNumber": 516
+        },
+        {
+          "caller": "dependencySatisfied",
+          "callee": "getFieldMeta",
+          "lineNumber": 522
+        },
+        {
+          "caller": "dependencySatisfied",
+          "callee": "dependencyValue",
+          "lineNumber": 523
+        },
+        {
+          "caller": "dependencySatisfied",
+          "callee": "Array.isArray",
+          "lineNumber": 526
+        },
+        {
+          "caller": "dependencySatisfied",
+          "callee": "actualValue.includes",
+          "lineNumber": 527
+        },
+        {
+          "caller": "visibleRows",
+          "callee": "activeLevelCode",
+          "lineNumber": 537
+        },
+        {
+          "caller": "visibleRows",
+          "callee": "buildLevelInputMap",
+          "lineNumber": 537
+        },
+        {
+          "caller": "visibleRows",
+          "callee": "levelRows(levelCode)\n        .filter",
+          "lineNumber": 537
+        },
+        {
+          "caller": "visibleRows",
+          "callee": "levelRows",
+          "lineNumber": 537
+        },
+        {
+          "caller": "visibleRows",
+          "callee": "dependencySatisfied",
+          "lineNumber": 538
+        },
+        {
+          "caller": "buildInputMap",
+          "callee": "activeLevelCode",
+          "lineNumber": 540
+        },
+        {
+          "caller": "buildInputMap",
+          "callee": "buildLevelInputMap",
+          "lineNumber": 540
+        },
+        {
+          "caller": "buildInputMap",
+          "callee": "visibleRows(levelCode, inputMap)\n        .reduce",
+          "lineNumber": 540
+        },
+        {
+          "caller": "buildInputMap",
+          "callee": "visibleRows",
+          "lineNumber": 540
+        },
+        {
+          "caller": "buildFlatPayload",
+          "callee": "activeLevelCode",
+          "lineNumber": 553
+        },
+        {
+          "caller": "buildFlatPayload",
+          "callee": "buildInputMap",
+          "lineNumber": 553
+        },
+        {
+          "caller": "buildFlatPayload",
+          "callee": "visibleRows(levelCode, buildLevelInputMap(levelCode))\n        .map((row) => {\n            const key = row.dataset.fieldKey || '';\n            const value = inputMap[key];\n\n            if (key === '' || isEmptyValue(value)) {\n                return null;\n            }\n\n            return { slug: key, value };\n        })\n        .filter",
+          "lineNumber": 553
+        },
+        {
+          "caller": "buildFlatPayload",
+          "callee": "visibleRows(levelCode, buildLevelInputMap(levelCode))\n        .map",
+          "lineNumber": 553
+        },
+        {
+          "caller": "buildFlatPayload",
+          "callee": "visibleRows",
+          "lineNumber": 553
+        },
+        {
+          "caller": "buildFlatPayload",
+          "callee": "buildLevelInputMap",
+          "lineNumber": 553
+        },
+        {
+          "caller": "buildFlatPayload",
+          "callee": "isEmptyValue",
+          "lineNumber": 558
+        },
+        {
+          "caller": "buildGroupedPayload",
+          "callee": "activeLevelCode",
+          "lineNumber": 565
+        },
+        {
+          "caller": "buildGroupedPayload",
+          "callee": "buildInputMap",
+          "lineNumber": 565
+        },
+        {
+          "caller": "buildGroupedPayload",
+          "callee": "sanitizeRoomProgramState",
+          "lineNumber": 566
+        },
+        {
+          "caller": "buildGroupedPayload",
+          "callee": "levelDefinition",
+          "lineNumber": 567
+        },
+        {
+          "caller": "buildGroupedPayload",
+          "callee": "visibleRows(levelCode, buildLevelInputMap(levelCode)).forEach",
+          "lineNumber": 578
+        },
+        {
+          "caller": "buildGroupedPayload",
+          "callee": "visibleRows",
+          "lineNumber": 578
+        },
+        {
+          "caller": "buildGroupedPayload",
+          "callee": "buildLevelInputMap",
+          "lineNumber": 578
+        },
+        {
+          "caller": "buildGroupedPayload",
+          "callee": "isEmptyValue",
+          "lineNumber": 582
+        },
+        {
+          "caller": "buildGroupedPayload",
+          "callee": "internalKeys.has",
+          "lineNumber": 586
+        },
+        {
+          "caller": "buildGroupedPayload",
+          "callee": "baseFieldKeys.has",
+          "lineNumber": 591
+        },
+        {
+          "caller": "buildPayload",
+          "callee": "activeLevelCode",
+          "lineNumber": 601
+        },
+        {
+          "caller": "buildPayload",
+          "callee": "buildInputMap",
+          "lineNumber": 601
+        },
+        {
+          "caller": "buildPayload",
+          "callee": "buildFlatPayload",
+          "lineNumber": 603
+        },
+        {
+          "caller": "buildPayload",
+          "callee": "buildGroupedPayload",
+          "lineNumber": 604
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "activeLevelCode",
+          "lineNumber": 607
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "buildInputMap",
+          "lineNumber": 607
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "visibleRows(levelCode, buildLevelInputMap(levelCode))\n            .map((row) => {\n            const key = row.dataset.fieldKey || '';\n            const field = getFieldMeta(key);\n            const value = inputMap[key];\n\n            if (key === '' || isEmptyValue(value)) {\n                return null;\n            }\n\n            return {\n                label: field.label || key,\n                value,\n                displayValue: displayValue(field, value),\n            };\n        })\n            .filter",
+          "lineNumber": 608
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "visibleRows(levelCode, buildLevelInputMap(levelCode))\n            .map",
+          "lineNumber": 608
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "visibleRows",
+          "lineNumber": 608
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "buildLevelInputMap",
+          "lineNumber": 608
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "getFieldMeta",
+          "lineNumber": 611
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "isEmptyValue",
+          "lineNumber": 614
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "displayValue",
+          "lineNumber": 621
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "sanitizeRoomProgramState",
+          "lineNumber": 625
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "customState.room_program.map",
+          "lineNumber": 626
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "roomTypeByCode.get",
+          "lineNumber": 627
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "roomTemplateByCode.get",
+          "lineNumber": 628
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "row.extra_items\n                .map((code) => itemByCode.get(code)?.name || code)\n                .filter",
+          "lineNumber": 629
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "row.extra_items\n                .map",
+          "lineNumber": 629
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "itemByCode.get",
+          "lineNumber": 630
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "extraLabels.join",
+          "lineNumber": 636
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "customState.design_options.map((code) => itemByCode.get(code)?.name || code).join",
+          "lineNumber": 643
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "customState.design_options.map",
+          "lineNumber": 643
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "itemByCode.get",
+          "lineNumber": 643
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "customState.special_addons.map((code) => itemByCode.get(code)?.name || code).join",
+          "lineNumber": 650
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "customState.special_addons.map",
+          "lineNumber": 650
+        },
+        {
+          "caller": "buildDisplayItems",
+          "callee": "itemByCode.get",
+          "lineNumber": 650
+        },
+        {
+          "caller": "buildGuideItems",
+          "callee": "activeLevelCode",
+          "lineNumber": 657
+        },
+        {
+          "caller": "buildGuideItems",
+          "callee": "buildLevelInputMap",
+          "lineNumber": 658
+        },
+        {
+          "caller": "buildGuideItems",
+          "callee": "visibleRows(levelCode, levelInputMap)\n            .map((row) => {\n                const key = row.dataset.fieldKey || '';\n                const field = getFieldMeta(key);\n                const guideContent = `${field?.guide_content || ''}`.trim();\n\n                if (key === '' || guideContent === '') {\n                    return null;\n                }\n\n                return {\n                    key,\n                    groupLabel: fieldGroupLabel(key),\n                    fieldLabel: `${field?.label || key}`.trim(),\n                    guideTitle: `${field?.guide_title || field?.label || key}`.trim(),\n                    guideContent,\n                    options: getFieldOptions(field)\n                        .map((option) => `${option?.label || ''}`.trim())\n                        .filter(Boolean),\n                };\n            })\n            .filter",
+          "lineNumber": 660
+        },
+        {
+          "caller": "buildGuideItems",
+          "callee": "visibleRows(levelCode, levelInputMap)\n            .map",
+          "lineNumber": 660
+        },
+        {
+          "caller": "buildGuideItems",
+          "callee": "visibleRows",
+          "lineNumber": 660
+        },
+        {
+          "caller": "buildGuideItems",
+          "callee": "getFieldMeta",
+          "lineNumber": 663
+        },
+        {
+          "caller": "buildGuideItems",
+          "callee": "`${field?.guide_content || ''}`.trim",
+          "lineNumber": 664
+        },
+        {
+          "caller": "buildGuideItems",
+          "callee": "fieldGroupLabel",
+          "lineNumber": 672
+        },
+        {
+          "caller": "buildGuideItems",
+          "callee": "`${field?.label || key}`.trim",
+          "lineNumber": 673
+        },
+        {
+          "caller": "buildGuideItems",
+          "callee": "`${field?.guide_title || field?.label || key}`.trim",
+          "lineNumber": 674
+        },
+        {
+          "caller": "buildGuideItems",
+          "callee": "getFieldOptions(field)\n                        .map((option) => `${option?.label || ''}`.trim())\n                        .filter",
+          "lineNumber": 676
+        },
+        {
+          "caller": "buildGuideItems",
+          "callee": "getFieldOptions(field)\n                        .map",
+          "lineNumber": 676
+        },
+        {
+          "caller": "buildGuideItems",
+          "callee": "getFieldOptions",
+          "lineNumber": 676
+        },
+        {
+          "caller": "buildGuideItems",
+          "callee": "`${option?.label || ''}`.trim",
+          "lineNumber": 677
+        },
+        {
+          "caller": "catalogNodeLabel",
+          "callee": "nodeByCode.get",
+          "lineNumber": 683
+        },
+        {
+          "caller": "catalogItemMeta",
+          "callee": "segments.push",
+          "lineNumber": 688
+        },
+        {
+          "caller": "catalogItemMeta",
+          "callee": "catalogNodeLabel",
+          "lineNumber": 688
+        },
+        {
+          "caller": "catalogItemMeta",
+          "callee": "segments.push",
+          "lineNumber": 692
+        },
+        {
+          "caller": "catalogItemMeta",
+          "callee": "segments.push",
+          "lineNumber": 696
+        },
+        {
+          "caller": "catalogItemMeta",
+          "callee": "segments.join",
+          "lineNumber": 699
+        },
+        {
+          "caller": "renderSelectionOptions",
+          "callee": "items.map((item) => `\n                <label class=\"flex items-start gap-3 rounded-2xl border border-[#d7e3f4] bg-white px-4 py-4 transition hover:border-[#0d6cb6]\">\n                    <input\n                        type=\"checkbox\"\n                        data-estimate-custom-input\n                        data-input-group=\"${escapeHtml(inputName)}\"\n                        value=\"${escapeHtml(item.code)}\"\n                        ${selectedCodes.includes(item.code) ? 'checked' : ''}\n                        class=\"mt-1 size-4 rounded border-[#99c5e7] text-[#0d6cb6] focus:ring-[#0d6cb6]\"\n                    >\n                    <span class=\"min-w-0\">\n                        <span class=\"block font-semibold text-[#0d2a4d]\">${escapeHtml(item.name)}</span>\n                        <span class=\"mt-1 block text-sm leading-6 text-[#587087]\">${escapeHtml(catalogItemMeta(item))}</span>\n                    </span>\n                </label>\n            `).join",
+          "lineNumber": 707
+        },
+        {
+          "caller": "renderSelectionOptions",
+          "callee": "items.map",
+          "lineNumber": 707
+        },
+        {
+          "caller": "renderSelectionOptions",
+          "callee": "escapeHtml",
+          "lineNumber": 712
+        },
+        {
+          "caller": "renderSelectionOptions",
+          "callee": "escapeHtml",
+          "lineNumber": 713
+        },
+        {
+          "caller": "renderSelectionOptions",
+          "callee": "selectedCodes.includes",
+          "lineNumber": 714
+        },
+        {
+          "caller": "renderSelectionOptions",
+          "callee": "escapeHtml",
+          "lineNumber": 718
+        },
+        {
+          "caller": "renderSelectionOptions",
+          "callee": "escapeHtml",
+          "lineNumber": 719
+        },
+        {
+          "caller": "renderSelectionOptions",
+          "callee": "catalogItemMeta",
+          "lineNumber": 719
+        },
+        {
+          "caller": "renderSelectionOptions",
+          "callee": "escapeHtml",
+          "lineNumber": 725
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "activeLevelCode",
+          "lineNumber": 729
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "buildInputMap",
+          "lineNumber": 729
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "currentBuildingType",
+          "lineNumber": 734
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "parseLevelList(roomProgramSection.dataset.visibleLevels).includes",
+          "lineNumber": 735
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "parseLevelList",
+          "lineNumber": 735
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "compatibleRoomTypes",
+          "lineNumber": 736
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "roomProgramSection.classList.toggle",
+          "lineNumber": 738
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "roomProgramAddButton.classList.toggle",
+          "lineNumber": 746
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "roomProgramAddButton.classList.toggle",
+          "lineNumber": 747
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "roomProgramEmpty?.classList.toggle",
+          "lineNumber": 750
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "roomProgramState.map((row, index) => {\n            const templateOptions = compatibleTemplates(row.room_type, levelCode, buildingType);\n            const extraOptions = compatibleRoomExtraItems(row.room_type, levelCode, buildingType);\n            const template = roomTemplateByCode.get(row.template);\n            const templateItems = Array.isArray(template?.template_items) ? template.template_items : [];\n\n            return `\n                <article class=\"rounded-[1.5rem] border border-[#d7e3f4] bg-white px-4 py-4\">\n                    <div class=\"flex flex-col gap-3 border-b border-[#e6eef7] pb-4 md:flex-row md:items-start md:justify-between\">\n                        <div>\n                            <p class=\"text-xs font-bold uppercase tracking-[0.22em] text-[#0d6cb6]\">Dòng công năng ${index + 1}</p>\n                            <p class=\"mt-2 text-sm leading-7 text-[#587087]\">Chọn loại phòng, số lượng, mẫu nội thất chuẩn và các hạng mục add thêm nếu có.</p>\n                        </div>\n                        <button\n                            type=\"button\"\n                            data-room-program-action=\"remove\"\n                            data-row-index=\"${index}\"\n                            class=\"inline-flex items-center justify-center gap-2 rounded-2xl border border-[#f5c2c7] bg-[#fff5f5] px-4 py-2 text-sm font-semibold text-[#b42318] transition hover:border-[#b42318]\"\n                        >\n                            <i class=\"fa-solid fa-trash-can\"></i>\n                            Xóa dòng\n                        </button>\n                    </div>\n\n                    <div class=\"mt-4 grid gap-3 lg:grid-cols-3\">\n                        <label class=\"space-y-2\">\n                            <span class=\"text-sm font-semibold text-[#0d2a4d]\">Loại phòng</span>\n                            <select data-estimate-custom-input data-input-group=\"room_program\" data-row-index=\"${index}\" data-field=\"room_type\" class=\"w-full rounded-2xl border border-[#b7d8f1] bg-white px-4 py-3 text-sm text-[#0d2a4d] outline-none transition focus:border-[#0d6cb6]\">\n                                <option value=\"\">Chọn loại phòng</option>\n                                ${roomTypeOptions.map((item) => `<option value=\"${escapeHtml(item.code)}\" ${item.code === row.room_type ? 'selected' : ''}>${escapeHtml(item.label || item.code)}</option>`).join('')}\n                            </select>\n                        </label>\n\n                        <label class=\"space-y-2\">\n                            <span class=\"text-sm font-semibold text-[#0d2a4d]\">Số lượng phòng</span>\n                            <input type=\"number\" min=\"1\" step=\"1\" value=\"${escapeHtml(`${row.count || 1}`)}\" data-estimate-custom-input data-input-group=\"room_program\" data-row-index=\"${index}\" data-field=\"count\" class=\"w-full rounded-2xl border border-[#b7d8f1] bg-white px-4 py-3 text-sm text-[#0d2a4d] outline-none transition focus:border-[#0d6cb6]\">\n                        </label>\n\n                        <label class=\"space-y-2\">\n                            <span class=\"text-sm font-semibold text-[#0d2a4d]\">Mẫu nội thất chuẩn</span>\n                            <select data-estimate-custom-input data-input-group=\"room_program\" data-row-index=\"${index}\" data-field=\"template\" class=\"w-full rounded-2xl border border-[#b7d8f1] bg-white px-4 py-3 text-sm text-[#0d2a4d] outline-none transition focus:border-[#0d6cb6]\" ${row.room_type === '' ? 'disabled' : ''}>\n                                <option value=\"\">Chọn template</option>\n                                ${templateOptions.map((item) => `<option value=\"${escapeHtml(item.code)}\" ${item.code === row.template ? 'selected' : ''}>${escapeHtml(item.name)}</option>`).join('')}\n                            </select>\n                        </label>\n                    </div>\n\n                    <div class=\"mt-4 grid gap-4 lg:grid-cols-[0.92fr_1.08fr]\">\n                        <div class=\"rounded-2xl border border-[#e6eef7] bg-[#fbfdff] px-4 py-4\">\n                            <p class=\"text-xs font-bold uppercase tracking-[0.22em] text-[#0d6cb6]\">Preset chuẩn theo template</p>\n                            <div class=\"mt-3 text-sm leading-7 text-[#587087]\">\n                                ${template\n                                    ? `\n                                        <p class=\"font-semibold text-[#0d2a4d]\">${escapeHtml(template.name)}</p>\n                                        ${template.description ? `<p class=\"mt-1\">${escapeHtml(template.description)}</p>` : ''}\n                                        <ul class=\"mt-3 space-y-2\">\n                                            ${templateItems.length > 0\n                                                ? templateItems.map((item) => `\n                                                    <li class=\"rounded-2xl border border-[#d7e3f4] bg-white px-3 py-2\">\n                                                        <span class=\"font-semibold text-[#0d2a4d]\">${escapeHtml(item.catalog_item_label || item.catalog_item_code || 'Hạng mục')}</span>\n                                                        <span class=\"mt-1 block text-xs uppercase tracking-[0.12em] text-[#587087]\">${escapeHtml(item.default_quantity_formula || '1')}</span>\n                                                    </li>\n                                                `).join('')\n                                                : '<li class=\"rounded-2xl border border-dashed border-[#d7e3f4] bg-white px-3 py-3 text-[#587087]\">Template này chưa có item mặc định.</li>'}\n                                        </ul>\n                                    `\n                                    : '<div class=\"rounded-2xl border border-dashed border-[#d7e3f4] bg-white px-3 py-3 text-[#587087]\">Chọn một template để xem danh sách nội thất chuẩn theo quy ước hiện tại.</div>'}\n                            </div>\n                        </div>\n\n                        <div class=\"rounded-2xl border border-[#e6eef7] bg-[#fbfdff] px-4 py-4\">\n                            <p class=\"text-xs font-bold uppercase tracking-[0.22em] text-[#0d6cb6]\">Nội thất add thêm ngoài preset</p>\n                            <div class=\"mt-3 grid gap-2 md:grid-cols-2\">\n                                ${extraOptions.length > 0\n                                    ? extraOptions.map((item) => `\n                                        <label class=\"flex items-start gap-3 rounded-2xl border border-[#d7e3f4] bg-white px-3 py-3 transition hover:border-[#0d6cb6]\">\n                                            <input\n                                                type=\"checkbox\"\n                                                data-estimate-custom-input\n                                                data-input-group=\"room_program\"\n                                                data-row-index=\"${index}\"\n                                                data-field=\"extra_item\"\n                                                value=\"${escapeHtml(item.code)}\"\n                                                ${row.extra_items.includes(item.code) ? 'checked' : ''}\n                                                class=\"mt-1 size-4 rounded border-[#99c5e7] text-[#0d6cb6] focus:ring-[#0d6cb6]\"\n                                            >\n                                            <span class=\"min-w-0\">\n                                                <span class=\"block font-semibold text-[#0d2a4d]\">${escapeHtml(item.name)}</span>\n                                                <span class=\"mt-1 block text-xs uppercase tracking-[0.12em] text-[#587087]\">${escapeHtml(catalogItemMeta(item))}</span>\n                                            </span>\n                                        </label>\n                                    `).join('')\n                                    : '<div class=\"rounded-2xl border border-dashed border-[#d7e3f4] bg-white px-3 py-3 text-sm leading-7 text-[#587087] md:col-span-2\">Chưa có add-on phù hợp cho loại phòng hoặc loại công trình đang chọn.</div>'}\n                            </div>\n                        </div>\n                    </div>\n                </article>\n            `;\n        }).join",
+          "lineNumber": 751
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "roomProgramState.map",
+          "lineNumber": 751
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "compatibleTemplates",
+          "lineNumber": 752
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "compatibleRoomExtraItems",
+          "lineNumber": 753
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "roomTemplateByCode.get",
+          "lineNumber": 754
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "Array.isArray",
+          "lineNumber": 755
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "roomTypeOptions.map((item) => `<option value=\"${escapeHtml(item.code)}\" ${item.code === row.room_type ? 'selected' : ''}>${escapeHtml(item.label || item.code)}</option>`).join",
+          "lineNumber": 780
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "roomTypeOptions.map",
+          "lineNumber": 780
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "escapeHtml",
+          "lineNumber": 780
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "escapeHtml",
+          "lineNumber": 780
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "escapeHtml",
+          "lineNumber": 786
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "templateOptions.map((item) => `<option value=\"${escapeHtml(item.code)}\" ${item.code === row.template ? 'selected' : ''}>${escapeHtml(item.name)}</option>`).join",
+          "lineNumber": 793
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "templateOptions.map",
+          "lineNumber": 793
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "escapeHtml",
+          "lineNumber": 793
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "escapeHtml",
+          "lineNumber": 793
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "escapeHtml",
+          "lineNumber": 804
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "escapeHtml",
+          "lineNumber": 805
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "templateItems.map((item) => `\n                                                    <li class=\"rounded-2xl border border-[#d7e3f4] bg-white px-3 py-2\">\n                                                        <span class=\"font-semibold text-[#0d2a4d]\">${escapeHtml(item.catalog_item_label || item.catalog_item_code || 'Hạng mục')}</span>\n                                                        <span class=\"mt-1 block text-xs uppercase tracking-[0.12em] text-[#587087]\">${escapeHtml(item.default_quantity_formula || '1')}</span>\n                                                    </li>\n                                                `).join",
+          "lineNumber": 808
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "templateItems.map",
+          "lineNumber": 808
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "escapeHtml",
+          "lineNumber": 810
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "escapeHtml",
+          "lineNumber": 811
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "extraOptions.map((item) => `\n                                        <label class=\"flex items-start gap-3 rounded-2xl border border-[#d7e3f4] bg-white px-3 py-3 transition hover:border-[#0d6cb6]\">\n                                            <input\n                                                type=\"checkbox\"\n                                                data-estimate-custom-input\n                                                data-input-group=\"room_program\"\n                                                data-row-index=\"${index}\"\n                                                data-field=\"extra_item\"\n                                                value=\"${escapeHtml(item.code)}\"\n                                                ${row.extra_items.includes(item.code) ? 'checked' : ''}\n                                                class=\"mt-1 size-4 rounded border-[#99c5e7] text-[#0d6cb6] focus:ring-[#0d6cb6]\"\n                                            >\n                                            <span class=\"min-w-0\">\n                                                <span class=\"block font-semibold text-[#0d2a4d]\">${escapeHtml(item.name)}</span>\n                                                <span class=\"mt-1 block text-xs uppercase tracking-[0.12em] text-[#587087]\">${escapeHtml(catalogItemMeta(item))}</span>\n                                            </span>\n                                        </label>\n                                    `).join",
+          "lineNumber": 825
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "extraOptions.map",
+          "lineNumber": 825
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "escapeHtml",
+          "lineNumber": 833
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "row.extra_items.includes",
+          "lineNumber": 834
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "escapeHtml",
+          "lineNumber": 838
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "escapeHtml",
+          "lineNumber": 839
+        },
+        {
+          "caller": "renderRoomProgramSection",
+          "callee": "catalogItemMeta",
+          "lineNumber": 839
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "activeLevelCode",
+          "lineNumber": 851
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "buildInputMap",
+          "lineNumber": 851
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "currentBuildingType",
+          "lineNumber": 852
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "sanitizeRoomProgramState",
+          "lineNumber": 853
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "renderRoomProgramSection",
+          "lineNumber": 855
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "parseLevelList(designOptionsSection.dataset.visibleLevels).includes",
+          "lineNumber": 858
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "parseLevelList",
+          "lineNumber": 858
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "designOptionsSection.classList.toggle",
+          "lineNumber": 859
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "renderSelectionOptions",
+          "lineNumber": 862
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "compatibleDesignItems",
+          "lineNumber": 864
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "parseLevelList(specialAddonsSection.dataset.visibleLevels).includes",
+          "lineNumber": 873
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "parseLevelList",
+          "lineNumber": 873
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "specialAddonsSection.classList.toggle",
+          "lineNumber": 874
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "renderSelectionOptions",
+          "lineNumber": 877
+        },
+        {
+          "caller": "renderCustomSections",
+          "callee": "compatibleSpecialAddons",
+          "lineNumber": 879
+        },
+        {
+          "caller": "showAlert",
+          "callee": "Array.isArray",
+          "lineNumber": 893
+        },
+        {
+          "caller": "showAlert",
+          "callee": "messages.filter",
+          "lineNumber": 893
+        },
+        {
+          "caller": "showAlert",
+          "callee": "formAlert.classList.add",
+          "lineNumber": 896
+        },
+        {
+          "caller": "showAlert",
+          "callee": "formAlert.classList.remove",
+          "lineNumber": 902
+        },
+        {
+          "caller": "showAlert",
+          "callee": "items.map((message) => `<p>${escapeHtml(message)}</p>`).join",
+          "lineNumber": 903
+        },
+        {
+          "caller": "showAlert",
+          "callee": "items.map",
+          "lineNumber": 903
+        },
+        {
+          "caller": "showAlert",
+          "callee": "escapeHtml",
+          "lineNumber": 903
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "activeLevelCode",
+          "lineNumber": 906
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "buildInputMap",
+          "lineNumber": 906
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "buildLevelInputMap",
+          "lineNumber": 908
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "sanitizeRoomProgramState",
+          "lineNumber": 909
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "visibleRows(levelCode, levelInputMap).forEach",
+          "lineNumber": 911
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "visibleRows",
+          "lineNumber": 911
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "getFieldMeta",
+          "lineNumber": 913
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "Array.isArray",
+          "lineNumber": 916
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "parseLevelList",
+          "lineNumber": 916
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "requiredLevels.includes",
+          "lineNumber": 919
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "isEmptyValue",
+          "lineNumber": 919
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "errors.push",
+          "lineNumber": 920
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "isEmptyValue",
+          "lineNumber": 924
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "Number.isFinite",
+          "lineNumber": 928
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "Number",
+          "lineNumber": 928
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "errors.push",
+          "lineNumber": 929
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "terraceRooftopAreaFromMap",
+          "lineNumber": 934
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "Number",
+          "lineNumber": 935
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "Number",
+          "lineNumber": 936
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "Number.isFinite",
+          "lineNumber": 938
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "Math.abs",
+          "lineNumber": 938
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "errors.push",
+          "lineNumber": 939
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "Number.isFinite",
+          "lineNumber": 943
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "Number",
+          "lineNumber": 943
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "Number",
+          "lineNumber": 943
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "errors.push",
+          "lineNumber": 944
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "customState.room_program.forEach",
+          "lineNumber": 947
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "errors.push",
+          "lineNumber": 949
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "Number.isFinite",
+          "lineNumber": 952
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "Number",
+          "lineNumber": 952
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "Number",
+          "lineNumber": 952
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "errors.push",
+          "lineNumber": 953
+        },
+        {
+          "caller": "validateInputs",
+          "callee": "Array.from",
+          "lineNumber": 957
+        },
+        {
+          "caller": "get",
+          "callee": "Object.prototype.hasOwnProperty.call",
+          "lineNumber": 963
+        },
+        {
+          "caller": "evaluateExpression",
+          "callee": "Function('scope', `with (scope) { return (${expression}); }`)",
+          "lineNumber": 985
+        },
+        {
+          "caller": "evaluateExpression",
+          "callee": "Function",
+          "lineNumber": 985
+        },
+        {
+          "caller": "evaluateExpression",
+          "callee": "proxyScope",
+          "lineNumber": 985
+        },
+        {
+          "caller": "componentNotes",
+          "callee": "getFieldMeta",
+          "lineNumber": 995
+        },
+        {
+          "caller": "componentNotes",
+          "callee": "isEmptyValue",
+          "lineNumber": 998
+        },
+        {
+          "caller": "componentNotes",
+          "callee": "notes.push",
+          "lineNumber": 999
+        },
+        {
+          "caller": "componentNotes",
+          "callee": "displayValue",
+          "lineNumber": 999
+        },
+        {
+          "caller": "componentNotes",
+          "callee": "notes.push",
+          "lineNumber": 1004
+        },
+        {
+          "caller": "componentNotes",
+          "callee": "notes.push",
+          "lineNumber": 1008
+        },
+        {
+          "caller": "componentNotes",
+          "callee": "getFieldMeta",
+          "lineNumber": 1012
+        },
+        {
+          "caller": "componentNotes",
+          "callee": "isEmptyValue",
+          "lineNumber": 1014
+        },
+        {
+          "caller": "componentNotes",
+          "callee": "notes.push",
+          "lineNumber": 1015
+        },
+        {
+          "caller": "componentNotes",
+          "callee": "displayValue",
+          "lineNumber": 1015
+        },
+        {
+          "caller": "componentNotes",
+          "callee": "notes.push",
+          "lineNumber": 1019
+        },
+        {
+          "caller": "componentNotes",
+          "callee": "notes.push",
+          "lineNumber": 1024
+        },
+        {
+          "caller": "componentNotes",
+          "callee": "notes.filter",
+          "lineNumber": 1027
+        },
+        {
+          "caller": "coefficientForComponent",
+          "callee": "Number",
+          "lineNumber": 1036
+        },
+        {
+          "caller": "coefficientForComponent",
+          "callee": "Number",
+          "lineNumber": 1040
+        },
+        {
+          "caller": "coefficientForComponent",
+          "callee": "evaluateExpression",
+          "lineNumber": 1040
+        },
+        {
+          "caller": "createComponent",
+          "callee": "roundArea",
+          "lineNumber": 1047
+        },
+        {
+          "caller": "createComponent",
+          "callee": "evaluateExpression",
+          "lineNumber": 1047
+        },
+        {
+          "caller": "createComponent",
+          "callee": "roundArea",
+          "lineNumber": 1048
+        },
+        {
+          "caller": "createComponent",
+          "callee": "coefficientForComponent",
+          "lineNumber": 1048
+        },
+        {
+          "caller": "createComponent",
+          "callee": "roundArea",
+          "lineNumber": 1049
+        },
+        {
+          "caller": "createComponent",
+          "callee": "Number.isFinite",
+          "lineNumber": 1051
+        },
+        {
+          "caller": "createComponent",
+          "callee": "componentNotes",
+          "lineNumber": 1062
+        },
+        {
+          "caller": "engineContext",
+          "callee": "Object.values(estimatorUi?.fields || {}).forEach",
+          "lineNumber": 1073
+        },
+        {
+          "caller": "engineContext",
+          "callee": "Object.values",
+          "lineNumber": 1073
+        },
+        {
+          "caller": "engineContext",
+          "callee": "isEmptyValue",
+          "lineNumber": 1074
+        },
+        {
+          "caller": "engineContext",
+          "callee": "getFieldOptions(field).some",
+          "lineNumber": 1083
+        },
+        {
+          "caller": "engineContext",
+          "callee": "getFieldOptions",
+          "lineNumber": 1083
+        },
+        {
+          "caller": "suggestedPackage",
+          "callee": "`${finishPackage || ''}`.toLowerCase",
+          "lineNumber": 1092
+        },
+        {
+          "caller": "suggestedPackage",
+          "callee": "`${packageKey || ''}`.toLowerCase",
+          "lineNumber": 1093
+        },
+        {
+          "caller": "suggestedPackage",
+          "callee": "normalizedKey.includes",
+          "lineNumber": 1096
+        },
+        {
+          "caller": "suggestedPackage",
+          "callee": "normalizedKey.includes",
+          "lineNumber": 1096
+        },
+        {
+          "caller": "suggestedPackage",
+          "callee": "normalizedKey.includes",
+          "lineNumber": 1100
+        },
+        {
+          "caller": "suggestedPackage",
+          "callee": "normalizedKey.includes",
+          "lineNumber": 1100
+        },
+        {
+          "caller": "suggestedPackage",
+          "callee": "normalizedKey.includes",
+          "lineNumber": 1104
+        },
+        {
+          "caller": "recommendedPackage",
+          "callee": "packages.find",
+          "lineNumber": 1109
+        },
+        {
+          "caller": "recommendedPackage",
+          "callee": "`${item.key || ''}`.includes",
+          "lineNumber": 1109
+        },
+        {
+          "caller": "recommendedPackage",
+          "callee": "packages.find",
+          "lineNumber": 1110
+        },
+        {
+          "caller": "recommendedPackage",
+          "callee": "`${item.key || ''}`.includes",
+          "lineNumber": 1110
+        },
+        {
+          "caller": "recommendedPackage",
+          "callee": "packages.find",
+          "lineNumber": 1111
+        },
+        {
+          "caller": "resolvePriceBook",
+          "callee": "activeLevelCode",
+          "lineNumber": 1114
+        },
+        {
+          "caller": "resolvePriceBook",
+          "callee": "buildInputMap",
+          "lineNumber": 1114
+        },
+        {
+          "caller": "resolvePriceBook",
+          "callee": "normalizeCodeValue",
+          "lineNumber": 1115
+        },
+        {
+          "caller": "resolvePriceBook",
+          "callee": "currentBuildingType",
+          "lineNumber": 1116
+        },
+        {
+          "caller": "resolvePriceBook",
+          "callee": "priceBooks.filter",
+          "lineNumber": 1117
+        },
+        {
+          "caller": "resolvePriceBook",
+          "callee": "supportsLevel",
+          "lineNumber": 1117
+        },
+        {
+          "caller": "resolvePriceBook",
+          "callee": "matchesBuildingType",
+          "lineNumber": 1117
+        },
+        {
+          "caller": "resolvePriceBook",
+          "callee": "eligibleBooks.find",
+          "lineNumber": 1119
+        },
+        {
+          "caller": "evaluateQuantityFormula",
+          "callee": "Number",
+          "lineNumber": 1122
+        },
+        {
+          "caller": "evaluateQuantityFormula",
+          "callee": "evaluateExpression",
+          "lineNumber": 1122
+        },
+        {
+          "caller": "evaluateQuantityFormula",
+          "callee": "Number.isFinite",
+          "lineNumber": 1124
+        },
+        {
+          "caller": "evaluateQuantityFormula",
+          "callee": "roundArea",
+          "lineNumber": 1124
+        },
+        {
+          "caller": "evaluateQuantityFormula",
+          "callee": "Math.max",
+          "lineNumber": 1124
+        },
+        {
+          "caller": "calculateLineSubtotal",
+          "callee": "Number.isFinite",
+          "lineNumber": 1127
+        },
+        {
+          "caller": "calculateLineSubtotal",
+          "callee": "Math.round",
+          "lineNumber": 1132
+        },
+        {
+          "caller": "calculateLineSubtotal",
+          "callee": "Number",
+          "lineNumber": 1132
+        },
+        {
+          "caller": "calculateLineSubtotal",
+          "callee": "Number",
+          "lineNumber": 1132
+        },
+        {
+          "caller": "calculateLineSubtotal",
+          "callee": "Math.round",
+          "lineNumber": 1136
+        },
+        {
+          "caller": "calculateLineSubtotal",
+          "callee": "Number",
+          "lineNumber": 1136
+        },
+        {
+          "caller": "calculateLineSubtotal",
+          "callee": "Math.max",
+          "lineNumber": 1136
+        },
+        {
+          "caller": "calculateLineSubtotal",
+          "callee": "Number",
+          "lineNumber": 1136
+        },
+        {
+          "caller": "calculateLineSubtotal",
+          "callee": "Math.round",
+          "lineNumber": 1139
+        },
+        {
+          "caller": "calculateLineSubtotal",
+          "callee": "Number",
+          "lineNumber": 1139
+        },
+        {
+          "caller": "calculateLineSubtotal",
+          "callee": "Number",
+          "lineNumber": 1139
+        },
+        {
+          "caller": "buildPricedLine",
+          "callee": "evaluateQuantityFormula",
+          "lineNumber": 1146
+        },
+        {
+          "caller": "buildPricedLine",
+          "callee": "Number.isFinite",
+          "lineNumber": 1152
+        },
+        {
+          "caller": "buildPricedLine",
+          "callee": "Number",
+          "lineNumber": 1156
+        },
+        {
+          "caller": "buildPricedLine",
+          "callee": "calculateLineSubtotal",
+          "lineNumber": 1157
+        },
+        {
+          "caller": "buildPricedLine",
+          "callee": "catalogNodeLabel",
+          "lineNumber": 1164
+        },
+        {
+          "caller": "touchNode",
+          "callee": "accumulator.has",
+          "lineNumber": 1183
+        },
+        {
+          "caller": "touchNode",
+          "callee": "accumulator.get",
+          "lineNumber": 1184
+        },
+        {
+          "caller": "touchNode",
+          "callee": "nodeByCode.get",
+          "lineNumber": 1187
+        },
+        {
+          "caller": "touchNode",
+          "callee": "accumulator.set",
+          "lineNumber": 1202
+        },
+        {
+          "caller": "buildComponentTreeBreakdown",
+          "callee": "lines.forEach",
+          "lineNumber": 1207
+        },
+        {
+          "caller": "buildComponentTreeBreakdown",
+          "callee": "touchNode",
+          "lineNumber": 1208
+        },
+        {
+          "caller": "buildComponentTreeBreakdown",
+          "callee": "leafNode.items.push",
+          "lineNumber": 1211
+        },
+        {
+          "caller": "buildComponentTreeBreakdown",
+          "callee": "touchNode",
+          "lineNumber": 1217
+        },
+        {
+          "caller": "buildComponentTreeBreakdown",
+          "callee": "Math.round",
+          "lineNumber": 1223
+        },
+        {
+          "caller": "buildComponentTreeBreakdown",
+          "callee": "Number",
+          "lineNumber": 1223
+        },
+        {
+          "caller": "buildComponentTreeBreakdown",
+          "callee": "Number",
+          "lineNumber": 1223
+        },
+        {
+          "caller": "buildTree",
+          "callee": "(Array.isArray(nodes) ? nodes : [])\n            .map((node) => {\n                const bucket = accumulator.get(node.code);\n                const children = buildTree(node.children || []);\n                const subtotal = Number(bucket?.subtotal || 0);\n\n                if (subtotal <= 0 && children.length === 0) {\n                    return null;\n                }\n\n                return {\n                    code: node.code,\n                    name: node.name,\n                    node_type: node.node_type,\n                    subtotal,\n                    items: bucket?.items || [],\n                    children,\n                };\n            })\n            .filter",
+          "lineNumber": 1228
+        },
+        {
+          "caller": "buildTree",
+          "callee": "(Array.isArray(nodes) ? nodes : [])\n            .map",
+          "lineNumber": 1228
+        },
+        {
+          "caller": "buildTree",
+          "callee": "Array.isArray",
+          "lineNumber": 1228
+        },
+        {
+          "caller": "buildTree",
+          "callee": "accumulator.get",
+          "lineNumber": 1230
+        },
+        {
+          "caller": "buildTree",
+          "callee": "buildTree",
+          "lineNumber": 1231
+        },
+        {
+          "caller": "buildTree",
+          "callee": "Number",
+          "lineNumber": 1232
+        },
+        {
+          "caller": "buildComponentTreeBreakdown",
+          "callee": "buildTree",
+          "lineNumber": 1249
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "activeLevelCode",
+          "lineNumber": 1252
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "buildInputMap",
+          "lineNumber": 1253
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number.isFinite",
+          "lineNumber": 1255
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1255
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.max",
+          "lineNumber": 1256
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.trunc",
+          "lineNumber": 1256
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1256
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "normalizeCodeValue",
+          "lineNumber": 1259
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "engineContext",
+          "lineNumber": 1263
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Object.entries(estimatorUi?.formula?.derived || {}).forEach",
+          "lineNumber": 1266
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Object.entries",
+          "lineNumber": 1266
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "roundArea",
+          "lineNumber": 1267
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "evaluateExpression",
+          "lineNumber": 1267
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "(estimatorUi?.formula?.components || []).forEach",
+          "lineNumber": 1280
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Boolean",
+          "lineNumber": 1282
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "evaluateExpression",
+          "lineNumber": 1282
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.max",
+          "lineNumber": 1290
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.round",
+          "lineNumber": 1290
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1290
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1290
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "createComponent",
+          "lineNumber": 1293
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "components.push",
+          "lineNumber": 1301
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "createComponent",
+          "lineNumber": 1308
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "components.push",
+          "lineNumber": 1313
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "roundArea",
+          "lineNumber": 1317
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "components.reduce",
+          "lineNumber": 1317
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1317
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "(estimatorUi?.pricing?.packages || []).map",
+          "lineNumber": 1318
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1319
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.round",
+          "lineNumber": 1327
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "suggestedPackage",
+          "lineNumber": 1328
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "recommendedPackage",
+          "lineNumber": 1331
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "resolvePriceBook",
+          "lineNumber": 1332
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "sanitizeRoomProgramState",
+          "lineNumber": 1339
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "groupedInput.room_program.map((row) => {\n            const roomTypeLabel = roomTypeByCode.get(row.room_type)?.label || row.room_type;\n            const template = roomTemplateByCode.get(row.template) || compatibleTemplates(row.room_type, levelCode, currentBuildingType(levelCode, inputMap))[0] || null;\n            const rowContext = {\n                ...detailedContext,\n                room_count: Number(row.count || 0),\n            };\n            const presetLines = (Array.isArray(template?.template_items) ? template.template_items : [])\n                .map((templateItem) => buildPricedLine(\n                    itemByCode.get(templateItem.catalog_item_code),\n                    rowContext,\n                    priceBook,\n                    baseReferenceAmount,\n                    {\n                        quantity_formula: templateItem.default_quantity_formula,\n                        source_key: 'room_program',\n                        source_label: `${roomTypeLabel} · preset`,\n                        room_type: row.room_type,\n                        room_type_label: roomTypeLabel,\n                        template_code: template?.code || null,\n                        template_label: template?.name || null,\n                    },\n                ))\n                .filter(Boolean);\n            const extraLines = row.extra_items\n                .map((code) => buildPricedLine(\n                    itemByCode.get(code),\n                    rowContext,\n                    priceBook,\n                    baseReferenceAmount,\n                    {\n                        source_key: 'room_program',\n                        source_label: `${roomTypeLabel} · add thêm`,\n                        room_type: row.room_type,\n                        room_type_label: roomTypeLabel,\n                        template_code: template?.code || null,\n                        template_label: template?.name || null,\n                    },\n                ))\n                .filter(Boolean);\n            const items = [...presetLines, ...extraLines];\n\n            return {\n                room_type: row.room_type,\n                room_type_label: roomTypeLabel,\n                count: Number(row.count || 0),\n                template_code: template?.code || null,\n                template_label: template?.name || null,\n                items,\n                subtotal: Math.round(items.reduce((total, item) => total + Number(item.subtotal || 0), 0)),\n            };\n        }).filter",
+          "lineNumber": 1344
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "groupedInput.room_program.map",
+          "lineNumber": 1344
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "roomTypeByCode.get",
+          "lineNumber": 1345
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "roomTemplateByCode.get",
+          "lineNumber": 1346
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "compatibleTemplates",
+          "lineNumber": 1346
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "currentBuildingType",
+          "lineNumber": 1346
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1349
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "(Array.isArray(template?.template_items) ? template.template_items : [])\n                .map((templateItem) => buildPricedLine(\n                    itemByCode.get(templateItem.catalog_item_code),\n                    rowContext,\n                    priceBook,\n                    baseReferenceAmount,\n                    {\n                        quantity_formula: templateItem.default_quantity_formula,\n                        source_key: 'room_program',\n                        source_label: `${roomTypeLabel} · preset`,\n                        room_type: row.room_type,\n                        room_type_label: roomTypeLabel,\n                        template_code: template?.code || null,\n                        template_label: template?.name || null,\n                    },\n                ))\n                .filter",
+          "lineNumber": 1351
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "(Array.isArray(template?.template_items) ? template.template_items : [])\n                .map",
+          "lineNumber": 1351
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Array.isArray",
+          "lineNumber": 1351
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "buildPricedLine",
+          "lineNumber": 1352
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "itemByCode.get",
+          "lineNumber": 1353
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "row.extra_items\n                .map((code) => buildPricedLine(\n                    itemByCode.get(code),\n                    rowContext,\n                    priceBook,\n                    baseReferenceAmount,\n                    {\n                        source_key: 'room_program',\n                        source_label: `${roomTypeLabel} · add thêm`,\n                        room_type: row.room_type,\n                        room_type_label: roomTypeLabel,\n                        template_code: template?.code || null,\n                        template_label: template?.name || null,\n                    },\n                ))\n                .filter",
+          "lineNumber": 1368
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "row.extra_items\n                .map",
+          "lineNumber": 1368
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "buildPricedLine",
+          "lineNumber": 1369
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "itemByCode.get",
+          "lineNumber": 1370
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1389
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.round",
+          "lineNumber": 1393
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "items.reduce",
+          "lineNumber": 1393
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1393
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "roomBreakdown.flatMap",
+          "lineNumber": 1396
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "groupedInput.design_options\n            .map((code) => buildPricedLine(\n                itemByCode.get(code),\n                detailedContext,\n                priceBook,\n                baseReferenceAmount,\n                {\n                    source_key: 'design_options',\n                    source_label: 'Thiết kế',\n                },\n            ))\n            .filter",
+          "lineNumber": 1397
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "groupedInput.design_options\n            .map",
+          "lineNumber": 1397
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "buildPricedLine",
+          "lineNumber": 1398
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "itemByCode.get",
+          "lineNumber": 1399
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "groupedInput.special_addons\n            .map((code) => buildPricedLine(\n                itemByCode.get(code),\n                detailedContext,\n                priceBook,\n                baseReferenceAmount,\n                {\n                    source_key: 'special_addons',\n                    source_label: 'Add-on đặc biệt',\n                },\n            ))\n            .filter",
+          "lineNumber": 1409
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "groupedInput.special_addons\n            .map",
+          "lineNumber": 1409
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "buildPricedLine",
+          "lineNumber": 1410
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "itemByCode.get",
+          "lineNumber": 1411
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "itemByCode.get",
+          "lineNumber": 1425
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "buildPricedLine",
+          "lineNumber": 1426
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1430
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "technicalLines.push",
+          "lineNumber": 1441
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1445
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "normalizeCodeValue",
+          "lineNumber": 1450
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "itemByCode.get",
+          "lineNumber": 1451
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "buildPricedLine",
+          "lineNumber": 1452
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1456
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "technicalLines.push",
+          "lineNumber": 1467
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.round",
+          "lineNumber": 1472
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "detailedLines.reduce",
+          "lineNumber": 1472
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1472
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.round",
+          "lineNumber": 1473
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "roomLines.reduce",
+          "lineNumber": 1473
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1473
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.round",
+          "lineNumber": 1474
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "designLines.reduce",
+          "lineNumber": 1474
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1474
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.round",
+          "lineNumber": 1475
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "specialLines.reduce",
+          "lineNumber": 1475
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1475
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.round",
+          "lineNumber": 1476
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "technicalLines.reduce",
+          "lineNumber": 1476
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1476
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1477
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1478
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "normalizeCodeValue",
+          "lineNumber": 1479
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "basePricingPackages.map",
+          "lineNumber": 1480
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.round",
+          "lineNumber": 1481
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1481
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.round",
+          "lineNumber": 1482
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.max",
+          "lineNumber": 1482
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.round",
+          "lineNumber": 1483
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.max",
+          "lineNumber": 1483
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.round",
+          "lineNumber": 1485
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Math.round",
+          "lineNumber": 1489
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "Number",
+          "lineNumber": 1489
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "recommendedPackage",
+          "lineNumber": 1511
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "buildGroupedPayload",
+          "lineNumber": 1521
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "roundArea",
+          "lineNumber": 1527
+        },
+        {
+          "caller": "calculateEstimate",
+          "callee": "buildComponentTreeBreakdown",
+          "lineNumber": 1529
+        },
+        {
+          "caller": "renderSummary",
+          "callee": "items.map((item) => `\n                <li class=\"flex items-start justify-between gap-3 py-3\">\n                    <span class=\"font-semibold text-[#0d2a4d]\">${escapeHtml(item.label)}</span>\n                    <span class=\"text-right\">${escapeHtml(item.displayValue)}</span>\n                </li>\n            `).join",
+          "lineNumber": 1548
+        },
+        {
+          "caller": "renderSummary",
+          "callee": "items.map",
+          "lineNumber": 1548
+        },
+        {
+          "caller": "renderSummary",
+          "callee": "escapeHtml",
+          "lineNumber": 1550
+        },
+        {
+          "caller": "renderSummary",
+          "callee": "escapeHtml",
+          "lineNumber": 1551
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "Array.isArray",
+          "lineNumber": 1562
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "Array.isArray",
+          "lineNumber": 1564
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "roundArea",
+          "lineNumber": 1565
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1571
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "areaFormatter.format",
+          "lineNumber": 1571
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "rows.map((component) => `\n                <tr>\n                    <td class=\"px-4 py-4 font-semibold text-[#0d4f8f]\">${escapeHtml(component.label)}</td>\n                    <td class=\"px-4 py-4\">${escapeHtml(areaFormatter.format(component.area))}</td>\n                    <td class=\"px-4 py-4 font-semibold\">${escapeHtml(formatPercent(component.coefficient))}</td>\n                    <td class=\"px-4 py-4 font-bold text-[#0d2a4d]\">${escapeHtml(areaFormatter.format(component.converted_area))}</td>\n                    <td class=\"px-4 py-4 text-[#587087]\">${escapeHtml((component.notes || []).join(' · ') || 'Theo cấu hình hiện tại')}</td>\n                </tr>\n            `).join",
+          "lineNumber": 1580
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "rows.map",
+          "lineNumber": 1580
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1582
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1583
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "areaFormatter.format",
+          "lineNumber": 1583
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1584
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "formatPercent",
+          "lineNumber": 1584
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1585
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "areaFormatter.format",
+          "lineNumber": 1585
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1586
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "(component.notes || []).join",
+          "lineNumber": 1586
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1591
+        },
+        {
+          "caller": "renderBreakdown",
+          "callee": "areaFormatter.format",
+          "lineNumber": 1591
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "nodes.map",
+          "lineNumber": 1607
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "escapeHtml",
+          "lineNumber": 1611
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "escapeHtml",
+          "lineNumber": 1612
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "escapeHtml",
+          "lineNumber": 1614
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "maskCurrency",
+          "lineNumber": 1614
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "Array.isArray",
+          "lineNumber": 1616
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "node.items.map((item) => `\n                            <div class=\"rounded-2xl border border-[#e6eef7] bg-white px-3 py-3 text-sm leading-6 text-[#587087]\">\n                                <div class=\"flex items-start justify-between gap-4\">\n                                    <div>\n                                        <p class=\"font-semibold text-[#0d2a4d]\">${escapeHtml(item.label)}</p>\n                                        <p class=\"mt-1 text-xs uppercase tracking-[0.12em] text-[#587087]\">${escapeHtml(`${areaFormatter.format(item.quantity || 0)} ${item.unit || ''} · ${pricingModeLabels[item.pricing_mode] || item.pricing_mode || ''}`.trim())}</p>\n                                    </div>\n                                    <p class=\"text-right font-bold text-[#0d2a4d]\">${escapeHtml(maskCurrency(item.subtotal || 0))}</p>\n                                </div>\n                                ${item.pricing_status === 'missing_price' ? '<p class=\"mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#b45309]\">Chưa có đơn giá trong price book hiện tại</p>' : ''}\n                            </div>\n                        `).join",
+          "lineNumber": 1618
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "node.items.map",
+          "lineNumber": 1618
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "escapeHtml",
+          "lineNumber": 1622
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "escapeHtml",
+          "lineNumber": 1623
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "`${areaFormatter.format(item.quantity || 0)} ${item.unit || ''} · ${pricingModeLabels[item.pricing_mode] || item.pricing_mode || ''}`.trim",
+          "lineNumber": 1623
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "areaFormatter.format",
+          "lineNumber": 1623
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "escapeHtml",
+          "lineNumber": 1625
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "maskCurrency",
+          "lineNumber": 1625
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "Array.isArray",
+          "lineNumber": 1632
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "renderNodes(node.children, depth + 1).join",
+          "lineNumber": 1632
+        },
+        {
+          "caller": "renderNodes",
+          "callee": "renderNodes",
+          "lineNumber": 1632
+        },
+        {
+          "caller": "renderComponentTreeBreakdown",
+          "callee": "Array.isArray",
+          "lineNumber": 1635
+        },
+        {
+          "caller": "renderComponentTreeBreakdown",
+          "callee": "renderNodes(nodes).join",
+          "lineNumber": 1638
+        },
+        {
+          "caller": "renderComponentTreeBreakdown",
+          "callee": "renderNodes",
+          "lineNumber": 1638
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "Array.isArray",
+          "lineNumber": 1650
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "rooms.map((room, index) => `\n                <article class=\"rounded-2xl border border-[#d7e3f4] bg-[#fbfdff] px-4 py-4\">\n                    <div class=\"flex items-start justify-between gap-4 border-b border-[#e6eef7] pb-3\">\n                        <div>\n                            <p class=\"text-xs font-bold uppercase tracking-[0.14em] text-[#0d6cb6]\">Phòng ${index + 1}</p>\n                            <p class=\"mt-1 font-semibold text-[#0d2a4d]\">${escapeHtml(room.room_type_label || room.room_type || 'Phòng')}</p>\n                            <p class=\"mt-1 text-sm leading-6 text-[#587087]\">${escapeHtml(`Số lượng: ${room.count || 0} · Template: ${room.template_label || 'Chưa chọn'}`)}</p>\n                        </div>\n                        <p class=\"text-right text-sm font-black text-[#0d2a4d]\">${escapeHtml(maskCurrency(room.subtotal || 0))}</p>\n                    </div>\n                    <div class=\"mt-3 space-y-2\">\n                        ${Array.isArray(room.items) && room.items.length > 0\n                            ? room.items.map((item) => `\n                                <div class=\"rounded-2xl border border-[#e6eef7] bg-white px-3 py-3 text-sm leading-6 text-[#587087]\">\n                                    <div class=\"flex items-start justify-between gap-4\">\n                                        <div>\n                                            <p class=\"font-semibold text-[#0d2a4d]\">${escapeHtml(item.label)}</p>\n                                            <p class=\"mt-1 text-xs uppercase tracking-[0.12em] text-[#587087]\">${escapeHtml(`${areaFormatter.format(item.quantity || 0)} ${item.unit || ''} · ${item.source_label || ''}`.trim())}</p>\n                                        </div>\n                                        <p class=\"text-right font-bold text-[#0d2a4d]\">${escapeHtml(maskCurrency(item.subtotal || 0))}</p>\n                                    </div>\n                                    ${item.pricing_status === 'missing_price' ? '<p class=\"mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#b45309]\">Chưa có đơn giá trong price book hiện tại</p>' : ''}\n                                </div>\n                            `).join('')\n                            : '<div class=\"rounded-2xl border border-dashed border-[#d7e3f4] bg-white px-3 py-3 text-[#587087]\">Template này chưa có item định giá.</div>'}\n                    </div>\n                </article>\n            `).join",
+          "lineNumber": 1653
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "rooms.map",
+          "lineNumber": 1653
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1658
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1659
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1661
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "maskCurrency",
+          "lineNumber": 1661
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "Array.isArray",
+          "lineNumber": 1664
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "room.items.map((item) => `\n                                <div class=\"rounded-2xl border border-[#e6eef7] bg-white px-3 py-3 text-sm leading-6 text-[#587087]\">\n                                    <div class=\"flex items-start justify-between gap-4\">\n                                        <div>\n                                            <p class=\"font-semibold text-[#0d2a4d]\">${escapeHtml(item.label)}</p>\n                                            <p class=\"mt-1 text-xs uppercase tracking-[0.12em] text-[#587087]\">${escapeHtml(`${areaFormatter.format(item.quantity || 0)} ${item.unit || ''} · ${item.source_label || ''}`.trim())}</p>\n                                        </div>\n                                        <p class=\"text-right font-bold text-[#0d2a4d]\">${escapeHtml(maskCurrency(item.subtotal || 0))}</p>\n                                    </div>\n                                    ${item.pricing_status === 'missing_price' ? '<p class=\"mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#b45309]\">Chưa có đơn giá trong price book hiện tại</p>' : ''}\n                                </div>\n                            `).join",
+          "lineNumber": 1665
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "room.items.map",
+          "lineNumber": 1665
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1669
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1670
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "`${areaFormatter.format(item.quantity || 0)} ${item.unit || ''} · ${item.source_label || ''}`.trim",
+          "lineNumber": 1670
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "areaFormatter.format",
+          "lineNumber": 1670
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1672
+        },
+        {
+          "caller": "renderRoomBreakdown",
+          "callee": "maskCurrency",
+          "lineNumber": 1672
+        },
+        {
+          "caller": "renderPricingCards",
+          "callee": "Number",
+          "lineNumber": 1694
+        },
+        {
+          "caller": "renderPricingCards",
+          "callee": "`${result?.pricing_summary?.price_book_name || ''}`.trim",
+          "lineNumber": 1695
+        },
+        {
+          "caller": "renderPricingCards",
+          "callee": "packages.map((item) => `\n                <div class=\"rounded-[1.35rem] border px-4 py-4 ${item.suggested ? 'border-[#0d6cb6] bg-[#eff7ff]' : 'border-[#d7e3f4] bg-[#fbfdff]'}\">\n                    <div class=\"flex items-start justify-between gap-4\">\n                        <div>\n                            <p class=\"font-bold text-[#0d2a4d]\">${escapeHtml(item.label)}</p>\n                            ${priceBookName ? `<p class=\"mt-1 text-xs uppercase tracking-[0.12em] text-[#587087]\">${escapeHtml(priceBookName)}</p>` : ''}\n                        </div>\n                        ${item.suggested ? '<span class=\"inline-flex rounded-full bg-[#0d6cb6] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-white\">Gợi ý</span>' : ''}\n                    </div>\n                    <div class=\"mt-4 space-y-2 text-sm text-[#587087]\">\n                        <div class=\"flex items-center justify-between gap-4\">\n                            <p>Khung m2 quy đổi</p>\n                            <p class=\"font-semibold text-[#0d2a4d]\">${escapeHtml(maskCurrency(item.base_amount || item.amount || 0))}</p>\n                        </div>\n                        ${overlayAmount > 0 ? `\n                            <div class=\"flex items-center justify-between gap-4\">\n                                <p>Overlay chi tiết</p>\n                                <p class=\"font-semibold text-[#0d2a4d]\">${escapeHtml(maskCurrency(item.overlay_amount || 0))}</p>\n                            </div>\n                        ` : ''}\n                    </div>\n                    <div class=\"mt-4 flex items-end justify-between gap-4 border-t border-[#d7e3f4] pt-3\">\n                        <p class=\"text-sm text-[#587087]\">Kết quả tạm tính</p>\n                        <p class=\"text-lg font-black text-[#0d2a4d]\">${escapeHtml(maskCurrency(item.amount))}</p>\n                    </div>\n                </div>\n            `).join",
+          "lineNumber": 1698
+        },
+        {
+          "caller": "renderPricingCards",
+          "callee": "packages.map",
+          "lineNumber": 1698
+        },
+        {
+          "caller": "renderPricingCards",
+          "callee": "escapeHtml",
+          "lineNumber": 1702
+        },
+        {
+          "caller": "renderPricingCards",
+          "callee": "escapeHtml",
+          "lineNumber": 1703
+        },
+        {
+          "caller": "renderPricingCards",
+          "callee": "escapeHtml",
+          "lineNumber": 1710
+        },
+        {
+          "caller": "renderPricingCards",
+          "callee": "maskCurrency",
+          "lineNumber": 1710
+        },
+        {
+          "caller": "renderPricingCards",
+          "callee": "escapeHtml",
+          "lineNumber": 1715
+        },
+        {
+          "caller": "renderPricingCards",
+          "callee": "maskCurrency",
+          "lineNumber": 1715
+        },
+        {
+          "caller": "renderPricingCards",
+          "callee": "escapeHtml",
+          "lineNumber": 1721
+        },
+        {
+          "caller": "renderPricingCards",
+          "callee": "maskCurrency",
+          "lineNumber": 1721
+        },
+        {
+          "caller": "renderPreviewPricing",
+          "callee": "packages.map((item) => `\n                <div class=\"flex items-start justify-between gap-4 rounded-2xl border border-slate-200 bg-white px-4 py-3\">\n                    <div>\n                        <p class=\"font-semibold text-slate-900\">${escapeHtml(item.label)}</p>\n                        <p class=\"text-sm text-slate-500\">${escapeHtml(result?.pricing_summary?.price_book_name || 'Số tiền đầy đủ sẽ được gửi trong email.')}</p>\n                    </div>\n                    <p class=\"text-right font-bold text-slate-900\">${escapeHtml(maskCurrency(item.amount))}</p>\n                </div>\n            `).join",
+          "lineNumber": 1736
+        },
+        {
+          "caller": "renderPreviewPricing",
+          "callee": "packages.map",
+          "lineNumber": 1736
+        },
+        {
+          "caller": "renderPreviewPricing",
+          "callee": "escapeHtml",
+          "lineNumber": 1739
+        },
+        {
+          "caller": "renderPreviewPricing",
+          "callee": "escapeHtml",
+          "lineNumber": 1740
+        },
+        {
+          "caller": "renderPreviewPricing",
+          "callee": "escapeHtml",
+          "lineNumber": 1742
+        },
+        {
+          "caller": "renderPreviewPricing",
+          "callee": "maskCurrency",
+          "lineNumber": 1742
+        },
+        {
+          "caller": "renderPreviewComponentBreakdown",
+          "callee": "Array.isArray",
+          "lineNumber": 1756
+        },
+        {
+          "caller": "renderPreviewComponentBreakdown",
+          "callee": "nodes.map((node) => `\n                <div class=\"rounded-2xl border border-slate-200 bg-white px-4 py-3\">\n                    <div class=\"flex items-start justify-between gap-4\">\n                        <div>\n                            <p class=\"font-semibold text-slate-900\">${escapeHtml(node.name)}</p>\n                            <p class=\"text-sm text-slate-500\">${escapeHtml(`${(node.items || []).length} item${(node.children || []).length > 0 ? ` · ${(node.children || []).length} nhóm con` : ''}`)}</p>\n                        </div>\n                        <p class=\"text-right font-bold text-slate-900\">${escapeHtml(maskCurrency(node.subtotal || 0))}</p>\n                    </div>\n                </div>\n            `).join",
+          "lineNumber": 1759
+        },
+        {
+          "caller": "renderPreviewComponentBreakdown",
+          "callee": "nodes.map",
+          "lineNumber": 1759
+        },
+        {
+          "caller": "renderPreviewComponentBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1763
+        },
+        {
+          "caller": "renderPreviewComponentBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1764
+        },
+        {
+          "caller": "renderPreviewComponentBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1766
+        },
+        {
+          "caller": "renderPreviewComponentBreakdown",
+          "callee": "maskCurrency",
+          "lineNumber": 1766
+        },
+        {
+          "caller": "renderPreviewRoomBreakdown",
+          "callee": "Array.isArray",
+          "lineNumber": 1781
+        },
+        {
+          "caller": "renderPreviewRoomBreakdown",
+          "callee": "rooms.map((room) => `\n                <div class=\"rounded-2xl border border-slate-200 bg-white px-4 py-3\">\n                    <div class=\"flex items-start justify-between gap-4\">\n                        <div>\n                            <p class=\"font-semibold text-slate-900\">${escapeHtml(room.room_type_label || room.room_type || 'Phòng')}</p>\n                            <p class=\"text-sm text-slate-500\">${escapeHtml(`x${room.count || 0} · ${room.template_label || 'Chưa chọn template'}`)}</p>\n                        </div>\n                        <p class=\"text-right font-bold text-slate-900\">${escapeHtml(maskCurrency(room.subtotal || 0))}</p>\n                    </div>\n                </div>\n            `).join",
+          "lineNumber": 1784
+        },
+        {
+          "caller": "renderPreviewRoomBreakdown",
+          "callee": "rooms.map",
+          "lineNumber": 1784
+        },
+        {
+          "caller": "renderPreviewRoomBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1788
+        },
+        {
+          "caller": "renderPreviewRoomBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1789
+        },
+        {
+          "caller": "renderPreviewRoomBreakdown",
+          "callee": "escapeHtml",
+          "lineNumber": 1791
+        },
+        {
+          "caller": "renderPreviewRoomBreakdown",
+          "callee": "maskCurrency",
+          "lineNumber": 1791
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "Array.isArray",
+          "lineNumber": 1807
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1808
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1809
+        },
+        {
+          "caller": "exactComponent",
+          "callee": "components.find",
+          "lineNumber": 1811
+        },
+        {
+          "caller": "componentSumByPrefix",
+          "callee": "roundArea",
+          "lineNumber": 1812
+        },
+        {
+          "caller": "componentSumByPrefix",
+          "callee": "components\n            .filter((component) => `${component?.key || ''}`.startsWith(prefix))\n            .reduce",
+          "lineNumber": 1812
+        },
+        {
+          "caller": "componentSumByPrefix",
+          "callee": "components\n            .filter",
+          "lineNumber": 1812
+        },
+        {
+          "caller": "componentSumByPrefix",
+          "callee": "`${component?.key || ''}`.startsWith",
+          "lineNumber": 1813
+        },
+        {
+          "caller": "componentSumByPrefix",
+          "callee": "Number",
+          "lineNumber": 1814
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "components\n            .filter((component) => `${component?.key || ''}`.startsWith('upper_floors_'))\n            .map((component) => ({\n                label: component.label,\n                area: roundArea(component.converted_area || component.area),\n            }))\n            .reverse",
+          "lineNumber": 1815
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "components\n            .filter((component) => `${component?.key || ''}`.startsWith('upper_floors_'))\n            .map",
+          "lineNumber": 1815
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "components\n            .filter",
+          "lineNumber": 1815
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "`${component?.key || ''}`.startsWith",
+          "lineNumber": 1816
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1819
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "exactComponent",
+          "lineNumber": 1822
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "exactComponent",
+          "lineNumber": 1823
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "exactComponent",
+          "lineNumber": 1824
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "exactComponent",
+          "lineNumber": 1825
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "exactComponent",
+          "lineNumber": 1826
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "componentSumByPrefix",
+          "lineNumber": 1827
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1828
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "exactComponent",
+          "lineNumber": 1828
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "exactComponent",
+          "lineNumber": 1828
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1829
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "exactComponent",
+          "lineNumber": 1829
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "exactComponent",
+          "lineNumber": 1829
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1831
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1832
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1834
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1835
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1839
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "upperFloorLayers.forEach",
+          "lineNumber": 1843
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "layers.push",
+          "lineNumber": 1843
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1846
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1847
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "components.find",
+          "lineNumber": 1847
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "layers.push",
+          "lineNumber": 1851
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1853
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "areaFormatter.format",
+          "lineNumber": 1854
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1854
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "layers.push",
+          "lineNumber": 1858
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "roundArea",
+          "lineNumber": 1860
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "layers.map((layer) => `\n            <div class=\"relative mx-auto w-[74%] border-x-4 border-t-4 border-[#0d6cb6] bg-white px-3 py-3 text-center text-base font-black text-[#0d4f8f] ${layer.label === 'Tầng Trệt' ? 'border-b-4' : ''}\">\n                <div>${escapeHtml(layer.label)} - ${escapeHtml(areaFormatter.format(layer.area))} m2</div>\n                ${layer.note ? `<div class=\"mt-1 text-sm font-semibold text-[#0d6cb6]\">${escapeHtml(layer.note)}</div>` : ''}\n                <span class=\"absolute -right-5 top-1/2 h-4 w-4 -translate-y-1/2 border-b-4 border-r-4 border-[#0d6cb6]\"></span>\n            </div>\n        `).join",
+          "lineNumber": 1863
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "layers.map",
+          "lineNumber": 1863
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "escapeHtml",
+          "lineNumber": 1865
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "escapeHtml",
+          "lineNumber": 1865
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "areaFormatter.format",
+          "lineNumber": 1865
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "escapeHtml",
+          "lineNumber": 1866
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "[\n                tumArea > 0 ? { label: 'Tum', area: tumArea, align: 'left' } : null,\n                terraceArea > 0 ? { label: 'ST', area: terraceArea, align: 'right' } : null,\n            ].filter",
+          "lineNumber": 1872
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "topFeatureItems.map((item) => item.label === 'Tum'\n                            ? `\n                                <div class=\"flex items-start\">\n                                    <div class=\"bg-white pr-2 text-left text-base font-black leading-none text-[#0d4f8f]\">\n                                        Tum= ${escapeHtml(areaFormatter.format(item.area))} m2\n                                    </div>\n                                </div>\n                            `\n                            : `\n                                <div class=\"flex items-center justify-end\">\n                                    <div class=\"pl-2 text-right text-base font-black leading-none text-[#0d4f8f]\">\n                                        ${escapeHtml(item.label)}= ${escapeHtml(areaFormatter.format(item.area))} m2\n                                    </div>\n                                </div>\n                            `).join",
+          "lineNumber": 1882
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "topFeatureItems.map",
+          "lineNumber": 1882
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "escapeHtml",
+          "lineNumber": 1886
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "areaFormatter.format",
+          "lineNumber": 1886
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "escapeHtml",
+          "lineNumber": 1893
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "escapeHtml",
+          "lineNumber": 1893
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "areaFormatter.format",
+          "lineNumber": 1893
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "escapeHtml",
+          "lineNumber": 1915
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "areaFormatter.format",
+          "lineNumber": 1915
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "escapeHtml",
+          "lineNumber": 1920
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "areaFormatter.format",
+          "lineNumber": 1920
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "escapeHtml",
+          "lineNumber": 1929
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "areaFormatter.format",
+          "lineNumber": 1929
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "escapeHtml",
+          "lineNumber": 1943
+        },
+        {
+          "caller": "renderIllustration",
+          "callee": "areaFormatter.format",
+          "lineNumber": 1943
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "selectedTab",
+          "lineNumber": 1949
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "JSON.parse",
+          "lineNumber": 1958
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "previewSheets.forEach",
+          "lineNumber": 1963
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "sheet.querySelector",
+          "lineNumber": 1964
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "sheet.querySelector",
+          "lineNumber": 1965
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "sheet.querySelectorAll",
+          "lineNumber": 1966
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "sheet.querySelector",
+          "lineNumber": 1967
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "sheet.querySelector",
+          "lineNumber": 1968
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "sheet.querySelector",
+          "lineNumber": 1969
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "sheet.querySelector",
+          "lineNumber": 1970
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "sheet.querySelector",
+          "lineNumber": 1971
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "sheet.querySelector",
+          "lineNumber": 1972
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "sheet.querySelector",
+          "lineNumber": 1973
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "sheet.querySelector",
+          "lineNumber": 1974
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "sheet.querySelector",
+          "lineNumber": 1975
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "sheet.querySelector",
+          "lineNumber": 1976
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "previewDelivery.forEach",
+          "lineNumber": 1986
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "displayItems.map((item) => `\n                        <li class=\"flex items-start justify-between gap-4 py-3\">\n                            <span class=\"font-semibold\">${escapeHtml(item.label)}</span>\n                            <span class=\"text-right\">${escapeHtml(item.displayValue)}</span>\n                        </li>\n                    `).join",
+          "lineNumber": 2000
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "displayItems.map",
+          "lineNumber": 2000
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "escapeHtml",
+          "lineNumber": 2002
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "escapeHtml",
+          "lineNumber": 2003
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "bullets.map((bullet) => `\n                        <li class=\"flex items-start gap-3\">\n                            <span class=\"mt-2 size-2 rounded-full bg-[#1d4ed8]\"></span>\n                            <span>${escapeHtml(bullet)}</span>\n                        </li>\n                    `).join",
+          "lineNumber": 2011
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "bullets.map",
+          "lineNumber": 2011
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "escapeHtml",
+          "lineNumber": 2014
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "formatArea",
+          "lineNumber": 2021
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "formatArea",
+          "lineNumber": 2025
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "renderPreviewPricing",
+          "lineNumber": 2032
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "renderPreviewComponentBreakdown",
+          "lineNumber": 2033
+        },
+        {
+          "caller": "renderPreviewSheets",
+          "callee": "renderPreviewRoomBreakdown",
+          "lineNumber": 2034
+        },
+        {
+          "caller": "renderGuideModal",
+          "callee": "selectedTab",
+          "lineNumber": 2039
+        },
+        {
+          "caller": "renderGuideModal",
+          "callee": "buildGuideItems",
+          "lineNumber": 2040
+        },
+        {
+          "caller": "renderGuideModal",
+          "callee": "activeLevelCode",
+          "lineNumber": 2040
+        },
+        {
+          "caller": "renderGuideModal",
+          "callee": "allGuideItems.find",
+          "lineNumber": 2042
+        },
+        {
+          "caller": "renderGuideModal",
+          "callee": "activeLevelCode",
+          "lineNumber": 2064
+        },
+        {
+          "caller": "renderGuideModal",
+          "callee": "guideItems.map((item) => `\n                <article class=\"rounded-[1.5rem] border border-slate-200 bg-slate-50 px-5 py-5\">\n                    <div class=\"flex flex-wrap items-center gap-3\">\n                        <span class=\"inline-flex rounded-full bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-[#0d6cb6]\">${escapeHtml(item.groupLabel)}</span>\n                        <h4 class=\"font-['Plus_Jakarta_Sans'] text-lg font-black text-slate-950\">${escapeHtml(item.guideTitle)}</h4>\n                    </div>\n                    <div class=\"theme-copy mt-3 text-sm leading-7 text-slate-600\">${formatGuideContent(item.guideContent)}</div>\n                    ${item.options.length > 0 ? `\n                        <div class=\"mt-4 flex flex-wrap gap-2\">\n                            ${item.options.map((option) => `\n                                <span class=\"inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600\">${escapeHtml(option)}</span>\n                            `).join('')}\n                        </div>\n                    ` : ''}\n                </article>\n            `).join",
+          "lineNumber": 2072
+        },
+        {
+          "caller": "renderGuideModal",
+          "callee": "guideItems.map",
+          "lineNumber": 2072
+        },
+        {
+          "caller": "renderGuideModal",
+          "callee": "escapeHtml",
+          "lineNumber": 2075
+        },
+        {
+          "caller": "renderGuideModal",
+          "callee": "escapeHtml",
+          "lineNumber": 2076
+        },
+        {
+          "caller": "renderGuideModal",
+          "callee": "formatGuideContent",
+          "lineNumber": 2078
+        },
+        {
+          "caller": "renderGuideModal",
+          "callee": "item.options.map((option) => `\n                                <span class=\"inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600\">${escapeHtml(option)}</span>\n                            `).join",
+          "lineNumber": 2081
+        },
+        {
+          "caller": "renderGuideModal",
+          "callee": "item.options.map",
+          "lineNumber": 2081
+        },
+        {
+          "caller": "renderGuideModal",
+          "callee": "escapeHtml",
+          "lineNumber": 2082
+        },
+        {
+          "caller": "syncBodyModalState",
+          "callee": "[modal, guideModal].some",
+          "lineNumber": 2096
+        },
+        {
+          "caller": "syncBodyModalState",
+          "callee": "node?.getAttribute",
+          "lineNumber": 2096
+        },
+        {
+          "caller": "syncBodyModalState",
+          "callee": "document.body.classList.toggle",
+          "lineNumber": 2098
+        },
+        {
+          "caller": "setModalState",
+          "callee": "target.classList.toggle",
+          "lineNumber": 2106
+        },
+        {
+          "caller": "setModalState",
+          "callee": "target.setAttribute",
+          "lineNumber": 2107
+        },
+        {
+          "caller": "setModalState",
+          "callee": "syncBodyModalState",
+          "lineNumber": 2108
+        },
+        {
+          "caller": "closeModal",
+          "callee": "setModalState",
+          "lineNumber": 2112
+        },
+        {
+          "caller": "openModal",
+          "callee": "closeGuideModal",
+          "lineNumber": 2116
+        },
+        {
+          "caller": "openModal",
+          "callee": "setModalState",
+          "lineNumber": 2117
+        },
+        {
+          "caller": "closeGuideModal",
+          "callee": "setModalState",
+          "lineNumber": 2122
+        },
+        {
+          "caller": "openGuideModal",
+          "callee": "closeModal",
+          "lineNumber": 2127
+        },
+        {
+          "caller": "openGuideModal",
+          "callee": "renderGuideModal",
+          "lineNumber": 2128
+        },
+        {
+          "caller": "openGuideModal",
+          "callee": "setModalState",
+          "lineNumber": 2129
+        },
+        {
+          "caller": "syncModal",
+          "callee": "selectedTab",
+          "lineNumber": 2133
+        },
+        {
+          "caller": "syncModal",
+          "callee": "buildInputMap",
+          "lineNumber": 2134
+        },
+        {
+          "caller": "syncModal",
+          "callee": "activeLevelCode",
+          "lineNumber": 2134
+        },
+        {
+          "caller": "syncModal",
+          "callee": "buildPayload",
+          "lineNumber": 2135
+        },
+        {
+          "caller": "syncModal",
+          "callee": "activeLevelCode",
+          "lineNumber": 2135
+        },
+        {
+          "caller": "syncModal",
+          "callee": "activeLevelCode",
+          "lineNumber": 2146
+        },
+        {
+          "caller": "syncModal",
+          "callee": "JSON.stringify",
+          "lineNumber": 2150
+        },
+        {
+          "caller": "syncModal",
+          "callee": "JSON.stringify",
+          "lineNumber": 2154
+        },
+        {
+          "caller": "syncModal",
+          "callee": "modalKeyWrap.classList.toggle",
+          "lineNumber": 2180
+        },
+        {
+          "caller": "syncModal",
+          "callee": "renderPreviewSheets",
+          "lineNumber": 2191
+        },
+        {
+          "caller": "setTabState",
+          "callee": "selectedTab",
+          "lineNumber": 2195
+        },
+        {
+          "caller": "setTabState",
+          "callee": "activeLevelCode",
+          "lineNumber": 2196
+        },
+        {
+          "caller": "setTabState",
+          "callee": "buildLevelInputMap",
+          "lineNumber": 2197
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tabs.forEach",
+          "lineNumber": 2199
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tab.querySelector",
+          "lineNumber": 2201
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tab.querySelector",
+          "lineNumber": 2202
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tab.querySelector",
+          "lineNumber": 2203
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tab.setAttribute",
+          "lineNumber": 2205
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tab.classList.toggle",
+          "lineNumber": 2206
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tab.classList.toggle",
+          "lineNumber": 2207
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tab.classList.toggle",
+          "lineNumber": 2208
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tab.classList.toggle",
+          "lineNumber": 2209
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tab.classList.toggle",
+          "lineNumber": 2210
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tab.classList.toggle",
+          "lineNumber": 2211
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tab.classList.toggle",
+          "lineNumber": 2212
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tab.classList.toggle",
+          "lineNumber": 2213
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tabLevelLabel?.classList.toggle",
+          "lineNumber": 2215
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tabLevelLabel?.classList.toggle",
+          "lineNumber": 2216
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tabBadge?.classList.toggle",
+          "lineNumber": 2217
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tabBadge?.classList.toggle",
+          "lineNumber": 2218
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tabBadge?.classList.toggle",
+          "lineNumber": 2219
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tabBadge?.classList.toggle",
+          "lineNumber": 2220
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tabDescription?.classList.toggle",
+          "lineNumber": 2221
+        },
+        {
+          "caller": "setTabState",
+          "callee": "tabDescription?.classList.toggle",
+          "lineNumber": 2222
+        },
+        {
+          "caller": "setTabState",
+          "callee": "fieldRows.forEach",
+          "lineNumber": 2225
+        },
+        {
+          "caller": "setTabState",
+          "callee": "parseLevelList(row.dataset.visibleLevels).includes",
+          "lineNumber": 2226
+        },
+        {
+          "caller": "setTabState",
+          "callee": "parseLevelList",
+          "lineNumber": 2226
+        },
+        {
+          "caller": "setTabState",
+          "callee": "dependencySatisfied",
+          "lineNumber": 2227
+        },
+        {
+          "caller": "setTabState",
+          "callee": "row.classList.toggle",
+          "lineNumber": 2229
+        },
+        {
+          "caller": "setTabState",
+          "callee": "row.setAttribute",
+          "lineNumber": 2230
+        },
+        {
+          "caller": "setTabState",
+          "callee": "row.querySelectorAll('[data-estimate-input]').forEach",
+          "lineNumber": 2231
+        },
+        {
+          "caller": "setTabState",
+          "callee": "row.querySelectorAll",
+          "lineNumber": 2231
+        },
+        {
+          "caller": "setTabState",
+          "callee": "activeLevelCode",
+          "lineNumber": 2245
+        },
+        {
+          "caller": "setTabState",
+          "callee": "requestButtons.forEach",
+          "lineNumber": 2254
+        },
+        {
+          "caller": "renderAll",
+          "callee": "renderCustomSections",
+          "lineNumber": 2260
+        },
+        {
+          "caller": "renderAll",
+          "callee": "activeLevelCode",
+          "lineNumber": 2260
+        },
+        {
+          "caller": "renderAll",
+          "callee": "buildInputMap",
+          "lineNumber": 2260
+        },
+        {
+          "caller": "renderAll",
+          "callee": "activeLevelCode",
+          "lineNumber": 2260
+        },
+        {
+          "caller": "renderAll",
+          "callee": "calculateEstimate",
+          "lineNumber": 2261
+        },
+        {
+          "caller": "renderAll",
+          "callee": "activeLevelCode",
+          "lineNumber": 2261
+        },
+        {
+          "caller": "renderAll",
+          "callee": "buildDisplayItems",
+          "lineNumber": 2262
+        },
+        {
+          "caller": "renderAll",
+          "callee": "activeLevelCode",
+          "lineNumber": 2262
+        },
+        {
+          "caller": "renderAll",
+          "callee": "showAlert",
+          "lineNumber": 2264
+        },
+        {
+          "caller": "renderAll",
+          "callee": "renderSummary",
+          "lineNumber": 2265
+        },
+        {
+          "caller": "renderAll",
+          "callee": "renderBreakdown",
+          "lineNumber": 2266
+        },
+        {
+          "caller": "renderAll",
+          "callee": "renderPricingCards",
+          "lineNumber": 2267
+        },
+        {
+          "caller": "renderAll",
+          "callee": "renderComponentTreeBreakdown",
+          "lineNumber": 2268
+        },
+        {
+          "caller": "renderAll",
+          "callee": "renderRoomBreakdown",
+          "lineNumber": 2269
+        },
+        {
+          "caller": "renderAll",
+          "callee": "renderIllustration",
+          "lineNumber": 2270
+        },
+        {
+          "caller": "renderAll",
+          "callee": "renderPreviewSheets",
+          "lineNumber": 2271
+        },
+        {
+          "caller": "renderAll",
+          "callee": "syncModal",
+          "lineNumber": 2272
+        },
+        {
+          "caller": "renderAll",
+          "callee": "guideModal?.getAttribute",
+          "lineNumber": 2274
+        },
+        {
+          "caller": "renderAll",
+          "callee": "renderGuideModal",
+          "lineNumber": 2275
+        },
+        {
+          "caller": "renderAll",
+          "callee": "formatArea",
+          "lineNumber": 2279
+        },
+        {
+          "caller": "renderAll",
+          "callee": "formatArea",
+          "lineNumber": 2283
+        },
+        {
+          "caller": "renderAll",
+          "callee": "`${result?.catalog_version || ''}`.trim",
+          "lineNumber": 2287
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "tabs.forEach",
+          "lineNumber": 2295
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "tab.addEventListener",
+          "lineNumber": 2296
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "tabs.forEach",
+          "lineNumber": 2297
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "item.setAttribute",
+          "lineNumber": 2298
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "syncTerraceInputs",
+          "lineNumber": 2301
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "syncDynamicDefaults",
+          "lineNumber": 2302
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "setTabState",
+          "lineNumber": 2303
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "renderAll",
+          "lineNumber": 2304
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "fieldRows.forEach",
+          "lineNumber": 2308
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "row.querySelector",
+          "lineNumber": 2309
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "guideButton.addEventListener",
+          "lineNumber": 2312
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "event.preventDefault",
+          "lineNumber": 2313
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "openGuideModal",
+          "lineNumber": 2314
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "row.querySelectorAll('[data-estimate-input]').forEach",
+          "lineNumber": 2318
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "row.querySelectorAll",
+          "lineNumber": 2318
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "control.addEventListener",
+          "lineNumber": 2321
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "syncTerraceInputs",
+          "lineNumber": 2322
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "syncDynamicDefaults",
+          "lineNumber": 2323
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "setTabState",
+          "lineNumber": 2324
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "renderAll",
+          "lineNumber": 2325
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "`${control?.dataset.inputGroup || ''}`.trim",
+          "lineNumber": 2330
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "uniqueCodes",
+          "lineNumber": 2337
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "designOptionState.filter",
+          "lineNumber": 2339
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "renderAll",
+          "lineNumber": 2340
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "uniqueCodes",
+          "lineNumber": 2345
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "specialAddonState.filter",
+          "lineNumber": 2347
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "renderAll",
+          "lineNumber": 2348
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "Number",
+          "lineNumber": 2356
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "`${control.dataset.field || ''}`.trim",
+          "lineNumber": 2357
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "normalizeCodeValue",
+          "lineNumber": 2365
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "compatibleTemplates",
+          "lineNumber": 2366
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "activeLevelCode",
+          "lineNumber": 2366
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "currentBuildingType",
+          "lineNumber": 2366
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "activeLevelCode",
+          "lineNumber": 2366
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "Math.max",
+          "lineNumber": 2369
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "Math.trunc",
+          "lineNumber": 2369
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "Number",
+          "lineNumber": 2369
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "normalizeCodeValue",
+          "lineNumber": 2371
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "uniqueCodes",
+          "lineNumber": 2373
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "row.extra_items.filter",
+          "lineNumber": 2375
+        },
+        {
+          "caller": "handleCustomInput",
+          "callee": "renderAll",
+          "lineNumber": 2378
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "roomProgramAddButton?.addEventListener",
+          "lineNumber": 2381
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "compatibleRoomTypes",
+          "lineNumber": 2382
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "activeLevelCode",
+          "lineNumber": 2382
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "currentBuildingType",
+          "lineNumber": 2382
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "activeLevelCode",
+          "lineNumber": 2382
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "defaultRoomProgramRow",
+          "lineNumber": 2386
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "activeLevelCode",
+          "lineNumber": 2386
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "currentBuildingType",
+          "lineNumber": 2386
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "activeLevelCode",
+          "lineNumber": 2386
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "renderAll",
+          "lineNumber": 2387
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.addEventListener",
+          "lineNumber": 2390
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "event.target.closest",
+          "lineNumber": 2391
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "`${actionButton.dataset.roomProgramAction || ''}`.trim",
+          "lineNumber": 2397
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Number",
+          "lineNumber": 2398
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "Number.isInteger",
+          "lineNumber": 2400
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "roomProgramState.filter",
+          "lineNumber": 2401
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "renderAll",
+          "lineNumber": 2402
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.addEventListener",
+          "lineNumber": 2406
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "event.target.closest",
+          "lineNumber": 2407
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "handleCustomInput",
+          "lineNumber": 2410
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "landing.addEventListener",
+          "lineNumber": 2414
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "event.target.closest",
+          "lineNumber": 2415
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "handleCustomInput",
+          "lineNumber": 2418
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "guideButtons.forEach",
+          "lineNumber": 2422
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "button.addEventListener",
+          "lineNumber": 2423
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "openGuideModal",
+          "lineNumber": 2424
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "requestButtons.forEach",
+          "lineNumber": 2428
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "button.addEventListener",
+          "lineNumber": 2429
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "buildInputMap",
+          "lineNumber": 2430
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "activeLevelCode",
+          "lineNumber": 2430
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "validateInputs",
+          "lineNumber": 2431
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "activeLevelCode",
+          "lineNumber": 2431
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "showAlert",
+          "lineNumber": 2434
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "errors.slice",
+          "lineNumber": 2434
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "formAlert?.scrollIntoView",
+          "lineNumber": 2435
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "renderAll",
+          "lineNumber": 2439
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "syncModal",
+          "lineNumber": 2441
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "openModal",
+          "lineNumber": 2442
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelectorAll('[data-estimate-close], [data-estimate-backdrop]').forEach",
+          "lineNumber": 2446
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.querySelectorAll",
+          "lineNumber": 2446
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "button.addEventListener",
+          "lineNumber": 2447
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "guideModal?.querySelectorAll('[data-estimate-guide-close], [data-estimate-guide-backdrop]').forEach",
+          "lineNumber": 2450
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "guideModal?.querySelectorAll",
+          "lineNumber": 2450
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "button.addEventListener",
+          "lineNumber": 2451
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "document.addEventListener",
+          "lineNumber": 2454
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "modal?.getAttribute",
+          "lineNumber": 2459
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "closeModal",
+          "lineNumber": 2460
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "guideModal?.getAttribute",
+          "lineNumber": 2463
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "closeGuideModal",
+          "lineNumber": 2464
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "syncTerraceInputs",
+          "lineNumber": 2468
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "syncDynamicDefaults",
+          "lineNumber": 2469
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "setTabState",
+          "lineNumber": 2470
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "renderAll",
+          "lineNumber": 2471
+        },
+        {
+          "caller": "initEstimateLanding",
+          "callee": "openModal",
+          "lineNumber": 2474
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/lang/en/pagination.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 6,
+      "nonEmptyLines": 5,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/admin/seo/pages/edit.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 27,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/admin/seo/pages/index.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 88,
+      "nonEmptyLines": 80,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/components/action-message.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 13,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/components/admin/form-action-bar.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/components/admin/form-feedback.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 38,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/components/admin/image-dropzone.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 95,
+      "nonEmptyLines": 80,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/components/admin/quill-editor.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 27,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/components/app-logo-icon.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/components/app-logo.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 28,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

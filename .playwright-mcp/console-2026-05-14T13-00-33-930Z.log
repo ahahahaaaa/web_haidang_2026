@@ -1,0 +1,7 @@
+[    6388ms] [ERROR] Failed to load resource: net::ERR_CERT_AUTHORITY_INVALID @ https://127.0.0.1:8443/ao-mua-Haidangtravel-hinh-1.jpg:0
+[    6392ms] [ERROR] Failed to load resource: net::ERR_CERT_AUTHORITY_INVALID @ https://127.0.0.1:8443/Bao-da-ho-chieu-Haidangtravel-hinh-1.jpg:0
+[    6398ms] [ERROR] Failed to load resource: net::ERR_CERT_AUTHORITY_INVALID @ https://127.0.0.1:8443/voucher-giam-gia-50-000-cho-moi-khach-hinh-1.png:0
+[    6398ms] [ERROR] Failed to load resource: net::ERR_CERT_AUTHORITY_INVALID @ https://127.0.0.1:8443/Tui-Canva-Haidangtravel-hinh-1.jpg:0
+[    6403ms] [ERROR] Failed to load resource: net::ERR_CERT_AUTHORITY_INVALID @ https://127.0.0.1:8443/Balo-du-lich-Haidangtravel-hinh-1.jpg:0
+[    6404ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8001/_boost/browser-logs @ http://127.0.0.1:8001/diem-thuong?phone=0909794299&orders_page=2:43
+[    6406ms] [ERROR] Failed to load resource: net::ERR_CERT_AUTHORITY_INVALID @ https://127.0.0.1:8443/Vali-du-lich-Haidangtravel-hinh-1.jpg:0

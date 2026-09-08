@@ -1,0 +1,9 @@
+@import './app.css';
+@import 'animate.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
+
+@source '../views/themes/haidangtravel/**/*.blade.php';
+@source '../views/vendor/pagination/**/*.blade.php';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';

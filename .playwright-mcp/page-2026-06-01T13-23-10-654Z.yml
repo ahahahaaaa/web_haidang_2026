@@ -1,0 +1,303 @@
+- generic [active] [ref=e1]:
+  - link "Bỏ qua điều hướng & tới nội dung chính" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8010
+        - img "Du Lịch Hải Đăng Travel" [ref=e7]
+      - navigation [ref=e8]:
+        - link "Trang chủ" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "Về chúng tôi" [ref=e10] [cursor=pointer]:
+          - /url: /ve-chung-toi
+        - link "Tour trong nước" [ref=e11] [cursor=pointer]:
+          - /url: /tour-trong-nuoc
+        - link "Tour nước ngoài" [ref=e12] [cursor=pointer]:
+          - /url: /tour-nuoc-ngoai
+        - link "Tour đoàn" [ref=e13] [cursor=pointer]:
+          - /url: /tour-doan
+        - link "Dịch vụ" [ref=e14] [cursor=pointer]:
+          - /url: /dich-vu
+        - link "Blog" [ref=e15] [cursor=pointer]:
+          - /url: /blog
+        - link "Liên hệ" [ref=e16] [cursor=pointer]:
+          - /url: /lien-he
+      - link "Gọi 0911222288" [ref=e18] [cursor=pointer]:
+        - /url: tel:0911222288
+        - generic [ref=e20]: "0911222288"
+  - main [ref=e21]:
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - paragraph [ref=e25]: Nhận voucher miễn phí 200.000đ
+        - heading "Áp dụng tất cả tour trong & ngoài nước" [level=1] [ref=e27]
+        - paragraph [ref=e28]: Không giới hạn điểm đến - Hưởng ưu đãi ngay hôm nay
+      - generic [ref=e30]:
+        - heading "Quy trình nhận ưu đãi" [level=2] [ref=e34]
+        - generic "Quy trình nhận voucher" [ref=e35]:
+          - generic [ref=e36]:
+            - generic [ref=e38]: "01"
+            - generic [ref=e39]:
+              - strong [ref=e42]: Liên hệ chuyên viên
+              - paragraph [ref=e43]: Hotline / Zalo / Website - Đội ngũ tư vấn sẵn sàng hỗ trợ.
+          - generic [ref=e44]:
+            - generic [ref=e46]: "02"
+            - generic [ref=e47]:
+              - strong [ref=e50]: Chia sẻ gu chuyến đi
+              - paragraph [ref=e51]: Biển, núi, team building, nghỉ dưỡng hoặc tour nước ngoài.
+          - generic [ref=e52]:
+            - generic [ref=e54]: "03"
+            - generic [ref=e55]:
+              - strong [ref=e58]: Nhận voucher & gợi ý
+              - paragraph [ref=e59]: Tư vấn viên gửi voucher 200.000đ và đề xuất tour phù hợp nhất.
+        - paragraph [ref=e66]: Hành trình không giới hạn
+      - generic [ref=e68]:
+        - generic [ref=e69]:
+          - paragraph [ref=e70]: Voucher đặc quyền
+          - strong [ref=e72]: 200.000đ
+          - paragraph [ref=e73]: Miễn phí - Cho mọi tour trong & ngoài nước
+          - generic [ref=e77]: "Áp dụng toàn bộ tour: Thái Lan, Nhật Bản, Pháp, Đà Nẵng, Phú Quốc..."
+          - list "Quyền lợi voucher" [ref=e78]:
+            - listitem [ref=e79]:
+              - generic [ref=e81]: Voucher trừ trực tiếp 200.000đ vào hóa đơn tour
+            - listitem [ref=e82]:
+              - generic [ref=e84]: Tư vấn lộ trình riêng, thiết kế theo sở thích
+            - listitem [ref=e85]:
+              - generic [ref=e87]: Hỗ trợ visa, vé máy bay, khách sạn chuẩn 5 sao
+            - listitem [ref=e88]:
+              - generic [ref=e90]: Tặng kèm quà tặng du lịch khi đặt tour
+        - generic "Thời gian còn lại của voucher" [ref=e91]:
+          - paragraph [ref=e92]: Chương trình kết thúc sau
+          - generic [ref=e94]:
+            - generic [ref=e95]:
+              - strong [ref=e96]: "27"
+              - generic [ref=e97]: Ngày
+            - generic [ref=e98]:
+              - strong [ref=e99]: "03"
+              - generic [ref=e100]: Giờ
+            - generic [ref=e101]:
+              - strong [ref=e102]: "36"
+              - generic [ref=e103]: Phút
+            - generic [ref=e104]:
+              - strong [ref=e105]: "49"
+              - generic [ref=e106]: Giây
+          - paragraph [ref=e107]: Áp dụng đến hết ngày 28/06/2026
+        - generic [ref=e108]:
+          - button "Nhận voucher ngay" [ref=e109] [cursor=pointer]: Nhận voucher ngay
+          - generic "Mã ưu đãi đặc biệt" [ref=e111]:
+            - generic [ref=e112]: "Mã ưu đãi đặc biệt:"
+            - strong [ref=e114]: HDTRAVEL200
+        - paragraph [ref=e116]: Không bắt buộc đặt tour. Tư vấn viên chỉ liên hệ khi bạn để lại thông tin.
+        - paragraph [ref=e118]: Hotline 0911222288 - Nhận voucher ngay qua tổng đài
+    - generic [ref=e121]:
+      - generic [ref=e122]:
+        - heading "Vì sao nên nhận voucher qua Hải Đăng Travel?" [level=2] [ref=e123]
+        - paragraph [ref=e124]: Ưu đãi chỉ hữu ích khi đi kèm tư vấn đúng nhu cầu. Landing này gom nhanh thông tin để đội ngũ đề xuất tour và dịch vụ phù hợp hơn.
+      - generic [ref=e125]:
+        - article [ref=e126]:
+          - generic [ref=e128]:
+            - generic [ref=e129]:
+              - generic [ref=e130]: Tư vấn nhanh
+              - generic [ref=e131]: "01"
+            - generic [ref=e135]:
+              - heading "Một form là đủ để bắt đầu" [level=3] [ref=e136]
+              - paragraph [ref=e137]: Thông tin được chuyển thẳng về CMS Travel Inquiries, giúp đội ngũ sale nhìn được nhu cầu và phản hồi đúng ngữ cảnh.
+        - generic [ref=e138]:
+          - article [ref=e139]:
+            - generic [ref=e143]:
+              - generic [ref=e144]:
+                - generic [ref=e145]: Ưu đãi rõ ràng
+                - generic [ref=e146]: "02"
+              - heading "Voucher gắn với nhu cầu tour thật" [level=3] [ref=e147]
+              - paragraph [ref=e148]: Khách để lại điểm đến, ngày đi hoặc số lượng khách để được gợi ý cách dùng voucher hợp lý.
+          - article [ref=e149]:
+            - generic [ref=e153]:
+              - generic [ref=e154]:
+                - generic [ref=e155]: Hợp khách trẻ
+                - generic [ref=e156]: "03"
+              - heading "CTA ngắn, hình ảnh vui và thao tác ít" [level=3] [ref=e157]
+              - paragraph [ref=e158]: Luồng nội dung ưu tiên đăng ký nhanh trên mobile, sau đó tư vấn viên tiếp tục chăm sóc qua điện thoại.
+    - generic [ref=e160]:
+      - generic [ref=e161]:
+        - heading "Tour dễ dùng voucher" [level=2] [ref=e162]
+        - paragraph [ref=e163]: Gợi ý nhanh các tour đang được ưu tiên trên hệ thống. Danh sách lấy từ dữ liệu tour đã publish, không nhập tay trong landing.
+      - generic [ref=e164]:
+        - article [ref=e165]:
+          - generic [ref=e166]:
+            - generic [ref=e168]:
+              - generic [ref=e169]: Tour trong nước
+              - generic [ref=e171]:
+                - generic [ref=e172]: Miền Bắc
+                - generic [ref=e174]: 1 / 1
+            - img "HÀ NỘI - HÀ GIANG - SAPA - ĐỈNH FANSIPAN 5N4Đ" [ref=e176]
+            - button "Chọn ảnh 1 của tour" [pressed] [ref=e180]:
+              - img "HÀ NỘI - HÀ GIANG - SAPA - ĐỈNH FANSIPAN 5N4Đ" [ref=e182]
+          - generic [ref=e183]:
+            - generic [ref=e185]: 2 sao
+            - heading "TOUR DU LỊCH HÀ NỘI - HÀ GIANG - SAPA - ĐỈNH FANSIPAN 5N4Đ" [level=3] [ref=e186]:
+              - link "TOUR DU LỊCH HÀ NỘI - HÀ GIANG - SAPA - ĐỈNH FANSIPAN 5N4Đ" [ref=e187] [cursor=pointer]:
+                - /url: http://127.0.0.1:8010/chuong-trinh/du-lich-ha-noi-sapa-dinh-fansipan-haidang230927
+            - paragraph [ref=e188]: Phù hợp cho gia đình, nhóm bạn hoặc khách muốn chốt lịch nhanh. Điểm nổi bật là HÀ NỘI - HÀ GIANG với lộ trình 5 ngày 4 đêm và phương tiện Máy bay. Mở chi tiết để xem tiêu chuẩn, giá và tình...
+            - generic [ref=e189]:
+              - generic [ref=e193]:
+                - generic [ref=e194]: "Khởi Hành:"
+                - generic [ref=e195]: Liên hệ
+              - generic [ref=e200]: 5 ngày 4 đêm
+              - generic [ref=e205]: Máy bay
+            - generic [ref=e206]:
+              - generic [ref=e207]:
+                - paragraph [ref=e208]: Giá từ
+                - generic [ref=e209]:
+                  - paragraph [ref=e210]: 10.000 đ
+                  - paragraph [ref=e211]: 8.990.000 đ
+              - link "Xem" [ref=e213] [cursor=pointer]:
+                - /url: http://127.0.0.1:8010/chuong-trinh/du-lich-ha-noi-sapa-dinh-fansipan-haidang230927
+                - text: Xem
+        - article [ref=e215]:
+          - generic [ref=e216]:
+            - generic [ref=e218]:
+              - generic [ref=e219]: Tour nước ngoài
+              - generic [ref=e221]:
+                - generic [ref=e222]: Việt Nam
+                - generic [ref=e224]: 1 / 3
+            - generic:
+              - button "Ảnh trước" [ref=e225]
+              - button "Ảnh tiếp theo" [ref=e227]
+            - img "KHÁM PHÁ MIỀN SƠN CƯỚC KASHMIR 6N5Đ" [ref=e230]
+            - generic [ref=e233]:
+              - button "Chọn ảnh 1 của tour" [pressed] [ref=e234]:
+                - img "KHÁM PHÁ MIỀN SƠN CƯỚC KASHMIR 6N5Đ" [ref=e236]
+              - button "Chọn ảnh 2 của tour" [ref=e237]:
+                - img "KHÁM PHÁ MIỀN SƠN CƯỚC KASHMIR 6N5Đ" [ref=e239]
+              - button "Chọn ảnh 3 của tour" [ref=e240]:
+                - img "KHÁM PHÁ MIỀN SƠN CƯỚC KASHMIR 6N5Đ" [ref=e242]
+          - generic [ref=e243]:
+            - generic [ref=e245]: 4 sao
+            - heading "KHÁM PHÁ MIỀN SƠN CƯỚC KASHMIR 6N5Đ" [level=3] [ref=e246]:
+              - link "KHÁM PHÁ MIỀN SƠN CƯỚC KASHMIR 6N5Đ" [ref=e247] [cursor=pointer]:
+                - /url: http://127.0.0.1:8010/chuong-trinh/tour-du-lich-an-do-hd004
+            - paragraph [ref=e248]: Phù hợp cho khách cần so sánh ngày đi, chi phí và hồ sơ trước chuyến quốc tế. Điểm nổi bật là KHÁM PHÁ MIỀN SƠN CƯỚC KASHMIR với lộ trình 6 ngày 5 đêm và phương tiện Máy Bay. Mở chi tiết để...
+            - generic [ref=e249]:
+              - generic [ref=e253]:
+                - generic [ref=e254]: "Khởi Hành:"
+                - generic [ref=e255]: 29/04/2026
+              - generic [ref=e260]: 6 ngày 5 đêm
+              - generic [ref=e265]: Máy Bay
+            - generic [ref=e266]:
+              - generic [ref=e267]:
+                - paragraph [ref=e268]: Giá từ
+                - generic [ref=e269]:
+                  - paragraph [ref=e270]: 10.590.000 đ
+                  - paragraph [ref=e271]: 5.590.000 đ
+              - link "Xem" [ref=e273] [cursor=pointer]:
+                - /url: http://127.0.0.1:8010/chuong-trinh/tour-du-lich-an-do-hd004
+                - text: Xem
+        - article [ref=e275]:
+          - generic [ref=e276]:
+            - generic [ref=e278]:
+              - generic [ref=e279]: Tour nước ngoài
+              - generic [ref=e281]:
+                - generic [ref=e282]: Châu Á
+                - generic [ref=e284]: 1 / 1
+            - 'img "LIÊN TUYÊN: SINGAPORE - MALAYSIA 5 NGÀY 4 ĐÊM" [ref=e286]'
+            - button "Chọn ảnh 1 của tour" [pressed] [ref=e290]:
+              - 'img "LIÊN TUYÊN: SINGAPORE - MALAYSIA 5 NGÀY 4 ĐÊM" [ref=e292]'
+          - generic [ref=e293]:
+            - generic [ref=e295]: 3 sao
+            - 'heading "LIÊN TUYÊN: SINGAPORE - MALAYSIA 5 NGÀY 4 ĐÊM" [level=3] [ref=e296]':
+              - 'link "LIÊN TUYÊN: SINGAPORE - MALAYSIA 5 NGÀY 4 ĐÊM" [ref=e297] [cursor=pointer]':
+                - /url: http://127.0.0.1:8010/chuong-trinh/tour-singapore-malaysia-hd01
+            - paragraph [ref=e298]: "Phù hợp cho khách cần so sánh ngày đi, chi phí và hồ sơ trước chuyến quốc tế. Điểm nổi bật là LIÊN TUYÊN: SINGAPORE - MALAYSIA 5 NGÀY 4 ĐÊM với lộ trình 5 ngày 4 đêm và phương tiện Máy Bay...."
+            - generic [ref=e299]:
+              - generic [ref=e303]:
+                - generic [ref=e304]: "Khởi Hành:"
+                - generic [ref=e305]: 29/04/2026
+              - generic [ref=e310]: 5 ngày 4 đêm
+              - generic [ref=e315]: Máy Bay
+            - generic [ref=e316]:
+              - generic [ref=e317]:
+                - paragraph [ref=e318]: Giá từ
+                - generic [ref=e319]:
+                  - paragraph [ref=e320]: 13.998.000 đ
+                  - paragraph [ref=e321]: 12.690.000 đ
+              - link "Xem" [ref=e323] [cursor=pointer]:
+                - /url: http://127.0.0.1:8010/chuong-trinh/tour-singapore-malaysia-hd01
+                - text: Xem
+    - generic [ref=e327]:
+      - heading "Câu hỏi nhanh về voucher" [level=2] [ref=e329]
+      - generic [ref=e330]:
+        - article [ref=e331]:
+          - heading "Voucher được phát mã như thế nào?" [level=3] [ref=e332]:
+            - button "Voucher được phát mã như thế nào?" [expanded] [ref=e333]:
+              - generic [ref=e334]: Voucher được phát mã như thế nào?
+          - region "Voucher được phát mã như thế nào?" [ref=e337]:
+            - paragraph [ref=e339]: Campaign voucher có thời gian áp dụng từ ngày bắt đầu đến ngày kết thúc, số lượng mã giới hạn và một frame hình chung cho popup hiển thị mã. Khi khách gửi form thành công, hệ thống cấp một mã còn trống và lưu cùng lead trong Travel Inquiries.
+        - article [ref=e340]:
+          - heading "Tôi có thể xem lại mã sau khi đã submit không?" [level=3] [ref=e341]:
+            - button "Tôi có thể xem lại mã sau khi đã submit không?" [ref=e342]:
+              - generic [ref=e343]: Tôi có thể xem lại mã sau khi đã submit không?
+        - article [ref=e346]:
+          - heading "Nếu bộ mã voucher được đổi mới thì sao?" [level=3] [ref=e347]:
+            - button "Nếu bộ mã voucher được đổi mới thì sao?" [ref=e348]:
+              - generic [ref=e349]: Nếu bộ mã voucher được đổi mới thì sao?
+  - contentinfo [ref=e352]:
+    - generic [ref=e353]:
+      - generic [ref=e354]:
+        - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=e355] [cursor=pointer]:
+          - /url: http://127.0.0.1:8010
+          - img "Du Lịch Hải Đăng Travel" [ref=e357]
+        - paragraph [ref=e358]: Haidang Travel chuyên tổ chức du lịch, teambuilding, event trong và ngoài nước.
+        - generic [ref=e359]:
+          - paragraph [ref=e360]:
+            - generic [ref=e363]: Tòa nhà Building Haidang 367 Tân Sơn, Phường Tân Sơn, thành phố Hồ Chí Minh
+          - paragraph [ref=e364]:
+            - generic [ref=e367]: 1900.2011 · 0911222288
+          - paragraph [ref=e368]:
+            - generic [ref=e371]: info@haidangtravel.com
+          - paragraph [ref=e372]:
+            - generic [ref=e375]: "Giấy phép lữ hành: 79-723/2017/TCDL-GP LHQT"
+      - generic [ref=e377]:
+        - heading "Đi nhanh" [level=2] [ref=e378]
+        - list [ref=e379]:
+          - listitem [ref=e380]:
+            - link "Tour trong nước" [ref=e381] [cursor=pointer]:
+              - /url: /tour-trong-nuoc
+          - listitem [ref=e382]:
+            - link "Tour nước ngoài" [ref=e383] [cursor=pointer]:
+              - /url: /tour-nuoc-ngoai
+          - listitem [ref=e384]:
+            - link "Tour đoàn" [ref=e385] [cursor=pointer]:
+              - /url: /tour-doan
+          - listitem [ref=e386]:
+            - link "Dịch vụ" [ref=e387] [cursor=pointer]:
+              - /url: /dich-vu
+          - listitem [ref=e388]:
+            - link "Blog" [ref=e389] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=e390]:
+            - link "Liên hệ" [ref=e391] [cursor=pointer]:
+              - /url: /lien-he
+      - generic [ref=e392]:
+        - heading "Kênh hỗ trợ" [level=2] [ref=e393]
+        - generic [ref=e394]:
+          - link "Zalo hỗ trợ" [ref=e395] [cursor=pointer]:
+            - /url: https://zalo.me/0911222288
+            - img [ref=e397]
+            - generic [ref=e399]: Zalo hỗ trợ
+          - link "Fanpage chính thức" [ref=e400] [cursor=pointer]:
+            - /url: https://www.facebook.com/haidangtravel
+            - generic [ref=e404]: Fanpage chính thức
+          - link "YouTube Channel" [ref=e405] [cursor=pointer]:
+            - /url: https://youtube.com/@
+            - generic [ref=e409]: YouTube Channel
+          - link "LinkedIn" [ref=e410] [cursor=pointer]:
+            - /url: https://linkedin.com/company/
+            - generic [ref=e414]: LinkedIn
+        - generic [ref=e415]:
+          - link "Đã thông báo Bộ Công Thương":
+            - /url: http://online.gov.vn/Home/WebDetails/15656
+            - img "Đã thông báo Bộ Công Thương"
+          - link "DMCA.com Protection Status" [ref=e416] [cursor=pointer]:
+            - /url: https://www.dmca.com/Protection/Status.aspx?ID=0b22a7b7-ed93-4820-acbf-7bd6d1caaf34
+            - img "DMCA.com Protection Status" [ref=e417]
+    - generic [ref=e418]: © Haidang Travel

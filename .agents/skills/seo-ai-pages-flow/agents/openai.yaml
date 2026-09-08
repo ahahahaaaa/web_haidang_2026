@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO AI Pages"
+  short_description: "Tạo và tối ưu SEO Pages theo flow AI + QA"
+  default_prompt: "Use $seo-ai-pages-flow to create, generate, QA, and optimize SEO Pages in this construction-company repo."

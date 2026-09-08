@@ -1,0 +1,4 @@
+interface:
+  display_name: "Landing Page Creator"
+  short_description: "Current landing templates and banner rules"
+  default_prompt: "Use $landingpage-creator to create or refine a Haidang Travel landing page with current block templates, banner count rules, sliders, media, and query-driven lists."

@@ -1,0 +1,285 @@
+- generic [active] [ref=e1]:
+  - link "Bỏ qua điều hướng & tới nội dung chính" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8010
+        - img "Du Lịch Hải Đăng Travel" [ref=e7]
+      - group [ref=e8]:
+        - generic "Mở menu" [ref=e9]:
+          - generic [ref=e11]: Mở menu
+  - main [ref=e12]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - generic [ref=e17]: Giới hạn - nhận ngay
+          - generic [ref=e19]: Premium
+        - generic [ref=e21]:
+          - paragraph [ref=e22]: Voucher du lịch
+          - heading "Nhận voucher 200.000đ cho chuyến đi tiếp theo" [level=1] [ref=e23]:
+            - text: Nhận voucher
+            - generic [ref=e24]: 200.000đ
+            - text: cho chuyến đi tiếp theo
+          - paragraph [ref=e25]: Đăng ký nhanh để giữ ưu đãi, nhận gợi ý tour phù hợp với lịch trình, ngân sách và phong cách du lịch của bạn.
+        - list "Quyền lợi voucher" [ref=e26]:
+          - listitem [ref=e27]: Voucher ưu đãi 200.000đ
+          - listitem [ref=e29]: Quà tặng theo chương trình
+          - listitem [ref=e31]: Gợi ý tour theo lịch trình
+          - listitem [ref=e33]: Tư vấn miễn phí qua điện thoại
+        - generic "Tóm tắt ưu đãi" [ref=e35]:
+          - generic [ref=e36]: Ưu đãi trong tháng
+          - strong [ref=e37]: HDTRAVEL200
+          - generic [ref=e38]: Điều kiện áp dụng sẽ được tư vấn viên xác nhận khi liên hệ.
+        - generic "Thời gian còn lại của voucher" [ref=e39]:
+          - paragraph [ref=e40]: Ưu đãi kết thúc sau
+          - generic [ref=e41]:
+            - generic [ref=e42]:
+              - strong [ref=e43]: "27"
+              - generic [ref=e44]: Ngày
+            - generic [ref=e45]:
+              - strong [ref=e46]: "13"
+              - generic [ref=e47]: Giờ
+            - generic [ref=e48]:
+              - strong [ref=e49]: "48"
+              - generic [ref=e50]: Phút
+            - generic [ref=e51]:
+              - strong [ref=e52]: "37"
+              - generic [ref=e53]: Giây
+          - paragraph [ref=e54]: Áp dụng đến 28/06/2026 23:59
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - paragraph [ref=e57]: Đăng ký trong 1 phút
+          - heading "Nhận voucher nhanh, tư vấn tour đúng gu." [level=2] [ref=e59]:
+            - text: Nhận voucher nhanh,
+            - generic [ref=e60]: tư vấn tour đúng gu.
+          - paragraph [ref=e61]: Để lại số điện thoại, Hải Đăng Travel sẽ liên hệ và gợi ý tour phù hợp với lịch trình, ngân sách và nhu cầu của bạn.
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - generic [ref=e64]: "01"
+            - strong [ref=e66]: Để lại số điện thoại
+            - paragraph [ref=e67]: Thông tin được ghi nhận để tư vấn viên liên hệ nhanh hơn.
+          - generic [ref=e68]:
+            - generic [ref=e69]: "02"
+            - strong [ref=e71]: Chia sẻ gu chuyến đi
+            - paragraph [ref=e72]: Biển, núi, team building, nghỉ dưỡng hoặc tour nước ngoài.
+          - generic [ref=e73]:
+            - generic [ref=e74]: "03"
+            - strong [ref=e76]: Nhận gợi ý phù hợp
+            - paragraph [ref=e77]: Tư vấn viên liên hệ, giữ voucher và đề xuất tour phù hợp.
+        - generic [ref=e78]:
+          - button "Nhận voucher ngay" [ref=e79] [cursor=pointer]: Nhận voucher ngay
+          - link "Xem tour phù hợp" [ref=e81] [cursor=pointer]:
+            - /url: /tour-trong-nuoc
+            - text: Xem tour phù hợp
+        - paragraph [ref=e83]: Không bắt buộc đặt tour. Tư vấn viên chỉ liên hệ khi bạn để lại thông tin.
+    - generic [ref=e86]:
+      - generic [ref=e87]:
+        - heading "Vì sao nên nhận voucher qua Hải Đăng Travel?" [level=2] [ref=e88]
+        - paragraph [ref=e89]: Ưu đãi chỉ hữu ích khi đi kèm tư vấn đúng nhu cầu. Landing này gom nhanh thông tin để đội ngũ đề xuất tour và dịch vụ phù hợp hơn.
+      - generic [ref=e90]:
+        - article [ref=e91]:
+          - generic [ref=e93]:
+            - generic [ref=e94]:
+              - generic [ref=e95]: Tư vấn nhanh
+              - generic [ref=e96]: "01"
+            - generic [ref=e100]:
+              - heading "Một form là đủ để bắt đầu" [level=3] [ref=e101]
+              - paragraph [ref=e102]: Thông tin được chuyển thẳng về CMS Travel Inquiries, giúp đội ngũ sale nhìn được nhu cầu và phản hồi đúng ngữ cảnh.
+        - generic [ref=e103]:
+          - article [ref=e104]:
+            - generic [ref=e108]:
+              - generic [ref=e109]:
+                - generic [ref=e110]: Ưu đãi rõ ràng
+                - generic [ref=e111]: "02"
+              - heading "Voucher gắn với nhu cầu tour thật" [level=3] [ref=e112]
+              - paragraph [ref=e113]: Khách để lại điểm đến, ngày đi hoặc số lượng khách để được gợi ý cách dùng voucher hợp lý.
+          - article [ref=e114]:
+            - generic [ref=e118]:
+              - generic [ref=e119]:
+                - generic [ref=e120]: Hợp khách trẻ
+                - generic [ref=e121]: "03"
+              - heading "CTA ngắn, hình ảnh vui và thao tác ít" [level=3] [ref=e122]
+              - paragraph [ref=e123]: Luồng nội dung ưu tiên đăng ký nhanh trên mobile, sau đó tư vấn viên tiếp tục chăm sóc qua điện thoại.
+    - generic [ref=e125]:
+      - generic [ref=e126]:
+        - heading "Tour dễ dùng voucher" [level=2] [ref=e127]
+        - paragraph [ref=e128]: Gợi ý nhanh các tour đang được ưu tiên trên hệ thống. Danh sách lấy từ dữ liệu tour đã publish, không nhập tay trong landing.
+      - generic [ref=e129]:
+        - article [ref=e130]:
+          - link "HÀ NỘI - HÀ GIANG - SAPA - ĐỈNH FANSIPAN 5N4Đ Tour trong nước Miền Bắc HÀ NỘI - HÀ GIANG đi Hà Giang Tư vấn thêm" [ref=e131] [cursor=pointer]:
+            - /url: http://127.0.0.1:8010/chuong-trinh/du-lich-ha-noi-sapa-dinh-fansipan-haidang230927
+            - img "HÀ NỘI - HÀ GIANG - SAPA - ĐỈNH FANSIPAN 5N4Đ" [ref=e132]
+            - generic [ref=e133]:
+              - generic [ref=e134]: Tour trong nước
+              - generic [ref=e136]: Miền Bắc
+            - generic [ref=e138]:
+              - generic [ref=e139]:
+                - paragraph [ref=e140]:
+                  - generic [ref=e142]: HÀ NỘI - HÀ GIANG
+                - paragraph [ref=e143]: đi Hà Giang
+              - generic [ref=e144]: Tư vấn thêm
+          - generic [ref=e146]:
+            - generic [ref=e148]: 2 sao
+            - heading "TOUR DU LỊCH HÀ NỘI - HÀ GIANG - SAPA - ĐỈNH FANSIPAN 5N4Đ" [level=3] [ref=e149]:
+              - link "TOUR DU LỊCH HÀ NỘI - HÀ GIANG - SAPA - ĐỈNH FANSIPAN 5N4Đ" [ref=e150] [cursor=pointer]:
+                - /url: http://127.0.0.1:8010/chuong-trinh/du-lich-ha-noi-sapa-dinh-fansipan-haidang230927
+            - generic [ref=e151]:
+              - generic [ref=e155]:
+                - generic [ref=e156]: "Khởi Hành:"
+                - generic [ref=e157]: Liên hệ
+              - generic [ref=e162]: 5 ngày 4 đêm
+              - generic [ref=e167]: Máy bay
+            - generic [ref=e168]:
+              - generic [ref=e169]:
+                - paragraph [ref=e170]: Giá từ
+                - generic [ref=e171]:
+                  - paragraph [ref=e172]: 10.000 đ
+                  - paragraph [ref=e173]: 8.990.000 đ
+              - link "Xem" [ref=e175] [cursor=pointer]:
+                - /url: http://127.0.0.1:8010/chuong-trinh/du-lich-ha-noi-sapa-dinh-fansipan-haidang230927
+                - text: Xem
+        - article [ref=e177]:
+          - 'link "KHÁM PHÁ MIỀN SƠN CƯỚC KASHMIR 6N5Đ Tour nước ngoài Việt Nam KHÁM PHÁ MIỀN SƠN CƯỚC KASHMIR về lại Srinagar và tham quan: Tư vấn thêm" [ref=e178] [cursor=pointer]':
+            - /url: http://127.0.0.1:8010/chuong-trinh/tour-du-lich-an-do-hd004
+            - img "KHÁM PHÁ MIỀN SƠN CƯỚC KASHMIR 6N5Đ" [ref=e179]
+            - generic [ref=e180]:
+              - generic [ref=e181]: Tour nước ngoài
+              - generic [ref=e183]: Việt Nam
+            - generic [ref=e185]:
+              - generic [ref=e186]:
+                - paragraph [ref=e187]:
+                  - generic [ref=e189]: KHÁM PHÁ MIỀN SƠN CƯỚC KASHMIR
+                - paragraph [ref=e190]: "về lại Srinagar và tham quan:"
+              - generic [ref=e191]: Tư vấn thêm
+          - generic [ref=e193]:
+            - generic [ref=e195]: 4 sao
+            - heading "KHÁM PHÁ MIỀN SƠN CƯỚC KASHMIR 6N5Đ" [level=3] [ref=e196]:
+              - link "KHÁM PHÁ MIỀN SƠN CƯỚC KASHMIR 6N5Đ" [ref=e197] [cursor=pointer]:
+                - /url: http://127.0.0.1:8010/chuong-trinh/tour-du-lich-an-do-hd004
+            - generic [ref=e198]:
+              - generic [ref=e202]:
+                - generic [ref=e203]: "Khởi Hành:"
+                - generic [ref=e204]: 29/04/2026
+              - generic [ref=e209]: 6 ngày 5 đêm
+              - generic [ref=e214]: Máy Bay
+            - generic [ref=e215]:
+              - generic [ref=e216]:
+                - paragraph [ref=e217]: Giá từ
+                - generic [ref=e218]:
+                  - paragraph [ref=e219]: 10.590.000 đ
+                  - paragraph [ref=e220]: 5.590.000 đ
+              - link "Xem" [ref=e222] [cursor=pointer]:
+                - /url: http://127.0.0.1:8010/chuong-trinh/tour-du-lich-an-do-hd004
+                - text: Xem
+        - article [ref=e224]:
+          - 'link "LIÊN TUYÊN: SINGAPORE - MALAYSIA 5 NGÀY 4 ĐÊM Tour nước ngoài Châu Á LIÊN TUYÊN: SINGAPORE - MALAYSIA 5 NGÀY 4 ĐÊM đi Malaysia trên chuyến bay VJ825 lúc 09h30. Tư vấn thêm" [ref=e225] [cursor=pointer]':
+            - /url: http://127.0.0.1:8010/chuong-trinh/tour-singapore-malaysia-hd01
+            - 'img "LIÊN TUYÊN: SINGAPORE - MALAYSIA 5 NGÀY 4 ĐÊM" [ref=e226]'
+            - generic [ref=e227]:
+              - generic [ref=e228]: Tour nước ngoài
+              - generic [ref=e230]: Châu Á
+            - generic [ref=e232]:
+              - generic [ref=e233]:
+                - paragraph [ref=e234]:
+                  - generic [ref=e236]: "LIÊN TUYÊN: SINGAPORE - MALAYSIA 5 NGÀY 4 ĐÊM"
+                - paragraph [ref=e237]: đi Malaysia trên chuyến bay VJ825 lúc 09h30.
+              - generic [ref=e238]: Tư vấn thêm
+          - generic [ref=e240]:
+            - generic [ref=e242]: 3 sao
+            - 'heading "LIÊN TUYÊN: SINGAPORE - MALAYSIA 5 NGÀY 4 ĐÊM" [level=3] [ref=e243]':
+              - 'link "LIÊN TUYÊN: SINGAPORE - MALAYSIA 5 NGÀY 4 ĐÊM" [ref=e244] [cursor=pointer]':
+                - /url: http://127.0.0.1:8010/chuong-trinh/tour-singapore-malaysia-hd01
+            - generic [ref=e245]:
+              - generic [ref=e249]:
+                - generic [ref=e250]: "Khởi Hành:"
+                - generic [ref=e251]: 29/04/2026
+              - generic [ref=e256]: 5 ngày 4 đêm
+              - generic [ref=e261]: Máy Bay
+            - generic [ref=e262]:
+              - generic [ref=e263]:
+                - paragraph [ref=e264]: Giá từ
+                - generic [ref=e265]:
+                  - paragraph [ref=e266]: 13.998.000 đ
+                  - paragraph [ref=e267]: 12.690.000 đ
+              - link "Xem" [ref=e269] [cursor=pointer]:
+                - /url: http://127.0.0.1:8010/chuong-trinh/tour-singapore-malaysia-hd01
+                - text: Xem
+    - generic [ref=e273]:
+      - heading "Câu hỏi nhanh về voucher" [level=2] [ref=e275]
+      - generic [ref=e276]:
+        - article [ref=e277]:
+          - heading "Voucher được phát mã như thế nào?" [level=3] [ref=e278]:
+            - button "Voucher được phát mã như thế nào?" [expanded] [ref=e279]:
+              - generic [ref=e280]: Voucher được phát mã như thế nào?
+          - region "Voucher được phát mã như thế nào?" [ref=e283]:
+            - paragraph [ref=e285]: Campaign voucher có thời gian áp dụng từ ngày bắt đầu đến ngày kết thúc, số lượng mã giới hạn và một frame hình chung cho popup hiển thị mã. Khi khách gửi form thành công, hệ thống cấp một mã còn trống và lưu cùng lead trong Travel Inquiries.
+        - article [ref=e286]:
+          - heading "Tôi có thể xem lại mã sau khi đã submit không?" [level=3] [ref=e287]:
+            - button "Tôi có thể xem lại mã sau khi đã submit không?" [ref=e288]:
+              - generic [ref=e289]: Tôi có thể xem lại mã sau khi đã submit không?
+        - article [ref=e292]:
+          - heading "Nếu bộ mã voucher được đổi mới thì sao?" [level=3] [ref=e293]:
+            - button "Nếu bộ mã voucher được đổi mới thì sao?" [ref=e294]:
+              - generic [ref=e295]: Nếu bộ mã voucher được đổi mới thì sao?
+  - contentinfo [ref=e298]:
+    - generic [ref=e299]:
+      - generic [ref=e300]:
+        - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=e301] [cursor=pointer]:
+          - /url: http://127.0.0.1:8010
+          - img "Du Lịch Hải Đăng Travel" [ref=e303]
+        - paragraph [ref=e304]: Haidang Travel chuyên tổ chức du lịch, teambuilding, event trong và ngoài nước.
+        - generic [ref=e305]:
+          - paragraph [ref=e306]:
+            - generic [ref=e309]: Tòa nhà Building Haidang 367 Tân Sơn, Phường Tân Sơn, thành phố Hồ Chí Minh
+          - paragraph [ref=e310]:
+            - generic [ref=e313]: 1900.2011 · 0911222288
+          - paragraph [ref=e314]:
+            - generic [ref=e317]: info@haidangtravel.com
+          - paragraph [ref=e318]:
+            - generic [ref=e321]: "Giấy phép lữ hành: 79-723/2017/TCDL-GP LHQT"
+      - generic [ref=e323]:
+        - heading "Đi nhanh" [level=2] [ref=e324]
+        - list [ref=e325]:
+          - listitem [ref=e326]:
+            - link "Tour trong nước" [ref=e327] [cursor=pointer]:
+              - /url: /tour-trong-nuoc
+          - listitem [ref=e328]:
+            - link "Tour nước ngoài" [ref=e329] [cursor=pointer]:
+              - /url: /tour-nuoc-ngoai
+          - listitem [ref=e330]:
+            - link "Tour đoàn" [ref=e331] [cursor=pointer]:
+              - /url: /tour-doan
+          - listitem [ref=e332]:
+            - link "Dịch vụ" [ref=e333] [cursor=pointer]:
+              - /url: /dich-vu
+          - listitem [ref=e334]:
+            - link "Blog" [ref=e335] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=e336]:
+            - link "Liên hệ" [ref=e337] [cursor=pointer]:
+              - /url: /lien-he
+      - generic [ref=e338]:
+        - heading "Kênh hỗ trợ" [level=2] [ref=e339]
+        - generic [ref=e340]:
+          - link "Zalo hỗ trợ" [ref=e341] [cursor=pointer]:
+            - /url: https://zalo.me/0911222288
+            - img [ref=e343]
+            - generic [ref=e345]: Zalo hỗ trợ
+          - link "Fanpage chính thức" [ref=e346] [cursor=pointer]:
+            - /url: https://www.facebook.com/haidangtravel
+            - generic [ref=e350]: Fanpage chính thức
+          - link "YouTube Channel" [ref=e351] [cursor=pointer]:
+            - /url: https://youtube.com/@
+            - generic [ref=e355]: YouTube Channel
+          - link "LinkedIn" [ref=e356] [cursor=pointer]:
+            - /url: https://linkedin.com/company/
+            - generic [ref=e360]: LinkedIn
+        - generic [ref=e361]:
+          - link "Đã thông báo Bộ Công Thương" [ref=e362] [cursor=pointer]:
+            - /url: http://online.gov.vn/Home/WebDetails/15656
+            - img "Đã thông báo Bộ Công Thương" [ref=e363]
+          - link "DMCA.com Protection Status" [ref=e364] [cursor=pointer]:
+            - /url: https://www.dmca.com/Protection/Status.aspx?ID=0b22a7b7-ed93-4820-acbf-7bd6d1caaf34
+            - img "DMCA.com Protection Status" [ref=e365]
+    - generic [ref=e366]: © Haidang Travel

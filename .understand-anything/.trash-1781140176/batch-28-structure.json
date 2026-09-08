@@ -1,0 +1,541 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "resources/views/pages/auth/reset-password.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 46,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/pages/auth/two-factor-challenge.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 95,
+      "nonEmptyLines": 85,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/pages/auth/verify-email.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 26,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/pages/settings/⚡appearance.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 17,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/pages/settings/⚡delete-user-form.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 15,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/pages/settings/⚡two-factor-setup-modal.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 304,
+      "nonEmptyLines": 262,
+      "callGraph": [
+        {
+          "caller": "startTwoFactorSetup",
+          "callee": "app",
+          "lineNumber": 38
+        },
+        {
+          "caller": "startTwoFactorSetup",
+          "callee": "auth()->user",
+          "lineNumber": 39
+        },
+        {
+          "caller": "startTwoFactorSetup",
+          "callee": "auth",
+          "lineNumber": 39
+        },
+        {
+          "caller": "startTwoFactorSetup",
+          "callee": "$this->loadSetupData",
+          "lineNumber": 41
+        },
+        {
+          "caller": "loadSetupData",
+          "callee": "auth()->user",
+          "lineNumber": 49
+        },
+        {
+          "caller": "loadSetupData",
+          "callee": "auth",
+          "lineNumber": 49
+        },
+        {
+          "caller": "loadSetupData",
+          "callee": "$user->twoFactorQrCodeSvg",
+          "lineNumber": 56
+        },
+        {
+          "caller": "loadSetupData",
+          "callee": "decrypt",
+          "lineNumber": 57
+        },
+        {
+          "caller": "loadSetupData",
+          "callee": "$this->addError",
+          "lineNumber": 59
+        },
+        {
+          "caller": "loadSetupData",
+          "callee": "$this->reset",
+          "lineNumber": 61
+        },
+        {
+          "caller": "showVerificationIfNecessary",
+          "callee": "$this->resetErrorBag",
+          "lineNumber": 73
+        },
+        {
+          "caller": "showVerificationIfNecessary",
+          "callee": "$this->closeModal",
+          "lineNumber": 78
+        },
+        {
+          "caller": "showVerificationIfNecessary",
+          "callee": "$this->dispatch",
+          "lineNumber": 79
+        },
+        {
+          "caller": "confirmTwoFactor",
+          "callee": "$this->validate",
+          "lineNumber": 87
+        },
+        {
+          "caller": "confirmTwoFactor",
+          "callee": "auth()->user",
+          "lineNumber": 89
+        },
+        {
+          "caller": "confirmTwoFactor",
+          "callee": "auth",
+          "lineNumber": 89
+        },
+        {
+          "caller": "confirmTwoFactor",
+          "callee": "$this->closeModal",
+          "lineNumber": 93
+        },
+        {
+          "caller": "confirmTwoFactor",
+          "callee": "$this->dispatch",
+          "lineNumber": 95
+        },
+        {
+          "caller": "resetVerification",
+          "callee": "$this->reset",
+          "lineNumber": 103
+        },
+        {
+          "caller": "resetVerification",
+          "callee": "$this->resetErrorBag",
+          "lineNumber": 105
+        },
+        {
+          "caller": "closeModal",
+          "callee": "$this->reset",
+          "lineNumber": 113
+        },
+        {
+          "caller": "closeModal",
+          "callee": "$this->resetErrorBag",
+          "lineNumber": 121
+        },
+        {
+          "caller": "getModalConfigProperty",
+          "callee": "__",
+          "lineNumber": 131
+        },
+        {
+          "caller": "getModalConfigProperty",
+          "callee": "__",
+          "lineNumber": 132
+        },
+        {
+          "caller": "getModalConfigProperty",
+          "callee": "__",
+          "lineNumber": 133
+        },
+        {
+          "caller": "getModalConfigProperty",
+          "callee": "__",
+          "lineNumber": 139
+        },
+        {
+          "caller": "getModalConfigProperty",
+          "callee": "__",
+          "lineNumber": 140
+        },
+        {
+          "caller": "getModalConfigProperty",
+          "callee": "__",
+          "lineNumber": 141
+        },
+        {
+          "caller": "getModalConfigProperty",
+          "callee": "__",
+          "lineNumber": 146
+        },
+        {
+          "caller": "getModalConfigProperty",
+          "callee": "__",
+          "lineNumber": 147
+        },
+        {
+          "caller": "getModalConfigProperty",
+          "callee": "__",
+          "lineNumber": 148
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/pages/settings/layout.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/pages/settings/two-factor/⚡recovery-codes.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 136,
+      "nonEmptyLines": 122,
+      "callGraph": [
+        {
+          "caller": "mount",
+          "callee": "$this->loadRecoveryCodes",
+          "lineNumber": 16
+        },
+        {
+          "caller": "regenerateRecoveryCodes",
+          "callee": "auth()->user",
+          "lineNumber": 24
+        },
+        {
+          "caller": "regenerateRecoveryCodes",
+          "callee": "auth",
+          "lineNumber": 24
+        },
+        {
+          "caller": "regenerateRecoveryCodes",
+          "callee": "$this->loadRecoveryCodes",
+          "lineNumber": 26
+        },
+        {
+          "caller": "loadRecoveryCodes",
+          "callee": "auth()->user",
+          "lineNumber": 34
+        },
+        {
+          "caller": "loadRecoveryCodes",
+          "callee": "auth",
+          "lineNumber": 34
+        },
+        {
+          "caller": "loadRecoveryCodes",
+          "callee": "$user->hasEnabledTwoFactorAuthentication",
+          "lineNumber": 36
+        },
+        {
+          "caller": "loadRecoveryCodes",
+          "callee": "json_decode",
+          "lineNumber": 38
+        },
+        {
+          "caller": "loadRecoveryCodes",
+          "callee": "decrypt",
+          "lineNumber": 38
+        },
+        {
+          "caller": "loadRecoveryCodes",
+          "callee": "$this->addError",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/partials/admin/media-browser.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 154,
+      "nonEmptyLines": 131,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/partials/head.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 29,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/partials/settings-heading.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/seo/robots.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/seo/sitemap.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 13,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/layouts/app.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 25,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/about.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 58,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/blog/index.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 210,
+      "nonEmptyLines": 191,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/blog/show.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 227,
+      "nonEmptyLines": 212,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/contact.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 145,
+      "nonEmptyLines": 134,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/customer-loyalty.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 426,
+      "nonEmptyLines": 398,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/errors/404.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 168,
+      "nonEmptyLines": 156,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/home.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 257,
+      "nonEmptyLines": 242,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/landing/show.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 70,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/seo/show.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 230,
+      "nonEmptyLines": 212,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/services/index.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 100,
+      "nonEmptyLines": 89,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "resources/views/themes/haidangtravel/pages/services/show.blade.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 212,
+      "nonEmptyLines": 196,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

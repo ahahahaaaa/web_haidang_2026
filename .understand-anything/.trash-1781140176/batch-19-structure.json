@@ -1,0 +1,1199 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": ".gitattributes",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 9,
+      "metrics": {}
+    },
+    {
+      "path": ".npmrc",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "app/Http/Middleware/EnsureSeoAdminAccess.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "functions": [
+        {
+          "name": "handle",
+          "startLine": 11,
+          "endLine": 15,
+          "params": [
+            "$request",
+            "$next"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "EnsureSeoAdminAccess",
+          "startLine": 9,
+          "endLine": 16,
+          "methods": [
+            "handle"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "EnsureSeoAdminAccess",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "handle",
+          "callee": "abort_unless",
+          "lineNumber": 13
+        },
+        {
+          "caller": "handle",
+          "callee": "$request->user",
+          "lineNumber": 13
+        },
+        {
+          "caller": "handle",
+          "callee": "$request->user()->can",
+          "lineNumber": 13
+        },
+        {
+          "caller": "handle",
+          "callee": "$request->user",
+          "lineNumber": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Http/Resources/Agency/TourDepartureExportResource.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "toArray",
+          "startLine": 10,
+          "endLine": 34,
+          "params": [
+            "$request"
+          ]
+        },
+        {
+          "name": "sellingPrice",
+          "startLine": 36,
+          "endLine": 41,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TourDepartureExportResource",
+          "startLine": 8,
+          "endLine": 42,
+          "methods": [
+            "toArray",
+            "sellingPrice"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TourDepartureExportResource",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "toArray",
+          "callee": "$this->sellingPrice",
+          "lineNumber": 12
+        },
+        {
+          "caller": "toArray",
+          "callee": "optional",
+          "lineNumber": 17
+        },
+        {
+          "caller": "toArray",
+          "callee": "optional",
+          "lineNumber": 18
+        },
+        {
+          "caller": "toArray",
+          "callee": "optional",
+          "lineNumber": 31
+        },
+        {
+          "caller": "toArray",
+          "callee": "optional",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Jobs/Seo/BuildSeoLinksJob.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 17,
+          "endLine": 20,
+          "params": []
+        },
+        {
+          "name": "handle",
+          "startLine": 22,
+          "endLine": 45,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "BuildSeoLinksJob",
+          "startLine": 13,
+          "endLine": 46,
+          "methods": [
+            "__construct",
+            "handle"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BuildSeoLinksJob",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__construct",
+          "callee": "$this->onQueue",
+          "lineNumber": 19
+        },
+        {
+          "caller": "__construct",
+          "callee": "config",
+          "lineNumber": 19
+        },
+        {
+          "caller": "handle",
+          "callee": "SeoPage::findOrFail",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handle",
+          "callee": "SeoPage::query()\n            ->whereKeyNot($page->id)\n            ->where('status', '!=', 'archived')\n            ->limit(4)->get",
+          "lineNumber": 26
+        },
+        {
+          "caller": "handle",
+          "callee": "SeoPage::query()\n            ->whereKeyNot($page->id)\n            ->where('status', '!=', 'archived')->limit",
+          "lineNumber": 26
+        },
+        {
+          "caller": "handle",
+          "callee": "SeoPage::query()\n            ->whereKeyNot($page->id)->where",
+          "lineNumber": 26
+        },
+        {
+          "caller": "handle",
+          "callee": "SeoPage::query()->whereKeyNot",
+          "lineNumber": 26
+        },
+        {
+          "caller": "handle",
+          "callee": "SeoPage::query",
+          "lineNumber": 26
+        },
+        {
+          "caller": "handle",
+          "callee": "SeoLink::firstOrCreate",
+          "lineNumber": 33
+        },
+        {
+          "caller": "handle",
+          "callee": "ValidateSeoPageJob::dispatch",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Jobs/Seo/PublishSeoPageJob.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 17,
+          "endLine": 20,
+          "params": []
+        },
+        {
+          "name": "handle",
+          "startLine": 22,
+          "endLine": 37,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "PublishSeoPageJob",
+          "startLine": 13,
+          "endLine": 38,
+          "methods": [
+            "__construct",
+            "handle"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PublishSeoPageJob",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__construct",
+          "callee": "$this->onQueue",
+          "lineNumber": 19
+        },
+        {
+          "caller": "__construct",
+          "callee": "config",
+          "lineNumber": 19
+        },
+        {
+          "caller": "handle",
+          "callee": "SeoPage::findOrFail",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handle",
+          "callee": "in_array",
+          "lineNumber": 30
+        },
+        {
+          "caller": "handle",
+          "callee": "now",
+          "lineNumber": 35
+        },
+        {
+          "caller": "handle",
+          "callee": "$page->save",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Jobs/Seo/ValidateSeoPageJob.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "__construct",
+          "startLine": 17,
+          "endLine": 20,
+          "params": []
+        },
+        {
+          "name": "handle",
+          "startLine": 22,
+          "endLine": 54,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ValidateSeoPageJob",
+          "startLine": 13,
+          "endLine": 55,
+          "methods": [
+            "__construct",
+            "handle"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ValidateSeoPageJob",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__construct",
+          "callee": "$this->onQueue",
+          "lineNumber": 19
+        },
+        {
+          "caller": "__construct",
+          "callee": "config",
+          "lineNumber": 19
+        },
+        {
+          "caller": "handle",
+          "callee": "SeoPage::query()->withCount('outgoingLinks')->findOrFail",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handle",
+          "callee": "SeoPage::query()->withCount",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handle",
+          "callee": "SeoPage::query",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handle",
+          "callee": "strip_tags",
+          "lineNumber": 26
+        },
+        {
+          "caller": "handle",
+          "callee": "Str::markdown",
+          "lineNumber": 26
+        },
+        {
+          "caller": "handle",
+          "callee": "str_word_count",
+          "lineNumber": 27
+        },
+        {
+          "caller": "handle",
+          "callee": "config",
+          "lineNumber": 30
+        },
+        {
+          "caller": "handle",
+          "callee": "config",
+          "lineNumber": 31
+        },
+        {
+          "caller": "handle",
+          "callee": "blank",
+          "lineNumber": 37
+        },
+        {
+          "caller": "handle",
+          "callee": "blank",
+          "lineNumber": 38
+        },
+        {
+          "caller": "handle",
+          "callee": "blank",
+          "lineNumber": 39
+        },
+        {
+          "caller": "handle",
+          "callee": "empty",
+          "lineNumber": 40
+        },
+        {
+          "caller": "handle",
+          "callee": "empty",
+          "lineNumber": 49
+        },
+        {
+          "caller": "handle",
+          "callee": "empty",
+          "lineNumber": 52
+        },
+        {
+          "caller": "handle",
+          "callee": "$page->save",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Services/Cms/BlogAutomationReferenceFetcher.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 154,
+      "nonEmptyLines": 126,
+      "functions": [
+        {
+          "name": "fetchMany",
+          "startLine": 17,
+          "endLine": 30,
+          "params": [
+            "$urls",
+            "$limit"
+          ]
+        },
+        {
+          "name": "fetch",
+          "startLine": 35,
+          "endLine": 52,
+          "params": [
+            "$url"
+          ]
+        },
+        {
+          "name": "extractDocument",
+          "startLine": 57,
+          "endLine": 114,
+          "params": [
+            "$url",
+            "$html"
+          ]
+        },
+        {
+          "name": "normalizeText",
+          "startLine": 116,
+          "endLine": 122,
+          "params": [
+            "$value"
+          ]
+        },
+        {
+          "name": "firstNodeText",
+          "startLine": 124,
+          "endLine": 133,
+          "params": [
+            "$xpath",
+            "$expression"
+          ]
+        },
+        {
+          "name": "firstElement",
+          "startLine": 135,
+          "endLine": 140,
+          "params": [
+            "$xpath",
+            "$expression"
+          ]
+        },
+        {
+          "name": "removeNodes",
+          "startLine": 142,
+          "endLine": 153,
+          "params": [
+            "$xpath",
+            "$expression"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BlogAutomationReferenceFetcher",
+          "startLine": 12,
+          "endLine": 154,
+          "methods": [
+            "fetchMany",
+            "fetch",
+            "extractDocument",
+            "normalizeText",
+            "firstNodeText",
+            "firstElement",
+            "removeNodes"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BlogAutomationReferenceFetcher",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fetchMany",
+          "callee": "config",
+          "lineNumber": 19
+        },
+        {
+          "caller": "fetchMany",
+          "callee": "collect($urls)\n            ->filter(fn (mixed $url) => is_string($url) && trim($url) !== '')\n            ->map(fn (string $url) => trim($url))\n            ->unique()\n            ->take($max)\n            ->map(fn (string $url) => $this->fetch($url))\n            ->filter()\n            ->values()->all",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchMany",
+          "callee": "collect($urls)\n            ->filter(fn (mixed $url) => is_string($url) && trim($url) !== '')\n            ->map(fn (string $url) => trim($url))\n            ->unique()\n            ->take($max)\n            ->map(fn (string $url) => $this->fetch($url))\n            ->filter()->values",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchMany",
+          "callee": "collect($urls)\n            ->filter(fn (mixed $url) => is_string($url) && trim($url) !== '')\n            ->map(fn (string $url) => trim($url))\n            ->unique()\n            ->take($max)\n            ->map(fn (string $url) => $this->fetch($url))->filter",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchMany",
+          "callee": "collect($urls)\n            ->filter(fn (mixed $url) => is_string($url) && trim($url) !== '')\n            ->map(fn (string $url) => trim($url))\n            ->unique()\n            ->take($max)->map",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchMany",
+          "callee": "collect($urls)\n            ->filter(fn (mixed $url) => is_string($url) && trim($url) !== '')\n            ->map(fn (string $url) => trim($url))\n            ->unique()->take",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchMany",
+          "callee": "collect($urls)\n            ->filter(fn (mixed $url) => is_string($url) && trim($url) !== '')\n            ->map(fn (string $url) => trim($url))->unique",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchMany",
+          "callee": "collect($urls)\n            ->filter(fn (mixed $url) => is_string($url) && trim($url) !== '')->map",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchMany",
+          "callee": "collect($urls)->filter",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchMany",
+          "callee": "collect",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchMany",
+          "callee": "is_string",
+          "lineNumber": 22
+        },
+        {
+          "caller": "fetchMany",
+          "callee": "trim",
+          "lineNumber": 22
+        },
+        {
+          "caller": "fetchMany",
+          "callee": "trim",
+          "lineNumber": 23
+        },
+        {
+          "caller": "fetchMany",
+          "callee": "$this->fetch",
+          "lineNumber": 26
+        },
+        {
+          "caller": "fetch",
+          "callee": "Http::accept('text/html,application/xhtml+xml')\n                ->withUserAgent((string) config('blog_automation.user_agent'))\n                ->connectTimeout((int) config('blog_automation.connect_timeout_seconds', 10))\n                ->timeout((int) config('blog_automation.request_timeout_seconds', 25))\n                ->retry(2, 500)\n                ->get($url)->throw",
+          "lineNumber": 38
+        },
+        {
+          "caller": "fetch",
+          "callee": "Http::accept('text/html,application/xhtml+xml')\n                ->withUserAgent((string) config('blog_automation.user_agent'))\n                ->connectTimeout((int) config('blog_automation.connect_timeout_seconds', 10))\n                ->timeout((int) config('blog_automation.request_timeout_seconds', 25))\n                ->retry(2, 500)->get",
+          "lineNumber": 38
+        },
+        {
+          "caller": "fetch",
+          "callee": "Http::accept('text/html,application/xhtml+xml')\n                ->withUserAgent((string) config('blog_automation.user_agent'))\n                ->connectTimeout((int) config('blog_automation.connect_timeout_seconds', 10))\n                ->timeout((int) config('blog_automation.request_timeout_seconds', 25))->retry",
+          "lineNumber": 38
+        },
+        {
+          "caller": "fetch",
+          "callee": "Http::accept('text/html,application/xhtml+xml')\n                ->withUserAgent((string) config('blog_automation.user_agent'))\n                ->connectTimeout((int) config('blog_automation.connect_timeout_seconds', 10))->timeout",
+          "lineNumber": 38
+        },
+        {
+          "caller": "fetch",
+          "callee": "Http::accept('text/html,application/xhtml+xml')\n                ->withUserAgent((string) config('blog_automation.user_agent'))->connectTimeout",
+          "lineNumber": 38
+        },
+        {
+          "caller": "fetch",
+          "callee": "Http::accept('text/html,application/xhtml+xml')->withUserAgent",
+          "lineNumber": 38
+        },
+        {
+          "caller": "fetch",
+          "callee": "Http::accept",
+          "lineNumber": 38
+        },
+        {
+          "caller": "fetch",
+          "callee": "config",
+          "lineNumber": 39
+        },
+        {
+          "caller": "fetch",
+          "callee": "config",
+          "lineNumber": 40
+        },
+        {
+          "caller": "fetch",
+          "callee": "config",
+          "lineNumber": 41
+        },
+        {
+          "caller": "fetch",
+          "callee": "report",
+          "lineNumber": 46
+        },
+        {
+          "caller": "fetch",
+          "callee": "$this->extractDocument",
+          "lineNumber": 51
+        },
+        {
+          "caller": "fetch",
+          "callee": "$response->body",
+          "lineNumber": 51
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "libxml_use_internal_errors",
+          "lineNumber": 60
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "$document->loadHTML",
+          "lineNumber": 61
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "libxml_clear_errors",
+          "lineNumber": 62
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "libxml_use_internal_errors",
+          "lineNumber": 63
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "$this->removeNodes",
+          "lineNumber": 70
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "$this->firstNodeText",
+          "lineNumber": 72
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "$this->firstNodeText",
+          "lineNumber": 73
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "$this->firstNodeText",
+          "lineNumber": 74
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "$this->firstNodeText",
+          "lineNumber": 76
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "$this->firstNodeText",
+          "lineNumber": 77
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "$this->firstNodeText",
+          "lineNumber": 79
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "$this->firstElement",
+          "lineNumber": 80
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "$this->firstElement",
+          "lineNumber": 81
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "$this->firstElement",
+          "lineNumber": 82
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "collect(iterator_to_array($xpath->query('.//h1|.//h2|.//h3', $contentRoot) ?: []))\n            ->filter(fn (mixed $node) => $node instanceof DOMElement)\n            ->map(fn (DOMElement $element) => $this->normalizeText($element->textContent))\n            ->filter()\n            ->take(12)\n            ->values()->all",
+          "lineNumber": 88
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "collect(iterator_to_array($xpath->query('.//h1|.//h2|.//h3', $contentRoot) ?: []))\n            ->filter(fn (mixed $node) => $node instanceof DOMElement)\n            ->map(fn (DOMElement $element) => $this->normalizeText($element->textContent))\n            ->filter()\n            ->take(12)->values",
+          "lineNumber": 88
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "collect(iterator_to_array($xpath->query('.//h1|.//h2|.//h3', $contentRoot) ?: []))\n            ->filter(fn (mixed $node) => $node instanceof DOMElement)\n            ->map(fn (DOMElement $element) => $this->normalizeText($element->textContent))\n            ->filter()->take",
+          "lineNumber": 88
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "collect(iterator_to_array($xpath->query('.//h1|.//h2|.//h3', $contentRoot) ?: []))\n            ->filter(fn (mixed $node) => $node instanceof DOMElement)\n            ->map(fn (DOMElement $element) => $this->normalizeText($element->textContent))->filter",
+          "lineNumber": 88
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "collect(iterator_to_array($xpath->query('.//h1|.//h2|.//h3', $contentRoot) ?: []))\n            ->filter(fn (mixed $node) => $node instanceof DOMElement)->map",
+          "lineNumber": 88
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "collect(iterator_to_array($xpath->query('.//h1|.//h2|.//h3', $contentRoot) ?: []))->filter",
+          "lineNumber": 88
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "collect",
+          "lineNumber": 88
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "iterator_to_array",
+          "lineNumber": 88
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "$xpath->query",
+          "lineNumber": 88
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "$this->normalizeText",
+          "lineNumber": 90
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "Str::limit",
+          "lineNumber": 96
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "$this->normalizeText",
+          "lineNumber": 97
+        },
+        {
+          "caller": "extractDocument",
+          "callee": "config",
+          "lineNumber": 98
+        },
+        {
+          "caller": "normalizeText",
+          "callee": "html_entity_decode",
+          "lineNumber": 118
+        },
+        {
+          "caller": "normalizeText",
+          "callee": "preg_replace",
+          "lineNumber": 119
+        },
+        {
+          "caller": "normalizeText",
+          "callee": "trim",
+          "lineNumber": 121
+        },
+        {
+          "caller": "firstNodeText",
+          "callee": "$xpath->query",
+          "lineNumber": 126
+        },
+        {
+          "caller": "firstNodeText",
+          "callee": "$this->normalizeText",
+          "lineNumber": 132
+        },
+        {
+          "caller": "firstElement",
+          "callee": "$xpath->query",
+          "lineNumber": 137
+        },
+        {
+          "caller": "removeNodes",
+          "callee": "$xpath->query",
+          "lineNumber": 144
+        },
+        {
+          "caller": "removeNodes",
+          "callee": "iterator_to_array",
+          "lineNumber": 150
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "app/Support/ResidentialPackageLandingContent.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 518,
+      "nonEmptyLines": 510,
+      "functions": [
+        {
+          "name": "find",
+          "startLine": 7,
+          "endLine": 10,
+          "params": [
+            "$slug"
+          ]
+        },
+        {
+          "name": "navigation",
+          "startLine": 12,
+          "endLine": 23,
+          "params": []
+        },
+        {
+          "name": "processSteps",
+          "startLine": 25,
+          "endLine": 85,
+          "params": []
+        },
+        {
+          "name": "comparisonRows",
+          "startLine": 87,
+          "endLine": 121,
+          "params": []
+        },
+        {
+          "name": "diagramPath",
+          "startLine": 123,
+          "endLine": 126,
+          "params": []
+        },
+        {
+          "name": "pages",
+          "startLine": 128,
+          "endLine": 517,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ResidentialPackageLandingContent",
+          "startLine": 5,
+          "endLine": 518,
+          "methods": [
+            "find",
+            "navigation",
+            "processSteps",
+            "comparisonRows",
+            "diagramPath",
+            "pages"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ResidentialPackageLandingContent",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "find",
+          "callee": "self::pages",
+          "lineNumber": 9
+        },
+        {
+          "caller": "navigation",
+          "callee": "collect(self::pages())\n            ->map(fn (array $page, string $slug) => [\n                'slug' => $slug,\n                'label' => $page['nav_label'],\n                'short_label' => $page['short_label'],\n                'title' => $page['title'],\n            ])\n            ->values()->all",
+          "lineNumber": 14
+        },
+        {
+          "caller": "navigation",
+          "callee": "collect(self::pages())\n            ->map(fn (array $page, string $slug) => [\n                'slug' => $slug,\n                'label' => $page['nav_label'],\n                'short_label' => $page['short_label'],\n                'title' => $page['title'],\n            ])->values",
+          "lineNumber": 14
+        },
+        {
+          "caller": "navigation",
+          "callee": "collect(self::pages())->map",
+          "lineNumber": 14
+        },
+        {
+          "caller": "navigation",
+          "callee": "collect",
+          "lineNumber": 14
+        },
+        {
+          "caller": "navigation",
+          "callee": "self::pages",
+          "lineNumber": 14
+        },
+        {
+          "caller": "pages",
+          "callee": "self::comparisonRows",
+          "lineNumber": 130
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "artisan",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": "bootstrap/cache/packages.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 126,
+      "nonEmptyLines": 126,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "bootstrap/cache/services.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 288,
+      "nonEmptyLines": 288,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "config/agency_export.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 6,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "config/app.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 126,
+      "nonEmptyLines": 104,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "config/blog_automation.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 14,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "config/cache.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 130,
+      "nonEmptyLines": 110,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "config/customer_loyalty.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 23,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "config/database.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 184,
+      "nonEmptyLines": 162,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "config/filesystems.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 80,
+      "nonEmptyLines": 68,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "config/fortify.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 157,
+      "nonEmptyLines": 132,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "config/frontsite_cache.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 22,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "config/frontsite_geo.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "config/frontsite_voucher.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 14,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "config/logging.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 132,
+      "nonEmptyLines": 112,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "config/mail.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 118,
+      "nonEmptyLines": 100,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

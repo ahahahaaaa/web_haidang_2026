@@ -1,0 +1,29 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - list [ref=e4]:
+      - listitem [ref=e5]:
+        - link "" [ref=e6] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e7]: 
+  - complementary [ref=e8]:
+    - link "The Logo" [ref=e9] [cursor=pointer]:
+      - /url: /dashboard
+      - img "The Logo" [ref=e10]
+  - generic [ref=e15]:
+    - generic [ref=e16]: Đăng nhập
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]: Email
+        - textbox "Email" [active] [ref=e22]
+      - generic [ref=e23]:
+        - generic [ref=e24]: Password
+        - textbox "Password" [ref=e26]
+      - button "Login" [ref=e29] [cursor=pointer]
+  - contentinfo [ref=e30]:
+    - generic [ref=e31]: Version 1.0.0
+    - strong [ref=e32]:
+      - text: Copyright © 2022
+      - link "dtaa-tech.com" [ref=e33] [cursor=pointer]:
+        - /url: https://dtaa-tech.com
+      - text: .
+    - text: All rights reserved.

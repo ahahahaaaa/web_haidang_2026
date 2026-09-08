@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Danh mục dự án - FastCons</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#d9e3f6",
+              "background": "#f8f9ff",
+              "on-secondary-fixed-variant": "#333f91",
+              "outline": "#767682",
+              "secondary-container": "#99a5fe",
+              "outline-variant": "#c6c5d3",
+              "surface-bright": "#f8f9ff",
+              "on-tertiary-fixed-variant": "#173bab",
+              "secondary-fixed": "#dfe0ff",
+              "primary-container": "#8b000c",
+              "surface-dim": "#d0dbed",
+              "tertiary": "#00227a",
+              "tertiary-fixed-dim": "#b8c4ff",
+              "primary-fixed": "#ffdad6",
+              "inverse-surface": "#27313f",
+              "on-secondary": "#ffffff",
+              "surface-container": "#e6eeff",
+              "on-tertiary-container": "#97abff",
+              "surface-container-low": "#eff4ff",
+              "on-background": "#121c2a",
+              "secondary-fixed-dim": "#bcc3ff",
+              "inverse-primary": "#ffb4ac",
+              "on-surface": "#121c2a",
+              "on-surface-variant": "#454651",
+              "inverse-on-surface": "#eaf1ff",
+              "surface-tint": "#c00015",
+              "tertiary-container": "#0f36a6",
+              "error-container": "#ffdad6",
+              "on-error-container": "#93000a",
+              "primary": "#610005",
+              "on-tertiary": "#ffffff",
+              "secondary": "#4b57aa",
+              "surface-container-high": "#dee9fc",
+              "surface-container-lowest": "#ffffff",
+              "error": "#ba1a1a",
+              "on-primary-fixed-variant": "#93000d",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#410002",
+              "on-primary-container": "#ff9085",
+              "on-tertiary-fixed": "#001453",
+              "surface": "#f8f9ff",
+              "tertiary-fixed": "#dde1ff",
+              "primary-fixed-dim": "#ffb4ac",
+              "surface-variant": "#d9e3f6",
+              "on-error": "#ffffff",
+              "on-secondary-fixed": "#000d60",
+              "on-secondary-container": "#2b3789"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .blueprint-grid {
+            background-image: radial-gradient(rgba(198, 197, 211, 0.15) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-outline-variant/15 shadow-xl shadow-slate-900/5 flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+<div class="text-2xl font-black text-on-surface dark:text-white tracking-tighter">FastCons</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-plus-jakarta text-sm uppercase tracking-wider font-bold text-[#610005] dark:text-red-400 border-b-2 border-[#610005] pb-1" href="#">Projects</a>
+<a class="font-plus-jakarta text-sm uppercase tracking-wider font-bold text-on-surface-variant dark:text-slate-400 hover:text-primary transition-colors" href="#">Services</a>
+<a class="font-plus-jakarta text-sm uppercase tracking-wider font-bold text-on-surface-variant dark:text-slate-400 hover:text-primary transition-colors" href="#">About Us</a>
+<a class="font-plus-jakarta text-sm uppercase tracking-wider font-bold text-on-surface-variant dark:text-slate-400 hover:text-primary transition-colors" href="#">Insights</a>
+<a class="font-plus-jakarta text-sm uppercase tracking-wider font-bold text-on-surface-variant dark:text-slate-400 hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#610005] cursor-pointer">call</span>
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2 rounded-lg font-bold text-sm outline outline-1 outline-white/10 hover:opacity-90 transition-all active:scale-95 duration-150">
+                Get a Quote
+            </button>
+</div>
+</nav>
+<main class="pt-24 pb-24 blueprint-grid">
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<!-- Breadcrumbs & Title -->
+<div class="mb-12">
+<nav class="flex text-on-surface-variant text-sm font-medium mb-4 gap-2 items-center">
+<a class="hover:text-primary" href="#">Trang chủ</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary font-bold">Dự án</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<h1 class="text-5xl lg:text-6xl font-black text-on-surface tracking-tighter mb-4 leading-tight">
+                            Dự án đã thực hiện
+                        </h1>
+<p class="text-on-surface-variant text-lg leading-relaxed font-body">
+                            Khám phá những công trình kiến trúc mang tính biểu tượng, từ biệt thự sang trọng đến các tòa nhà văn phòng hiện đại.
+                        </p>
+</div>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- SideNavBar / Filter -->
+<aside class="lg:w-72 shrink-0">
+<div class="bg-surface-container dark:bg-slate-900 rounded-lg h-fit sticky top-24 flex flex-col p-4 gap-2 font-plus-jakarta font-medium shadow-none">
+<div class="px-2 py-4 border-b border-outline-variant/10 mb-2">
+<h3 class="text-on-surface font-bold text-lg leading-none mb-1">Project Filter</h3>
+<p class="text-on-surface-variant text-xs">Browse by category</p>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md bg-surface-container-lowest dark:bg-slate-800 text-primary font-bold border-l-4 border-[#610005] hover:translate-x-1 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="architecture">architecture</span>
+                            Architecture
+                        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:translate-x-1 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="engineering">engineering</span>
+                            Engineering
+                        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:translate-x-1 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="construction">construction</span>
+                            Construction
+                        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:translate-x-1 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+                            Management
+                        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:translate-x-1 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+                            Blog
+                        </a>
+<!-- Range Filter Injected for Context -->
+<div class="mt-6 px-2 py-4 border-t border-outline-variant/10">
+<h4 class="text-on-surface font-bold text-sm mb-4">Area (sqm)</h4>
+<div class="space-y-3">
+<label class="flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/> Under 100m²
+                                </label>
+<label class="flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/> 100m² - 500m²
+                                </label>
+<label class="flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/> Over 500m²
+                                </label>
+</div>
+</div>
+</div>
+</aside>
+<!-- Project Grid -->
+<div class="flex-1">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Project Card 1 -->
+<div class="group bg-surface-container-lowest border-l-0 hover:border-l-2 hover:border-secondary transition-all duration-300 rounded-lg overflow-hidden flex flex-col">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img alt="Villa Modern Exterior" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Modern minimalist luxury villa with clean white concrete lines, large glass windows, and a turquoise pool at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_Jru73sNqA1kfHPug3UT-JZUt_QEOPmomBVnJzrF_YlMseqKbg3A39DYQiC8GbmnKBmjvpQK_iXOixCdfd4Ab7rGEb4mBG6e73MoVjxm1qjflfY5XLSTcFRmVX-lD4U4Gqlkxg-GwgwmPsL0lug8ciL4do67qbkMb26Jnknf-QrekDKDO9X-F1aR7jBg7HYhqDshx5LcVaPi9rWCxUnFiK-79ZUsYypaM5fQr6mljh6CwJm6_Ytx0kQ6_BDL3k9hdXF21Xd1gjfA"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-sm">Villa</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2 leading-tight group-hover:text-primary transition-colors">The White Serenity Villa</h3>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm font-medium">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">square_foot</span>
+                                            450m²
+                                        </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                            Quận 2, HCM
+                                        </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group bg-surface-container-lowest border-l-0 hover:border-l-2 hover:border-secondary transition-all duration-300 rounded-lg overflow-hidden flex flex-col">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img alt="Corporate Office" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Professional corporate office interior with glass partitions, wooden accents, and sophisticated modern lighting design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPBtxT3eteT2hRGITA5pbihtfiIl2lNhJjhr8FntR0KbDzjYsNXd3hObn4A7W1bGcRTm5n7ezbxa2V1fAZPqUcOy87UhqjUSepJy7UmJ9XxysH9mQtPbZYTCpDw8Z1JcJ5c_Zi_8aWxHRFh1nKXwfy4e73fMMb2oXcCc_4K2QIpy2ihIWmw5d193bK3IHRQaBcZ0vdn8Q7mCiA3lBLWuoXuyPs1pBNt5OmvnThVHSxqoNTQwIK53tqGiHQOkD0lthg4jGIZg8N7J0"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-sm">Office</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2 leading-tight group-hover:text-primary transition-colors">Tech Hub Headquarters</h3>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm font-medium">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">square_foot</span>
+                                            1200m²
+                                        </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                            Quận 7, HCM
+                                        </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="group bg-surface-container-lowest border-l-0 hover:border-l-2 hover:border-secondary transition-all duration-300 rounded-lg overflow-hidden flex flex-col">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img alt="Interior Design" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Chic modern penthouse living room with dark velvet sofa, marble coffee table, and panoramic city views" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX0wMiVJroG7O1Oyxnuc7pBrPov4Do4b2jAr-CBlh8svtSZyGH7qPikfNrcHU3kIGUVWVxEN-3OI4vEA0ahvjbCpUoPFeECj7Aks1VCV8adI78OnUG7jqnVnMp4k6lYIhkmiqNqYeCGBIaA_MfBwCvxDgwzJoxCoYMEpV6pFK8xS06lAS6JgTdeOQ8qXccL2X_lsXRglCSg-ZKytIvHbuFOVOwe3PdujN0uG7J4Mwu9sM6iUfJrOF89DO2_A26uPZsVsB4LrQUuvc"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-sm">Interior</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2 leading-tight group-hover:text-primary transition-colors">Skyline Penthouse Interior</h3>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm font-medium">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">square_foot</span>
+                                            210m²
+                                        </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                            Quận 1, HCM
+                                        </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Card 4 -->
+<div class="group bg-surface-container-lowest border-l-0 hover:border-l-2 hover:border-secondary transition-all duration-300 rounded-lg overflow-hidden flex flex-col">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img alt="Modern Townhouse" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Contemporary multi-story townhouse with wood cladding, vertical gardens, and large black frame windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkr7DXIu2IztAbLXTJ5D8qvwDXNZaLNvcDLVOA6wQuU0TSEdzaGQP6PtEQDklJcv0VrWDKINtIr1oB7o_B43JQRCO9l0Qg9ktvT4rolDIh3dl7H245UjEf4dbYLniqSvSntqapj8gNgIfMcefEZ15T-z4LGRkx00dUIbb3-OqkwvNjunI_Qro2HRf9YxNiO_DsDoq8yBtZGWXE6lIch5bugVg2dvHLygwmBNU6gSR31HupvLOEGuF-eeRK0WnHmBUB-LH_EU84XxI"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-sm">Townhouse</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2 leading-tight group-hover:text-primary transition-colors">The Emerald Townhouse</h3>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm font-medium">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">square_foot</span>
+                                            320m²
+                                        </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                            Thủ Đức, HCM
+                                        </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Card 5 -->
+<div class="group bg-surface-container-lowest border-l-0 hover:border-l-2 hover:border-secondary transition-all duration-300 rounded-lg overflow-hidden flex flex-col">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img alt="Luxury Estate" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Grand luxury estate with Mediterranean influence, stone facade, and expansive manicured gardens under bright sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4--NVPV8lKhH_Rlb165biKJzy9Bek8o_IBQapS-uDD88guLYPse1G3Na82hhrDpeaLp_O-3Kb9yP9pmi97_dYAJnl2T0u8D5k6y8n7UBTKs1lntfHzMjDn5wOGb-gxxAvym3QamURoINEN02lLxsrNfbkJ-MMSAxT7B5kjn7H2vUBQwZcPkO3j1RNu-2VciwadV6ekhzVa44U6FwIy_vE4yElELX0DwuzY7SLMnJ0E301XTWKFdW4ZOzQHthKPlHbd335joUzGJs"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-sm">Villa</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2 leading-tight group-hover:text-primary transition-colors">Heritage Manor Renovation</h3>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm font-medium">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">square_foot</span>
+                                            850m²
+                                        </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                            Đà Lạt, Lâm Đồng
+                                        </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Card 6 -->
+<div class="group bg-surface-container-lowest border-l-0 hover:border-l-2 hover:border-secondary transition-all duration-300 rounded-lg overflow-hidden flex flex-col">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img alt="Industrial Office" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Modern industrial style office with exposed brick, steel beams, and open-plan workstations with greenery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA21taHC09ctxEjoODFN-rLRUu5nvGthfMOzfSC2eQDop2gqFYZjgozmKKBf2sybYunRd7byH9tI-I3bocAM7461-ji56Mm97XQtJiJAcrJzUBPVO9AeZM2n2--62B9UgvfaDupL4NVHqWFSA3fzqbynDJ-6VIFJqFi_JApguOUW20_1BBYUCOtY_Az53WmRyj2cRRJo-QcJLzlxbhsMyeKpKbQ3HmRJpVfghyq29tkWcIunx08k_ZV2rAjbUH9wXb7FtdNRdhXQcc"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-sm">Office</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2 leading-tight group-hover:text-primary transition-colors">Brick &amp; Steel Creative Lab</h3>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm font-medium">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">square_foot</span>
+                                            560m²
+                                        </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                            Quận 4, HCM
+                                        </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-16 flex justify-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-colors">3</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Final CTA -->
+<div class="mt-32 max-w-7xl mx-auto px-6 lg:px-8">
+<div class="relative bg-[#121c2a] rounded-3xl overflow-hidden p-12 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-12">
+<div class="absolute inset-0 opacity-10 pointer-events-none blueprint-grid"></div>
+<div class="relative z-10 max-w-xl">
+<h2 class="text-4xl lg:text-5xl font-black text-white tracking-tighter leading-tight mb-6">
+                        Bắt đầu xây dựng ước mơ của bạn cùng chúng tôi
+                    </h2>
+<p class="text-slate-400 text-lg">
+                        Đội ngũ kỹ sư và kiến trúc sư của FastCons luôn sẵn sàng biến mọi ý tưởng của bạn thành những công trình vĩnh cửu.
+                    </p>
+</div>
+<div class="relative z-10">
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-10 py-5 rounded-xl font-bold text-xl flex items-center gap-3 hover:scale-105 transition-all shadow-2xl shadow-primary/20">
+                        Liên hệ tư vấn dự án
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#121c2a] dark:bg-black w-full pt-16 pb-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-7xl mx-auto font-inter text-slate-400 text-sm">
+<div class="space-y-6">
+<div class="text-white font-bold text-xl">FastCons</div>
+<p class="leading-relaxed">Building excellence through precision engineering and visionary architecture since 2008.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors">language</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors">public</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors">chat</span>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Navigation</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-red-400 transition-colors" href="#">Projects</a></li>
+<li><a class="text-slate-400 hover:text-red-400 transition-colors" href="#">Services</a></li>
+<li><a class="text-slate-400 hover:text-red-400 transition-colors" href="#">Insights</a></li>
+<li><a class="text-slate-400 hover:text-red-400 transition-colors" href="#">About Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-red-400 transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-400 hover:text-red-400 transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-slate-400 hover:text-red-400 transition-colors" href="#">Safety Standards</a></li>
+<li><a class="text-slate-400 hover:text-red-400 transition-colors" href="#">Career</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Contact Info</h4>
+<ul class="space-y-4">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-xs mt-1">location_on</span>
+                        123 Construction Ave, District 1, HCMC
+                    </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs">call</span>
+                        +84 28 3456 7890
+                    </li>
+<li class="flex items-center gap-2 text-white font-bold">
+<span class="material-symbols-outlined text-xs">mail</span>
+                        contact@fastcons.vn
+                    </li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-12 mt-16 pt-8 border-t border-slate-800 text-center">
+<p>© 2024 FastCons. Building Excellence.</p>
+</div>
+</footer>
+</body></html>

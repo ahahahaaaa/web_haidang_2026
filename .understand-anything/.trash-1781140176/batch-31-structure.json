@@ -1,0 +1,333 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 9,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "routes/console.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 6,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "routes/settings.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 20,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/Feature/Auth/RegistrationTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "setUp",
+          "startLine": 13,
+          "endLine": 18,
+          "params": []
+        },
+        {
+          "name": "test_registration_screen_can_be_rendered",
+          "startLine": 20,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "test_new_users_can_register",
+          "startLine": 27,
+          "endLine": 40,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "RegistrationTest",
+          "startLine": 9,
+          "endLine": 41,
+          "methods": [
+            "setUp",
+            "test_registration_screen_can_be_rendered",
+            "test_new_users_can_register"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RegistrationTest",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setUp",
+          "callee": "parent::setUp",
+          "lineNumber": 15
+        },
+        {
+          "caller": "setUp",
+          "callee": "$this->skipUnlessFortifyHas",
+          "lineNumber": 17
+        },
+        {
+          "caller": "setUp",
+          "callee": "Features::registration",
+          "lineNumber": 17
+        },
+        {
+          "caller": "test_registration_screen_can_be_rendered",
+          "callee": "$this->get",
+          "lineNumber": 22
+        },
+        {
+          "caller": "test_registration_screen_can_be_rendered",
+          "callee": "route",
+          "lineNumber": 22
+        },
+        {
+          "caller": "test_registration_screen_can_be_rendered",
+          "callee": "$response->assertOk",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_new_users_can_register",
+          "callee": "$this->post",
+          "lineNumber": 29
+        },
+        {
+          "caller": "test_new_users_can_register",
+          "callee": "route",
+          "lineNumber": 29
+        },
+        {
+          "caller": "test_new_users_can_register",
+          "callee": "$response->assertSessionHasNoErrors()->assertRedirect",
+          "lineNumber": 36
+        },
+        {
+          "caller": "test_new_users_can_register",
+          "callee": "$response->assertSessionHasNoErrors",
+          "lineNumber": 36
+        },
+        {
+          "caller": "test_new_users_can_register",
+          "callee": "route",
+          "lineNumber": 37
+        },
+        {
+          "caller": "test_new_users_can_register",
+          "callee": "$this->assertAuthenticated",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Feature/ExampleTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 13,
+      "functions": [
+        {
+          "name": "test_returns_a_successful_response",
+          "startLine": 12,
+          "endLine": 17,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ExampleTest",
+          "startLine": 8,
+          "endLine": 18,
+          "methods": [
+            "test_returns_a_successful_response"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ExampleTest",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_returns_a_successful_response",
+          "callee": "$this->get",
+          "lineNumber": 14
+        },
+        {
+          "caller": "test_returns_a_successful_response",
+          "callee": "route",
+          "lineNumber": 14
+        },
+        {
+          "caller": "test_returns_a_successful_response",
+          "callee": "$response->assertOk",
+          "lineNumber": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Fixtures/front_end/importable/blog/code.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 6,
+      "nonEmptyLines": 6,
+      "metrics": {}
+    },
+    {
+      "path": "tests/Fixtures/front_end/importable/home/code.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "metrics": {}
+    },
+    {
+      "path": "tests/TestCase.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "functions": [
+        {
+          "name": "skipUnlessFortifyHas",
+          "startLine": 10,
+          "endLine": 15,
+          "params": [
+            "$feature",
+            "$message"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestCase",
+          "startLine": 8,
+          "endLine": 16,
+          "methods": [
+            "skipUnlessFortifyHas"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TestCase",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "skipUnlessFortifyHas",
+          "callee": "Features::enabled",
+          "lineNumber": 12
+        },
+        {
+          "caller": "skipUnlessFortifyHas",
+          "callee": "$this->markTestSkipped",
+          "lineNumber": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/Unit/ExampleTest.php",
+      "language": "php",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 12,
+      "functions": [
+        {
+          "name": "test_that_true_is_true",
+          "startLine": 12,
+          "endLine": 15,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ExampleTest",
+          "startLine": 8,
+          "endLine": 16,
+          "methods": [
+            "test_that_true_is_true"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ExampleTest",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_that_true_is_true",
+          "callee": "$this->assertTrue",
+          "lineNumber": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "vite.config.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 25,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

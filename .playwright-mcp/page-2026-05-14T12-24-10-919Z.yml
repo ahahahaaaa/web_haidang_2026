@@ -1,0 +1,132 @@
+- generic [active] [ref=e1]:
+  - link "Bỏ qua điều hướng & tới nội dung chính" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8001
+        - img "Du Lịch Hải Đăng Travel" [ref=e7]
+      - navigation [ref=e8]:
+        - link "Trang chủ" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "Về chúng tôi" [ref=e10] [cursor=pointer]:
+          - /url: /ve-chung-toi
+        - link "Tour trong nước" [ref=e11] [cursor=pointer]:
+          - /url: /tour-trong-nuoc
+        - link "Tour nước ngoài" [ref=e12] [cursor=pointer]:
+          - /url: /tour-nuoc-ngoai
+        - link "Tour đoàn" [ref=e13] [cursor=pointer]:
+          - /url: /tour-doan
+        - link "Dịch vụ" [ref=e14] [cursor=pointer]:
+          - /url: /dich-vu
+        - link "Blog" [ref=e15] [cursor=pointer]:
+          - /url: /blog
+        - link "Liên hệ" [ref=e16] [cursor=pointer]:
+          - /url: /lien-he
+      - link "Gọi 0911222288" [ref=e18] [cursor=pointer]:
+        - /url: tel:0911222288
+        - generic [ref=e20]: "0911222288"
+  - main [ref=e21]:
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - navigation "Breadcrumb" [ref=e25]:
+          - link "Trang chủ" [ref=e26] [cursor=pointer]:
+            - /url: http://127.0.0.1:8001
+          - generic [ref=e27]: /
+          - generic [ref=e28]: Điểm thưởng
+        - paragraph [ref=e29]: CRM khách hàng
+        - heading "Kiểm tra điểm và đổi quà Hải Đăng Travel" [level=1] [ref=e30]
+        - paragraph [ref=e31]: Nhập số điện thoại đã dùng khi đặt tour để xem đơn hàng, tổng điểm hiện có, lịch sử đổi quà và gửi yêu cầu đổi quà. Nhân sự Hải Đăng Travel sẽ liên hệ xác nhận trước khi hoàn tất đổi quà.
+        - generic [ref=e32]:
+          - generic [ref=e33]: Số điện thoại
+          - textbox "Số điện thoại" [ref=e34]:
+            - /placeholder: Nhập SĐT, ví dụ 0909794299
+            - text: "0909794299"
+          - button "Kiểm tra" [ref=e35]: Kiểm tra
+      - complementary [ref=e37]:
+        - paragraph [ref=e38]: Số điểm
+        - paragraph [ref=e39]: "215.566"
+        - paragraph [ref=e40]: Khách Hàng · 0909794299
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45]:
+              - heading "Đơn hàng đã có" [level=2] [ref=e46]
+              - paragraph [ref=e47]: Các đơn hàng được API trả về theo số điện thoại đang tra cứu.
+            - generic [ref=e48]: 0 đơn
+          - table [ref=e50]:
+            - rowgroup [ref=e51]:
+              - row "Mã Tour/Dịch vụ Ngày Điểm Trạng thái" [ref=e52]:
+                - columnheader "Mã" [ref=e53]
+                - columnheader "Tour/Dịch vụ" [ref=e54]
+                - columnheader "Ngày" [ref=e55]
+                - columnheader "Điểm" [ref=e56]
+                - columnheader "Trạng thái" [ref=e57]
+            - rowgroup [ref=e58]:
+              - row "Chưa có đơn hàng được API trả về." [ref=e59]:
+                - cell "Chưa có đơn hàng được API trả về." [ref=e60]
+        - generic [ref=e61]:
+          - heading "Lịch sử đổi quà" [level=2] [ref=e62]
+          - paragraph [ref=e64]: Chưa có lịch sử đổi quà.
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - heading "Danh sách quà có thể đổi" [level=2] [ref=e68]
+            - paragraph [ref=e69]: Bấm đổi để gửi yêu cầu. Hải Đăng Travel sẽ liên hệ lại để xác nhận trước khi xử lý điểm.
+          - generic [ref=e70]: 215.566 điểm hiện có
+        - generic [ref=e72]: API chưa trả về danh sách quà có thể đổi.
+  - contentinfo [ref=e73]:
+    - generic [ref=e74]:
+      - generic [ref=e75]:
+        - generic [ref=e76]: Du Lịch Hải Đăng Travel
+        - paragraph [ref=e77]: Haidang Travel chuyên tổ chức du lịch, teambuilding, event trong và ngoài nước.
+        - generic [ref=e78]:
+          - paragraph [ref=e79]: Tòa nhà Building Haidang 367 Tân Sơn, Phường Tân Sơn, thành phố Hồ Chí Minh
+          - paragraph [ref=e80]: 1900.2011 · 0911222288
+          - paragraph [ref=e81]: info@haidangtravel.com
+      - generic [ref=e83]:
+        - heading "Đi nhanh" [level=2] [ref=e84]
+        - list [ref=e85]:
+          - listitem [ref=e86]:
+            - link "Tour trong nước" [ref=e87] [cursor=pointer]:
+              - /url: /tour-trong-nuoc
+          - listitem [ref=e88]:
+            - link "Tour nước ngoài" [ref=e89] [cursor=pointer]:
+              - /url: /tour-nuoc-ngoai
+          - listitem [ref=e90]:
+            - link "Tour đoàn" [ref=e91] [cursor=pointer]:
+              - /url: /tour-doan
+          - listitem [ref=e92]:
+            - link "Dịch vụ" [ref=e93] [cursor=pointer]:
+              - /url: /dich-vu
+          - listitem [ref=e94]:
+            - link "Blog" [ref=e95] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=e96]:
+            - link "Liên hệ" [ref=e97] [cursor=pointer]:
+              - /url: /lien-he
+      - generic [ref=e98]:
+        - heading "Kênh hỗ trợ" [level=2] [ref=e99]
+        - generic [ref=e100]:
+          - paragraph [ref=e101]: "Đặt tour: 1900.2011"
+          - paragraph [ref=e102]: "Tư vấn: 0911222288"
+          - paragraph [ref=e103]: "Email: info@haidangtravel.com"
+        - generic [ref=e104]:
+          - link "Zalo" [ref=e105] [cursor=pointer]:
+            - /url: https://zalo.me/0911222288
+            - generic [ref=e106]: Zalo
+          - link "Facebook" [ref=e107] [cursor=pointer]:
+            - /url: https://www.facebook.com/haidangtravel
+            - generic [ref=e109]: Facebook
+          - link "YouTube" [ref=e110] [cursor=pointer]:
+            - /url: https://youtube.com/@
+            - generic [ref=e112]: YouTube
+        - generic [ref=e113]:
+          - link "Đã thông báo Bộ Công Thương":
+            - /url: http://online.gov.vn/Home/WebDetails/15656
+            - img "Đã thông báo Bộ Công Thương"
+          - link "DMCA.com Protection Status" [ref=e114] [cursor=pointer]:
+            - /url: https://www.dmca.com/Protection/Status.aspx?ID=0b22a7b7-ed93-4820-acbf-7bd6d1caaf34
+            - img "DMCA.com Protection Status" [ref=e115]
+    - generic [ref=e116]: © Haidang Travel

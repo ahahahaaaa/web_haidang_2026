@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Báo giá xây nhà trọn gói mới nhất",
+  "description": "Cập nhật đơn giá xây nhà trọn gói và các yếu tố ảnh hưởng chi phí.",
+  "image": "https://example.com/storage/blog/bao-gia-xay-nha.jpg",
+  "author": {
+    "@type": "Organization",
+    "name": "Phong Thành Đạt"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Phong Thành Đạt",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://example.com/storage/settings/logo.png"
+    }
+  }
+}

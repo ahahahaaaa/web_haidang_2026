@@ -1,0 +1,274 @@
+- generic [active] [ref=e1]:
+  - link "Bỏ qua điều hướng & tới nội dung chính" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8001
+        - img "Du Lịch Hải Đăng Travel" [ref=e7]
+      - navigation [ref=e8]:
+        - link "Trang chủ" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "Về chúng tôi" [ref=e10] [cursor=pointer]:
+          - /url: /ve-chung-toi
+        - link "Tour trong nước" [ref=e11] [cursor=pointer]:
+          - /url: /tour-trong-nuoc
+        - link "Tour nước ngoài" [ref=e12] [cursor=pointer]:
+          - /url: /tour-nuoc-ngoai
+        - link "Tour đoàn" [ref=e13] [cursor=pointer]:
+          - /url: /tour-doan
+        - link "Dịch vụ" [ref=e14] [cursor=pointer]:
+          - /url: /dich-vu
+        - link "Blog" [ref=e15] [cursor=pointer]:
+          - /url: /blog
+        - link "Liên hệ" [ref=e16] [cursor=pointer]:
+          - /url: /lien-he
+      - link "Gọi 0911222288" [ref=e18] [cursor=pointer]:
+        - /url: tel:0911222288
+        - generic [ref=e20]: "0911222288"
+  - main [ref=e21]:
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - navigation "Breadcrumb" [ref=e25]:
+          - link "Trang chủ" [ref=e26] [cursor=pointer]:
+            - /url: http://127.0.0.1:8001
+          - generic [ref=e27]: /
+          - generic [ref=e28]: Điểm thưởng
+        - paragraph [ref=e29]: CRM khách hàng
+        - heading "Kiểm tra điểm và đổi quà Hải Đăng Travel" [level=1] [ref=e30]
+        - paragraph [ref=e31]: Nhập số điện thoại đã dùng khi đặt tour để xem đơn hàng, tổng điểm hiện có, lịch sử đổi quà và gửi yêu cầu đổi quà. Nhân sự Hải Đăng Travel sẽ liên hệ xác nhận trước khi hoàn tất đổi quà.
+        - generic [ref=e32]:
+          - generic [ref=e33]: Số điện thoại
+          - textbox "Số điện thoại" [ref=e34]:
+            - /placeholder: Nhập SĐT, ví dụ 0909794299
+            - text: "0909794299"
+          - button "Kiểm tra" [ref=e35]: Kiểm tra
+      - complementary [ref=e37]:
+        - paragraph [ref=e38]: Số điểm
+        - paragraph [ref=e39]: "215.566"
+        - paragraph [ref=e40]: Khách Hàng · 0909794299
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45]:
+              - heading "Đơn hàng đã có" [level=2] [ref=e46]
+              - paragraph [ref=e47]: Các đơn hàng được API trả về theo số điện thoại đang tra cứu.
+            - generic [ref=e48]: 31 đơn
+          - paragraph [ref=e49]: Hiển thị 1-10 / 31 đơn.
+          - table [ref=e51]:
+            - rowgroup [ref=e52]:
+              - row "Mã Tour/Dịch vụ Ngày Điểm Trạng thái" [ref=e53]:
+                - columnheader "Mã" [ref=e54]
+                - columnheader "Tour/Dịch vụ" [ref=e55]
+                - columnheader "Ngày" [ref=e56]
+                - columnheader "Điểm" [ref=e57]
+                - columnheader "Trạng thái" [ref=e58]
+            - rowgroup [ref=e59]:
+              - row "HD00000006425 TOUR DU LỊCH HÀ NỘI - HÀ GIANG - SAPA - ĐỈNH FANSIPAN 5N4Đ 2025-05-21 0 Đang chờ" [ref=e60]:
+                - cell "HD00000006425" [ref=e61]
+                - cell "TOUR DU LỊCH HÀ NỘI - HÀ GIANG - SAPA - ĐỈNH FANSIPAN 5N4Đ" [ref=e62]
+                - cell "2025-05-21" [ref=e63]
+                - cell "0" [ref=e64]
+                - cell "Đang chờ" [ref=e65]
+              - row "HD00000002461 Tour Du lịch Măng Đen - Kon Tum, Gia Lai, Buôn Mê Thuột 2022-08-11 0 Đã xác nhận" [ref=e66]:
+                - cell "HD00000002461" [ref=e67]
+                - cell "Tour Du lịch Măng Đen - Kon Tum, Gia Lai, Buôn Mê Thuột" [ref=e68]
+                - cell "2022-08-11" [ref=e69]
+                - cell "0" [ref=e70]
+                - cell "Đã xác nhận" [ref=e71]
+              - row "HD00000002452 TÀU LỬA MŨI NÉ - MŨI KÊ GÀ 3N2Đ 4 SAO 2022-08-12 0 Đang chờ" [ref=e72]:
+                - cell "HD00000002452" [ref=e73]
+                - cell "TÀU LỬA MŨI NÉ - MŨI KÊ GÀ 3N2Đ 4 SAO" [ref=e74]
+                - cell "2022-08-12" [ref=e75]
+                - cell "0" [ref=e76]
+                - cell "Đang chờ" [ref=e77]
+              - row "HD00000002451 Tour Phú Quốc 3N3Đ Giá Rẻ | Grand World - Cầu Hôn - Hòn Thơm 2022-09-29 0 Đã hủy" [ref=e78]:
+                - cell "HD00000002451" [ref=e79]
+                - cell "Tour Phú Quốc 3N3Đ Giá Rẻ | Grand World - Cầu Hôn - Hòn Thơm" [ref=e80]
+                - cell "2022-09-29" [ref=e81]
+                - cell "0" [ref=e82]
+                - cell "Đã hủy" [ref=e83]
+              - row "HD00000002450 Tour Phú Quốc 3N3Đ Giá Rẻ | Grand World - Cầu Hôn - Hòn Thơm 2022-09-29 0 Đã hủy" [ref=e84]:
+                - cell "HD00000002450" [ref=e85]
+                - cell "Tour Phú Quốc 3N3Đ Giá Rẻ | Grand World - Cầu Hôn - Hòn Thơm" [ref=e86]
+                - cell "2022-09-29" [ref=e87]
+                - cell "0" [ref=e88]
+                - cell "Đã hủy" [ref=e89]
+              - row "HD00000002449 [TOUR LỄ 2.9] TOUR TÀ ĐÙNG - BUÔN MÊ THUỘT 2 ĐÊM 5 SAO 3N3D 2022-08-04 0 Đã hủy" [ref=e90]:
+                - cell "HD00000002449" [ref=e91]
+                - cell "[TOUR LỄ 2.9] TOUR TÀ ĐÙNG - BUÔN MÊ THUỘT 2 ĐÊM 5 SAO 3N3D" [ref=e92]
+                - cell "2022-08-04" [ref=e93]
+                - cell "0" [ref=e94]
+                - cell "Đã hủy" [ref=e95]
+              - row "HD00000002448 [TOUR LỄ 2.9] TOUR TÀ ĐÙNG - BUÔN MÊ THUỘT 2 ĐÊM 5 SAO 3N3D 2022-08-04 0 Đã hủy" [ref=e96]:
+                - cell "HD00000002448" [ref=e97]
+                - cell "[TOUR LỄ 2.9] TOUR TÀ ĐÙNG - BUÔN MÊ THUỘT 2 ĐÊM 5 SAO 3N3D" [ref=e98]
+                - cell "2022-08-04" [ref=e99]
+                - cell "0" [ref=e100]
+                - cell "Đã hủy" [ref=e101]
+              - row "HD00000002447 [TOUR LỄ 2.9] TOUR TÀ ĐÙNG - BUÔN MÊ THUỘT 2 ĐÊM 5 SAO 3N3D 2022-08-04 0 Đã hủy" [ref=e102]:
+                - cell "HD00000002447" [ref=e103]
+                - cell "[TOUR LỄ 2.9] TOUR TÀ ĐÙNG - BUÔN MÊ THUỘT 2 ĐÊM 5 SAO 3N3D" [ref=e104]
+                - cell "2022-08-04" [ref=e105]
+                - cell "0" [ref=e106]
+                - cell "Đã hủy" [ref=e107]
+              - row "HD00000002446 [TOUR LỄ 2.9] TOUR TÀ ĐÙNG - BUÔN MÊ THUỘT 2 ĐÊM 5 SAO 3N3D 2022-08-04 0 Đã hủy" [ref=e108]:
+                - cell "HD00000002446" [ref=e109]
+                - cell "[TOUR LỄ 2.9] TOUR TÀ ĐÙNG - BUÔN MÊ THUỘT 2 ĐÊM 5 SAO 3N3D" [ref=e110]
+                - cell "2022-08-04" [ref=e111]
+                - cell "0" [ref=e112]
+                - cell "Đã hủy" [ref=e113]
+              - row "HD00000002445 [TOUR LỄ 2.9] TOUR TÀ ĐÙNG - BUÔN MÊ THUỘT 2 ĐÊM 5 SAO 3N3D 2022-08-04 0 Đã hủy" [ref=e114]:
+                - cell "HD00000002445" [ref=e115]
+                - cell "[TOUR LỄ 2.9] TOUR TÀ ĐÙNG - BUÔN MÊ THUỘT 2 ĐÊM 5 SAO 3N3D" [ref=e116]
+                - cell "2022-08-04" [ref=e117]
+                - cell "0" [ref=e118]
+                - cell "Đã hủy" [ref=e119]
+          - navigation "Điều hướng phân trang" [ref=e121]:
+            - generic [ref=e122]:
+              - paragraph [ref=e124]: Hiển thị 1 đến 10 trong tổng số 31 kết quả
+              - generic [ref=e126]:
+                - generic "Trước" [ref=e127]:
+                  - img [ref=e129]
+                - generic [ref=e132]: "1"
+                - link "Đi tới trang 2" [ref=e133] [cursor=pointer]:
+                  - /url: http://127.0.0.1:8001/diem-thuong?phone=0909794299&orders_page=2#customer-loyalty-orders
+                  - text: "2"
+                - link "Đi tới trang 3" [ref=e134] [cursor=pointer]:
+                  - /url: http://127.0.0.1:8001/diem-thuong?phone=0909794299&orders_page=3#customer-loyalty-orders
+                  - text: "3"
+                - link "Đi tới trang 4" [ref=e135] [cursor=pointer]:
+                  - /url: http://127.0.0.1:8001/diem-thuong?phone=0909794299&orders_page=4#customer-loyalty-orders
+                  - text: "4"
+                - link "Tiếp theo" [ref=e136] [cursor=pointer]:
+                  - /url: http://127.0.0.1:8001/diem-thuong?phone=0909794299&orders_page=2#customer-loyalty-orders
+                  - img [ref=e137]
+        - generic [ref=e139]:
+          - heading "Lịch sử đổi quà" [level=2] [ref=e140]
+          - generic [ref=e141]:
+            - article [ref=e142]:
+              - generic [ref=e143]:
+                - generic [ref=e144]:
+                  - heading "Áo mưa Haidangtravel" [level=3] [ref=e145]
+                  - paragraph [ref=e146]: 2026-05-14 19:57:03
+                - generic [ref=e147]: pending
+              - paragraph [ref=e148]: 10.000 điểm
+              - paragraph [ref=e149]: Đang chờ nhân sự liên hệ xác nhận
+            - article [ref=e150]:
+              - generic [ref=e151]:
+                - generic [ref=e152]:
+                  - 'heading "Quà tặng #1" [level=3] [ref=e153]'
+                  - paragraph [ref=e154]: 2020-05-13 16:20:17
+                - generic [ref=e155]: approved
+              - paragraph [ref=e156]: 0 điểm
+              - paragraph [ref=e157]: Đã duyệt yêu cầu đổi quà
+      - generic [ref=e158]:
+        - generic [ref=e159]:
+          - generic [ref=e160]:
+            - heading "Danh sách quà có thể đổi" [level=2] [ref=e161]
+            - paragraph [ref=e162]: Bấm đổi để gửi yêu cầu. Hải Đăng Travel sẽ liên hệ lại để xác nhận trước khi xử lý điểm.
+          - generic [ref=e163]: 215.566 điểm hiện có
+        - generic [ref=e164]:
+          - article [ref=e165]:
+            - img "Áo mưa Haidangtravel" [ref=e167]
+            - generic [ref=e168]:
+              - heading "Áo mưa Haidangtravel" [level=3] [ref=e169]
+              - paragraph [ref=e170]: Áo mưa Haidangtravel
+              - generic [ref=e171]:
+                - generic [ref=e172]: "10.000"
+                - button "Đổi" [ref=e175]
+          - article [ref=e176]:
+            - img "Bao da hộ chiếu Haidangtravel" [ref=e178]
+            - generic [ref=e179]:
+              - heading "Bao da hộ chiếu Haidangtravel" [level=3] [ref=e180]
+              - paragraph [ref=e181]: Bao da hộ chiếu Haidangtravel
+              - generic [ref=e182]:
+                - generic [ref=e183]: "10.000"
+                - button "Đổi" [ref=e186]
+          - article [ref=e187]:
+            - img "voucher giảm giá 50.000 cho mỗi khách" [ref=e189]
+            - generic [ref=e190]:
+              - heading "voucher giảm giá 50.000 cho mỗi khách" [level=3] [ref=e191]
+              - paragraph [ref=e192]: voucher giảm giá 50.000 cho mỗi khách
+              - generic [ref=e193]:
+                - generic [ref=e194]: "10.000"
+                - button "Đổi" [ref=e197]
+          - article [ref=e198]:
+            - img "Túi Canva Haidangtravel" [ref=e200]
+            - generic [ref=e201]:
+              - heading "Túi Canva Haidangtravel" [level=3] [ref=e202]
+              - paragraph [ref=e203]: Túi Canva Haidangtravel
+              - generic [ref=e204]:
+                - generic [ref=e205]: "15.000"
+                - button "Đổi" [ref=e208]
+          - article [ref=e209]:
+            - img "Balo du lịch Haidangtravel" [ref=e211]
+            - generic [ref=e212]:
+              - heading "Balo du lịch Haidangtravel" [level=3] [ref=e213]
+              - paragraph [ref=e214]: Balo du lịch Haidangtravel
+              - generic [ref=e215]:
+                - generic [ref=e216]: "20.000"
+                - button "Đổi" [ref=e219]
+          - article [ref=e220]:
+            - img "Vali du lịch Haidangtravel" [ref=e222]
+            - generic [ref=e223]:
+              - heading "Vali du lịch Haidangtravel" [level=3] [ref=e224]
+              - paragraph [ref=e225]: Vali du lịch Haidangtravel
+              - generic [ref=e226]:
+                - generic [ref=e227]: "50.000"
+                - button "Đổi" [ref=e230]
+  - contentinfo [ref=e231]:
+    - generic [ref=e232]:
+      - generic [ref=e233]:
+        - generic [ref=e234]: Du Lịch Hải Đăng Travel
+        - paragraph [ref=e235]: Haidang Travel chuyên tổ chức du lịch, teambuilding, event trong và ngoài nước.
+        - generic [ref=e236]:
+          - paragraph [ref=e237]: Tòa nhà Building Haidang 367 Tân Sơn, Phường Tân Sơn, thành phố Hồ Chí Minh
+          - paragraph [ref=e238]: 1900.2011 · 0911222288
+          - paragraph [ref=e239]: info@haidangtravel.com
+      - generic [ref=e241]:
+        - heading "Đi nhanh" [level=2] [ref=e242]
+        - list [ref=e243]:
+          - listitem [ref=e244]:
+            - link "Tour trong nước" [ref=e245] [cursor=pointer]:
+              - /url: /tour-trong-nuoc
+          - listitem [ref=e246]:
+            - link "Tour nước ngoài" [ref=e247] [cursor=pointer]:
+              - /url: /tour-nuoc-ngoai
+          - listitem [ref=e248]:
+            - link "Tour đoàn" [ref=e249] [cursor=pointer]:
+              - /url: /tour-doan
+          - listitem [ref=e250]:
+            - link "Dịch vụ" [ref=e251] [cursor=pointer]:
+              - /url: /dich-vu
+          - listitem [ref=e252]:
+            - link "Blog" [ref=e253] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=e254]:
+            - link "Liên hệ" [ref=e255] [cursor=pointer]:
+              - /url: /lien-he
+      - generic [ref=e256]:
+        - heading "Kênh hỗ trợ" [level=2] [ref=e257]
+        - generic [ref=e258]:
+          - paragraph [ref=e259]: "Đặt tour: 1900.2011"
+          - paragraph [ref=e260]: "Tư vấn: 0911222288"
+          - paragraph [ref=e261]: "Email: info@haidangtravel.com"
+        - generic [ref=e262]:
+          - link "Zalo" [ref=e263] [cursor=pointer]:
+            - /url: https://zalo.me/0911222288
+            - generic [ref=e264]: Zalo
+          - link "Facebook" [ref=e265] [cursor=pointer]:
+            - /url: https://www.facebook.com/haidangtravel
+            - generic [ref=e267]: Facebook
+          - link "YouTube" [ref=e268] [cursor=pointer]:
+            - /url: https://youtube.com/@
+            - generic [ref=e270]: YouTube
+        - generic [ref=e271]:
+          - link "Đã thông báo Bộ Công Thương" [ref=e272] [cursor=pointer]:
+            - /url: http://online.gov.vn/Home/WebDetails/15656
+            - img "Đã thông báo Bộ Công Thương" [ref=e273]
+          - link "DMCA.com Protection Status" [ref=e274] [cursor=pointer]:
+            - /url: https://www.dmca.com/Protection/Status.aspx?ID=0b22a7b7-ed93-4820-acbf-7bd6d1caaf34
+            - img "DMCA.com Protection Status" [ref=e275]
+    - generic [ref=e276]: © Haidang Travel

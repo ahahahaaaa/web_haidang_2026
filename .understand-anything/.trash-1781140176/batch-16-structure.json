@@ -1,0 +1,2625 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 18,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "docs/ADMIN_CMS.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 130,
+      "nonEmptyLines": 97,
+      "sections": [
+        {
+          "heading": "ADMIN_CMS.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Mục đích",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2. Điều hướng admin",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "Sidebar chính",
+          "level": 3,
+          "line": 20
+        },
+        {
+          "heading": "Submenu nội trang",
+          "level": 3,
+          "line": 30
+        },
+        {
+          "heading": "3. Chuẩn list page",
+          "level": 2,
+          "line": 38
+        },
+        {
+          "heading": "Các list page chính",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "4. Chuẩn create/edit page",
+          "level": 2,
+          "line": 78
+        },
+        {
+          "heading": "5. Spacing và surface",
+          "level": 2,
+          "line": 98
+        },
+        {
+          "heading": "6. Quy tắc implementation",
+          "level": 2,
+          "line": 108
+        },
+        {
+          "heading": "7. Validation khi thay đổi admin CMS",
+          "level": 2,
+          "line": 117
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 11
+      }
+    },
+    {
+      "path": "docs/AGENCY_TOUR_SYNC_API.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 414,
+      "nonEmptyLines": 357,
+      "sections": [
+        {
+          "heading": "API Master Data DashBoard Tour Sync API",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "0. Route Chính Xác",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "1. Luồng Đồng Bộ",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "2. API Master Data DashBoard Gọi CMS Để Lấy Tour",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "3. CMS Gọi API Master Data DashBoard Để Lấy Tour Nguồn",
+          "level": 2,
+          "line": 115
+        },
+        {
+          "heading": "4. CMS Push Ngược Sang API Master Data DashBoard Khi Admin Cập Nhật",
+          "level": 2,
+          "line": 204
+        },
+        {
+          "heading": "5. Cấu Hình CMS",
+          "level": 2,
+          "line": 373
+        },
+        {
+          "heading": "6. Lưu Ý Vận Hành",
+          "level": 2,
+          "line": 401
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "docs/AGENCY_TOUR_SYNC_QUEUE_DESIGN.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 474,
+      "nonEmptyLines": 358,
+      "sections": [
+        {
+          "heading": "API Master Data DashBoard Tour Sync Queue Design",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Mục Tiêu",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "2. Phạm Vi",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "3. Điều Kiện Tạo Hàng Chờ",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "4. Màn Hình Quản Trị",
+          "level": 2,
+          "line": 46
+        },
+        {
+          "heading": "5. Data Model",
+          "level": 2,
+          "line": 88
+        },
+        {
+          "heading": "6. Trạng Thái",
+          "level": 2,
+          "line": 126
+        },
+        {
+          "heading": "7. Lifecycle",
+          "level": 2,
+          "line": 145
+        },
+        {
+          "heading": "8. Cách Xử Lý",
+          "level": 2,
+          "line": 167
+        },
+        {
+          "heading": "Chạy nền bằng Laravel queue",
+          "level": 3,
+          "line": 169
+        },
+        {
+          "heading": "Chạy thủ công trong CMS",
+          "level": 3,
+          "line": 193
+        },
+        {
+          "heading": "9. Payload Gửi Sang API Master Data DashBoard",
+          "level": 2,
+          "line": 234
+        },
+        {
+          "heading": "10. Cập Nhật Mapping Sau Khi API Master Data DashBoard Trả Kết Quả",
+          "level": 2,
+          "line": 274
+        },
+        {
+          "heading": "11. System Logs",
+          "level": 2,
+          "line": 311
+        },
+        {
+          "heading": "12. Ví Dụ Vận Hành",
+          "level": 2,
+          "line": 383
+        },
+        {
+          "heading": "13. Cấu Hình Liên Quan",
+          "level": 2,
+          "line": 399
+        },
+        {
+          "heading": "14. File Implementation Chính",
+          "level": 2,
+          "line": 421
+        },
+        {
+          "heading": "15. Test Coverage",
+          "level": 2,
+          "line": 436
+        },
+        {
+          "heading": "16. Rủi Ro Và Giới Hạn",
+          "level": 2,
+          "line": 456
+        },
+        {
+          "heading": "17. Checklist Triển Khai Production",
+          "level": 2,
+          "line": 466
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 20
+      }
+    },
+    {
+      "path": "docs/AGENTS.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 209,
+      "nonEmptyLines": 150,
+      "sections": [
+        {
+          "heading": "AGENTS.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Mission",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "2. Agent operating principles",
+          "level": 2,
+          "line": 24
+        },
+        {
+          "heading": "Required behavior",
+          "level": 3,
+          "line": 26
+        },
+        {
+          "heading": "Rich text and media rules",
+          "level": 3,
+          "line": 37
+        },
+        {
+          "heading": "Seeder and DB safety",
+          "level": 3,
+          "line": 45
+        },
+        {
+          "heading": "Forbidden behavior",
+          "level": 3,
+          "line": 51
+        },
+        {
+          "heading": "3. Instruction chain and specialization",
+          "level": 2,
+          "line": 63
+        },
+        {
+          "heading": "4. Product intent",
+          "level": 2,
+          "line": 95
+        },
+        {
+          "heading": "5. Runtime boundaries",
+          "level": 2,
+          "line": 125
+        },
+        {
+          "heading": "6. Development workflow",
+          "level": 2,
+          "line": 149
+        },
+        {
+          "heading": "7. Validation checklist",
+          "level": 2,
+          "line": 162
+        },
+        {
+          "heading": "Frontend",
+          "level": 3,
+          "line": 164
+        },
+        {
+          "heading": "Backend",
+          "level": 3,
+          "line": 172
+        },
+        {
+          "heading": "8. Content and SEO priorities",
+          "level": 2,
+          "line": 182
+        },
+        {
+          "heading": "9. Completion contract",
+          "level": 2,
+          "line": 202
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 16
+      }
+    },
+    {
+      "path": "docs/BACKEND_AGENT.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 322,
+      "nonEmptyLines": 260,
+      "sections": [
+        {
+          "heading": "BACKEND_AGENT.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Purpose",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "2. Primary backend responsibilities",
+          "level": 2,
+          "line": 29
+        },
+        {
+          "heading": "3. Architectural principles",
+          "level": 2,
+          "line": 46
+        },
+        {
+          "heading": "4. Recommended layers",
+          "level": 2,
+          "line": 61
+        },
+        {
+          "heading": "5. Suggested domain model",
+          "level": 2,
+          "line": 81
+        },
+        {
+          "heading": "Site settings",
+          "level": 3,
+          "line": 83
+        },
+        {
+          "heading": "Service",
+          "level": 3,
+          "line": 93
+        },
+        {
+          "heading": "Project",
+          "level": 3,
+          "line": 106
+        },
+        {
+          "heading": "Blog post",
+          "level": 3,
+          "line": 121
+        },
+        {
+          "heading": "Testimonial",
+          "level": 3,
+          "line": 134
+        },
+        {
+          "heading": "Contact lead",
+          "level": 3,
+          "line": 143
+        },
+        {
+          "heading": "Quotation request",
+          "level": 3,
+          "line": 156
+        },
+        {
+          "heading": "6. API design rules",
+          "level": 2,
+          "line": 170
+        },
+        {
+          "heading": "Public API goals",
+          "level": 3,
+          "line": 172
+        },
+        {
+          "heading": "Admin/API goals",
+          "level": 3,
+          "line": 179
+        },
+        {
+          "heading": "7. Routing guidance",
+          "level": 2,
+          "line": 196
+        },
+        {
+          "heading": "8. Validation and security",
+          "level": 2,
+          "line": 211
+        },
+        {
+          "heading": "9. Publishing workflow",
+          "level": 2,
+          "line": 232
+        },
+        {
+          "heading": "10. SEO metadata support",
+          "level": 2,
+          "line": 247
+        },
+        {
+          "heading": "11. Lead and quotation flows",
+          "level": 2,
+          "line": 263
+        },
+        {
+          "heading": "Contact flow",
+          "level": 3,
+          "line": 265
+        },
+        {
+          "heading": "Quotation flow",
+          "level": 3,
+          "line": 272
+        },
+        {
+          "heading": "12. Caching and performance",
+          "level": 2,
+          "line": 284
+        },
+        {
+          "heading": "13. Observability and testing",
+          "level": 2,
+          "line": 295
+        },
+        {
+          "heading": "14. Output contract",
+          "level": 2,
+          "line": 314
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 26
+      }
+    },
+    {
+      "path": "docs/CUSTOMER_LOYALTY_API_REQUIREMENTS.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 366,
+      "nonEmptyLines": 299,
+      "sections": [
+        {
+          "heading": "Yêu cầu API điểm thưởng và đổi quà",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Mục tiêu",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Cấu hình và xác thực",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "Đăng nhập lấy token",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Danh sách quà khi chưa tra cứu số điện thoại",
+          "level": 2,
+          "line": 75
+        },
+        {
+          "heading": "Tra cứu khách hàng, điểm, đơn hàng, lịch sử, quà",
+          "level": 2,
+          "line": 109
+        },
+        {
+          "heading": "Response tối thiểu để hoàn thiện giao diện",
+          "level": 3,
+          "line": 145
+        },
+        {
+          "heading": "Chi tiết field",
+          "level": 2,
+          "line": 219
+        },
+        {
+          "heading": "`data.customer`",
+          "level": 3,
+          "line": 221
+        },
+        {
+          "heading": "`data.orders`",
+          "level": 3,
+          "line": 234
+        },
+        {
+          "heading": "`data.redemption_history`",
+          "level": 3,
+          "line": 246
+        },
+        {
+          "heading": "`data.gifts`",
+          "level": 3,
+          "line": 259
+        },
+        {
+          "heading": "Tạo phiếu yêu cầu đổi quà chờ duyệt",
+          "level": 2,
+          "line": 272
+        },
+        {
+          "heading": "Error contract",
+          "level": 2,
+          "line": 335
+        },
+        {
+          "heading": "Checklist bàn giao phía API",
+          "level": 2,
+          "line": 356
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 15
+      }
+    },
+    {
+      "path": "docs/DESIGN_SYSTEM.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 601,
+      "nonEmptyLines": 519,
+      "sections": [
+        {
+          "heading": "DESIGN_SYSTEM.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Design foundation",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2. Material and surfaces",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "No-line rule",
+          "level": 3,
+          "line": 38
+        },
+        {
+          "heading": "Surface nesting",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "3. Color usage",
+          "level": 2,
+          "line": 53
+        },
+        {
+          "heading": "Orange",
+          "level": 3,
+          "line": 55
+        },
+        {
+          "heading": "Blue",
+          "level": 3,
+          "line": 62
+        },
+        {
+          "heading": "Gradient rule",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "4. Typography",
+          "level": 2,
+          "line": 81
+        },
+        {
+          "heading": "Shared section heading for H2",
+          "level": 3,
+          "line": 99
+        },
+        {
+          "heading": "5. Layout and spacing",
+          "level": 2,
+          "line": 152
+        },
+        {
+          "heading": "6. Components",
+          "level": 2,
+          "line": 170
+        },
+        {
+          "heading": "Buttons — “Beams”",
+          "level": 3,
+          "line": 172
+        },
+        {
+          "heading": "Icons",
+          "level": 3,
+          "line": 181
+        },
+        {
+          "heading": "Header / Navigation",
+          "level": 3,
+          "line": 186
+        },
+        {
+          "heading": "Footer",
+          "level": 3,
+          "line": 196
+        },
+        {
+          "heading": "Frontsite contact form",
+          "level": 3,
+          "line": 206
+        },
+        {
+          "heading": "Voucher promotion landing",
+          "level": 3,
+          "line": 221
+        },
+        {
+          "heading": "Frontsite cache contract",
+          "level": 3,
+          "line": 231
+        },
+        {
+          "heading": "Cards — “Modules”",
+          "level": 3,
+          "line": 238
+        },
+        {
+          "heading": "Topic taxonomy rails",
+          "level": 3,
+          "line": 270
+        },
+        {
+          "heading": "Trust proof sections",
+          "level": 3,
+          "line": 276
+        },
+        {
+          "heading": "Homepage process cards",
+          "level": 3,
+          "line": 287
+        },
+        {
+          "heading": "Tour detail sidebar",
+          "level": 3,
+          "line": 294
+        },
+        {
+          "heading": "Tour departure schedule block",
+          "level": 3,
+          "line": 308
+        },
+        {
+          "heading": "Expandable rich text blocks",
+          "level": 3,
+          "line": 316
+        },
+        {
+          "heading": "Taxonomy rating surfaces",
+          "level": 3,
+          "line": 327
+        },
+        {
+          "heading": "FAQ accordions",
+          "level": 3,
+          "line": 337
+        },
+        {
+          "heading": "Tour itinerary accordion",
+          "level": 3,
+          "line": 350
+        },
+        {
+          "heading": "Sliders — “Showcases”",
+          "level": 3,
+          "line": 359
+        },
+        {
+          "heading": "Shared media with Spatie",
+          "level": 3,
+          "line": 388
+        },
+        {
+          "heading": "Landing Pages — Visual Slots",
+          "level": 3,
+          "line": 407
+        },
+        {
+          "heading": "CMS Sidebar — Grouped Rails",
+          "level": 3,
+          "line": 417
+        },
+        {
+          "heading": "Permission Matrix Editor",
+          "level": 3,
+          "line": 426
+        },
+        {
+          "heading": "Landing Page Builder — Blocks",
+          "level": 3,
+          "line": 437
+        },
+        {
+          "heading": "Inputs — “Blueprints”",
+          "level": 3,
+          "line": 453
+        },
+        {
+          "heading": "Homepage Search Bar",
+          "level": 3,
+          "line": 463
+        },
+        {
+          "heading": "Listing Search Bar",
+          "level": 3,
+          "line": 471
+        },
+        {
+          "heading": "Blog listing category grid",
+          "level": 3,
+          "line": 479
+        },
+        {
+          "heading": "Blog detail content wrapper",
+          "level": 3,
+          "line": 488
+        },
+        {
+          "heading": "Pagination copy",
+          "level": 3,
+          "line": 492
+        },
+        {
+          "heading": "Homepage discovery rails",
+          "level": 3,
+          "line": 496
+        },
+        {
+          "heading": "Homepage featured-tour tabs",
+          "level": 3,
+          "line": 508
+        },
+        {
+          "heading": "Region taxonomy tabs",
+          "level": 3,
+          "line": 516
+        },
+        {
+          "heading": "Admin form actions",
+          "level": 3,
+          "line": 527
+        },
+        {
+          "heading": "Project stats",
+          "level": 3,
+          "line": 540
+        },
+        {
+          "heading": "7. Imagery",
+          "level": 2,
+          "line": 546
+        },
+        {
+          "heading": "8. Interaction",
+          "level": 2,
+          "line": 563
+        },
+        {
+          "heading": "Text reveal system",
+          "level": 3,
+          "line": 571
+        },
+        {
+          "heading": "9. Do / Don’t",
+          "level": 2,
+          "line": 586
+        },
+        {
+          "heading": "Do",
+          "level": 3,
+          "line": 588
+        },
+        {
+          "heading": "Don’t",
+          "level": 3,
+          "line": 595
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 53
+      }
+    },
+    {
+      "path": "docs/DOC_REFERENCE_MAP.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 249,
+      "nonEmptyLines": 186,
+      "sections": [
+        {
+          "heading": "DOC_REFERENCE_MAP.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Toàn bộ file `.md` đã quét trong `docs`",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "2. Đường đọc mặc định để giảm dư thừa",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "3. Case Frontend",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "Phạm vi",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "Tài liệu nên đọc",
+          "level": 3,
+          "line": 49
+        },
+        {
+          "heading": "Nội dung chính đã được gom",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "Không cần ưu tiên đọc cho frontend thông thường",
+          "level": 3,
+          "line": 67
+        },
+        {
+          "heading": "4. Case UX/UI",
+          "level": 2,
+          "line": 72
+        },
+        {
+          "heading": "Tài liệu nên đọc",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "Quy ước chính",
+          "level": 3,
+          "line": 80
+        },
+        {
+          "heading": "Tài liệu chỉ nên xem khi cần cảm hứng",
+          "level": 3,
+          "line": 87
+        },
+        {
+          "heading": "5. Case Form",
+          "level": 2,
+          "line": 93
+        },
+        {
+          "heading": "Phạm vi",
+          "level": 3,
+          "line": 95
+        },
+        {
+          "heading": "Tài liệu nên đọc",
+          "level": 3,
+          "line": 102
+        },
+        {
+          "heading": "Nguồn nội dung theo vai trò",
+          "level": 3,
+          "line": 110
+        },
+        {
+          "heading": "Ghi chú hợp lý hoá",
+          "level": 3,
+          "line": 119
+        },
+        {
+          "heading": "6. Case Slider / Motion",
+          "level": 2,
+          "line": 126
+        },
+        {
+          "heading": "Phạm vi",
+          "level": 3,
+          "line": 128
+        },
+        {
+          "heading": "Tài liệu nên đọc",
+          "level": 3,
+          "line": 135
+        },
+        {
+          "heading": "Nguồn nội dung theo vai trò",
+          "level": 3,
+          "line": 142
+        },
+        {
+          "heading": "Ghi chú hợp lý hoá",
+          "level": 3,
+          "line": 151
+        },
+        {
+          "heading": "7. Case Backend",
+          "level": 2,
+          "line": 158
+        },
+        {
+          "heading": "Phạm vi",
+          "level": 3,
+          "line": 160
+        },
+        {
+          "heading": "Tài liệu nên đọc",
+          "level": 3,
+          "line": 171
+        },
+        {
+          "heading": "Tài liệu chỉ dùng thêm khi cần bối cảnh",
+          "level": 3,
+          "line": 179
+        },
+        {
+          "heading": "Nguồn nội dung theo vai trò",
+          "level": 3,
+          "line": 183
+        },
+        {
+          "heading": "8. Code HTML Mẫu",
+          "level": 2,
+          "line": 192
+        },
+        {
+          "heading": "Frontend chính",
+          "level": 3,
+          "line": 194
+        },
+        {
+          "heading": "Cách dùng hợp lý",
+          "level": 3,
+          "line": 207
+        },
+        {
+          "heading": "9. Thành phần dư thừa đã được gom lại",
+          "level": 2,
+          "line": 215
+        },
+        {
+          "heading": "10. Conflict Rule",
+          "level": 2,
+          "line": 232
+        },
+        {
+          "heading": "11. Kết luận ngắn",
+          "level": 2,
+          "line": 241
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 33
+      }
+    },
+    {
+      "path": "docs/ENTITY_SCHEMA_GUIDE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 466,
+      "nonEmptyLines": 384,
+      "sections": [
+        {
+          "heading": "Entity Schema Guide",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Scope",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "1. Root architecture",
+          "level": 2,
+          "line": 23
+        },
+        {
+          "heading": "2. Company as config-based entity",
+          "level": 2,
+          "line": 49
+        },
+        {
+          "heading": "Company data must come from Theme Settings",
+          "level": 3,
+          "line": 51
+        },
+        {
+          "heading": "Recommended config sections",
+          "level": 3,
+          "line": 54
+        },
+        {
+          "heading": "System information",
+          "level": 4,
+          "line": 56
+        },
+        {
+          "heading": "Main media",
+          "level": 4,
+          "line": 63
+        },
+        {
+          "heading": "Contact and social",
+          "level": 4,
+          "line": 68
+        },
+        {
+          "heading": "Trust metrics and site SEO defaults",
+          "level": 4,
+          "line": 85
+        },
+        {
+          "heading": "Consequence",
+          "level": 3,
+          "line": 96
+        },
+        {
+          "heading": "3. Core public entities",
+          "level": 2,
+          "line": 101
+        },
+        {
+          "heading": "3.1 Service",
+          "level": 2,
+          "line": 103
+        },
+        {
+          "heading": "Purpose",
+          "level": 3,
+          "line": 106
+        },
+        {
+          "heading": "Required fields",
+          "level": 3,
+          "line": 114
+        },
+        {
+          "heading": "Recommended optional fields",
+          "level": 3,
+          "line": 127
+        },
+        {
+          "heading": "3.2 Project",
+          "level": 2,
+          "line": 146
+        },
+        {
+          "heading": "Purpose",
+          "level": 3,
+          "line": 149
+        },
+        {
+          "heading": "Required fields",
+          "level": 3,
+          "line": 152
+        },
+        {
+          "heading": "Recommended optional fields",
+          "level": 3,
+          "line": 165
+        },
+        {
+          "heading": "3.3 BlogPost",
+          "level": 2,
+          "line": 195
+        },
+        {
+          "heading": "Purpose",
+          "level": 3,
+          "line": 198
+        },
+        {
+          "heading": "Required fields",
+          "level": 3,
+          "line": 201
+        },
+        {
+          "heading": "Recommended optional fields",
+          "level": 3,
+          "line": 215
+        },
+        {
+          "heading": "3.4 Lead",
+          "level": 2,
+          "line": 232
+        },
+        {
+          "heading": "Purpose",
+          "level": 3,
+          "line": 235
+        },
+        {
+          "heading": "Fields",
+          "level": 3,
+          "line": 238
+        },
+        {
+          "heading": "3.5 FAQ",
+          "level": 2,
+          "line": 257
+        },
+        {
+          "heading": "Design",
+          "level": 3,
+          "line": 260
+        },
+        {
+          "heading": "Fields",
+          "level": 3,
+          "line": 263
+        },
+        {
+          "heading": "Supported entity_type",
+          "level": 3,
+          "line": 274
+        },
+        {
+          "heading": "3.6 Testimonial",
+          "level": 2,
+          "line": 282
+        },
+        {
+          "heading": "Fields",
+          "level": 3,
+          "line": 285
+        },
+        {
+          "heading": "3.7 SEO entities",
+          "level": 2,
+          "line": 301
+        },
+        {
+          "heading": "seo_meta",
+          "level": 3,
+          "line": 303
+        },
+        {
+          "heading": "seo_schema",
+          "level": 3,
+          "line": 324
+        },
+        {
+          "heading": "internal_links",
+          "level": 3,
+          "line": 337
+        },
+        {
+          "heading": "4. Relationships",
+          "level": 2,
+          "line": 354
+        },
+        {
+          "heading": "Important note",
+          "level": 3,
+          "line": 380
+        },
+        {
+          "heading": "5. URL structure",
+          "level": 2,
+          "line": 385
+        },
+        {
+          "heading": "6. Publish workflow",
+          "level": 2,
+          "line": 402
+        },
+        {
+          "heading": "7. Internal linking rules",
+          "level": 2,
+          "line": 419
+        },
+        {
+          "heading": "Blog links to",
+          "level": 3,
+          "line": 421
+        },
+        {
+          "heading": "Service links to",
+          "level": 3,
+          "line": 426
+        },
+        {
+          "heading": "Project links to",
+          "level": 3,
+          "line": 431
+        },
+        {
+          "heading": "8. Implementation guidance",
+          "level": 2,
+          "line": 438
+        },
+        {
+          "heading": "Use config/root settings for:",
+          "level": 3,
+          "line": 440
+        },
+        {
+          "heading": "Use DB entities for:",
+          "level": 3,
+          "line": 449
+        },
+        {
+          "heading": "9. Future upgrade path",
+          "level": 2,
+          "line": 459
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 49
+      }
+    },
+    {
+      "path": "docs/FRONTSITE_AGENT.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 899,
+      "nonEmptyLines": 729,
+      "sections": [
+        {
+          "heading": "FRONTSITE_AGENT.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Purpose",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Audit baseline (reviewed 2026-04-20)",
+          "level": 3,
+          "line": 30
+        },
+        {
+          "heading": "2. Design direction",
+          "level": 2,
+          "line": 42
+        },
+        {
+          "heading": "3. Brand system",
+          "level": 2,
+          "line": 61
+        },
+        {
+          "heading": "Core colors",
+          "level": 3,
+          "line": 63
+        },
+        {
+          "heading": "Usage rules",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "4. Typography",
+          "level": 2,
+          "line": 95
+        },
+        {
+          "heading": "5. Layout system",
+          "level": 2,
+          "line": 109
+        },
+        {
+          "heading": "Grid",
+          "level": 3,
+          "line": 111
+        },
+        {
+          "heading": "Container",
+          "level": 3,
+          "line": 115
+        },
+        {
+          "heading": "Spacing",
+          "level": 3,
+          "line": 119
+        },
+        {
+          "heading": "6. Core page inventory",
+          "level": 2,
+          "line": 130
+        },
+        {
+          "heading": "Reference analysis: `haidangtravel.com`",
+          "level": 3,
+          "line": 146
+        },
+        {
+          "heading": "Reference analysis: `travel.com.vn`",
+          "level": 3,
+          "line": 161
+        },
+        {
+          "heading": "Mandatory rebuild direction",
+          "level": 3,
+          "line": 175
+        },
+        {
+          "heading": "7. Homepage rules",
+          "level": 2,
+          "line": 187
+        },
+        {
+          "heading": "Homepage block inventory",
+          "level": 3,
+          "line": 215
+        },
+        {
+          "heading": "1. Header / navigation",
+          "level": 4,
+          "line": 225
+        },
+        {
+          "heading": "2. Hero",
+          "level": 4,
+          "line": 240
+        },
+        {
+          "heading": "Hero requirements",
+          "level": 3,
+          "line": 244
+        },
+        {
+          "heading": "3. Quick trust bar / booking support",
+          "level": 4,
+          "line": 260
+        },
+        {
+          "heading": "4. Tour intent chooser / light search",
+          "level": 4,
+          "line": 283
+        },
+        {
+          "heading": "5. Tour scope discovery",
+          "level": 4,
+          "line": 317
+        },
+        {
+          "heading": "6. Seasonal campaigns / featured tours",
+          "level": 4,
+          "line": 330
+        },
+        {
+          "heading": "7. Destination / region discovery",
+          "level": 4,
+          "line": 347
+        },
+        {
+          "heading": "8. Tour styles / customer segments",
+          "level": 4,
+          "line": 370
+        },
+        {
+          "heading": "Services section",
+          "level": 3,
+          "line": 388
+        },
+        {
+          "heading": "9. Core services",
+          "level": 4,
+          "line": 395
+        },
+        {
+          "heading": "Featured tours",
+          "level": 3,
+          "line": 406
+        },
+        {
+          "heading": "10. Why choose us / trust metrics",
+          "level": 4,
+          "line": 416
+        },
+        {
+          "heading": "11. Booking process / workflow",
+          "level": 4,
+          "line": 438
+        },
+        {
+          "heading": "Process",
+          "level": 3,
+          "line": 442
+        },
+        {
+          "heading": "12. Reviews / testimonials / partner proof",
+          "level": 4,
+          "line": 456
+        },
+        {
+          "heading": "13. Travel guide / blog preview",
+          "level": 4,
+          "line": 470
+        },
+        {
+          "heading": "14. Homepage FAQ",
+          "level": 4,
+          "line": 481
+        },
+        {
+          "heading": "15. Final CTA",
+          "level": 4,
+          "line": 508
+        },
+        {
+          "heading": "16. Footer",
+          "level": 4,
+          "line": 518
+        },
+        {
+          "heading": "Homepage composition rules",
+          "level": 3,
+          "line": 538
+        },
+        {
+          "heading": "Homepage SEO and conversion rules",
+          "level": 3,
+          "line": 547
+        },
+        {
+          "heading": "8. Service pages",
+          "level": 2,
+          "line": 559
+        },
+        {
+          "heading": "Listing page",
+          "level": 3,
+          "line": 561
+        },
+        {
+          "heading": "Detail page",
+          "level": 3,
+          "line": 568
+        },
+        {
+          "heading": "9. Tour pages",
+          "level": 2,
+          "line": 578
+        },
+        {
+          "heading": "Listing page",
+          "level": 3,
+          "line": 582
+        },
+        {
+          "heading": "Tour object contract",
+          "level": 3,
+          "line": 595
+        },
+        {
+          "heading": "Detail page",
+          "level": 3,
+          "line": 638
+        },
+        {
+          "heading": "10. Blog pages",
+          "level": 2,
+          "line": 671
+        },
+        {
+          "heading": "Listing page",
+          "level": 3,
+          "line": 673
+        },
+        {
+          "heading": "Detail page",
+          "level": 3,
+          "line": 689
+        },
+        {
+          "heading": "11. Header/footer rules",
+          "level": 2,
+          "line": 707
+        },
+        {
+          "heading": "Header",
+          "level": 3,
+          "line": 709
+        },
+        {
+          "heading": "Footer",
+          "level": 3,
+          "line": 716
+        },
+        {
+          "heading": "12. Component rules",
+          "level": 2,
+          "line": 734
+        },
+        {
+          "heading": "13. Frontsite motion system",
+          "level": 2,
+          "line": 750
+        },
+        {
+          "heading": "Required motion hooks",
+          "level": 3,
+          "line": 752
+        },
+        {
+          "heading": "Reveal behavior",
+          "level": 3,
+          "line": 758
+        },
+        {
+          "heading": "Slider visual contract",
+          "level": 3,
+          "line": 765
+        },
+        {
+          "heading": "Hover behavior",
+          "level": 3,
+          "line": 771
+        },
+        {
+          "heading": "Reduced motion",
+          "level": 3,
+          "line": 777
+        },
+        {
+          "heading": "14. UX rules",
+          "level": 2,
+          "line": 785
+        },
+        {
+          "heading": "Conversion priorities",
+          "level": 3,
+          "line": 787
+        },
+        {
+          "heading": "Mobile priorities",
+          "level": 3,
+          "line": 793
+        },
+        {
+          "heading": "15. SEO, AI discovery, and accessibility",
+          "level": 2,
+          "line": 801
+        },
+        {
+          "heading": "Search and crawl rules",
+          "level": 3,
+          "line": 808
+        },
+        {
+          "heading": "AI-friendly / citation-ready SEO rules",
+          "level": 3,
+          "line": 821
+        },
+        {
+          "heading": "Schema rules for current travel runtime",
+          "level": 3,
+          "line": 830
+        },
+        {
+          "heading": "ADA / WCAG 2.2 implementation rules",
+          "level": 3,
+          "line": 854
+        },
+        {
+          "heading": "ARIA rules",
+          "level": 3,
+          "line": 872
+        },
+        {
+          "heading": "16. Performance rules",
+          "level": 2,
+          "line": 881
+        },
+        {
+          "heading": "17. Output contract",
+          "level": 2,
+          "line": 892
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 71
+      }
+    },
+    {
+      "path": "docs/PROJECT_START_GUIDE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 115,
+      "nonEmptyLines": 89,
+      "sections": [
+        {
+          "heading": "PROJECT_START_GUIDE.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Create project",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2. Laravel bootstrap",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "3. SQLite local setup",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "Windows",
+          "level": 3,
+          "line": 21
+        },
+        {
+          "heading": "`.env`",
+          "level": 3,
+          "line": 26
+        },
+        {
+          "heading": "4. Add `Src\\\\` autoload if using `src/`",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "5. Frontend setup",
+          "level": 2,
+          "line": 52
+        },
+        {
+          "heading": "6. Queue tables and migrate",
+          "level": 2,
+          "line": 65
+        },
+        {
+          "heading": "7. Run app",
+          "level": 2,
+          "line": 77
+        },
+        {
+          "heading": "Web app",
+          "level": 3,
+          "line": 79
+        },
+        {
+          "heading": "SEO queue worker",
+          "level": 3,
+          "line": 84
+        },
+        {
+          "heading": "8. Useful SEO commands",
+          "level": 2,
+          "line": 89
+        },
+        {
+          "heading": "9. Recommended debug commands",
+          "level": 2,
+          "line": 98
+        },
+        {
+          "heading": "10. Laravel Boost",
+          "level": 2,
+          "line": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 15
+      }
+    },
+    {
+      "path": "docs/SEO_PHASE_SUMMARY.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 52,
+      "nonEmptyLines": 47,
+      "sections": [
+        {
+          "heading": "SEO_PHASE_SUMMARY.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Phase 3",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Phase 4",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Phase 5",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "Phase 6",
+          "level": 2,
+          "line": 32
+        },
+        {
+          "heading": "Current recommended direction",
+          "level": 2,
+          "line": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "docs/SEO_SCHEMA_MAPPING.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 298,
+      "nonEmptyLines": 240,
+      "sections": [
+        {
+          "heading": "SEO Schema Mapping",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Core rule",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "1. Homepage",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Schema types",
+          "level": 3,
+          "line": 10
+        },
+        {
+          "heading": "Company source fields",
+          "level": 3,
+          "line": 19
+        },
+        {
+          "heading": "Render notes",
+          "level": 3,
+          "line": 34
+        },
+        {
+          "heading": "2. About page",
+          "level": 2,
+          "line": 48
+        },
+        {
+          "heading": "Schema types",
+          "level": 3,
+          "line": 50
+        },
+        {
+          "heading": "Content source",
+          "level": 3,
+          "line": 54
+        },
+        {
+          "heading": "3. Service listing",
+          "level": 2,
+          "line": 61
+        },
+        {
+          "heading": "Schema types",
+          "level": 3,
+          "line": 63
+        },
+        {
+          "heading": "Content source",
+          "level": 3,
+          "line": 68
+        },
+        {
+          "heading": "Render notes",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "4. Service detail",
+          "level": 2,
+          "line": 79
+        },
+        {
+          "heading": "Schema types",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "Content source",
+          "level": 3,
+          "line": 86
+        },
+        {
+          "heading": "Render notes",
+          "level": 3,
+          "line": 94
+        },
+        {
+          "heading": "5. Tour scope, category, region, and country listings",
+          "level": 2,
+          "line": 103
+        },
+        {
+          "heading": "Schema types",
+          "level": 3,
+          "line": 105
+        },
+        {
+          "heading": "Content source",
+          "level": 3,
+          "line": 111
+        },
+        {
+          "heading": "Render notes",
+          "level": 3,
+          "line": 117
+        },
+        {
+          "heading": "6. Destination page",
+          "level": 2,
+          "line": 127
+        },
+        {
+          "heading": "Schema types",
+          "level": 3,
+          "line": 129
+        },
+        {
+          "heading": "Content source",
+          "level": 3,
+          "line": 135
+        },
+        {
+          "heading": "Render notes",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "7. Tour detail",
+          "level": 2,
+          "line": 153
+        },
+        {
+          "heading": "Schema types",
+          "level": 3,
+          "line": 155
+        },
+        {
+          "heading": "Content source",
+          "level": 3,
+          "line": 164
+        },
+        {
+          "heading": "Render notes",
+          "level": 3,
+          "line": 180
+        },
+        {
+          "heading": "8. Blog listing",
+          "level": 2,
+          "line": 196
+        },
+        {
+          "heading": "Schema types",
+          "level": 3,
+          "line": 198
+        },
+        {
+          "heading": "Content source",
+          "level": 3,
+          "line": 204
+        },
+        {
+          "heading": "Render notes",
+          "level": 3,
+          "line": 209
+        },
+        {
+          "heading": "9. Blog detail",
+          "level": 2,
+          "line": 217
+        },
+        {
+          "heading": "Schema types",
+          "level": 3,
+          "line": 219
+        },
+        {
+          "heading": "Content source",
+          "level": 3,
+          "line": 224
+        },
+        {
+          "heading": "Render notes",
+          "level": 3,
+          "line": 232
+        },
+        {
+          "heading": "10. Custom landing pages",
+          "level": 2,
+          "line": 241
+        },
+        {
+          "heading": "Schema types",
+          "level": 3,
+          "line": 243
+        },
+        {
+          "heading": "Content source",
+          "level": 3,
+          "line": 251
+        },
+        {
+          "heading": "Render notes",
+          "level": 3,
+          "line": 257
+        },
+        {
+          "heading": "11. Fallback rules",
+          "level": 2,
+          "line": 268
+        },
+        {
+          "heading": "If page-level SEO data is missing",
+          "level": 3,
+          "line": 270
+        },
+        {
+          "heading": "Current public schema generation priority",
+          "level": 3,
+          "line": 276
+        },
+        {
+          "heading": "12. Production rules",
+          "level": 2,
+          "line": 283
+        },
+        {
+          "heading": "13. SEO measurement baseline",
+          "level": 2,
+          "line": 295
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 46
+      }
+    },
+    {
+      "path": "docs/TECHNICAL_REQUIREMENTS.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 468,
+      "nonEmptyLines": 381,
+      "sections": [
+        {
+          "heading": "TECHNICAL_REQUIREMENTS.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Active travel runtime",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2. Default stack and UI architecture",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "Backend",
+          "level": 3,
+          "line": 27
+        },
+        {
+          "heading": "Frontend",
+          "level": 3,
+          "line": 34
+        },
+        {
+          "heading": "Architectural defaults",
+          "level": 3,
+          "line": 41
+        },
+        {
+          "heading": "Frontsite cache contract",
+          "level": 3,
+          "line": 49
+        },
+        {
+          "heading": "Shared image upload and conversion contract",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "3. CMS navigation and permission contract",
+          "level": 2,
+          "line": 126
+        },
+        {
+          "heading": "4. Landing page block-builder contract",
+          "level": 2,
+          "line": 208
+        },
+        {
+          "heading": "Data rules",
+          "level": 3,
+          "line": 216
+        },
+        {
+          "heading": "Route rules",
+          "level": 3,
+          "line": 235
+        },
+        {
+          "heading": "Template presets",
+          "level": 3,
+          "line": 264
+        },
+        {
+          "heading": "Block catalog v1",
+          "level": 3,
+          "line": 277
+        },
+        {
+          "heading": "Block rules",
+          "level": 3,
+          "line": 296
+        },
+        {
+          "heading": "5. Travel SEO and schema requirements",
+          "level": 2,
+          "line": 329
+        },
+        {
+          "heading": "5A. Travel inquiry contract",
+          "level": 2,
+          "line": 333
+        },
+        {
+          "heading": "Tour departure pricing contract",
+          "level": 3,
+          "line": 365
+        },
+        {
+          "heading": "Public page families",
+          "level": 3,
+          "line": 374
+        },
+        {
+          "heading": "Schema mapping",
+          "level": 3,
+          "line": 395
+        },
+        {
+          "heading": "Canonical and crawl rules",
+          "level": 3,
+          "line": 426
+        },
+        {
+          "heading": "6. Validation checklist",
+          "level": 2,
+          "line": 444
+        },
+        {
+          "heading": "Runtime",
+          "level": 3,
+          "line": 448
+        },
+        {
+          "heading": "Focused travel CMS checks",
+          "level": 3,
+          "line": 455
+        },
+        {
+          "heading": "Frontend build",
+          "level": 3,
+          "line": 464
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 25
+      }
+    },
+    {
+      "path": "docs/TOUR_SITEMAP_BLOCKS.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 646,
+      "nonEmptyLines": 491,
+      "sections": [
+        {
+          "heading": "TOUR_SITEMAP_BLOCKS.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Purpose",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2. Public sitemap structure",
+          "level": 2,
+          "line": 29
+        },
+        {
+          "heading": "Core public routes",
+          "level": 3,
+          "line": 31
+        },
+        {
+          "heading": "URL intent map",
+          "level": 3,
+          "line": 54
+        },
+        {
+          "heading": "Sitemap inclusion rules",
+          "level": 3,
+          "line": 64
+        },
+        {
+          "heading": "Canonical and robots rules",
+          "level": 3,
+          "line": 80
+        },
+        {
+          "heading": "3. Frontsite page families and block inventory",
+          "level": 2,
+          "line": 89
+        },
+        {
+          "heading": "3.1 Tour scope pages",
+          "level": 3,
+          "line": 91
+        },
+        {
+          "heading": "3.2 Tour category pages",
+          "level": 3,
+          "line": 118
+        },
+        {
+          "heading": "3.3 Destination pages",
+          "level": 3,
+          "line": 145
+        },
+        {
+          "heading": "3.4 Region pages",
+          "level": 3,
+          "line": 181
+        },
+        {
+          "heading": "3.5 Country pages",
+          "level": 3,
+          "line": 200
+        },
+        {
+          "heading": "3.6 Tour detail",
+          "level": 3,
+          "line": 219
+        },
+        {
+          "heading": "3.7 Shared landing pages and visual slots",
+          "level": 3,
+          "line": 272
+        },
+        {
+          "heading": "4. CMS navigation and admin page structure",
+          "level": 2,
+          "line": 331
+        },
+        {
+          "heading": "4.1 CMS sidebar registry",
+          "level": 3,
+          "line": 333
+        },
+        {
+          "heading": "4.2 Permission matrix and account roles",
+          "level": 3,
+          "line": 368
+        },
+        {
+          "heading": "4.3 Admin list pages",
+          "level": 3,
+          "line": 385
+        },
+        {
+          "heading": "4.4 Tour create/edit",
+          "level": 3,
+          "line": 409
+        },
+        {
+          "heading": "4.5 Taxonomy create/edit",
+          "level": 3,
+          "line": 446
+        },
+        {
+          "heading": "4.6 Slider manager",
+          "level": 3,
+          "line": 464
+        },
+        {
+          "heading": "4.7 Accounts manager",
+          "level": 3,
+          "line": 503
+        },
+        {
+          "heading": "4.8 Landing page create/edit",
+          "level": 3,
+          "line": 520
+        },
+        {
+          "heading": "5. Schema coupling",
+          "level": 2,
+          "line": 616
+        },
+        {
+          "heading": "6. Delivery checklist",
+          "level": 2,
+          "line": 634
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 26
+      }
+    },
+    {
+      "path": "docs/implementation-playbook.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 38,
+      "nonEmptyLines": 30,
+      "sections": [
+        {
+          "heading": "Implementation Playbook",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "When integrating into Laravel",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "When integrating into WordPress",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "Expected implementation order",
+          "level": 2,
+          "line": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "docs/project-overview.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 20,
+      "nonEmptyLines": 13,
+      "sections": [
+        {
+          "heading": "Project Overview",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Architectural principle",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Repository rule",
+          "level": 2,
+          "line": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "docs/residential-construction-process-package-comparison.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 226,
+      "nonEmptyLines": 151,
+      "sections": [
+        {
+          "heading": "Tài liệu quy trình xây dựng nhà ở chuyên nghiệp",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "So sánh 2 gói",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "1. Mục đích tài liệu",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "2. Nguyên tắc triển khai chung",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "3. Định nghĩa nhanh hai gói",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "3.1. Gói thi công phần thô + nhân công hoàn thiện tiêu chuẩn",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "3.2. Gói thi công phần thô + nhân công hoàn thiện cao cấp",
+          "level": 3,
+          "line": 41
+        },
+        {
+          "heading": "4. Quy trình xây dựng nhà ở chuyên nghiệp",
+          "level": 2,
+          "line": 50
+        },
+        {
+          "heading": "Giai đoạn 1. Tiếp nhận nhu cầu và tư vấn ban đầu",
+          "level": 3,
+          "line": 52
+        },
+        {
+          "heading": "Cả hai gói đều thực hiện",
+          "level": 4,
+          "line": 54
+        },
+        {
+          "heading": "Khác biệt giữa hai gói",
+          "level": 4,
+          "line": 60
+        },
+        {
+          "heading": "Giai đoạn 2. Khảo sát hiện trạng và rà soát hồ sơ",
+          "level": 3,
+          "line": 67
+        },
+        {
+          "heading": "Cả hai gói đều thực hiện",
+          "level": 4,
+          "line": 69
+        },
+        {
+          "heading": "Khác biệt giữa hai gói",
+          "level": 4,
+          "line": 75
+        },
+        {
+          "heading": "Giai đoạn 3. Lập kế hoạch, tiến độ và báo giá",
+          "level": 3,
+          "line": 82
+        },
+        {
+          "heading": "Cả hai gói đều thực hiện",
+          "level": 4,
+          "line": 84
+        },
+        {
+          "heading": "Khác biệt giữa hai gói",
+          "level": 4,
+          "line": 90
+        },
+        {
+          "heading": "Giai đoạn 4. Chuẩn bị mặt bằng và khởi công",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "Cả hai gói đều thực hiện",
+          "level": 4,
+          "line": 99
+        },
+        {
+          "heading": "Khác biệt giữa hai gói",
+          "level": 4,
+          "line": 105
+        },
+        {
+          "heading": "Giai đoạn 5. Thi công phần thô",
+          "level": 3,
+          "line": 112
+        },
+        {
+          "heading": "Cả hai gói đều thực hiện",
+          "level": 4,
+          "line": 114
+        },
+        {
+          "heading": "Khác biệt giữa hai gói",
+          "level": 4,
+          "line": 120
+        },
+        {
+          "heading": "Giai đoạn 6. Tổ chức nhân công hoàn thiện",
+          "level": 3,
+          "line": 128
+        },
+        {
+          "heading": "Cả hai gói đều thực hiện",
+          "level": 4,
+          "line": 130
+        },
+        {
+          "heading": "Khác biệt giữa hai gói",
+          "level": 4,
+          "line": 136
+        },
+        {
+          "heading": "Giai đoạn 7. Giám sát, báo cáo và xử lý phát sinh",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "Cả hai gói đều thực hiện",
+          "level": 4,
+          "line": 146
+        },
+        {
+          "heading": "Khác biệt giữa hai gói",
+          "level": 4,
+          "line": 152
+        },
+        {
+          "heading": "Giai đoạn 8. Nghiệm thu, bàn giao và bảo hành",
+          "level": 3,
+          "line": 159
+        },
+        {
+          "heading": "Cả hai gói đều thực hiện",
+          "level": 4,
+          "line": 161
+        },
+        {
+          "heading": "Khác biệt giữa hai gói",
+          "level": 4,
+          "line": 167
+        },
+        {
+          "heading": "5. Bảng so sánh tổng hợp",
+          "level": 2,
+          "line": 174
+        },
+        {
+          "heading": "6. Giá trị chủ đầu tư nhận được",
+          "level": 2,
+          "line": 186
+        },
+        {
+          "heading": "Khi chọn gói tiêu chuẩn",
+          "level": 3,
+          "line": 188
+        },
+        {
+          "heading": "Khi chọn gói cao cấp",
+          "level": 3,
+          "line": 195
+        },
+        {
+          "heading": "7. Khuyến nghị lựa chọn gói",
+          "level": 2,
+          "line": 202
+        },
+        {
+          "heading": "8. Kết luận",
+          "level": 2,
+          "line": 216
+        },
+        {
+          "heading": "9. Ghi chú sử dụng",
+          "level": 2,
+          "line": 222
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 39
+      }
+    }
+  ]
+}

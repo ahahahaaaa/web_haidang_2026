@@ -1,0 +1,37 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Canonical production host and clean legacy front controller.
+    RewriteCond %{HTTP_HOST} ^(haidangtravel\.com|www\.haidangtravel\.com|haidangtravel\.dtaa-tech\.com)$ [NC]
+    RewriteCond %{THE_REQUEST} \s/+index\.php[/?\s] [NC]
+    RewriteRule ^index\.php/?(.*)$ https://haidangtravel.com/$1 [L,R=301,NE]
+
+    RewriteCond %{HTTP_HOST} ^(www\.haidangtravel\.com|haidangtravel\.dtaa-tech\.com)$ [NC]
+    RewriteRule ^ https://haidangtravel.com%{REQUEST_URI} [L,R=301,NE]
+
+    RewriteCond %{HTTP_HOST} ^haidangtravel\.com$ [NC]
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+    RewriteRule ^ https://haidangtravel.com%{REQUEST_URI} [L,R=301,NE]
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Handle X-XSRF-Token Header
+    RewriteCond %{HTTP:x-xsrf-token} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>

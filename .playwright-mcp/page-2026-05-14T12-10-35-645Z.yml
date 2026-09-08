@@ -1,0 +1,103 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Haidang Travel CMS Haidang Travel" [ref=e4] [cursor=pointer]:
+      - /url: http://127.0.0.1:8001/dashboard
+      - img "Haidang Travel" [ref=e6]
+      - generic [ref=e7]: CMS Haidang Travel
+    - navigation [ref=e8]:
+      - generic [ref=e9]:
+        - link "Dashboard" [ref=e10] [cursor=pointer]:
+          - /url: http://127.0.0.1:8001/dashboard
+          - generic [ref=e13]: Dashboard
+        - generic [ref=e14]:
+          - button "Quản lý tour" [ref=e16]:
+            - generic [ref=e20]: Quản lý tour
+          - button "Quản lý dịch vụ" [ref=e23]:
+            - generic [ref=e27]: Quản lý dịch vụ
+          - button "Quản lý blog" [ref=e30]:
+            - generic [ref=e34]: Quản lý blog
+          - generic [ref=e36]:
+            - button "Landing Pages" [expanded] [ref=e37]:
+              - generic [ref=e41]: Landing Pages
+            - generic [ref=e43]:
+              - link "Danh sách landing page" [ref=e44] [cursor=pointer]:
+                - /url: http://127.0.0.1:8001/admin/landing-pages
+              - link "Tạo landing page" [ref=e45] [cursor=pointer]:
+                - /url: http://127.0.0.1:8001/admin/landing-pages/create
+              - link "Voucher campaigns" [ref=e46] [cursor=pointer]:
+                - /url: http://127.0.0.1:8001/admin/voucher-campaigns
+              - link "Tạo voucher campaign" [ref=e47] [cursor=pointer]:
+                - /url: http://127.0.0.1:8001/admin/voucher-campaigns/create
+          - button "Sliders" [ref=e49]:
+            - generic [ref=e53]: Sliders
+          - button "Travel Inquiries" [ref=e56]:
+            - generic [ref=e60]: Travel Inquiries
+          - button "Media" [ref=e63]:
+            - generic [ref=e67]: Media
+          - button "Menus & Theme" [ref=e70]:
+            - generic [ref=e74]: Menus & Theme
+          - button "Tài khoản" [ref=e77]:
+            - generic [ref=e81]: Tài khoản
+    - button "q quantri" [ref=e84]:
+      - generic [ref=e87]: q
+      - generic [ref=e88]: quantri
+      - img [ref=e90]
+  - generic [ref=e94]:
+    - generic [ref=e95]:
+      - generic [ref=e96]:
+        - heading "Voucher campaigns" [level=1] [ref=e97]
+        - paragraph [ref=e98]: Tạo chiến dịch voucher theo thời gian áp dụng, số lượng mã và frame hình chung.
+      - link "Tạo campaign" [ref=e100] [cursor=pointer]:
+        - /url: http://127.0.0.1:8001/admin/voucher-campaigns/create
+    - generic [ref=e102]:
+      - generic [ref=e103]:
+        - link "Quay lại danh sách" [ref=e104] [cursor=pointer]:
+          - /url: http://127.0.0.1:8001/admin/voucher-campaigns
+        - heading "Tạo campaign mới" [level=2] [ref=e105]
+        - paragraph [ref=e106]: Khi bấm đổi mới bộ mã, cookie mã cũ của khách sẽ tự mất hiệu lực.
+      - generic [ref=e107]:
+        - generic [ref=e108]:
+          - text: Tên campaign
+          - textbox "Tên campaign" [ref=e109]
+        - generic [ref=e110]:
+          - text: Slug campaign
+          - textbox "Slug campaign" [ref=e111]
+        - generic [ref=e112]:
+          - text: Landing page áp dụng
+          - 'combobox "Landing page áp dụng Quy ước hiện tại: một landing page voucher chỉ gắn với một campaign mã voucher. Nếu landing page đã có campaign, hãy mở campaign đó để sửa mã, thời hạn hoặc frame." [ref=e113]':
+            - option "Không gắn landing page" [selected]
+            - option "Mua bán Sim Du Lịch /mua-ban-sim-du-lich"
+            - option "Nhận voucher du lịch 200.000đ /voucher-du-lich — đã có campaign" [disabled]
+          - paragraph [ref=e114]: "Quy ước hiện tại: một landing page voucher chỉ gắn với một campaign mã voucher. Nếu landing page đã có campaign, hãy mở campaign đó để sửa mã, thời hạn hoặc frame."
+        - generic [ref=e115]:
+          - generic [ref=e116]:
+            - text: Từ ngày
+            - textbox "Từ ngày" [ref=e117]: 2026-05-14T00:00
+          - generic [ref=e118]:
+            - text: Đến ngày
+            - textbox "Đến ngày" [ref=e119]: 2026-06-14T23:59
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - text: Prefix mã
+            - textbox "Prefix mã" [ref=e122]: HDTRAVEL
+          - generic [ref=e123]:
+            - text: Số lượng mã
+            - spinbutton "Số lượng mã" [ref=e124]: "100"
+        - generic [ref=e125]:
+          - generic [ref=e126]:
+            - generic [ref=e127]:
+              - text: Frame hình chung
+              - paragraph [ref=e128]: Ảnh này hiển thị trong popup mã voucher sau khi khách submit form nhận voucher.
+            - button "Chọn từ Media popup" [ref=e130]: Chọn từ Media popup
+          - generic [ref=e132]: Chưa chọn frame hình chung.
+          - generic [ref=e133]:
+            - text: URL frame đang lưu
+            - textbox "URL frame đang lưu" [ref=e134]:
+              - /placeholder: https://... hoặc /storage/...
+        - generic [ref=e135]:
+          - text: Mô tả hiển thị trong popup
+          - textbox "Mô tả hiển thị trong popup" [ref=e136]
+        - generic [ref=e137]:
+          - checkbox "Đang bật campaign" [checked] [ref=e138]
+          - text: Đang bật campaign
+        - button "Lưu campaign" [ref=e140]

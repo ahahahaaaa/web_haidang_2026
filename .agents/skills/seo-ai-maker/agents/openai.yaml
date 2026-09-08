@@ -1,0 +1,7 @@
+interface:
+  display_name: "SEO AI Maker"
+  short_description: "Build citation-ready AI-friendly SEO systems"
+  default_prompt: "Use $seo-ai-maker to improve crawlability, entity clarity, and citation-ready page structure for this website."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Haidang Travel CMS Frontsite System"
+  short_description: "Main Haidang Travel project skill"
+  default_prompt: "Use $haidangtravel-cms-frontsite-system to work on the Haidang Travel CMS, admin media/Quill/Spatie flows, frontsite UX, SEO, schema, and validation within the active travel runtime."
+

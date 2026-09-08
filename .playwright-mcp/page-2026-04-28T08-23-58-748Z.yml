@@ -1,0 +1,606 @@
+- generic [active] [ref=e1]:
+  - link "Bỏ qua điều hướng & tới nội dung chính" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8000
+        - img "Du Lịch Hải Đăng Travel" [ref=e7]
+      - group [ref=e8]:
+        - generic "Mở menu" [ref=e9]:
+          - generic [ref=e11]: Mở menu
+  - main [ref=e12]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - link "Du lịch hè 2026" [ref=e21] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/danh-muc-tour/du-lich-mua-he
+            - text: Du lịch hè 2026
+          - link "Măng Đen" [ref=e23] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/tour-du-lich-mang-den
+            - text: Măng Đen
+          - link "Tây Nguyên" [ref=e25] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/vung-mien/tay-nguyen
+            - text: Tây Nguyên
+          - generic [ref=e27]: 5,0/5 • 21 lượt đánh giá
+        - 'heading "Tour Tây Nguyên: Chinh Phục Ngã 3 Đông Dương - Nàng Thơ Măng Đen" [level=1] [ref=e29]'
+      - generic [ref=e30]:
+        - button "Kiểm tra chỗ ngay" [ref=e31]: Kiểm tra chỗ ngay
+        - link "0911222288" [ref=e33] [cursor=pointer]:
+          - /url: tel:0911222288
+          - text: "0911222288"
+        - link "Xem lịch khởi hành" [ref=e35] [cursor=pointer]:
+          - /url: "#tour-departures"
+          - text: Xem lịch khởi hành
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - paragraph [ref=e39]: Khởi hành
+          - paragraph [ref=e41]: HCM
+        - generic [ref=e42]:
+          - paragraph [ref=e43]: Thời lượng
+          - paragraph [ref=e45]: 3 ngày 2 đêm
+        - generic [ref=e46]:
+          - paragraph [ref=e47]: Phương tiện
+          - paragraph [ref=e49]: Máy bay
+        - generic [ref=e50]:
+          - paragraph [ref=e51]: Tiêu chuẩn
+          - paragraph [ref=e53]: Biệt thự + 3 sao
+    - navigation "Breadcrumb" [ref=e56]:
+      - list [ref=e57]:
+        - listitem [ref=e58]:
+          - link "Trang chủ" [ref=e59] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000
+        - listitem [ref=e60]:
+          - link "Tour trong nước" [ref=e62] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/tour-trong-nuoc
+        - listitem [ref=e63]:
+          - generic [ref=e65]: "Tour Tây Nguyên: Chinh Phục Ngã 3 Đông Dương - Nàng Thơ Măng Đen"
+    - generic [ref=e68]:
+      - link "Chi tiết tour" [ref=e69] [cursor=pointer]:
+        - /url: "#tour-details"
+      - link "Lịch khởi hành" [ref=e70] [cursor=pointer]:
+        - /url: "#tour-departures"
+      - link "Phụ thu & ghi chú" [ref=e71] [cursor=pointer]:
+        - /url: "#tour-pricing"
+      - link "Lịch trình" [ref=e72] [cursor=pointer]:
+        - /url: "#tour-itinerary"
+      - link "Quyền lợi" [ref=e73] [cursor=pointer]:
+        - /url: "#tour-inclusions"
+      - link "Điều khoản tour" [ref=e74] [cursor=pointer]:
+        - /url: "#tour-terms"
+      - link "FAQ" [ref=e75] [cursor=pointer]:
+        - /url: "#tour-faq"
+    - generic [ref=e77]:
+      - generic [ref=e78]:
+        - generic [ref=e79]:
+          - heading "Chi tiết tour" [level=2] [ref=e81]
+          - generic [ref=e83]:
+            - generic [ref=e85]:
+              - paragraph [ref=e86]: Hành trình bay đẳng cấp 3N2Đ đưa bạn đến với "Cột mốc 3 biên" thiêng liêng và vẻ đẹp thoát tục của Măng Đen. Trải nghiệm nghỉ dưỡng tại Biệt thự rừng thông, thưởng thức Gỏi lá Kon Tum & Lẩu cá tầm trứ danh. Khởi hành Thứ 6 hàng tuần – Giá trọn gói cực ưu đãi.
+              - generic [ref=e87]:
+                - 'heading "Hành Trình Đại Ngàn: Măng Đen – Ngã 3 Đông Dương – Pleiku" [level=2] [ref=e88]'
+                - paragraph [ref=e89]:
+                  - text: Bầu trời phía trước đang mở rộng, hãy để
+                  - strong [ref=e90]: Haidangtravel
+                  - text: đưa bạn rời xa ồn ào phố thị để về với vòng tay của đại ngàn Tây Nguyên. Một chuyến đi, ba điểm đến, vạn trải nghiệm – từ sự bình yên của "Đà Lạt thứ hai" đến niềm tự hào nơi biên thùy Tổ quốc.
+                - heading "Những trải nghiệm \"Đắt Giá\" nhất hành trình:" [level=3] [ref=e91]
+                - list [ref=e92]:
+                  - listitem [ref=e93]:
+                    - strong [ref=e94]: "Chạm tay vào Cột mốc 3 biên:"
+                    - text: Đứng tại
+                    - strong [ref=e95]: Ngã Ba Đông Dương
+                    - text: ", nơi \"một con gà gáy cả ba nước đều nghe\", cảm nhận sự hùng vĩ và thiêng liêng của ranh giới Việt - Lào - Campuchia."
+                  - listitem [ref=e96]:
+                    - strong [ref=e97]: "Măng Đen – Nàng thơ giữa rừng thông:"
+                    - text: Tận hưởng khí hậu se lạnh 20°C, check-in thác Pa Sỹ, hồ thác và cầu treo dây văng độc đáo.
+                  - listitem [ref=e98]:
+                    - strong [ref=e99]: "Dấu ấn thời gian tại Kon Tum:"
+                    - text: Chiêm bái
+                    - strong [ref=e100]: Nhà thờ Gỗ
+                    - text: hơn 100 tuổi kiến trúc Roman độc bản, thăm Nhà Rông Kon Klor lớn nhất Tây Nguyên.
+                  - listitem [ref=e101]:
+                    - strong [ref=e102]: "Phố núi Pleiku mộng mơ:"
+                    - text: Say đắm trước vẻ đẹp của
+                    - strong [ref=e103]: Biển Hồ T'Nưng
+                    - text: và kiến trúc Nhật Bản tinh tế tại Chùa Minh Thành.
+                - heading "Tinh hoa ẩm thực \"Ăn là nhớ\":" [level=3] [ref=e104]
+                - paragraph [ref=e105]: "Chúng tôi thấu hiểu ẩm thực là linh hồn của chuyến đi. Thực đơn được thiết kế với những món đặc sản thượng hạng:"
+                - list [ref=e106]:
+                  - listitem [ref=e107]:
+                    - strong [ref=e108]: "Lẩu Cá Tầm Măng Đen:"
+                    - text: Vị chua thanh nồng ấm giữa đại ngàn.
+                  - listitem [ref=e109]:
+                    - strong [ref=e110]: "Gỏi Lá Kon Tum:"
+                    - text: "\"Vũ điệu\" của hơn 40 loại lá rừng, đạt kỷ lục ẩm thực Châu Á."
+                  - listitem [ref=e111]:
+                    - strong [ref=e112]: "Mẹt Heo Làng & Gà Nướng Cơm Lam:"
+                    - text: Hương vị đậm đà không thể trộn lẫn.
+                - blockquote [ref=e113]:
+                  - emphasis [ref=e114]: Đừng chỉ đi du lịch, hãy đi để trải nghiệm! Đặt chỗ ngay hôm nay để nhận ưu đãi "Nhóm đông - Giá tốt" cho hành trình
+                  - strong [ref=e115]:
+                    - emphasis [ref=e116]: Tour Măng Đen 2026
+                  - emphasis [ref=e117]: .
+            - button "Xem thêm" [ref=e118]:
+              - generic [ref=e119]: Xem thêm
+        - generic [ref=e121]:
+          - generic [ref=e122]:
+            - heading "Lịch khởi hành & giá theo tháng" [level=2] [ref=e123]
+            - paragraph [ref=e124]: Thay vì danh sách card dọc, phần này chuyển sang bố cục so sánh để người xem đối chiếu ngày đi, giá và số chỗ còn lại nhanh hơn.
+          - generic [ref=e125]:
+            - link "Tháng 05/2026 1" [ref=e126] [cursor=pointer]:
+              - /url: "#departure-month-2026-05"
+              - text: Tháng 05/2026
+              - generic [ref=e127]: "1"
+            - link "Tháng 06/2026 1" [ref=e128] [cursor=pointer]:
+              - /url: "#departure-month-2026-06"
+              - text: Tháng 06/2026
+              - generic [ref=e129]: "1"
+            - link "Tháng 07/2026 1" [ref=e130] [cursor=pointer]:
+              - /url: "#departure-month-2026-07"
+              - text: Tháng 07/2026
+              - generic [ref=e131]: "1"
+            - link "Tháng 08/2026 1" [ref=e132] [cursor=pointer]:
+              - /url: "#departure-month-2026-08"
+              - text: Tháng 08/2026
+              - generic [ref=e133]: "1"
+          - generic [ref=e134]:
+            - generic [ref=e135]:
+              - generic [ref=e136]:
+                - heading "Tháng 05/2026" [level=2] [ref=e138]
+                - generic [ref=e139]: 1 lịch
+              - article [ref=e141]:
+                - generic [ref=e142]:
+                  - generic [ref=e143]:
+                    - paragraph [ref=e144]: Ngày đi
+                    - paragraph [ref=e145]: 22/05/2026
+                  - generic [ref=e146]: Mở bán
+                - generic [ref=e147]:
+                  - paragraph [ref=e148]: "Khởi hành: HCM"
+                  - paragraph [ref=e149]: "Tiêu chuẩn: Biệt thự + 3 sao"
+                - generic [ref=e150]:
+                  - generic [ref=e151]:
+                    - paragraph [ref=e152]: Giá
+                    - paragraph [ref=e153]: 6.590.000 đ
+                    - paragraph [ref=e154]: 6.889.999 đ
+                  - button "Giữ lịch" [ref=e155]: Giữ lịch
+            - generic [ref=e157]:
+              - generic [ref=e158]:
+                - heading "Tháng 06/2026" [level=2] [ref=e160]
+                - generic [ref=e161]: 1 lịch
+              - article [ref=e163]:
+                - generic [ref=e164]:
+                  - generic [ref=e165]:
+                    - paragraph [ref=e166]: Ngày đi
+                    - paragraph [ref=e167]: 19/06/2026
+                  - generic [ref=e168]: Mở bán
+                - generic [ref=e169]:
+                  - paragraph [ref=e170]: "Khởi hành: HCM"
+                  - paragraph [ref=e171]: "Tiêu chuẩn: Biệt thự + 3 sao"
+                - generic [ref=e172]:
+                  - generic [ref=e173]:
+                    - paragraph [ref=e174]: Giá
+                    - paragraph [ref=e175]: 6.590.000 đ
+                    - paragraph [ref=e176]: 6.890.000 đ
+                  - button "Giữ lịch" [ref=e177]: Giữ lịch
+            - generic [ref=e179]:
+              - generic [ref=e180]:
+                - heading "Tháng 07/2026" [level=2] [ref=e182]
+                - generic [ref=e183]: 1 lịch
+              - article [ref=e185]:
+                - generic [ref=e186]:
+                  - generic [ref=e187]:
+                    - paragraph [ref=e188]: Ngày đi
+                    - paragraph [ref=e189]: 17/07/2026
+                  - generic [ref=e190]: Mở bán
+                - generic [ref=e191]:
+                  - paragraph [ref=e192]: "Khởi hành: HCM"
+                  - paragraph [ref=e193]: "Tiêu chuẩn: Biệt thự + 3 sao"
+                - generic [ref=e194]:
+                  - generic [ref=e195]:
+                    - paragraph [ref=e196]: Giá
+                    - paragraph [ref=e197]: 6.590.000 đ
+                    - paragraph [ref=e198]: 6.890.000 đ
+                  - button "Giữ lịch" [ref=e199]: Giữ lịch
+            - generic [ref=e201]:
+              - generic [ref=e202]:
+                - heading "Tháng 08/2026" [level=2] [ref=e204]
+                - generic [ref=e205]: 1 lịch
+              - article [ref=e207]:
+                - generic [ref=e208]:
+                  - generic [ref=e209]:
+                    - paragraph [ref=e210]: Ngày đi
+                    - paragraph [ref=e211]: 14/08/2026
+                  - generic [ref=e212]: Mở bán
+                - generic [ref=e213]:
+                  - paragraph [ref=e214]: "Khởi hành: HCM"
+                  - paragraph [ref=e215]: "Tiêu chuẩn: Biệt thự + 3 sao"
+                - generic [ref=e216]:
+                  - generic [ref=e217]:
+                    - paragraph [ref=e218]: Giá
+                    - paragraph [ref=e219]: 6.490.000 đ
+                    - paragraph [ref=e220]: 6.790.000 đ
+                  - button "Giữ lịch" [ref=e221]: Giữ lịch
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - heading "Lịch trình chi tiết" [level=2] [ref=e225]
+            - paragraph [ref=e226]: Hành trình bay đẳng cấp 3N2Đ đưa bạn đến với "Cột mốc 3 biên" thiêng liêng và vẻ đẹp thoát tục của Măng Đen. Trải nghiệm nghỉ dưỡng tại Biệt thự rừng thông, thưởng thức Gỏi lá Kon Tum & Lẩu cá tầm trứ danh. Khởi hành Thứ...
+          - generic [ref=e227]:
+            - article [ref=e228]:
+              - 'heading "NGÀY 1: PLEIKU – KON TUM – MĂNG ĐEN (Ăn trưa, tối)" [level=3] [ref=e229]':
+                - 'button "NGÀY 1: PLEIKU – KON TUM – MĂNG ĐEN (Ăn trưa, tối)" [expanded] [ref=e230]':
+                  - generic [ref=e232]: "NGÀY 1: PLEIKU – KON TUM – MĂNG ĐEN (Ăn trưa, tối)"
+              - 'region "NGÀY 1: PLEIKU – KON TUM – MĂNG ĐEN (Ăn trưa, tối)" [ref=e235]':
+                - generic [ref=e236]:
+                  - paragraph [ref=e237]:
+                    - strong [ref=e238]: "Sáng:"
+                    - text: Nhân viên Hải Đăng Travel đón khách tại sân bay Tân Sơn Nhất, làm thủ tục đáp chuyến bay đi Pleiku. Xe và HDV đón đoàn tại sân bay Pleiku.
+                  - paragraph [ref=e239]:
+                    - strong [ref=e240]: "09h30:"
+                    - text: Tham quan
+                    - strong [ref=e241]: Nhà Thờ Gỗ Kon Tum
+                    - text: – biểu tượng kiến trúc hơn 100 tuổi của vùng cao nguyên.
+                  - paragraph [ref=e242]:
+                    - strong [ref=e243]: "11h30:"
+                    - text: Đến với
+                    - strong [ref=e244]: Măng Đen
+                    - text: – nơi có 7 hồ 3 thác tuyệt đẹp và rừng thông quyến rũ.
+                  - paragraph [ref=e245]:
+                    - strong [ref=e246]: "Trưa:"
+                    - text: Dùng bữa trưa
+                    - strong [ref=e247]: Lẩu Cá Tầm
+                    - text: "với thực đơn: Gỏi măng, Chả giò tôm thịt, Bê hấp thố, Cá đục kho tộ, Trứng chiên, Lẩu cá tầm, Cơm trắng, Tráng miệng."
+                  - paragraph [ref=e248]:
+                    - strong [ref=e249]: "Chiều (14h00 - 15h30):"
+                    - text: "* Tham quan"
+                    - strong [ref=e250]: Khu du lịch thác Pa Sỹ
+                    - text: và cầu treo dây văng lệch nhịp duy nhất miền Trung.
+                  - list [ref=e251]:
+                    - listitem [ref=e252]:
+                      - text: Khám phá
+                      - strong [ref=e253]: Vườn Nghệ Thuật Măng Đen
+                      - text: với hàng trăm bức tượng gỗ dân gian.
+                    - listitem [ref=e254]:
+                      - text: Viếng
+                      - strong [ref=e255]: Chùa Khánh Lâm
+                      - text: và
+                      - strong [ref=e256]: Đức Mẹ Măng Đen
+                      - text: linh thiêng.
+                  - paragraph [ref=e257]:
+                    - strong [ref=e258]: "Tối:"
+                    - text: Thưởng thức
+                    - strong [ref=e259]: Đặc sản núi rừng
+                    - text: ": Heo địa phương nướng mọi, Gà Tây Nguyên nướng, Cơm lam, Mực xào hành cần, Đọt bí xào tỏi, Rau rừng luộc, Canh đu đủ hầm giò heo. Nghỉ đêm tại Măng Đen."
+            - article [ref=e260]:
+              - 'heading "NGÀY 2: MĂNG ĐEN – KON TUM – CỬA KHẨU BỜ Y (Ăn 3 bữa)" [level=3] [ref=e261]':
+                - 'button "NGÀY 2: MĂNG ĐEN – KON TUM – CỬA KHẨU BỜ Y (Ăn 3 bữa)" [ref=e262]':
+                  - generic [ref=e264]: "NGÀY 2: MĂNG ĐEN – KON TUM – CỬA KHẨU BỜ Y (Ăn 3 bữa)"
+            - article [ref=e267]:
+              - 'heading "NGÀY 3: KON TUM – PLEIKU – SÀI GÒN (Ăn sáng, trưa)" [level=3] [ref=e268]':
+                - 'button "NGÀY 3: KON TUM – PLEIKU – SÀI GÒN (Ăn sáng, trưa)" [ref=e269]':
+                  - generic [ref=e271]: "NGÀY 3: KON TUM – PLEIKU – SÀI GÒN (Ăn sáng, trưa)"
+        - generic [ref=e274]:
+          - generic [ref=e275]:
+            - heading "Phụ thu và ghi chú thêm" [level=2] [ref=e276]
+            - paragraph [ref=e277]: Khối này chỉ giữ các khoản phụ thu hoặc ghi chú bổ sung để người xem nắm nhanh trước khi chọn lịch khởi hành phù hợp.
+          - generic [ref=e280]:
+            - article [ref=e281]:
+              - paragraph [ref=e282]: Hạng mục
+              - paragraph [ref=e283]: Giá người lớn
+              - paragraph [ref=e284]: Mức giá
+              - paragraph [ref=e285]: 6.590.000vnd
+            - article [ref=e286]:
+              - paragraph [ref=e287]: Hạng mục
+              - paragraph [ref=e288]: Giá trẻ em (5-9 tuổi)
+              - paragraph [ref=e289]: Mức giá
+              - paragraph [ref=e290]: 5.790.000vnd
+            - article [ref=e291]:
+              - paragraph [ref=e292]: Hạng mục
+              - paragraph [ref=e293]: Giá trẻ em (2-5 tuổi)
+              - paragraph [ref=e294]: Mức giá
+              - paragraph [ref=e295]: 3.030.000vnđ
+        - generic [ref=e297]:
+          - generic [ref=e298]:
+            - paragraph [ref=e299]: Quyền lợi
+            - heading "Tour bao gồm những gì" [level=2] [ref=e300]
+          - list [ref=e301]:
+            - listitem [ref=e302]:
+              - generic [ref=e305]: "Vận chuyển: Xe máy lạnh đời mới + Vé máy bay (gồm 7kg xách tay)."
+            - listitem [ref=e306]:
+              - generic [ref=e309]: "Lưu trú: Biệt thự Măng Đen & Khách sạn 3 sao Kon Tum."
+            - listitem [ref=e310]:
+              - generic [ref=e313]: "Ăn uống: 2 bữa sáng + 5 bữa chính (Định mức 150.000đ - 200.000đ/suất)."
+            - listitem [ref=e314]:
+              - generic [ref=e317]: "Bảo hiểm: 50.000.000 đ/người/trường hợp."
+        - generic [ref=e319]:
+          - heading "Quy định điều khoản tour" [level=2] [ref=e321]
+          - generic [ref=e322]:
+            - article [ref=e323]:
+              - heading "GIÁ TOUR KHONG BAO GỒM" [level=3] [ref=e324]:
+                - button "GIÁ TOUR KHONG BAO GỒM" [expanded] [ref=e325]:
+                  - generic [ref=e326]: GIÁ TOUR KHONG BAO GỒM
+              - region "GIÁ TOUR KHONG BAO GỒM" [ref=e329]:
+                - generic [ref=e330]:
+                  - paragraph [ref=e331]: "Chi phí cá nhân: Giặt ủi, điện thoại, ăn uống ngoài chương trình, hành lý...."
+                  - paragraph [ref=e332]: Các điểm tham quan ngoài chương trình.
+            - article [ref=e333]:
+              - heading "QUY ĐỊNH VÉ TRẺ EM & ĐIỂM ĐÓN" [level=3] [ref=e334]:
+                - button "QUY ĐỊNH VÉ TRẺ EM & ĐIỂM ĐÓN" [ref=e335]:
+                  - generic [ref=e336]: QUY ĐỊNH VÉ TRẺ EM & ĐIỂM ĐÓN
+            - article [ref=e339]:
+              - heading "LƯU Ý QUAN TRỌNG" [level=3] [ref=e340]:
+                - button "LƯU Ý QUAN TRỌNG" [ref=e341]:
+                  - generic [ref=e342]: LƯU Ý QUAN TRỌNG
+            - article [ref=e345]:
+              - heading "QUY ĐỊNH MUA TOUR VÀ HỦY TOUR" [level=3] [ref=e346]:
+                - button "QUY ĐỊNH MUA TOUR VÀ HỦY TOUR" [ref=e347]:
+                  - generic [ref=e348]: QUY ĐỊNH MUA TOUR VÀ HỦY TOUR
+        - generic [ref=e352]:
+          - heading "Câu hỏi thường gặp" [level=2] [ref=e354]
+          - generic [ref=e355]:
+            - article [ref=e356]:
+              - heading "Điểm khởi hành và hãng hàng không như thế nào?" [level=3] [ref=e357]:
+                - button "Điểm khởi hành và hãng hàng không như thế nào?" [expanded] [ref=e358]:
+                  - generic [ref=e359]: Điểm khởi hành và hãng hàng không như thế nào?
+              - region "Điểm khởi hành và hãng hàng không như thế nào?" [ref=e362]:
+                - paragraph [ref=e364]: Tour khởi hành tại sân bay Tân Sơn Nhất (TP.HCM). Quý khách sẽ bay đến Pleiku bằng hãng hàng không Vietjet Air, bao gồm 7kg hành lý xách tay.
+            - article [ref=e365]:
+              - heading "Thủ tục tham quan Ngã 3 Đông Dương cần chuẩn bị gì?" [level=3] [ref=e366]:
+                - button "Thủ tục tham quan Ngã 3 Đông Dương cần chuẩn bị gì?" [ref=e367]:
+                  - generic [ref=e368]: Thủ tục tham quan Ngã 3 Đông Dương cần chuẩn bị gì?
+            - article [ref=e371]:
+              - heading "Trẻ em đi tour này tính phí ra sao?" [level=3] [ref=e372]:
+                - button "Trẻ em đi tour này tính phí ra sao?" [ref=e373]:
+                  - generic [ref=e374]: Trẻ em đi tour này tính phí ra sao?
+        - generic [ref=e377]:
+          - generic [ref=e378]:
+            - heading "Tour liên quan" [level=2] [ref=e379]
+            - paragraph [ref=e380]: Khối gợi ý này giữ mạch khám phá tiếp theo sau khi người xem đã đọc xong lịch trình, giá và FAQ của tour hiện tại.
+          - generic [ref=e381]:
+            - article [ref=e382]:
+              - link "Tour trong nước Phú Quốc Tour trong nước 01/05/2026 Phú Quốc HCM 20 chỗ còn" [ref=e383] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/chuong-trinh/tour-phu-quoc-tron-goi-may-bay
+                - generic [ref=e385]:
+                  - paragraph [ref=e386]: Tour trong nước
+                  - paragraph [ref=e387]: Phú Quốc
+                - generic [ref=e388]:
+                  - generic [ref=e389]: Tour trong nước
+                  - generic [ref=e391]: 01/05/2026
+                - generic [ref=e393]:
+                  - generic [ref=e394]:
+                    - paragraph [ref=e395]:
+                      - generic [ref=e397]: Phú Quốc
+                    - paragraph [ref=e398]: HCM
+                  - generic [ref=e399]: 20 chỗ còn
+              - generic [ref=e401]:
+                - generic [ref=e402]:
+                  - generic [ref=e403]: 3 sao
+                  - generic [ref=e404]: Đang nhận khách
+                - 'heading "Tour Phú Quốc Trọn Gói 3N2Đ: Tiệc BBQ Hải Sản - Ngắm Hoàng Hôn Ngũ Sắc" [level=3] [ref=e405]':
+                  - 'link "Tour Phú Quốc Trọn Gói 3N2Đ: Tiệc BBQ Hải Sản - Ngắm Hoàng Hôn Ngũ Sắc" [ref=e406] [cursor=pointer]':
+                    - /url: http://127.0.0.1:8000/chuong-trinh/tour-phu-quoc-tron-goi-may-bay
+                - generic [ref=e407]:
+                  - generic [ref=e411]:
+                    - generic [ref=e412]: "Khởi Hành:"
+                    - generic [ref=e413]: 01/05/2026
+                  - generic [ref=e418]: 3 ngày 2 đêm
+                  - generic [ref=e423]: Máy bay
+                - generic [ref=e424]:
+                  - generic [ref=e425]:
+                    - paragraph [ref=e426]: Giá từ
+                    - generic [ref=e427]:
+                      - paragraph [ref=e428]: 6.190.000 đ
+                      - paragraph [ref=e429]: 6.390.000 đ
+                  - link "Xem" [ref=e431] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/chuong-trinh/tour-phu-quoc-tron-goi-may-bay
+                    - text: Xem
+            - article [ref=e433]:
+              - link "Tour trong nước Hà Giang Tour trong nước 13/05/2026 Hà Giang HCM 20 chỗ còn" [ref=e434] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/chuong-trinh/tour-ha-giang-cao-bang-tron-goi-may-bay
+                - generic [ref=e436]:
+                  - paragraph [ref=e437]: Tour trong nước
+                  - paragraph [ref=e438]: Hà Giang
+                - generic [ref=e439]:
+                  - generic [ref=e440]: Tour trong nước
+                  - generic [ref=e442]: 13/05/2026
+                - generic [ref=e444]:
+                  - generic [ref=e445]:
+                    - paragraph [ref=e446]:
+                      - generic [ref=e448]: Hà Giang
+                    - paragraph [ref=e449]: HCM
+                  - generic [ref=e450]: 20 chỗ còn
+              - generic [ref=e452]:
+                - generic [ref=e453]:
+                  - generic [ref=e454]: Khách sạn + 3 sao
+                  - generic [ref=e455]: Đang nhận khách
+                - 'heading "Tour Trọn Gói Hà Giang - Cao Bằng 5N4Đ: Chinh Phục Cực Bắc - Thác Bản Giốc" [level=3] [ref=e456]':
+                  - 'link "Tour Trọn Gói Hà Giang - Cao Bằng 5N4Đ: Chinh Phục Cực Bắc - Thác Bản Giốc" [ref=e457] [cursor=pointer]':
+                    - /url: http://127.0.0.1:8000/chuong-trinh/tour-ha-giang-cao-bang-tron-goi-may-bay
+                - generic [ref=e458]:
+                  - generic [ref=e462]:
+                    - generic [ref=e463]: "Khởi Hành:"
+                    - generic [ref=e464]: 13/05/2026
+                  - generic [ref=e469]: 5 ngày 4 đêm
+                  - generic [ref=e474]: Máy bay
+                - generic [ref=e475]:
+                  - generic [ref=e476]:
+                    - paragraph [ref=e477]: Giá từ
+                    - generic [ref=e478]:
+                      - paragraph [ref=e479]: 8.990.000 đ
+                      - paragraph [ref=e480]: 9.390.000 đ
+                  - link "Xem" [ref=e482] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/chuong-trinh/tour-ha-giang-cao-bang-tron-goi-may-bay
+                    - text: Xem
+            - article [ref=e484]:
+              - link "Tour trong nước Hà Nội Tour trong nước 17/04/2026 Hà Nội HCM 20 chỗ còn" [ref=e485] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/chuong-trinh/tour-ha-giang-sapa-tron-goi-may-bay
+                - generic [ref=e487]:
+                  - paragraph [ref=e488]: Tour trong nước
+                  - paragraph [ref=e489]: Hà Nội
+                - generic [ref=e490]:
+                  - generic [ref=e491]: Tour trong nước
+                  - generic [ref=e493]: 17/04/2026
+                - generic [ref=e495]:
+                  - generic [ref=e496]:
+                    - paragraph [ref=e497]:
+                      - generic [ref=e499]: Hà Nội
+                    - paragraph [ref=e500]: HCM
+                  - generic [ref=e501]: 20 chỗ còn
+              - generic [ref=e503]:
+                - generic [ref=e504]:
+                  - generic [ref=e505]: 3 sao
+                  - generic [ref=e506]: Đang nhận khách
+                - 'heading "Tour Trọn Gói Hà Giang - Sapa 5N4Đ: Chinh Phục Cực Bắc - Đỉnh Fansipan" [level=3] [ref=e507]':
+                  - 'link "Tour Trọn Gói Hà Giang - Sapa 5N4Đ: Chinh Phục Cực Bắc - Đỉnh Fansipan" [ref=e508] [cursor=pointer]':
+                    - /url: http://127.0.0.1:8000/chuong-trinh/tour-ha-giang-sapa-tron-goi-may-bay
+                - generic [ref=e509]:
+                  - generic [ref=e513]:
+                    - generic [ref=e514]: "Khởi Hành:"
+                    - generic [ref=e515]: 17/04/2026
+                  - generic [ref=e520]: 5 ngày 4 đêm
+                  - generic [ref=e525]: Máy bay
+                - generic [ref=e526]:
+                  - generic [ref=e527]:
+                    - paragraph [ref=e528]: Giá từ
+                    - generic [ref=e529]:
+                      - paragraph [ref=e530]: 10.590.000 đ
+                      - paragraph [ref=e531]: 12.590.000 đ
+                  - link "Xem" [ref=e533] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/chuong-trinh/tour-ha-giang-sapa-tron-goi-may-bay
+                    - text: Xem
+      - complementary [ref=e535]:
+        - generic [ref=e537]:
+          - generic [ref=e538]:
+            - generic [ref=e539]:
+              - paragraph [ref=e540]: "Giá:"
+              - paragraph [ref=e541]: 6.790.000 đ / Khách
+            - generic [ref=e542]:
+              - paragraph [ref=e543]: 6.490.000 đ
+              - paragraph [ref=e544]: / Khách
+          - generic [ref=e545]:
+            - paragraph [ref=e549]: "Khởi hành: HCM"
+            - paragraph [ref=e553]: "Ngày khởi hành: 22-05-2026"
+            - paragraph [ref=e557]: "Thời gian: 3N2Đ"
+            - paragraph [ref=e561]: "Di chuyển: Máy bay"
+            - paragraph [ref=e565]: "Tiêu chuẩn: Biệt thự + 3 sao"
+          - generic [ref=e566]:
+            - link "Zalo" [ref=e567] [cursor=pointer]:
+              - /url: https://zalo.me/0911222288
+              - generic [ref=e568]: Zalo
+            - link "Gọi" [ref=e569] [cursor=pointer]:
+              - /url: tel:0911222288
+              - text: Gọi
+            - button "Liên hệ" [ref=e571]
+          - link "Xem toàn bộ lịch khởi hành" [ref=e572] [cursor=pointer]:
+            - /url: "#tour-departures"
+            - text: Xem toàn bộ lịch khởi hành
+          - generic [ref=e574]:
+            - generic [ref=e575]:
+              - generic [ref=e576]:
+                - heading "Chia sẻ tour này" [level=2] [ref=e577]
+                - paragraph [ref=e578]: Gửi nhanh lịch trình cho nhóm đi cùng.
+              - generic "Chia sẻ tour này" [ref=e579]:
+                - button "Chia sẻ" [ref=e580]:
+                  - generic [ref=e582]: Chia sẻ
+                - link "Chia sẻ qua Zalo" [ref=e583] [cursor=pointer]:
+                  - /url: https://zalo.me/share?u=http%3A%2F%2F127.0.0.1%3A8000%2Fchuong-trinh%2Ftour-mang-den-nga-3-dong-duong
+                  - img [ref=e584]
+                  - generic [ref=e585]: Zalo
+                - link "Chia sẻ lên Facebook" [ref=e586] [cursor=pointer]:
+                  - /url: https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2Fchuong-trinh%2Ftour-mang-den-nga-3-dong-duong
+                  - generic [ref=e588]: Facebook
+                - link "Chia sẻ qua Messenger" [ref=e589] [cursor=pointer]:
+                  - /url: https://www.messenger.com/share?link=http%3A%2F%2F127.0.0.1%3A8000%2Fchuong-trinh%2Ftour-mang-den-nga-3-dong-duong
+                  - generic [ref=e591]: Messenger
+                - link "Chia sẻ qua Telegram" [ref=e592] [cursor=pointer]:
+                  - /url: https://t.me/share/url?url=http%3A%2F%2F127.0.0.1%3A8000%2Fchuong-trinh%2Ftour-mang-den-nga-3-dong-duong&text=Tour+T%C3%A2y+Nguy%C3%AAn%3A+Chinh+Ph%E1%BB%A5c+Ng%C3%A3+3+%C4%90%C3%B4ng+D%C6%B0%C6%A1ng+-+N%C3%A0ng+Th%C6%A1+M%C4%83ng+%C4%90en
+                  - generic [ref=e594]: Telegram
+                - button "Sao chép link" [ref=e595]:
+                  - generic [ref=e597]: Sao chép link
+            - paragraph [ref=e598]
+    - generic [ref=e602]:
+      - generic [ref=e603]:
+        - heading "Cần tư vấn nhanh cho tour này?" [level=2] [ref=e604]
+        - paragraph [ref=e605]: Nếu bạn chưa chốt được ngày đi, chỉ cần để lại số điện thoại và nhu cầu, Hải Đăng Travel sẽ gọi lại để kiểm tra chỗ và tư vấn đúng lịch phù hợp.
+      - generic [ref=e606]:
+        - generic [ref=e607]:
+          - heading "Hotline" [level=3] [ref=e608]
+          - link "0911222288" [ref=e609] [cursor=pointer]:
+            - /url: tel:0911222288
+          - paragraph [ref=e610]: Hỗ trợ tư vấn nhanh theo ngày đi, số lượng khách và nhu cầu hành trình.
+        - generic [ref=e611]:
+          - heading "Email" [level=3] [ref=e612]
+          - link "info@haidangtravel.com" [ref=e613] [cursor=pointer]:
+            - /url: mailto:info@haidangtravel.com
+          - paragraph [ref=e614]: Phù hợp khi bạn cần gửi yêu cầu chi tiết hoặc để lại thêm thông tin cho đội ngũ xử lý.
+      - generic [ref=e615]:
+        - generic [ref=e616]:
+          - generic [ref=e617]:
+            - text: Họ tên
+            - textbox "Họ tên" [ref=e618]:
+              - /placeholder: Nhập họ tên
+          - generic [ref=e619]:
+            - text: Số điện thoại
+            - textbox "Số điện thoại" [ref=e620]:
+              - /placeholder: Nhập số điện thoại
+        - generic [ref=e621]:
+          - text: Nội dung
+          - textbox "Nội dung" [ref=e622]:
+            - /placeholder: Mô tả ngắn nhu cầu tour, ngày đi hoặc số lượng khách
+        - generic [ref=e623]:
+          - button "Gửi yêu cầu" [ref=e624]: Gửi yêu cầu
+          - link "Xem thêm tour" [ref=e626] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/tour-trong-nuoc
+  - contentinfo [ref=e627]:
+    - generic [ref=e628]:
+      - generic [ref=e629]:
+        - generic [ref=e630]: Du Lịch Hải Đăng Travel
+        - paragraph [ref=e631]: Haidang Travel chuyên tổ chức du lịch, teambuilding, event trong và ngoài nước.
+        - generic [ref=e632]:
+          - paragraph [ref=e633]: Tòa nhà Building Haidang 367 Tân Sơn, Phường Tân Sơn, thành phố Hồ Chí Minh
+          - paragraph [ref=e634]: 1900.2011 · 0911222288
+          - paragraph [ref=e635]: info@haidangtravel.com
+      - generic [ref=e637]:
+        - heading "Đi nhanh" [level=2] [ref=e638]
+        - list [ref=e639]:
+          - listitem [ref=e640]:
+            - link "Tour trong nước" [ref=e641] [cursor=pointer]:
+              - /url: /tour-trong-nuoc
+          - listitem [ref=e642]:
+            - link "Tour nước ngoài" [ref=e643] [cursor=pointer]:
+              - /url: /tour-nuoc-ngoai
+          - listitem [ref=e644]:
+            - link "Tour đoàn" [ref=e645] [cursor=pointer]:
+              - /url: /tour-doan
+          - listitem [ref=e646]:
+            - link "Dịch vụ" [ref=e647] [cursor=pointer]:
+              - /url: /dich-vu
+          - listitem [ref=e648]:
+            - link "Blog" [ref=e649] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=e650]:
+            - link "Liên hệ" [ref=e651] [cursor=pointer]:
+              - /url: /lien-he
+      - generic [ref=e652]:
+        - heading "Kênh hỗ trợ" [level=2] [ref=e653]
+        - generic [ref=e654]:
+          - paragraph [ref=e655]: "Đặt tour: 1900.2011"
+          - paragraph [ref=e656]: "Tư vấn: 0911222288"
+          - paragraph [ref=e657]: "Email: info@haidangtravel.com"
+        - generic [ref=e658]:
+          - link "Zalo" [ref=e659] [cursor=pointer]:
+            - /url: https://zalo.me/0911222288
+            - generic [ref=e660]: Zalo
+          - link "Facebook" [ref=e661] [cursor=pointer]:
+            - /url: https://www.facebook.com/haidangtravel
+            - generic [ref=e663]: Facebook
+          - link "YouTube" [ref=e664] [cursor=pointer]:
+            - /url: https://www.youtube.com/@haidangtraveltanson
+            - generic [ref=e666]: YouTube
+        - generic [ref=e667]:
+          - link "Đã thông báo Bộ Công Thương":
+            - /url: http://online.gov.vn/Home/WebDetails/15656
+            - img "Đã thông báo Bộ Công Thương"
+          - link "DMCA.com Protection Status" [ref=e668] [cursor=pointer]:
+            - /url: https://www.dmca.com/Protection/Status.aspx?ID=0b22a7b7-ed93-4820-acbf-7bd6d1caaf34
+            - img "DMCA.com Protection Status" [ref=e669]
+    - generic [ref=e670]: © Haidang Travel

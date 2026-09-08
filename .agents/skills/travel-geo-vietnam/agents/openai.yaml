@@ -1,0 +1,4 @@
+interface:
+  display_name: "Travel GEO Vietnam"
+  short_description: "Build GEO for Vietnam travel SEO"
+  default_prompt: "Use $travel-geo-vietnam to plan GEO-ready travel pages for a Vietnam tourism website."

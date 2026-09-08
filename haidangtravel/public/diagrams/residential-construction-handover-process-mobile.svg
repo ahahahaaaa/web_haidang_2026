@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 1860" width="420" height="1860">
+  <style>
+    text { font-family: "Helvetica Neue", Helvetica, Arial, "Segoe UI", sans-serif; }
+    .title { fill: #111827; font-size: 22px; font-weight: 700; }
+    .subtitle { fill: #6b7280; font-size: 12px; }
+    .phase-tag { fill: #2563eb; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+    .phase-name { fill: #111827; font-size: 16px; font-weight: 700; }
+    .card-title { fill: #111827; font-size: 15px; font-weight: 700; }
+    .card-copy { fill: #6b7280; font-size: 11px; }
+    .pill { fill: #dc2626; font-size: 10px; font-weight: 700; }
+    .step-num { fill: #ffffff; font-size: 14px; font-weight: 700; }
+    .footer-note { fill: #475569; font-size: 11px; }
+  </style>
+
+  <defs>
+    <marker id="arrow-blue-mobile" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <rect width="420" height="1860" fill="#ffffff"/>
+
+  <text x="28" y="44" class="title">Quy trình xây dựng nhà ở</text>
+  <text x="28" y="70" class="title">từ chuẩn bị đến bàn giao</text>
+  <text x="28" y="96" class="subtitle">Phiên bản mobile tối ưu cho landing page gói tiêu chuẩn, cao cấp</text>
+  <text x="28" y="114" class="subtitle">và trang so sánh, giữ cùng logic 8 bước như bản desktop.</text>
+
+  <text x="28" y="150" class="phase-tag">Giai đoạn A</text>
+  <text x="28" y="172" class="phase-name">Chuẩn bị đầu vào</text>
+
+  <g transform="translate(28 194)">
+    <rect width="332" height="124" rx="16" ry="16" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="18" width="44" height="44" rx="12" ry="12" fill="#2563eb"/>
+    <text x="40" y="45" text-anchor="middle" class="step-num">01</text>
+    <text x="78" y="38" class="card-title">Tiếp nhận nhu cầu</text>
+    <text x="78" y="60" class="card-copy">Làm rõ mục tiêu đầu tư, quy mô,</text>
+    <text x="78" y="76" class="card-copy">mốc bàn giao và đầu mối phối hợp</text>
+    <text x="78" y="92" class="card-copy">ngay từ khi chốt hướng triển khai.</text>
+    <rect x="18" y="98" width="128" height="20" rx="10" ry="10" fill="#fee2e2"/>
+    <text x="82" y="112" text-anchor="middle" class="pill">Khóa mục tiêu ban đầu</text>
+  </g>
+
+  <path d="M194 318 L194 356" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow-blue-mobile)"/>
+
+  <g transform="translate(28 374)">
+    <rect width="332" height="124" rx="16" ry="16" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="18" width="44" height="44" rx="12" ry="12" fill="#2563eb"/>
+    <text x="40" y="45" text-anchor="middle" class="step-num">02</text>
+    <text x="78" y="38" class="card-title">Khảo sát và rà hồ sơ</text>
+    <text x="78" y="60" class="card-copy">Kiểm tra hiện trạng, hồ sơ kiến trúc,</text>
+    <text x="78" y="76" class="card-copy">kết cấu, MEP và nhận diện rủi ro</text>
+    <text x="78" y="92" class="card-copy">thực tế của công trường.</text>
+    <rect x="18" y="98" width="142" height="20" rx="10" ry="10" fill="#fee2e2"/>
+    <text x="89" y="112" text-anchor="middle" class="pill">Khóa điều kiện thi công</text>
+  </g>
+
+  <text x="28" y="550" class="phase-tag">Giai đoạn B</text>
+  <text x="28" y="572" class="phase-name">Khóa kế hoạch</text>
+
+  <g transform="translate(28 594)">
+    <rect width="332" height="124" rx="16" ry="16" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="18" width="44" height="44" rx="12" ry="12" fill="#2563eb"/>
+    <text x="40" y="45" text-anchor="middle" class="step-num">03</text>
+    <text x="78" y="38" class="card-title">Báo giá và tiến độ</text>
+    <text x="78" y="60" class="card-copy">Bóc tách phạm vi, timeline, mốc</text>
+    <text x="78" y="76" class="card-copy">thanh toán và nguyên tắc xử lý</text>
+    <text x="78" y="92" class="card-copy">phát sinh trước khi khởi công.</text>
+    <rect x="18" y="98" width="114" height="20" rx="10" ry="10" fill="#fee2e2"/>
+    <text x="75" y="112" text-anchor="middle" class="pill">Khóa phạm vi</text>
+  </g>
+
+  <path d="M194 718 L194 756" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow-blue-mobile)"/>
+
+  <g transform="translate(28 774)">
+    <rect width="332" height="124" rx="16" ry="16" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="18" width="44" height="44" rx="12" ry="12" fill="#2563eb"/>
+    <text x="40" y="45" text-anchor="middle" class="step-num">04</text>
+    <text x="78" y="38" class="card-title">Chuẩn bị khởi công</text>
+    <text x="78" y="60" class="card-copy">Thiết lập điện nước tạm, che chắn,</text>
+    <text x="78" y="76" class="card-copy">tim trục, cao độ và biện pháp an toàn</text>
+    <text x="78" y="92" class="card-copy">để mặt bằng sẵn sàng thi công.</text>
+    <rect x="18" y="98" width="132" height="20" rx="10" ry="10" fill="#fee2e2"/>
+    <text x="84" y="112" text-anchor="middle" class="pill">Sẵn sàng mặt bằng</text>
+  </g>
+
+  <text x="28" y="950" class="phase-tag">Giai đoạn C</text>
+  <text x="28" y="972" class="phase-name">Thi công &amp; hoàn thiện</text>
+
+  <g transform="translate(28 994)">
+    <rect width="332" height="124" rx="16" ry="16" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="18" width="44" height="44" rx="12" ry="12" fill="#2563eb"/>
+    <text x="40" y="45" text-anchor="middle" class="step-num">05</text>
+    <text x="78" y="38" class="card-title">Thi công phần thô</text>
+    <text x="78" y="60" class="card-copy">Triển khai móng, khung, sàn, tường,</text>
+    <text x="78" y="76" class="card-copy">chống thấm và các hạng mục âm</text>
+    <text x="78" y="92" class="card-copy">theo hồ sơ đã chốt.</text>
+    <rect x="18" y="98" width="146" height="20" rx="10" ry="10" fill="#fee2e2"/>
+    <text x="91" y="112" text-anchor="middle" class="pill">Nghiệm thu lớp ẩn</text>
+  </g>
+
+  <path d="M194 1118 L194 1156" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow-blue-mobile)"/>
+
+  <g transform="translate(28 1174)">
+    <rect width="332" height="124" rx="16" ry="16" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="18" width="44" height="44" rx="12" ry="12" fill="#2563eb"/>
+    <text x="40" y="45" text-anchor="middle" class="step-num">06</text>
+    <text x="78" y="38" class="card-title">Tổ chức hoàn thiện</text>
+    <text x="78" y="60" class="card-copy">Điều phối ốp lát, trần, sơn, cửa,</text>
+    <text x="78" y="76" class="card-copy">thiết bị và bảo vệ bề mặt theo đúng</text>
+    <text x="78" y="92" class="card-copy">trình tự chồng lớp hoàn thiện.</text>
+    <rect x="18" y="98" width="138" height="20" rx="10" ry="10" fill="#fee2e2"/>
+    <text x="87" y="112" text-anchor="middle" class="pill">Khóa mẫu hoàn thiện</text>
+  </g>
+
+  <text x="28" y="1350" class="phase-tag">Giai đoạn D</text>
+  <text x="28" y="1372" class="phase-name">Nghiệm thu &amp; bàn giao</text>
+
+  <g transform="translate(28 1394)">
+    <rect width="332" height="124" rx="16" ry="16" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="18" width="44" height="44" rx="12" ry="12" fill="#2563eb"/>
+    <text x="40" y="45" text-anchor="middle" class="step-num">07</text>
+    <text x="78" y="38" class="card-title">Rà lỗi và nghiệm thu</text>
+    <text x="78" y="60" class="card-copy">Rà lỗi theo khu vực, xử lý tồn,</text>
+    <text x="78" y="76" class="card-copy">vệ sinh công nghiệp và xác nhận</text>
+    <text x="78" y="92" class="card-copy">checklist cuối trước bàn giao.</text>
+    <rect x="18" y="98" width="150" height="20" rx="10" ry="10" fill="#fee2e2"/>
+    <text x="93" y="112" text-anchor="middle" class="pill">Chốt danh mục bàn giao</text>
+  </g>
+
+  <path d="M194 1518 L194 1556" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow-blue-mobile)"/>
+
+  <g transform="translate(28 1574)">
+    <rect width="332" height="124" rx="16" ry="16" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="18" width="44" height="44" rx="12" ry="12" fill="#2563eb"/>
+    <text x="40" y="45" text-anchor="middle" class="step-num">08</text>
+    <text x="78" y="38" class="card-title">Bàn giao và bảo hành</text>
+    <text x="78" y="60" class="card-copy">Bàn giao công trình, hướng dẫn</text>
+    <text x="78" y="76" class="card-copy">vận hành và thiết lập đầu mối</text>
+    <text x="78" y="92" class="card-copy">hậu mãi rõ ràng sau khi vào ở.</text>
+    <rect x="18" y="98" width="156" height="20" rx="10" ry="10" fill="#fee2e2"/>
+    <text x="96" y="112" text-anchor="middle" class="pill">Sẵn sàng vào ở và bảo trì</text>
+  </g>
+
+  <rect x="28" y="1724" width="332" height="64" rx="18" ry="18" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="44" y="1748" class="footer-note">Phiên bản mobile chuyển toàn bộ quy trình thành flow dọc một cột để</text>
+  <text x="44" y="1764" class="footer-note">giữ chữ gọn trong khung và tránh phải zoom khi đọc trên màn hình hẹp.</text>
+</svg>

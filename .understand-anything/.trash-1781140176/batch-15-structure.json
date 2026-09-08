@@ -1,0 +1,524 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "blueprints/database_schema_blueprint.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 222,
+      "nonEmptyLines": 202,
+      "sections": [
+        {
+          "heading": "Database Schema Blueprint",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Important architectural note",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Tables",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "service_categories",
+          "level": 3,
+          "line": 11
+        },
+        {
+          "heading": "services",
+          "level": 3,
+          "line": 20
+        },
+        {
+          "heading": "projects",
+          "level": 3,
+          "line": 47
+        },
+        {
+          "heading": "blog_categories",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "blog_posts",
+          "level": 3,
+          "line": 94
+        },
+        {
+          "heading": "tags",
+          "level": 3,
+          "line": 120
+        },
+        {
+          "heading": "blog_post_tag",
+          "level": 3,
+          "line": 126
+        },
+        {
+          "heading": "blog_post_service",
+          "level": 3,
+          "line": 130
+        },
+        {
+          "heading": "blog_post_project",
+          "level": 3,
+          "line": 134
+        },
+        {
+          "heading": "project_service",
+          "level": 3,
+          "line": 138
+        },
+        {
+          "heading": "leads",
+          "level": 3,
+          "line": 143
+        },
+        {
+          "heading": "testimonials",
+          "level": 3,
+          "line": 159
+        },
+        {
+          "heading": "faqs",
+          "level": 3,
+          "line": 172
+        },
+        {
+          "heading": "seo_meta",
+          "level": 3,
+          "line": 182
+        },
+        {
+          "heading": "seo_schema",
+          "level": 3,
+          "line": 199
+        },
+        {
+          "heading": "internal_links",
+          "level": 3,
+          "line": 208
+        },
+        {
+          "heading": "settings or theme_settings",
+          "level": 3,
+          "line": 219
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 20
+      }
+    },
+    {
+      "path": "blueprints/laravel_model_relations_blueprint.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 202,
+      "nonEmptyLines": 167,
+      "sections": [
+        {
+          "heading": "Laravel Model Relations Blueprint",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Core note",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Suggested Eloquent relations",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Service",
+          "level": 2,
+          "line": 14
+        },
+        {
+          "heading": "Project",
+          "level": 2,
+          "line": 55
+        },
+        {
+          "heading": "BlogPost",
+          "level": 2,
+          "line": 96
+        },
+        {
+          "heading": "Faq",
+          "level": 2,
+          "line": 142
+        },
+        {
+          "heading": "SeoMeta",
+          "level": 2,
+          "line": 153
+        },
+        {
+          "heading": "SeoSchema",
+          "level": 2,
+          "line": 164
+        },
+        {
+          "heading": "Service-layer relation to Company",
+          "level": 2,
+          "line": 177
+        },
+        {
+          "heading": "Recommended additional services",
+          "level": 2,
+          "line": 195
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 11
+      }
+    },
+    {
+      "path": "blueprints/migration_blueprint.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 262,
+      "nonEmptyLines": 246,
+      "definitions": [
+        {
+          "name": "service_categories",
+          "kind": "table",
+          "fields": [
+            "id",
+            "name",
+            "slug",
+            "description",
+            "sort_order",
+            "is_active",
+            "created_at",
+            "updated_at"
+          ],
+          "startLine": 4,
+          "endLine": 13
+        },
+        {
+          "name": "services",
+          "kind": "table",
+          "fields": [
+            "id",
+            "category_id",
+            "name",
+            "slug",
+            "service_code",
+            "icon",
+            "short_description",
+            "description",
+            "content",
+            "featured_image",
+            "gallery_json",
+            "pricing_type",
+            "starting_price",
+            "price_note",
+            "duration_note",
+            "benefits_json",
+            "process_steps_json",
+            "faq_json",
+            "cta_title",
+            "cta_description",
+            "is_featured",
+            "sort_order",
+            "publish_status",
+            "published_at",
+            "created_at",
+            "updated_at"
+          ],
+          "startLine": 15,
+          "endLine": 43
+        },
+        {
+          "name": "projects",
+          "kind": "table",
+          "fields": [
+            "id",
+            "name",
+            "slug",
+            "project_code",
+            "short_description",
+            "description",
+            "content",
+            "featured_image",
+            "gallery_json",
+            "project_type",
+            "style",
+            "location_text",
+            "district",
+            "city",
+            "province",
+            "area_land_m2",
+            "area_floor_m2",
+            "floors",
+            "bedrooms",
+            "bathrooms",
+            "budget_min",
+            "budget_max",
+            "construction_time_days",
+            "start_date",
+            "completion_date",
+            "client_name",
+            "materials_json",
+            "scope_of_work_json",
+            "before_after_json",
+            "project_facts_json",
+            "is_featured",
+            "sort_order",
+            "publish_status",
+            "published_at",
+            "created_at",
+            "updated_at"
+          ],
+          "startLine": 45,
+          "endLine": 84
+        },
+        {
+          "name": "blog_categories",
+          "kind": "table",
+          "fields": [
+            "id",
+            "name",
+            "slug",
+            "description",
+            "sort_order",
+            "is_active",
+            "created_at",
+            "updated_at"
+          ],
+          "startLine": 86,
+          "endLine": 95
+        },
+        {
+          "name": "blog_posts",
+          "kind": "table",
+          "fields": [
+            "id",
+            "category_id",
+            "author_id",
+            "title",
+            "slug",
+            "excerpt",
+            "summary",
+            "content",
+            "featured_image",
+            "cover_image",
+            "reading_time",
+            "source_type",
+            "content_type",
+            "intent_type",
+            "outline_json",
+            "faq_json",
+            "references_json",
+            "cta_service_id",
+            "canonical_url",
+            "is_featured",
+            "sort_order",
+            "publish_status",
+            "published_at",
+            "created_at",
+            "updated_at"
+          ],
+          "startLine": 97,
+          "endLine": 125
+        },
+        {
+          "name": "tags",
+          "kind": "table",
+          "fields": [
+            "id",
+            "name",
+            "slug",
+            "created_at",
+            "updated_at"
+          ],
+          "startLine": 127,
+          "endLine": 133
+        },
+        {
+          "name": "blog_post_tag",
+          "kind": "table",
+          "fields": [
+            "blog_post_id",
+            "tag_id"
+          ],
+          "startLine": 135,
+          "endLine": 141
+        },
+        {
+          "name": "blog_post_service",
+          "kind": "table",
+          "fields": [
+            "blog_post_id",
+            "service_id"
+          ],
+          "startLine": 143,
+          "endLine": 149
+        },
+        {
+          "name": "blog_post_project",
+          "kind": "table",
+          "fields": [
+            "blog_post_id",
+            "project_id"
+          ],
+          "startLine": 151,
+          "endLine": 157
+        },
+        {
+          "name": "project_service",
+          "kind": "table",
+          "fields": [
+            "project_id",
+            "service_id"
+          ],
+          "startLine": 159,
+          "endLine": 165
+        },
+        {
+          "name": "leads",
+          "kind": "table",
+          "fields": [
+            "id",
+            "service_id",
+            "project_id",
+            "source",
+            "full_name",
+            "phone",
+            "email",
+            "message",
+            "budget_range",
+            "construction_location",
+            "lead_status",
+            "assigned_to",
+            "contacted_at",
+            "created_at",
+            "updated_at"
+          ],
+          "startLine": 167,
+          "endLine": 185
+        },
+        {
+          "name": "testimonials",
+          "kind": "table",
+          "fields": [
+            "id",
+            "service_id",
+            "project_id",
+            "client_name",
+            "client_role",
+            "content",
+            "rating",
+            "avatar",
+            "is_featured",
+            "publish_status",
+            "created_at",
+            "updated_at"
+          ],
+          "startLine": 187,
+          "endLine": 202
+        },
+        {
+          "name": "faqs",
+          "kind": "table",
+          "fields": [
+            "id",
+            "entity_type",
+            "entity_id",
+            "question",
+            "answer",
+            "sort_order",
+            "is_active",
+            "created_at",
+            "updated_at"
+          ],
+          "startLine": 204,
+          "endLine": 215
+        },
+        {
+          "name": "seo_meta",
+          "kind": "table",
+          "fields": [
+            "id",
+            "entity_type",
+            "entity_id",
+            "meta_title",
+            "meta_description",
+            "meta_keywords",
+            "canonical_url",
+            "robots",
+            "og_title",
+            "og_description",
+            "og_image",
+            "twitter_title",
+            "twitter_description",
+            "twitter_image",
+            "created_at",
+            "updated_at"
+          ],
+          "startLine": 217,
+          "endLine": 235
+        },
+        {
+          "name": "seo_schema",
+          "kind": "table",
+          "fields": [
+            "id",
+            "entity_type",
+            "entity_id",
+            "schema_type",
+            "schema_json",
+            "is_auto_generated",
+            "created_at",
+            "updated_at"
+          ],
+          "startLine": 237,
+          "endLine": 247
+        },
+        {
+          "name": "internal_links",
+          "kind": "table",
+          "fields": [
+            "id",
+            "source_type",
+            "source_id",
+            "target_type",
+            "target_id",
+            "anchor_text",
+            "link_position",
+            "is_auto_generated",
+            "created_at",
+            "updated_at"
+          ],
+          "startLine": 249,
+          "endLine": 262
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 16
+      }
+    }
+  ]
+}

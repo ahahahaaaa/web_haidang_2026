@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FastCons | Insights &amp; Innovations</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#610005",
+              "on-background": "#121c2a",
+              "surface-variant": "#d9e3f6",
+              "primary-fixed": "#ffdad6",
+              "on-secondary-fixed-variant": "#333f91",
+              "tertiary-container": "#0f36a6",
+              "inverse-primary": "#ffb4ac",
+              "surface": "#f8f9ff",
+              "surface-container-high": "#dee9fc",
+              "surface-container-highest": "#d9e3f6",
+              "surface-bright": "#f8f9ff",
+              "on-primary-container": "#ff9085",
+              "on-tertiary-fixed-variant": "#173bab",
+              "secondary-fixed-dim": "#bcc3ff",
+              "on-tertiary": "#ffffff",
+              "inverse-on-surface": "#eaf1ff",
+              "tertiary-fixed-dim": "#b8c4ff",
+              "on-error-container": "#93000a",
+              "background": "#f8f9ff",
+              "primary-container": "#8b000c",
+              "on-surface": "#121c2a",
+              "on-secondary-container": "#2b3789",
+              "on-secondary-fixed": "#000d60",
+              "secondary": "#4b57aa",
+              "tertiary": "#00227a",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed": "#410002",
+              "error-container": "#ffdad6",
+              "surface-tint": "#c00015",
+              "on-primary": "#ffffff",
+              "secondary-container": "#99a5fe",
+              "outline": "#767682",
+              "outline-variant": "#c6c5d3",
+              "secondary-fixed": "#dfe0ff",
+              "on-tertiary-container": "#97abff",
+              "on-primary-fixed-variant": "#93000d",
+              "surface-container-low": "#eff4ff",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#dde1ff",
+              "primary-fixed-dim": "#ffb4ac",
+              "surface-container": "#e6eeff",
+              "surface-dim": "#d0dbed",
+              "on-surface-variant": "#454651",
+              "inverse-surface": "#27313f",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed": "#001453",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/15 shadow-xl shadow-slate-900/5 flex justify-between items-center px-6 py-4">
+<div class="text-2xl font-black text-on-surface tracking-tighter">FastCons</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">call</span>
+<span class="material-symbols-outlined text-on-surface-variant">menu</span>
+</div>
+</nav>
+<main class="pt-24 pb-32">
+<!-- Hero Title Section -->
+<header class="px-6 mb-8">
+<h1 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface mb-2">Insights</h1>
+<p class="text-on-surface-variant text-lg">Engineering tomorrow's horizons today.</p>
+</header>
+<!-- Search & Filters -->
+<section class="sticky top-[72px] z-40 bg-surface/95 backdrop-blur-sm py-4 space-y-4">
+<!-- Search Bar -->
+<div class="px-6">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-secondary transition-all" placeholder="Search articles..." type="text"/>
+</div>
+</div>
+<!-- Categories Horizontal Scroll -->
+<div class="flex overflow-x-auto px-6 gap-3 hide-scrollbar">
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-primary text-white font-bold text-sm">All Posts</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-medium text-sm">Engineering</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-medium text-sm">Sustainability</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-medium text-sm">Safety</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-medium text-sm">Innovation</button>
+</div>
+</section>
+<!-- Featured Article (Editorial Style) -->
+<section class="px-6 mb-12">
+<div class="relative group overflow-hidden rounded-2xl bg-surface-container-lowest shadow-sm">
+<div class="aspect-[4/5] w-full relative">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="dramatic low angle shot of a steel skyscraper frame under construction against a deep blue dusk sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFdqRHcykUnE7gAtJRmhAXRfT2UQsLlKrFRhGKk5MCeTDnhlyf374buhOf2eXQADE-r8WB_uc3hUODnoN9WVdZmI4JtffvUENKB9OMjQRykSHJziCgid0bTmM130_HT3aHrwyW2zk456LTtaD0HVoS8mSiSJUovKP_pRlKC021NNqwQ2yGHndY-QQpdFQOGORarS1tqS62M0l14Dw0kvgUwf8-RNaKkASrJ5muSWFJ9tV3VTm_KsihfhVlvoV85xB1uk3yA6DLRyQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/90 via-on-background/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="inline-block px-3 py-1 bg-primary text-white text-[10px] font-bold uppercase tracking-widest mb-4">Featured</span>
+<h2 class="font-headline text-3xl font-bold text-white leading-tight mb-4">The Future of Modular Skyscrapers</h2>
+<div class="flex items-center gap-3 text-white/70 text-sm">
+<span>Mar 12, 2024</span>
+<span class="w-1 h-1 bg-white/50 rounded-full"></span>
+<span>8 min read</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Article List -->
+<section class="px-6 space-y-12">
+<!-- Article 1 -->
+<article class="group">
+<div class="aspect-video w-full overflow-hidden rounded-xl mb-4 bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="minimalist architectural concrete wall with dramatic shadows and sunlight patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ2usmOltzjeKtPkgRC3awr23NMLbi08nI2KP64OrMTBKVJc-50MXhjuGOTMExPkj0HlLgeyoacid1DovNrDIFA1sJz5DUQF9vXckeOePRlVNsINUNKVg3bLiMXWaOgsprEd84v4Wy9v_srLTOMF2NWTeZWi2QKCteF4HlK_gqcMEuA9vPWZekRxMZbVJwuGWRWwmrRhXm_nOz29u52cBWpmX5ZTzJBZs5mTRPt_oGGV9ZEDZBNF6qWMtgCAK4ygmse-tomZClpaQ"/>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between text-[11px] font-bold text-primary uppercase tracking-widest">
+<span>Engineering</span>
+<span class="text-on-surface-variant/60">Feb 28, 2024</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Seismic Resilience in Modern Bridge Design</h3>
+<p class="text-on-surface-variant line-clamp-2 text-sm leading-relaxed">Exploring the latest damping technologies used in the Golden Coast project to withstand extreme geological events.</p>
+</div>
+</article>
+<!-- Article 2 -->
+<article class="group">
+<div class="aspect-video w-full overflow-hidden rounded-xl mb-4 bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="high-tech modern office interior with sustainable wood accents and living green plant walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDDAZev4td1mUa1lW8-nHCMVrO_NHWy2D-ilWi0jxUbJQzjunJfob26933CRFR-MVD5SwB2JR1ktX3T9MZCPgHVMEZ3twgH93O-WWsallgrys8UXOug2-hoa3lUsZxJe1-4OqB1jblFfEdqO6MpmC5K0ZhVzyNPi9u0hto0kc6JdoTjFhPmRcvCoO_AqdjqJZwcgnn9VDMYfG7N8snwN5acnuWRoRrSMP2T-J6vdHHYgzZhVJwbWt7hwL5xqoXI1oAkNEngntvCX8"/>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between text-[11px] font-bold text-primary uppercase tracking-widest">
+<span>Sustainability</span>
+<span class="text-on-surface-variant/60">Feb 24, 2024</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Net-Zero Cities: The New Standard</h3>
+<p class="text-on-surface-variant line-clamp-2 text-sm leading-relaxed">How carbon-neutral concrete is changing the environmental footprint of urban expansion.</p>
+</div>
+</article>
+<!-- Article 3 -->
+<article class="group">
+<div class="aspect-video w-full overflow-hidden rounded-xl mb-4 bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="construction worker using an augmented reality headset to inspect a complex mechanical system" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm0AI1dZHzTZhVpi7P0jFiLlpccJvcPSIrvf4GctLLQyTS10Oor_l3hJ5ytHuyaxRuKzsh-91ajqnQTgf9fye6FpsdkTSBCCxwbi9KzwbmQloBt5_6kGGoG545cebbwSrX1QkGEkaQAiV21NQa2xHmzgVnR75h3x6H04uWs1rAe4GgVvWJQ5Qw39chjk1wJD-8xf0eljeleWsFeZhNENPj_FNPHIhdNbaF73K1m-IcN66piv1QqlVtlK6oW8_QR_9SH8ERPVKvZG8"/>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between text-[11px] font-bold text-primary uppercase tracking-widest">
+<span>Innovation</span>
+<span class="text-on-surface-variant/60">Feb 15, 2024</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors">AI on the Job Site: Predictive Safety</h3>
+<p class="text-on-surface-variant line-clamp-2 text-sm leading-relaxed">Deploying machine learning models to identify potential hazards before they occur.</p>
+</div>
+</article>
+</section>
+<!-- Newsletter Subscription Form -->
+<section class="mt-20 px-6 py-12 bg-surface-container-low relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16"></div>
+<div class="relative z-10">
+<h2 class="font-headline text-2xl font-extrabold text-on-surface mb-4">Stay Informed</h2>
+<p class="text-on-surface-variant mb-8 text-sm">Join 5,000+ industry professionals receiving our monthly structural insights.</p>
+<form class="space-y-4">
+<div class="space-y-1">
+<label class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest ml-1">Work Email</label>
+<input class="w-full px-4 py-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="name@company.com" type="email"/>
+</div>
+<button class="w-full py-4 bg-gradient-to-br from-primary to-primary-container text-white font-bold rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 active:scale-[0.98] transition-transform" type="submit">
+                        Subscribe Now
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</form>
+<p class="mt-6 text-[10px] text-on-surface-variant/60 leading-relaxed">
+                    By subscribing, you agree to our Terms of Service and Privacy Policy. You can unsubscribe at any time.
+                </p>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#121c2a] pt-16 pb-8 px-8 text-slate-400">
+<div class="mb-12">
+<div class="text-white font-bold text-xl mb-6">FastCons</div>
+<p class="text-sm leading-relaxed mb-8">Building the foundations of a sustainable future through architectural excellence and engineering precision.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined">social_leaderboard</span>
+<span class="material-symbols-outlined">terminal</span>
+<span class="material-symbols-outlined">public</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8 mb-12">
+<div class="space-y-3">
+<div class="text-white font-bold text-sm mb-4">Quick Links</div>
+<a class="block text-xs hover:text-red-400 transition-colors" href="#">Privacy Policy</a>
+<a class="block text-xs hover:text-red-400 transition-colors" href="#">Terms of Service</a>
+</div>
+<div class="space-y-3">
+<div class="text-white font-bold text-sm mb-4">Company</div>
+<a class="block text-xs hover:text-red-400 transition-colors" href="#">Safety Standards</a>
+<a class="block text-xs hover:text-red-400 transition-colors" href="#">Career</a>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-800 text-[10px] text-center">
+                © 2024 FastCons. Building Excellence.
+            </div>
+</footer>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-lg border-t border-outline-variant/10 shadow-[0_-10px_30px_rgba(0,0,0,0.1)] flex justify-around items-center px-4 py-3 pb-safe rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-headline text-[10px] font-bold uppercase tracking-tighter">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60" href="#">
+<span class="material-symbols-outlined mb-1">foundation</span>
+<span class="font-headline text-[10px] font-bold uppercase tracking-tighter">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60" href="#">
+<span class="material-symbols-outlined mb-1">call</span>
+<span class="font-headline text-[10px] font-bold uppercase tracking-tighter">Call Us</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#610005]" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">article</span>
+<span class="font-headline text-[10px] font-bold uppercase tracking-tighter">Insights</span>
+</a>
+</nav>
+</body></html>

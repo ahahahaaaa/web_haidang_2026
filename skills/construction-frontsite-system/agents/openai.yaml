@@ -1,0 +1,4 @@
+interface:
+  display_name: "Construction Frontsite System"
+  short_description: "Build and operate construction website workflows"
+  default_prompt: "Use $construction-frontsite-system to plan or implement a construction-company website task."

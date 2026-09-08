@@ -1,0 +1,177 @@
+[
+  {
+    "name": "01_URL_INVENTORY",
+    "sheetName": "01_URL_INVENTORY",
+    "tableName": "Seo01URLINVENTORY",
+    "rows": 412,
+    "columns": 11,
+    "headers": [
+      "Page_ID",
+      "Page_Type",
+      "Title",
+      "URL",
+      "Site_ID",
+      "Locale",
+      "Owner_Type",
+      "Owner_ID",
+      "Classification",
+      "Source_Version",
+      "Inventory_At"
+    ],
+    "dropdowns": {}
+  },
+  {
+    "name": "18_AUTOMATION_QUEUE",
+    "sheetName": "18_AUTOMATION_QUEUE",
+    "tableName": "Seo18AUTOMATIONQUEUE",
+    "rows": 412,
+    "columns": 27,
+    "headers": [
+      "Row_ID",
+      "Site_ID",
+      "Locale",
+      "Page_ID",
+      "Page_Type",
+      "URL",
+      "Enabled",
+      "Status",
+      "Priority",
+      "Primary_Keyword",
+      "Search_Intent",
+      "Secondary_Keywords",
+      "Semantic_Terms",
+      "Entities",
+      "Required_Topics",
+      "Required_Internal_Links",
+      "Fact_Sources",
+      "Notes",
+      "Image_URL",
+      "Image_Prompt",
+      "Image_Alt",
+      "Row_Revision",
+      "Task_ID",
+      "Proposal_ID",
+      "Result_URL",
+      "Last_Error",
+      "Updated_At"
+    ],
+    "dropdowns": {
+      "7": [
+        "HOLD",
+        "READY",
+        "CLAIMED",
+        "PREVIEW",
+        "PUBLISHED",
+        "NEED_DATA",
+        "FAILED"
+      ],
+      "8": [
+        "P0",
+        "P1",
+        "P2",
+        "P3"
+      ]
+    }
+  },
+  {
+    "name": "15_KEYWORD_SET",
+    "sheetName": "15_KEYWORD_SET",
+    "tableName": "Seo15KEYWORDSET",
+    "rows": 412,
+    "columns": 20,
+    "headers": [
+      "Keyword_ID",
+      "Cluster_ID",
+      "Cluster_Name",
+      "Primary_Keyword",
+      "Secondary_Keywords",
+      "Semantic_Terms",
+      "Entities",
+      "Search_Intent",
+      "Target_Page_ID",
+      "Target_URL",
+      "Page_Type",
+      "Priority",
+      "Required_Topics",
+      "Required_Internal_Links",
+      "Freshness_Class",
+      "Fact_Source",
+      "Fact_Sources_JSON",
+      "Status",
+      "Site_ID",
+      "Locale"
+    ],
+    "dropdowns": {
+      "7": [
+        "INFORMATIONAL",
+        "COMMERCIAL_INVESTIGATION",
+        "TRANSACTIONAL",
+        "NAVIGATIONAL",
+        "LOCAL_SERVICE"
+      ],
+      "11": [
+        "P0",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "14": [
+        "STATIC",
+        "SEASONAL",
+        "FREQUENT",
+        "REGULATORY"
+      ],
+      "17": [
+        "ACTIVE",
+        "HOLD",
+        "REVIEW"
+      ]
+    }
+  },
+  {
+    "name": "17_KEYWORD_MAP",
+    "sheetName": "17_KEYWORD_MAP",
+    "tableName": "Seo17KEYWORDMAP",
+    "rows": 412,
+    "columns": 13,
+    "headers": [
+      "Map_ID",
+      "Keyword_ID",
+      "Page_ID",
+      "Relationship",
+      "Intent",
+      "Canonical_Owner",
+      "Internal_Link_To",
+      "Suggested_Anchor",
+      "Cannibalization_Risk",
+      "Status",
+      "Notes",
+      "Site_ID",
+      "Locale"
+    ],
+    "dropdowns": {
+      "3": [
+        "OWNER",
+        "SUPPORTING",
+        "AVOID"
+      ],
+      "4": [
+        "INFORMATIONAL",
+        "COMMERCIAL_INVESTIGATION",
+        "TRANSACTIONAL",
+        "NAVIGATIONAL",
+        "LOCAL_SERVICE"
+      ],
+      "8": [
+        "NONE",
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ],
+      "9": [
+        "ACTIVE",
+        "REVIEW"
+      ]
+    }
+  }
+]

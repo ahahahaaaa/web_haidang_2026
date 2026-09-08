@@ -1,0 +1,7 @@
+interface:
+  display_name: "Tour SEO System"
+  short_description: "Chuẩn hóa SEO và schema cho website tour"
+  default_prompt: "Use $tour-seo-system to standardize SEO entities, schema, metadata, canonicals, and internal links for tours, destinations, categories, regions, and countries."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,11 @@
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Nhà phố 3 tầng Quận 7",
+  "description": "Dự án nhà phố 3 tầng hoàn thiện theo phạm vi thi công trọn gói.",
+  "image": "https://example.com/storage/projects/nha-pho-q7.jpg",
+  "about": {
+    "@type": "Service",
+    "name": "Xây nhà trọn gói"
+  }
+}

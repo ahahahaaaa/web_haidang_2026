@@ -1,0 +1,47 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "resources/css/admin.css",
+      "language": "css",
+      "fileCategory": "markup",
+      "totalLines": 11,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "resources/css/app.css",
+      "language": "css",
+      "fileCategory": "markup",
+      "totalLines": 4560,
+      "nonEmptyLines": 3940,
+      "metrics": {}
+    },
+    {
+      "path": "resources/css/frontsite-form-controls.css",
+      "language": "css",
+      "fileCategory": "markup",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "resources/css/frontsite-icons.css",
+      "language": "css",
+      "fileCategory": "markup",
+      "totalLines": 124,
+      "nonEmptyLines": 121,
+      "metrics": {}
+    },
+    {
+      "path": "resources/css/frontsite.css",
+      "language": "css",
+      "fileCategory": "markup",
+      "totalLines": 7,
+      "nonEmptyLines": 6,
+      "metrics": {}
+    }
+  ]
+}

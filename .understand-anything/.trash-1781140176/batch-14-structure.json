@@ -1,0 +1,415 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 9,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "AGENTS.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 75,
+      "nonEmptyLines": 52,
+      "sections": [
+        {
+          "heading": "AGENTS.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Domain hiện tại",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Luồng đọc tài liệu",
+          "level": 2,
+          "line": 14
+        },
+        {
+          "heading": "Nguyên tắc làm việc",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "Quy tắc repo",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "Khi làm frontend/UI",
+          "level": 2,
+          "line": 45
+        },
+        {
+          "heading": "Khi làm backend/CMS",
+          "level": 2,
+          "line": 52
+        },
+        {
+          "heading": "Validation",
+          "level": 2,
+          "line": 59
+        },
+        {
+          "heading": "Output format",
+          "level": 2,
+          "line": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 10
+      }
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 121,
+      "nonEmptyLines": 93,
+      "sections": [
+        {
+          "heading": "Haidang Travel CMS",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Phạm vi hiện tại",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Public routes",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Admin routes",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "Cấu trúc chính",
+          "level": 2,
+          "line": 39
+        },
+        {
+          "heading": "Khởi chạy local",
+          "level": 2,
+          "line": 53
+        },
+        {
+          "heading": "1. Cài dependencies",
+          "level": 3,
+          "line": 55
+        },
+        {
+          "heading": "2. Chuẩn bị môi trường",
+          "level": 3,
+          "line": 61
+        },
+        {
+          "heading": "3. Migrate và seed",
+          "level": 3,
+          "line": 67
+        },
+        {
+          "heading": "4. Build frontend",
+          "level": 3,
+          "line": 75
+        },
+        {
+          "heading": "5. Chạy ứng dụng",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "Import dữ liệu launch",
+          "level": 2,
+          "line": 90
+        },
+        {
+          "heading": "Theme",
+          "level": 2,
+          "line": 102
+        },
+        {
+          "heading": "Validation nên chạy khi thay đổi lớn",
+          "level": 2,
+          "line": 108
+        },
+        {
+          "heading": "Ghi chú",
+          "level": 2,
+          "line": 117
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 15
+      }
+    },
+    {
+      "path": "RERENDER_NOTE.txt",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "boost.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 15,
+      "nonEmptyLines": 15,
+      "sections": [
+        {
+          "heading": "agents",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "cloud",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "skills",
+          "level": 1,
+          "line": 8
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "composer.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 109,
+      "nonEmptyLines": 109,
+      "sections": [
+        {
+          "heading": "$schema",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "type",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "description",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "keywords",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "license",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "require",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "require-dev",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "autoload",
+          "level": 1,
+          "line": 32
+        },
+        {
+          "heading": "autoload-dev",
+          "level": 1,
+          "line": 40
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 45
+        },
+        {
+          "heading": "extra",
+          "level": 1,
+          "line": 93
+        },
+        {
+          "heading": "config",
+          "level": 1,
+          "line": 98
+        },
+        {
+          "heading": "minimum-stability",
+          "level": 1,
+          "line": 107
+        },
+        {
+          "heading": "prefer-stable",
+          "level": 1,
+          "line": 108
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 15
+      }
+    },
+    {
+      "path": "mobile-taxonomy-diagnostics.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 766,
+      "nonEmptyLines": 766,
+      "sections": [
+        {
+          "heading": "viewport",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "tabsCount",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "visibleTabsCount",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "tabs",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "panels",
+          "level": 1,
+          "line": 256
+        },
+        {
+          "heading": "offenders",
+          "level": 1,
+          "line": 324
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 28,
+      "nonEmptyLines": 28,
+      "sections": [
+        {
+          "heading": "$schema",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "private",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "type",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "optionalDependencies",
+          "level": 1,
+          "line": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "phpunit.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 36,
+      "nonEmptyLines": 36,
+      "metrics": {}
+    },
+    {
+      "path": "pint.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "sections": [
+        {
+          "heading": "preset",
+          "level": 1,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "models": {
+    "default": "gpt-5.4",
+    "fast": "gpt-5.4-mini"
+  },
+  "task_defaults": {
+    "prefer_small_safe_changes": true,
+    "require_schema_consistency_check": true,
+    "prefer_config_driven_rules": true
+  },
+  "skills": [
+    {
+      "path": "skills/cost-estimator",
+      "enabled": true
+    }
+  ]
+}

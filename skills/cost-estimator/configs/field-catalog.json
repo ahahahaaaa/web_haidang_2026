@@ -1,0 +1,447 @@
+{
+    "groups": [
+        {
+            "key": "geometry",
+            "label": "Hình học công trình",
+            "fields": [
+                "length",
+                "width",
+                "floors",
+                "has_terrace",
+                "tum_area",
+                "terrace_area",
+                "terrace_cover_type",
+                "balcony_area",
+                "balcony_open_sides",
+                "roof_area",
+                "roof_slope_factor",
+                "roof_count",
+                "garden_area",
+                "front_yard_area",
+                "back_yard_area"
+            ]
+        },
+        {
+            "key": "structure",
+            "label": "Kết cấu - nền móng",
+            "fields": [
+                "garden_type",
+                "has_mezzanine",
+                "mezzanine_area",
+                "void_area",
+                "roof_type",
+                "foundation_type",
+                "has_concrete_ground",
+                "has_basement",
+                "basement_area",
+                "basement_type",
+                "soil_type",
+                "soil_class",
+                "groundwater_level",
+                "pile_type",
+                "pile_depth",
+                "pile_count",
+                "retaining_wall",
+                "floor_height",
+                "long_span_structure"
+            ]
+        },
+        {
+            "key": "building_program",
+            "label": "Công năng & nội thất",
+            "fields": [
+                "building_type",
+                "usage_type",
+                "bedroom_count",
+                "wc_count",
+                "has_elevator",
+                "elevator_service_floors",
+                "has_pool",
+                "pool_area",
+                "pool_type",
+                "special_structure"
+            ]
+        },
+        {
+            "key": "finishing",
+            "label": "Hoàn thiện",
+            "fields": [
+                "finish_package",
+                "floor_finish_type",
+                "door_type",
+                "sanitary_package",
+                "electrical_package",
+                "facade_finish_type"
+            ]
+        },
+        {
+            "key": "site_condition",
+            "label": "Điều kiện thi công",
+            "fields": [
+                "location_zone",
+                "district_zone",
+                "access_condition",
+                "material_staging_condition",
+                "adjacent_house_condition"
+            ]
+        },
+        {
+            "key": "commercial",
+            "label": "Kiểm soát nội bộ",
+            "fields": [
+                "contract_scope",
+                "include_permit",
+                "include_pile",
+                "include_completion",
+                "vat_mode",
+                "discount_percent",
+                "surcharge_percent",
+                "price_set",
+                "formula_set",
+                "internal_notes"
+            ]
+        }
+    ],
+    "fields": {
+        "length": {
+            "type": "number",
+            "required_levels": [
+                "level_1",
+                "level_2",
+                "level_3"
+            ],
+            "guide_title": "Chiều dài",
+            "guide_content": "<p>Đây là chiều dài phủ bì của công trình trên một sàn điển hình. Anh/chị nên lấy theo kích thước xây dựng thực tế từ mép tường ngoài đến mép tường ngoài, không lấy theo kích thước lọt lòng bên trong.</p><p>Nếu nhà có hình dạng không vuông vức hoặc bị tóp hậu, hãy nhập kích thước đại diện gần đúng nhất rồi ghi rõ thêm trong phần mô tả nhu cầu để đội ngũ kiểm tra lại khi bóc tách.</p>"
+        },
+        "width": {
+            "type": "number",
+            "required_levels": [
+                "level_1",
+                "level_2",
+                "level_3"
+            ],
+            "guide_title": "Chiều rộng",
+            "guide_content": "<p>Đây là chiều ngang phủ bì của công trình. Trường này quyết định trực tiếp diện tích footprint nên chỉ cần lệch vài chục centimet là tổng dự toán có thể thay đổi khá rõ.</p><p>Trong thực tế thi công, anh/chị nên ưu tiên kích thước theo hồ sơ xin phép hoặc mặt bằng sơ bộ mới nhất.</p>"
+        },
+        "floors": {
+            "type": "integer",
+            "required_levels": [
+                "level_1",
+                "level_2",
+                "level_3"
+            ],
+            "guide_title": "Số tầng (bao gồm tầng trệt)",
+            "guide_content": "<p>Nhập tổng số tầng có sàn sử dụng, tính cả tầng trệt. Nếu công trình có lửng, tum, sân thượng hay hầm thì các phần đó khai báo ở trường riêng để hệ số tính chính xác hơn.</p><p>Nếu chưa chốt phương án cuối, anh/chị cứ nhập phương án đang nghiêng về nhất để hệ thống ra khung ngân sách tham khảo.</p>"
+        },
+        "has_terrace": {
+            "type": "boolean",
+            "guide_title": "Có sân thượng",
+            "guide_content": "<p>Chọn mục này khi phương án có sân thượng. Khi bật “Có sân thượng”, hệ thống sẽ hiển thị hai ô diện tích tum và diện tích sân thượng rồi tự điền giá trị mặc định theo diện tích sân thượng quy đổi bằng 125% diện tích sàn.</p><p>Anh/chị vẫn có thể chỉnh tay hai giá trị này, nhưng tổng diện tích tum và sân thượng luôn phải bằng diện tích sân thượng quy đổi để tránh sai lệch khối lượng.</p>"
+        },
+        "tum_area": {
+            "type": "number",
+            "guide_title": "Diện tích tum",
+            "guide_content": "<p>Tum là phần khối xây nhô lên trên mái để che thang, phòng kỹ thuật hoặc kho nhỏ. Dù diện tích không lớn, tum vẫn là một hạng mục kết cấu và hoàn thiện riêng nên nên khai báo tách biệt.</p><p>Trường này chỉ hiển thị khi bật “Có sân thượng”. Hệ thống sẽ điền mặc định theo công thức, nhưng anh/chị có thể chỉnh tay nếu muốn phân lại tỷ trọng tum trong tổng diện tích sân thượng quy đổi.</p>"
+        },
+        "terrace_area": {
+            "type": "number",
+            "guide_title": "Diện tích sân thượng",
+            "guide_content": "<p>Đây là diện tích sân thượng sử dụng thực tế. Sân thượng có thể chỉ hoàn thiện chống thấm, lát gạch đơn giản hoặc kết hợp mái che, tiểu cảnh, khu giặt phơi nên mức chi phí có thể khác nhau khá nhiều.</p><p>Trường này chỉ hiển thị khi bật “Có sân thượng”. Anh/chị có thể chỉnh tay diện tích, nhưng tổng diện tích sân thượng và tum phải bằng diện tích sân thượng quy đổi 125% sàn để hệ thống tính đúng.</p>"
+        },
+        "terrace_cover_type": {
+            "type": "select",
+            "guide_title": "Sân thượng có mái che",
+            "guide_content": "<p>Trường này cho biết sân thượng có làm mái che hay không. Có mái che thường phát sinh thêm cột, kèo, mái và hoàn thiện liên quan nên ngân sách sẽ cao hơn sân thượng để trống.</p><p>Ngay cả khi bật “Có sân thượng” để hệ thống tự tách tum và sân thượng, anh/chị vẫn nên chọn đúng tình trạng mái che vì phần mái che và tum đều bám theo tổng diện tích sân thượng quy đổi.</p>"
+        },
+        "balcony_area": {
+            "type": "number",
+            "guide_title": "Diện tích ban công",
+            "guide_content": "<p>Đây là tổng diện tích ban công nhô ra ngoài mặt đứng công trình. Ban công ảnh hưởng đến sàn console, lan can, chống thấm và hoàn thiện mặt ngoài nên nên tính riêng.</p><p>Nếu mỗi tầng có ban công khác nhau, anh/chị có thể nhập diện tích trung bình hoặc tổng diện tích dự kiến ở giai đoạn đầu.</p>"
+        },
+        "balcony_open_sides": {
+            "type": "integer",
+            "guide_title": "Số mặt thoáng ban công",
+            "guide_content": "<p>Số mặt thoáng của ban công ảnh hưởng đến mức độ hoàn thiện lan can, mặt ngoài và đôi khi cả giải pháp chống thấm, thoát nước. Ban công càng mở nhiều mặt thì phần hoàn thiện và chi tiết kỹ thuật càng tăng.</p><p>Nếu chưa chắc, hãy chọn phương án giống bố cục mặt tiền hiện tại nhất.</p>"
+        },
+        "roof_area": {
+            "type": "number",
+            "guide_title": "Diện tích mái riêng",
+            "guide_content": "<p>Đây là diện tích mái khi anh/chị muốn tính riêng thay vì để hệ thống tự suy ra từ footprint. Trường này nên dùng khi mái có đua lớn, chồng mái hoặc hình dạng đặc biệt khiến diện tích mái thực lớn hơn sàn bên dưới.</p><p>Nếu chưa có số chính xác, anh/chị có thể để trống để hệ thống lấy theo footprint và hệ số dốc mái.</p>"
+        },
+        "roof_slope_factor": {
+            "type": "number",
+            "guide_title": "Hệ số dốc mái",
+            "guide_content": "<p>Hệ số dốc mái dùng khi mái nghiêng hoặc mái có nhiều mặt dốc, giúp quy đổi từ diện tích chiếu bằng sang diện tích thi công thực tế. Mái càng dốc hoặc càng nhiều lớp mái, hệ số này thường càng cao.</p><p>Nếu anh/chị chưa có thiết kế mái chi tiết, cứ giữ mức gần đúng để có khung đầu tư sơ bộ trước.</p>"
+        },
+        "roof_count": {
+            "type": "integer",
+            "guide_title": "Số mái",
+            "guide_content": "<p>Số mái phản ánh số lớp hoặc số phần mái cần thi công. Với mái phức tạp nhiều cấp, nhiều khối giao nhau, chi phí thường không chỉ tăng theo diện tích mà còn tăng theo độ phức tạp thi công.</p><p>Nhà mái đơn giản thường chỉ cần 1; nhà chồng mái hoặc phân khối rõ rệt mới nên tăng thêm.</p>"
+        },
+        "garden_area": {
+            "type": "number",
+            "guide_title": "Diện tích sân vườn",
+            "guide_content": "<p>Đây là phần diện tích sân cần tính riêng ngoài footprint nhà chính. Khi sân được thi công thực tế nhưng không cùng kết cấu với nhà, nên tách riêng để chi phí phản ánh đúng hơn.</p><p>Nếu anh/chị chưa rõ, có thể để trống và bổ sung sau. Hệ thống sẽ ưu tiên lấy phần dữ liệu chắc chắn trước.</p>"
+        },
+        "front_yard_area": {
+            "type": "number",
+            "guide_title": "Diện tích sân trước",
+            "guide_content": "<p>Đây là diện tích sân trước nhà, thường dùng cho khoảng lùi, chỗ để xe hoặc tiểu cảnh. Tách riêng sân trước giúp bóc chi phí sát thực tế hơn thay vì cộng gộp vào diện tích nhà.</p><p>Anh/chị nên nhập phần diện tích thực sự thi công hoàn thiện, không tính phần vỉa hè hay đất ngoài ranh xây dựng.</p>"
+        },
+        "back_yard_area": {
+            "type": "number",
+            "guide_title": "Diện tích sân sau",
+            "guide_content": "<p>Đây là diện tích sân sau hoặc khoảng trống phía cuối nhà cần thi công nền, lát hoặc hoàn thiện. Với nhà phố có chừa sân sau lấy sáng, phần này nên tách riêng để hệ số không bị đội lên như sàn nhà chính.</p><p>Nếu công trình không có sân sau, có thể để trống.</p>"
+        },
+        "garden_type": {
+            "type": "select",
+            "guide_title": "Loại sân vườn / sân ngoài trời",
+            "guide_content": "<p>Trường này giúp phân biệt sân ngoài trời là sân hoàn thiện thông thường hay sân có kết cấu bê tông cốt thép, móng và đà kiềng. Hai phương án này chênh nhau khá nhiều về khối lượng kết cấu.</p><p>Nếu sân chỉ lát gạch hoặc hoàn thiện nhẹ, thường chọn sân thông thường. Nếu bên dưới có móng, dầm hoặc đổ bê tông chịu lực, nên chọn phương án BTCT.</p>"
+        },
+        "has_mezzanine": {
+            "type": "boolean",
+            "guide_title": "Có lửng",
+            "guide_content": "<p>Chọn mục này khi công trình có tầng lửng thực tế trong phương án xây dựng. Lửng thường làm tăng khối lượng sàn, cột, dầm, cầu thang và hoàn thiện nên ảnh hưởng trực tiếp đến dự toán.</p><p>Nếu mới đang cân nhắc giữa phương án có lửng và không lửng, anh/chị nên thử cả hai để so sánh chênh lệch ngân sách.</p>"
+        },
+        "mezzanine_area": {
+            "type": "number",
+            "guide_title": "Diện tích lửng",
+            "guide_content": "<p>Đây là diện tích sàn lửng thực tế, không nhất thiết bằng toàn bộ diện tích tầng trệt. Phần lửng càng lớn thì chi phí phần thô, hoàn thiện và hệ thống kỹ thuật càng tăng rõ.</p><p>Anh/chị nên nhập theo diện tích sàn sử dụng dự kiến của lửng, không cộng phần thông tầng bị chừa rỗng.</p>"
+        },
+        "void_area": {
+            "type": "number",
+            "guide_title": "Diện tích thông tầng lửng",
+            "guide_content": "<p>Đây là phần diện tích chừa thông tầng trong khu vực lửng hoặc khu vực sinh hoạt cao tầng. Về thực tế, phần này không làm sàn nhưng vẫn ảnh hưởng đến giải pháp kiến trúc, lan can, mặt dựng và cảm giác không gian.</p><p>Nếu chưa chốt chính xác, anh/chị chỉ cần nhập diện tích ước tính phần rỗng để hệ thống áp hệ số phù hợp.</p>"
+        },
+        "roof_type": {
+            "type": "select",
+            "guide_title": "Loại mái",
+            "guide_content": "<p>Loại mái là một trong những trường ảnh hưởng mạnh đến hệ số quy đổi. Mái bằng BTCT, mái tôn hay mái ngói đều có cấu tạo, vật tư và khối lượng nhân công rất khác nhau.</p><p>Nếu chưa chốt vật liệu cuối cùng, anh/chị nên chọn phương án đang nghiêng về nhất để hệ thống ra dự toán gần sát thực tế.</p>"
+        },
+        "foundation_type": {
+            "type": "select",
+            "guide_title": "Loại móng",
+            "guide_content": "<p>Loại móng quyết định phần lớn chi phí nền móng của công trình. Móng đơn, móng băng, móng bè hay móng cọc có mức độ an toàn và chi phí khác nhau tùy tải trọng công trình và điều kiện đất.</p><p>Nếu chưa có hồ sơ khảo sát địa chất, anh/chị có thể chọn phương án đang được tư vấn sơ bộ, nhưng nên hiểu đây mới là mức dự toán tham khảo ban đầu.</p>"
+        },
+        "has_concrete_ground": {
+            "type": "boolean",
+            "guide_title": "Có đổ bê tông nền trệt",
+            "guide_content": "<p>Chọn “Có” khi nền tầng trệt có đổ bê tông nền hoặc cấu tạo nền hoàn chỉnh theo giải pháp thi công. Hạng mục này làm phát sinh thêm phần vật tư và nhân công ở nền trệt.</p><p>Nếu trệt để nền đất, nền tạm hoặc chưa chốt giải pháp, có thể chọn “Không” để tránh cộng thừa chi phí.</p>"
+        },
+        "has_basement": {
+            "type": "boolean",
+            "guide_title": "Có tầng hầm",
+            "guide_content": "<p>Chọn mục này khi công trình có tầng hầm hoặc bán hầm thực tế. Hầm là hạng mục làm chi phí tăng mạnh vì liên quan đến đào đất, kết cấu giữ thành, chống thấm, thông gió và tổ chức thi công khó hơn nhà không hầm.</p><p>Nếu chỉ có cốt nền thấp hoặc hố kỹ thuật nhỏ thì chưa xem là tầng hầm.</p>"
+        },
+        "basement_area": {
+            "type": "number",
+            "guide_title": "Diện tích hầm",
+            "guide_content": "<p>Đây là diện tích tầng hầm thực tế nếu hầm không trùng hoàn toàn với footprint phía trên. Nhiều công trình có hầm lớn hơn hoặc nhỏ hơn thân nhà, nên nhập riêng sẽ giúp dự toán sát hơn.</p><p>Nếu chưa có số riêng, anh/chị có thể để hệ thống tạm lấy theo footprint.</p>"
+        },
+        "basement_type": {
+            "type": "select",
+            "guide_title": "Chiều sâu hầm",
+            "guide_content": "<p>Chiều sâu hầm ảnh hưởng trực tiếp đến khối lượng đào đất, biện pháp chống sạt, chống thấm và xử lý kết cấu. Hầm càng sâu thì chi phí thi công thường tăng rất rõ, đặc biệt ở khu dân cư đông nhà sát vách.</p><p>Anh/chị nên chọn mức gần đúng theo cốt sàn hầm so với mặt đường hoặc sân hiện hữu.</p>"
+        },
+        "soil_type": {
+            "type": "select",
+            "guide_title": "Loại đất nền",
+            "guide_content": "<p>Loại đất nền là cơ sở sơ bộ để ước lượng độ phức tạp của phần móng. Đất yếu thường kéo theo giải pháp móng an toàn hơn, thời gian thi công dài hơn và chi phí nền móng cao hơn.</p><p>Nếu chưa có khảo sát địa chất, anh/chị có thể chọn theo đánh giá sơ bộ của đơn vị tư vấn hoặc kinh nghiệm các nhà lân cận.</p>"
+        },
+        "soil_class": {
+            "type": "select",
+            "guide_title": "Phân lớp địa chất",
+            "guide_content": "<p>Phân lớp địa chất dùng cho cấp dự toán sâu hơn, khi cần nhìn kỹ hơn điều kiện nền đất thay vì chỉ đánh giá tốt, trung bình hay yếu. Trường này thường được dùng khi đã có thông tin khảo sát hoặc tư vấn nền móng tương đối rõ.</p><p>Nếu chưa có dữ liệu địa chất, anh/chị có thể để theo mức gần đúng hoặc trao đổi thêm với đội ngũ kỹ thuật.</p>"
+        },
+        "groundwater_level": {
+            "type": "select",
+            "guide_title": "Mực nước ngầm",
+            "guide_content": "<p>Mực nước ngầm là yếu tố rất quan trọng nếu công trình có hầm hoặc nền móng sâu. Nước ngầm cao thường làm tăng yêu cầu chống thấm, hạ mực nước, gia cố thành hố và kiểm soát thi công.</p><p>Nếu khu đất thường xuyên ẩm, gần sông rạch hoặc vùng trũng, nên chọn mức trung bình đến cao để dự toán an toàn hơn.</p>"
+        },
+        "pile_type": {
+            "type": "select",
+            "guide_title": "Loại cọc",
+            "guide_content": "<p>Loại cọc phản ánh giải pháp truyền tải trọng xuống nền đất bên dưới. Cọc ép, cọc khoan nhồi hay cọc vít có biện pháp thi công, thiết bị và đơn giá khác nhau.</p><p>Nếu hồ sơ kết cấu chưa chốt, anh/chị nên chọn phương án đang được tư vấn sơ bộ để có khung ngân sách phù hợp.</p>"
+        },
+        "pile_depth": {
+            "type": "number",
+            "guide_title": "Độ sâu cọc",
+            "guide_content": "<p>Độ sâu cọc là chiều dài làm việc dự kiến của cọc xuống nền đất. Cọc càng sâu thì vật tư, thời gian thi công và chi phí nền móng càng tăng.</p><p>Nếu chưa có số chính thức, anh/chị nhập mức ước tính đang được tư vấn để hệ thống ra dự toán tạm sát hơn.</p>"
+        },
+        "pile_count": {
+            "type": "integer",
+            "guide_title": "Số lượng cọc",
+            "guide_content": "<p>Số lượng cọc cho biết tổng số cọc dự kiến của công trình. Chỉ số này ảnh hưởng trực tiếp đến chi phí cọc, đài cọc và thời gian thi công nền móng.</p><p>Nếu hiện mới có số cọc sơ bộ theo một phương án, cứ nhập để hệ thống ra khung chi phí trước.</p>"
+        },
+        "retaining_wall": {
+            "type": "boolean",
+            "guide_title": "Có tường vây / retaining wall",
+            "guide_content": "<p>Tường vây hoặc retaining wall thường xuất hiện ở công trình có hầm, taluy hoặc nền chênh cốt cần giữ đất. Đây là hạng mục kỹ thuật nặng, chi phí không nhỏ nên cần khai báo ngay nếu đã có trong phương án.</p><p>Nếu công trình bình thường không có hầm và không cần giữ đất, thường chọn “Không”.</p>"
+        },
+        "floor_height": {
+            "type": "number",
+            "guide_title": "Chiều cao tầng điển hình",
+            "guide_content": "<p>Chiều cao tầng điển hình ảnh hưởng đến khối lượng tường, cột, vách, cầu thang, mặt dựng và hoàn thiện. Tầng càng cao thì chi phí phần thô và hoàn thiện thường càng tăng.</p><p>Anh/chị nên nhập chiều cao sàn tới sàn dự kiến, không phải chiều cao thông thủy sử dụng.</p>"
+        },
+        "long_span_structure": {
+            "type": "boolean",
+            "guide_title": "Có kết cấu nhịp lớn",
+            "guide_content": "<p>Chọn “Có” nếu công trình có nhịp lớn, ít cột, không gian thông rộng như showroom, văn phòng mở hoặc gara lớn. Kết cấu nhịp lớn thường kéo theo dầm, sàn và giải pháp chịu lực phức tạp hơn nhà ở thông thường.</p><p>Nếu mặt bằng chia phòng nhỏ, nhịp cột bình thường thì thường chọn “Không”.</p>"
+        },
+        "building_type": {
+            "type": "select",
+            "guide_title": "Loại công trình",
+            "guide_content": "<p>Loại công trình giúp hệ thống nhận diện mức độ tiêu chuẩn hoàn thiện, kết cấu và nhu cầu kỹ thuật thường gặp. Nhà phố, biệt thự, văn phòng hay shophouse thường có cách tính khác nhau về mặt công năng và mức đầu tư.</p><p>Nếu công trình pha trộn nhiều công năng, hãy chọn loại chiếm tỷ trọng chính rồi ghi rõ thêm trong mô tả.</p>"
+        },
+        "usage_type": {
+            "type": "select",
+            "guide_title": "Công năng chính",
+            "guide_content": "<p>Chọn phương án phù hợp nhất với thực tế thi công hoặc nhu cầu sử dụng. Các lựa chọn thường dùng: Nhà ở gia đình, Cho thuê / căn hộ dịch vụ, Kinh doanh / shophouse, Văn phòng làm việc.</p>"
+        },
+        "bedroom_count": {
+            "type": "integer",
+            "guide_title": "Số phòng ngủ",
+            "guide_content": "<p>Nhập tổng số phòng ngủ dự kiến của công trình để hệ thống gợi ý room program và các mẫu nội thất phù hợp cho nhà ở hoặc shophouse có lưu trú.</p><p>Nếu phương án còn đang thay đổi, anh/chị có thể nhập số lượng gần đúng nhất rồi tinh chỉnh tiếp trong block công năng &amp; nội thất.</p>"
+        },
+        "wc_count": {
+            "type": "integer",
+            "guide_title": "Số WC",
+            "guide_content": "<p>Nhập tổng số WC hoặc phòng tắm cần hoàn thiện. Chỉ số này giúp hệ thống gợi ý nhanh số dòng room program và xác định phần thiết bị vệ sinh liên quan.</p><p>Nếu công trình có nhiều WC với mức đầu tư khác nhau, hãy dùng room program để tách riêng các dòng cần add thêm.</p>"
+        },
+        "has_elevator": {
+            "type": "boolean",
+            "guide_title": "Có thang máy",
+            "guide_content": "<p>Nếu công trình có thang máy, cần chừa hố thang, đà lintel, kết cấu liên quan và đôi khi phát sinh thêm yêu cầu kỹ thuật ở điện, hoàn thiện. Vì vậy đây là hạng mục nên khai báo sớm để dự toán không bị thiếu.</p><p>Nếu mới chỉ dự tính chừa ô thang cho tương lai, anh/chị nên ghi rõ trong phần mô tả.</p>"
+        },
+        "has_pool": {
+            "type": "boolean",
+            "guide_title": "Có hồ bơi",
+            "guide_content": "<p>Hồ bơi là hạng mục làm tăng đáng kể chi phí kết cấu, chống thấm, MEP và hoàn thiện. Dù là hồ trong nhà hay ngoài trời, nên khai báo sớm để hệ thống không bỏ sót phần khối lượng lớn này.</p><p>Nếu mới đang cân nhắc, anh/chị có thể thử cả hai phương án để so sánh chênh lệch đầu tư.</p>"
+        },
+        "elevator_service_floors": {
+            "type": "integer",
+            "guide_title": "Số tầng phục vụ của thang máy",
+            "guide_content": "<p>Trường này cho biết thang máy sẽ dừng phục vụ bao nhiêu tầng. Mặc định hệ thống lấy theo tổng số tầng của công trình, nhưng anh/chị có thể chỉnh tay nếu thang không phục vụ toàn bộ các tầng.</p><p>Ví dụ công trình 5 tầng nhưng thang chỉ phục vụ 4 tầng ở; khi đó nên nhập đúng số tầng phục vụ để phần overlay chi tiết không bị cộng thừa.</p>"
+        },
+        "pool_area": {
+            "type": "number",
+            "guide_title": "Diện tích hồ bơi",
+            "guide_content": "<p>Nhập diện tích mặt nước hoặc diện tích thi công chính của hồ bơi theo m2. Hệ thống chỉ tính hạng mục hồ bơi khi diện tích lớn hơn 0.</p><p>Nếu hồ có thêm Jacuzzi, hồ trẻ em hoặc tràn bờ, nên chọn đúng loại hồ ở trường kế bên để đơn giá áp đúng theo price book.</p>"
+        },
+        "pool_type": {
+            "type": "select",
+            "guide_title": "Loại hồ bơi",
+            "guide_content": "<p>Chọn đúng loại hồ để hệ thống lấy đúng item catalog và đơn giá: hồ skimmer tiêu chuẩn, hồ overflow hoặc Jacuzzi / plunge pool.</p><p>Nếu chưa chốt cấu hình cuối cùng, anh/chị có thể dùng phương án gần nhất rồi thay đổi lại để so sánh nhanh chênh lệch chi phí.</p>"
+        },
+        "special_structure": {
+            "type": "select",
+            "guide_title": "Kết cấu / công năng đặc biệt",
+            "guide_content": "<p>Chọn phương án phù hợp nhất với thực tế thi công hoặc nhu cầu sử dụng. Các lựa chọn thường dùng: Không có, Thông tầng lớn, Console / ban công lớn, Không gian thông rộng.</p>"
+        },
+        "finish_package": {
+            "type": "select",
+            "guide_title": "Gói hoàn thiện",
+            "guide_content": "<p>Gói hoàn thiện phản ánh mặt bằng chất lượng vật tư và mức đầu tư tổng thể mà anh/chị đang hướng đến. Cùng một diện tích nhưng gói tiêu chuẩn và gói cao cấp có thể chênh rất đáng kể.</p><p>Nếu chưa khóa vật liệu chi tiết, anh/chị nên chọn theo ngân sách mục tiêu để dự toán ra sát nhu cầu thực tế hơn.</p>"
+        },
+        "floor_finish_type": {
+            "type": "select",
+            "guide_title": "Hoàn thiện sàn",
+            "guide_content": "<p>Chọn phương án phù hợp nhất với thực tế thi công hoặc nhu cầu sử dụng. Các lựa chọn thường dùng: Gạch ceramic / porcelain cơ bản, Đá / gạch cao cấp, Sàn gỗ / sàn kỹ thuật.</p>"
+        },
+        "door_type": {
+            "type": "select",
+            "guide_title": "Loại cửa chính",
+            "guide_content": "<p>Chọn phương án phù hợp nhất với thực tế thi công hoặc nhu cầu sử dụng. Các lựa chọn thường dùng: Nhôm kính, Gỗ công nghiệp, Gỗ tự nhiên, Thép chống cháy / cửa kỹ thuật.</p>"
+        },
+        "sanitary_package": {
+            "type": "select",
+            "guide_title": "Thiết bị vệ sinh",
+            "guide_content": "<p>Chọn phương án phù hợp nhất với thực tế thi công hoặc nhu cầu sử dụng. Các lựa chọn thường dùng: Cơ bản, Khá, Cao cấp.</p>"
+        },
+        "electrical_package": {
+            "type": "select",
+            "guide_title": "Thiết bị điện",
+            "guide_content": "<p>Chọn phương án phù hợp nhất với thực tế thi công hoặc nhu cầu sử dụng. Các lựa chọn thường dùng: Cơ bản, Khá, Cao cấp / thông minh.</p>"
+        },
+        "facade_finish_type": {
+            "type": "select",
+            "guide_title": "Mức độ hoàn thiện mặt tiền",
+            "guide_content": "<p>Chọn phương án phù hợp nhất với thực tế thi công hoặc nhu cầu sử dụng. Các lựa chọn thường dùng: Đơn giản, Khá, Phức tạp / nhiều lớp vật liệu.</p>"
+        },
+        "location_zone": {
+            "type": "select",
+            "guide_title": "Khu vực xây dựng",
+            "guide_content": "<p>Khu vực xây dựng ảnh hưởng đến giá nhân công, vận chuyển vật tư, điều phối tổ đội và nhiều chi phí gián tiếp khác. Công trình trong nội thành, ngoại thành hay tỉnh lân cận thường có đơn giá triển khai khác nhau.</p><p>Anh/chị nên chọn đúng khu vực thực thi công, không chọn theo địa chỉ văn phòng hay nơi ở hiện tại.</p>"
+        },
+        "district_zone": {
+            "type": "select",
+            "guide_title": "Khu vực quận / huyện",
+            "guide_content": "<p>Chọn phương án phù hợp nhất với thực tế thi công hoặc nhu cầu sử dụng. Các lựa chọn thường dùng: Trung tâm, Cận trung tâm, Ngoại vi.</p>"
+        },
+        "access_condition": {
+            "type": "select",
+            "guide_title": "Điều kiện tiếp cận thi công",
+            "guide_content": "<p>Điều kiện tiếp cận thi công cho biết xe vật tư, máy móc và đội thi công vào công trình thuận lợi hay khó khăn. Mặt bằng càng khó tiếp cận thì thời gian và chi phí vận chuyển thủ công càng tăng.</p><p>Đây là trường rất quan trọng với nhà trong hẻm nhỏ, khu dân cư đông hoặc tuyến cấm tải.</p>"
+        },
+        "material_staging_condition": {
+            "type": "select",
+            "guide_title": "Điều kiện tập kết vật tư",
+            "guide_content": "<p>Chọn phương án phù hợp nhất với thực tế thi công hoặc nhu cầu sử dụng. Các lựa chọn thường dùng: Thuận lợi, Hạn chế, Rất khó / phải trung chuyển.</p>"
+        },
+        "adjacent_house_condition": {
+            "type": "select",
+            "guide_title": "Nhà liền kề xung quanh",
+            "guide_content": "<p>Chọn phương án phù hợp nhất với thực tế thi công hoặc nhu cầu sử dụng. Các lựa chọn thường dùng: Thoáng 2 bên, Một bên giáp nhà, Hai bên sát nhà hiện hữu.</p>"
+        },
+        "contract_scope": {
+            "type": "multiselect",
+            "guide_title": "Phạm vi hợp đồng",
+            "guide_content": "<p>Phạm vi hợp đồng cho biết anh/chị đang muốn dự toán phần nào: thiết kế, phần thô, hoàn thiện hay nội thất. Chọn đúng phạm vi giúp đội ngũ không cộng nhầm những hạng mục anh/chị chưa cần ở giai đoạn này.</p><p>Nếu muốn nhìn toàn cảnh ngân sách, anh/chị có thể chọn nhiều phần cùng lúc.</p>"
+        },
+        "include_permit": {
+            "type": "boolean",
+            "guide_title": "Bao gồm xin phép xây dựng",
+            "guide_content": "<p>Chọn &quot;Có&quot; hoặc &quot;Không&quot; theo đúng hiện trạng hoặc nhu cầu của công trình. Các lựa chọn thường dùng: Không, Có.</p>"
+        },
+        "include_pile": {
+            "type": "boolean",
+            "guide_title": "Bao gồm phần cọc",
+            "guide_content": "<p>Chọn &quot;Có&quot; hoặc &quot;Không&quot; theo đúng hiện trạng hoặc nhu cầu của công trình. Các lựa chọn thường dùng: Không, Có.</p>"
+        },
+        "include_completion": {
+            "type": "boolean",
+            "guide_title": "Bao gồm hoàn công",
+            "guide_content": "<p>Chọn &quot;Có&quot; hoặc &quot;Không&quot; theo đúng hiện trạng hoặc nhu cầu của công trình. Các lựa chọn thường dùng: Không, Có.</p>"
+        },
+        "vat_mode": {
+            "type": "select",
+            "guide_title": "VAT",
+            "guide_content": "<p>Trường này cho biết số tiền anh/chị đang muốn nhìn là đã bao gồm VAT hay chưa. Đây là khác biệt thương mại, không làm thay đổi khối lượng nhưng ảnh hưởng trực tiếp đến tổng tiền cần chuẩn bị.</p><p>Nếu chưa rõ chế độ xuất hóa đơn, anh/chị có thể để theo phương án mặc định rồi chốt lại ở bước thương mại.</p>"
+        },
+        "discount_percent": {
+            "type": "number",
+            "guide_title": "Chiết khấu",
+            "guide_content": "<p>Chiết khấu là tỷ lệ giảm giá dự kiến áp trên kết quả trước VAT hoặc theo cơ chế thương mại đang áp dụng. Trường này chỉ nên nhập khi đã có chính sách cụ thể hoặc đang mô phỏng một kịch bản thương mại rõ ràng.</p><p>Nếu chưa áp dụng, hãy để 0 để giữ kết quả trung tính.</p>"
+        },
+        "surcharge_percent": {
+            "type": "number",
+            "guide_title": "Phụ thu",
+            "guide_content": "<p>Phụ thu dùng cho các trường hợp có chi phí cộng thêm do điều kiện thi công, tiến độ gấp, vật tư đặc biệt hoặc yêu cầu riêng. Đây là lớp điều chỉnh thương mại sau khi đã có khối lượng cơ bản.</p><p>Nếu chưa phát sinh yếu tố đặc biệt, anh/chị nên để 0 để không làm đội kết quả không cần thiết.</p>"
+        },
+        "price_set": {
+            "type": "select",
+            "guide_title": "Bảng giá áp dụng",
+            "guide_content": "<p>Đây là bộ bảng giá mà hệ thống đang dùng để quy đổi tổng m2 ra giá trị tiền. Với người dùng frontsite, nếu chưa có chỉ định riêng từ admin thì thường nên giữ mặc định. Trường này hữu ích hơn ở cấp dự toán nội bộ khi cần so sánh nhiều kịch bản giá.<img src=\"http://localhost:8000/storage/257/ab6axude3deavjqceboawsef5els1ppae28jl24i-6dba577e7798.png\" alt=\"Vật liệu xanh trong xây nhà dân dụng tại Việt Nam\"></p><p><br></p>"
+        },
+        "formula_set": {
+            "type": "select",
+            "guide_title": "Bộ công thức áp dụng",
+            "guide_content": "<p>Đây là bộ công thức hệ số mà hệ thống dùng để tính diện tích quy đổi. Thông thường frontsite chỉ dùng bộ mặc định đã được kỹ thuật kiểm tra.</p><p>Anh/chị chỉ nên đổi khi đội vận hành thông báo có phiên bản công thức riêng cho chiến dịch hoặc nhóm công trình đặc thù.</p>"
+        },
+        "internal_notes": {
+            "type": "textarea",
+            "guide_title": "Ghi chú nội bộ",
+            "guide_content": "<p>Trường này dùng cho các lưu ý kỹ thuật hoặc thương mại chỉ phục vụ xử lý nội bộ ở cấp `Dự toán nội bộ`. Ví dụ: phạm vi chưa chốt, giả định về vật liệu, ghi chú về chiết khấu hoặc phần việc loại trừ.</p><p>Nội dung này sẽ đi vào snapshot yêu cầu để đội phụ trách kiểm tra lại bối cảnh trước khi chốt báo giá chính thức.</p>"
+        }
+    }
+}

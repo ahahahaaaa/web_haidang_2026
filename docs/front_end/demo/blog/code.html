@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Insights | FastCons - Building Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#d9e3f6",
+              "background": "#f8f9ff",
+              "on-secondary-fixed-variant": "#333f91",
+              "outline": "#767682",
+              "secondary-container": "#99a5fe",
+              "outline-variant": "#c6c5d3",
+              "surface-bright": "#f8f9ff",
+              "on-tertiary-fixed-variant": "#173bab",
+              "secondary-fixed": "#dfe0ff",
+              "primary-container": "#8b000c",
+              "surface-dim": "#d0dbed",
+              "tertiary": "#00227a",
+              "tertiary-fixed-dim": "#b8c4ff",
+              "primary-fixed": "#ffdad6",
+              "inverse-surface": "#27313f",
+              "on-secondary": "#ffffff",
+              "surface-container": "#e6eeff",
+              "on-tertiary-container": "#97abff",
+              "surface-container-low": "#eff4ff",
+              "on-background": "#121c2a",
+              "secondary-fixed-dim": "#bcc3ff",
+              "inverse-primary": "#ffb4ac",
+              "on-surface": "#121c2a",
+              "on-surface-variant": "#454651",
+              "inverse-on-surface": "#eaf1ff",
+              "surface-tint": "#c00015",
+              "tertiary-container": "#0f36a6",
+              "error-container": "#ffdad6",
+              "on-error-container": "#93000a",
+              "primary": "#610005",
+              "on-tertiary": "#ffffff",
+              "secondary": "#4b57aa",
+              "surface-container-high": "#dee9fc",
+              "surface-container-lowest": "#ffffff",
+              "error": "#ba1a1a",
+              "on-primary-fixed-variant": "#93000d",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#410002",
+              "on-primary-container": "#ff9085",
+              "on-tertiary-fixed": "#001453",
+              "surface": "#f8f9ff",
+              "tertiary-fixed": "#dde1ff",
+              "primary-fixed-dim": "#ffb4ac",
+              "surface-variant": "#d9e3f6",
+              "on-error": "#ffffff",
+              "on-secondary-fixed": "#000d60",
+              "on-secondary-container": "#2b3789"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .font-plus-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+      .font-inter { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/15 shadow-xl shadow-slate-900/5 flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-on-surface tracking-tighter uppercase">FastCons</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-plus-jakarta text-sm uppercase tracking-wider font-bold text-on-surface-variant hover:text-primary transition-colors" href="#">Projects</a>
+<a class="font-plus-jakarta text-sm uppercase tracking-wider font-bold text-on-surface-variant hover:text-primary transition-colors" href="#">Services</a>
+<a class="font-plus-jakarta text-sm uppercase tracking-wider font-bold text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a>
+<a class="font-plus-jakarta text-sm uppercase tracking-wider font-bold text-primary border-b-2 border-primary pb-1" href="#">Insights</a>
+<a class="font-plus-jakarta text-sm uppercase tracking-wider font-bold text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant p-2 hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined">call</span>
+</button>
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-lg font-plus-jakarta text-sm font-bold uppercase tracking-wider outline outline-primary/10 hover:scale-95 transition-transform">
+                Get a Quote
+            </button>
+</div>
+</nav>
+<main class="pt-28 pb-24 px-8 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="mb-16">
+<h1 class="font-headline text-5xl md:text-6xl font-extrabold tracking-tighter text-on-surface mb-4">
+                Industry <span class="text-primary">Insights</span>
+</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                Expert perspectives on modern architecture, structural engineering, and the future of urban construction.
+            </p>
+</header>
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Left: Blog Posts List -->
+<div class="flex-1 flex flex-col gap-12">
+<!-- Article 1 -->
+<article class="group bg-surface-container-lowest border-l-0 hover:border-l-4 border-secondary transition-all duration-300">
+<div class="flex flex-col md:flex-row gap-8">
+<div class="w-full md:w-80 shrink-0 overflow-hidden rounded-lg">
+<img class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern glass and steel skyscraper reaching into a clear blue sky with dramatic low angle perspective" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcwQkfZzshmMDdCIx1Ab2u1WhVKnR4b17NIJ2HYk_WaqxvBOcHF1BE5dFsfNqbVBwphfLsLDIxHmE71qY5uT6jmIhxKN7eQ-Huk9fOl0z_z86bqC5GPsQveNbWHYX9PGUAVoj-EIBBgXp-xb9-RCN0-Z5YlShA4rhxwl6VwBsf_nW5Ob9_eovbU7bWUB4JA-4uB27Nt8BbDaSHj60Fg-JKoReavLWK0GGQ9ynnH_Bx1UAPTjnFtI6y6qLnyLxam39H-Dd5kY46xAI"/>
+</div>
+<div class="flex flex-col justify-center py-2 pr-4">
+<div class="flex items-center gap-4 mb-3">
+<span class="text-secondary font-bold text-xs uppercase tracking-widest">Engineering</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<time class="text-on-surface-variant text-xs">October 24, 2024</time>
+</div>
+<h2 class="font-headline text-2xl font-extrabold text-secondary mb-4 leading-tight group-hover:text-primary transition-colors cursor-pointer">
+                                The Future of Sustainable Skyscrapers in Urban Hubs
+                            </h2>
+<p class="text-on-surface-variant font-body leading-relaxed mb-6 line-clamp-3">
+                                Exploring how advanced composite materials and passive cooling systems are redefining the environmental footprint of modern high-rise developments in metropolitan areas.
+                            </p>
+<a class="inline-flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-tighter group/link" href="#">
+                                Read Article 
+                                <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Article 2 -->
+<article class="group bg-surface-container-lowest border-l-0 hover:border-l-4 border-secondary transition-all duration-300">
+<div class="flex flex-col md:flex-row gap-8">
+<div class="w-full md:w-80 shrink-0 overflow-hidden rounded-lg">
+<img class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Interior of a large modern construction site with concrete beams and natural light streaming through structural gaps" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2AFyZX9n6D9AOzNOaz76H_G6LolIhh7Aa_DQ3ge9DaSH-hu96CoJFTBB8sIDalV-FXAphN1oC1SFcl1OQB0yXmsTqRuuGmjXnpvPcT6PFLYic_LxmyqhPo4_IxuXxf_a_u9Nv5kaRL_bgq93sf15rSOyASKMhd9R9RcAluiNltNJNZIXefQt_2tju85m6GQLb9PZ8qhbPHh2ku_7z3Wp9gACW0E6ut0UPwBAyF8JFoRP0eAWopGibWb60eh5juJnG7ThnEwC3yUA"/>
+</div>
+<div class="flex flex-col justify-center py-2 pr-4">
+<div class="flex items-center gap-4 mb-3">
+<span class="text-secondary font-bold text-xs uppercase tracking-widest">Management</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<time class="text-on-surface-variant text-xs">October 18, 2024</time>
+</div>
+<h2 class="font-headline text-2xl font-extrabold text-secondary mb-4 leading-tight group-hover:text-primary transition-colors cursor-pointer">
+                                Optimizing Supply Chains for Large-Scale Infrastructure
+                            </h2>
+<p class="text-on-surface-variant font-body leading-relaxed mb-6 line-clamp-3">
+                                A deep dive into the logistics of megaprojects, focusing on just-in-time material delivery and risk mitigation in global construction markets.
+                            </p>
+<a class="inline-flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-tighter group/link" href="#">
+                                Read Article 
+                                <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Article 3 -->
+<article class="group bg-surface-container-lowest border-l-0 hover:border-l-4 border-secondary transition-all duration-300">
+<div class="flex flex-col md:flex-row gap-8">
+<div class="w-full md:w-80 shrink-0 overflow-hidden rounded-lg">
+<img class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of a structural engineer pointing at a detailed 3D digital architectural blueprint on a large screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnY-6fgTsKrCTFaw-4uEID14dbNurbjX7X1666tueE-PcG1zf35O_QRNnencYUr8vpbCv_xvX1CU5X-JtxNJCNKhPGrM2pudBE6_F-UrF89jGtGhRku-BZ78-ScKwU7oUXMzWSztZmljODrVB38Rz_xqnuTGVOCWqWF1L5KaE9K7IX2Ad2_zdxYW0OnTFBFQ5wIHwZ2g6h5IxH1bNNQOKu2XfltD8wpX5OJegYC3TeRmwmMD_fTHjeAQKAvf1RpDYnG6u8H2vgPfg"/>
+</div>
+<div class="flex flex-col justify-center py-2 pr-4">
+<div class="flex items-center gap-4 mb-3">
+<span class="text-secondary font-bold text-xs uppercase tracking-widest">Architecture</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<time class="text-on-surface-variant text-xs">October 12, 2024</time>
+</div>
+<h2 class="font-headline text-2xl font-extrabold text-secondary mb-4 leading-tight group-hover:text-primary transition-colors cursor-pointer">
+                                AI and Generative Design: The New Architect's Toolkit
+                            </h2>
+<p class="text-on-surface-variant font-body leading-relaxed mb-6 line-clamp-3">
+                                How machine learning algorithms are helping architects optimize for wind loads, daylight access, and structural efficiency before the first stone is laid.
+                            </p>
+<a class="inline-flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-tighter group/link" href="#">
+                                Read Article 
+                                <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+<!-- Right: Sidebar -->
+<aside class="w-full lg:w-80 flex flex-col gap-10">
+<!-- SideNavBar Filter Logic -->
+<section class="bg-surface-container p-6 rounded-lg h-fit sticky top-24">
+<div class="mb-6">
+<h3 class="font-plus-jakarta font-bold text-on-surface text-lg">Project Filter</h3>
+<p class="text-on-surface-variant text-xs">Browse by category</p>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center justify-between p-3 transition-all duration-200 hover:translate-x-1 text-on-surface-variant hover:bg-surface-container-low font-medium font-plus-jakarta" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">architecture</span>
+                                Architecture
+                            </div>
+<span class="text-xs font-bold bg-surface-container-highest px-2 py-1 rounded">12</span>
+</a>
+<a class="flex items-center justify-between p-3 transition-all duration-200 hover:translate-x-1 text-on-surface-variant hover:bg-surface-container-low font-medium font-plus-jakarta" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">engineering</span>
+                                Engineering
+                            </div>
+<span class="text-xs font-bold bg-surface-container-highest px-2 py-1 rounded">08</span>
+</a>
+<a class="flex items-center justify-between p-3 transition-all duration-200 hover:translate-x-1 text-on-surface-variant hover:bg-surface-container-low font-medium font-plus-jakarta" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">construction</span>
+                                Construction
+                            </div>
+<span class="text-xs font-bold bg-surface-container-highest px-2 py-1 rounded">15</span>
+</a>
+<a class="flex items-center justify-between p-3 transition-all duration-200 hover:translate-x-1 text-on-surface-variant hover:bg-surface-container-low font-medium font-plus-jakarta" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">assignment</span>
+                                Management
+                            </div>
+<span class="text-xs font-bold bg-surface-container-highest px-2 py-1 rounded">05</span>
+</a>
+<a class="flex items-center justify-between p-3 transition-all duration-200 hover:translate-x-1 bg-surface-container-lowest text-primary font-bold border-l-4 border-primary" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">article</span>
+                                Blog
+                            </div>
+<span class="text-xs font-bold bg-primary text-white px-2 py-1 rounded">40</span>
+</a>
+</nav>
+</section>
+<!-- Recent Posts -->
+<section>
+<h3 class="font-headline font-extrabold text-on-surface mb-6 uppercase tracking-widest text-sm">Recent Posts</h3>
+<div class="flex flex-col gap-6">
+<div class="flex gap-4 group cursor-pointer">
+<div class="w-16 h-16 bg-surface-container rounded-md overflow-hidden shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="Close-up of yellow construction crane cable mechanism against a sunny sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw-64kuw2JNT1kE0SIGxKDzGv94CfQnGLEVaADU_2F3f3fp1ty3BiCmgccchcnE6ghNsBU0sWr34m-6UJ7mkXwulsxN-hHR-DdEm0ftFI77uuEssqy2uBYLpZCcaotwgP3fvYKvZRUl31whOTJMgQX16lBLcM7xVLmf3BO2rOZ5K_bsFkMuC2Dn_3H8ck6Ie8j6qvSszdlCTHQoTE6w6qAKyQnS-eS9lJ34z44PHpySCWM5KnsXxO1Ax6aIP2btUExADtBRJ6D2DA"/>
+</div>
+<div>
+<h4 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors leading-snug">Safety Standards in Modern Site Management</h4>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Oct 21</span>
+</div>
+</div>
+<div class="flex gap-4 group cursor-pointer">
+<div class="w-16 h-16 bg-surface-container rounded-md overflow-hidden shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="High quality concrete finish on a minimalist modern building wall with sharp shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQFe1uJSNzmWcEmeY5XkYrXQZjtHIQ9h__ypuJCUZVGf5BRX8_go47wX7REII33d3XsZSwrbvTOJDCvOcq5Au6Xwf1Y_fjJMdqdjShiEnziBr3jKAjkQKlOaIZZNVxGYvhe0S2pZISv1f6dzjiw524YK4HIkhhAKsDziAZyZToUUqppO1wirnZs46r32e_K1XwHLctq3Xr7k66K0M71UMwJ-1-LOLah_4ju16e38QJJgC1oyVcJBoH0iIoD9gO-8dwlyIDCmXvceE"/>
+</div>
+<div>
+<h4 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors leading-snug">The Evolution of High-Performance Concrete</h4>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Oct 15</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Card -->
+<section class="bg-primary text-white p-8 rounded-xl relative overflow-hidden group shadow-2xl shadow-primary/20">
+<div class="relative z-10">
+<h3 class="font-headline text-2xl font-black mb-4 tracking-tighter">Ready to build your vision?</h3>
+<p class="text-primary-fixed/80 text-sm mb-8 font-medium">Get a comprehensive quote for your next commercial or industrial project from our expert team.</p>
+<button class="w-full bg-white text-primary py-3 rounded-lg font-bold uppercase text-xs tracking-widest hover:bg-surface-container-highest transition-colors">
+                            Get a Quote
+                        </button>
+</div>
+<!-- Decorative Background Element -->
+<span class="material-symbols-outlined absolute -bottom-6 -right-6 text-9xl text-white/10 group-hover:scale-110 transition-transform duration-700">construction</span>
+</section>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#121c2a] text-white pt-24 pb-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<span class="text-white font-bold text-2xl tracking-tighter mb-6 block">FastCons</span>
+<p class="text-slate-400 text-sm leading-relaxed">
+                    Setting the gold standard in modern architectural construction and precision engineering since 1998.
+                </p>
+</div>
+<div>
+<h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Explore</h4>
+<ul class="flex flex-col gap-4">
+<li><a class="text-slate-400 hover:text-red-400 transition-colors text-sm" href="#">Our Projects</a></li>
+<li><a class="text-slate-400 hover:text-red-400 transition-colors text-sm" href="#">Services Portfolio</a></li>
+<li><a class="text-slate-400 hover:text-red-400 transition-colors text-sm" href="#">Industrial Expertise</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Company</h4>
+<ul class="flex flex-col gap-4">
+<li><a class="text-slate-400 hover:text-red-400 transition-colors text-sm" href="#">Safety Standards</a></li>
+<li><a class="text-slate-400 hover:text-red-400 transition-colors text-sm" href="#">Career</a></li>
+<li><a class="text-slate-400 hover:text-red-400 transition-colors text-sm" href="#">About FastCons</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Legal</h4>
+<ul class="flex flex-col gap-4">
+<li><a class="text-slate-400 hover:text-red-400 transition-colors text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-400 hover:text-red-400 transition-colors text-sm" href="#">Terms of Service</a></li>
+<li><a class="text-slate-400 hover:text-red-400 transition-colors text-sm" href="#">Cookie Settings</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-12 mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="text-slate-500 text-xs font-inter uppercase tracking-widest">© 2024 FastCons. Building Excellence.</span>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-slate-500 hover:text-white cursor-pointer transition-colors">public</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-white cursor-pointer transition-colors">hub</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-white cursor-pointer transition-colors">share_reviews</span>
+</div>
+</div>
+</footer>
+</body></html>

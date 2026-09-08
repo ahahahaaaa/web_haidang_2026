@@ -1,0 +1,4 @@
+interface:
+  display_name: "Media Spatie Library"
+  short_description: "Shared media popup and Spatie library flow"
+  default_prompt: "Use $media-spatie-library to build or fix the shared media popup, Quill image insert, or Spatie-backed upload flow in the Haidang Travel CMS."

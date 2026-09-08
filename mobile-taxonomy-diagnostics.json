@@ -1,0 +1,766 @@
+{
+  "viewport": {
+    "innerWidth": 390,
+    "innerHeight": 844,
+    "clientWidth": 375,
+    "scrollWidth": 1616,
+    "bodyScrollWidth": 1616,
+    "canScrollX": true
+  },
+  "tabsCount": 11,
+  "visibleTabsCount": 11,
+  "tabs": [
+    {
+      "id": "tour-taxonomy-tab-55e93243-006c-47c7-90cd-2831b8f1c959-ee592340-5c43-49ec-8dad-8cc879e36da4",
+      "visible": true,
+      "rect": {
+        "x": 16,
+        "y": 4396,
+        "width": 155,
+        "height": 44,
+        "right": 171
+      },
+      "tablist": {
+        "className": "frontsite-mobile-tablist frontsite-tour-mobile-tablist mt-6",
+        "rect": {
+          "x": 0,
+          "width": 375,
+          "right": 375
+        },
+        "clientWidth": 375,
+        "scrollWidth": 811,
+        "overflowX": "auto"
+      }
+    },
+    {
+      "id": "tour-taxonomy-tab-55e93243-006c-47c7-90cd-2831b8f1c959-53ea8df6-83df-438b-8f34-0d3bcc65c3a2",
+      "visible": true,
+      "rect": {
+        "x": 183,
+        "y": 4396,
+        "width": 225,
+        "height": 44,
+        "right": 408
+      },
+      "tablist": {
+        "className": "frontsite-mobile-tablist frontsite-tour-mobile-tablist mt-6",
+        "rect": {
+          "x": 0,
+          "width": 375,
+          "right": 375
+        },
+        "clientWidth": 375,
+        "scrollWidth": 811,
+        "overflowX": "auto"
+      }
+    },
+    {
+      "id": "tour-taxonomy-tab-55e93243-006c-47c7-90cd-2831b8f1c959-709873b8-46a7-46aa-9be4-fb740be4f84c",
+      "visible": true,
+      "rect": {
+        "x": 420,
+        "y": 4396,
+        "width": 156,
+        "height": 44,
+        "right": 577
+      },
+      "tablist": {
+        "className": "frontsite-mobile-tablist frontsite-tour-mobile-tablist mt-6",
+        "rect": {
+          "x": 0,
+          "width": 375,
+          "right": 375
+        },
+        "clientWidth": 375,
+        "scrollWidth": 811,
+        "overflowX": "auto"
+      }
+    },
+    {
+      "id": "tour-taxonomy-tab-55e93243-006c-47c7-90cd-2831b8f1c959-5c6f763a-2bb5-4870-91cc-963ab4eb8e21",
+      "visible": true,
+      "rect": {
+        "x": 589,
+        "y": 4396,
+        "width": 206,
+        "height": 44,
+        "right": 795
+      },
+      "tablist": {
+        "className": "frontsite-mobile-tablist frontsite-tour-mobile-tablist mt-6",
+        "rect": {
+          "x": 0,
+          "width": 375,
+          "right": 375
+        },
+        "clientWidth": 375,
+        "scrollWidth": 811,
+        "overflowX": "auto"
+      }
+    },
+    {
+      "id": "region-taxonomy-tab-5cbc0583-13ad-4949-8927-abddf6d5a7d1-region-taxonomy-tab-3",
+      "visible": true,
+      "rect": {
+        "x": 16,
+        "y": 5690,
+        "width": 216,
+        "height": 42,
+        "right": 232
+      },
+      "tablist": {
+        "className": "frontsite-mobile-tablist frontsite-region-mobile-tablist",
+        "rect": {
+          "x": 0,
+          "width": 1616,
+          "right": 1616
+        },
+        "clientWidth": 1616,
+        "scrollWidth": 1616,
+        "overflowX": "auto"
+      }
+    },
+    {
+      "id": "region-taxonomy-tab-5cbc0583-13ad-4949-8927-abddf6d5a7d1-region-taxonomy-tab-7",
+      "visible": true,
+      "rect": {
+        "x": 244,
+        "y": 5690,
+        "width": 216,
+        "height": 42,
+        "right": 460
+      },
+      "tablist": {
+        "className": "frontsite-mobile-tablist frontsite-region-mobile-tablist",
+        "rect": {
+          "x": 0,
+          "width": 1616,
+          "right": 1616
+        },
+        "clientWidth": 1616,
+        "scrollWidth": 1616,
+        "overflowX": "auto"
+      }
+    },
+    {
+      "id": "region-taxonomy-tab-5cbc0583-13ad-4949-8927-abddf6d5a7d1-region-taxonomy-tab-9",
+      "visible": true,
+      "rect": {
+        "x": 472,
+        "y": 5690,
+        "width": 216,
+        "height": 42,
+        "right": 688
+      },
+      "tablist": {
+        "className": "frontsite-mobile-tablist frontsite-region-mobile-tablist",
+        "rect": {
+          "x": 0,
+          "width": 1616,
+          "right": 1616
+        },
+        "clientWidth": 1616,
+        "scrollWidth": 1616,
+        "overflowX": "auto"
+      }
+    },
+    {
+      "id": "region-taxonomy-tab-5cbc0583-13ad-4949-8927-abddf6d5a7d1-region-taxonomy-tab-2",
+      "visible": true,
+      "rect": {
+        "x": 700,
+        "y": 5690,
+        "width": 216,
+        "height": 42,
+        "right": 916
+      },
+      "tablist": {
+        "className": "frontsite-mobile-tablist frontsite-region-mobile-tablist",
+        "rect": {
+          "x": 0,
+          "width": 1616,
+          "right": 1616
+        },
+        "clientWidth": 1616,
+        "scrollWidth": 1616,
+        "overflowX": "auto"
+      }
+    },
+    {
+      "id": "region-taxonomy-tab-5cbc0583-13ad-4949-8927-abddf6d5a7d1-region-taxonomy-tab-6",
+      "visible": true,
+      "rect": {
+        "x": 928,
+        "y": 5690,
+        "width": 216,
+        "height": 42,
+        "right": 1144
+      },
+      "tablist": {
+        "className": "frontsite-mobile-tablist frontsite-region-mobile-tablist",
+        "rect": {
+          "x": 0,
+          "width": 1616,
+          "right": 1616
+        },
+        "clientWidth": 1616,
+        "scrollWidth": 1616,
+        "overflowX": "auto"
+      }
+    },
+    {
+      "id": "region-taxonomy-tab-5cbc0583-13ad-4949-8927-abddf6d5a7d1-region-taxonomy-tab-5",
+      "visible": true,
+      "rect": {
+        "x": 1156,
+        "y": 5690,
+        "width": 216,
+        "height": 42,
+        "right": 1372
+      },
+      "tablist": {
+        "className": "frontsite-mobile-tablist frontsite-region-mobile-tablist",
+        "rect": {
+          "x": 0,
+          "width": 1616,
+          "right": 1616
+        },
+        "clientWidth": 1616,
+        "scrollWidth": 1616,
+        "overflowX": "auto"
+      }
+    },
+    {
+      "id": "region-taxonomy-tab-5cbc0583-13ad-4949-8927-abddf6d5a7d1-region-taxonomy-tab-4",
+      "visible": true,
+      "rect": {
+        "x": 1384,
+        "y": 5690,
+        "width": 216,
+        "height": 42,
+        "right": 1600
+      },
+      "tablist": {
+        "className": "frontsite-mobile-tablist frontsite-region-mobile-tablist",
+        "rect": {
+          "x": 0,
+          "width": 1616,
+          "right": 1616
+        },
+        "clientWidth": 1616,
+        "scrollWidth": 1616,
+        "overflowX": "auto"
+      }
+    }
+  ],
+  "panels": [
+    {
+      "id": "tour-taxonomy-panel-55e93243-006c-47c7-90cd-2831b8f1c959-ee592340-5c43-49ec-8dad-8cc879e36da4",
+      "rect": {
+        "x": 16,
+        "width": 343,
+        "right": 359
+      },
+      "carouselActive": "true",
+      "carouselStyle": "--desktop-columns: 4; --mobile-card-width: calc(83.333% - 0.17rem);",
+      "carouselRect": {
+        "x": 16,
+        "width": 343,
+        "right": 359
+      },
+      "track": {
+        "rect": {
+          "x": 16,
+          "width": 343,
+          "right": 359
+        },
+        "clientWidth": 343,
+        "scrollWidth": 1180,
+        "overflowX": "auto"
+      },
+      "firstItem": {
+        "rect": {
+          "x": 16,
+          "width": 283,
+          "right": 299
+        },
+        "widthRatio": 0.825
+      }
+    },
+    {
+      "id": "region-taxonomy-panel-5cbc0583-13ad-4949-8927-abddf6d5a7d1-region-taxonomy-tab-3",
+      "rect": {
+        "x": 16,
+        "width": 1584,
+        "right": 1600
+      },
+      "carouselActive": "true",
+      "carouselStyle": "--desktop-columns: 3; --desktop-card-width: calc((100% - 2rem) / 3); --mobile-card-width: calc(83.333% - 0.17rem); --tablet-card-width: calc((100% - 1rem) / 2.18);",
+      "carouselRect": {
+        "x": 16,
+        "width": 1584,
+        "right": 1600
+      },
+      "track": {
+        "rect": {
+          "x": 16,
+          "width": 1584,
+          "right": 1600
+        },
+        "clientWidth": 1584,
+        "scrollWidth": 10650,
+        "overflowX": "auto"
+      },
+      "firstItem": {
+        "rect": {
+          "x": 16,
+          "width": 1317,
+          "right": 1333
+        },
+        "widthRatio": 0.832
+      }
+    }
+  ],
+  "offenders": [
+    {
+      "tag": "div",
+      "id": "",
+      "className": "service-card-carousel-item",
+      "rect": {
+        "x": -314,
+        "width": 149,
+        "right": -165
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "a",
+      "id": "",
+      "className": "frontsite-text-reveal group flex h-full flex-col items-stretch gap-2.5 rounded-[1.45rem] bg-[linear-gradient(180deg,_rgba(255,255,255,0.98),_rgba(255,246,238,0.95))] px-2.5 py-3 te",
+      "rect": {
+        "x": -314,
+        "width": 149,
+        "right": -165
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "div",
+      "id": "",
+      "className": "flex aspect-square w-full items-center justify-center overflow-hidden rounded-[1.45rem] bg-[linear-gradient(135deg,_rgba(255,106,0,0.16),_rgba(255,140,0,0.22))] shadow-[0_16px_30px",
+      "rect": {
+        "x": -298,
+        "width": 117,
+        "right": -181
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "img",
+      "id": "",
+      "className": "h-full w-full object-cover",
+      "rect": {
+        "x": -298,
+        "width": 117,
+        "right": -181
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "h3",
+      "id": "",
+      "className": "line-clamp-2 text-center font-heading text-[0.8rem] font-extrabold leading-[1.1rem] text-primary transition group-hover:text-primary-hover sm:text-[0.85rem] xl:text-[0.9rem]",
+      "rect": {
+        "x": -298,
+        "width": 117,
+        "right": -181
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "div",
+      "id": "",
+      "className": "service-card-carousel-item",
+      "rect": {
+        "x": -149,
+        "width": 149,
+        "right": 0
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "a",
+      "id": "",
+      "className": "frontsite-text-reveal group flex h-full flex-col items-stretch gap-2.5 rounded-[1.45rem] bg-[linear-gradient(180deg,_rgba(255,255,255,0.98),_rgba(255,246,238,0.95))] px-2.5 py-3 te",
+      "rect": {
+        "x": -149,
+        "width": 149,
+        "right": 0
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "div",
+      "id": "",
+      "className": "flex aspect-square w-full items-center justify-center overflow-hidden rounded-[1.45rem] bg-[linear-gradient(135deg,_rgba(255,106,0,0.16),_rgba(255,140,0,0.22))] shadow-[0_16px_30px",
+      "rect": {
+        "x": -133,
+        "width": 117,
+        "right": -16
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "img",
+      "id": "",
+      "className": "h-full w-full object-cover",
+      "rect": {
+        "x": -133,
+        "width": 117,
+        "right": -16
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "h3",
+      "id": "",
+      "className": "line-clamp-2 text-center font-heading text-[0.8rem] font-extrabold leading-[1.1rem] text-primary transition group-hover:text-primary-hover sm:text-[0.85rem] xl:text-[0.9rem]",
+      "rect": {
+        "x": -133,
+        "width": 117,
+        "right": -16
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "div",
+      "id": "",
+      "className": "service-card-carousel-item",
+      "rect": {
+        "x": 346,
+        "width": 149,
+        "right": 495
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "a",
+      "id": "",
+      "className": "frontsite-text-reveal group flex h-full flex-col items-stretch gap-2.5 rounded-[1.45rem] bg-[linear-gradient(180deg,_rgba(255,255,255,0.98),_rgba(255,246,238,0.95))] px-2.5 py-3 te",
+      "rect": {
+        "x": 346,
+        "width": 149,
+        "right": 495
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "div",
+      "id": "",
+      "className": "flex aspect-square w-full items-center justify-center overflow-hidden rounded-[1.45rem] bg-[linear-gradient(135deg,_rgba(255,106,0,0.16),_rgba(255,140,0,0.22))] shadow-[0_16px_30px",
+      "rect": {
+        "x": 362,
+        "width": 117,
+        "right": 479
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "img",
+      "id": "",
+      "className": "h-full w-full object-cover",
+      "rect": {
+        "x": 362,
+        "width": 117,
+        "right": 479
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "h3",
+      "id": "",
+      "className": "line-clamp-2 text-center font-heading text-[0.8rem] font-extrabold leading-[1.1rem] text-primary transition group-hover:text-primary-hover sm:text-[0.85rem] xl:text-[0.9rem]",
+      "rect": {
+        "x": 362,
+        "width": 117,
+        "right": 479
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "div",
+      "id": "",
+      "className": "service-card-carousel-item",
+      "rect": {
+        "x": 511,
+        "width": 149,
+        "right": 660
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "a",
+      "id": "",
+      "className": "frontsite-text-reveal group flex h-full flex-col items-stretch gap-2.5 rounded-[1.45rem] bg-[linear-gradient(180deg,_rgba(255,255,255,0.98),_rgba(255,246,238,0.95))] px-2.5 py-3 te",
+      "rect": {
+        "x": 511,
+        "width": 149,
+        "right": 660
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "div",
+      "id": "",
+      "className": "flex aspect-square w-full items-center justify-center overflow-hidden rounded-[1.45rem] bg-[linear-gradient(135deg,_rgba(255,106,0,0.16),_rgba(255,140,0,0.22))] shadow-[0_16px_30px",
+      "rect": {
+        "x": 527,
+        "width": 117,
+        "right": 644
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "img",
+      "id": "",
+      "className": "h-full w-full object-cover",
+      "rect": {
+        "x": 527,
+        "width": 117,
+        "right": 644
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "h3",
+      "id": "",
+      "className": "line-clamp-2 text-center font-heading text-[0.8rem] font-extrabold leading-[1.1rem] text-primary transition group-hover:text-primary-hover sm:text-[0.85rem] xl:text-[0.9rem]",
+      "rect": {
+        "x": 527,
+        "width": 117,
+        "right": 644
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "button",
+      "id": "tour-taxonomy-tab-55e93243-006c-47c7-90cd-2831b8f1c959-53ea8df6-83df-438b-8f34-0d3bcc65c3a2",
+      "className": "frontsite-text-reveal inline-flex min-h-11 items-center justify-center rounded-full border px-5 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-",
+      "rect": {
+        "x": 183,
+        "width": 225,
+        "right": 408
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "span",
+      "id": "",
+      "className": "ml-2 rounded-full bg-black/8 px-2.5 py-1 text-[11px] font-semibold text-slate-500",
+      "rect": {
+        "x": 376,
+        "width": 23,
+        "right": 399
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "button",
+      "id": "tour-taxonomy-tab-55e93243-006c-47c7-90cd-2831b8f1c959-709873b8-46a7-46aa-9be4-fb740be4f84c",
+      "className": "frontsite-text-reveal inline-flex min-h-11 items-center justify-center rounded-full border px-5 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-",
+      "rect": {
+        "x": 420,
+        "width": 156,
+        "right": 577
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "span",
+      "id": "",
+      "className": "ml-2 rounded-full bg-black/8 px-2.5 py-1 text-[11px] font-semibold text-slate-500",
+      "rect": {
+        "x": 545,
+        "width": 23,
+        "right": 568
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "button",
+      "id": "tour-taxonomy-tab-55e93243-006c-47c7-90cd-2831b8f1c959-5c6f763a-2bb5-4870-91cc-963ab4eb8e21",
+      "className": "frontsite-text-reveal inline-flex min-h-11 items-center justify-center rounded-full border px-5 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-",
+      "rect": {
+        "x": 589,
+        "width": 206,
+        "right": 795
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "span",
+      "id": "",
+      "className": "ml-2 rounded-full bg-black/8 px-2.5 py-1 text-[11px] font-semibold text-slate-500",
+      "rect": {
+        "x": 763,
+        "width": 23,
+        "right": 786
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "div",
+      "id": "",
+      "className": "service-card-carousel-item",
+      "rect": {
+        "x": 315,
+        "width": 283,
+        "right": 598
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "article",
+      "id": "",
+      "className": "theme-panel frontsite-spotlight-card group frontsite-text-reveal overflow-hidden",
+      "rect": {
+        "x": 315,
+        "width": 283,
+        "right": 598
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "a",
+      "id": "",
+      "className": "frontsite-media-panel relative block aspect-[16/9] min-h-[12.75rem] overflow-hidden bg-[linear-gradient(145deg,#08284f_0%,#004A99_52%,#FF8C00_100%)] focus-visible:outline-none focu",
+      "rect": {
+        "x": 316,
+        "width": 363,
+        "right": 679
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "img",
+      "id": "",
+      "className": "frontsite-media-asset h-full w-full object-cover",
+      "rect": {
+        "x": 316,
+        "width": 363,
+        "right": 679
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "div",
+      "id": "",
+      "className": "frontsite-media-content absolute inset-x-3 top-3 flex items-start justify-between gap-2",
+      "rect": {
+        "x": 328,
+        "width": 363,
+        "right": 691
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "span",
+      "id": "",
+      "className": "inline-flex items-center gap-1.5 rounded-full border border-white/16 bg-white/14 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white shadow-[0_16px_38px_-28px_rgba(15,23,42",
+      "rect": {
+        "x": 328,
+        "width": 140,
+        "right": 468
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "span",
+      "id": "",
+      "className": "inline-flex items-center gap-1.5 rounded-full border border-white/16 bg-slate-950/24 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white shadow-[0_16px_38px_-28px_rgba(15,2",
+      "rect": {
+        "x": 582,
+        "width": 109,
+        "right": 691
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "i",
+      "id": "",
+      "className": "fa-regular fa-calendar-days text-orange-200",
+      "rect": {
+        "x": 599,
+        "width": 11,
+        "right": 610
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "div",
+      "id": "",
+      "className": "frontsite-media-content absolute inset-x-3 bottom-3 flex items-end justify-between gap-2 text-white",
+      "rect": {
+        "x": 328,
+        "width": 363,
+        "right": 691
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "div",
+      "id": "",
+      "className": "min-w-0 space-y-1",
+      "rect": {
+        "x": 328,
+        "width": 96,
+        "right": 424
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "p",
+      "id": "",
+      "className": "inline-flex max-w-full items-center gap-1.5 rounded-full border border-white/12 bg-white/10 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white/88 backdrop-blur-sm",
+      "rect": {
+        "x": 328,
+        "width": 96,
+        "right": 424
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "span",
+      "id": "",
+      "className": "truncate",
+      "rect": {
+        "x": 362,
+        "width": 45,
+        "right": 407
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "p",
+      "id": "",
+      "className": "line-clamp-1 text-[12px] font-semibold leading-4",
+      "rect": {
+        "x": 328,
+        "width": 96,
+        "right": 424
+      },
+      "inAllowedScroller": true
+    },
+    {
+      "tag": "span",
+      "id": "",
+      "className": "inline-flex items-center gap-1.5 rounded-full border border-white/16 bg-slate-950/24 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white shadow-[0_16px_38px_-28px_rgba(15,2",
+      "rect": {
+        "x": 576,
+        "width": 115,
+        "right": 691
+      },
+      "inAllowedScroller": true
+    }
+  ]
+}

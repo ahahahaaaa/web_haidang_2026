@@ -1,0 +1,209 @@
+- generic [active] [ref=e1]:
+  - link "Bỏ qua điều hướng & tới nội dung chính" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8000
+        - img "Du Lịch Hải Đăng Travel" [ref=e7]
+      - group [ref=e8]:
+        - generic "Mở menu" [ref=e9]:
+          - generic [ref=e11]: Mở menu
+  - main [ref=e12]:
+    - generic [ref=e16]:
+      - navigation "Breadcrumb" [ref=e17]:
+        - list [ref=e18]:
+          - listitem [ref=e19]:
+            - link "Trang chủ" [ref=e20] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000
+          - listitem [ref=e21]:
+            - link "Blog" [ref=e23] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/blog
+          - listitem [ref=e24]:
+            - link "Cẩm nang du lịch" [ref=e26] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/blog?category=cam-nang-du-lich
+          - listitem [ref=e27]:
+            - generic [ref=e29]: Sim 4G & E-sim Trung Quốc
+      - generic [ref=e30]:
+        - link "Cẩm nang du lịch" [ref=e31] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/blog?category=cam-nang-du-lich
+        - generic [ref=e32]: 20/01/2026
+        - generic [ref=e33]: Quốc Văn
+      - heading "Sim 4G & E-sim Trung Quốc" [level=1] [ref=e34]
+      - paragraph [ref=e35]: Bài viết xoay quanh việc chọn đúng SIM hoặc eSIM Trung Quốc để giữ kết nối ổn định.
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - heading "Mục lục bài viết" [level=2] [ref=e41]
+            - paragraph [ref=e42]: Theo dõi nhanh các ý chính theo một trục đọc liền mạch.
+          - link "Đi thẳng vào nội dung" [ref=e43] [cursor=pointer]:
+            - /url: "#blog-detail-content"
+            - text: Đi thẳng vào nội dung
+        - navigation "Mục lục bài viết" [ref=e45]:
+          - list [ref=e46]:
+            - listitem [ref=e47]:
+              - link "01 Vì sao SIM du lịch quan trọng?" [ref=e48] [cursor=pointer]:
+                - /url: "#vi-sao-sim-du-lich-quan-trong"
+                - generic [ref=e49]: "01"
+                - generic [ref=e50]: Vì sao SIM du lịch quan trọng?
+      - article [ref=e51]:
+        - generic [ref=e52]:
+          - heading "Vì sao SIM du lịch quan trọng?" [level=2] [ref=e53]
+          - paragraph [ref=e54]: Kết nối ổn định quyết định chất lượng trải nghiệm online trong chuyến đi.
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - heading "Chia sẻ bài viết" [level=2] [ref=e58]
+            - paragraph [ref=e59]: Gửi bài viết này cho bạn bè, nhóm du lịch hoặc lưu lại liên kết để đọc sau.
+          - generic "Chia sẻ bài viết" [ref=e60]:
+            - button "Chia sẻ" [ref=e61]:
+              - generic [ref=e63]: Chia sẻ
+            - link "Chia sẻ qua Zalo" [ref=e64] [cursor=pointer]:
+              - /url: https://zalo.me/share?u=https%3A%2F%2Fhaidangtravel.com%2Ftin-tuc%2Fsim-4g-e-sim-trung-quoc
+              - generic [ref=e65]: Z
+              - generic [ref=e66]: Zalo
+            - link "Chia sẻ lên Facebook" [ref=e67] [cursor=pointer]:
+              - /url: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhaidangtravel.com%2Ftin-tuc%2Fsim-4g-e-sim-trung-quoc
+              - generic [ref=e69]: Facebook
+            - link "Chia sẻ qua Messenger" [ref=e70] [cursor=pointer]:
+              - /url: https://www.messenger.com/share?link=https%3A%2F%2Fhaidangtravel.com%2Ftin-tuc%2Fsim-4g-e-sim-trung-quoc
+              - generic [ref=e72]: Messenger
+            - link "Chia sẻ qua Telegram" [ref=e73] [cursor=pointer]:
+              - /url: https://t.me/share/url?url=https%3A%2F%2Fhaidangtravel.com%2Ftin-tuc%2Fsim-4g-e-sim-trung-quoc&text=Sim+4G+%26+E-sim+Trung+Qu%E1%BB%91c
+              - generic [ref=e75]: Telegram
+            - button "Sao chép link" [ref=e76]:
+              - generic [ref=e78]: Sao chép link
+        - paragraph [ref=e79]
+      - generic [ref=e80]:
+        - heading "Thông tin bài viết" [level=2] [ref=e81]
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - paragraph [ref=e84]: Tác giả
+            - paragraph [ref=e85]: Quốc Văn
+          - generic [ref=e86]:
+            - paragraph [ref=e87]: Danh mục
+            - link "Cẩm nang du lịch" [ref=e89] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/blog?category=cam-nang-du-lich
+            - paragraph [ref=e90]: Cẩm nang du lịch
+          - generic [ref=e91]:
+            - paragraph [ref=e92]: Ngày xuất bản
+            - paragraph [ref=e93]: 20/01/2026
+          - generic [ref=e94]:
+            - paragraph [ref=e95]: Liên kết nhanh
+            - generic [ref=e96]:
+              - link "Dịch vụ" [ref=e97] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/dich-vu
+                - text: Dịch vụ
+              - link "Tour nước ngoài" [ref=e99] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/tour-nuoc-ngoai
+    - generic [ref=e101]:
+      - heading "Bài viết liên quan" [level=2] [ref=e103]
+      - article [ref=e105]:
+        - link "Kinh nghiệm du lịch Phú Quốc tự túc 2026 cho người đi lần đầu Mùa đẹp" [ref=e106] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/blog/kinh-nghiem-du-lich-phu-quoc-tu-tuc-2026-lich-trinh-an-choi-tu-a-z
+          - img "Kinh nghiệm du lịch Phú Quốc tự túc 2026 cho người đi lần đầu" [ref=e107]
+          - generic [ref=e109]: Mùa đẹp
+        - generic [ref=e111]:
+          - generic [ref=e112]: Q
+          - generic [ref=e114]:
+            - generic [ref=e115]: 28/04/2026
+            - generic [ref=e116]: "|"
+            - generic [ref=e117]: quantri
+            - generic [ref=e118]: "|"
+            - generic [ref=e119]: Cẩm nang du lịch / Kinh nghiệm du lịch
+        - generic [ref=e120]:
+          - 'heading "Kinh nghiệm du lịch Phú Quốc tự túc 2026: Lịch trình ăn chơi từ A-Z" [level=3] [ref=e121]':
+            - 'link "Kinh nghiệm du lịch Phú Quốc tự túc 2026: Lịch trình ăn chơi từ A-Z" [ref=e122] [cursor=pointer]':
+              - /url: http://127.0.0.1:8000/blog/kinh-nghiem-du-lich-phu-quoc-tu-tuc-2026-lich-trinh-an-choi-tu-a-z
+          - paragraph [ref=e123]: Giúp bạn chọn thời điểm đi phù hợp để không lệch mùa trải nghiệm và ngân sách. Phú Quốc không chỉ là "Đảo Ngọc" với biển xanh cát trắng, mà còn là thiên đường của những trải nghiệm nghỉ...
+          - link "Xem thêm" [ref=e125] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/blog/kinh-nghiem-du-lich-phu-quoc-tu-tuc-2026-lich-trinh-an-choi-tu-a-z
+            - text: Xem thêm
+    - generic [ref=e130]:
+      - generic [ref=e131]:
+        - heading "Tư vấn nhanh" [level=2] [ref=e132]
+        - paragraph [ref=e133]: Cần tư vấn theo chủ đề visa, điểm đến hoặc nội dung đang đọc để chốt hành trình nhanh hơn?
+      - generic [ref=e134]:
+        - generic [ref=e135]:
+          - heading "Hotline" [level=3] [ref=e136]
+          - link "0911222288" [ref=e137] [cursor=pointer]:
+            - /url: tel:0911222288
+          - paragraph [ref=e138]: Hỗ trợ tư vấn nhanh theo ngày đi, số lượng khách và nhu cầu hành trình.
+        - generic [ref=e139]:
+          - heading "Email" [level=3] [ref=e140]
+          - link "info@haidangtravel.com" [ref=e141] [cursor=pointer]:
+            - /url: mailto:info@haidangtravel.com
+          - paragraph [ref=e142]: Phù hợp khi bạn cần gửi yêu cầu chi tiết hoặc để lại thêm thông tin cho đội ngũ xử lý.
+      - generic [ref=e143]:
+        - generic [ref=e144]:
+          - generic [ref=e145]:
+            - text: Họ tên
+            - textbox "Họ tên" [ref=e146]:
+              - /placeholder: Nhập họ tên
+          - generic [ref=e147]:
+            - text: Số điện thoại
+            - textbox "Số điện thoại" [ref=e148]:
+              - /placeholder: Nhập số điện thoại
+        - generic [ref=e149]:
+          - text: Nội dung
+          - textbox "Nội dung" [ref=e150]:
+            - /placeholder: Mô tả ngắn nhu cầu tour, ngày đi hoặc số lượng khách
+        - generic [ref=e151]:
+          - button "Gửi yêu cầu" [ref=e152]: Gửi yêu cầu
+          - link "Xem tour" [ref=e154] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/tour-trong-nuoc
+  - contentinfo [ref=e155]:
+    - generic [ref=e156]:
+      - generic [ref=e157]:
+        - generic [ref=e158]: Du Lịch Hải Đăng Travel
+        - paragraph [ref=e159]: Haidang Travel chuyên tổ chức du lịch, teambuilding, event trong và ngoài nước.
+        - generic [ref=e160]:
+          - paragraph [ref=e161]: Tòa nhà Building Haidang 367 Tân Sơn, Phường Tân Sơn, thành phố Hồ Chí Minh
+          - paragraph [ref=e162]: 1900.2011 · 0911222288
+          - paragraph [ref=e163]: info@haidangtravel.com
+      - generic [ref=e165]:
+        - heading "Đi nhanh" [level=2] [ref=e166]
+        - list [ref=e167]:
+          - listitem [ref=e168]:
+            - link "Tour trong nước" [ref=e169] [cursor=pointer]:
+              - /url: /tour-trong-nuoc
+          - listitem [ref=e170]:
+            - link "Tour nước ngoài" [ref=e171] [cursor=pointer]:
+              - /url: /tour-nuoc-ngoai
+          - listitem [ref=e172]:
+            - link "Tour đoàn" [ref=e173] [cursor=pointer]:
+              - /url: /tour-doan
+          - listitem [ref=e174]:
+            - link "Dịch vụ" [ref=e175] [cursor=pointer]:
+              - /url: /dich-vu
+          - listitem [ref=e176]:
+            - link "Blog" [ref=e177] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=e178]:
+            - link "Liên hệ" [ref=e179] [cursor=pointer]:
+              - /url: /lien-he
+      - generic [ref=e180]:
+        - heading "Kênh hỗ trợ" [level=2] [ref=e181]
+        - generic [ref=e182]:
+          - paragraph [ref=e183]: "Đặt tour: 1900.2011"
+          - paragraph [ref=e184]: "Tư vấn: 0911222288"
+          - paragraph [ref=e185]: "Email: info@haidangtravel.com"
+        - generic [ref=e186]:
+          - link "Zalo" [ref=e187] [cursor=pointer]:
+            - /url: https://zalo.me/0911222288
+            - generic [ref=e188]: Zalo
+          - link "Facebook" [ref=e189] [cursor=pointer]:
+            - /url: https://www.facebook.com/haidangtravel
+            - generic [ref=e191]: Facebook
+          - link "YouTube" [ref=e192] [cursor=pointer]:
+            - /url: https://www.youtube.com/@haidangtraveltanson
+            - generic [ref=e194]: YouTube
+        - generic [ref=e195]:
+          - link "Đã thông báo Bộ Công Thương":
+            - /url: http://online.gov.vn/Home/WebDetails/15656
+            - img "Đã thông báo Bộ Công Thương"
+          - link "DMCA.com Protection Status" [ref=e196] [cursor=pointer]:
+            - /url: https://www.dmca.com/Protection/Status.aspx?ID=0b22a7b7-ed93-4820-acbf-7bd6d1caaf34
+            - img "DMCA.com Protection Status" [ref=e197]
+    - generic [ref=e198]: © Haidang Travel

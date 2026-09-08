@@ -1,0 +1,4 @@
+interface:
+  display_name: "Construction Cost Estimator"
+  short_description: "Build and operate Construction Cost Estimator landingpage workflows"
+  default_prompt: "Use $cost-estimator to plan or implement a construction-company website task."

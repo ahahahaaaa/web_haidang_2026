@@ -1,0 +1,57 @@
+# .understandignore - patterns for files/dirs to exclude from analysis
+# Syntax: same as .gitignore (globs, # comments, ! negation, trailing / for dirs)
+# Lines below are suggestions. Uncomment project-specific patterns only if you
+# want to exclude them from the knowledge graph.
+#
+# Built-in defaults are always excluded unless negated:
+#   node_modules/, .git/, dist/, build/, obj/, *.lock, *.min.js, etc.
+
+# --- From .gitignore (uncomment to exclude) ---
+
+/public/storage
+/storage/
+.env
+.env.*
+.phpactor.json
+.phpunit.result.cache
+# Homestead.json
+# Homestead.yaml
+npm-debug.log
+yarn-error.log
+/auth.json
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+
+# --- Detected directories (uncomment to exclude) ---
+
+# docs/
+# examples/
+# scripts/
+# tests/
+
+# --- Local workspace/tooling noise ---
+
+/.agents/
+/.chrome-headless/
+/.claude/
+/.codex/
+/.codex-browser-profile/
+/.playwright-mcp/
+/.tmp/
+/.understand-anything/
+/caveman/
+/haidangtravel/
+/PsySH/
+/references/
+/skills/
+*.sqlite
+*.sqlite3
+
+# --- Test file patterns (uncomment to exclude) ---
+
+# *.test.*
+# *.spec.*
+# *.snap
