@@ -49,6 +49,10 @@ class PageSnapshotTest extends TestCase
         $this->assertStringNotContainsString('PRIVATE_CUSTOMER_NAME', json_encode($snapshot));
         $this->assertStringNotContainsString('name="_token"', $snapshot['html']);
         $this->assertStringContainsString('Service', json_encode($snapshot['structured_data']));
+        $this->assertSame('page', data_get($snapshot, 'fact_sources.0.id'));
+        $this->assertSame('current_page_snapshot', data_get($snapshot, 'fact_sources.0.kind'));
+        $this->assertSame($snapshot['rendered_hash'], data_get($snapshot, 'fact_sources.0.rendered_hash'));
+        $this->assertStringContainsString('baseline chính xác', data_get($snapshot, 'fact_sources.0.usage'));
         $this->assertSame($originalRequest, request());
         $this->assertSame($user->id, auth()->id());
         $this->assertSame('PRIVATE_CUSTOMER_NAME', session()->get('_old_input.customer_name'));

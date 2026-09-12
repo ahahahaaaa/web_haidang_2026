@@ -1,4 +1,6 @@
-# Hợp đồng dữ liệu và tích hợp SEO Keyword MCP
+# Hợp đồng dữ liệu và tích hợp SEO Keyword MCP (đã thay thế)
+
+> **Trạng thái 08/09/2026:** contract Google Sheet v1 trong tài liệu này đã retired và không còn là runtime. Contract thực thi hiện hành nằm trong [SEO AI Direct MCP Optimizer v2](SEO_DIRECT_MCP_OPTIMIZER_PLAN.md) và skill `haidang-travel-seo-post-optimizer`. Giữ tài liệu bên dưới chỉ để tham chiếu quyết định cũ; không cấu hình Apps Script hoặc tool Sheet theo nội dung này.
 
 Phiên bản 1.0 — 06/09/2026 — **thiết kế đề xuất, chưa phải API đang chạy**.
 

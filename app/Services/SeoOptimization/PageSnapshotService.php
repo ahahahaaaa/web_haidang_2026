@@ -5,6 +5,7 @@ namespace App\Services\SeoOptimization;
 use App\Http\Controllers\FrontsiteController;
 use App\Models\SeoOptimizationPage;
 use App\Services\Cms\SiteSettingsManager;
+use App\Services\SeoOptimization\Exceptions\StaleSourceException;
 use App\Support\FrontsiteUrls;
 use App\Support\RichText;
 use DOMDocument;
@@ -43,7 +44,7 @@ class PageSnapshotService
         $parsed = $this->parse($rendered['html'], $this->registry->url($page));
 
         if (! hash_equals($version, $this->registry->currentVersion($page))) {
-            throw new \DomainException('Nội dung hoặc dữ liệu phụ thuộc đã thay đổi trong khi chụp trang; vui lòng chạy lại.');
+            throw new StaleSourceException('Nội dung hoặc dữ liệu phụ thuộc đã thay đổi trong khi chụp trang; vui lòng chạy lại.');
         }
 
         return [
@@ -58,8 +59,19 @@ class PageSnapshotService
             'redirect_location' => $rendered['location'],
             'updated_at' => $this->registry->source($page)?->updated_at?->toAtomString(),
             'captured_at' => now()->toAtomString(),
+            'content_contract_version' => ContentWriteContractService::VERSION,
             'source_fields' => $this->registry->sourceFields($page),
             'writable_fields' => $this->registry->writableFields($page),
+            'field_contracts' => $this->registry->fieldContracts($page),
+            'content_units' => $this->registry->contentUnits($page),
+            'fact_sources' => [[
+                'id' => 'page',
+                'label' => 'Nội dung public hiện tại của trang',
+                'kind' => 'current_page_snapshot',
+                'url' => $this->registry->url($page),
+                'rendered_hash' => $parsed['rendered_hash'],
+                'usage' => 'Facts trong snapshot là baseline chính xác để giữ hoặc diễn đạt rõ hơn; không dùng để thêm hoặc đổi số liệu, chính sách hay tuyên bố khi chưa có nguồn mới.',
+            ]],
             'render_mode' => 'anonymous_local_blade',
             ...$parsed,
         ];

@@ -789,7 +789,7 @@ class LandingPagesManager extends Component
                 ...$this->geoConfigPayload($validated['form']['geo_config'] ?? []),
                 'faq_items' => $legacyFaqItems,
                 'blocks' => $blocks,
-                'visual_config' => $this->legacyVisualConfig($blocks),
+                'visual_config' => LandingPageBlocks::legacyVisualConfig($blocks),
                 'home_config' => $this->normalizedHomeConfig($page?->home_config, $validated['form']['home_config'] ?? [], $blocks),
                 'service_detail_config' => $page?->service_detail_config,
                 'estimate_config' => $page?->estimate_config,
@@ -1424,53 +1424,6 @@ class LandingPagesManager extends Component
         return $this->currentRouteName === 'admin.landing-pages'
             ? 'livewire.admin.cms.landing-pages.index'
             : 'livewire.admin.cms.landing-pages-manager';
-    }
-
-    protected function legacyVisualConfig(array $blocks): array
-    {
-        $config = LandingPageVisuals::defaultConfig();
-        $enabledBlocks = collect($blocks)->filter(fn ($block) => is_array($block) && (bool) ($block['is_enabled'] ?? true));
-        $hero = $enabledBlocks->first(fn (array $block) => in_array($block['type'] ?? null, [
-            LandingPageBlocks::TYPE_HERO_SLIDER,
-            LandingPageBlocks::TYPE_HERO_MEDIA,
-        ], true));
-        $gallery = $enabledBlocks->first(fn (array $block) => in_array($block['type'] ?? null, [
-            LandingPageBlocks::TYPE_GALLERY_SLIDER,
-            LandingPageBlocks::TYPE_GALLERY_MEDIA,
-        ], true));
-
-        if (is_array($hero)) {
-            $config['hero']['enabled'] = true;
-            $config['hero']['source'] = ($hero['type'] ?? null) === LandingPageBlocks::TYPE_HERO_SLIDER
-                ? LandingPageVisuals::SOURCE_SLIDER
-                : LandingPageVisuals::SOURCE_MEDIA;
-            $config['hero']['slider_id'] = $hero['slider_id'] ?? null;
-            $config['hero']['media_alt'] = (string) ($hero['media_alt'] ?? '');
-        }
-
-        if (is_array($gallery)) {
-            $config['gallery']['enabled'] = true;
-            $config['gallery']['source'] = ($gallery['type'] ?? null) === LandingPageBlocks::TYPE_GALLERY_SLIDER
-                ? LandingPageVisuals::SOURCE_SLIDER
-                : LandingPageVisuals::SOURCE_MEDIA;
-            $config['gallery']['slider_id'] = $gallery['slider_id'] ?? null;
-            $config['gallery']['eyebrow'] = (string) ($gallery['eyebrow'] ?? '');
-            $config['gallery']['title'] = (string) ($gallery['title'] ?? '');
-            $config['gallery']['description'] = (string) ($gallery['description'] ?? '');
-            $config['gallery']['items'] = collect($gallery['items'] ?? [])
-                ->map(fn (array $item) => [
-                    'uuid' => (string) ($item['uuid'] ?? Str::uuid()),
-                    'title' => (string) ($item['title'] ?? ''),
-                    'subtitle' => (string) ($item['subtitle'] ?? ''),
-                    'description' => (string) ($item['description'] ?? ''),
-                    'url' => (string) ($item['url'] ?? ''),
-                    'image_alt' => (string) ($item['image_alt'] ?? ''),
-                ])
-                ->values()
-                ->all();
-        }
-
-        return $config;
     }
 
     protected function purgeSelectionsForMissingBlocks(array $oldBlocks, array $newBlocks): void

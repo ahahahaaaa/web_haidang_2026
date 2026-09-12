@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "seo_haidang": {
+      "type": "http",
+      "url": "https://haidangtravel.dtaa-tech.com/mcp/seo-optimization",
+      "bearer_token_env_var": "SEO_HAIDANG_MCP_TOKEN"
+    }
+  }
+}

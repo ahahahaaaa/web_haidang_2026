@@ -10,6 +10,12 @@
                 {{ session('status') }}
             </div>
         @endif
+
+        @if (session('warning'))
+            <div role="alert" class="rounded-2xl bg-amber-50 px-4 py-3 text-sm font-medium text-amber-800 dark:bg-amber-500/10 dark:text-amber-200">
+                {{ session('warning') }}
+            </div>
+        @endif
     </div>
 
     <div class="grid gap-6 xl:grid-cols-[0.82fr_1.18fr]">

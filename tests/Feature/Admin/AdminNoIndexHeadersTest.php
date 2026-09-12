@@ -24,7 +24,7 @@ class AdminNoIndexHeadersTest extends TestCase
             ->assertSee('<meta name="robots" content="noindex, nofollow, noarchive" />', false);
 
         $this->actingAs($user)
-            ->get(route('admin.seo.pages.index'))
+            ->get(route('admin.seo-optimization.index'))
             ->assertOk()
             ->assertHeader('X-Robots-Tag', 'noindex, nofollow, noarchive')
             ->assertSee('<meta name="robots" content="noindex, nofollow, noarchive" />', false);

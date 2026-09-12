@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Cms;
 
 use App\Services\Admin\MediaLibraryBrowser;
+use App\Services\Admin\MediaLibraryDeletionService;
 use App\Services\Admin\MediaLibraryFileAuditService;
 use App\Services\Admin\MediaLibraryUploader;
 use Illuminate\Http\UploadedFile;
@@ -42,10 +43,16 @@ class MediaManager extends Component
 
     public mixed $uploadImage = null;
 
-    public function deleteMedia(int $id): void
+    public function deleteMedia(int $id, MediaLibraryDeletionService $deletionService): void
     {
         $media = Media::query()->findOrFail($id);
-        $media->delete();
+
+        if (! $deletionService->delete($media)) {
+            session()->flash('warning', 'Không thể xóa ảnh vì ảnh đang được dữ liệu khác tham chiếu, bao gồm hồ sơ SEO Optimize. Ảnh được giữ lại để bảo toàn dữ liệu liên quan.');
+
+            return;
+        }
+
         $this->clearMissingMediaAudit();
 
         if ($this->selectedMediaId === $id) {
@@ -80,11 +87,13 @@ class MediaManager extends Component
             return;
         }
 
-        $deletedCount = $auditService->deleteMissingOriginalImages(
+        $deletionResult = $auditService->deleteMissingOriginalImages(
             search: data_get($this->missingMediaAudit, 'filters.search', $this->search),
             collection: data_get($this->missingMediaAudit, 'filters.collection', $this->collectionFilter),
             modelType: data_get($this->missingMediaAudit, 'filters.model_type', $this->modelFilter),
         );
+        $deletedCount = $deletionResult['deleted_count'];
+        $protectedCount = $deletionResult['protected_count'];
 
         if ($this->selectedMediaId !== null && ! Media::query()->whereKey($this->selectedMediaId)->exists()) {
             $this->resetSelection();
@@ -93,12 +102,15 @@ class MediaManager extends Component
         $this->clearMissingMediaAudit();
         $this->resetPage();
 
-        session()->flash(
-            'status',
-            $deletedCount > 0
-                ? "Đã xóa {$deletedCount} record media bị mất file gốc."
-                : 'Không còn record media nào bị mất file gốc để xóa.'
-        );
+        if ($deletedCount > 0) {
+            session()->flash('status', "Đã xóa {$deletedCount} record media bị mất file gốc.");
+        } elseif ($protectedCount === 0) {
+            session()->flash('status', 'Không còn record media nào bị mất file gốc để xóa.');
+        }
+
+        if ($protectedCount > 0) {
+            session()->flash('warning', "Đã giữ lại {$protectedCount} record media vì vẫn đang được dữ liệu khác tham chiếu.");
+        }
     }
 
     public function render(MediaLibraryBrowser $browser)

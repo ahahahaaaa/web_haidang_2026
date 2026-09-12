@@ -11,6 +11,7 @@ class MediaLibraryFileAuditService
 {
     public function __construct(
         protected MediaLibraryBrowser $browser,
+        protected MediaLibraryDeletionService $deletionService,
     ) {}
 
     /**
@@ -78,24 +79,34 @@ class MediaLibraryFileAuditService
         ];
     }
 
+    /**
+     * @return array{deleted_count: int, protected_count: int}
+     */
     public function deleteMissingOriginalImages(
         ?string $search = null,
         ?string $collection = null,
         ?string $modelType = null,
-    ): int {
+    ): array {
         $query = $this->imageQuery($search, $collection, $modelType);
         $deletedCount = 0;
+        $protectedCount = 0;
 
         foreach ((clone $query)->reorder('id')->lazyById(100) as $media) {
             if (! $media instanceof Media || $this->originalFileExists($media)) {
                 continue;
             }
 
-            $media->delete();
-            $deletedCount++;
+            if ($this->deletionService->delete($media)) {
+                $deletedCount++;
+            } else {
+                $protectedCount++;
+            }
         }
 
-        return $deletedCount;
+        return [
+            'deleted_count' => $deletedCount,
+            'protected_count' => $protectedCount,
+        ];
     }
 
     protected function imageQuery(?string $search = null, ?string $collection = null, ?string $modelType = null): Builder

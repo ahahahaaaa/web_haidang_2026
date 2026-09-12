@@ -6,6 +6,7 @@ use App\Models\SeoOptimizationPage;
 use App\Support\FrontsiteUrls;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Src\Domains\Cms\Models\BlogPost;
@@ -20,6 +21,17 @@ use Src\Domains\Cms\Models\TourCategory;
 class PageRegistryService
 {
     public const PAGE_TYPES = ['home', 'about', 'contact', 'tour_scope', 'tour', 'tour_category', 'destination', 'country', 'region', 'service_index', 'service_category', 'service', 'blog_index', 'blog_category', 'blog_post', 'landing'];
+
+    public const PATCH_FIELDS = [
+        'title', 'name', 'slug', 'excerpt', 'content', 'description', 'meta_title', 'meta_description',
+        'cover_alt', 'faq_items', 'body', 'hero_title', 'hero_excerpt', 'intro_title', 'intro_excerpt',
+        ContentWriteContractService::BLOCK_CHANGES,
+    ];
+
+    public const STRING_PATCH_FIELDS = [
+        'title', 'name', 'slug', 'excerpt', 'content', 'description', 'meta_title', 'meta_description',
+        'cover_alt', 'body', 'hero_title', 'hero_excerpt', 'intro_title', 'intro_excerpt',
+    ];
 
     private const OWNERS = [
         'landing_page' => LandingPage::class,
@@ -43,42 +55,61 @@ class PageRegistryService
         'group_tours' => ['tour_scope', 'tours.group', 'Tour đoàn'],
     ];
 
-    private const SOURCE_FIELDS = ['title', 'name', 'slug', 'excerpt', 'content', 'body', 'hero_title', 'hero_excerpt', 'intro_title', 'intro_excerpt', 'meta_title', 'meta_description', 'og_title', 'og_description', 'canonical_url', 'robots_directive', 'cover_alt', 'faq_items', 'geo_config', 'editor_mode'];
+    private bool $cacheDependencyFingerprints = false;
+
+    private array $dependencyFingerprintMaps = [];
+
+    private array $dependencyTableColumns = [];
+
+    public function __construct(private ContentWriteContractService $contracts) {}
 
     public function sync(): array
     {
-        $dependencies = $this->dependencies();
+        $this->cacheDependencyFingerprints = true;
+        $this->dependencyFingerprintMaps = [];
+        $this->dependencyTableColumns = [];
         $counts = ['total' => 0, 'created' => 0, 'updated' => 0, 'excluded' => 0, 'by_type' => []];
         $seen = [];
 
-        foreach ($this->candidates() as $candidate) {
-            $owner = $candidate['source'];
-            $identity = $this->scopeQuery();
+        try {
+            foreach ($this->candidates() as $candidate) {
+                $owner = $candidate['source'];
+                $identity = $this->scopeQuery();
 
-            if ($candidate['system']) {
-                $identity->where('route_name', $candidate['route_name']);
-            } else {
-                $identity->where('owner_type', $candidate['owner_type'])->where('owner_id', (string) $owner->getKey());
+                if ($candidate['system']) {
+                    $identity->where('route_name', $candidate['route_name']);
+                } else {
+                    $identity->where('owner_type', $candidate['owner_type'])->where('owner_id', (string) $owner->getKey());
+                }
+
+                $page = $identity->first() ?? new SeoOptimizationPage;
+                $created = ! $page->exists;
+                $page->fill($this->attributes($candidate));
+                $page->save();
+                $seen[] = $page->getKey();
+                $counts['total']++;
+                $counts[$created ? 'created' : 'updated']++;
+                $counts['by_type'][$page->page_type] = ($counts['by_type'][$page->page_type] ?? 0) + 1;
+                $counts['excluded'] += $page->classification === 'DRAFT_OR_PRIVATE' ? 1 : 0;
             }
 
-            $page = $identity->first() ?? new SeoOptimizationPage;
-            $created = ! $page->exists;
-            $page->fill($this->attributes($candidate, $dependencies));
-            $page->save();
-            $seen[] = $page->getKey();
-            $counts['total']++;
-            $counts[$created ? 'created' : 'updated']++;
-            $counts['by_type'][$page->page_type] = ($counts['by_type'][$page->page_type] ?? 0) + 1;
-            $counts['excluded'] += $page->classification === 'DRAFT_OR_PRIVATE' ? 1 : 0;
+            $this->scopeQuery()->whereNotIn('id', $seen)->update([
+                'classification' => 'UNRESOLVED',
+                'capabilities' => json_encode([
+                    'read' => false,
+                    'contract_version' => ContentWriteContractService::VERSION,
+                    'writable_fields' => [],
+                    'field_contracts' => [],
+                ], JSON_THROW_ON_ERROR),
+                'updated_at' => now(),
+            ]);
+
+            return $counts;
+        } finally {
+            $this->cacheDependencyFingerprints = false;
+            $this->dependencyFingerprintMaps = [];
+            $this->dependencyTableColumns = [];
         }
-
-        $this->scopeQuery()->whereNotIn('id', $seen)->update([
-            'classification' => 'UNRESOLVED',
-            'capabilities' => json_encode(['read' => false, 'writable_fields' => []], JSON_THROW_ON_ERROR),
-            'updated_at' => now(),
-        ]);
-
-        return $counts;
     }
 
     public function source(SeoOptimizationPage $page): ?Model
@@ -95,14 +126,19 @@ class PageRegistryService
         $system = collect(self::SYSTEM_PAGES)->first(fn (array $definition): bool => $definition[1] === $page->route_name);
 
         if ($source === null && $system === null) {
-            return [...$page->getAttributes(), 'classification' => 'UNRESOLVED', 'capabilities' => ['read' => false, 'writable_fields' => []]];
+            return [...$page->getAttributes(), 'classification' => 'UNRESOLVED', 'capabilities' => [
+                'read' => false,
+                'contract_version' => ContentWriteContractService::VERSION,
+                'writable_fields' => [],
+                'field_contracts' => [],
+            ]];
         }
 
         $candidate = $system
             ? $this->systemCandidate((string) array_search($system, self::SYSTEM_PAGES, true), $system, $source)
             : $this->modelCandidate($source);
 
-        return $this->attributes($candidate, $this->dependencies());
+        return $this->attributes($candidate);
     }
 
     public function refresh(SeoOptimizationPage $page): SeoOptimizationPage
@@ -125,24 +161,7 @@ class PageRegistryService
             return [];
         }
 
-        $fields = array_values(array_intersect(
-            ['title', 'name', 'excerpt', 'content', 'meta_title', 'meta_description', 'cover_alt'],
-            $source->getFillable(),
-        ));
-
-        if ($source instanceof LandingPage) {
-            $fields = ['title', 'meta_title', 'meta_description'];
-
-            if ($source->isHtmlMode() || in_array($source->page_key, ['about', 'contact', 'services', 'blog', 'domestic_tours', 'international_tours', 'group_tours'], true)) {
-                $fields[] = 'body';
-            }
-
-            if ($source->isSystemPage()) {
-                $fields = [...$fields, 'hero_title', 'hero_excerpt', 'intro_title', 'intro_excerpt'];
-            }
-        }
-
-        return $fields;
+        return $this->contracts->writableFields($page, $source);
     }
 
     public function sourceFields(SeoOptimizationPage $page): array
@@ -153,10 +172,21 @@ class PageRegistryService
             return [];
         }
 
-        return collect(self::SOURCE_FIELDS)
-            ->filter(fn (string $field): bool => array_key_exists($field, $source->getAttributes()))
-            ->mapWithKeys(fn (string $field): array => [$field => $source->getAttribute($field)])
-            ->all();
+        return $this->contracts->sourceFields($page, $source);
+    }
+
+    public function fieldContracts(SeoOptimizationPage $page): array
+    {
+        $source = $this->source($page);
+
+        return $source ? $this->contracts->fieldContracts($page, $source) : [];
+    }
+
+    public function contentUnits(SeoOptimizationPage $page): array
+    {
+        $source = $this->source($page);
+
+        return $source ? $this->contracts->contentUnits($page, $source) : [];
     }
 
     public function url(SeoOptimizationPage $page): string
@@ -164,6 +194,24 @@ class PageRegistryService
         $this->assertSite($page);
 
         return FrontsiteUrls::canonicalUrl((string) $page->path);
+    }
+
+    public function adminEditUrl(SeoOptimizationPage $page): ?string
+    {
+        $source = $this->source($page);
+
+        return match (true) {
+            $source instanceof Tour => route('admin.tours.edit', $source),
+            $source instanceof TourCategory => route('admin.tours.categories.edit', $source),
+            $source instanceof Destination => route('admin.tours.destinations.edit', $source),
+            $source instanceof Region => route('admin.tours.regions.edit', $source),
+            $source instanceof Service => route('admin.services.edit', $source),
+            $source instanceof ContentCategory && $source->taxonomy === 'service' => route('admin.services.categories.edit', $source),
+            $source instanceof ContentCategory && $source->taxonomy === 'blog' => route('admin.blogs.categories.edit', $source),
+            $source instanceof BlogPost => route('admin.blogs.edit', $source),
+            $source instanceof LandingPage => route('admin.landing-pages.edit', $source),
+            default => null,
+        };
     }
 
     private function scopeQuery(): Builder
@@ -250,9 +298,10 @@ class PageRegistryService
         ];
     }
 
-    private function attributes(array $candidate, array $dependencies): array
+    private function attributes(array $candidate): array
     {
         $source = $candidate['source'];
+        $dependencies = $this->dependencies($candidate);
         $sourceHash = hash('sha256', json_encode([$candidate['path'], $source?->getRawOriginal()], JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE));
         $page = new SeoOptimizationPage([
             'site_id' => $this->siteId(),
@@ -275,7 +324,12 @@ class PageRegistryService
             'classification' => $classification,
             'source_hash' => $sourceHash,
             'source_version' => hash('sha256', json_encode([$sourceHash, $dependencies], JSON_THROW_ON_ERROR)),
-            'capabilities' => ['read' => $classification !== 'DRAFT_OR_PRIVATE', 'writable_fields' => $this->writableFields($page)],
+            'capabilities' => [
+                'read' => $classification !== 'DRAFT_OR_PRIVATE',
+                'contract_version' => ContentWriteContractService::VERSION,
+                'writable_fields' => $classification !== 'DRAFT_OR_PRIVATE' ? $this->contracts->writableFields($page, $source) : [],
+                'field_contracts' => $classification !== 'DRAFT_OR_PRIVATE' ? $this->contracts->fieldContracts($page, $source) : [],
+            ],
             'dependencies' => $dependencies,
             'last_seen_at' => now(),
         ];
@@ -306,50 +360,174 @@ class PageRegistryService
         return 'INDEXABLE';
     }
 
-    private function dependencies(): array
+    private function dependencies(array $candidate): array
     {
-        $tables = [
-            'landing_pages', 'tours', 'tour_categories', 'destinations', 'regions', 'services', 'blog_posts', 'content_categories',
-            'tour_departures', 'tour_departure_sync_states', 'tour_category_tour', 'destination_tour', 'region_tour',
-            'travel_reviews', 'site_settings', 'menus', 'menu_items', 'sliders', 'slider_items', 'voucher_campaigns', 'media',
-        ];
-        $fingerprints = [];
-        $references = '';
+        $source = $candidate['source'];
+        $related = [];
 
-        foreach ($tables as $table) {
-            if (! Schema::hasTable($table)) {
-                continue;
-            }
-
-            $context = hash_init('sha256');
-            $columns = Schema::getColumnListing($table);
-            $query = DB::table($table);
-
-            foreach (in_array('id', $columns, true) ? ['id'] : $columns as $column) {
-                $query->orderBy($column);
-            }
-
-            foreach ($query->cursor() as $row) {
-                if ($table === 'media') {
-                    $properties = json_decode($row->custom_properties ?? '{}', true);
-                    if ($row->collection_name === 'library' && ! empty($properties['seo_optimization_staged'])
-                        && ! str_contains($references, '/'.$row->id.'/') && ! str_contains($references, (string) $row->file_name)) {
-                        continue;
-                    }
-                } else {
-                    $references .= json_encode($row, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
-                }
-                hash_update($context, json_encode($row, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE));
-            }
-
-            $fingerprints[$table] = hash_final($context);
+        if ($source instanceof Tour) {
+            $related = [
+                'primary_category' => $this->recordFingerprint('tour_categories', $source->getAttribute('tour_category_id')),
+                'primary_destination' => $this->recordFingerprint('destinations', $source->getAttribute('destination_id')),
+                'primary_region' => $this->recordFingerprint('regions', $source->getAttribute('region_id')),
+                'departures' => $this->fingerprint('tour_departures', ['tour_id' => $source->getKey()]),
+                'departure_sync' => $this->fingerprint('tour_departure_sync_states', ['tour_id' => $source->getKey()]),
+                'categories' => $this->fingerprint('tour_category_tour', ['tour_id' => $source->getKey()]),
+                'destinations' => $this->fingerprint('destination_tour', ['tour_id' => $source->getKey()]),
+                'regions' => $this->fingerprint('region_tour', ['tour_id' => $source->getKey()]),
+                'reviews' => $this->fingerprint('travel_reviews', [
+                    'reviewable_type' => $source->getMorphClass(),
+                    'reviewable_id' => $source->getKey(),
+                ]),
+                'review_batches' => $this->fingerprint('tour_review_batches', ['tour_id' => $source->getKey()]),
+            ];
+        } elseif ($source instanceof Service) {
+            $related['category'] = $this->recordFingerprint('content_categories', $source->getAttribute('content_category_id'));
+        } elseif ($source instanceof BlogPost) {
+            $related = [
+                'category' => $this->recordFingerprint('content_categories', $source->getAttribute('content_category_id')),
+                'country' => $this->recordFingerprint('destinations', $source->getAttribute('country_destination_id')),
+                'destination' => $this->recordFingerprint('destinations', $source->getAttribute('destination_id')),
+            ];
+        } elseif ($source instanceof Destination) {
+            $related = [
+                'country' => $this->recordFingerprint('destinations', $source->getAttribute('country_id')),
+                'region' => $this->recordFingerprint('regions', $source->getAttribute('region_id')),
+                'direct_tours' => $this->fingerprint('tours', ['destination_id' => $source->getKey()]),
+                'tour_links' => $this->fingerprint('destination_tour', ['destination_id' => $source->getKey()]),
+                'blog_posts' => $this->fingerprint('blog_posts', ['destination_id' => $source->getKey()]),
+            ];
+        } elseif ($source instanceof Region) {
+            $related = [
+                'destinations' => $this->fingerprint('destinations', ['region_id' => $source->getKey()]),
+                'direct_tours' => $this->fingerprint('tours', ['region_id' => $source->getKey()]),
+                'tour_links' => $this->fingerprint('region_tour', ['region_id' => $source->getKey()]),
+            ];
+        } elseif ($source instanceof TourCategory) {
+            $related = [
+                'direct_tours' => $this->fingerprint('tours', ['tour_category_id' => $source->getKey()]),
+                'tour_links' => $this->fingerprint('tour_category_tour', ['tour_category_id' => $source->getKey()]),
+            ];
+        } elseif ($source instanceof ContentCategory) {
+            $related[$source->taxonomy === 'service' ? 'services' : 'blog_posts'] = $this->fingerprint(
+                $source->taxonomy === 'service' ? 'services' : 'blog_posts',
+                ['content_category_id' => $source->getKey()],
+            );
         }
 
+        $system = match ($candidate['page_type']) {
+            'home' => $this->tableFingerprints(['landing_pages', 'tours', 'tour_categories', 'destinations', 'regions', 'services', 'blog_posts', 'content_categories', 'sliders', 'slider_items', 'voucher_campaign', 'voucher_campaigns']),
+            'tour_scope' => $this->tableFingerprints(['tours', 'tour_categories', 'destinations', 'regions', 'tour_departures', 'tour_category_tour', 'destination_tour', 'region_tour']),
+            'service_index' => $this->tableFingerprints(['services', 'content_categories']),
+            'blog_index' => $this->tableFingerprints(['blog_posts', 'content_categories']),
+            default => [],
+        };
+
         return [
-            'strategy' => 'conservative-public-cms-v1',
-            'public_day' => now(config('app.timezone'))->toDateString(),
+            'strategy' => 'owner-scoped-public-cms-v3',
+            'content_contract' => ContentWriteContractService::VERSION,
             'canonical_base' => FrontsiteUrls::canonicalBaseUrl(),
-            'tables' => $fingerprints,
+            'site_settings' => $this->fingerprint('site_settings'),
+            'owner_media' => $source === null ? null : $this->fingerprint('media', [
+                'model_type' => $source->getMorphClass(),
+                'model_id' => $source->getKey(),
+            ]),
+            'related' => array_filter($related, fn (?string $value): bool => $value !== null),
+            'system' => $system,
         ];
+    }
+
+    private function tableFingerprints(array $tables): array
+    {
+        $fingerprints = [];
+
+        foreach (array_unique($tables) as $table) {
+            if ($fingerprint = $this->fingerprint($table)) {
+                $fingerprints[$table] = $fingerprint;
+            }
+        }
+
+        return $fingerprints;
+    }
+
+    private function recordFingerprint(string $table, mixed $id): ?string
+    {
+        return filled($id) ? $this->fingerprint($table, ['id' => $id]) : null;
+    }
+
+    private function fingerprint(string $table, array $scope = []): ?string
+    {
+        $columns = $this->dependencyColumns($table);
+        if ($columns === null) {
+            return null;
+        }
+        if (array_diff(array_keys($scope), $columns) !== []) {
+            return null;
+        }
+
+        if ($this->cacheDependencyFingerprints) {
+            $map = $this->groupedFingerprints($table, array_keys($scope), $columns);
+
+            return $map[$this->fingerprintKey(array_values($scope))] ?? hash('sha256', '');
+        }
+
+        $query = DB::table($table)->select($columns);
+        foreach ($scope as $column => $value) {
+            $query->where($column, $value);
+        }
+        $this->orderFingerprintQuery($query, $columns);
+        $context = hash_init('sha256');
+        foreach ($query->cursor() as $row) {
+            hash_update($context, json_encode($row, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE));
+        }
+
+        return hash_final($context);
+    }
+
+    private function groupedFingerprints(string $table, array $groupColumns, array $columns): array
+    {
+        $cacheKey = $table.'|'.implode(',', $groupColumns);
+        if (isset($this->dependencyFingerprintMaps[$cacheKey])) {
+            return $this->dependencyFingerprintMaps[$cacheKey];
+        }
+
+        $query = DB::table($table)->select($columns);
+        $this->orderFingerprintQuery($query, $columns);
+        $contexts = [];
+        foreach ($query->cursor() as $row) {
+            $key = $this->fingerprintKey(array_map(fn (string $column): mixed => $row->{$column}, $groupColumns));
+            $contexts[$key] ??= hash_init('sha256');
+            hash_update($contexts[$key], json_encode($row, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE));
+        }
+
+        $fingerprints = [];
+        foreach ($contexts as $key => $context) {
+            $fingerprints[$key] = hash_final($context);
+        }
+
+        return $this->dependencyFingerprintMaps[$cacheKey] = $fingerprints;
+    }
+
+    private function fingerprintKey(array $values): string
+    {
+        return json_encode(array_map(fn (mixed $value): string => (string) $value, $values), JSON_THROW_ON_ERROR);
+    }
+
+    private function dependencyColumns(string $table): ?array
+    {
+        if (array_key_exists($table, $this->dependencyTableColumns)) {
+            return $this->dependencyTableColumns[$table];
+        }
+
+        return $this->dependencyTableColumns[$table] = Schema::hasTable($table)
+            ? Schema::getColumnListing($table)
+            : null;
+    }
+
+    private function orderFingerprintQuery(QueryBuilder $query, array $columns): void
+    {
+        foreach (in_array('id', $columns, true) ? ['id'] : $columns as $column) {
+            $query->orderBy($column);
+        }
     }
 }

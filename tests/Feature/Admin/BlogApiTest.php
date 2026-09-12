@@ -2,12 +2,10 @@
 
 namespace Tests\Feature\Admin;
 
-use App\Jobs\Cms\RunBlogAutomationJob;
 use App\Models\User;
 use Database\Seeders\CmsBootstrapSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Queue;
 use Illuminate\Support\Facades\Storage;
 use Src\Domains\Cms\Models\BlogPost;
 use Src\Domains\Cms\Models\SiteSetting;
@@ -88,33 +86,4 @@ class BlogApiTest extends TestCase
         $this->assertSame('published', $post->status);
     }
 
-    public function test_admin_can_dispatch_blog_automation_job_via_api(): void
-    {
-        Queue::fake();
-        $this->seed(CmsBootstrapSeeder::class);
-
-        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
-        $this->actingAs($user);
-
-        $response = $this->postJson(route('api.v1.admin.blogs.automation-jobs.store'), [
-            'title' => 'Bài từ automation',
-            'content_category_slug' => 'kien-thuc-xay-dung',
-            'reference_urls' => [
-                'https://example.com/doi-thu/bai-1',
-                'https://example.com/doi-thu/bai-2',
-            ],
-            'max_references' => 2,
-            'additional_instructions' => 'Giữ giọng điệu kỹ thuật và thực tế.',
-        ]);
-
-        $response
-            ->assertAccepted()
-            ->assertJsonPath('meta.queued', true)
-            ->assertJsonPath('meta.reference_count', 2);
-
-        Queue::assertPushed(RunBlogAutomationJob::class, function (RunBlogAutomationJob $job) use ($user): bool {
-            return $job->actorId === $user->getKey()
-                && count($job->payload['reference_urls'] ?? []) === 2;
-        });
-    }
 }

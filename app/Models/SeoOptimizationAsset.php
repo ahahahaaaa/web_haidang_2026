@@ -11,7 +11,7 @@ class SeoOptimizationAsset extends Model
 {
     use HasUlids;
 
-    protected $fillable = ['task_id', 'page_id', 'media_id', 'created_by', 'sheet_revision', 'source_type', 'source_url', 'prompt', 'alt', 'sha256', 'request_hash', 'manifest_hash', 'manifest'];
+    protected $fillable = ['task_id', 'page_id', 'media_id', 'created_by', 'source_revision', 'source_type', 'source_url', 'prompt', 'alt', 'sha256', 'request_hash', 'manifest_hash', 'manifest'];
 
     protected function casts(): array
     {
@@ -25,6 +25,6 @@ class SeoOptimizationAsset extends Model
 
     public function task(): BelongsTo
     {
-        return $this->belongsTo(SeoOptimizationTask::class, 'task_id');
+        return $this->belongsTo(SeoOptimizationTask::class, 'task_id')->withTrashed();
     }
 }

@@ -91,7 +91,7 @@ class BlogPostManager
                 : ($post->faq_items ?? []),
             'status' => array_key_exists('status', $payload)
                 ? trim((string) $payload['status'])
-                : ($post->status ?: config('blog_automation.default_status', 'draft')),
+                : ($post->status ?: 'draft'),
             'content_category_id' => $this->resolveCategoryId($payload, $post),
             'country_destination_id' => $geoIds['country_destination_id'],
             'destination_id' => $geoIds['destination_id'],
@@ -165,7 +165,7 @@ class BlogPostManager
     {
         $name = trim((string) data_get($actor, 'name'));
 
-        return $name !== '' ? $name : (string) config('blog_automation.default_author_name', 'Ban biên tập');
+        return $name !== '' ? $name : 'Ban biên tập';
     }
 
     protected function resolveCategoryId(array $payload, BlogPost $post): ?int

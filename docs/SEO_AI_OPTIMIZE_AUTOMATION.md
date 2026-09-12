@@ -1,5 +1,7 @@
 # SEO AI Optimize — Google Sheet, ảnh và tự động xuất bản
 
+> **Retired ngày 08/09/2026:** Google Sheet/Apps Script không còn tham gia runtime SEO Optimize. Gateway, tool claim Sheet, lệnh sync, config và integration code đã được gỡ. Dùng [SEO AI Direct MCP Optimizer v2](SEO_DIRECT_MCP_OPTIMIZER_PLAN.md) và skill `haidang-travel-seo-post-optimizer`. Nội dung bên dưới chỉ là lịch sử, không triển khai lại.
+
 Cập nhật 08/09/2026. Phần mở rộng cho module URL travel hiện hữu, không dùng SEO AI legacy. Đây là hướng dẫn triển khai; không đồng nghĩa đã kết nối Apps Script, bật lịch hay xuất bản production.
 
 ## Trạng thái bàn giao local ngày 08/09/2026
@@ -33,7 +35,7 @@ Nhóm file chính: services `app/Services/SeoOptimization`, MCP `app/Mcp/Tools/S
 | Đổi policy khi lượt đang chạy | Lượt cũ về preview, kể cả khi policy mới vẫn là Luôn publish. |
 | Thiếu dữ kiện, ảnh hoặc nguồn đổi | Không tự publish; trả NEED_DATA hoặc lỗi cần xử lý. |
 
-`SEO_OPTIMIZATION_APPLY_ENABLED=false` dừng mọi áp dụng. `SEO_OPTIMIZATION_MCP_ENABLED=false` đóng gateway. Chọn Luôn publish không bỏ qua dữ kiện, quyền nội dung, trạng thái public hay version. Không tự xuất bản draft, đổi slug/canonical hoặc lịch/giá tour.
+`SEO_OPTIMIZATION_APPLY_ENABLED=false` dừng mọi áp dụng. `SEO_OPTIMIZATION_MCP_ENABLED=false` đóng gateway. Chọn Luôn publish không bỏ qua dữ kiện, quyền nội dung, trạng thái public hay version. Không tự xuất bản draft, đổi canonical hoặc lịch/giá tour; slug chỉ tự áp dụng sau kiểm tra unique, backup và tạo redirect 301.
 
 Policy thuộc server; Sheet không có cột cấp quyền publish. Người lưu Luôn publish cần quyền settings, approve, apply và quyền edit loại trang được chọn. Quyền của người cấu hình được kiểm tra lại khi tự áp dụng. Token Codex không được cập nhật policy hoặc tự gọi duyệt thủ công.
 

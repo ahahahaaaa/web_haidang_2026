@@ -11,7 +11,7 @@ class OptimizationBrief
 {
     public const INTENTS = ['INFORMATIONAL', 'COMMERCIAL_INVESTIGATION', 'TRANSACTIONAL', 'NAVIGATIONAL', 'LOCAL_SERVICE'];
 
-    public function validate(array $input, User $user, bool $humanVerified = true): array
+    public function validate(array $input, User $user, bool $humanVerified = true, ?string $origin = null): array
     {
         $input['search_intent'] = str_replace([' ', '/'], '_', Str::upper($input['search_intent'] ?? 'INFORMATIONAL'));
         $rules = [
@@ -48,7 +48,7 @@ class OptimizationBrief
         }
         $brief['fact_sources'] = $sources;
         Validator::make(['ids' => array_column($sources, 'id')], ['ids.*' => ['distinct']])->validate();
-        $brief['origin'] = $humanVerified ? 'cms_review_brief' : 'google_sheet';
+        $brief['origin'] = $origin ?? ($humanVerified ? 'cms_review_brief' : 'remote_import');
         $brief['updated_by'] = $user->id;
         $brief['revision'] = $this->revision($brief);
 

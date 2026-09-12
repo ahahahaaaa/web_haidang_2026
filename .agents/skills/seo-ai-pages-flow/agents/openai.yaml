@@ -1,4 +1,7 @@
 interface:
-  display_name: "SEO AI Pages"
-  short_description: "Tạo và tối ưu SEO Pages theo flow AI + QA"
-  default_prompt: "Use $seo-ai-pages-flow to create, generate, QA, and optimize SEO Pages in this construction-company repo."
+  display_name: "SEO Pages (Retired)"
+  short_description: "Chuyển sang SEO Post Optimizer hiện hành"
+  default_prompt: "Use $haidang-travel-seo-post-optimizer instead of the retired SEO Pages flow."
+
+policy:
+  allow_implicit_invocation: false

@@ -16,13 +16,14 @@ class PrepareSeoImage extends SeoOptimizationTool
 
     protected string $ability = 'propose';
 
-    protected string $description = 'Chuẩn bị ảnh cho task Google Sheet đang leased: image_url trống trả brief tạo ảnh để Codex render/upload; URL có sẵn nhập ảnh thật hoặc tái sử dụng Media cùng site. Chỉ thêm Media thư viện, không sửa nội dung public. Cần token automate và quyền Media.';
+    protected string $description = 'Chuẩn bị ảnh cho task CMS trực tiếp đang leased: chưa có ảnh trả prompt để Codex render/upload; có URL thì nhập ảnh thật hoặc tái sử dụng Media cùng site. Ảnh mới được chuẩn hóa sang WebP trước khi lưu Media. Chỉ thêm Media thư viện, không sửa nội dung public. Cần token automate và quyền Media.';
 
-    public function shouldRegister(): bool
+    /**
+     * @return array<int, string>
+     */
+    public static function requiredAbilities(): array
     {
-        $credential = $this->httpRequest->attributes->get('seo_optimization_credential');
-
-        return parent::shouldRegister() && in_array('automate', $credential->abilities ?? [], true);
+        return ['propose', 'automate'];
     }
 
     public function schema(JsonSchema $schema): array

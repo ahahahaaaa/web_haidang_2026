@@ -37,10 +37,11 @@ class OptimizationAccess
         }
     }
 
-    public function queryFor(User $user): Builder
+    public function queryFor(User $user, string $action = 'index'): Builder
     {
-        $this->authorize($user, 'index');
-        $types = array_keys(array_filter(self::PAGE_PERMISSIONS, fn ($permission) => $user->can($permission.'.index')));
+        $this->authorize($user, $action);
+        $suffix = in_array($action, ['approve', 'apply', 'rollback', 'propose'], true) ? '.edit' : '.index';
+        $types = array_keys(array_filter(self::PAGE_PERMISSIONS, fn ($permission) => $user->can($permission.$suffix)));
 
         return SeoOptimizationPage::query()->where('site_id', config('seo_optimization.site_id'))->whereIn('page_type', $types);
     }

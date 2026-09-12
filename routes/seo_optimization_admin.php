@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SeoOptimization\DownloadCodexPluginController;
 use App\Livewire\Admin\SeoOptimization\IntegrationSettings;
 use App\Livewire\Admin\SeoOptimization\PageDetail;
 use App\Livewire\Admin\SeoOptimization\PagesIndex;
@@ -14,4 +15,5 @@ Route::middleware(['auth', 'verified', 'permission:access admin panel', 'noindex
         Route::get('/proposals/{proposal}', ProposalReview::class)->middleware('permission:admin.seo-optimization.index')->name('proposals.show');
         Route::get('/tasks', TasksIndex::class)->middleware('permission:admin.seo-optimization.index')->name('tasks.index');
         Route::get('/settings', IntegrationSettings::class)->middleware('permission:admin.seo-optimization.settings')->name('settings');
+        Route::get('/settings/plugin', DownloadCodexPluginController::class)->middleware('permission:admin.seo-optimization.settings')->name('settings.plugin.download');
     });

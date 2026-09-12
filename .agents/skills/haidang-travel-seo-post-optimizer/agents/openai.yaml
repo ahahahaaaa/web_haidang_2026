@@ -1,0 +1,7 @@
+interface:
+  display_name: "Hải Đăng SEO Post Optimizer"
+  short_description: "Tối ưu trực tiếp nội dung CMS qua MCP"
+  default_prompt: "Use $haidang-travel-seo-post-optimizer to claim and optimize the next eligible Haidang Travel CMS page through MCP, then report its proposal, score, status, and backup."
+
+policy:
+  allow_implicit_invocation: true

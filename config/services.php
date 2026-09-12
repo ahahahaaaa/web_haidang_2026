@@ -35,10 +35,6 @@ return [
         ],
     ],
 
-    'openai' => [
-        'api_key' => env('OPENAI_API_KEY'),
-    ],
-
     'google_recaptcha_v3' => [
         'verify_url' => env('GOOGLE_RECAPTCHA_V3_VERIFY_URL', 'https://www.google.com/recaptcha/api/siteverify'),
         'site_key' => env('GOOGLE_RECAPTCHA_V3_SITE_KEY'),

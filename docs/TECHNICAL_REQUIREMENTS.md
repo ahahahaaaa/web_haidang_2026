@@ -330,12 +330,14 @@ Homepage system-page note:
 
 ### Thiết kế mở rộng SEO Keyword MCP
 
-Bộ thiết kế ngày 06/09/2026 nằm tại [SEO_KEYWORD_MCP_DESIGN.md](SEO_KEYWORD_MCP_DESIGN.md) và [SEO_KEYWORD_MCP_CONTRACTS.md](SEO_KEYWORD_MCP_CONTRACTS.md). Đây là phạm vi đề xuất triển khai, chưa phải danh sách chức năng đang hoạt động.
+Runtime hiện hành được chốt tại [SEO_DIRECT_MCP_OPTIMIZER_PLAN.md](SEO_DIRECT_MCP_OPTIMIZER_PLAN.md). Các tài liệu Keyword MCP/Google Sheet v1 chỉ còn là lịch sử và không phải contract vận hành.
 
-Module `SEO AI Optimize` mới dùng URL/owner travel thật, tách khỏi SEO legacy, đã có registry/snapshot/audit kỹ thuật và luồng Codex MCP tạo đề xuất có duyệt. Xem [SEO_AI_OPTIMIZE_RUNBOOK.md](SEO_AI_OPTIMIZE_RUNBOOK.md) cho 8 tool cơ bản. Mở rộng 08/09/2026 tại [SEO_AI_OPTIMIZE_AUTOMATION.md](SEO_AI_OPTIMIZE_AUTOMATION.md) bổ sung Sheet adapter, Media và completion signal. Token thường vẫn chỉ tạo đề xuất; token `--automation` có thể kích hoạt áp dụng qua policy `always_publish` do người có quyền cấu hình trên server. Mặc định buộc preview. Chưa triển khai Apps Script/lịch production hoặc điểm ngữ nghĩa đầy đủ.
+Module `SEO AI Optimize` dùng URL/owner travel thật, tách khỏi SEO legacy và không phụ thuộc Google Sheet. Codex MCP có thể tự chọn bài CMS trong phạm vi policy/token, tạo keyword brief fallback, xử lý Media và gửi patch. Token thường chỉ tạo đề xuất; token `--automation` có thể kích hoạt áp dụng qua policy `always_publish` do người có quyền cấu hình trên server. Mặc định buộc preview; mọi publish/apply nội dung SEO thông thường chỉ được ghi CMS khi score mới lớn hơn score cũ, đủ facts, đúng source revision và backup thành công. Đề xuất khôi phục backup là ngoại lệ có duyệt riêng.
 
-- Kiểm kê và audit URL từ thực thể CMS/route travel hiện hữu; Google Sheet quản lý chiến lược keyword và kết quả audit, CMS tiếp tục sở hữu nội dung public.
-- Phần mở rộng có Page Registry, rule score 100 điểm, proposal, approval, version/idempotency, queue và re-audit sau áp dụng; implementation phải qua các gate rollout trong design.
+- Kiểm kê, keyword brief, audit, proposal, backup và execution state đều ở CMS; nội dung public vẫn thuộc các entity travel thật.
+- Page Registry hỗ trợ 16 loại trang; score 100 điểm gồm 12 dimension và cấp A+–F, kèm điểm phụ accessibility/Search Console readiness có phạm vi được ghi rõ.
+- Patch dùng allowlist adapter, hỗ trợ title/name, slug, excerpt/meta, content/body, cover alt và FAQ khi model cho phép. Policy `always_publish` tự áp dụng slug sau kiểm tra unique và tạo redirect 301; policy `preview` vẫn chờ người duyệt.
+- Mỗi mutation tạo backup checksum bất biến trước khi ghi; restore qua proposal mới, không tự ghi đè bản chỉnh sửa mới hơn.
 - Giữ public IA, schema/render coupling và nguồn facts thương mại hiện hành; không kích hoạt lại SEO AI construction hoặc dùng `seo_pages` legacy làm nguồn public.
 
 ---

@@ -1032,6 +1032,54 @@ class LandingPageBlocks
         return FaqContent::normalizeItems($faq['items'] ?? []);
     }
 
+    /** @return array<string, mixed> */
+    public static function legacyVisualConfig(array $blocks): array
+    {
+        $config = LandingPageVisuals::defaultConfig();
+        $enabledBlocks = self::enabledBlocks($blocks);
+        $hero = $enabledBlocks->first(fn (array $block): bool => in_array($block['type'] ?? null, [
+            self::TYPE_HERO_SLIDER,
+            self::TYPE_HERO_MEDIA,
+        ], true));
+        $gallery = $enabledBlocks->first(fn (array $block): bool => in_array($block['type'] ?? null, [
+            self::TYPE_GALLERY_SLIDER,
+            self::TYPE_GALLERY_MEDIA,
+        ], true));
+
+        if (is_array($hero)) {
+            $config['hero']['enabled'] = true;
+            $config['hero']['source'] = ($hero['type'] ?? null) === self::TYPE_HERO_SLIDER
+                ? LandingPageVisuals::SOURCE_SLIDER
+                : LandingPageVisuals::SOURCE_MEDIA;
+            $config['hero']['slider_id'] = $hero['slider_id'] ?? null;
+            $config['hero']['media_alt'] = (string) ($hero['media_alt'] ?? '');
+        }
+
+        if (is_array($gallery)) {
+            $config['gallery']['enabled'] = true;
+            $config['gallery']['source'] = ($gallery['type'] ?? null) === self::TYPE_GALLERY_SLIDER
+                ? LandingPageVisuals::SOURCE_SLIDER
+                : LandingPageVisuals::SOURCE_MEDIA;
+            $config['gallery']['slider_id'] = $gallery['slider_id'] ?? null;
+            $config['gallery']['eyebrow'] = (string) ($gallery['eyebrow'] ?? '');
+            $config['gallery']['title'] = (string) ($gallery['title'] ?? '');
+            $config['gallery']['description'] = (string) ($gallery['description'] ?? '');
+            $config['gallery']['items'] = collect($gallery['items'] ?? [])
+                ->map(fn (array $item): array => [
+                    'uuid' => (string) ($item['uuid'] ?? Str::uuid()),
+                    'title' => (string) ($item['title'] ?? ''),
+                    'subtitle' => (string) ($item['subtitle'] ?? ''),
+                    'description' => (string) ($item['description'] ?? ''),
+                    'url' => (string) ($item['url'] ?? ''),
+                    'image_alt' => (string) ($item['image_alt'] ?? ''),
+                ])
+                ->values()
+                ->all();
+        }
+
+        return $config;
+    }
+
     /**
      * @return array<string, string>
      */

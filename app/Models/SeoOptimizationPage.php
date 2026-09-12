@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class SeoOptimizationPage extends Model
 {
@@ -22,6 +23,12 @@ class SeoOptimizationPage extends Model
         return $this->hasMany(SeoOptimizationAudit::class, 'page_id');
     }
 
+    public function latestAudit(): HasOne
+    {
+        return $this->hasOne(SeoOptimizationAudit::class, 'page_id')
+            ->ofMany(['created_at' => 'max', 'id' => 'max']);
+    }
+
     public function proposals(): HasMany
     {
         return $this->hasMany(SeoOptimizationProposal::class, 'page_id');
@@ -30,5 +37,10 @@ class SeoOptimizationPage extends Model
     public function tasks(): HasMany
     {
         return $this->hasMany(SeoOptimizationTask::class, 'page_id');
+    }
+
+    public function backups(): HasMany
+    {
+        return $this->hasMany(SeoOptimizationBackup::class, 'page_id');
     }
 }

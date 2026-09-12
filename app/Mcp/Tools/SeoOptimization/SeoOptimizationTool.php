@@ -6,6 +6,7 @@ use App\Models\SeoOptimizationCredential;
 use App\Models\SeoOptimizationPage;
 use App\Models\SeoOptimizationTask;
 use App\Models\User;
+use App\Services\SeoOptimization\Exceptions\StaleSourceException;
 use App\Services\SeoOptimization\OptimizationAccess;
 use App\Services\SeoOptimization\PageRegistryService;
 use Closure;
@@ -18,6 +19,7 @@ use Illuminate\Validation\ValidationException;
 use Laravel\Mcp\Response;
 use Laravel\Mcp\ResponseFactory;
 use Laravel\Mcp\Server\Tool;
+use ReflectionClass;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 abstract class SeoOptimizationTool extends Tool
@@ -26,12 +28,36 @@ abstract class SeoOptimizationTool extends Tool
 
     public function __construct(protected Request $httpRequest, protected OptimizationAccess $access) {}
 
+    /**
+     * @return array<int, string>
+     */
+    public static function requiredAbilities(): array
+    {
+        $properties = (new ReflectionClass(static::class))->getDefaultProperties();
+
+        return [(string) ($properties['ability'] ?? 'read')];
+    }
+
+    /**
+     * @return array{name: string, description: string, required_abilities: array<int, string>}
+     */
+    public static function catalogEntry(): array
+    {
+        $properties = (new ReflectionClass(static::class))->getDefaultProperties();
+
+        return [
+            'name' => (string) ($properties['name'] ?? ''),
+            'description' => (string) ($properties['description'] ?? ''),
+            'required_abilities' => static::requiredAbilities(),
+        ];
+    }
+
     public function shouldRegister(): bool
     {
         $credential = $this->httpRequest->attributes->get('seo_optimization_credential');
 
         return $credential instanceof SeoOptimizationCredential
-            && in_array($this->ability, $credential->abilities ?? [], true);
+            && array_diff(static::requiredAbilities(), $credential->abilities ?? []) === [];
     }
 
     protected function credential(): SeoOptimizationCredential
@@ -92,6 +118,8 @@ abstract class SeoOptimizationTool extends Tool
             return Response::error('NOT_FOUND: Không tìm thấy mục trong phạm vi được phép.');
         } catch (AuthorizationException) {
             return Response::error('FORBIDDEN: Kết nối không có quyền thực hiện thao tác này.');
+        } catch (StaleSourceException $exception) {
+            return Response::error('STALE_SOURCE: '.$exception->getMessage());
         } catch (ValidationException $exception) {
             return Response::error('VALIDATION_FAILED: '.implode(' ', array_merge(...array_values($exception->errors()))));
         } catch (DomainException) {

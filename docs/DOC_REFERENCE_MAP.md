@@ -17,9 +17,10 @@ Tài liệu này là điểm vào chính để đọc `docs/` theo đúng case t
 | `docs/api-fix-requests/2026-05-23-agency-tour-sync-endpoints.md` | Backend / API handoff | Ticket yêu cầu API Master Data DashBoard mở endpoint tour sync và push update theo contract CMS | Support |
 | `docs/SEO_SCHEMA_MAPPING.md` | SEO runtime | Mapping schema types theo từng page public và quy tắc render/schema coupling | Core |
 | `docs/SEO_KEYWORD_MCP_DESIGN.md` | SEO / Keyword MCP | Thiết kế mở rộng audit và tối ưu URL travel hiện hữu; scope, UI, scoring, approval và rollout | Design proposal |
-| `docs/SEO_KEYWORD_MCP_CONTRACTS.md` | SEO / Integration | Hợp đồng Sheet, Page Registry, MCP/API, version, quyền và queue của phần mở rộng đề xuất | Design proposal |
-| `docs/SEO_AI_OPTIMIZE_RUNBOOK.md` | SEO / Runtime | Module URL Optimize mới: CMS approval, 8 MCP tools, setup, kiểm thử và các phần chưa triển khai | Implemented core / pilot |
-| `docs/SEO_AI_OPTIMIZE_AUTOMATION.md` | SEO / Automation | Google Sheet, ảnh Media, completion signal, policy preview/auto publish và triển khai Apps Script | Local implementation / chưa bật lịch |
+| `docs/SEO_DIRECT_MCP_OPTIMIZER_PLAN.md` | SEO / Runtime | Thiết kế và trạng thái baseline v2: direct CMS MCP, scoring, Media, backup/restore, preview/auto publish | Implemented baseline |
+| `docs/SEO_KEYWORD_MCP_CONTRACTS.md` | SEO / Integration | Contract Google Sheet v1 đã retired; chỉ giữ tham chiếu lịch sử | Historical |
+| `docs/SEO_AI_OPTIMIZE_RUNBOOK.md` | SEO / Runtime | Runbook v1 đã được v2 thay thế; giữ tham chiếu flow duyệt thủ công | Historical |
+| `docs/SEO_AI_OPTIMIZE_AUTOMATION.md` | SEO / Automation | Thiết kế Google Sheet/Apps Script đã retired, không dùng runtime | Historical |
 | `docs/TOUR_SITEMAP_BLOCKS.md` | Travel IA / SEO | Sitemap structure, page families, block inventory cho Tour / Category / Destination / Region / Country, và visual contract cho LandingPage / Slider | Core |
 | `docs/PROJECT_START_GUIDE.md` | Setup | Cài đặt, migrate, chạy app, debug cơ bản | Support |
 | `docs/SEO_PHASE_SUMMARY.md` | Backend / SEO | Tóm tắt tiến trình SEO engine theo phase | Historical |
@@ -33,7 +34,7 @@ Tài liệu này là điểm vào chính để đọc `docs/` theo đúng case t
 - Task backend: `AGENTS.md` -> `BACKEND_AGENT.md` -> `TECHNICAL_REQUIREMENTS.md`
 - Task API Master Data DashBoard tour sync / hàng chờ: `AGENTS.md` -> `AGENCY_TOUR_SYNC_API.md` -> `AGENCY_TOUR_SYNC_QUEUE_DESIGN.md`
 - Task SEO / render schema: `AGENTS.md` -> `FRONTSITE_AGENT.md` -> `TOUR_SITEMAP_BLOCKS.md` -> `TECHNICAL_REQUIREMENTS.md` -> `SEO_SCHEMA_MAPPING.md`
-- Task mở rộng SEO Keyword MCP / audit toàn bộ URL: `AGENTS.md` -> `TECHNICAL_REQUIREMENTS.md` -> `SEO_KEYWORD_MCP_DESIGN.md` -> `SEO_KEYWORD_MCP_CONTRACTS.md`; đọc thêm `ADMIN_CMS.md` khi triển khai UI. Hai tài liệu Keyword MCP là thiết kế đề xuất, không xác nhận runtime đã có chức năng.
+- Task SEO AI Optimize trực tiếp: `AGENTS.md` -> `TECHNICAL_REQUIREMENTS.md` -> `SEO_DIRECT_MCP_OPTIMIZER_PLAN.md` -> `.agents/skills/haidang-travel-seo-post-optimizer/SKILL.md`; đọc thêm `ADMIN_CMS.md` khi triển khai UI.
 - Task UX/UI: `AGENTS.md` -> `DESIGN_SYSTEM.md` -> `TOUR_SITEMAP_BLOCKS.md` -> `FRONTSITE_AGENT.md`
 - Task form: `AGENTS.md` -> `BACKEND_AGENT.md` -> `FRONTSITE_AGENT.md`
 - Task slider / motion: `DESIGN_SYSTEM.md` -> `TOUR_SITEMAP_BLOCKS.md` -> `FRONTSITE_AGENT.md`

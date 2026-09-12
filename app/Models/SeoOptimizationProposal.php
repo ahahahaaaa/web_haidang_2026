@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class SeoOptimizationProposal extends Model
 {
@@ -24,11 +25,16 @@ class SeoOptimizationProposal extends Model
 
     public function task(): BelongsTo
     {
-        return $this->belongsTo(SeoOptimizationTask::class, 'task_id');
+        return $this->belongsTo(SeoOptimizationTask::class, 'task_id')->withTrashed();
     }
 
     public function audit(): BelongsTo
     {
         return $this->belongsTo(SeoOptimizationAudit::class, 'audit_id');
+    }
+
+    public function backup(): HasOne
+    {
+        return $this->hasOne(SeoOptimizationBackup::class, 'proposal_id');
     }
 }

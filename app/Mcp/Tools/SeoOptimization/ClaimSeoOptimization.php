@@ -32,9 +32,11 @@ class ClaimSeoOptimization extends SeoOptimizationTool
                 $this->task($data['task_id']);
             }
 
+            $task = $workflow->claim($this->actor(), (string) $this->credential()->id, $data['task_id'] ?? null);
+
             return [
-                'task' => $workflow->claim($this->actor(), (string) $this->credential()->id, $data['task_id'] ?? null),
-                'approval_mode' => 'human_review_required',
+                'task' => $task,
+                'approval_mode' => $task['approval_mode'] ?? 'human_review_required',
             ];
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\SeoOptimization;
 
+use App\Actions\SeoOptimization\DeleteOptimizationTasks;
 use App\Models\SeoOptimizationTask;
 use App\Services\SeoOptimization\OptimizationAccess;
 use Illuminate\Database\Eloquent\Builder;
@@ -26,13 +27,48 @@ class TasksIndex extends OptimizationComponent
         }
     }
 
+    public function deleteTask(string $taskId, DeleteOptimizationTasks $deleteTasks): void
+    {
+        $this->perform(function () use ($taskId, $deleteTasks): void {
+            $task = SeoOptimizationTask::query()->findOrFail($taskId);
+            $deleteTasks->deleteOne($task, $this->actor());
+        }, 'Đã xóa task khỏi hàng chờ SEO. Proposal, asset, backup và nhật ký liên quan vẫn được giữ.');
+
+        $this->resetPage();
+    }
+
+    public function deleteFinishedTasks(DeleteOptimizationTasks $deleteTasks): void
+    {
+        $this->perform(
+            fn () => $deleteTasks->deleteFinished($this->actor()),
+            'Đã xóa các task kết thúc khỏi hàng chờ SEO. Proposal, asset, backup và nhật ký liên quan vẫn được giữ.',
+        );
+
+        $this->resetPage();
+    }
+
     public function render()
     {
         $this->authorizeAdminPermission('admin.seo-optimization.index');
-        $pages = app(OptimizationAccess::class)->queryFor($this->actor())->select('seo_optimization_pages.id');
+        $actor = $this->actor();
+        $access = app(OptimizationAccess::class);
+        $pages = $access->queryFor($actor)->select('seo_optimization_pages.id');
         $query = SeoOptimizationTask::query()->whereIn('page_id', $pages);
+        $canManageTasks = $actor->can('admin.seo-optimization.propose');
+        $editablePageTypes = $canManageTasks
+            ? array_keys(array_filter(OptimizationAccess::PAGE_PERMISSIONS, fn (string $permission): bool => $actor->can($permission.'.edit')))
+            : [];
+        $finishedTasksCount = $canManageTasks
+            ? SeoOptimizationTask::query()
+                ->whereIn('page_id', $access->queryFor($actor, 'propose')->select('seo_optimization_pages.id'))
+                ->finished()
+                ->count()
+            : 0;
 
         return view('livewire.admin.seo-optimization.tasks-index', [
+            'canManageTasks' => $canManageTasks,
+            'editablePageTypes' => $editablePageTypes,
+            'finishedTasksCount' => $finishedTasksCount,
             'statuses' => (clone $query)->distinct()->orderBy('status')->pluck('status'),
             'tasks' => $query->with('page')
                 ->when($this->status !== '', fn (Builder $query) => $query->where('status', $this->status))

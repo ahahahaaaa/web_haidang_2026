@@ -219,7 +219,7 @@ class AdminNavigationRegistry
                 'actions' => [
                     self::action('admin.seo-optimization.index', 'Tối ưu URL', 'Brief từ khóa, kiểm tra và đề xuất cho URL CMS.', 'admin.seo-optimization.index', ['admin.seo-optimization.index', 'admin.seo-optimization.pages.show', 'admin.seo-optimization.proposals.show']),
                     self::action('admin.seo-optimization.index', 'Hàng chờ Codex', 'Theo dõi yêu cầu tạo nội dung chờ duyệt.', 'admin.seo-optimization.tasks.index', ['admin.seo-optimization.tasks.index']),
-                    self::action('admin.seo-optimization.settings', 'Kết nối và lịch chạy', 'Hướng dẫn kết nối MCP và lịch Codex chỉ tạo đề xuất.', 'admin.seo-optimization.settings', ['admin.seo-optimization.settings']),
+                    self::action('admin.seo-optimization.settings', 'Kết nối và lịch chạy', 'Cấu hình MCP, lịch Codex và policy preview/publish.', 'admin.seo-optimization.settings', ['admin.seo-optimization.settings']),
                     self::action('admin.seo-optimization.audit', 'Kiểm tra SEO', 'Chạy kiểm tra SEO trong phạm vi nội dung được cấp.', 'admin.seo-optimization.index', [], false),
                     self::action('admin.seo-optimization.propose', 'Quản lý brief và đề xuất', 'Lưu brief, gửi yêu cầu tạo đề xuất nội dung.', 'admin.seo-optimization.index', [], false),
                     self::action('admin.seo-optimization.approve', 'Duyệt đề xuất SEO', 'Duyệt hoặc từ chối đề xuất; chưa thay đổi public.', 'admin.seo-optimization.index', [], false),
