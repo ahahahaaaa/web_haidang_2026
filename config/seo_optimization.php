@@ -10,6 +10,7 @@ return [
     'apply_enabled' => env('SEO_OPTIMIZATION_APPLY_ENABLED', true),
     'rule_version' => 'direct-content-audit-2.2',
     'lease_minutes' => 20,
+    'content_creation_lease_minutes' => max(10, min(240, (int) env('SEO_OPTIMIZATION_CONTENT_CREATION_LEASE_MINUTES', 60))),
     'max_attempts' => 3,
     'processing_score_threshold' => max(0, min(100, (float) env('SEO_OPTIMIZATION_PROCESSING_SCORE_THRESHOLD', 80))),
     'max_patch_characters' => 100000,

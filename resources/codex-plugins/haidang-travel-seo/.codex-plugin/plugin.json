@@ -1,7 +1,7 @@
 {
   "name": "haidang-travel-seo",
-  "version": "1.3.0",
-  "description": "Tối ưu nội dung CMS Hải Đăng Travel theo 12 tiêu chí SEO có bằng chứng, với backup và publish policy phía server.",
+  "version": "1.4.0",
+  "description": "Tối ưu nội dung hiện hữu và tạo bài CMS draft/inactive theo field contract, Media Library và chuẩn SEO có bằng chứng.",
   "author": {
     "name": "Hải Đăng Travel",
     "email": "quantri@haidangtravel.com",
@@ -12,8 +12,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Hải Đăng Travel SEO",
-    "shortDescription": "Tối ưu bài CMS an toàn qua MCP.",
-    "longDescription": "Nhận bài từ CMS, đọc audit 12 tiêu chí, tối ưu SEO/GEO theo bằng chứng trên nội dung gốc, xử lý Media, tạo backup và publish trực tiếp khi policy cho phép cùng điểm số tăng.",
+    "shortDescription": "Tối ưu và tạo bài CMS qua MCP.",
+    "longDescription": "Nhận bài từ CMS để tối ưu hoặc tạo record mới ở trạng thái draft/inactive theo đúng loại, field contract và Media Library. Luồng tối ưu vẫn có audit, backup và publish policy phía server.",
     "developerName": "Hải Đăng Travel",
     "category": "Marketing",
     "capabilities": ["Interactive", "Write"],
@@ -21,6 +21,7 @@
     "defaultPrompt": [
       "Kiểm tra kết nối SEO MCP an toàn.",
       "Tối ưu một bài đang chờ theo policy CMS.",
+      "Tạo một bài CMS mới ở trạng thái draft với nội dung, SEO và ảnh đúng vị trí.",
       "Tóm tắt hàng đợi và các cảnh báo SEO."
     ],
     "brandColor": "#EA580C"

@@ -101,7 +101,7 @@ Route::middleware(['auth', 'verified', 'permission:access admin panel', 'noindex
     Route::get('/menus', MenuManager::class)->middleware('permission:admin.menus.index')->name('menus');
     Route::get('/theme-settings', ThemeSettingsManager::class)->middleware('permission:admin.theme-settings.index')->name('theme-settings');
 
-    Route::prefix('accounts')->group(function () {
+    Route::middleware('role:admin|super_admin')->prefix('accounts')->group(function () {
         Route::get('/', AccountsManager::class)->middleware('permission:admin.accounts.index')->name('accounts');
         Route::get('/create', AccountsManager::class)->middleware('permission:admin.accounts.edit')->name('accounts.create');
         Route::get('/{user}/edit', AccountsManager::class)->middleware('permission:admin.accounts.edit')->name('accounts.edit');

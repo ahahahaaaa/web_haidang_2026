@@ -115,6 +115,8 @@ Quy tắc:
 
 - Nếu thêm một manager/list page mới, mặc định phải đi theo pattern `index riêng + editor riêng`.
 - Nếu sửa sidebar hoặc permission matrix, luôn đối chiếu lại `AdminNavigationRegistry`.
+- Màn tài khoản luôn hiển thị trạng thái quyền theo vai trò: `Admin` toàn quyền, `Sale` dùng bộ quyền tour cố định, `Content` có ma trận quyền bổ sung cập nhật ngay khi đổi vai trò.
+- Chỉ tài khoản mang role `admin` hoặc `super_admin` được truy cập và thao tác quản lý tài khoản; quyền `admin.accounts.*` không được cấp bổ sung cho `Content`.
 - Nếu sửa list page, giữ filter state và pagination ổn định với Livewire.
 - Nếu sửa editor, không phá flow `back to index`.
 
@@ -134,3 +136,15 @@ Nếu patch chạm view Livewire nhiều:
 - kiểm tra sidebar current state
 - kiểm tra submenu collapse
 - kiểm tra save/delete/back-to-index flow
+
+---
+
+## 8. Nội dung mới do Codex tạo
+
+- `/admin/seo-optimization/content-creation` theo dõi payload, media, trạng thái và editor URL của record mới do Codex gửi.
+- `BlogPost`, `Tour`, `Service`, taxonomy tour/địa lý được tạo `draft`; landing custom được tạo `inactive` và không được dùng `page_key` hệ thống.
+- Danh mục blog/dịch vụ chưa có lifecycle draft phải dừng ở `ready_for_review`; chỉ người có quyền duyệt SEO và sửa taxonomy mới xác nhận tạo record thật.
+- Token ability `create` tách khỏi `automate`; chỉ cấp cho tài khoản có quyền Media và quyền edit đúng loại nội dung.
+- Màn kết nối MCP phải chọn tài khoản rồi chọn đúng credential đã cấp để hiển thị abilities, phạm vi và danh sách tool thực tế; không dùng trạng thái checkbox của form tạo token mới làm quyền của token hiện hữu.
+- Credential chỉ được xóa sau khi đã thu hồi. Thao tác xóa dùng soft delete để ẩn token khỏi quản trị và xác thực nhưng vẫn giữ quan hệ task cùng audit lịch sử.
+- Binary ảnh nằm trên Media disk; bảng `media` và bảng task chỉ lưu metadata/relation. Không lưu base64/BLOB ảnh trong field content hoặc bảng nghiệp vụ.

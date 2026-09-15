@@ -1,6 +1,6 @@
 # Hải Đăng Travel SEO for Codex
 
-Plugin kết nối Codex với SEO Optimization MCP của CMS Hải Đăng Travel. Gói plugin không chứa bearer token và kèm playbook theo đúng 12 tiêu chí chấm điểm của server.
+Plugin kết nối Codex với SEO Optimization MCP của CMS Hải Đăng Travel. Plugin tối ưu URL hiện hữu và, khi token có quyền `create`, tạo record CMS mới ở trạng thái draft/inactive với ảnh đi qua Media Library.
 
 ## Cài đặt
 
@@ -24,6 +24,10 @@ Snapshot trả `content_contract_version`, `field_contracts`, `writable_fields` 
 ## Schedule
 
 Tạo Scheduled task trong Codex bằng mẫu hiển thị tại `/admin/seo-optimization/settings`. Mỗi lượt claim ưu tiên task Đang chờ do người dùng đưa vào `/admin/seo-optimization/tasks`; task có audit hiện hành trên 80 điểm được bỏ qua, điểm đúng 80 vẫn xử lý, và worker tiếp tục task kế tiếp. Các task admin chỉ tạo đề xuất chờ duyệt. Khi hàng chờ hết, server mới tự chọn URL theo policy. Server giữ quyền quyết định preview/publish và tạo backup trước khi ghi CMS.
+
+## Tạo nội dung mới
+
+Luồng mới tách khỏi hàng chờ tối ưu: `list_cms_content_creation_types` → `start_cms_content_creation` → tìm/upload Media → `submit_cms_content_creation` → `get_cms_content_creation`. Codex phải dùng field contract theo loại bài và marker `[[media:ref]]` cho ảnh giữa nội dung. Bài viết, tour, dịch vụ và taxonomy có lifecycle được tạo `draft`; landing custom được tạo `inactive`. Danh mục blog/dịch vụ chưa có lifecycle draft sẽ chờ người quản trị xác nhận trong CMS.
 
 ## Bảo mật
 

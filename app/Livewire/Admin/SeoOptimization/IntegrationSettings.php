@@ -32,7 +32,13 @@ class IntegrationSettings extends OptimizationComponent
 
     public bool $tokenAutomation = true;
 
+    public bool $tokenContentCreation = false;
+
     public array $tokenAllowedTypes = ['blog_post', 'tour', 'service', 'landing'];
+
+    public string $permissionUserId = '';
+
+    public string $permissionCredentialId = '';
 
     #[Locked]
     public ?string $policyRevision = null;
@@ -48,6 +54,8 @@ class IntegrationSettings extends OptimizationComponent
             $this->allowedTypes = $policy->allowed_page_types ?? [];
             $this->policyRevision = $policy->revision;
         }
+
+        $this->selectInitialPermissionCredential();
     }
 
     public function savePolicy(): void
@@ -68,6 +76,7 @@ class IntegrationSettings extends OptimizationComponent
             'tokenName' => ['required', 'string', 'min:3', 'max:150'],
             'tokenDays' => ['required', 'integer', 'min:1', 'max:90'],
             'tokenAutomation' => ['boolean'],
+            'tokenContentCreation' => ['boolean'],
             'tokenAllowedTypes' => ['required', 'array', 'min:1'],
             'tokenAllowedTypes.*' => ['string', Rule::in(PageRegistryService::PAGE_TYPES)],
         ]);
@@ -81,7 +90,11 @@ class IntegrationSettings extends OptimizationComponent
                 (int) $validated['tokenDays'],
                 (bool) $validated['tokenAutomation'],
                 $actor,
+                (bool) $validated['tokenContentCreation'],
             );
+
+            $this->permissionUserId = (string) $subject->id;
+            $this->permissionCredentialId = (string) $result['credential']->id;
 
             $this->dispatch(
                 'seo-token-issued',
@@ -103,6 +116,28 @@ class IntegrationSettings extends OptimizationComponent
         }, 'Đã thu hồi token MCP. Các phiên dùng token này sẽ không còn được xác thực.');
     }
 
+    public function deleteRevokedToken(string $credentialId, SeoOptimizationCredentialService $credentials): void
+    {
+        $actor = $this->actor();
+        app(OptimizationAccess::class)->authorize($actor, 'settings');
+
+        $this->perform(function () use ($actor, $credentialId, $credentials): void {
+            $credential = SeoOptimizationCredential::query()->findOrFail($credentialId);
+            $credentials->deleteRevoked($credential, $actor);
+
+            if ($this->permissionCredentialId === $credentialId) {
+                $this->permissionCredentialId = '';
+                $this->selectPermissionCredentialForUser();
+            }
+        }, 'Đã xóa token MCP đã thu hồi. Lịch sử task và audit vẫn được giữ.');
+    }
+
+    public function updatedPermissionUserId(): void
+    {
+        $this->permissionCredentialId = '';
+        $this->selectPermissionCredentialForUser();
+    }
+
     public function render()
     {
         app(OptimizationAccess::class)->authorize($this->actor(), 'settings');
@@ -111,11 +146,23 @@ class IntegrationSettings extends OptimizationComponent
             ->whereNotNull('last_used_at')
             ->latest('last_used_at')
             ->first();
-        $tokenAbilities = ['read', 'audit', 'propose'];
-        if ($this->tokenAutomation) {
-            $tokenAbilities[] = 'automate';
-        }
-        $mcpTools = SeoOptimizationServer::toolCatalog($tokenAbilities);
+        $permissionCredentials = $this->permissionUserId !== ''
+            ? SeoOptimizationCredential::query()
+                ->with('user:id,name,email,is_active,email_verified_at')
+                ->where('user_id', (int) $this->permissionUserId)
+                ->latest()
+                ->get()
+            : collect();
+        $selectedCredential = $permissionCredentials
+            ->first(fn (SeoOptimizationCredential $credential): bool => $credential->id === $this->permissionCredentialId);
+        $selectedCredentialCanAuthenticate = $this->credentialCanAuthenticate($selectedCredential);
+        $mcpTools = array_map(
+            static fn (array $tool): array => [
+                ...$tool,
+                'allowed' => $selectedCredentialCanAuthenticate && $tool['allowed'],
+            ],
+            SeoOptimizationServer::toolCatalog($selectedCredential?->abilities ?? []),
+        );
 
         return view('livewire.admin.seo-optimization.integration-settings', [
             'mcpEnabled' => (bool) config('seo_optimization.mcp_enabled'),
@@ -127,6 +174,13 @@ class IntegrationSettings extends OptimizationComponent
                 ->whereHas('user', fn ($query) => $query->where('is_active', true)->whereNotNull('email_verified_at'))
                 ->count(),
             'tokenAccounts' => User::query()->where('is_active', true)->orderBy('name')->get(['id', 'name', 'email', 'email_verified_at']),
+            'permissionAccounts' => User::query()
+                ->whereIn('id', SeoOptimizationCredential::query()->select('user_id'))
+                ->orderBy('name')
+                ->get(['id', 'name', 'email', 'is_active', 'email_verified_at']),
+            'permissionCredentials' => $permissionCredentials,
+            'selectedCredential' => $selectedCredential,
+            'selectedCredentialCanAuthenticate' => $selectedCredentialCanAuthenticate,
             'credentials' => SeoOptimizationCredential::query()->with('user:id,name,email')->latest()->limit(25)->get(),
             'pendingAutomationTasks' => SeoOptimizationTask::query()->whereNotNull('automation')->whereIn('status', ['queued', 'leased'])->count(),
             'pageTypes' => PageRegistryService::PAGE_TYPES,
@@ -138,5 +192,58 @@ class IntegrationSettings extends OptimizationComponent
             'mcpTools' => $mcpTools,
             'allowedMcpToolCount' => count(array_filter($mcpTools, fn (array $tool): bool => $tool['allowed'])),
         ]);
+    }
+
+    private function selectInitialPermissionCredential(): void
+    {
+        $credential = SeoOptimizationCredential::query()
+            ->whereNull('revoked_at')
+            ->where(fn ($query) => $query->whereNull('expires_at')->orWhere('expires_at', '>', now()))
+            ->whereHas('user', fn ($query) => $query->where('is_active', true)->whereNotNull('email_verified_at'))
+            ->orderByDesc('last_used_at')
+            ->latest()
+            ->first() ?? SeoOptimizationCredential::query()->latest()->first();
+
+        if (! $credential) {
+            return;
+        }
+
+        $this->permissionUserId = (string) $credential->user_id;
+        $this->permissionCredentialId = (string) $credential->id;
+    }
+
+    private function selectPermissionCredentialForUser(): void
+    {
+        if ($this->permissionUserId === '') {
+            return;
+        }
+
+        $query = SeoOptimizationCredential::query()->where('user_id', (int) $this->permissionUserId);
+        $credential = (clone $query)
+            ->whereNull('revoked_at')
+            ->where(fn ($builder) => $builder->whereNull('expires_at')->orWhere('expires_at', '>', now()))
+            ->latest()
+            ->first() ?? $query->latest()->first();
+
+        if (! $credential) {
+            $this->permissionUserId = '';
+            $this->permissionCredentialId = '';
+            $this->selectInitialPermissionCredential();
+
+            return;
+        }
+
+        $this->permissionCredentialId = (string) $credential->id;
+    }
+
+    private function credentialCanAuthenticate(?SeoOptimizationCredential $credential): bool
+    {
+        if (! $credential || $credential->revoked_at !== null || ($credential->expires_at?->isPast() ?? false)) {
+            return false;
+        }
+
+        $credential->loadMissing('user');
+
+        return (bool) $credential->user?->is_active && $credential->user?->email_verified_at !== null;
     }
 }

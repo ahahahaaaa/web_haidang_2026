@@ -5,15 +5,20 @@ namespace App\Mcp\Servers;
 use App\Mcp\Tools\SeoOptimization\ClaimNextContentOptimization;
 use App\Mcp\Tools\SeoOptimization\ClaimSeoOptimization;
 use App\Mcp\Tools\SeoOptimization\CommitContentOptimization;
+use App\Mcp\Tools\SeoOptimization\GetContentCreation;
 use App\Mcp\Tools\SeoOptimization\GetSeoPageSnapshot;
 use App\Mcp\Tools\SeoOptimization\GetSeoProposal;
 use App\Mcp\Tools\SeoOptimization\ListContentBackups;
+use App\Mcp\Tools\SeoOptimization\ListContentCreationTypes;
 use App\Mcp\Tools\SeoOptimization\ListSeoPages;
 use App\Mcp\Tools\SeoOptimization\PrepareSeoImage;
 use App\Mcp\Tools\SeoOptimization\ReportSeoOptimizationFailure;
 use App\Mcp\Tools\SeoOptimization\RequestContentRestore;
 use App\Mcp\Tools\SeoOptimization\RequestSeoOptimization;
+use App\Mcp\Tools\SeoOptimization\SearchContentCreationMedia;
 use App\Mcp\Tools\SeoOptimization\SeoPageCheck;
+use App\Mcp\Tools\SeoOptimization\StartContentCreation;
+use App\Mcp\Tools\SeoOptimization\SubmitContentCreation;
 use App\Mcp\Tools\SeoOptimization\SubmitSeoOptimization;
 use Laravel\Mcp\Server;
 
@@ -21,7 +26,9 @@ class SeoOptimizationServer extends Server
 {
     protected string $name = 'Hải Đăng Travel — SEO AI Optimize';
 
-    protected string $version = '2.1.2';
+    protected string $version = '2.2.0';
+
+    public int $defaultPaginationLength = 50;
 
     protected string $instructions = <<<'TEXT'
         Tối ưu trực tiếp các trang travel hiện hữu trong CMS, không phụ thuộc Google Sheet.
@@ -54,6 +61,11 @@ class SeoOptimizationServer extends Server
         Không đưa token, dữ liệu khách hàng hay thông tin riêng tư vào đề xuất. Tóm tắt kết quả
         theo proposal_id, score/grade và backup_id; không tuyên bố trang đã được cập nhật trước khi CMS áp dụng.
         Dùng list_content_backups và request_content_restore để tạo đề xuất khôi phục; không tự áp dụng restore.
+        Tạo nội dung mới là luồng riêng và chỉ xuất hiện khi token có ability create:
+        list_cms_content_creation_types → start_cms_content_creation → search_cms_content_media hoặc upload ảnh
+        vào upload_url → submit_cms_content_creation → get_cms_content_creation. Payload phải theo đúng contract loại bài,
+        ảnh inline dùng marker [[media:ref]]. Server chỉ tạo draft/inactive; không nhận status, canonical, schema,
+        giá, rating hay lịch khởi hành từ Codex. Danh mục blog/dịch vụ chưa có draft phải chờ xác nhận thủ công.
     TEXT;
 
     public const TOOL_CLASSES = [
@@ -70,6 +82,11 @@ class SeoOptimizationServer extends Server
         CommitContentOptimization::class,
         ListContentBackups::class,
         RequestContentRestore::class,
+        ListContentCreationTypes::class,
+        StartContentCreation::class,
+        SearchContentCreationMedia::class,
+        SubmitContentCreation::class,
+        GetContentCreation::class,
     ];
 
     protected array $tools = self::TOOL_CLASSES;
@@ -78,7 +95,7 @@ class SeoOptimizationServer extends Server
      * @param  array<int, string>  $abilities
      * @return array<int, array{name: string, description: string, required_abilities: array<int, string>, allowed: bool}>
      */
-    public static function toolCatalog(array $abilities = ['read', 'audit', 'propose', 'automate']): array
+    public static function toolCatalog(array $abilities = ['read', 'audit', 'propose', 'automate', 'create']): array
     {
         return array_map(static function (string $toolClass) use ($abilities): array {
             $entry = $toolClass::catalogEntry();

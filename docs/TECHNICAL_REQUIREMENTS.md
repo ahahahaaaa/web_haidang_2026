@@ -187,6 +187,8 @@ Permission model:
   - `admin.blogs.categories.index`
   - `admin.blogs.categories.edit`
 - admins may add extra child-action permissions to content accounts
+- account management additionally requires the `admin` or compatibility `super_admin` role; `admin.accounts.*` is not grantable as a direct Content permission
+- the account editor always shows the effective permission mode, while only Content exposes the granular extra-permission matrix
 - `super_admin` remains a compatibility full-access role in storage
 
 When adding, editing, or deleting a CMS model or manager:

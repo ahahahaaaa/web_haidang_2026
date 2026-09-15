@@ -34,6 +34,8 @@ class AccountsManager extends Component
 
     public function mount(?User $user = null): void
     {
+        $this->authorizeAccountManagerRole();
+
         $this->currentRouteName = request()->route()?->getName();
         $this->resetForm();
 
@@ -42,9 +44,14 @@ class AccountsManager extends Component
         }
     }
 
+    public function hydrate(): void
+    {
+        $this->authorizeAccountManagerRole();
+    }
+
     public function createAccount(): void
     {
-        $this->authorizeAdminPermission('admin.accounts.edit');
+        $this->authorizeAccountAdministration();
 
         $this->selectedId = null;
         $this->resetForm();
@@ -52,10 +59,11 @@ class AccountsManager extends Component
 
     public function editAccount(int $id): void
     {
-        $this->authorizeAdminPermission('admin.accounts.edit');
+        $this->authorizeAccountAdministration();
 
         $user = User::query()->with(['roles', 'permissions'])->findOrFail($id);
         $defaults = AdminNavigationRegistry::defaultContentPermissions();
+        $grantablePermissions = AdminNavigationRegistry::grantableContentPermissionKeys();
 
         $this->selectedId = (int) $user->getKey();
         $this->form = [
@@ -69,6 +77,7 @@ class AccountsManager extends Component
             'extra_permissions' => $user->permissions
                 ->pluck('name')
                 ->reject(fn (string $permission) => in_array($permission, $defaults, true))
+                ->filter(fn (string $permission) => in_array($permission, $grantablePermissions, true))
                 ->values()
                 ->all(),
         ];
@@ -77,7 +86,7 @@ class AccountsManager extends Component
     public function render()
     {
         return view('livewire.admin.cms.accounts-manager', [
-            'accountGroups' => AdminNavigationRegistry::groups(),
+            'accountGroups' => AdminNavigationRegistry::grantableContentGroups(),
             'canManageUserState' => $this->currentUserCanManageAccounts(),
             'currentUserId' => auth()->id(),
             'selectedUser' => $this->selectedId ? User::query()->find($this->selectedId) : null,
@@ -102,7 +111,7 @@ class AccountsManager extends Component
 
     public function save(): void
     {
-        $this->authorizeAdminPermission('admin.accounts.edit');
+        $this->authorizeAccountAdministration();
 
         $isEditing = $this->selectedId !== null;
 
@@ -119,7 +128,7 @@ class AccountsManager extends Component
             'form.role_type' => ['required', Rule::in(['admin', 'content', 'sale'])],
             'form.is_active' => ['boolean'],
             'form.extra_permissions' => ['array'],
-            'form.extra_permissions.*' => ['string', Rule::in(AdminNavigationRegistry::permissionKeys())],
+            'form.extra_permissions.*' => ['string', Rule::in(AdminNavigationRegistry::grantableContentPermissionKeys())],
         ]);
 
         $user = User::query()->findOrNew($this->selectedId);
@@ -301,11 +310,15 @@ class AccountsManager extends Component
     protected function authorizeAccountAdministration(): void
     {
         $this->authorizeAdminPermission('admin.accounts.edit');
+        $this->authorizeAccountManagerRole();
+    }
 
+    protected function authorizeAccountManagerRole(): void
+    {
         abort_unless(
-            $this->currentUserCanManageAccounts(),
+            auth()->user()?->hasAnyRole(['admin', 'super_admin']),
             403,
-            'Chỉ Admin được phép tắt, bật hoặc xóa tài khoản.',
+            'Chỉ Admin được phép quản lý tài khoản.',
         );
     }
 

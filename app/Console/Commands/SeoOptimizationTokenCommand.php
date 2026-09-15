@@ -12,7 +12,7 @@ use Throwable;
 
 class SeoOptimizationTokenCommand extends Command
 {
-    protected $signature = 'seo-optimize:token {user : ID hoặc email tài khoản dịch vụ} {name : Nhãn token} {--types=blog_post : Loại trang phân cách bằng dấu phẩy} {--days=30 : Hiệu lực 1–90 ngày} {--automation : Cho phép tự chọn bài CMS, xử lý Media và chốt theo publish policy server} {--revoke= : Thu hồi token theo ID, không tạo token mới}';
+    protected $signature = 'seo-optimize:token {user : ID hoặc email tài khoản dịch vụ} {name : Nhãn token} {--types=blog_post : Loại trang phân cách bằng dấu phẩy} {--days=30 : Hiệu lực 1–90 ngày} {--automation : Cho phép tự chọn bài CMS, xử lý Media và chốt theo publish policy server} {--content-creation : Cho phép tạo record CMS draft/inactive và upload Media} {--revoke= : Thu hồi token theo ID, không tạo token mới}';
 
     protected $description = 'Tạo token MCP đề xuất; tùy chọn automation tuân theo publish policy do người quản trị cấu hình';
 
@@ -41,6 +41,7 @@ class SeoOptimizationTokenCommand extends Command
                 $days,
                 (bool) $this->option('automation'),
                 $user,
+                (bool) $this->option('content-creation'),
             );
         } catch (ValidationException $exception) {
             $this->error(collect($exception->errors())->flatten()->implode(' '));

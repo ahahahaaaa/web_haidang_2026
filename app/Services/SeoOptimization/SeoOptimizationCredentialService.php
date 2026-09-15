@@ -17,7 +17,7 @@ class SeoOptimizationCredentialService
      * @param  array<int, string>  $pageTypes
      * @return array{credential: SeoOptimizationCredential, token: string}
      */
-    public function issue(User $subject, string $name, array $pageTypes, int $days, bool $automation, ?User $actor = null): array
+    public function issue(User $subject, string $name, array $pageTypes, int $days, bool $automation, ?User $actor = null, bool $contentCreation = false): array
     {
         if (! $subject->is_active) {
             throw ValidationException::withMessages([
@@ -71,6 +71,14 @@ class SeoOptimizationCredentialService
                 ]);
             }
             $abilities[] = 'automate';
+        }
+        if ($contentCreation) {
+            if (! $subject->can('admin.media.index')) {
+                throw ValidationException::withMessages([
+                    'tokenContentCreation' => 'Token tạo nội dung cần tài khoản có quyền Media.',
+                ]);
+            }
+            $abilities[] = 'create';
         }
 
         $name = trim($name);
@@ -126,6 +134,40 @@ class SeoOptimizationCredentialService
                     'name' => $credential->name,
                 ],
             ]);
+        });
+    }
+
+    public function deleteRevoked(SeoOptimizationCredential $credential, ?User $actor = null): void
+    {
+        DB::transaction(function () use ($credential, $actor): void {
+            $lockedCredential = SeoOptimizationCredential::query()
+                ->withTrashed()
+                ->lockForUpdate()
+                ->find($credential->id);
+
+            if (! $lockedCredential || $lockedCredential->trashed()) {
+                return;
+            }
+            if ($lockedCredential->revoked_at === null) {
+                throw ValidationException::withMessages([
+                    'credential' => 'Chỉ có thể xóa token đã thu hồi.',
+                ]);
+            }
+
+            SeoOptimizationEvent::query()->create([
+                'actor_id' => $actor?->id,
+                'event' => 'credential.deleted',
+                'payload' => [
+                    'credential_id' => $lockedCredential->id,
+                    'subject_user_id' => $lockedCredential->user_id,
+                    'name' => $lockedCredential->name,
+                    'abilities' => $lockedCredential->abilities,
+                    'allowed_page_types' => $lockedCredential->allowed_page_types,
+                    'revoked_at' => $lockedCredential->revoked_at?->toIso8601String(),
+                ],
+            ]);
+
+            $lockedCredential->delete();
         });
     }
 }

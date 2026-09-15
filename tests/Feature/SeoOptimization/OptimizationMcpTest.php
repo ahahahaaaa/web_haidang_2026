@@ -62,6 +62,25 @@ class OptimizationMcpTest extends OptimizationTestCase
         $this->callTool('get_seo_page_snapshot', ['page_id' => $this->page->id])->assertOk()->assertJsonPath('result.isError', false);
     }
 
+    public function test_full_ability_token_receives_the_complete_tool_catalog_in_one_response(): void
+    {
+        $abilities = ['read', 'audit', 'propose', 'automate', 'create'];
+        $this->credential->update(['abilities' => $abilities]);
+
+        $expectedNames = collect(SeoOptimizationServer::toolCatalog($abilities))
+            ->where('allowed', true)
+            ->pluck('name')
+            ->all();
+
+        $response = $this->rpc('tools/list')->assertOk();
+        $tools = $response->json('result.tools');
+
+        $response
+            ->assertJsonCount(count($expectedNames), 'result.tools')
+            ->assertJsonMissingPath('result.nextCursor');
+        $this->assertEqualsCanonicalizing($expectedNames, array_column($tools, 'name'));
+    }
+
     public function test_submit_contract_rejects_string_faq_and_accepts_structured_faq_items(): void
     {
         $this->callTool('request_seo_optimization', [

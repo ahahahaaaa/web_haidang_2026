@@ -45,6 +45,7 @@ abstract class OptimizationComponent extends Component
             'EXPECTED_INDEXABLE_ERROR' => 'Cần kiểm tra public', 'DRAFT_OR_PRIVATE' => 'Bản nháp / riêng tư', 'UNRESOLVED' => 'Chưa xác định nguồn',
             'pending' => 'Đang chờ', 'queued' => 'Đang chờ', 'leased' => 'Codex đang xử lý',
             'running' => 'Đang xử lý', 'completed' => 'Hoàn tất', 'succeeded' => 'Hoàn tất',
+            'drafting' => 'Codex đang soạn', 'ready_for_review' => 'Chờ xác nhận tạo',
             'failed' => 'Lỗi', 'cancelled' => 'Đã hủy', 'expired' => 'Hết hạn', 'skipped' => 'Bỏ qua do điểm cao',
             'draft' => 'Bản nháp', 'pending_review' => 'Chờ duyệt', 'in_review' => 'Chờ duyệt', 'proposed' => 'Đã tạo đề xuất',
             'approved' => 'Đã duyệt', 'rejected' => 'Từ chối', 'applied' => 'Đã áp dụng',

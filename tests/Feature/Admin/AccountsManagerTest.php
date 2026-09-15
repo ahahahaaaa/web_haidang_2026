@@ -231,4 +231,73 @@ class AccountsManagerTest extends TestCase
 
         $this->assertTrue($admin->refresh()->is_active);
     }
+
+    public function test_account_editor_updates_permission_mode_when_role_changes(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $admin = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $this->actingAs($admin);
+
+        Livewire::test(AccountsManager::class)
+            ->set('currentRouteName', 'admin.accounts.edit')
+            ->call('editAccount', $admin->id)
+            ->assertSee('wire:model.live="form.role_type"', false)
+            ->assertSeeText('Admin có toàn quyền trên toàn bộ sidebar và action của CMS.')
+            ->set('form.role_type', 'content')
+            ->assertSeeText('Giữ nguyên quyền mặc định của Content và chỉ bật thêm các action cần thiết.')
+            ->assertViewHas('accountGroups', fn (array $groups) => collect($groups)->doesntContain('key', 'accounts'));
+    }
+
+    public function test_content_user_cannot_receive_account_management_permission(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $admin = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $this->actingAs($admin);
+
+        Livewire::test(AccountsManager::class)
+            ->set('form.name', 'Content Accounts')
+            ->set('form.email', 'content-accounts@example.com')
+            ->set('form.password', 'password123')
+            ->set('form.password_confirmation', 'password123')
+            ->set('form.role_type', 'content')
+            ->set('form.extra_permissions', ['admin.accounts.edit'])
+            ->call('save')
+            ->assertHasErrors(['form.extra_permissions.0']);
+
+        $this->assertDatabaseMissing('users', ['email' => 'content-accounts@example.com']);
+    }
+
+    public function test_content_user_with_legacy_direct_permissions_cannot_manage_accounts(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $admin = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $content = User::query()->where('email', 'content@example.com')->firstOrFail();
+        $content->givePermissionTo(['admin.accounts.index', 'admin.accounts.edit']);
+
+        $this->actingAs($content);
+
+        $this->get(route('admin.accounts'))->assertForbidden();
+        $this->get(route('admin.accounts.edit', $admin))->assertForbidden();
+
+        Livewire::test(AccountsManager::class)->assertForbidden();
+    }
+
+    public function test_open_account_manager_is_blocked_after_current_admin_loses_role(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $admin = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $this->actingAs($admin);
+
+        $component = Livewire::test(AccountsManager::class);
+
+        $admin->syncRoles(['content']);
+
+        $component
+            ->set('search', 'content')
+            ->assertForbidden();
+    }
 }

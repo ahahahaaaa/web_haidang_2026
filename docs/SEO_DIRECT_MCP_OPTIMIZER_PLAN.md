@@ -192,6 +192,26 @@ Trong màn hình duyệt, SEOer có thể sửa trực tiếp các field đã n�
 
 Các tool tạo đề xuất thủ công v1 vẫn được giữ vì cùng dùng service an toàn hiện hành. Tool, gateway, command và cấu hình Google Sheet đã được gỡ; không còn alias Sheet trong MCP v2.
 
+### 10.1. Tạo nội dung CMS mới (v2.2)
+
+Luồng tạo record mới tách khỏi task tối ưu URL hiện hữu:
+
+```text
+list_cms_content_creation_types
+  -> start_cms_content_creation
+  -> search_cms_content_media hoặc upload multipart vào upload_url
+  -> submit_cms_content_creation
+  -> get_cms_content_creation
+```
+
+- Token phải có ability `create`, quyền Media và quyền edit đúng loại CMS; ability `automate` không tự cấp quyền tạo bài.
+- Payload chỉ nhận field công bố trong `cms-content-creation-v1`; field publish/canonical/schema và dữ liệu thương mại là server-only.
+- `BlogPost`, `Tour`, `Service`, `TourCategory`, `Destination/Country`, `Region` luôn được tạo `draft`; landing custom luôn `is_active=false`.
+- `ContentCategory` blog/service chưa có lifecycle draft nên submit chỉ lưu `ready_for_review`; quản trị viên phải xác nhận trước khi tạo taxonomy thật.
+- File ảnh mới được kiểm MIME, phần mở rộng, dung lượng và pixel, chuyển WebP rồi lưu ở Spatie collection `library`. Database chỉ lưu metadata/relation Media, không lưu binary/base64.
+- Ảnh đại diện dùng collection `cover` hoặc `avatar`; gallery/landing dùng collection theo UUID; ảnh trong nội dung dùng marker `[[media:ref]]` và server dựng HTML từ Media ID đã xác thực.
+- `seo_readiness` là kiểm tra payload trước publish, không thay cho audit 12 tiêu chí dựa trên URL public/render.
+
 ## 11. Gỡ SEO legacy và code dư thừa
 
 ### 11.1. Kết quả isolation đã thực hiện
@@ -234,6 +254,7 @@ Thực hiện theo reference graph và diff review, không xóa thư mục rộn
 - Slug được kiểm tra unique và tạo redirect 301 trong cùng transaction; `always_publish` tự áp dụng khi điểm tăng, còn `preview` chờ người có quyền duyệt.
 - Media trực tiếp dùng Spatie Library: reuse cùng site, download ngoài site có kiểm tra, hoặc nhận ảnh Codex tạo.
 - Hàng chờ admin hỗ trợ xóa từng task và dọn toàn bộ task đã kết thúc bằng soft delete; khóa task đang có lease, đồng thời giữ nguyên proposal, asset, backup và audit event.
+- Trang cấu hình MCP hiển thị catalog tool theo đúng credential đã chọn của từng tài khoản. Credential đã thu hồi được phép soft delete; task tạo nội dung và audit vẫn truy xuất được credential lịch sử.
 - Skill `.agents/skills/haidang-travel-seo-post-optimizer` mô tả luồng Codex Schedule v2.
 
 Không xóa `SitemapBuilder`, robots/sitemap, trường meta/schema của Tour/Service/BlogPost/LandingPage hoặc SEO helper theme chỉ vì có chữ “SEO”. Thư mục lồng `haidangtravel/` phải xác minh ownership/deploy trước khi xử lý; không đưa vào lệnh xóa đệ quy chung.

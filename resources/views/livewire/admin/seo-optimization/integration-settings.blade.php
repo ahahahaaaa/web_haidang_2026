@@ -118,6 +118,9 @@
             <div class="flex items-end rounded-2xl border border-zinc-200 p-3 dark:border-zinc-700">
                 <flux:checkbox wire:model.live="tokenAutomation" label="Cho phép tự nhận bài, xử lý Media và commit theo policy" />
             </div>
+            <div class="flex items-end rounded-2xl border border-violet-200 bg-violet-50 p-3 dark:border-violet-900 dark:bg-violet-950/40 lg:col-span-2">
+                <flux:checkbox wire:model.live="tokenContentCreation" label="Cho phép Codex tạo nội dung CMS mới ở trạng thái draft/inactive và upload ảnh vào Media Library" />
+            </div>
             <fieldset class="space-y-2 lg:col-span-2">
                 <legend class="text-sm font-medium text-zinc-900 dark:text-white">Phạm vi token</legend>
                 <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
@@ -145,16 +148,22 @@
                         <tr wire:key="credential-{{ $credential->id }}">
                             <td class="px-3 py-3"><p class="font-medium text-zinc-900 dark:text-white">{{ $credential->name }}</p><p class="font-mono text-xs text-zinc-400">{{ $credential->id }}</p></td>
                             <td class="px-3 py-3 text-zinc-600 dark:text-zinc-300">{{ $credential->user?->name }}<br><span class="text-xs text-zinc-400">{{ $credential->user?->email }}</span></td>
-                            <td class="px-3 py-3 text-zinc-600 dark:text-zinc-300">{{ in_array('automate', $credential->abilities ?? [], true) ? 'Automation' : 'Đề xuất' }}<br><span class="text-xs text-zinc-400">{{ collect($credential->allowed_page_types ?? [])->map(fn ($type) => $this->pageTypeLabel($type))->join(', ') }}</span></td>
+                            <td class="px-3 py-3 text-zinc-600 dark:text-zinc-300">
+                                {{ collect([
+                                    in_array('automate', $credential->abilities ?? [], true) ? 'Automation' : null,
+                                    in_array('create', $credential->abilities ?? [], true) ? 'Tạo nội dung mới' : null,
+                                ])->filter()->join(' + ') ?: 'Đề xuất' }}
+                                <br><span class="text-xs text-zinc-400">{{ collect($credential->allowed_page_types ?? [])->map(fn ($type) => $this->pageTypeLabel($type))->join(', ') }}</span>
+                            </td>
                             <td class="px-3 py-3">
                                 <span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold {{ $active ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200' : 'bg-zinc-200 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300' }}">{{ $credential->revoked_at ? 'Đã thu hồi' : ($expired ? 'Hết hạn' : 'Còn hiệu lực') }}</span>
                                 <p class="mt-1 text-xs text-zinc-400">Hết hạn: {{ $credential->expires_at?->format('d/m/Y H:i') ?: 'Không đặt' }}</p>
                             </td>
                             <td class="px-3 py-3 text-right">
-                                @if($active)
-                                    <button type="button" class="rounded-lg bg-red-50 px-3 py-2 text-xs font-semibold text-red-700 hover:bg-red-100 dark:bg-red-950 dark:text-red-200" wire:click="revokeToken('{{ $credential->id }}')" wire:loading.attr="disabled" wire:target="revokeToken('{{ $credential->id }}')" wire:confirm="Thu hồi token này? Codex đang dùng token sẽ mất quyền truy cập ngay.">Thu hồi</button>
+                                @if($credential->revoked_at !== null)
+                                    <button type="button" class="rounded-lg border border-red-200 px-3 py-2 text-xs font-semibold text-red-700 hover:bg-red-50 dark:border-red-900 dark:text-red-200 dark:hover:bg-red-950" wire:click="deleteRevokedToken('{{ $credential->id }}')" wire:loading.attr="disabled" wire:target="deleteRevokedToken('{{ $credential->id }}')" wire:confirm="Xóa token đã thu hồi này khỏi danh sách? Token sẽ được xóa mềm; lịch sử task và audit vẫn được giữ.">Xóa</button>
                                 @else
-                                    <span class="text-xs text-zinc-400">—</span>
+                                    <button type="button" class="rounded-lg bg-red-50 px-3 py-2 text-xs font-semibold text-red-700 hover:bg-red-100 dark:bg-red-950 dark:text-red-200" wire:click="revokeToken('{{ $credential->id }}')" wire:loading.attr="disabled" wire:target="revokeToken('{{ $credential->id }}')" wire:confirm="Thu hồi token này? Codex đang dùng token sẽ mất quyền truy cập ngay.">Thu hồi</button>
                                 @endif
                             </td>
                         </tr>
@@ -250,13 +259,51 @@ Lặp tối đa {{ $scheduleBatchLimit }} lần:
 8. Nếu queue_source=admin_queue, dừng sau submit, báo proposal_id và trạng thái chờ duyệt; không gọi commit_content_optimization. Nếu queue_source=automatic_selection, gọi commit_content_optimization bằng proposal_id và content_hash. Ở Luôn publish, server chỉ ghi khi điểm sau lớn hơn điểm trước và tạo backup; Buộc preview luôn chờ duyệt.
 9. Báo proposal_id, URL, điểm trước/sau/chênh lệch, status, acceptance_status, dimension chưa PASS và backup_id nếu có. Không tuyên bố PASS/publish khi server chưa xác nhận. Giữ nguyên idempotency_key khi retry; gặp STALE_SOURCE thì không report failure, lỗi khác dùng report_seo_optimization_failure và không lặp vô hạn.</pre>
 
+        <div class="grid gap-3 rounded-2xl border border-sky-200 bg-sky-50 p-3 dark:border-sky-900 dark:bg-sky-950/30 lg:grid-cols-2">
+            <flux:select wire:model.live="permissionUserId" label="Tài khoản cần xem quyền">
+                <option value="">Chọn tài khoản đã được cấp token</option>
+                @foreach($permissionAccounts as $account)
+                    <option wire:key="permission-account-{{ $account->id }}" value="{{ $account->id }}">
+                        {{ $account->name }} — {{ $account->email }}{{ ! $account->is_active ? ' (đã khóa)' : ($account->email_verified_at === null ? ' (chưa xác minh email)' : '') }}
+                    </option>
+                @endforeach
+            </flux:select>
+            <flux:select wire:model.live="permissionCredentialId" label="Token đã cấp">
+                <option value="">Chọn token</option>
+                @foreach($permissionCredentials as $credential)
+                    @php
+                        $permissionTokenExpired = $credential->expires_at?->isPast() ?? false;
+                        $permissionTokenStatus = $credential->revoked_at !== null ? 'đã thu hồi' : ($permissionTokenExpired ? 'hết hạn' : 'còn hiệu lực');
+                    @endphp
+                    <option wire:key="permission-credential-{{ $credential->id }}" value="{{ $credential->id }}">
+                        {{ $credential->name }} — {{ $credential->id }} — {{ $permissionTokenStatus }}
+                    </option>
+                @endforeach
+            </flux:select>
+
+            @if($selectedCredential)
+                <div class="space-y-2 rounded-xl bg-white p-3 text-sm text-zinc-700 ring-1 ring-sky-100 dark:bg-zinc-950 dark:text-zinc-200 dark:ring-sky-900 lg:col-span-2">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <p><span class="font-semibold">Đang xem:</span> {{ $selectedCredential->name }} · <code>{{ $selectedCredential->id }}</code> · {{ $selectedCredential->user?->name }} ({{ $selectedCredential->user?->email }})</p>
+                        <span class="rounded-full px-2.5 py-1 text-xs font-semibold {{ $selectedCredentialCanAuthenticate ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200' : 'bg-zinc-200 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300' }}">
+                            {{ $selectedCredentialCanAuthenticate ? 'Có thể xác thực MCP' : ($selectedCredential->revoked_at !== null ? 'Đã thu hồi' : (($selectedCredential->expires_at?->isPast() ?? false) ? 'Đã hết hạn' : 'Tài khoản không khả dụng')) }}
+                        </span>
+                    </div>
+                    <p><span class="font-semibold">Abilities thực tế:</span> {{ collect($selectedCredential->abilities ?? [])->join(', ') ?: 'Không có' }}</p>
+                    <p><span class="font-semibold">Phạm vi nội dung:</span> {{ collect($selectedCredential->allowed_page_types ?? [])->map(fn ($type) => $this->pageTypeLabel($type))->join(', ') ?: 'Không có' }}</p>
+                </div>
+            @else
+                <p class="rounded-xl bg-white p-3 text-sm text-zinc-600 ring-1 ring-sky-100 dark:bg-zinc-950 dark:text-zinc-300 dark:ring-sky-900 lg:col-span-2">Chưa có token thuộc tài khoản đã chọn. Hãy chọn một tài khoản và token đã cấp để tải quyền thực tế.</p>
+            @endif
+        </div>
+
         <div class="overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-200 bg-zinc-50 px-3 py-3 dark:border-zinc-800 dark:bg-zinc-950">
                 <div>
-                    <h3 class="font-semibold text-zinc-900 dark:text-white">MCP được server cho phép</h3>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400">Danh sách lấy trực tiếp từ registry của server. Endpoint chỉ trả các tool phù hợp với abilities của từng token.</p>
+                    <h3 class="font-semibold text-zinc-900 dark:text-white">MCP tools/list của token đã chọn</h3>
+                    <p class="text-xs text-zinc-500 dark:text-zinc-400">Danh sách lấy từ registry và abilities đã lưu của đúng credential phía trên, không lấy checkbox trong form tạo token mới.</p>
                 </div>
-                <span class="rounded-full bg-sky-100 px-2.5 py-1 text-xs font-semibold text-sky-800 dark:bg-sky-950 dark:text-sky-200">{{ $allowedMcpToolCount }}/{{ count($mcpTools) }} tool cho cấu hình token hiện tại</span>
+                <span class="rounded-full bg-sky-100 px-2.5 py-1 text-xs font-semibold text-sky-800 dark:bg-sky-950 dark:text-sky-200">{{ $allowedMcpToolCount }}/{{ count($mcpTools) }} tool của token đã chọn</span>
             </div>
             <div class="divide-y divide-zinc-100 dark:divide-zinc-800">
                 @foreach($mcpTools as $tool)
@@ -267,8 +314,8 @@ Lặp tối đa {{ $scheduleBatchLimit }} lần:
                             @foreach($tool['required_abilities'] as $ability)
                                 <span class="rounded-full bg-zinc-100 px-2 py-0.5 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">{{ $ability }}</span>
                             @endforeach
-                            <span class="rounded-full px-2 py-0.5 text-xs font-semibold {{ $tool['allowed'] ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200' : 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-200' }}">
-                                {{ $tool['allowed'] ? 'Được cấp' : 'Cần bật tự động' }}
+                            <span class="rounded-full px-2 py-0.5 text-xs font-semibold {{ $tool['allowed'] ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200' : ($selectedCredentialCanAuthenticate ? 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-200' : 'bg-zinc-200 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300') }}">
+                                {{ ! $selectedCredential ? 'Chưa chọn token' : (! $selectedCredentialCanAuthenticate ? 'Token không khả dụng' : ($tool['allowed'] ? 'Được cấp' : (in_array('create', $tool['required_abilities'], true) ? 'Không có quyền tạo' : (in_array('automate', $tool['required_abilities'], true) ? 'Không có quyền tự động' : 'Thiếu ability')))) }}
                             </span>
                         </div>
                     </article>
@@ -278,6 +325,27 @@ Lặp tối đa {{ $scheduleBatchLimit }} lần:
         <div class="rounded-2xl bg-amber-50 p-3 text-sm text-amber-900 dark:bg-amber-950 dark:text-amber-100">
             <strong>Lịch mẫu:</strong> hàng ngày lúc 02:00, múi giờ Asia/Bangkok, batch nhỏ trước. Theo dõi các lượt đầu ở chế độ Buộc preview rồi mới cân nhắc Luôn publish.
         </div>
+    </section>
+
+    <section class="space-y-3 rounded-3xl border border-violet-200 bg-violet-50 p-4 dark:border-violet-900 dark:bg-violet-950/30">
+        <div class="flex flex-wrap items-start justify-between gap-3">
+            <div>
+                <h2 class="text-lg font-semibold text-zinc-900 dark:text-white">7. Mẫu tạo nội dung CMS mới</h2>
+                <p class="text-sm text-zinc-600 dark:text-zinc-300">Chỉ dùng khi token đã bật quyền tạo nội dung. Luồng này không lấy bài từ hàng chờ tối ưu URL.</p>
+            </div>
+            <span class="rounded-full px-2.5 py-1 text-xs font-semibold {{ $tokenContentCreation ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200' : 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-200' }}">
+                {{ $tokenContentCreation ? 'Đã bật quyền tạo' : 'Chưa bật quyền tạo' }}
+            </span>
+        </div>
+        <pre class="overflow-auto whitespace-pre-wrap break-words rounded-2xl bg-zinc-950 p-4 text-sm leading-6 text-zinc-100">Sử dụng plugin Hải Đăng Travel SEO để tạo một nội dung CMS mới theo yêu cầu của tôi. Không dùng claim_next_content_optimization vì đây không phải tối ưu URL hiện hữu.
+
+1. Gọi list_cms_content_creation_types, chọn đúng content_type và đọc toàn bộ field contract, media_slots, server_only_fields, commit_mode.
+2. Gọi start_cms_content_creation với yêu cầu, primary keyword, search intent, secondary keywords, entity, required topics, facts đã xác minh và yêu cầu ảnh. Giữ nguyên idempotency_key khi retry.
+3. Viết tiếng Việt tự nhiên, people-first, đúng intent. Title/name là H1 nên content chỉ dùng H2-H6. Điền đầy đủ meta title, meta description, OG, FAQ và internal link khi contract hỗ trợ. Không bịa giá, lịch khởi hành, số chỗ, visa, rating, chính sách hoặc claim.
+4. Ưu tiên search_cms_content_media để dùng ảnh có sẵn. Nếu cần ảnh mới và có công cụ ImageGen, tạo ảnh đúng ngữ cảnh rồi upload file thật vào upload_url. Không nhúng URL ảnh tùy ý.
+5. Ảnh đại diện dùng slot cover/avatar; gallery dùng gallery; landing block dùng landing_block với đúng block_uuid/item_uuid; ảnh giữa bài đặt marker [[media:reference]] đúng vị trí và dùng slot content. Mọi ảnh có alt đúng ngữ cảnh.
+6. Không gửi status, published_at, canonical_url, robots_directive, schema, giá, rating hay lịch khởi hành. Gọi submit_cms_content_creation đúng một lần sau khi tự kiểm toàn bộ payload.
+7. Báo task_id, content_type, seo_readiness, publish_state và editor_url. Chỉ nói đã tạo bản nháp/inactive khi server trả completed; ready_for_review nghĩa là chờ quản trị viên xác nhận. Không nói bài đã public.</pre>
     </section>
 
     <section class="space-y-3 rounded-3xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">

@@ -22,7 +22,7 @@ class AuthenticateSeoOptimizationMcp
             return $this->error('ORIGIN_DENIED', 'Nguồn gửi yêu cầu không được cho phép.', 403);
         }
 
-        $maxBytes = $request->routeIs('mcp.seo-optimization.media')
+        $maxBytes = $request->routeIs('mcp.seo-optimization.media', 'mcp.seo-optimization.content-creation.media')
             ? (int) config('seo_optimization.media_max_bytes', 10485760) + 65536
             : (int) config('seo_optimization.mcp_max_request_bytes', 1048576);
         if ((int) $request->header('Content-Length', 0) > $maxBytes || strlen($request->getContent()) > $maxBytes) {

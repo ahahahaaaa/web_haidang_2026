@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\DB;
 use Livewire\Livewire;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Src\Domains\Cms\Models\Service;
 use Src\Domains\Cms\Models\SiteSetting;
 
 class OptimizationAdminTest extends OptimizationTestCase
@@ -140,6 +141,95 @@ class OptimizationAdminTest extends OptimizationTestCase
         $this->assertSame([], $audit->report['missing_dimensions']);
         $this->assertSame([], $this->page->fresh()->keyword_brief['entities']);
         $this->assertSame([], $this->page->fresh()->keyword_brief['required_topics']);
+    }
+
+    public function test_pages_index_can_audit_one_url_and_refresh_its_score(): void
+    {
+        $this->assertSame(0, $this->page->audits()->count());
+
+        Livewire::actingAs($this->reviewer)
+            ->test(PagesIndex::class)
+            ->assertSee('Kiểm tra SEO hàng loạt')
+            ->assertSee('Kiểm tra')
+            ->call('auditPage', $this->page->id)
+            ->assertHasNoErrors()
+            ->assertSee('Kiểm tra gần nhất')
+            ->assertDontSee('N/A');
+
+        $audit = $this->page->audits()->latest()->firstOrFail();
+        $this->assertNotNull($audit->score);
+        $this->assertSame($this->page->source_version, $audit->source_version);
+        $this->assertDatabaseHas('seo_optimization_outbox', [
+            'event_key' => 'audit:'.$audit->id,
+            'destination' => '16_PAGE_KEYWORD_AUDIT',
+        ]);
+    }
+
+    public function test_pages_index_can_audit_selected_filtered_urls_and_honor_exclusions(): void
+    {
+        foreach (['Alpha', 'Beta'] as $suffix) {
+            Service::query()->create([
+                'title' => 'Kiểm tra hàng loạt '.$suffix,
+                'slug' => 'kiem-tra-hang-loat-'.str()->lower($suffix),
+                'status' => 'published',
+                'meta_title' => 'Kiểm tra hàng loạt '.$suffix,
+                'meta_description' => 'Nội dung kiểm tra SEO hàng loạt '.$suffix.'.',
+                'content' => '<h2>Thông tin hành trình</h2><p>Tư vấn lịch trình và dịch vụ phù hợp.</p>',
+            ]);
+        }
+        app(PageRegistryService::class)->sync();
+        $pages = SeoOptimizationPage::query()
+            ->where('page_type', 'service')
+            ->where('title', 'like', 'Kiểm tra hàng loạt%')
+            ->orderBy('title')
+            ->get();
+        $this->assertCount(2, $pages);
+
+        Livewire::actingAs($this->reviewer)
+            ->test(PagesIndex::class)
+            ->set('search', 'Kiểm tra hàng loạt')
+            ->call('toggleSelectAllFiltered')
+            ->assertViewHas('selectedCount', 2)
+            ->assertViewHas('selectedAuditCount', 2)
+            ->call('togglePageSelection', $pages->last()->id)
+            ->assertViewHas('selectedCount', 1)
+            ->call('auditSelected')
+            ->assertHasNoErrors()
+            ->assertSet('selectAllFiltered', false)
+            ->assertSet('selectedPageIds', [])
+            ->assertSee('1 lần kiểm tra');
+
+        $this->assertSame(1, $pages->first()->audits()->count());
+        $this->assertSame(0, $pages->last()->audits()->count());
+    }
+
+    public function test_audit_only_editor_can_select_and_check_urls_but_cannot_edit_bulk_briefs(): void
+    {
+        $this->reviewer->revokePermissionTo('admin.seo-optimization.propose');
+        $this->reviewer->revokePermissionTo('admin.services.edit');
+
+        Livewire::actingAs($this->reviewer)
+            ->test(PagesIndex::class)
+            ->assertViewHas('canSelect', true)
+            ->assertViewHas('selectedBriefCount', 0)
+            ->assertSee('Kiểm tra SEO hàng loạt')
+            ->assertDontSee('Bổ sung Brief hàng loạt')
+            ->call('togglePageSelection', $this->page->id)
+            ->call('auditSelected')
+            ->assertHasNoErrors();
+
+        $this->assertSame(1, $this->page->audits()->count());
+    }
+
+    public function test_pages_index_audit_actions_require_audit_permission(): void
+    {
+        $this->reviewer->revokePermissionTo('admin.seo-optimization.audit');
+
+        Livewire::actingAs($this->reviewer)
+            ->test(PagesIndex::class)
+            ->assertDontSee('Kiểm tra SEO hàng loạt')
+            ->call('auditPage', $this->page->id)
+            ->assertForbidden();
     }
 
     public function test_pages_index_shows_the_latest_seo_score_without_lazy_loading(): void

@@ -1,6 +1,6 @@
 ---
 name: haidang-travel-seo-post-optimizer
-description: Tối ưu bài viết, tour, dịch vụ và landing page Hải Đăng Travel qua SEO Optimization MCP. Dùng khi kiểm tra kết nối, xử lý từng bài hoặc chạy batch theo Codex Schedule.
+description: Tối ưu nội dung hiện hữu hoặc tạo bài viết, tour, dịch vụ, taxonomy và landing page mới trong CMS Hải Đăng Travel qua SEO Optimization MCP.
 ---
 
 # Hải Đăng Travel SEO Post Optimizer
@@ -77,3 +77,16 @@ Nếu server trả `STALE_SOURCE`, task cũ đã được kết thúc và giải
 ## Khôi phục
 
 Dùng `list_content_backups` để chọn bản sao và `request_content_restore` để tạo đề xuất khôi phục. Không tự áp dụng khôi phục.
+
+## Tạo nội dung CMS mới
+
+Chỉ dùng luồng này khi người dùng yêu cầu tạo record mới; không claim URL tối ưu hiện hữu.
+
+1. Gọi `list_cms_content_creation_types`; chọn đúng `content_type`, đọc `fields`, `server_only_fields`, `media_slots`, `commit_mode` và `allowed_block_types`.
+2. Gọi `start_cms_content_creation` với yêu cầu, primary keyword, intent, secondary keywords, entity, topic, facts đã xác minh và yêu cầu ảnh. Giữ nguyên idempotency key nếu retry cùng yêu cầu.
+3. Soạn đúng field contract. Không gửi `status`, `published_at`, `canonical_url`, `robots_directive`, `schema`, giá, rating, lịch khởi hành hoặc dữ liệu thương mại server-only. Title/name là H1 nên content không thêm H1.
+4. Ưu tiên `search_cms_content_media`. Nếu cần ảnh mới và có ImageGen, tạo ảnh đúng ngữ cảnh rồi upload multipart vào `upload_url` với `reference`, file `image`, `alt`, `prompt`, `lease_token`. Server kiểm MIME/pixel/dung lượng, chuyển WebP và lưu vào thư viện.
+5. Khai báo ảnh trong `media_placements`: `cover/avatar`, `gallery`, `landing_block` kèm UUID block/item, hoặc `content` cho marker `[[media:reference]]`. Không gửi URL ảnh trực tiếp trong HTML/blocks.
+6. Trước submit, kiểm title/meta, intent, topic/entity, H2/H3, internal link, FAQ, alt và facts. `seo_readiness` chỉ là điểm payload trước publish, không phải audit 12 tiêu chí của URL public.
+7. Gọi `submit_cms_content_creation` đúng một lần. `completed` trả `editor_url` và record draft/inactive; `ready_for_review` nghĩa là taxonomy chưa được tạo cho tới khi người quản trị xác nhận.
+8. Gọi `get_cms_content_creation` nếu cần kiểm tra lại. Không tuyên bố bài đã public vì luồng tạo mới không tự publish.

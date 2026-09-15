@@ -24,6 +24,7 @@ class OptimizationAccess
     {
         $action = $action === 'read' ? 'index' : $action;
         $action = $action === 'automate' ? 'propose' : $action;
+        $action = $action === 'create' ? 'propose' : $action;
         abort_unless(config('seo_optimization.enabled'), 503, 'SEO AI Optimize đang tạm tắt.');
         abort_unless($user->is_active === true, 403, 'Tài khoản chưa được phép truy cập.');
         abort_if($user instanceof MustVerifyEmail && ! $user->hasVerifiedEmail(), 403, 'Tài khoản cần xác minh email trước khi truy cập.');

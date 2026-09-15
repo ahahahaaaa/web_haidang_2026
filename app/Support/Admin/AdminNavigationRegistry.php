@@ -4,6 +4,7 @@ namespace App\Support\Admin;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
 class AdminNavigationRegistry
@@ -219,6 +220,7 @@ class AdminNavigationRegistry
                 'actions' => [
                     self::action('admin.seo-optimization.index', 'Tối ưu URL', 'Brief từ khóa, kiểm tra và đề xuất cho URL CMS.', 'admin.seo-optimization.index', ['admin.seo-optimization.index', 'admin.seo-optimization.pages.show', 'admin.seo-optimization.proposals.show']),
                     self::action('admin.seo-optimization.index', 'Hàng chờ Codex', 'Theo dõi yêu cầu tạo nội dung chờ duyệt.', 'admin.seo-optimization.tasks.index', ['admin.seo-optimization.tasks.index']),
+                    self::action('admin.seo-optimization.index', 'Nội dung Codex tạo', 'Theo dõi bài CMS mới, media và taxonomy chờ xác nhận.', 'admin.seo-optimization.content-creation.index', ['admin.seo-optimization.content-creation.index']),
                     self::action('admin.seo-optimization.settings', 'Kết nối và lịch chạy', 'Cấu hình MCP, lịch Codex và policy preview/publish.', 'admin.seo-optimization.settings', ['admin.seo-optimization.settings']),
                     self::action('admin.seo-optimization.audit', 'Kiểm tra SEO', 'Chạy kiểm tra SEO trong phạm vi nội dung được cấp.', 'admin.seo-optimization.index', [], false),
                     self::action('admin.seo-optimization.propose', 'Quản lý brief và đề xuất', 'Lưu brief, gửi yêu cầu tạo đề xuất nội dung.', 'admin.seo-optimization.index', [], false),
@@ -331,6 +333,10 @@ class AdminNavigationRegistry
      */
     public static function visibleActions(string $groupKey, ?Authenticatable $user = null): array
     {
+        if ($groupKey === 'accounts' && ! self::userHasAccountManagerRole($user)) {
+            return [];
+        }
+
         $group = self::group($groupKey);
 
         if (! $group) {
@@ -339,6 +345,7 @@ class AdminNavigationRegistry
 
         return collect($group['actions'])
             ->filter(fn (array $action) => $action['navigation'] ?? true)
+            ->filter(fn (array $action) => Route::has($action['route']))
             ->filter(fn (array $action) => self::userCanAccess($user, $action['permission']))
             ->values()
             ->all();
@@ -372,6 +379,30 @@ class AdminNavigationRegistry
     public static function permissionKeys(): array
     {
         return collect(self::groups())
+            ->flatMap(fn (array $group) => collect($group['actions'])->pluck('permission'))
+            ->filter()
+            ->unique()
+            ->values()
+            ->all();
+    }
+
+    /**
+     * @return array<int, array<string, mixed>>
+     */
+    public static function grantableContentGroups(): array
+    {
+        return collect(self::groups())
+            ->reject(fn (array $group) => $group['key'] === 'accounts')
+            ->values()
+            ->all();
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public static function grantableContentPermissionKeys(): array
+    {
+        return collect(self::grantableContentGroups())
             ->flatMap(fn (array $group) => collect($group['actions'])->pluck('permission'))
             ->filter()
             ->unique()
@@ -480,5 +511,12 @@ class AdminNavigationRegistry
         return method_exists($user, 'can')
             ? (bool) $user->can($permission)
             : false;
+    }
+
+    protected static function userHasAccountManagerRole(?Authenticatable $user): bool
+    {
+        return $user
+            && method_exists($user, 'hasAnyRole')
+            && (bool) $user->hasAnyRole(['admin', 'super_admin']);
     }
 }

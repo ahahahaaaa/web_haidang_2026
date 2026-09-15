@@ -53,49 +53,61 @@
                 </form>
             @endcan
         </div>
-        @can('admin.seo-optimization.propose')
+        @if($canSelect)
             <div class="flex flex-col gap-3 rounded-2xl border border-teal-200 bg-teal-50/60 p-3 dark:border-teal-900 dark:bg-teal-950/20 lg:flex-row lg:items-center lg:justify-between">
                 <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
                     <flux:checkbox
                         wire:click="toggleSelectAllFiltered"
                         :checked="$selectAllFiltered"
-                        label="Chọn toàn bộ {{ number_format($bulkFilteredCount) }} kết quả lọc có quyền sửa"
+                        label="Chọn toàn bộ {{ number_format($bulkFilteredCount) }} kết quả lọc"
                     />
                     <p class="text-xs text-zinc-600 dark:text-zinc-300">
                         Đã chọn <strong>{{ number_format($selectedCount) }}</strong> URL{{ $selectAllFiltered && $excludedPageIds !== [] ? ' · loại trừ '.number_format(count($excludedPageIds)).' URL' : '' }}.
+                        @if($canAudit && $selectedAuditCount !== $selectedCount)
+                            Có {{ number_format($selectedAuditCount) }} URL đủ quyền kiểm tra.
+                        @endif
                     </p>
                 </div>
                 <div class="flex shrink-0 flex-wrap gap-2">
                     @if($selectedCount > 0)
                         <flux:button type="button" variant="ghost" wire:click="clearSelection">Bỏ chọn</flux:button>
                     @endif
-                    <flux:modal.trigger name="bulk-keyword-brief">
-                        <flux:button type="button" variant="primary" :disabled="$selectedCount === 0">
-                            Bổ sung Brief hàng loạt
-                        </flux:button>
-                    </flux:modal.trigger>
+                    @if($canAudit)
+                        <form wire:submit="auditSelected" data-admin-feedback-form data-admin-loading-text="Đang kiểm tra SEO cho các URL đã chọn...">
+                            <flux:button type="submit" wire:loading.attr="disabled" wire:target="auditSelected" :disabled="$selectedAuditCount === 0">
+                                Kiểm tra SEO hàng loạt ({{ number_format($selectedAuditCount) }})
+                            </flux:button>
+                        </form>
+                    @endif
+                    @can('admin.seo-optimization.propose')
+                        <flux:modal.trigger name="bulk-keyword-brief">
+                            <flux:button type="button" variant="primary" :disabled="$selectedBriefCount === 0">
+                                Bổ sung Brief hàng loạt ({{ number_format($selectedBriefCount) }})
+                            </flux:button>
+                        </flux:modal.trigger>
+                    @endcan
                 </div>
             </div>
-        @endcan
+        @endif
         <div class="overflow-x-auto rounded-2xl border border-zinc-200 dark:border-zinc-800">
             <table class="min-w-full divide-y divide-zinc-200 text-left text-sm dark:divide-zinc-800">
-                <thead class="bg-zinc-50 text-xs text-zinc-500 dark:bg-zinc-950 dark:text-zinc-400"><tr>@can('admin.seo-optimization.propose')<th class="w-12 px-4 py-3"><span class="sr-only">Chọn URL</span></th>@endcan<th class="px-4 py-3">Trang / URL</th><th class="px-4 py-3">Loại</th><th class="px-4 py-3">Từ khóa chính</th><th class="px-4 py-3" aria-sort="{{ $scoreSort === 'asc' ? 'ascending' : ($scoreSort === 'desc' ? 'descending' : 'none') }}"><button type="button" wire:click="sortByScore" wire:loading.attr="disabled" wire:target="sortByScore" class="inline-flex items-center gap-1.5 font-semibold text-zinc-600 hover:text-teal-700 disabled:cursor-wait disabled:opacity-60 dark:text-zinc-300 dark:hover:text-teal-300" aria-label="Sắp xếp điểm SEO {{ $scoreSort === 'desc' ? 'tăng dần' : 'giảm dần' }}">Điểm SEO <span class="text-[10px]" aria-hidden="true">{{ $scoreSort === 'asc' ? 'ASC ↑' : ($scoreSort === 'desc' ? 'DESC ↓' : '↕') }}</span></button></th><th class="px-4 py-3">Lịch sử</th><th class="px-4 py-3">Đối soát</th></tr></thead>
+                <thead class="bg-zinc-50 text-xs text-zinc-500 dark:bg-zinc-950 dark:text-zinc-400"><tr>@if($canSelect)<th class="w-12 px-4 py-3"><span class="sr-only">Chọn URL</span></th>@endif<th class="px-4 py-3">Trang / URL</th><th class="px-4 py-3">Loại</th><th class="px-4 py-3">Từ khóa chính</th><th class="px-4 py-3" aria-sort="{{ $scoreSort === 'asc' ? 'ascending' : ($scoreSort === 'desc' ? 'descending' : 'none') }}"><button type="button" wire:click="sortByScore" wire:loading.attr="disabled" wire:target="sortByScore" class="inline-flex items-center gap-1.5 font-semibold text-zinc-600 hover:text-teal-700 disabled:cursor-wait disabled:opacity-60 dark:text-zinc-300 dark:hover:text-teal-300" aria-label="Sắp xếp điểm SEO {{ $scoreSort === 'desc' ? 'tăng dần' : 'giảm dần' }}">Điểm SEO <span class="text-[10px]" aria-hidden="true">{{ $scoreSort === 'asc' ? 'ASC ↑' : ($scoreSort === 'desc' ? 'DESC ↓' : '↕') }}</span></button></th>@if($canAudit)<th class="px-4 py-3">Thao tác</th>@endif<th class="px-4 py-3">Lịch sử</th><th class="px-4 py-3">Đối soát</th></tr></thead>
                 <tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
                     @forelse ($pages as $page)
                         <tr wire:key="seo-page-{{ $page->id }}" class="align-top">
-                            @can('admin.seo-optimization.propose')
+                            @if($canSelect)
                                 <td class="px-4 py-3">
-                                    @if(in_array($page->page_type, $proposableTypes, true))
+                                    @if(in_array($page->page_type, $selectableTypes, true))
                                         <flux:checkbox
                                             wire:click="togglePageSelection('{{ $page->id }}')"
                                             :checked="$this->isPageSelected((string) $page->id)"
                                             aria-label="Chọn {{ $page->title ?: $page->path }}"
                                         />
                                     @else
-                                        <span class="text-zinc-300 dark:text-zinc-700" title="Không có quyền sửa loại nội dung này">—</span>
+                                        <span class="text-zinc-300 dark:text-zinc-700" title="Không có quyền thao tác với loại nội dung này">—</span>
                                     @endif
                                 </td>
-                            @endcan
+                            @endif
                             <td class="max-w-lg px-4 py-3"><a wire:navigate href="{{ route('admin.seo-optimization.pages.show', $page) }}" class="font-semibold text-teal-700 hover:underline dark:text-teal-300">{{ $page->title ?: $page->path }}</a><p class="mt-1 break-all text-xs text-zinc-500 dark:text-zinc-400">{{ $page->path }}</p></td>
                             <td class="whitespace-nowrap px-4 py-3 text-zinc-700 dark:text-zinc-200">{{ $this->pageTypeLabel($page->page_type) }}<p class="mt-1 text-xs text-zinc-500 dark:text-zinc-400">{{ $this->statusLabel($page->classification) }}</p></td>
                             <td class="px-4 py-3 text-zinc-700 dark:text-zinc-200">
@@ -123,11 +135,20 @@
                                     <span class="text-sm text-zinc-500 dark:text-zinc-400">N/A</span>
                                 @endif
                             </td>
+                            @if($canAudit)
+                                <td class="whitespace-nowrap px-4 py-3">
+                                    <form wire:submit="auditPage('{{ $page->id }}')" data-admin-feedback-form data-admin-loading-text="Đang kiểm tra SEO cho {{ $page->title ?: $page->path }}...">
+                                        <flux:button type="submit" size="sm" wire:loading.attr="disabled" wire:target="auditPage('{{ $page->id }}')">
+                                            Kiểm tra
+                                        </flux:button>
+                                    </form>
+                                </td>
+                            @endif
                             <td class="whitespace-nowrap px-4 py-3 text-xs text-zinc-500 dark:text-zinc-400">{{ $page->audits_count }} lần kiểm tra<br>{{ $page->proposals_count }} đề xuất · {{ $page->tasks_count }} yêu cầu</td>
                             <td class="whitespace-nowrap px-4 py-3 text-xs text-zinc-500 dark:text-zinc-400">{{ $page->last_seen_at?->format('d/m/Y H:i') ?: '—' }}</td>
                         </tr>
                     @empty
-                        <tr><td colspan="{{ auth()->user()?->can('admin.seo-optimization.propose') ? 7 : 6 }}" class="px-4 py-10 text-center text-zinc-500 dark:text-zinc-400">Chưa có URL phù hợp. Người quản trị có thể đồng bộ danh sách URL, hoặc điều chỉnh bộ lọc.</td></tr>
+                        <tr><td colspan="{{ 6 + ($canSelect ? 1 : 0) + ($canAudit ? 1 : 0) }}" class="px-4 py-10 text-center text-zinc-500 dark:text-zinc-400">Chưa có URL phù hợp. Người quản trị có thể đồng bộ danh sách URL, hoặc điều chỉnh bộ lọc.</td></tr>
                     @endforelse
                 </tbody>
             </table>
@@ -141,7 +162,7 @@
                 <div>
                     <flux:heading size="lg">Bổ sung Brief từ khóa hàng loạt</flux:heading>
                     <flux:subheading>
-                        Áp dụng cho {{ number_format($selectedCount) }} URL đã chọn trong bộ lọc hiện tại. Ô trống giữ nguyên; trường danh sách được cộng thêm và loại trùng, còn từ khóa chính, intent và ghi chú sẽ thay thế khi có nhập.
+                        Áp dụng cho {{ number_format($selectedBriefCount) }} URL đã chọn và có quyền sửa trong bộ lọc hiện tại. Ô trống giữ nguyên; trường danh sách được cộng thêm và loại trùng, còn từ khóa chính, intent và ghi chú sẽ thay thế khi có nhập.
                     </flux:subheading>
                 </div>
 
@@ -173,8 +194,8 @@
                     <flux:modal.close>
                         <flux:button type="button" variant="filled">Đóng</flux:button>
                     </flux:modal.close>
-                    <flux:button type="submit" variant="primary" wire:loading.attr="disabled" wire:target="applyBulkBrief" :disabled="$selectedCount === 0">
-                        Lưu cho {{ number_format($selectedCount) }} URL
+                    <flux:button type="submit" variant="primary" wire:loading.attr="disabled" wire:target="applyBulkBrief" :disabled="$selectedBriefCount === 0">
+                        Lưu cho {{ number_format($selectedBriefCount) }} URL
                     </flux:button>
                 </div>
             </form>

@@ -15,7 +15,7 @@ class CodexSeoPluginPackage
 
     public const MARKETPLACE_NAME = 'haidang-travel';
 
-    public const VERSION = '1.3.0';
+    public const VERSION = '1.4.0';
 
     public const TOKEN_ENV_VAR = 'SEO_HAIDANG_MCP_TOKEN';
 

@@ -2,12 +2,14 @@
 
 namespace App\Livewire\Admin\SeoOptimization;
 
+use App\Actions\SeoOptimization\BulkAuditSeoPages;
 use App\Actions\SeoOptimization\BulkUpdateKeywordBriefs;
 use App\Models\SeoOptimizationAudit;
 use App\Models\User;
 use App\Services\SeoOptimization\KeywordBriefResolver;
 use App\Services\SeoOptimization\OptimizationAccess;
 use App\Services\SeoOptimization\OptimizationBrief;
+use App\Services\SeoOptimization\OptimizationWorkflowService;
 use App\Services\SeoOptimization\PageRegistryService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
@@ -101,8 +103,8 @@ class PagesIndex extends OptimizationComponent
     public function toggleSelectAllFiltered(OptimizationAccess $access): void
     {
         $actor = $this->actor();
-        $this->authorizeAdminPermission('admin.seo-optimization.propose');
-        $access->authorize($actor, 'propose');
+        abort_unless($this->canSelect($actor), 403);
+        $access->authorize($actor, $this->selectionAction($actor));
         $this->selectAllFiltered = ! $this->selectAllFiltered;
         $this->selectedPageIds = [];
         $this->excludedPageIds = [];
@@ -112,8 +114,8 @@ class PagesIndex extends OptimizationComponent
     {
         abort_unless(Str::isUlid($pageId), 404);
         $actor = $this->actor();
-        $this->authorizeAdminPermission('admin.seo-optimization.propose');
-        abort_unless($this->filteredProposableQuery($access, $actor)->whereKey($pageId)->exists(), 404);
+        abort_unless($this->canSelect($actor), 403);
+        abort_unless($this->filteredSelectableQuery($access, $actor)->whereKey($pageId)->exists(), 404);
 
         if ($this->selectAllFiltered) {
             $this->excludedPageIds = $this->toggleId($this->excludedPageIds, $pageId);
@@ -127,6 +129,62 @@ class PagesIndex extends OptimizationComponent
     public function clearSelection(): void
     {
         $this->resetSelection();
+    }
+
+    public function auditPage(string $pageId, OptimizationWorkflowService $workflow, OptimizationAccess $access): void
+    {
+        abort_unless(Str::isUlid($pageId), 404);
+        $actor = $this->actor();
+        $this->authorizeAdminPermission('admin.seo-optimization.audit');
+        $page = $access->queryFor($actor, 'audit')->whereKey($pageId)->firstOrFail();
+
+        $this->perform(
+            fn () => $workflow->audit($page, $actor),
+            'Đã cập nhật điểm SEO cho URL “'.($page->title ?: $page->path).'”.',
+        );
+    }
+
+    public function auditSelected(BulkAuditSeoPages $bulk, OptimizationAccess $access): void
+    {
+        $actor = $this->actor();
+        $this->authorizeAdminPermission('admin.seo-optimization.audit');
+        $query = $this->selectedAuditableQuery($access, $actor);
+
+        if (! (clone $query)->exists()) {
+            $this->addError('bulkAudit', 'Chưa chọn URL nào còn khớp bộ lọc và quyền kiểm tra hiện tại.');
+
+            return;
+        }
+
+        $result = null;
+        $this->perform(function () use ($bulk, $query, $actor, &$result): void {
+            $result = $bulk->handle($query, $actor);
+        }, 'Đã hoàn tất kiểm tra SEO hàng loạt.');
+
+        if (! is_array($result)) {
+            return;
+        }
+
+        if ($result['audited'] === 0 && $result['failed'] > 0) {
+            session()->forget('status');
+            $this->addError('bulkAudit', sprintf(
+                'Không thể kiểm tra %d URL đã chọn. Chi tiết lỗi đã được ghi nhận; vui lòng kiểm tra trạng thái URL rồi thử lại.',
+                $result['failed'],
+            ));
+
+            return;
+        }
+
+        session()->flash('status', sprintf(
+            'Đã kiểm tra %d/%d URL: %d URL có điểm, %d URL chưa đủ dữ liệu để tính tổng%s.',
+            $result['audited'],
+            $result['selected'],
+            $result['scored'],
+            $result['partial'],
+            $result['failed'] > 0 ? ', '.$result['failed'].' URL lỗi đã được bỏ qua' : '',
+        ));
+        $this->resetSelection();
+        $this->resetPage();
     }
 
     public function applyBulkBrief(BulkUpdateKeywordBriefs $bulk, OptimizationAccess $access): void
@@ -195,17 +253,31 @@ class PagesIndex extends OptimizationComponent
         $base = $access->queryFor($actor);
         $this->authorizeAdminPermission('admin.seo-optimization.index');
         $query = $this->applyFilters(clone $base);
+        $canAudit = $actor->can('admin.seo-optimization.audit');
         $canBulkBrief = $actor->can('admin.seo-optimization.propose');
-        $selectedCount = $canBulkBrief
+        $canSelect = $canAudit || $canBulkBrief;
+        $selectedCount = $canSelect
+            ? $this->selectedSelectableQuery($access, $actor)->count()
+            : 0;
+        $selectedAuditCount = $canAudit
+            ? $this->selectedAuditableQuery($access, $actor)->count()
+            : 0;
+        $selectedBriefCount = $canBulkBrief
             ? $this->selectedProposableQuery($access, $actor)->count()
             : 0;
-        $bulkFilteredCount = $canBulkBrief
-            ? $this->filteredProposableQuery($access, $actor)->count()
+        $bulkFilteredCount = $canSelect
+            ? $this->filteredSelectableQuery($access, $actor)->count()
             : 0;
         $proposableTypes = array_keys(array_filter(
             OptimizationAccess::PAGE_PERMISSIONS,
             fn (string $permission): bool => $actor->can($permission.'.edit'),
         ));
+        $selectableTypes = $canAudit
+            ? array_keys(array_filter(
+                OptimizationAccess::PAGE_PERMISSIONS,
+                fn (string $permission): bool => $actor->can($permission.'.index'),
+            ))
+            : $proposableTypes;
 
         return view('livewire.admin.seo-optimization.pages-index', [
             'pages' => $this->applyOrdering($query
@@ -224,9 +296,13 @@ class PagesIndex extends OptimizationComponent
             'pageTypes' => (clone $base)->distinct()->orderBy('page_type')->pluck('page_type'),
             'classifications' => (clone $base)->distinct()->orderBy('classification')->pluck('classification'),
             'intents' => $this->intentOptions(),
+            'canAudit' => $canAudit,
+            'canSelect' => $canSelect,
             'selectedCount' => $selectedCount,
+            'selectedAuditCount' => $selectedAuditCount,
+            'selectedBriefCount' => $selectedBriefCount,
             'bulkFilteredCount' => $bulkFilteredCount,
-            'proposableTypes' => $proposableTypes,
+            'selectableTypes' => $selectableTypes,
             'stats' => [
                 'total' => (clone $base)->count(),
                 'indexable' => (clone $base)->where('classification', 'INDEXABLE')->count(),
@@ -294,13 +370,47 @@ class PagesIndex extends OptimizationComponent
         return $this->applyFilters($access->queryFor($actor, 'propose'));
     }
 
+    private function filteredAuditableQuery(OptimizationAccess $access, User $actor): Builder
+    {
+        return $this->applyFilters($access->queryFor($actor, 'audit'));
+    }
+
+    private function filteredSelectableQuery(OptimizationAccess $access, User $actor): Builder
+    {
+        return $this->applyFilters($access->queryFor($actor, $this->selectionAction($actor)));
+    }
+
     private function selectedProposableQuery(OptimizationAccess $access, User $actor): Builder
     {
-        $query = $this->filteredProposableQuery($access, $actor);
+        return $this->selectedQuery($this->filteredProposableQuery($access, $actor));
+    }
 
+    private function selectedAuditableQuery(OptimizationAccess $access, User $actor): Builder
+    {
+        return $this->selectedQuery($this->filteredAuditableQuery($access, $actor));
+    }
+
+    private function selectedSelectableQuery(OptimizationAccess $access, User $actor): Builder
+    {
+        return $this->selectedQuery($this->filteredSelectableQuery($access, $actor));
+    }
+
+    private function selectedQuery(Builder $query): Builder
+    {
         return $this->selectAllFiltered
             ? $query->when($this->excludedPageIds !== [], fn (Builder $query) => $query->whereKeyNot($this->excludedPageIds))
             : $query->whereKey($this->selectedPageIds);
+    }
+
+    private function canSelect(User $actor): bool
+    {
+        return $actor->can('admin.seo-optimization.audit')
+            || $actor->can('admin.seo-optimization.propose');
+    }
+
+    private function selectionAction(User $actor): string
+    {
+        return $actor->can('admin.seo-optimization.audit') ? 'audit' : 'propose';
     }
 
     /** @return array<int, string> */
