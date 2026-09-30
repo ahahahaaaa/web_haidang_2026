@@ -60,55 +60,17 @@
                 <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Mô tả block</label>
                 <textarea rows="4" wire:model.defer="form.home_config.topic_rail.description" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white"></textarea>
             </div>
+            <label class="inline-flex items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200 md:col-span-2">
+                <input type="checkbox" wire:model.defer="form.home_config.topic_rail.show_card_titles" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
+                Hiển thị tên chủ đề dưới ảnh
+            </label>
+            <p class="text-xs leading-6 text-zinc-500 dark:text-zinc-400 md:col-span-2">Khi tắt, tên chủ đề sẽ hiện từ dưới lên trên ảnh khi rê chuột hoặc chọn card bằng bàn phím.</p>
             <p class="text-xs leading-6 text-zinc-500 dark:text-zinc-400 md:col-span-2">Dữ liệu card vẫn lấy live từ các chủ đề đang publish và có tour hoạt động.</p>
         </div>
         @break
 
     @case('featured_tours')
-        <div class="grid gap-4 md:grid-cols-3">
-            <div class="space-y-2 md:col-span-2">
-                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Danh mục ưu tiên cho tour nổi bật</label>
-                <select wire:model.defer="form.home_config.featured_tour_category_slug" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
-                    <option value="">Tự dò Tour Nổi Bật / fallback sang is_featured</option>
-                    @foreach ($tourCategories as $category)
-                        <option value="{{ $category->slug }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-
-            <div class="space-y-2">
-                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Số tour mỗi tab</label>
-                <input type="number" min="1" max="12" wire:model.defer="form.home_config.featured_tour_limit" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
-                <p class="text-xs text-zinc-500 dark:text-zinc-400">Tối đa {{ \App\Support\FrontsiteCardGrid::MAX_ITEMS }} card cho mỗi tab.</p>
-            </div>
-
-            <div class="space-y-2 md:col-span-3">
-                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Label CTA của block</label>
-                <input type="text" wire:model.defer="form.home_config.featured_tours.cta_label" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
-            </div>
-        </div>
-
-        <div class="mt-4 grid gap-4 xl:grid-cols-3">
-            @foreach (['international' => 'Tour nước ngoài', 'domestic' => 'Tour trong nước', 'group' => 'Tour đoàn'] as $scopeKey => $scopeLabel)
-                <div class="rounded-3xl border border-zinc-200 bg-zinc-50/80 p-4 dark:border-zinc-700 dark:bg-zinc-950/40">
-                    <p class="text-xs font-semibold uppercase tracking-[0.24em] text-teal-600 dark:text-teal-300">{{ $scopeLabel }}</p>
-                    <div class="mt-4 grid gap-3">
-                        <div class="space-y-2">
-                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Nhãn tab</label>
-                            <input type="text" wire:model.defer="form.home_config.featured_tours.tabs.{{ $scopeKey }}.label" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Tiêu đề khi tab active</label>
-                            <input type="text" wire:model.defer="form.home_config.featured_tours.tabs.{{ $scopeKey }}.title" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Mô tả khi tab active</label>
-                            <textarea rows="5" wire:model.defer="form.home_config.featured_tours.tabs.{{ $scopeKey }}.description" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"></textarea>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
+        @include('livewire.admin.cms.partials.home-featured-tours-config')
         @break
 
     @case('services')
@@ -150,63 +112,9 @@
         @break
 
     @case('trust')
-        <div class="grid gap-4 md:grid-cols-2">
-            <div class="space-y-2">
-                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Tiêu đề section</label>
-                <input type="text" wire:model.defer="form.home_config.trust.title" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
-                @error('form.home_config.trust.title') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-            </div>
-
-            <div class="space-y-2 md:col-span-2">
-                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Mô tả ngắn</label>
-                <textarea rows="3" wire:model.defer="form.home_config.trust.description" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"></textarea>
-                @error('form.home_config.trust.description') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-            </div>
-        </div>
-
-        <div class="mt-4 grid gap-4 xl:grid-cols-3">
-            @foreach (($form['home_config']['trust']['cards'] ?? []) as $index => $card)
-                <div wire:key="landing-home-trust-card-mixed-{{ $card['uuid'] ?? $index }}" class="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
-                    <div class="mb-4 flex items-center justify-between gap-3">
-                        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-teal-600 dark:text-teal-300">Lý do {{ $loop->iteration }}</p>
-
-                        @if (count($form['home_config']['trust']['cards'] ?? []) > 1)
-                            <button type="button" wire:click="removeHomeTrustCard({{ $index }})" class="rounded-2xl border border-rose-200 px-3 py-2 text-sm font-medium text-rose-600 dark:border-rose-500/30 dark:text-rose-300">Xóa</button>
-                        @endif
-                    </div>
-
-                    <div class="grid gap-3">
-                        <div class="space-y-2">
-                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Icon Font Awesome</label>
-                            <input type="text" wire:model.defer="form.home_config.trust.cards.{{ $index }}.icon" placeholder="fa-solid fa-route" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
-                            @error("form.home_config.trust.cards.$index.icon") <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-                        </div>
-
-                        <div class="space-y-2">
-                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Nhãn nổi bật</label>
-                            <input type="text" wire:model.defer="form.home_config.trust.cards.{{ $index }}.highlight" placeholder="Ví dụ: Một đầu mối xử lý" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
-                            @error("form.home_config.trust.cards.$index.highlight") <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-                        </div>
-
-                        <div class="space-y-2">
-                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Tiêu đề card</label>
-                            <input type="text" wire:model.defer="form.home_config.trust.cards.{{ $index }}.title" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
-                            @error("form.home_config.trust.cards.$index.title") <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-                        </div>
-
-                        <div class="space-y-2">
-                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Bằng chứng ngắn</label>
-                            <textarea rows="4" wire:model.defer="form.home_config.trust.cards.{{ $index }}.text" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white"></textarea>
-                            @error("form.home_config.trust.cards.$index.text") <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-
-        <div class="mt-4 flex flex-wrap justify-end">
-            <button type="button" wire:click="addHomeTrustCard" class="rounded-2xl border border-zinc-300 px-4 py-2 text-sm font-semibold text-zinc-700 transition hover:border-teal-300 hover:text-teal-700 dark:border-zinc-700 dark:text-zinc-200">Thêm lý do</button>
-        </div>
+        @include('livewire.admin.cms.partials.home-trust-config', [
+            'wireKeyPrefix' => 'landing-home-trust-mixed',
+        ])
         @break
 
     @case('process')

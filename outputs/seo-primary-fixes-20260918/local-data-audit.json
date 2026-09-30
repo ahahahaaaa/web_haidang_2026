@@ -1,0 +1,194 @@
+{
+    "tour": {
+        "total": 111,
+        "explicit_canonicals": [
+            {
+                "id": 78,
+                "slug": "tour-du-lich-tay-tang-potalaho-yamdrok",
+                "canonical_url": "https://haidangtravel.com/chuong-trinh/tour-du-lich-tay-tang-potalaho-yamdrok",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 141,
+                "slug": "tour-trung-quoc-le-giang-shangrila",
+                "canonical_url": "https://haidangtravel.com/chuong-trinh/tour-trung-quoc-le-giang-shangrila",
+                "robots_directive": "index,follow"
+            }
+        ]
+    },
+    "blog": {
+        "total": 192,
+        "explicit_canonicals": [
+            {
+                "id": 46,
+                "slug": "tu-dong-tam-gom-dia-diem-nao",
+                "canonical_url": "https://haidangtravel.com/blog/tu-dong-tam-gom-dia-diem-nao",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 231,
+                "slug": "tour-du-lich-mien-tay",
+                "canonical_url": "https://haidangtravel.com/blog/tour-du-lich-mien-tay",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 232,
+                "slug": "tour-du-lich-trung-quoc",
+                "canonical_url": "https://haidangtravel.com/blog/tour-du-lich-trung-quoc",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 233,
+                "slug": "tour-le-2-9-diem-hot-2",
+                "canonical_url": "https://haidangtravel.com/blog/tour-le-2-9-diem-hot-2",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 235,
+                "slug": "tour-le-2-9-diem-hot",
+                "canonical_url": "https://haidangtravel.com/blog/tour-le-2-9-diem-hot",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 236,
+                "slug": "gia-tour-le-2-9",
+                "canonical_url": "https://haidangtravel.com/blog/gia-tour-le-2-9",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 237,
+                "slug": "tour-le-2-9-gia-re",
+                "canonical_url": "https://haidangtravel.com/blog/tour-le-2-9-gia-re",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 238,
+                "slug": "tour-nha-trang-3-ngay-2",
+                "canonical_url": "https://haidangtravel.com/blog/kinh-nghiem-dji-tour-nha-trang",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 248,
+                "slug": "top-10-diem-phu-yen-phai",
+                "canonical_url": "https://haidangtravel.com/blog/top-10-diem-phu-yen-phai",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 249,
+                "slug": "kinh-nghiem-du-lich-phu-yen",
+                "canonical_url": "https://haidangtravel.com/blog/kinh-nghiem-du-lich-phu-yen",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 250,
+                "slug": "smoke-inline-08-22-kinh-nghiem",
+                "canonical_url": "https://haidangtravel.com/blog/smoke-inline-08-22-kinh-nghiem",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 251,
+                "slug": "smoke-inline-08-22-du",
+                "canonical_url": "https://haidangtravel.com/blog/smoke-inline-08-22-du",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 252,
+                "slug": "tour-da-lat-le-2-9",
+                "canonical_url": "https://haidangtravel.com/blog/tour-da-lat-le-2-9",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 253,
+                "slug": "tour-nha-trang-le-2-9",
+                "canonical_url": "https://haidangtravel.com/blog/tour-nha-trang-le-2-9",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 254,
+                "slug": "tour-phu-quoc-le-2-9",
+                "canonical_url": "https://haidangtravel.com/blog/tour-phu-quoc-le-2-9",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 255,
+                "slug": "tour-thiet-le-2-9-gia",
+                "canonical_url": "https://haidangtravel.com/blog/tour-thiet-le-2-9-gia",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 257,
+                "slug": "tour-le-2-9",
+                "canonical_url": "https://haidangtravel.com/blog/tour-le-2-9",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 258,
+                "slug": "tour-nha-trang-thien-duong-bien",
+                "canonical_url": "https://haidangtravel.com/blog/tour-nha-trang-thien-duong-bien",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 259,
+                "slug": "tour-nha-trang-thien-duong-bien-2",
+                "canonical_url": "https://haidangtravel.com/blog/tour-nha-trang-thien-duong-bien-2",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 260,
+                "slug": "dong-tam-do-hanh-trinh-ve",
+                "canonical_url": "https://haidangtravel.com/blog/dong-tam-do-hanh-trinh-ve",
+                "robots_directive": "index,follow"
+            }
+        ]
+    },
+    "service": {
+        "total": 4,
+        "explicit_canonicals": [
+            {
+                "id": 26,
+                "slug": "ve-may-bay",
+                "canonical_url": "https://haidangtravel.com/page/ve-may-bay",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 27,
+                "slug": "visa",
+                "canonical_url": "https://haidangtravel.com/page/visa",
+                "robots_directive": "index,follow"
+            }
+        ]
+    },
+    "landing": {
+        "total": 19,
+        "explicit_canonicals": [
+            {
+                "id": 5,
+                "slug": null,
+                "canonical_url": "https://haidangtravel.com",
+                "robots_directive": "index,follow"
+            },
+            {
+                "id": 16,
+                "slug": "visa-passport",
+                "canonical_url": "https://haidangtravel.com/visa-passport",
+                "robots_directive": "index,follow"
+            }
+        ]
+    },
+    "landing_documents": [
+        {
+            "id": 5,
+            "slug": null,
+            "page_key": "home",
+            "source": "widget_1",
+            "bytes": 7587
+        },
+        {
+            "id": 18,
+            "slug": "teambuilding",
+            "page_key": null,
+            "source": "widget_2",
+            "bytes": 33376
+        }
+    ]
+}

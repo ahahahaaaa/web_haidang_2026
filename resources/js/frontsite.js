@@ -12,6 +12,7 @@ const INTERACTION_SELECTOR = [
     '[data-card-carousel]',
     '[data-faq-accordion]',
     '[data-frontsite-gallery-lightbox]',
+    '[data-tour-content-shell]',
     '[data-tour-details-expandable-block]',
     '[data-frontsite-consultation-modal]',
     '[data-service-consultation-modal]',
@@ -20,6 +21,7 @@ const INTERACTION_SELECTOR = [
 ].join(', ');
 const TAB_SELECTOR = '[data-home-featured-tabs], [data-tour-list-tabs], [data-tour-departure-tabs]';
 const TOUR_GALLERY_SELECTOR = '[data-tour-gallery]';
+const HORIZONTAL_CHIP_RAIL_SELECTOR = '[data-tour-search-popular], [data-tour-card-departure-rail], [data-popular-search-rail]';
 const FORM_CONTROL_SELECTOR = '[data-frontsite-select], [data-frontsite-datepicker]';
 const moduleCache = new Map();
 
@@ -89,6 +91,15 @@ function loadTourGallerySliders() {
         });
 }
 
+function loadHorizontalChipRails() {
+    return loadModule('horizontal-chip-rail', () => import('./front/tour-search-popular-rail.js'))
+        .then((module) => {
+            module.initHorizontalChipRails();
+
+            return module;
+        });
+}
+
 function bindDeferredFrontsiteControls() {
     document.addEventListener('frontsite:travel-inquiry-opened', (event) => {
         void loadFrontsiteFormControls(event.detail?.root ?? document);
@@ -136,6 +147,10 @@ function bootFrontsiteRuntime() {
 
     if (document.querySelector(TOUR_GALLERY_SELECTOR)) {
         eagerLoads.push(loadTourGallerySliders());
+    }
+
+    if (document.querySelector(HORIZONTAL_CHIP_RAIL_SELECTOR)) {
+        eagerLoads.push(loadHorizontalChipRails());
     }
 
     if (hasVisibleFormControls()) {

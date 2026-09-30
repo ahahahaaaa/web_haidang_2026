@@ -4,6 +4,7 @@
     'eyebrow' => $eyebrow ?? null,
     'items' => $tourCategories ?? [],
     'sectionId' => 'home-tour-topics',
+    'showCardTitles' => $showCardTitles ?? true,
     'taxonomyType' => 'tour_category',
     'title' => $title ?? null,
     'visualStyle' => 'topic',

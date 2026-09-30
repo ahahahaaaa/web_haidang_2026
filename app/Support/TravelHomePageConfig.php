@@ -3,9 +3,22 @@
 namespace App\Support;
 
 use Illuminate\Support\Str;
+use Src\Domains\Cms\Enums\TourScope;
 
 class TravelHomePageConfig
 {
+    public const FEATURED_TOUR_FILTER_DESTINATION = 'destination';
+
+    public const FEATURED_TOUR_FILTER_LIMIT = 12;
+
+    public const FEATURED_TOUR_FILTER_REGION = 'region';
+
+    public const FEATURED_TOUR_FILTER_SCOPE = 'scope';
+
+    public const FEATURED_TOUR_FILTER_TOPIC = 'tour_category';
+
+    public const FEATURED_TOUR_POPULAR_SEARCH_LIMIT = 12;
+
     public const HOME_LAYOUT_BLOCK_PREFIX = 'block:';
 
     public const HOME_LAYOUT_SECTION_PREFIX = 'section:';
@@ -25,12 +38,79 @@ class TravelHomePageConfig
             'destination_slider' => 'Điểm đến nổi bật',
             'gallery' => 'Gallery landing',
             'services' => 'Dịch vụ hỗ trợ',
-            'trust' => 'Trust proof',
+            'trust' => 'Giới thiệu & giải thưởng',
             'process' => 'Quy trình tư vấn',
             'blog_preview' => 'Blog preview',
             'faq' => 'FAQ',
             'cta' => 'CTA cuối trang',
         ];
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public static function featuredTourFilterTypes(): array
+    {
+        return [
+            self::FEATURED_TOUR_FILTER_SCOPE => 'Loại tour',
+            self::FEATURED_TOUR_FILTER_DESTINATION => 'Điểm đến',
+            self::FEATURED_TOUR_FILTER_TOPIC => 'Chủ đề',
+            self::FEATURED_TOUR_FILTER_REGION => 'Vùng miền / Châu',
+        ];
+    }
+
+    public static function featuredTourFilter(
+        string $sourceType = self::FEATURED_TOUR_FILTER_SCOPE,
+        string $sourceValue = '',
+        string $label = '',
+        string $title = '',
+        string $description = '',
+        ?string $uuid = null,
+    ): array {
+        return [
+            'uuid' => filled($uuid) ? (string) $uuid : (string) Str::uuid(),
+            'source_type' => array_key_exists($sourceType, self::featuredTourFilterTypes())
+                ? $sourceType
+                : self::FEATURED_TOUR_FILTER_SCOPE,
+            'source_value' => self::stringValue($sourceValue),
+            'label' => self::stringValue($label),
+            'title' => self::stringValue($title),
+            'description' => self::stringValue($description),
+        ];
+    }
+
+    public static function featuredTourPopularSearch(
+        string $label = '',
+        string $url = '',
+        ?string $uuid = null,
+        string $filterUuid = '',
+    ): array {
+        return [
+            'uuid' => filled($uuid) ? (string) $uuid : (string) Str::uuid(),
+            'label' => self::stringValue($label),
+            'url' => self::stringValue($url),
+            'filter_uuid' => self::stringValue($filterUuid),
+        ];
+    }
+
+    public static function isSafeFeaturedTourPopularSearchUrl(mixed $url): bool
+    {
+        $url = self::stringValue($url);
+
+        if ($url === '') {
+            return false;
+        }
+
+        if (Str::startsWith($url, ['#', '?'])) {
+            return true;
+        }
+
+        if (str_starts_with($url, '/') && ! str_starts_with($url, '//')) {
+            return true;
+        }
+
+        return in_array(Str::lower((string) parse_url($url, PHP_URL_SCHEME)), ['http', 'https'], true)
+            && filter_var($url, FILTER_VALIDATE_URL) !== false;
     }
 
     /**
@@ -191,14 +271,20 @@ class TravelHomePageConfig
             ],
             'topic_rail' => [
                 'is_enabled' => true,
+                'show_card_titles' => true,
                 'eyebrow' => '',
                 'title' => 'CHỦ ĐỀ TOUR',
                 'description' => 'Chủ đề tour tiêu biểu năm 2026 với lịch trình độc bản. Từ hành trình hành hương tâm linh đến nghỉ dưỡng biển đảo đẳng cấp, Haidangtravel mang đến những trải nghiệm tinh tế và trọn gói nhất.',
             ],
             'featured_tours' => [
                 'is_enabled' => true,
-                'cta_label' => 'Xem danh sách tour',
-                'tabs' => self::defaultFeaturedTourTabs(),
+                'show_filters' => true,
+                'cta_label' => 'Xem thêm',
+                'card_cta_variant' => TourCardStyle::DEFAULT_CTA_VARIANT,
+                'is_slider' => false,
+                'all' => self::defaultFeaturedTourAll(),
+                'filters' => self::defaultFeaturedTourFilters(),
+                'popular_searches' => [],
             ],
             'tour_taxonomy_tabs' => [
                 'is_enabled' => true,
@@ -224,9 +310,11 @@ class TravelHomePageConfig
             ],
             'trust' => [
                 'is_enabled' => true,
-                'title' => 'Hải Đăng Travel phù hợp khi bạn cần chốt rõ và nhanh',
+                'title' => 'HAIDANGTRAVEL – HỆ SINH THÁI LỮ HÀNH TOÀN CẦU',
+                'subtitle' => '',
                 'description' => 'Giữ phần chứng minh ngắn, rõ đầu mối xử lý và đủ tin cậy để khách tự tin gửi yêu cầu ngay trên homepage.',
-                'cards' => self::defaultTrustCards(),
+                'stats' => self::defaultTrustStats(),
+                'awards' => self::defaultTrustAwards(),
             ],
             'process' => [
                 'is_enabled' => true,
@@ -446,6 +534,40 @@ class TravelHomePageConfig
         ];
     }
 
+    protected static function defaultFeaturedTourAll(): array
+    {
+        return [
+            'label' => 'Tất cả',
+            'title' => 'Tour hot trong tháng',
+            'description' => 'Tổng hợp các tour trọn gói và tour du lịch đoàn đang được quan tâm để bạn dễ so sánh hành trình, lịch đi và mức giá.',
+        ];
+    }
+
+    /**
+     * @return array<int, array<string, string>>
+     */
+    protected static function defaultFeaturedTourFilters(): array
+    {
+        $legacyTabs = self::defaultFeaturedTourTabs();
+
+        return collect([
+            TourScope::International,
+            TourScope::Domestic,
+            TourScope::Group,
+        ])->map(function (TourScope $scope) use ($legacyTabs): array {
+            $tab = $legacyTabs[$scope->value];
+
+            return self::featuredTourFilter(
+                self::FEATURED_TOUR_FILTER_SCOPE,
+                $scope->value,
+                $tab['label'],
+                $tab['title'],
+                $tab['description'],
+                $scope->value,
+            );
+        })->all();
+    }
+
     protected static function defaultProcessCards(): array
     {
         return [
@@ -468,28 +590,18 @@ class TravelHomePageConfig
         ];
     }
 
-    protected static function defaultTrustCards(): array
+    protected static function defaultTrustStats(): array
     {
         return [
-            self::trustCard(
-                'Một đầu mối xử lý',
-                'Một yêu cầu, đội ngũ theo tới cùng',
-                'Tour, visa, vé máy bay và nhu cầu tour đoàn đều đi chung một luồng tiếp nhận để phản hồi gọn và ít vòng trao đổi hơn.',
-                'fa-solid fa-route',
-            ),
-            self::trustCard(
-                'So sánh dễ hơn',
-                'Thông tin tour được bày theo logic chốt mua',
-                'Ngày đi, thời lượng, giá và CTA luôn hiện sớm để khách lọc nhanh phương án phù hợp thay vì phải mở từng tour.',
-                'fa-solid fa-calendar-check',
-            ),
-            self::trustCard(
-                'Đồng hành trước chuyến đi',
-                'Không dừng ở bước gửi báo giá',
-                'Đội ngũ tiếp tục hỗ trợ hồ sơ, dịch vụ đi kèm và những việc cần chuẩn bị trước ngày khởi hành.',
-                'fa-solid fa-shield-heart',
-            ),
+            self::trustStat(),
+            self::trustStat(),
+            self::trustStat(),
         ];
+    }
+
+    protected static function defaultTrustAwards(): array
+    {
+        return [self::trustAward()];
     }
 
     protected static function normalizeBlogPreviewConfig(mixed $value, array $defaults): array
@@ -520,25 +632,90 @@ class TravelHomePageConfig
     protected static function normalizeFeaturedToursConfig(mixed $value, array $defaults): array
     {
         $config = is_array($value) ? $value : [];
-        $tabs = is_array($config['tabs'] ?? null) ? $config['tabs'] : [];
+        $all = is_array($config['all'] ?? null)
+            ? $config['all']
+            : (is_array(data_get($config, 'tabs.all')) ? data_get($config, 'tabs.all') : []);
+        $filters = array_key_exists('filters', $config) && is_array($config['filters'])
+            ? array_values($config['filters'])
+            : self::legacyFeaturedTourFilters($config['tabs'] ?? null, $defaults['filters']);
+        $popularSearches = is_array($config['popular_searches'] ?? null)
+            ? array_values($config['popular_searches'])
+            : [];
+        $normalizedFilters = collect($filters)
+            ->filter(fn (mixed $filter) => is_array($filter))
+            ->map(fn (array $filter) => self::featuredTourFilter(
+                (string) ($filter['source_type'] ?? self::FEATURED_TOUR_FILTER_SCOPE),
+                (string) ($filter['source_value'] ?? ''),
+                (string) ($filter['label'] ?? ''),
+                (string) ($filter['title'] ?? ''),
+                (string) ($filter['description'] ?? ''),
+                filled($filter['uuid'] ?? null) ? (string) $filter['uuid'] : null,
+            ))
+            ->take(self::FEATURED_TOUR_FILTER_LIMIT)
+            ->values()
+            ->all();
+        $validFilterUuids = collect($normalizedFilters)->pluck('uuid')->filter()->all();
 
         return [
             'is_enabled' => self::enabledValue($config['is_enabled'] ?? null, (bool) ($defaults['is_enabled'] ?? true)),
             'cta_label' => self::stringValue($config['cta_label'] ?? $defaults['cta_label']),
-            'tabs' => collect($defaults['tabs'])
-                ->mapWithKeys(function (array $defaultTab, string $scope) use ($tabs): array {
-                    $tab = is_array($tabs[$scope] ?? null) ? $tabs[$scope] : [];
+            'card_cta_variant' => TourCardStyle::normalizeCtaVariant($config['card_cta_variant'] ?? $defaults['card_cta_variant']),
+            'is_slider' => (bool) ($config['is_slider'] ?? $defaults['is_slider']),
+            'show_filters' => (bool) ($config['show_filters'] ?? $defaults['show_filters']),
+            'all' => [
+                'label' => self::stringValue($all['label'] ?? $defaults['all']['label']),
+                'title' => self::stringValue($all['title'] ?? $defaults['all']['title']),
+                'description' => self::stringValue($all['description'] ?? $defaults['all']['description']),
+            ],
+            'filters' => $normalizedFilters,
+            'popular_searches' => collect($popularSearches)
+                ->filter(fn (mixed $item) => is_array($item))
+                ->map(function (array $item) use ($validFilterUuids): array {
+                    $filterUuid = self::stringValue($item['filter_uuid'] ?? '');
 
-                    return [
-                        $scope => [
-                            'label' => self::stringValue($tab['label'] ?? $defaultTab['label']),
-                            'title' => self::stringValue($tab['title'] ?? $defaultTab['title']),
-                            'description' => self::stringValue($tab['description'] ?? $defaultTab['description']),
-                        ],
-                    ];
+                    return self::featuredTourPopularSearch(
+                        (string) ($item['label'] ?? ''),
+                        (string) ($item['url'] ?? ''),
+                        filled($item['uuid'] ?? null) ? (string) $item['uuid'] : null,
+                        in_array($filterUuid, $validFilterUuids, true) ? $filterUuid : '',
+                    );
                 })
+                ->filter(fn (array $item) => $item['label'] !== '' && self::isSafeFeaturedTourPopularSearchUrl($item['url']))
+                ->take(self::FEATURED_TOUR_POPULAR_SEARCH_LIMIT)
+                ->values()
                 ->all(),
         ];
+    }
+
+    /**
+     * @param  array<int, array<string, mixed>>  $defaults
+     * @return array<int, array<string, mixed>>
+     */
+    protected static function legacyFeaturedTourFilters(mixed $value, array $defaults): array
+    {
+        if (! is_array($value)) {
+            return $defaults;
+        }
+
+        $legacyTabs = self::defaultFeaturedTourTabs();
+
+        return collect([
+            TourScope::International,
+            TourScope::Domestic,
+            TourScope::Group,
+        ])->map(function (TourScope $scope) use ($legacyTabs, $value): array {
+            $defaultTab = $legacyTabs[$scope->value];
+            $tab = is_array($value[$scope->value] ?? null) ? $value[$scope->value] : [];
+
+            return self::featuredTourFilter(
+                self::FEATURED_TOUR_FILTER_SCOPE,
+                $scope->value,
+                (string) ($tab['label'] ?? $defaultTab['label']),
+                (string) ($tab['title'] ?? $defaultTab['title']),
+                (string) ($tab['description'] ?? $defaultTab['description']),
+                $scope->value,
+            );
+        })->all();
     }
 
     protected static function normalizeProcessConfig(mixed $value, array $defaults): array
@@ -595,6 +772,7 @@ class TravelHomePageConfig
 
         return [
             'is_enabled' => self::enabledValue($config['is_enabled'] ?? null, (bool) ($defaults['is_enabled'] ?? true)),
+            'show_card_titles' => self::enabledValue($config['show_card_titles'] ?? null, (bool) ($defaults['show_card_titles'] ?? true)),
             'eyebrow' => self::stringValue($config['eyebrow'] ?? $defaults['eyebrow']),
             'title' => self::stringValue($config['title'] ?? $defaults['title']),
             'description' => self::stringValue($config['description'] ?? $defaults['description']),
@@ -617,27 +795,46 @@ class TravelHomePageConfig
     protected static function normalizeTrustConfig(mixed $value, array $defaults): array
     {
         $config = is_array($value) ? $value : [];
-        $cards = collect(is_array($config['cards'] ?? null) ? array_values($config['cards']) : $defaults['cards'])
-            ->filter(fn (mixed $card) => is_array($card))
-            ->map(fn (array $card) => [
-                'uuid' => filled($card['uuid'] ?? null) ? (string) $card['uuid'] : (string) Str::uuid(),
-                'icon' => self::stringValue($card['icon'] ?? ''),
-                'highlight' => self::stringValue($card['highlight'] ?? ''),
-                'title' => self::stringValue($card['title'] ?? ''),
-                'text' => self::stringValue($card['text'] ?? ''),
+        $stats = collect(is_array($config['stats'] ?? null) ? array_values($config['stats']) : $defaults['stats'])
+            ->filter(fn (mixed $stat) => is_array($stat))
+            ->map(fn (array $stat) => [
+                'uuid' => filled($stat['uuid'] ?? null) ? (string) $stat['uuid'] : (string) Str::uuid(),
+                'value' => self::stringValue($stat['value'] ?? ''),
+                'label' => self::stringValue($stat['label'] ?? ''),
             ])
+            ->take(3)
             ->values()
             ->all();
 
-        if ($cards === []) {
-            $cards = $defaults['cards'];
+        if ($stats === []) {
+            $stats = $defaults['stats'];
+        }
+
+        $awards = collect(is_array($config['awards'] ?? null) ? array_values($config['awards']) : $defaults['awards'])
+            ->filter(fn (mixed $award) => is_array($award))
+            ->map(fn (array $award) => [
+                'uuid' => filled($award['uuid'] ?? null) ? (string) $award['uuid'] : (string) Str::uuid(),
+                'title' => self::stringValue($award['title'] ?? ''),
+                'description' => self::stringValue($award['description'] ?? ''),
+                'image_url' => self::stringValue($award['image_url'] ?? ''),
+                'image_alt' => self::stringValue($award['image_alt'] ?? ''),
+                'source_library_media_id' => is_numeric($award['source_library_media_id'] ?? null) ? (int) $award['source_library_media_id'] : null,
+            ])
+            ->take(12)
+            ->values()
+            ->all();
+
+        if ($awards === []) {
+            $awards = $defaults['awards'];
         }
 
         return [
             'is_enabled' => self::enabledValue($config['is_enabled'] ?? null, (bool) ($defaults['is_enabled'] ?? true)),
             'title' => self::stringValue($config['title'] ?? $defaults['title']),
+            'subtitle' => self::stringValue($config['subtitle'] ?? $defaults['subtitle']),
             'description' => self::stringValue($config['description'] ?? $defaults['description']),
-            'cards' => $cards,
+            'stats' => $stats,
+            'awards' => $awards,
         ];
     }
 
@@ -672,14 +869,24 @@ class TravelHomePageConfig
         return trim((string) $value);
     }
 
-    protected static function trustCard(string $highlight, string $title, string $text, string $icon = ''): array
+    protected static function trustStat(string $value = '', string $label = ''): array
     {
         return [
             'uuid' => (string) Str::uuid(),
-            'icon' => $icon,
-            'highlight' => $highlight,
+            'value' => $value,
+            'label' => $label,
+        ];
+    }
+
+    protected static function trustAward(string $title = '', string $description = '', string $imageUrl = '', string $imageAlt = ''): array
+    {
+        return [
+            'uuid' => (string) Str::uuid(),
             'title' => $title,
-            'text' => $text,
+            'description' => $description,
+            'image_url' => $imageUrl,
+            'image_alt' => $imageAlt !== '' ? $imageAlt : $title,
+            'source_library_media_id' => null,
         ];
     }
 

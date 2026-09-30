@@ -585,6 +585,7 @@ Block catalog v1:
 Block rules:
 
 - `hero_*` and `gallery_*` may source only from `slider` or `media popup`,
+- `gallery_media` giữ lưới desktop mặc định để tương thích nội dung cũ; CMS có thể bật slide desktop độc lập với số ảnh và chỉnh số ảnh nhìn thấy từ `1` đến `4` theo bước `0.1`. Mobile dùng carousel từ 1 ảnh; với 2 ảnh trở lên hiện 1 ảnh và khoảng 0,2 ảnh kế tiếp.
 - `hero_demo_landingpage` reuses the homepage demo hero section for landing pages that need that tour-entry layout; it queries live published tours, suppresses the default landing hero, and opens the primary CTA through `TravelInquiry`,
 - `html_widget` starts as an empty block and renders pasted HTML directly in the landing block stack for widget/snippet needs,
 - mỗi block có `home_position` cho riêng system page `home`; trường này là fallback để block mới được đưa vào gần các mốc homepage như `home-tour-topics`, `featured-tours`, taxonomy tabs, destination slider, services, trust, process, blog preview, FAQ hoặc CTA,
@@ -595,11 +596,16 @@ Block rules:
 - mỗi section hardcode trong `layout_order` dùng `home_config.{section}.is_enabled` để ẩn/hiện; `section_order` chỉ là compatibility field được derive từ layout mới,
 - hero blocks không được rời khỏi vị trí đầu trang chủ vì hero giữ H1, thông điệp chính và CTA đầu tiên; các slot tuỳ biến chỉ áp dụng cho block sau hero,
 - `html_widget` homepage mặc định neo trước `featured_tours`; nội dung giữ theo `uuid`, và khi có nhiều widget trên cùng trang thì vị trí frontsite phải theo token `block:{uuid}` trong `home_config.layout_order` để tránh lẫn nội dung,
-- `trust_proof` uses the shared homepage trust visual contract: one featured proof card, up to two supporting proof cards, Font Awesome icons from CMS with fallbacks, optional real trust metrics, and a simplified mobile presentation,
+- `trust_proof` uses its landing-page visual contract: one featured proof card, up to two supporting proof cards, Font Awesome icons from CMS with fallbacks, optional real trust metrics, and a simplified mobile presentation,
+- the fixed homepage `trust` section is separate from `trust_proof`: it renders company copy and up to three metrics beside a Media Library-backed award-image slider,
 - `topic_rail` reuses the homepage `Chủ đề tour` icon-carousel family with live featured `TourCategory` data; `eyebrow`, `title`, `description`, and navigator controls are optional and any empty heading part must collapse cleanly on the public page,
 - `region_taxonomy_tabs` is a region-first compare block: regions become the live tablist, each active panel resolves `Destination` or `TourCategory` cards through `card_source_type`, mobile keeps the tablist above the content as a horizontal scroll rail with no page-level overflow, desktop moves it to a left column, and the cards remain server-rendered taxonomy links,
-- homepage featured-tour tabs (`home-featured-tab-international`, `home-featured-tab-domestic`, `home-featured-tab-group`) define the scope-tab family: mobile tablist scrolls horizontally with no page-level overflow, then wraps normally from tablet/desktop upward,
+- homepage featured-tour tabs start with `home-featured-tab-all` active by default, followed by CMS-ordered filters that may target tour scope, published destination, published tour topic, or published region/continent: labels resolve from the selected objects while the block title/description remain global; mobile tablist scrolls horizontally with no page-level overflow, then wraps normally from tablet/desktop upward; the combined static grid keeps column gap `0.5rem` and row gap `0.25rem`,
+- homepage `featured_tours` may render a CMS-ordered `Tìm kiếm nổi bật` rail below the panels; each entry is an explicit label plus safe internal or HTTP(S) URL and an optional stable `filter_uuid` rather than an inferred taxonomy link. `Tất cả` shows the full rail, while Miền/Châu or other configured filters show exact assigned matches only,
 - `tour_taxonomy_tabs` reuses that homepage featured-tour tablist family; each tab targets one live `Region`, `Destination`, or `TourCategory`, the mobile tablist scrolls horizontally, and the active summary + CTA must switch with the tab while the tour cards remain server-rendered HTML,
+- `tour_taxonomy_tabs` may prepend a `Tất cả` tab scoped to the block's tour `scope` and render CMS-configured `Tìm kiếm nổi bật` links beneath the panels; links assigned to a taxonomy-tab UUID appear only for that tab and `Tất cả`, while links without an assignment appear only for `Tất cả`,
+- CMS chỉ cho thêm một widget tour `tour_taxonomy_tabs` với `display_mode = list | tabs`; chế độ `list` dùng bộ lọc danh sách tour và phát `ItemList` như `tour_list` cũ, chế độ `tabs` dùng các tab taxonomy. `tour_list` tồn tại để đọc dữ liệu cũ và được chuyển sang widget chung khi biên tập/lưu. `scope = non_group` lấy các tour đã xuất bản không thuộc tour đoàn,
+- các block chứa card tour có cấu hình (`tour_list`, `tour_taxonomy_tabs`, `flash_sale`, và `featured_tours` cố định trên homepage) cho chọn lưới hoặc slide; chế độ slide luôn cuộn một hàng card trên mobile và desktop, không dùng bố cục slide hai hàng,
 - mobile card-carousel panels inside `region_taxonomy_tabs` and `tour_taxonomy_tabs` should expose about `1 + 1/5` items per viewport to signal horizontal browsing without stretching the page width,
 - `faq` must render as the shared frontsite accordion contract: full-width rows, visible `+ / -` state icon, single-open behavior, and only the first item open by default,
 - `tour_list` is query-driven and may filter published tours by `category`, `destination`, `region`, `country`, `scope`, `featured`, `limit`, and `sort`,
@@ -645,3 +651,9 @@ When changing the tour runtime, verify:
 - landing pages still render from ordered blocks and custom root slugs do not collide with reserved routes,
 - taxonomy pages and tour detail preserve internal linking,
 - schema matches the visible blocks on the page.
+
+Flash Sale extension:
+
+- `flash_sale` là landing block query-driven, chỉ render campaign đang active và các item có tour publish + lịch khởi hành còn hiệu lực.
+- Card trỏ tới URL chi tiết có `flash_sale` và `flash_departure`; URL này không vào sitemap và canonical về URL tour gốc.
+- Trang detail chỉ thay giá và `Offer` trong đúng ngữ cảnh hợp lệ; truy cập tour thông thường tiếp tục dùng giá departure/tour chuẩn.

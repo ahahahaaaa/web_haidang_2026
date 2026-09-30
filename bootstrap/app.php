@@ -4,12 +4,14 @@ use App\Http\Middleware\AddNoIndexHeaders;
 use App\Http\Middleware\AuthenticateAgencyExportToken;
 use App\Http\Middleware\CacheFrontsiteResponse;
 use App\Http\Middleware\CanonicalizeFrontsiteUrl;
+use App\Http\Middleware\ResolvePublicUrlMapping;
 use App\Models\SeoOptimizationRedirect;
 use App\Services\Cms\SiteSettingsManager;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Support\Facades\Schema;
 use Spatie\Permission\Middleware\PermissionMiddleware;
 use Spatie\Permission\Middleware\RoleMiddleware;
@@ -25,12 +27,15 @@ return Application::configure(basePath: dirname(__DIR__))
             __DIR__.'/../routes/admin.php',
             __DIR__.'/../routes/seo_optimization_admin.php',
             __DIR__.'/../routes/admin_api.php',
+            __DIR__.'/../routes/public_url_fallback.php',
         ],
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->append(CanonicalizeFrontsiteUrl::class);
+        $middleware->web(append: [ResolvePublicUrlMapping::class]);
+        $middleware->prependToPriorityList(SubstituteBindings::class, ResolvePublicUrlMapping::class);
 
         $middleware->alias([
             'agency.export.token' => AuthenticateAgencyExportToken::class,

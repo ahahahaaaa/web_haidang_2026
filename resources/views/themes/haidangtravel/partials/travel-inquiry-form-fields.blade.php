@@ -7,7 +7,10 @@
     $selectVariant = $selectVariant ?? 'form';
     $showFeedback = $showFeedback ?? false;
     $source = $source ?? 'general';
+    $isTourInquiry = old('source', $source) === 'tour';
     $tourId = $tourId ?? null;
+    $tourDepartureId = $tourDepartureId ?? null;
+    $flashSaleSlug = $flashSaleSlug ?? null;
     $serviceId = $serviceId ?? null;
     $contextTitle = $contextTitle ?? 'Liên hệ chung';
     $subject = $subject ?? 'Tư vấn du lịch';
@@ -30,6 +33,9 @@
         'customer_name',
         'customer_email',
         'customer_phone',
+        'tour_id',
+        'tour_departure_id',
+        'flash_sale_slug',
         'adult_guest_count',
         'party_size',
         'expected_destination',
@@ -49,6 +55,8 @@
 <input type="hidden" name="submission_mode" value="{{ $submissionMode }}">
 <input type="hidden" name="source" value="{{ old('source', $source) }}" data-travel-inquiry-source-input>
 <input type="hidden" name="tour_id" value="{{ old('tour_id', $tourId) }}" data-travel-inquiry-tour-id-input>
+<input type="hidden" name="tour_departure_id" value="{{ old('tour_departure_id', $tourDepartureId) }}" data-travel-inquiry-departure-id-input>
+<input type="hidden" name="flash_sale_slug" value="{{ old('flash_sale_slug', $flashSaleSlug) }}" data-travel-inquiry-flash-sale-slug-input>
 <input type="hidden" name="service_id" value="{{ old('service_id', $serviceId) }}" data-travel-inquiry-service-id-input>
 <input type="hidden" name="context_title" value="{{ old('context_title', $contextTitle) }}" data-travel-inquiry-context-input>
 <input type="hidden" name="page_url" value="{{ old('page_url', url()->current()) }}" data-travel-inquiry-page-url-input>
@@ -58,6 +66,11 @@
     <input type="hidden" name="voucher_detail_required" value="1">
 @endif
 @include('themes.haidangtravel.partials.recaptcha-v3-field')
+
+<div class="hidden rounded-[1rem] border border-orange-200 bg-orange-50 px-4 py-3 text-sm leading-6 text-orange-900" data-travel-inquiry-pricing-notice role="note">
+    <p class="font-semibold" data-travel-inquiry-pricing-notice-title></p>
+    <p class="mt-1" data-travel-inquiry-pricing-notice-message></p>
+</div>
 
 <div
     @if ($feedbackId)
@@ -194,7 +207,7 @@
         </label>
     @else
         <label class="space-y-2">
-            <span class="text-sm font-semibold text-slate-900">Số khách người lớn</span>
+            <span class="text-sm font-semibold text-slate-900">Số khách người lớn <span class="{{ $isTourInquiry ? '' : 'hidden' }} font-normal text-slate-500" data-travel-inquiry-ticket-label>(1 khách = 1 vé)</span></span>
             <input
                 type="number"
                 min="0"
@@ -213,7 +226,7 @@
         </label>
 
         <label class="space-y-2">
-            <span class="text-sm font-semibold text-slate-900">Số trẻ em</span>
+            <span class="text-sm font-semibold text-slate-900">Số trẻ em <span class="{{ $isTourInquiry ? '' : 'hidden' }} font-normal text-slate-500" data-travel-inquiry-ticket-label>(1 khách = 1 vé)</span></span>
             <input
                 type="number"
                 min="0"
@@ -230,6 +243,8 @@
                 @endif
             </p>
         </label>
+
+        <p class="{{ $isTourInquiry ? '' : 'hidden' }} text-sm leading-6 text-slate-500 md:col-span-3" data-travel-inquiry-ticket-note>Vui lòng nhập ít nhất 1 khách. Tổng số vé được tính bằng số người lớn cộng số trẻ em.</p>
     @endif
 </div>
 

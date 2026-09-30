@@ -15,7 +15,7 @@
         $destinations = $frontsiteHeaderTaxonomies['tourDestinations'] ?? collect();
     @endphp
 
-    <section class="relative overflow-hidden bg-secondary">
+    <section class="relative overflow-hidden bg-secondary" data-sitewide-tour-search-host>
         @if ($heroImage)
             <picture class="absolute inset-0 block h-full w-full">
                 @if ($heroImageMedium)
@@ -37,7 +37,7 @@
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,106,0,0.22),_transparent_28%),linear-gradient(135deg,_#004A99_0%,_#0c3569_50%,_#002d5f_100%)]"></div>
         @endif
 
-        <div class="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
+        <div class="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:pb-[16rem] lg:pt-12">
             <div class="max-w-3xl space-y-6">
                 @include('themes.haidangtravel.partials.breadcrumbs', [
                     'items' => [
@@ -54,6 +54,8 @@
                 </p>
             </div>
         </div>
+
+        @include('themes.haidangtravel.partials.hero-tour-search-overlay')
     </section>
 
     <section class="px-4 py-8 sm:px-6 lg:px-8">

@@ -6,6 +6,7 @@
     --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --font-heading: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
     --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-editorial: 'Cormorant Garamond', ui-serif, Georgia, serif;
 
     --color-primary: #ff6a00;
     --color-primary-hover: #e65f00;
@@ -3121,6 +3122,21 @@
         max-width: 100%;
     }
 
+    .frontsite-theme .frontsite-select--single-line .ts-control {
+        flex-wrap: nowrap;
+    }
+
+    .frontsite-theme .frontsite-select--single-line .ts-control > .item {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .frontsite-theme .frontsite-select--single-line.plugin-input_autogrow.has-items .ts-control > input {
+        flex: 0 0 auto;
+        min-width: 0 !important;
+        margin: 0 !important;
+    }
+
     .frontsite-theme .frontsite-select--ghost.ts-wrapper.focus .ts-control,
     .frontsite-theme .frontsite-select--ghost.ts-wrapper.dropdown-active .ts-control {
         border: 0;
@@ -3254,31 +3270,55 @@
 
     .frontsite-calendar .flatpickr-months {
         margin: 0;
-        padding: 0;
+        padding: 0 0.5rem;
         position: relative;
-        height: 4rem;
-        background: transparent;
+        display: flex;
+        align-items: center;
+        min-height: 3.75rem;
+        background: linear-gradient(135deg, var(--color-primary-gradient-start), var(--color-primary-gradient-end));
         border-radius: 0;
     }
 
     .frontsite-calendar .flatpickr-months .flatpickr-month {
-        height: 4rem;
-        min-height: 4rem;
-        background: linear-gradient(135deg, #0f5fbf 0%, #2d83e6 100%) !important;
+        height: 3.75rem;
+        min-height: 3.75rem;
+        background: transparent !important;
         border-radius: 0 !important;
         color: #ffffff;
         fill: #ffffff;
+        overflow: visible;
     }
 
     .frontsite-calendar .flatpickr-months .flatpickr-prev-month,
     .frontsite-calendar .flatpickr-months .flatpickr-next-month {
-        top: 0.45rem;
-        height: 3.1rem;
-        padding: 1rem 0.85rem;
-        border-radius: 0.9rem;
+        top: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0;
+        border-radius: 0.75rem;
         color: rgba(255, 255, 255, 0.92);
         fill: rgba(255, 255, 255, 0.92);
+        transform: translateY(-50%);
         transition: background-color 160ms ease, color 160ms ease, fill 160ms ease, transform 160ms ease;
+    }
+
+    .frontsite-calendar .flatpickr-months .flatpickr-prev-month {
+        left: 0.55rem;
+    }
+
+    .frontsite-calendar .flatpickr-months .flatpickr-next-month {
+        right: 0.55rem;
+    }
+
+    .frontsite-calendar .flatpickr-months .flatpickr-prev-month.flatpickr-disabled,
+    .frontsite-calendar .flatpickr-months .flatpickr-next-month.flatpickr-disabled {
+        display: inline-flex !important;
+        cursor: not-allowed;
+        opacity: 0.38;
+        pointer-events: none;
     }
 
     .frontsite-calendar .flatpickr-months .flatpickr-prev-month:hover,
@@ -3286,18 +3326,24 @@
         background: rgba(255, 255, 255, 0.12);
         color: #ffffff;
         fill: #ffffff;
-        transform: translateY(-1px);
+        transform: translateY(-50%);
+    }
+
+    .frontsite-calendar .flatpickr-months .flatpickr-prev-month:focus-visible,
+    .frontsite-calendar .flatpickr-months .flatpickr-next-month:focus-visible {
+        outline: 2px solid rgba(255, 255, 255, 0.92);
+        outline-offset: -2px;
     }
 
     .frontsite-calendar .flatpickr-current-month {
         position: absolute;
-        inset: 0 3rem auto;
+        inset: 0 3.35rem auto;
         width: auto;
-        height: 4rem;
+        height: 3.75rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 0.28rem;
+        gap: 0.5rem;
         flex-wrap: nowrap;
         white-space: nowrap;
         padding: 0;
@@ -3306,6 +3352,7 @@
         line-height: 1.1;
         color: #ffffff;
         text-align: center;
+        transform: none;
     }
 
     .frontsite-calendar .flatpickr-current-month,
@@ -3321,12 +3368,12 @@
         align-items: center;
         justify-content: center;
         margin-left: 0;
+        padding: 0;
         font-weight: 800;
     }
 
     .frontsite-calendar .flatpickr-current-month span.cur-month:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 0.65rem;
+        background: transparent;
     }
 
     .frontsite-calendar .flatpickr-current-month .flatpickr-monthDropdown-months {
@@ -3355,14 +3402,20 @@
     }
 
     .frontsite-calendar .flatpickr-current-month .numInputWrapper {
-        width: 3.7rem;
-        min-width: 3.7rem;
-        flex: 0 0 3.7rem;
+        width: 4.15rem;
+        min-width: 4.15rem;
+        flex: 0 0 4.15rem;
+        border-radius: 0.65rem;
+    }
+
+    .frontsite-calendar .flatpickr-current-month .numInputWrapper:hover {
+        background: rgba(255, 255, 255, 0.12);
     }
 
     .frontsite-calendar .flatpickr-current-month input.cur-year {
         width: 100%;
-        padding: 0;
+        min-height: 2.25rem;
+        padding: 0 0.85rem 0 0.35rem;
         color: inherit;
         font-size: 1.02rem;
         font-weight: 700;
@@ -3443,9 +3496,18 @@
     }
 
     .frontsite-calendar .flatpickr-day.today {
-        border-color: rgba(15, 95, 191, 0.22);
-        background: rgba(15, 95, 191, 0.05);
-        color: var(--color-secondary);
+        border-color: color-mix(in oklab, var(--color-primary) 36%, white);
+        background: color-mix(in oklab, var(--color-primary-soft) 72%, white);
+        color: var(--color-primary-hover);
+    }
+
+    .frontsite-calendar .flatpickr-day.today.flatpickr-disabled,
+    .frontsite-calendar .flatpickr-day.today.flatpickr-disabled:hover {
+        border-color: transparent;
+        background: transparent;
+        color: rgba(148, 163, 184, 0.74);
+        box-shadow: none;
+        transform: none;
     }
 
     .frontsite-calendar .flatpickr-day:hover {
@@ -3656,6 +3718,152 @@
     box-shadow: 0 34px 92px -52px rgba(15, 23, 42, 0.42);
 }
 
+@property --tour-card-border-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+.frontsite-theme :is(.frontsite-tour-card, .frontsite-tour-price-panel, .tour-offer-form) {
+    position: relative;
+    isolation: isolate;
+    --tour-card-border-duration: 11s;
+    --tour-card-shine-delay: 0s;
+}
+
+.frontsite-theme :is(.frontsite-tour-card, .frontsite-tour-price-panel, .tour-offer-form)::before {
+    content: '';
+    position: absolute;
+    z-index: 30;
+    inset: 0;
+    padding: 2px;
+    border-radius: inherit;
+    pointer-events: none;
+    background: conic-gradient(
+        from var(--tour-card-border-angle),
+        transparent 0deg 268deg,
+        #ffffff 280deg,
+        #ff8c00 294deg,
+        #ff6a00 311deg,
+        transparent 326deg 360deg
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    animation: frontsite-tour-card-border-orbit var(--tour-card-border-duration) linear infinite;
+}
+
+.frontsite-theme .frontsite-tour-card:nth-child(3n + 2),
+.frontsite-theme .service-card-carousel-item:nth-child(3n + 2) .frontsite-tour-card {
+    --tour-card-border-duration: 14.5s;
+    --tour-card-shine-delay: -1.8s;
+}
+
+.frontsite-theme .frontsite-tour-card:nth-child(3n + 3),
+.frontsite-theme .service-card-carousel-item:nth-child(3n + 3) .frontsite-tour-card {
+    --tour-card-border-duration: 9.5s;
+    --tour-card-shine-delay: -3.2s;
+}
+
+.frontsite-theme .frontsite-tour-price-panel {
+    --tour-card-border-duration: 15s;
+}
+
+.frontsite-theme [data-tour-content-shell] {
+    --tour-sticky-header-offset: 0px;
+    --tour-section-nav-height: 0px;
+}
+
+.frontsite-theme [data-tour-content-shell] section[id] {
+    scroll-margin-top: calc(var(--tour-sticky-header-offset) + var(--tour-section-nav-height) + 1rem);
+}
+
+.frontsite-theme [data-tour-section-link].is-active {
+    border-color: rgba(255, 106, 0, 0.46);
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+    box-shadow: 0 12px 28px -22px rgba(255, 106, 0, 0.9), inset 0 0 0 1px rgba(255, 106, 0, 0.14);
+}
+
+@media (min-width: 64rem) {
+    .frontsite-theme [data-tour-content-shell] {
+        --tour-sticky-header-offset: 5rem;
+    }
+}
+
+@keyframes frontsite-tour-card-border-orbit {
+    to { --tour-card-border-angle: 360deg; }
+}
+
+.frontsite-theme .frontsite-tour-card-cta-wrap:focus-within {
+    outline: none;
+}
+
+.frontsite-theme .frontsite-tour-card-cta-wrap:has(.frontsite-tour-card-cta:focus-visible) {
+    border-radius: 0.25rem;
+    outline: 3px solid rgb(255 106 0 / 0.38);
+    outline-offset: 3px;
+}
+
+.frontsite-theme .frontsite-tour-card-cta {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    gap: 0.375rem;
+    min-width: 7rem;
+    padding-left: 1.4rem;
+    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.frontsite-theme .frontsite-tour-booking-cta {
+    border-color: var(--color-primary);
+    background: linear-gradient(115deg, #FF6A00 0%, #FF8C00 52%, #E65F00 100%);
+    color: white;
+    box-shadow: 0 12px 25px -18px rgba(230, 95, 0, 0.8);
+}
+
+.frontsite-theme .frontsite-tour-booking-cta:hover {
+    filter: brightness(1.05);
+}
+
+.frontsite-theme .frontsite-tour-price-cta {
+    padding-left: 1rem;
+    padding-right: 0.75rem;
+}
+
+.frontsite-theme .frontsite-tour-card-cta > :where(span, i) {
+    position: relative;
+    z-index: 1;
+}
+
+.frontsite-theme :is(.frontsite-tour-card-cta, .tour-offer-submit)::after {
+    content: '';
+    position: absolute;
+    inset: -35% auto -35% -45%;
+    width: 45%;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.48), transparent);
+    transform: translateX(-170%) skewX(-24deg);
+    animation: frontsite-tour-card-cta-shine 4.8s ease-in-out var(--tour-card-shine-delay) infinite;
+}
+
+@keyframes frontsite-tour-card-cta-shine {
+    0%, 54% { transform: translateX(-170%) skewX(-24deg); }
+    72%, 100% { transform: translateX(430%) skewX(-24deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .frontsite-theme :is(.frontsite-tour-card, .frontsite-tour-price-panel, .tour-offer-form)::before,
+    .frontsite-theme :is(.frontsite-tour-card-cta, .tour-offer-submit)::after {
+        animation: none !important;
+    }
+
+    .frontsite-theme :is(.frontsite-tour-card-cta, .tour-offer-submit)::after {
+        display: none;
+    }
+}
+
 .frontsite-media-panel {
     position: relative;
     isolation: isolate;
@@ -3741,13 +3949,13 @@
     transform: translate3d(-8%, 6%, 0) scale(1.08);
 }
 
-.frontsite-theme :where([data-hero-slider], [data-card-carousel]) :where(img, i[class*='fa-'], .fa, svg, .material-symbols-outlined) {
+.frontsite-theme :where([data-hero-slider], [data-card-carousel], [data-home-popup-slider]) :where(img, i[class*='fa-'], .fa, svg, .material-symbols-outlined) {
     transition: none;
     will-change: auto;
 }
 
-.frontsite-theme :where([data-hero-slider], [data-card-carousel]) :where(a:hover, button:hover, article:hover, .theme-panel:hover, .group:hover, img:hover, i:hover, svg:hover, .material-symbols-outlined:hover) :where(img, i[class*='fa-'], .fa, svg, .material-symbols-outlined),
-.frontsite-theme :where([data-hero-slider], [data-card-carousel]) :where(img, i[class*='fa-'], .fa, svg, .material-symbols-outlined) {
+.frontsite-theme :where([data-hero-slider], [data-card-carousel], [data-home-popup-slider]) :where(a:hover, button:hover, article:hover, .theme-panel:hover, .group:hover, img:hover, i:hover, svg:hover, .material-symbols-outlined:hover) :where(img, i[class*='fa-'], .fa, svg, .material-symbols-outlined),
+.frontsite-theme :where([data-hero-slider], [data-card-carousel], [data-home-popup-slider]) :where(img, i[class*='fa-'], .fa, svg, .material-symbols-outlined) {
     transform: none !important;
 }
 
@@ -3761,9 +3969,29 @@
     transform: scale(1.04) !important;
 }
 
+.frontsite-theme .frontsite-tour-card-image,
+.frontsite-theme [data-card-carousel] .frontsite-tour-card .frontsite-tour-card-image {
+    transform: scale(1.045) !important;
+    transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1), filter 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.frontsite-theme .frontsite-tour-card:hover .frontsite-tour-card-image,
+.frontsite-theme [data-card-carousel] .frontsite-tour-card:hover .frontsite-tour-card-image {
+    transform: scale(1) !important;
+    filter: saturate(1.08) contrast(1.03);
+}
+
 @media (prefers-reduced-motion: reduce) {
     .frontsite-theme [data-card-carousel] .frontsite-taxonomy-zoom-image,
     .frontsite-theme [data-card-carousel] .group:hover .frontsite-taxonomy-zoom-image {
+        transition: none !important;
+        transform: none !important;
+    }
+
+    .frontsite-theme .frontsite-tour-card-image,
+    .frontsite-theme .frontsite-tour-card:hover .frontsite-tour-card-image,
+    .frontsite-theme [data-card-carousel] .frontsite-tour-card .frontsite-tour-card-image,
+    .frontsite-theme [data-card-carousel] .frontsite-tour-card:hover .frontsite-tour-card-image {
         transition: none !important;
         transform: none !important;
     }
@@ -3771,6 +3999,17 @@
 
 .service-modal-open {
     overflow: hidden;
+}
+
+.frontsite-theme .zalo-chat-widget {
+    left: auto !important;
+    right: 16px !important;
+    bottom: 16px !important;
+}
+
+.frontsite-theme .zalo-chat-widget > iframe {
+    left: auto !important;
+    right: 0 !important;
 }
 
 .frontsite-theme [data-travel-inquiry-modal] {
@@ -3827,6 +4066,11 @@
     box-shadow: 0 18px 38px -24px rgba(15, 23, 42, 0.38);
 }
 
+.frontsite-slider-nav .frontsite-hero-nav-button:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
 @media (min-width: 1024px) {
     .home-hero-slider .home-hero-nav-button {
         opacity: 0;
@@ -3868,18 +4112,41 @@
     color: var(--color-primary);
 }
 
+.service-card-carousel-control:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
 .service-card-carousel-control:disabled {
     cursor: not-allowed;
     opacity: 0.4;
 }
 
+.voucher-rail-carousel-control {
+    border-color: rgba(231, 166, 66, 0.72);
+    background: rgba(255, 253, 247, 0.94);
+    color: #9a5315;
+    box-shadow: 0 12px 26px -20px rgba(196, 106, 22, 0.7);
+}
+
+.voucher-rail-carousel-control:hover:not(:disabled) {
+    border-color: #f28a10;
+    background: #fff3d6;
+    color: #c66a16;
+}
+
 [data-card-carousel] .frontsite-slider-nav {
-    position: static;
-    inset: auto;
-    z-index: auto;
-    justify-content: flex-end;
-    padding-inline: 0;
-    pointer-events: auto;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    justify-content: space-between;
+    padding-inline: 0.75rem;
+    pointer-events: none;
+}
+
+.frontsite-slider-stage {
+    position: relative;
+    min-width: 0;
 }
 
 [data-card-carousel][data-active='false'] .frontsite-slider-nav {
@@ -3912,6 +4179,11 @@
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     padding-bottom: 0.2rem;
+}
+
+[data-tour-card-slider][data-active='true'] .service-card-carousel-track {
+    overflow-y: hidden;
+    padding-block: 0.75rem 1.25rem;
 }
 
 [data-card-carousel][data-active='true'] .service-card-carousel-track::-webkit-scrollbar {

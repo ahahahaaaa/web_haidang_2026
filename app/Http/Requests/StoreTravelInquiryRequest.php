@@ -4,9 +4,11 @@ namespace App\Http\Requests;
 
 use App\Services\Security\GoogleRecaptchaV3;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Enum;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Enum;
+use Illuminate\Validation\Validator;
 use Src\Domains\Cms\Enums\TravelInquirySource;
+use Src\Domains\Cms\Models\TourDeparture;
 
 class StoreTravelInquiryRequest extends FormRequest
 {
@@ -20,6 +22,8 @@ class StoreTravelInquiryRequest extends FormRequest
         return [
             'source' => ['required', new Enum(TravelInquirySource::class)],
             'tour_id' => ['nullable', 'integer', 'exists:tours,id'],
+            'tour_departure_id' => ['nullable', 'integer', 'exists:tour_departures,id'],
+            'flash_sale_slug' => ['nullable', 'string', 'max:120', 'regex:/^[a-z0-9-]+$/'],
             'service_id' => ['nullable', 'integer', 'exists:services,id'],
             'inquiry_type' => ['required', Rule::in(['travel', 'customer_care', 'other'])],
             'context_title' => ['nullable', 'string', 'max:255'],
@@ -59,15 +63,45 @@ class StoreTravelInquiryRequest extends FormRequest
         ];
     }
 
-    public function withValidator($validator): void
+    public function after(): array
     {
-        $validator->after(function ($validator): void {
-            $message = app(GoogleRecaptchaV3::class)->validateRequest($this, 'travel_inquiry');
+        return [
+            function (Validator $validator): void {
+                if ($this->input('source') === TravelInquirySource::Tour->value) {
+                    $adultGuestCount = max(0, $this->integer('adult_guest_count'));
+                    $childGuestCount = max(0, $this->integer('party_size'));
 
-            if ($message) {
-                $validator->errors()->add('g-recaptcha-response', $message);
-            }
-        });
+                    if ($adultGuestCount + $childGuestCount < 1) {
+                        $validator->errors()->add('adult_guest_count', 'Vui lòng nhập tổng số khách. Mỗi người lớn hoặc trẻ em được tính là 1 vé.');
+                    }
+
+                    if (! $this->integer('tour_id')) {
+                        $validator->errors()->add('tour_id', 'Tour đặt chỗ không hợp lệ.');
+                    }
+
+                    if (filled($this->input('flash_sale_slug')) && ! $this->integer('tour_departure_id')) {
+                        $validator->errors()->add('tour_departure_id', 'Lịch khởi hành Flash Sale không hợp lệ.');
+                    }
+
+                    if ($this->integer('tour_id') && $this->integer('tour_departure_id')) {
+                        $departureBelongsToTour = TourDeparture::query()
+                            ->whereKey($this->integer('tour_departure_id'))
+                            ->where('tour_id', $this->integer('tour_id'))
+                            ->exists();
+
+                        if (! $departureBelongsToTour) {
+                            $validator->errors()->add('tour_departure_id', 'Lịch khởi hành không thuộc tour đã chọn.');
+                        }
+                    }
+                }
+
+                $message = app(GoogleRecaptchaV3::class)->validateRequest($this, 'travel_inquiry');
+
+                if ($message) {
+                    $validator->errors()->add('g-recaptcha-response', $message);
+                }
+            },
+        ];
     }
 
     public function messages(): array
@@ -77,6 +111,10 @@ class StoreTravelInquiryRequest extends FormRequest
             'source.enum' => 'Nguồn liên hệ không hợp lệ.',
             'tour_id.integer' => 'Tour được chọn không hợp lệ.',
             'tour_id.exists' => 'Tour được chọn không tồn tại trong hệ thống.',
+            'tour_departure_id.integer' => 'Lịch khởi hành được chọn không hợp lệ.',
+            'tour_departure_id.exists' => 'Lịch khởi hành không tồn tại trong hệ thống.',
+            'flash_sale_slug.regex' => 'Mã chiến dịch Flash Sale không hợp lệ.',
+            'flash_sale_slug.max' => 'Mã chiến dịch Flash Sale không được vượt quá :max ký tự.',
             'service_id.integer' => 'Dịch vụ được chọn không hợp lệ.',
             'service_id.exists' => 'Dịch vụ được chọn không tồn tại trong hệ thống.',
             'inquiry_type.required' => 'Vui lòng chọn loại thông tin.',
@@ -129,6 +167,8 @@ class StoreTravelInquiryRequest extends FormRequest
         return [
             'source' => 'nguồn liên hệ',
             'tour_id' => 'tour',
+            'tour_departure_id' => 'lịch khởi hành',
+            'flash_sale_slug' => 'chiến dịch Flash Sale',
             'service_id' => 'dịch vụ',
             'inquiry_type' => 'loại thông tin',
             'context_title' => 'ngữ cảnh liên hệ',
@@ -173,6 +213,9 @@ class StoreTravelInquiryRequest extends FormRequest
             'context_title' => filled($this->input('context_title'))
                 ? trim((string) $this->input('context_title'))
                 : null,
+            'flash_sale_slug' => filled($this->input('flash_sale_slug'))
+                ? trim((string) $this->input('flash_sale_slug'))
+                : null,
             'customer_email' => filled($this->input('customer_email'))
                 ? trim((string) $this->input('customer_email'))
                 : null,
@@ -193,6 +236,9 @@ class StoreTravelInquiryRequest extends FormRequest
                 : url()->current(),
             'party_size' => filled($this->input('party_size'))
                 ? trim((string) $this->input('party_size'))
+                : null,
+            'tour_departure_id' => filled($this->input('tour_departure_id'))
+                ? trim((string) $this->input('tour_departure_id'))
                 : null,
             'source' => $this->input('source', TravelInquirySource::General->value),
             'submission_mode' => filled($this->input('submission_mode'))
@@ -221,6 +267,9 @@ class StoreTravelInquiryRequest extends FormRequest
             'message' => $this->input('message') ?: null,
             'party_size' => filled($this->input('party_size'))
                 ? $this->integer('party_size')
+                : null,
+            'tour_departure_id' => filled($this->input('tour_departure_id'))
+                ? $this->integer('tour_departure_id')
                 : null,
         ]);
     }

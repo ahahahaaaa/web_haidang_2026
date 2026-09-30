@@ -3,6 +3,11 @@
 @section('content')
     @php
         $serviceCategoryContent = trim((string) ($selectedServiceCategory?->content ?? ''));
+        $serviceLandingBody = trim((string) ($landing?->body ?? ''));
+        $legacyServicePlaceholder = 'Trang dịch vụ travel thay thế hoàn toàn nhánh dịch vụ xây dựng cũ.';
+        $showServiceLandingBody = ! $selectedServiceCategory
+            && $serviceLandingBody !== ''
+            && \App\Support\RichText::normalizePlain($serviceLandingBody) !== $legacyServicePlaceholder;
     @endphp
 
     @include('themes.haidangtravel.partials.landing-hero', [
@@ -37,10 +42,10 @@
     ])
 
     <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        @if ($landing?->body)
+        @if ($showServiceLandingBody)
             <div class="theme-panel mb-10 p-6">
                 <div class="theme-copy text-sm leading-7 text-slate-600">
-                    {!! \App\Support\RichText::render($landing->body) !!}
+                    {!! \App\Support\RichText::render($serviceLandingBody) !!}
                 </div>
             </div>
         @endif

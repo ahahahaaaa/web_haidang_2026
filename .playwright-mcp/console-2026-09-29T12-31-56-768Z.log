@@ -1,0 +1,7 @@
+[    1435ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8001/_boost/browser-logs @ http://127.0.0.1:8001/?zalo_position_qa=20260929b:69
+[    2743ms] [LOG] Zalo Social Plugin is loaded successfully @ http://127.0.0.1:8001/?zalo_position_qa=20260929b:128
+[    2744ms] [LOG] socialPluginsShare:  [] @ http://127.0.0.1:8001/?zalo_position_qa=20260929b:128
+[   23759ms] [LOG] Zalo Social Plugin is loaded successfully @ http://127.0.0.1:8001/?zalo_position_qa=20260929b:128
+[   23760ms] [LOG] socialPluginsShare:  [] @ http://127.0.0.1:8001/?zalo_position_qa=20260929b:128
+[   23813ms] Uncaught TypeError: Cannot read properties of null (reading 'postMessage')
+    at value (https://sp.zalo.me/plugins/sdk.js:1:43063)

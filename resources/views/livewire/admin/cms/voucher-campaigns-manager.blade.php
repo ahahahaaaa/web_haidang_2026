@@ -135,7 +135,7 @@
                             </option>
                         @endforeach
                     </select>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400">Quy ước hiện tại: một landing page voucher chỉ gắn với một campaign mã voucher. Nếu landing page đã có campaign, hãy mở campaign đó để sửa mã, thời hạn hoặc frame.</p>
+                    <p class="text-xs text-zinc-500 dark:text-zinc-400">Mỗi campaign công khai cần một landing page custom đang hoạt động. Nút “Nhận voucher” trên widget sẽ dẫn đến landing này và tự mở form nhận mã. Một landing page chỉ được gắn với một campaign voucher.</p>
                     @error('form.landing_page_id') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
                 </label>
 
@@ -172,6 +172,32 @@
                         <input type="number" min="1" max="5000" wire:model="form.code_quantity" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
                         @error('form.code_quantity') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
                     </label>
+                </div>
+
+                <div class="space-y-4 rounded-3xl border border-sky-200 bg-sky-50/70 p-4 dark:border-sky-500/30 dark:bg-sky-500/10">
+                    <div>
+                        <h3 class="text-sm font-semibold text-sky-900 dark:text-sky-100">Card mã ưu đãi công khai</h3>
+                        <p class="mt-1 text-xs leading-6 text-sky-700 dark:text-sky-200/80">Chỉ mã công khai bên dưới mới xuất hiện trong widget LandingPage. CTA dẫn đến landing page riêng để mở form nhận voucher; hệ thống không đưa các mã riêng đã sinh cho từng khách ra frontsite.</p>
+                    </div>
+
+                    <label class="inline-flex items-center gap-2 text-sm font-medium text-sky-900 dark:text-sky-100">
+                        <input type="checkbox" wire:model="form.public_widget_enabled" class="rounded border-sky-300 text-sky-600 focus:ring-sky-500">
+                        Cho phép hiển thị campaign trong widget mã ưu đãi
+                    </label>
+
+                    <div class="grid gap-3 md:grid-cols-2">
+                        <label class="block space-y-2">
+                            <span class="text-sm font-medium text-zinc-700 dark:text-zinc-200">Mã ưu đãi công khai</span>
+                            <input type="text" wire:model="form.public_code" placeholder="TRIP1500" class="w-full rounded-2xl border border-sky-200 bg-white px-4 py-3 font-mono text-sm uppercase dark:border-sky-500/30 dark:bg-zinc-900 dark:text-white">
+                            @error('form.public_code') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                        </label>
+
+                        <label class="block space-y-2">
+                            <span class="text-sm font-medium text-zinc-700 dark:text-zinc-200">Điều kiện ngắn trên card</span>
+                            <input type="text" wire:model="form.public_terms" placeholder="Áp dụng cho tour nội địa, Đông Nam Á" class="w-full rounded-2xl border border-sky-200 bg-white px-4 py-3 text-sm dark:border-sky-500/30 dark:bg-zinc-900 dark:text-white">
+                            @error('form.public_terms') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                        </label>
+                    </div>
                 </div>
 
                 <div class="space-y-3 rounded-3xl border border-zinc-200 bg-zinc-50/70 p-4 dark:border-zinc-800 dark:bg-zinc-950/40">

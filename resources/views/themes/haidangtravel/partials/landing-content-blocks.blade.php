@@ -25,6 +25,7 @@
             'fallbackSecondaryUrl' => trim((string) ($block['secondary_url'] ?? '')) ?: $landingPage?->cta_secondary_url,
             'fallbackTitle' => trim((string) ($block['title'] ?? '')) ?: ($landingPage?->hero_title ?: $landingPage?->title),
             'hero' => $block['rendered_hero'] ?? [],
+            'headingTag' => $headingTag ?? 'h1',
             'landing' => $landingPage,
         ])
     @endif
@@ -32,6 +33,7 @@
     @if (($block['type'] ?? null) === \App\Support\LandingPageBlocks::TYPE_HERO_DEMO_LANDINGPAGE)
         @include('themes.haidangtravel.partials.landing-hero-demo', [
             'block' => $block,
+            'headingTag' => $headingTag ?? 'h1',
             'heroTour' => $block['hero_tour'] ?? null,
             'landing' => $landingPage,
             'scopeCards' => $block['scope_cards'] ?? [],
@@ -84,6 +86,27 @@
         ])
     @endif
 
+    @if (($block['type'] ?? null) === \App\Support\LandingPageBlocks::TYPE_VOUCHER_RAIL)
+        @include('themes.haidangtravel.partials.travel-voucher-rail', [
+            'description' => $block['description'] ?? null,
+            'items' => $block['items'] ?? [],
+            'sectionId' => 'landing-voucher-rail-'.$blockIndex,
+            'showExpiry' => (bool) ($block['show_expiry'] ?? true),
+            'title' => $block['title'] ?? null,
+        ])
+    @endif
+
+    @if (($block['type'] ?? null) === \App\Support\LandingPageBlocks::TYPE_FLASH_SALE)
+        @include('themes.haidangtravel.partials.flash-sale-block', [
+            'campaign' => $block['flash_sale'] ?? null,
+            'isSlider' => (bool) ($block['is_slider'] ?? false),
+            'sectionId' => 'landing-flash-sale-'.$blockIndex,
+            'showViewMore' => (bool) ($block['show_view_more'] ?? true),
+            'viewMoreLabel' => $block['view_more_label'] ?? '',
+            'viewMoreUrl' => $block['view_more_url'] ?? '',
+        ])
+    @endif
+
     @if (($block['type'] ?? null) === \App\Support\LandingPageBlocks::TYPE_GEO_ANSWER)
         @include('themes.haidangtravel.partials.geo-answer-panel', [
             'geo' => $block['geo'] ?? [],
@@ -128,6 +151,7 @@
             'eyebrow' => $block['eyebrow'] ?? null,
             'items' => $block['items'] ?? [],
             'sectionId' => 'landing-topic-rail-'.$blockIndex,
+            'showCardTitles' => (bool) ($block['show_card_titles'] ?? true),
             'showNavigator' => (bool) ($block['show_navigation'] ?? true),
             'taxonomyType' => 'tour_category',
             'title' => $block['title'] ?? null,
@@ -136,41 +160,64 @@
         ])
     @endif
 
-    @if (($block['type'] ?? null) === \App\Support\LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS)
+    @if (($block['type'] ?? null) === \App\Support\LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS && ($block['display_mode'] ?? 'tabs') === 'tabs')
         @include('themes.haidangtravel.partials.tour-taxonomy-tabs', [
             'block' => $block,
-            'sectionId' => 'landing-tour-taxonomy-tabs-'.$blockIndex,
+            'sectionId' => 'landing-tour-taxonomy-tabs-'.($block['uuid'] ?? $blockIndex),
             'showRatings' => true,
         ])
     @endif
 
-    @if (($block['type'] ?? null) === \App\Support\LandingPageBlocks::TYPE_TOUR_LIST)
+    @if (($block['type'] ?? null) === \App\Support\LandingPageBlocks::TYPE_TOUR_LIST || (($block['type'] ?? null) === \App\Support\LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS && ($block['display_mode'] ?? 'tabs') === 'list'))
         <section class="px-4 py-8 sm:px-6 lg:px-8">
             @php
                 $tourBlockItems = collect($block['items'] ?? collect());
                 $tourBlockCount = $tourBlockItems->count();
+                $tourBlockIsSlider = (bool) ($block['is_slider'] ?? false);
                 $tourCardGridClasses = \App\Support\FrontsiteCardGrid::classes($tourBlockCount);
-                $tourCardVariant = \App\Support\FrontsiteCardGrid::tourVariant($tourBlockCount);
+                $tourCardVariant = $tourBlockIsSlider ? 'default' : \App\Support\FrontsiteCardGrid::tourVariant($tourBlockCount);
             @endphp
 
             <div class="mx-auto max-w-7xl space-y-8">
                 @include('themes.haidangtravel.partials.section-heading', [
                     'eyebrow' => $block['eyebrow'] ?? 'Tours',
+                    'icon' => $block['icon'] ?? 'fa-solid fa-route',
                     'title' => $block['title'] ?? 'Danh sách tour',
                     'description' => $block['description'] ?? null,
+                    'ctaLabel' => $block['cta_label'] ?? 'Xem thêm',
+                    'ctaUrl' => $block['cta_url'] ?? '',
                 ])
 
-                <div class="{{ $tourCardGridClasses }}">
-                    @forelse ($tourBlockItems as $tour)
-                        @include('themes.haidangtravel.partials.tour-card', [
-                            'tour' => $tour,
-                            'variant' => $tourCardVariant,
-                            'revealDelay' => number_format(($loop->index % 4) * 0.08, 2, '.', ''),
-                            'showRating' => true,
-                        ])
-                    @empty
-                        <div class="theme-panel col-span-full p-8 text-center text-slate-500">Chưa có tour phù hợp điều kiện block hiện tại.</div>
-                    @endforelse
+                <div
+                    class="frontsite-slider-stage"
+                    @if ($tourBlockIsSlider)
+                        data-card-carousel
+                        data-desktop-slider="true"
+                        data-tour-card-slider="true"
+                        style="--desktop-columns: 4; --mobile-card-width: calc(83.333% - 0.17rem); --desktop-card-width: calc((100% - 3rem) / 4);"
+                    @endif
+                >
+                    @if ($tourBlockIsSlider && $tourBlockCount > 1)
+                        <div class="frontsite-slider-nav">
+                            <button type="button" class="service-card-carousel-control" data-card-carousel-prev aria-label="Xem tour trước"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+                            <button type="button" class="service-card-carousel-control" data-card-carousel-next aria-label="Xem tour tiếp theo"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                        </div>
+                    @endif
+                    <div class="{{ $tourBlockIsSlider ? 'service-card-carousel-track' : $tourCardGridClasses }}" @if ($tourBlockIsSlider) data-card-carousel-track @endif>
+                        @forelse ($tourBlockItems as $tour)
+                            @if ($tourBlockIsSlider)<div class="service-card-carousel-item" data-card-carousel-item>@endif
+                                @include('themes.haidangtravel.partials.tour-card', [
+                                    'tour' => $tour,
+                                    'variant' => $tourCardVariant,
+                                    'ctaVariant' => $block['card_cta_variant'] ?? null,
+                                    'revealDelay' => number_format(($loop->index % 4) * 0.08, 2, '.', ''),
+                                    'showRating' => true,
+                                ])
+                            @if ($tourBlockIsSlider)</div>@endif
+                        @empty
+                            <div class="theme-panel col-span-full p-8 text-center text-slate-500">Chưa có tour phù hợp điều kiện block hiện tại.</div>
+                        @endforelse
+                    </div>
                 </div>
             </div>
         </section>
@@ -181,8 +228,11 @@
             <div class="mx-auto max-w-7xl space-y-8">
                 @include('themes.haidangtravel.partials.section-heading', [
                     'eyebrow' => $block['eyebrow'] ?? 'Blog',
+                    'icon' => $block['icon'] ?? 'fa-regular fa-newspaper',
                     'title' => $block['title'] ?? 'Bài viết nổi bật',
                     'description' => $block['description'] ?? null,
+                    'ctaLabel' => $block['cta_label'] ?? 'Xem thêm',
+                    'ctaUrl' => $block['cta_url'] ?? route('blog.index'),
                 ])
 
                 <div class="{{ \App\Support\FrontsiteCardGrid::classes() }}">

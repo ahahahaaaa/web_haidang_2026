@@ -569,7 +569,110 @@
                             "title": "Tổng hợp tour mới 2026",
                             "description": "Khám phá danh sách tour đa dạng được thiết kế chuyên nghiệp, tối ưu thời gian và ngân sách nhưng vẫn đảm bảo tiêu chuẩn sang trọng tuyệt đối."
                         }
-                    }
+                    },
+                    "filters": [
+                        {
+                            "uuid": "home-featured-region-mien-bac",
+                            "source_type": "region",
+                            "source_value": "mien-bac"
+                        },
+                        {
+                            "uuid": "home-featured-region-mien-trung",
+                            "source_type": "region",
+                            "source_value": "mien-trung"
+                        },
+                        {
+                            "uuid": "home-featured-region-mien-dong-nam-bo",
+                            "source_type": "region",
+                            "source_value": "mien-nam"
+                        },
+                        {
+                            "uuid": "home-featured-region-mien-tay-nam-bo",
+                            "source_type": "region",
+                            "source_value": "mien-tay-nam-bo"
+                        },
+                        {
+                            "uuid": "home-featured-region-chau-a",
+                            "source_type": "region",
+                            "source_value": "chau-a"
+                        },
+                        {
+                            "uuid": "home-featured-region-chau-au",
+                            "source_type": "region",
+                            "source_value": "chau-au"
+                        },
+                        {
+                            "uuid": "home-featured-region-chau-my",
+                            "source_type": "region",
+                            "source_value": "chau-my"
+                        },
+                        {
+                            "uuid": "home-featured-region-chau-uc",
+                            "source_type": "region",
+                            "source_value": "chau-uc"
+                        },
+                        {
+                            "uuid": "home-featured-region-chau-phi",
+                            "source_type": "region",
+                            "source_value": "chau-phi"
+                        }
+                    ],
+                    "popular_searches": [
+                        {
+                            "uuid": "home-popular-ha-giang",
+                            "label": "Hà Giang",
+                            "url": "/tim-tour?q=ha-giang",
+                            "filter_uuid": "home-featured-region-mien-bac"
+                        },
+                        {
+                            "uuid": "home-popular-da-nang",
+                            "label": "Đà Nẵng",
+                            "url": "/tim-tour?q=da-nang",
+                            "filter_uuid": "home-featured-region-mien-trung"
+                        },
+                        {
+                            "uuid": "home-popular-tay-ninh",
+                            "label": "Tây Ninh",
+                            "url": "/tim-tour?q=tay-ninh",
+                            "filter_uuid": "home-featured-region-mien-dong-nam-bo"
+                        },
+                        {
+                            "uuid": "home-popular-phu-quoc",
+                            "label": "Phú Quốc",
+                            "url": "/tim-tour?q=phu-quoc",
+                            "filter_uuid": "home-featured-region-mien-tay-nam-bo"
+                        },
+                        {
+                            "uuid": "home-popular-thai-lan",
+                            "label": "Thái Lan",
+                            "url": "/tim-tour?q=thai-lan",
+                            "filter_uuid": "home-featured-region-chau-a"
+                        },
+                        {
+                            "uuid": "home-popular-phap",
+                            "label": "Pháp",
+                            "url": "/tim-tour?q=phap",
+                            "filter_uuid": "home-featured-region-chau-au"
+                        },
+                        {
+                            "uuid": "home-popular-my",
+                            "label": "Mỹ",
+                            "url": "/tim-tour?q=my",
+                            "filter_uuid": "home-featured-region-chau-my"
+                        },
+                        {
+                            "uuid": "home-popular-new-zealand",
+                            "label": "New Zealand",
+                            "url": "/tim-tour?q=new-zealand",
+                            "filter_uuid": "home-featured-region-chau-uc"
+                        },
+                        {
+                            "uuid": "home-popular-ai-cap",
+                            "label": "Ai Cập",
+                            "url": "/tim-tour?q=ai-cap",
+                            "filter_uuid": "home-featured-region-chau-phi"
+                        }
+                    ]
                 },
                 "blog_preview": {
                     "title": "Cẩm Nang & Sự Kiện Nổi Bật",
@@ -902,7 +1005,7 @@
             "hero_excerpt": "Bộ dịch vụ toàn diện cho hành trình của bạn.",
             "intro_title": "Dịch vụ hậu cần cho chuyến đi",
             "intro_excerpt": "Mỗi dịch vụ được rút gọn thành một detail page rõ lợi ích và CTA.",
-            "body": "<p>Trang dịch vụ travel thay thế hoàn toàn nhánh dịch vụ xây dựng cũ.</p>",
+            "body": "",
             "cta_title": "Cần kết hợp tour và dịch vụ?",
             "cta_excerpt": "Bạn có thể yêu cầu cùng lúc tour, visa, vé máy bay và tiện ích đi kèm.",
             "cta_primary_label": "Gửi yêu cầu",
@@ -6493,6 +6596,69 @@
             "gallery": []
         },
         {
+            "name": "Châu Mỹ",
+            "slug": "chau-my",
+            "scope": "international",
+            "excerpt": null,
+            "content": null,
+            "status": "published",
+            "is_featured": false,
+            "sort_order": 0,
+            "published_at": "2026-04-22T06:39:22.000000Z",
+            "cover_alt": null,
+            "cover_image_url": null,
+            "meta_title": null,
+            "meta_description": null,
+            "og_title": null,
+            "og_description": null,
+            "canonical_url": null,
+            "robots_directive": "index,follow",
+            "schema": [],
+            "gallery": []
+        },
+        {
+            "name": "Châu Úc",
+            "slug": "chau-uc",
+            "scope": "international",
+            "excerpt": null,
+            "content": null,
+            "status": "published",
+            "is_featured": false,
+            "sort_order": 0,
+            "published_at": "2026-04-22T06:39:22.000000Z",
+            "cover_alt": null,
+            "cover_image_url": null,
+            "meta_title": null,
+            "meta_description": null,
+            "og_title": null,
+            "og_description": null,
+            "canonical_url": null,
+            "robots_directive": "index,follow",
+            "schema": [],
+            "gallery": []
+        },
+        {
+            "name": "Châu Phi",
+            "slug": "chau-phi",
+            "scope": "international",
+            "excerpt": null,
+            "content": null,
+            "status": "published",
+            "is_featured": false,
+            "sort_order": 0,
+            "published_at": "2026-04-22T06:39:22.000000Z",
+            "cover_alt": null,
+            "cover_image_url": null,
+            "meta_title": null,
+            "meta_description": null,
+            "og_title": null,
+            "og_description": null,
+            "canonical_url": null,
+            "robots_directive": "index,follow",
+            "schema": [],
+            "gallery": []
+        },
+        {
             "name": "Châu Âu",
             "slug": "chau-au",
             "scope": "international",
@@ -6535,8 +6701,29 @@
             "gallery": []
         },
         {
-            "name": "Miền Nam",
+            "name": "Miền Đông Nam Bộ",
             "slug": "mien-nam",
+            "scope": "domestic",
+            "excerpt": null,
+            "content": null,
+            "status": "published",
+            "is_featured": false,
+            "sort_order": 0,
+            "published_at": "2026-04-22T06:39:22.000000Z",
+            "cover_alt": null,
+            "cover_image_url": null,
+            "meta_title": null,
+            "meta_description": null,
+            "og_title": null,
+            "og_description": null,
+            "canonical_url": null,
+            "robots_directive": "index,follow",
+            "schema": [],
+            "gallery": []
+        },
+        {
+            "name": "Miền Tây Nam Bộ",
+            "slug": "mien-tay-nam-bo",
             "scope": "domestic",
             "excerpt": null,
             "content": null,

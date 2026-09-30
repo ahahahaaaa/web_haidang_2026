@@ -1,0 +1,7 @@
+[     940ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://localhost:8001/_boost/browser-logs @ http://localhost:8001/:69
+[    2361ms] [LOG] Zalo Social Plugin is loaded successfully @ http://localhost:8001/:128
+[    2361ms] [LOG] socialPluginsShare:  [] @ http://localhost:8001/:128
+[12948649ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ http://gc.kis.v2.scr.kaspersky-labs.com/CA8EB8C2-2F3B-4B1A-861B-1D04CFAAB9DA/98035FD3-2CED-44A4-8A7F-FB50AD4B7754/from?get&nocache=14195&tm=2026-09-22T11%3A20%3A43.854Z:0
+[12948655ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ http://gc.kis.v2.scr.kaspersky-labs.com/CA8EB8C2-2F3B-4B1A-861B-1D04CFAAB9DA/98035FD3-2CED-44A4-8A7F-FB50AD4B7754/from?get&nocache=17ec8&tm=2026-09-22T11%3A20%3A43.894Z&second=true:0
+[17468572ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ http://gc.kis.v2.scr.kaspersky-labs.com/CA8EB8C2-2F3B-4B1A-861B-1D04CFAAB9DA/71917DE4-A7FD-4E85-BDB2-54C0134F6415/from?get&nocache=15a7e&tm=2026-09-22T12%3A36%3A03.792Z:0
+[17468575ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ http://gc.kis.v2.scr.kaspersky-labs.com/CA8EB8C2-2F3B-4B1A-861B-1D04CFAAB9DA/71917DE4-A7FD-4E85-BDB2-54C0134F6415/from?get&nocache=1fb0f&tm=2026-09-22T12%3A36%3A03.817Z&second=true:0

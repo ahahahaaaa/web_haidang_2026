@@ -1,0 +1,4 @@
+[     429ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:8000/build/assets/frontsite-DbR5qVfy.css:0
+[     436ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/chuong-trinh/tour-trung-quoc-an-thi-truong-gia-gioi-phuong-hoang-co-tran-5-ngay-4-dem:69
+[    1006ms] [LOG] Zalo Social Plugin is loaded successfully @ http://127.0.0.1:8000/chuong-trinh/tour-trung-quoc-an-thi-truong-gia-gioi-phuong-hoang-co-tran-5-ngay-4-dem:128
+[    1006ms] [LOG] socialPluginsShare:  [] @ http://127.0.0.1:8000/chuong-trinh/tour-trung-quoc-an-thi-truong-gia-gioi-phuong-hoang-co-tran-5-ngay-4-dem:128

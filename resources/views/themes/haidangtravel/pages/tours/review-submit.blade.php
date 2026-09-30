@@ -17,13 +17,13 @@
         $unlockFeedbackMessages = collect(['review_password'])->flatMap(fn (string $field) => $errors->get($field))->filter()->values();
     @endphp
 
-    <section class="relative overflow-hidden bg-[#0d1730] text-white">
+    <section class="relative overflow-hidden bg-[#0d1730] text-white" data-sitewide-tour-search-host>
         @if ($cover)
             <img src="{{ $cover }}" alt="{{ $tour->cover_alt ?: $tour->title }}" class="absolute inset-0 h-full w-full object-cover opacity-35" loading="eager" fetchpriority="high">
         @endif
         <div class="absolute inset-0 bg-slate-950/60"></div>
 
-        <div class="relative mx-auto grid min-h-[54vh] max-w-7xl items-end gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[1fr,22rem] lg:px-8">
+        <div class="relative mx-auto grid min-h-[54vh] max-w-7xl items-end gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[1fr,22rem] lg:px-8 lg:pb-[16rem] lg:pt-14">
             <div class="max-w-3xl">
                 <a href="{{ route('tours.show', $tour) }}" class="inline-flex items-center gap-2 text-sm font-semibold text-orange-100 transition hover:text-white">
                     <i class="fa-solid fa-arrow-left"></i>
@@ -47,6 +47,8 @@
                 @endif
             </div>
         </div>
+
+        @include('themes.haidangtravel.partials.hero-tour-search-overlay')
     </section>
 
     <section class="bg-[color:var(--color-bg)] py-10">

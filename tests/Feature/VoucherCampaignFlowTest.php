@@ -3,11 +3,16 @@
 namespace Tests\Feature;
 
 use App\Mail\TravelInquiryMail;
+use App\Support\LandingPageBlocks;
+use Database\Seeders\HaidangTravelBootstrapSeeder;
+use Database\Seeders\VoucherLandingPageSeeder;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Src\Domains\Cms\Enums\TourScope;
 use Src\Domains\Cms\Enums\TravelInquirySource;
+use Src\Domains\Cms\Models\Destination;
 use Src\Domains\Cms\Models\LandingPage;
 use Src\Domains\Cms\Models\SiteSetting;
 use Src\Domains\Cms\Models\TravelInquiry;
@@ -18,6 +23,190 @@ use Tests\TestCase;
 class VoucherCampaignFlowTest extends TestCase
 {
     use RefreshDatabase;
+
+    public function test_voucher_landing_seeder_creates_public_sample_campaigns_and_voucher_rail(): void
+    {
+        $this->seed(VoucherLandingPageSeeder::class);
+
+        $campaigns = VoucherCampaign::query()
+            ->publiclyListed()
+            ->redeemable()
+            ->whereHas('codes', fn ($query) => $query->available())
+            ->get();
+
+        $this->assertGreaterThanOrEqual(6, $campaigns->count());
+        $campaigns->load('landingPage');
+
+        $this->assertTrue($campaigns->every(fn (VoucherCampaign $campaign): bool => $campaign->landingPage?->is_active === true));
+        $this->assertSame($campaigns->count(), $campaigns->pluck('landing_page_id')->filter()->unique()->count());
+
+        $landingPage = LandingPage::query()->where('slug', 'voucher-du-lich')->firstOrFail();
+        $voucherRail = collect(LandingPageBlocks::normalize($landingPage->blocks))
+            ->firstWhere('type', LandingPageBlocks::TYPE_VOUCHER_RAIL);
+
+        $this->assertNotNull($voucherRail);
+
+        $campaignSlugs = collect($voucherRail['campaign_slugs'] ?? []);
+
+        $this->assertGreaterThanOrEqual(5, $campaignSlugs->count());
+        $this->assertEmpty($campaignSlugs->diff($campaigns->pluck('slug')));
+
+        $sampleCampaign = $campaigns->firstWhere('slug', 'voucher-du-lich-150k');
+        $this->assertNotNull($sampleCampaign?->landingPage);
+        $this->assertSame(
+            route('tours.international', absolute: false),
+            $sampleCampaign->landingPage->cta_secondary_url,
+        );
+
+        $this->get(route('landing.show', ['slug' => $landingPage->slug]))
+            ->assertOk()
+            ->assertSee('Nhận voucher')
+            ->assertSee('href="'.route('landing.show', ['slug' => $sampleCampaign->landingPage->slug]).'#nhan-voucher"', false)
+            ->assertDontSee('data-voucher-code-copy', false);
+
+        $this->get(route('landing.show', ['slug' => $sampleCampaign->landingPage->slug]))
+            ->assertOk()
+            ->assertSee('data-default-voucher-campaign="'.$sampleCampaign->slug.'"', false)
+            ->assertSee('value="'.$sampleCampaign->slug.'"', false);
+
+        $sample300Campaign = $campaigns->firstWhere('slug', 'voucher-du-lich-300k');
+        $this->assertNotNull($sample300Campaign?->landingPage);
+
+        foreach ([
+            'voucher-du-lich-150k' => 'TRIP150',
+            'voucher-du-lich-300k' => 'TRIP300',
+            'voucher-du-lich-500k' => 'TRIP500',
+            'voucher-du-lich-800k' => 'TRIP800',
+            'voucher-du-lich-1tr' => 'TRIP1000',
+        ] as $campaignSlug => $expectedOfferCode) {
+            $sample = $campaigns->firstWhere('slug', $campaignSlug);
+            $promotion = collect(LandingPageBlocks::normalize($sample?->landingPage?->blocks ?? []))
+                ->firstWhere('type', LandingPageBlocks::TYPE_VOUCHER_PROMOTION);
+
+            $this->assertSame($expectedOfferCode, $promotion['offer_code'] ?? null);
+        }
+
+        $this->get(route('landing.show', ['slug' => $sample300Campaign->landingPage->slug]))
+            ->assertOk()
+            ->assertSee('Mã ưu đãi đặc biệt:')
+            ->assertSee('<strong>TRIP300</strong>', false)
+            ->assertDontSee('<strong>HDTRAVEL200</strong>', false);
+    }
+
+    public function test_voucher_demo_landings_link_to_published_international_country_destinations(): void
+    {
+        Destination::query()->create([
+            'name' => 'Hub quốc tế',
+            'slug' => 'du-lich-quoc-te',
+            'scope' => TourScope::International->value,
+            'status' => 'published',
+            'is_country_root' => true,
+            'sort_order' => 0,
+        ]);
+        Destination::query()->create([
+            'name' => 'Quốc gia bản nháp',
+            'slug' => 'du-lich-ban-nhap',
+            'scope' => TourScope::International->value,
+            'status' => 'draft',
+            'is_country_root' => true,
+            'sort_order' => 1,
+        ]);
+        Destination::query()->create([
+            'name' => 'Điểm đến nội địa',
+            'slug' => 'diem-den-noi-dia',
+            'scope' => TourScope::Domestic->value,
+            'status' => 'published',
+            'is_country_root' => true,
+            'sort_order' => 2,
+        ]);
+        Destination::query()->create([
+            'name' => 'Điểm đến con',
+            'slug' => 'diem-den-con',
+            'scope' => TourScope::International->value,
+            'status' => 'published',
+            'is_country_root' => false,
+            'sort_order' => 3,
+        ]);
+        $firstCountry = Destination::query()->create([
+            'name' => 'Thái Lan',
+            'slug' => 'du-lich-thai-lan',
+            'scope' => TourScope::International->value,
+            'status' => 'published',
+            'is_country_root' => true,
+            'sort_order' => 10,
+        ]);
+        $secondCountry = Destination::query()->create([
+            'name' => 'Nhật Bản',
+            'slug' => 'du-lich-nhat-ban',
+            'scope' => TourScope::International->value,
+            'status' => 'published',
+            'is_country_root' => true,
+            'sort_order' => 20,
+        ]);
+
+        $this->seed(VoucherLandingPageSeeder::class);
+
+        $sampleSlugs = [
+            'voucher-du-lich-150k',
+            'voucher-du-lich-300k',
+            'voucher-du-lich-500k',
+            'voucher-du-lich-800k',
+            'voucher-du-lich-1tr',
+        ];
+        $expectedCountrySlugs = [
+            $firstCountry->slug,
+            $secondCountry->slug,
+            $firstCountry->slug,
+            $secondCountry->slug,
+            $firstCountry->slug,
+        ];
+
+        foreach ($sampleSlugs as $index => $landingSlug) {
+            $landingPage = LandingPage::query()->where('slug', $landingSlug)->firstOrFail();
+            $expectedUrl = route('countries.show', ['slug' => $expectedCountrySlugs[$index]], absolute: false);
+            $promotion = collect(LandingPageBlocks::normalize($landingPage->blocks))
+                ->firstWhere('type', LandingPageBlocks::TYPE_VOUCHER_PROMOTION);
+
+            $this->assertSame($expectedUrl, $landingPage->cta_secondary_url);
+            $this->assertSame($expectedUrl, $promotion['secondary_url'] ?? null);
+        }
+
+        $firstRunUrls = LandingPage::query()
+            ->whereIn('slug', $sampleSlugs)
+            ->pluck('cta_secondary_url', 'slug')
+            ->all();
+
+        $this->seed(VoucherLandingPageSeeder::class);
+
+        $this->assertSame(
+            $firstRunUrls,
+            LandingPage::query()
+                ->whereIn('slug', $sampleSlugs)
+                ->pluck('cta_secondary_url', 'slug')
+                ->all(),
+        );
+    }
+
+    public function test_bootstrap_places_voucher_rail_immediately_after_home_topic_section(): void
+    {
+        $this->seed(HaidangTravelBootstrapSeeder::class);
+
+        $response = $this->get(route('home'));
+
+        $response->assertOk();
+
+        $html = $response->getContent();
+
+        $topicPosition = strpos($html, 'id="home-tour-topics"');
+        $voucherPosition = strpos($html, 'data-travel-voucher-rail');
+        $featuredToursPosition = strpos($html, 'id="featured-tours"');
+
+        $this->assertNotFalse($topicPosition);
+        $this->assertNotFalse($voucherPosition);
+        $this->assertNotFalse($featuredToursPosition);
+        $this->assertLessThan($voucherPosition, $topicPosition);
+        $this->assertLessThan($featuredToursPosition, $voucherPosition);
+    }
 
     public function test_voucher_campaign_issues_code_and_records_it_on_travel_inquiry(): void
     {

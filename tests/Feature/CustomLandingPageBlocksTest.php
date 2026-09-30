@@ -4,12 +4,14 @@ namespace Tests\Feature;
 
 use App\Livewire\Admin\Cms\LandingPagesManager;
 use App\Models\User;
+use App\Support\FrontsiteMedia;
 use App\Support\LandingPageBlocks;
 use App\Support\TravelHomePageConfig;
 use Database\Seeders\CmsBootstrapSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Livewire\Livewire;
 use Src\Domains\Cms\Enums\TourScope;
 use Src\Domains\Cms\Models\BlogPost;
@@ -22,11 +24,72 @@ use Src\Domains\Cms\Models\Tour;
 use Src\Domains\Cms\Models\TourCategory;
 use Src\Domains\Cms\Models\TourDeparture;
 use Src\Domains\Cms\Models\VoucherCampaign;
+use Src\Domains\Cms\Models\VoucherCode;
 use Tests\TestCase;
 
 class CustomLandingPageBlocksTest extends TestCase
 {
     use RefreshDatabase;
+
+    public function test_unified_tour_widget_list_mode_excludes_group_tours_and_keeps_item_list_schema(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $region = Region::query()->create([
+            'name' => 'Miền Bắc widget chung',
+            'slug' => 'mien-bac-widget-chung',
+            'scope' => TourScope::Domestic->value,
+            'status' => 'published',
+        ]);
+        $destination = Destination::query()->create([
+            'name' => 'Hà Nội widget chung',
+            'slug' => 'ha-noi-widget-chung',
+            'region_id' => $region->id,
+            'status' => 'published',
+        ]);
+
+        Tour::query()->create([
+            'title' => 'Tour thường kiểm thử widget',
+            'slug' => 'tour-thuong-kiem-thu-widget',
+            'status' => 'published',
+            'scope' => TourScope::Domestic->value,
+            'is_featured' => true,
+            'destination_id' => $destination->id,
+            'region_id' => $region->id,
+        ]);
+        Tour::query()->create([
+            'title' => 'Tour đoàn kiểm thử widget',
+            'slug' => 'tour-doan-kiem-thu-widget',
+            'status' => 'published',
+            'scope' => TourScope::Group->value,
+            'is_featured' => true,
+        ]);
+
+        $widget = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS);
+        $widget['display_mode'] = 'list';
+        $widget['scope'] = 'non_group';
+        $widget['title'] = 'Tour không phải đoàn';
+        $widget['featured'] = true;
+        $tabsWidget = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS);
+        $tabsWidget['scope'] = 'non_group';
+        $tabsWidget['show_all_tab'] = true;
+        $tabsWidget['tabs'] = [LandingPageBlocks::defaultTourTaxonomyTab('destination', $destination->slug)];
+
+        LandingPage::query()->create([
+            'title' => 'Kiểm thử widget tour chung',
+            'slug' => 'kiem-thu-widget-tour-chung',
+            'is_active' => true,
+            'template_key' => 'generic',
+            'blocks' => [$widget, $tabsWidget],
+        ]);
+
+        $this->get('/kiem-thu-widget-tour-chung')
+            ->assertOk()
+            ->assertSeeText('Tour thường kiểm thử widget')
+            ->assertDontSeeText('Tour đoàn kiểm thử widget')
+            ->assertSee('scope=non_group&amp;destination=ha-noi-widget-chung', false)
+            ->assertSee('"@type":"ItemList"', false);
+    }
 
     public function test_custom_root_landing_page_renders_from_block_builder(): void
     {
@@ -319,8 +382,9 @@ class CustomLandingPageBlocksTest extends TestCase
         $topicRail['description'] = '';
         $topicRail['show_navigation'] = false;
         $topicRail['limit'] = 6;
+        unset($topicRail['show_card_titles']);
 
-        LandingPage::query()->create([
+        $page = LandingPage::query()->create([
             'title' => 'Landing chủ đề tour',
             'slug' => 'landing-chu-de-tour',
             'is_active' => true,
@@ -333,6 +397,7 @@ class CustomLandingPageBlocksTest extends TestCase
             ->assertSee('Khởi đầu từ nhu cầu')
             ->assertSee('Chọn nhanh chủ đề tour')
             ->assertSee('Tour gia đình')
+            ->assertSee('<h3 class="line-clamp-2', false)
             ->assertSee('"@id":"'.url('/landing-chu-de-tour').'#topic-rail-1"', false)
             ->assertSee('"@type":"ItemList"', false)
             ->assertSee('"@id":"'.route('tour-categories.show', $category).'#webpage"', false)
@@ -340,6 +405,16 @@ class CustomLandingPageBlocksTest extends TestCase
             ->assertDontSee('Lướt nhanh các chủ đề tour đang có hành trình hoạt động để khoanh vùng nhu cầu phù hợp trước khi so sánh điểm đến, ngày đi và mức giá.')
             ->assertDontSee('data-card-carousel-prev', false)
             ->assertDontSee('data-card-carousel-next', false);
+
+        $topicRail['show_card_titles'] = false;
+        $page->update(['blocks' => [$topicRail]]);
+
+        $this->get('/landing-chu-de-tour')
+            ->assertOk()
+            ->assertSee('aria-label="Xem chủ đề tour: Tour gia đình"', false)
+            ->assertSee('data-topic-card-hover-title', false)
+            ->assertSee('group-hover:translate-y-0', false)
+            ->assertDontSee('<h3 class="line-clamp-2', false);
     }
 
     public function test_custom_root_landing_page_region_taxonomy_tabs_outputs_taxonomy_item_list_schema(): void
@@ -489,6 +564,7 @@ class CustomLandingPageBlocksTest extends TestCase
         $faq = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_FAQ);
         $tourList['title'] = 'Tour lễ hội nổi bật';
         $tourList['description'] = 'Chọn nhanh các tour lễ hội đang mở bán.';
+        $tourList['card_cta_variant'] = 'red';
         $tourList['scope'] = TourScope::Domestic->value;
         $tourList['category_slug'] = $category->slug;
         $tourList['limit'] = 4;
@@ -497,7 +573,7 @@ class CustomLandingPageBlocksTest extends TestCase
             'answer' => 'Landing tour list sẽ tạo graph cho tour đang hiển thị và khối FAQ nhìn thấy trên trang.',
         ]];
 
-        LandingPage::query()->create([
+        $landing = LandingPage::query()->create([
             'title' => 'Landing tour lễ hội',
             'slug' => 'landing-tour-le-hoi',
             'is_active' => true,
@@ -505,11 +581,44 @@ class CustomLandingPageBlocksTest extends TestCase
             'blocks' => [$tourList, $faq],
         ]);
 
-        $this->get('/landing-tour-le-hoi')
+        $response = $this->get('/landing-tour-le-hoi');
+
+        $response
             ->assertOk()
             ->assertSee('Tour lễ hội nổi bật')
             ->assertSee('Miền Tây lễ hội bánh dân gian')
             ->assertDontSee('Miền Tây tour nháp không được hiển thị')
+            ->assertSee('aspect-[4/3]', false)
+            ->assertSee('-mt-[22.5%]', false)
+            ->assertSee('data-tour-card-info-panel', false)
+            ->assertSee('data-tour-card-category-overlay', false)
+            ->assertSee('bg-slate-950/80', false)
+            ->assertSee('data-tour-card-rating-overlay', false)
+            ->assertSee('data-tour-card-location-short>HCM</span>', false)
+            ->assertSee('title="Điểm khởi hành: TP. Hồ Chí Minh"', false)
+            ->assertDontSee('frontsite-media-content absolute', false)
+            ->assertSee('aria-label="Tiêu chuẩn 4 sao"', false)
+            ->assertSee('data-tour-card-standard-stars="4"', false)
+            ->assertSee('data-tour-card-meta-list', false)
+            ->assertSee('data-tour-card-departure-rail', false)
+            ->assertSee('data-tour-card-departure-prev', false)
+            ->assertSee('data-tour-card-departure-next', false)
+            ->assertSee('width="1200"', false)
+            ->assertSee('height="900"', false)
+            ->assertSee('data-tour-card-cta-variant="red"', false)
+            ->assertSee('frontsite-tour-card-cta', false)
+            ->assertSee('data-tour-card-price-action', false)
+            ->assertSee('grid-cols-[minmax(0,1fr)_auto]', false)
+            ->assertSee('h-[58px]', false)
+            ->assertSee('items-start', false)
+            ->assertSee('justify-between', false)
+            ->assertSee('relative -top-3.5', false)
+            ->assertSee('sm:h-auto sm:items-end sm:justify-normal', false)
+            ->assertSee('sm:relative sm:-left-1.5 sm:-top-1.5', false)
+            ->assertSee('-mb-[1.375rem]', false)
+            ->assertSee('text-[clamp(1rem,4.8vw,1.15rem)]', false)
+            ->assertSeeText('Đặt ngay')
+            ->assertDontSee('data-tour-card-slider="true"', false)
             ->assertSee('4,8/5')
             ->assertSee('132 đánh giá')
             ->assertSee('"@type":"CollectionPage"', false)
@@ -522,6 +631,22 @@ class CustomLandingPageBlocksTest extends TestCase
             ->assertSee('"@id":"'.route('tours.show', $tour).'#tour"', false)
             ->assertSee('"@id":"'.route('tours.show', $tour).'#trip"', false)
             ->assertSee('"@id":"'.route('tours.show', $tour).'#offer-', false);
+
+        $this->assertMatchesRegularExpression(
+            '/data-tour-card-rating-overlay[^>]*>.*?<\/span>\s*<\/span>\s*<div[^>]*data-tour-card-info-panel/s',
+            $response->getContent(),
+        );
+
+        $tourList['is_slider'] = true;
+        $landing->update(['blocks' => [$tourList, $faq]]);
+
+        $this->get('/landing-tour-le-hoi')
+            ->assertOk()
+            ->assertSee('data-tour-card-slider="true"', false)
+            ->assertSee('data-desktop-slider="true"', false)
+            ->assertSee('data-card-carousel-track', false)
+            ->assertSee('data-card-carousel-item', false)
+            ->assertDontSee('data-mobile-two-rows="true"', false);
     }
 
     public function test_custom_root_landing_page_can_render_region_taxonomy_tabs_block(): void
@@ -637,15 +762,15 @@ class CustomLandingPageBlocksTest extends TestCase
             ->addMedia(UploadedFile::fake()->image('han-quoc-widget.jpg', 1600, 900))
             ->usingFileName('han-quoc-widget.jpg')
             ->toMediaCollection('avatar', 'public');
-        $countryMediumUrl = \App\Support\FrontsiteMedia::taxonomyAvatarUrl(
+        $countryMediumUrl = FrontsiteMedia::taxonomyAvatarUrl(
             $country,
-            \App\Support\FrontsiteMedia::SIZE_MEDIUM,
+            FrontsiteMedia::SIZE_MEDIUM,
             'cover_image_url',
             false,
         );
-        $countrySmallUrl = \App\Support\FrontsiteMedia::taxonomyAvatarUrl(
+        $countrySmallUrl = FrontsiteMedia::taxonomyAvatarUrl(
             $country,
-            \App\Support\FrontsiteMedia::SIZE_SMALL,
+            FrontsiteMedia::SIZE_SMALL,
             'cover_image_url',
             false,
         );
@@ -780,7 +905,7 @@ class CustomLandingPageBlocksTest extends TestCase
 
         $this->get('/')
             ->assertOk()
-            ->assertDontSee('placeholder="Bạn muốn đi đâu?"', false)
+            ->assertSee('data-sitewide-tour-search-overlay', false)
             ->assertDontSee('id="home-tour-topics"', false)
             ->assertDontSee('id="featured-tours"', false)
             ->assertDontSee('id="core-services"', false)
@@ -813,6 +938,7 @@ class CustomLandingPageBlocksTest extends TestCase
                         'cta',
                     ],
                     'cta' => ['is_enabled' => false],
+                    'featured_tours' => ['is_slider' => true],
                 ]),
             ]);
 
@@ -820,35 +946,189 @@ class CustomLandingPageBlocksTest extends TestCase
             ->assertOk()
             ->assertSee('id="core-services"', false)
             ->assertSee('id="featured-tours"', false)
-            ->assertSee('placeholder="Bạn muốn đi đâu?"', false)
+            ->assertSee('data-tour-card-slider="true"', false)
+            ->assertSee('data-sitewide-tour-search-overlay', false)
             ->assertDontSee('Cần tư vấn tour phù hợp với ngân sách, thời gian và quy mô đoàn?')
             ->getContent();
 
         $servicesPosition = strpos($html, 'id="core-services"');
         $featuredToursPosition = strpos($html, 'id="featured-tours"');
-        $searchPosition = strpos($html, 'placeholder="Bạn muốn đi đâu?"');
 
         $this->assertNotFalse($servicesPosition);
         $this->assertNotFalse($featuredToursPosition);
-        $this->assertNotFalse($searchPosition);
         $this->assertLessThan($featuredToursPosition, $servicesPosition);
-        $this->assertLessThan($searchPosition, $featuredToursPosition);
+        $this->assertSame(1, substr_count($html, 'data-sitewide-tour-search-overlay'));
     }
 
-    public function test_homepage_featured_tour_tabs_show_international_before_domestic(): void
+    public function test_homepage_featured_tour_tabs_load_all_before_scope_filters(): void
     {
         $this->seed(CmsBootstrapSeeder::class);
 
         $html = $this->get('/')
             ->assertOk()
             ->assertSee('id="featured-tours"', false)
+            ->assertSee('id="home-featured-tab-all"', false)
             ->assertSee('id="home-featured-tab-international"', false)
             ->assertSee('id="home-featured-tab-domestic"', false)
+            ->assertSee('data-home-featured-tab="all"', false)
+            ->assertSee('aria-controls="home-featured-panel-all"', false)
+            ->assertSee('grid gap-x-2 gap-y-1 md:grid-cols-2 lg:grid-cols-4', false)
+            ->assertDontSee('rounded-full bg-black/8 px-2.5 py-1 text-[11px]', false)
+            ->assertDontSee('data-home-featured-popular-searches', false)
             ->getContent();
 
         $this->assertLessThan(
+            strpos($html, 'id="home-featured-tab-international"'),
+            strpos($html, 'id="home-featured-tab-all"'),
+        );
+        $this->assertLessThan(
             strpos($html, 'id="home-featured-tab-domestic"'),
             strpos($html, 'id="home-featured-tab-international"'),
+        );
+        $this->assertMatchesRegularExpression(
+            '/id="home-featured-tab-all"[^>]*aria-selected="true"/s',
+            $html,
+        );
+        $this->assertMatchesRegularExpression(
+            '/id="home-featured-panel-all"[^>]*data-home-featured-panel="all"(?![^>]*\shidden(?:\s|>))[^>]*>/s',
+            $html,
+        );
+    }
+
+    public function test_homepage_featured_tours_without_filter_buttons_show_all_panel(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $home = LandingPage::query()->where('page_key', 'home')->firstOrFail();
+        $config = $home->home_config;
+        data_set($config, 'featured_tours.show_filters', false);
+        $home->update(['home_config' => $config]);
+
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('data-home-featured-panel="all"', false)
+            ->assertDontSee('data-home-featured-tab="all"', false)
+            ->assertDontSee('data-home-featured-panel="domestic"', false)
+            ->assertDontSee('data-home-featured-panel="international"', false);
+    }
+
+    public function test_homepage_featured_tour_filters_support_destination_topic_region_and_custom_popular_urls(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $home = LandingPage::query()->where('page_key', 'home')->firstOrFail();
+        $region = Region::query()->create([
+            'name' => 'Miền Nam',
+            'slug' => 'mien-nam-featured-filter',
+            'scope' => TourScope::Domestic->value,
+            'status' => 'published',
+        ]);
+        $destination = Destination::query()->create([
+            'name' => 'Phú Quốc',
+            'slug' => 'phu-quoc-featured-filter',
+            'status' => 'published',
+            'region_id' => $region->id,
+        ]);
+        $topic = TourCategory::query()->create([
+            'name' => 'Nghỉ dưỡng biển',
+            'slug' => 'nghi-duong-bien-featured-filter',
+            'status' => 'published',
+        ]);
+        Tour::query()->create([
+            'title' => 'Tour Phú Quốc nghỉ dưỡng biển',
+            'slug' => 'tour-phu-quoc-nghi-duong-bien-featured-filter',
+            'status' => 'published',
+            'scope' => TourScope::Domestic->value,
+            'is_featured' => true,
+            'tour_category_id' => $topic->id,
+            'destination_id' => $destination->id,
+            'region_id' => $region->id,
+        ]);
+        $homeConfig = is_array($home->home_config) ? $home->home_config : [];
+        $homeConfig['featured_tours'] = array_merge(
+            is_array($homeConfig['featured_tours'] ?? null) ? $homeConfig['featured_tours'] : [],
+            [
+                'filters' => [
+                    TravelHomePageConfig::featuredTourFilter(
+                        TravelHomePageConfig::FEATURED_TOUR_FILTER_DESTINATION,
+                        $destination->slug,
+                        'Điểm đến '.$destination->name,
+                        'Tour hot tại '.$destination->name,
+                        'Danh sách tour được phân loại theo điểm đến.',
+                        'destination-featured',
+                    ),
+                    TravelHomePageConfig::featuredTourFilter(
+                        TravelHomePageConfig::FEATURED_TOUR_FILTER_TOPIC,
+                        $topic->slug,
+                        'Chủ đề '.$topic->name,
+                        'Tour theo chủ đề '.$topic->name,
+                        'Danh sách tour được phân loại theo chủ đề.',
+                        'topic-featured',
+                    ),
+                    TravelHomePageConfig::featuredTourFilter(
+                        TravelHomePageConfig::FEATURED_TOUR_FILTER_REGION,
+                        $region->slug,
+                        'Nhãn tùy chỉnh không được dùng',
+                        'Tiêu đề tùy chỉnh không được dùng',
+                        'Mô tả tùy chỉnh không được dùng.',
+                        'region-featured',
+                    ),
+                ],
+                'popular_searches' => [
+                    TravelHomePageConfig::featuredTourPopularSearch(
+                        'Tìm '.$destination->name,
+                        '/tim-tour?destination='.$destination->slug,
+                        'popular-internal',
+                        'destination-featured',
+                    ),
+                    TravelHomePageConfig::featuredTourPopularSearch(
+                        '<script>alert(1)</script>',
+                        'https://example.com/tour-hot',
+                        'popular-external',
+                    ),
+                ],
+            ],
+        );
+        $home->update(['home_config' => $homeConfig]);
+
+        $response = $this->get('/')->assertOk();
+        $html = $response->getContent();
+
+        $response
+            ->assertSee('id="home-featured-tab-all"', false)
+            ->assertSee('id="home-featured-tab-destination-featured"', false)
+            ->assertSee('id="home-featured-tab-topic-featured"', false)
+            ->assertSee('id="home-featured-tab-region-featured"', false)
+            ->assertSee('data-home-featured-tab-url="'.route('destinations.show', $destination).'"', false)
+            ->assertSee('data-home-featured-tab-url="'.route('tour-categories.show', $topic).'"', false)
+            ->assertSee('data-home-featured-tab-url="'.route('regions.show', $region).'"', false)
+            ->assertSee('data-home-featured-tab="region-featured"', false)
+            ->assertSee('data-home-featured-tab-title="Tour hot trong tháng"', false)
+            ->assertSee('data-home-featured-tab-description="Tổng hợp các tour trọn gói và tour du lịch đoàn đang được quan tâm để bạn dễ so sánh hành trình, lịch đi và mức giá."', false)
+            ->assertSeeText($region->name)
+            ->assertDontSee('Nhãn tùy chỉnh không được dùng')
+            ->assertDontSee('Tiêu đề tùy chỉnh không được dùng')
+            ->assertDontSee('Mô tả tùy chỉnh không được dùng.')
+            ->assertSee('data-home-featured-popular-searches', false)
+            ->assertSee('data-popular-search-rail-track', false)
+            ->assertSee('data-popular-search-rail-prev', false)
+            ->assertSee('data-popular-search-rail-next', false)
+            ->assertSee('data-home-featured-popular-search-filter="destination-featured"', false)
+            ->assertSee('data-home-featured-popular-search-filter="region-featured"', false)
+            ->assertSee('data-home-featured-popular-search-filter=""', false)
+            ->assertSee('href="/tim-tour?destination='.$destination->slug.'"', false)
+            ->assertSee('href="'.route('tours.search', ['destination' => $destination->slug]).'"', false)
+            ->assertSee('href="https://example.com/tour-hot"', false)
+            ->assertSee('&lt;script&gt;alert(1)&lt;/script&gt;', false)
+            ->assertDontSee('<script>alert(1)</script>', false);
+
+        $this->assertLessThan(
+            strpos($html, 'id="home-featured-tab-destination-featured"'),
+            strpos($html, 'id="home-featured-tab-all"'),
+        );
+        $this->assertLessThan(
+            strpos($html, 'data-home-featured-popular-searches'),
+            strpos($html, 'id="home-featured-panel-all"'),
         );
     }
 
@@ -910,6 +1190,7 @@ class CustomLandingPageBlocksTest extends TestCase
 
         $tourTaxonomyTabs = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS);
         $tourTaxonomyTabs['cta_label'] = 'Xem trang nhóm tour';
+        $tourTaxonomyTabs['card_cta_variant'] = 'blue';
         $tourTaxonomyTabs['scope'] = TourScope::Domestic->value;
         $tourTaxonomyTabs['tabs'] = [
             LandingPageBlocks::defaultTourTaxonomyTab('region', $region->slug, 'Miền Bắc', 'Tour theo Miền Bắc', 'Nhóm tour nổi bật ở khu vực phía Bắc.'),
@@ -917,7 +1198,7 @@ class CustomLandingPageBlocksTest extends TestCase
             LandingPageBlocks::defaultTourTaxonomyTab('tour_category', $category->slug, 'Gia đình', 'Tour cho gia đình'),
         ];
 
-        LandingPage::query()->create([
+        $landing = LandingPage::query()->create([
             'title' => 'Landing tab tour taxonomy',
             'slug' => 'landing-tab-tour-taxonomy',
             'is_active' => true,
@@ -932,9 +1213,11 @@ class CustomLandingPageBlocksTest extends TestCase
             ->assertSee('Hà Nội')
             ->assertSee('Gia đình')
             ->assertSee('Tour Hà Nội cuối tuần')
+            ->assertSee('data-tour-card-cta-variant="blue"', false)
             ->assertSee('4,7/5')
             ->assertSee('88 đánh giá')
             ->assertSee('data-tour-list-tabs', false)
+            ->assertDontSee('data-tour-card-slider="true"', false)
             ->assertSee('"@type":"CollectionPage"', false)
             ->assertSee('"@type":"ItemList"', false)
             ->assertSee('"@id":"'.url('/landing-tab-tour-taxonomy').'#tour-taxonomy-tab-1-2"', false)
@@ -944,6 +1227,119 @@ class CustomLandingPageBlocksTest extends TestCase
             ->assertSee('"@type":"Offer"', false)
             ->assertSee('"@type":"AggregateRating"', false)
             ->assertSee('"@id":"'.route('tours.show', $tour).'#trip"', false);
+
+        $tourTaxonomyTabs['is_slider'] = true;
+        $landing->update(['blocks' => [$tourTaxonomyTabs]]);
+
+        $this->get('/landing-tab-tour-taxonomy')
+            ->assertOk()
+            ->assertSee('data-tour-card-slider="true"', false)
+            ->assertSee('data-desktop-slider="true"', false)
+            ->assertSee('data-card-carousel-item', false)
+            ->assertDontSee('data-mobile-two-rows="true"', false);
+    }
+
+    public function test_group_tour_taxonomy_tabs_keep_all_panels_and_popular_links_in_group_scope(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $region = Region::query()->create([
+            'name' => 'Miền Tây tour đoàn',
+            'slug' => 'mien-tay-tour-doan',
+            'scope' => TourScope::Domestic->value,
+            'status' => 'published',
+        ]);
+        $destination = Destination::query()->create([
+            'name' => 'Cà Mau',
+            'slug' => 'ca-mau-tour-doan',
+            'region_id' => $region->id,
+            'status' => 'published',
+        ]);
+        $autoDestination = Destination::query()->create([
+            'name' => 'Sóc Trăng',
+            'slug' => 'soc-trang-tour-doan',
+            'region_id' => $region->id,
+            'status' => 'published',
+        ]);
+        $domesticOnlyDestination = Destination::query()->create([
+            'name' => 'Bạc Liêu',
+            'slug' => 'bac-lieu-tour-le',
+            'region_id' => $region->id,
+            'status' => 'published',
+        ]);
+        $groupTour = Tour::query()->create([
+            'title' => 'Tour đoàn Cà Mau kiểm thử',
+            'slug' => 'tour-doan-ca-mau-kiem-thu',
+            'status' => 'published',
+            'scope' => TourScope::Group->value,
+            'destination_id' => $destination->id,
+            'region_id' => $region->id,
+        ]);
+        $groupTour->syncTaxonomyLinks([], [], [$region->id]);
+        Tour::query()->create([
+            'title' => 'Tour đoàn Sóc Trăng kiểm thử',
+            'slug' => 'tour-doan-soc-trang-kiem-thu',
+            'status' => 'published',
+            'scope' => TourScope::Group->value,
+            'destination_id' => $autoDestination->id,
+            'region_id' => $region->id,
+        ]);
+        $domesticTour = Tour::query()->create([
+            'title' => 'Tour lẻ Cà Mau kiểm thử',
+            'slug' => 'tour-le-ca-mau-kiem-thu',
+            'status' => 'published',
+            'scope' => TourScope::Domestic->value,
+            'destination_id' => $domesticOnlyDestination->id,
+            'region_id' => $region->id,
+        ]);
+        $domesticTour->syncTaxonomyLinks([], [], [$region->id]);
+
+        $block = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS);
+        $block['title'] = 'Tour đoàn nổi bật';
+        $block['scope'] = TourScope::Group->value;
+        $block['show_all_tab'] = true;
+        $block['tabs'] = [LandingPageBlocks::defaultTourTaxonomyTab('region', $region->slug, 'Miền Tây Nam Bộ')];
+        $block['popular_searches'] = [
+            TravelHomePageConfig::featuredTourPopularSearch('Cà Mau', '/tim-tour?scope=group&destination=ca-mau', null, $block['tabs'][0]['uuid']),
+            TravelHomePageConfig::featuredTourPopularSearch('Liên kết lỗi', 'javascript:alert(1)'),
+        ];
+
+        $landing = LandingPage::query()->create([
+            'title' => 'Landing tour đoàn kiểm thử',
+            'slug' => 'landing-tour-doan-kiem-thu',
+            'is_active' => true,
+            'template_key' => 'generic',
+            'blocks' => [$block],
+        ]);
+
+        $this->get('/landing-tour-doan-kiem-thu')
+            ->assertOk()
+            ->assertSee('data-tour-list-tab="all"', false)
+            ->assertSee('data-tour-list-tab="'.$block['tabs'][0]['uuid'].'"', false)
+            ->assertSee('Tour đoàn Cà Mau kiểm thử')
+            ->assertDontSee('Tour lẻ Cà Mau kiểm thử')
+            ->assertSee('data-tour-list-popular-search-filter="'.$block['tabs'][0]['uuid'].'"', false)
+            ->assertSee('data-popular-search-rail-track', false)
+            ->assertSee('data-popular-search-rail-prev', false)
+            ->assertSee('data-popular-search-rail-next', false)
+            ->assertSee('href="'.e(route('tours.search', ['destination' => $autoDestination->slug, 'scope' => 'group'])).'"', false)
+            ->assertSee('/tim-tour?scope=group&amp;destination=ca-mau', false)
+            ->assertDontSee('destination='.$destination->slug, false)
+            ->assertDontSee('destination='.$domesticOnlyDestination->slug, false)
+            ->assertDontSee('javascript:alert(1)', false);
+
+        $block['show_all_tab'] = false;
+        $block['show_filters'] = false;
+        $landing->update(['blocks' => [$block]]);
+
+        $this->get('/landing-tour-doan-kiem-thu')
+            ->assertOk()
+            ->assertSee('data-tour-list-panel="all"', false)
+            ->assertSee('Tour đoàn Cà Mau kiểm thử')
+            ->assertSee('Tour đoàn Sóc Trăng kiểm thử')
+            ->assertDontSee('Tour lẻ Cà Mau kiểm thử')
+            ->assertDontSee('data-tour-list-tab=', false)
+            ->assertDontSee('data-tour-list-panel="'.$block['tabs'][0]['uuid'].'"', false);
     }
 
     public function test_custom_root_landing_page_can_render_manual_html_mode(): void
@@ -1032,6 +1428,160 @@ HTML;
             ->assertSee('data-voucher-countdown', false)
             ->assertSee('data-travel-inquiry-voucher-campaign="voucher-test-200k"', false)
             ->assertDontSee('data-html-widget', false);
+    }
+
+    public function test_landing_voucher_rail_only_loads_public_redeemable_campaigns_with_available_codes(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $voucherRail = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_VOUCHER_RAIL);
+        $voucherRail['title'] = 'Mã ưu đãi cho hành trình mới';
+        $voucherRail['campaign_slugs'] = ['voucher-public-500k', 'voucher-public-300k', 'voucher-expired', 'voucher-private', 'voucher-without-landing'];
+
+        LandingPage::query()->create([
+            'title' => 'Landing voucher rail',
+            'slug' => 'landing-voucher-rail',
+            'is_active' => true,
+            'template_key' => 'generic',
+            'blocks' => [$voucherRail],
+        ]);
+
+        $public500Landing = LandingPage::query()->create([
+            'title' => 'Nhận voucher 500K',
+            'slug' => 'nhan-voucher-public-500k',
+            'is_active' => true,
+            'template_key' => 'generic',
+        ]);
+        $public300Landing = LandingPage::query()->create([
+            'title' => 'Nhận voucher 300K',
+            'slug' => 'nhan-voucher-public-300k',
+            'is_active' => true,
+            'template_key' => 'generic',
+        ]);
+        $privateLanding = LandingPage::query()->create([
+            'title' => 'Voucher riêng tư',
+            'slug' => 'nhan-voucher-private',
+            'is_active' => true,
+            'template_key' => 'generic',
+        ]);
+        $expiredLanding = LandingPage::query()->create([
+            'title' => 'Voucher hết hạn',
+            'slug' => 'nhan-voucher-expired',
+            'is_active' => true,
+            'template_key' => 'generic',
+        ]);
+
+        $public500 = VoucherCampaign::query()->create([
+            'landing_page_id' => $public500Landing->getKey(),
+            'title' => 'Tặng bạn eVoucher 500K',
+            'slug' => 'voucher-public-500k',
+            'description' => 'Giảm 500.000đ cho đơn hàng online từ 26.000.000đ.',
+            'code_prefix' => 'PRIVATE500',
+            'code_quantity' => 5,
+            'code_set_version' => (string) Str::uuid(),
+            'starts_at' => now()->subDay(),
+            'ends_at' => now()->addDays(5),
+            'code_valid_until' => now()->addDays(10),
+            'is_active' => true,
+            'meta' => [
+                'public_widget_enabled' => true,
+                'public_code' => 'TRIP1500',
+                'public_terms' => 'Áp dụng cho tour nội địa, Đông Nam Á',
+            ],
+        ]);
+        $public300 = VoucherCampaign::query()->create([
+            'landing_page_id' => $public300Landing->getKey(),
+            'title' => 'Tặng bạn eVoucher 300K',
+            'slug' => 'voucher-public-300k',
+            'description' => 'Giảm 300.000đ cho đơn hàng online từ 16.000.000đ.',
+            'code_prefix' => 'PRIVATE300',
+            'code_quantity' => 5,
+            'code_set_version' => (string) Str::uuid(),
+            'starts_at' => now()->subDay(),
+            'ends_at' => now()->addDays(4),
+            'is_active' => true,
+            'meta' => [
+                'public_widget_enabled' => true,
+                'public_code' => 'TRIP1300',
+            ],
+        ]);
+        $private = VoucherCampaign::query()->create([
+            'landing_page_id' => $privateLanding->getKey(),
+            'title' => 'Voucher không công khai',
+            'slug' => 'voucher-private',
+            'code_prefix' => 'PRIVATE',
+            'code_quantity' => 5,
+            'code_set_version' => (string) Str::uuid(),
+            'starts_at' => now()->subDay(),
+            'ends_at' => now()->addDays(4),
+            'is_active' => true,
+            'meta' => [
+                'public_widget_enabled' => false,
+                'public_code' => 'KHONGHIEN',
+            ],
+        ]);
+        $expired = VoucherCampaign::query()->create([
+            'landing_page_id' => $expiredLanding->getKey(),
+            'title' => 'Voucher đã hết hạn',
+            'slug' => 'voucher-expired',
+            'code_prefix' => 'EXPIRED',
+            'code_quantity' => 5,
+            'code_set_version' => (string) Str::uuid(),
+            'starts_at' => now()->subDays(5),
+            'ends_at' => now()->subDay(),
+            'is_active' => true,
+            'meta' => [
+                'public_widget_enabled' => true,
+                'public_code' => 'HETHAN',
+            ],
+        ]);
+        $withoutLanding = VoucherCampaign::query()->create([
+            'title' => 'Voucher chưa có landing',
+            'slug' => 'voucher-without-landing',
+            'code_prefix' => 'ORPHAN',
+            'code_quantity' => 5,
+            'code_set_version' => (string) Str::uuid(),
+            'starts_at' => now()->subDay(),
+            'ends_at' => now()->addDays(4),
+            'is_active' => true,
+            'meta' => [
+                'public_widget_enabled' => true,
+                'public_code' => 'KHONGLANDING',
+            ],
+        ]);
+
+        foreach ([$public500, $public300, $private, $expired, $withoutLanding] as $campaign) {
+            VoucherCode::query()->create([
+                'voucher_campaign_id' => $campaign->id,
+                'code' => $campaign->code_prefix.'-INTERNAL',
+                'code_set_version' => $campaign->code_set_version,
+                'status' => VoucherCode::STATUS_AVAILABLE,
+            ]);
+        }
+
+        $response = $this->get('/landing-voucher-rail');
+
+        $response
+            ->assertOk()
+            ->assertSee('Mã ưu đãi cho hành trình mới')
+            ->assertSee('TRIP1500')
+            ->assertSee('TRIP1300')
+            ->assertSee('Nhận voucher')
+            ->assertSee('href="'.route('landing.show', ['slug' => $public500Landing->slug]).'#nhan-voucher"', false)
+            ->assertSee('href="'.route('landing.show', ['slug' => $public300Landing->slug]).'#nhan-voucher"', false)
+            ->assertSee('data-voucher-claim-link', false)
+            ->assertDontSee('data-voucher-code-copy', false)
+            ->assertSee('data-card-carousel', false)
+            ->assertSee('data-desktop-slider="true"', false)
+            ->assertSee('--mobile-card-width: 80%', false)
+            ->assertSee('--desktop-card-width: calc((100% - 2rem) / 3)', false)
+            ->assertSee('voucher-premium-plane.png', false)
+            ->assertSee('data-voucher-card-layout="split"', false)
+            ->assertSee('data-voucher-offer-value="500K"', false)
+            ->assertDontSee('KHONGHIEN')
+            ->assertDontSee('HETHAN')
+            ->assertDontSee('KHONGLANDING')
+            ->assertDontSee('PRIVATE500-INTERNAL');
     }
 
     public function test_custom_root_landing_page_can_render_premium_voucher_promotion_variant(): void

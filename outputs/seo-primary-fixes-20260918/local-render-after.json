@@ -1,0 +1,236 @@
+[
+    {
+        "url": "/",
+        "status": 200,
+        "canonical": "https://haidangtravel.com",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "/teambuilding",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/teambuilding",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/kinh-nghiem-du-lich/tu-dong-tam-gom-dia-diem-nao",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/kinh-nghiem-du-lich/tu-dong-tam-gom-dia-diem-nao",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/tour-du-lich-mien-tay",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/tour-du-lich-mien-tay",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/tour-du-lich-trung-quoc",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/tour-du-lich-trung-quoc",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/tour-le-2-9-diem-hot-2",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/tour-le-2-9-diem-hot-2",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/tour-le-2-9-diem-hot",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/tour-le-2-9-diem-hot",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/gia-tour-le-2-9",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/gia-tour-le-2-9",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/tour-le-2-9-gia-re",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/tour-le-2-9-gia-re",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/tour-nha-trang-3-ngay-2",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/blog/kinh-nghiem-dji-tour-nha-trang",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/top-10-diem-phu-yen-phai",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/top-10-diem-phu-yen-phai",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/kinh-nghiem-du-lich-phu-yen",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/kinh-nghiem-du-lich-phu-yen",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/smoke-inline-08-22-kinh-nghiem",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/smoke-inline-08-22-kinh-nghiem",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/smoke-inline-08-22-du",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/smoke-inline-08-22-du",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/tour-da-lat-le-2-9",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/tour-da-lat-le-2-9",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/tour-nha-trang-le-2-9",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/tour-nha-trang-le-2-9",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/tour-phu-quoc-le-2-9",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/tour-phu-quoc-le-2-9",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/tour-thiet-le-2-9-gia",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/tour-thiet-le-2-9-gia",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/tour-le-2-9",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/tour-le-2-9",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/tour-nha-trang-thien-duong-bien",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/tour-nha-trang-thien-duong-bien",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/tour-nha-trang-thien-duong-bien-2",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/tour-nha-trang-thien-duong-bien-2",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/cam-nang-du-lich/dong-tam-do-hanh-trinh-ve",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/cam-nang-du-lich/dong-tam-do-hanh-trinh-ve",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/chuong-trinh/tour-du-lich-tay-tang-potalaho-yamdrok",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/chuong-trinh/tour-du-lich-tay-tang-potalaho-yamdrok",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/chuong-trinh/tour-trung-quoc-le-giang-shangrila",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/chuong-trinh/tour-trung-quoc-le-giang-shangrila",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/dich-vu/ve-may-bay",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/dich-vu/ve-may-bay",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    },
+    {
+        "url": "http://localhost:8001/dich-vu/visa",
+        "status": 200,
+        "canonical": "https://haidangtravel.com/dich-vu/visa",
+        "head": 1,
+        "body": 1,
+        "title": 1,
+        "h1": 1
+    }
+]

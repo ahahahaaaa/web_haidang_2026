@@ -125,6 +125,11 @@ class Tour extends Model implements HasMedia
         return $this->hasMany(TourDeparture::class, 'tour_id')->orderBy('departure_date')->orderBy('sort_order');
     }
 
+    public function flashSaleItems(): HasMany
+    {
+        return $this->hasMany(TourFlashSaleItem::class, 'tour_id');
+    }
+
     public function agencySyncStates(): HasMany
     {
         return $this->hasMany(TourDepartureSyncState::class, 'tour_id');

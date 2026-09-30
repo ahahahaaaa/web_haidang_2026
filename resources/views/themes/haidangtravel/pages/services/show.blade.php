@@ -21,7 +21,7 @@
         $serviceRelatedHeading = \App\Support\FrontsiteSectionHeadings::resolve($sectionHeadingConfig, 'service_related');
     @endphp
 
-    <section class="relative overflow-hidden bg-[#0d1730]" id="service-hero">
+    <section class="relative overflow-hidden bg-[#0d1730]" id="service-hero" data-sitewide-tour-search-host>
         <div class="relative min-h-[68vh]">
             @if ($cover)
                 <picture class="absolute inset-0 block h-full w-full">
@@ -37,7 +37,7 @@
 
             <div class="theme-grid-pattern absolute inset-0 opacity-20"></div>
 
-            <div class="relative mx-auto flex min-h-[68vh] max-w-7xl items-center px-4 py-8 sm:px-6 lg:px-8">
+            <div class="relative mx-auto flex min-h-[68vh] max-w-7xl items-center px-4 py-8 sm:px-6 lg:px-8 lg:pb-[16rem] lg:pt-8">
                 <div class="max-w-3xl space-y-7">
                     <div class="space-y-4">
                         <h1 class="frontsite-text-reveal font-heading text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl" data-reveal="title">
@@ -91,6 +91,8 @@
                     </div>
                 </div>
             </div>
+
+            @include('themes.haidangtravel.partials.hero-tour-search-overlay')
         </div>
     </section>
 

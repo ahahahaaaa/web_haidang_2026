@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Services\Cms\SiteSettingsManager;
 use App\Services\Frontsite\FrontsiteCache;
 use App\Services\Frontsite\FrontsiteCacheInvalidator;
+use App\Services\Frontsite\TourSearchFilterService;
+use App\View\Composers\FrontsiteTourDiscoveryComposer;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
@@ -18,6 +20,7 @@ use Src\Domains\Cms\Models\Destination;
 use Src\Domains\Cms\Models\LandingPage;
 use Src\Domains\Cms\Models\Menu;
 use Src\Domains\Cms\Models\MenuItem;
+use Src\Domains\Cms\Models\PublicUrlMapping;
 use Src\Domains\Cms\Models\Region;
 use Src\Domains\Cms\Models\Service;
 use Src\Domains\Cms\Models\SiteSetting;
@@ -26,6 +29,8 @@ use Src\Domains\Cms\Models\SliderItem;
 use Src\Domains\Cms\Models\Tour;
 use Src\Domains\Cms\Models\TourCategory;
 use Src\Domains\Cms\Models\TourDeparture;
+use Src\Domains\Cms\Models\TourFlashSale;
+use Src\Domains\Cms\Models\TourFlashSaleItem;
 use Src\Domains\Cms\Models\TourReviewBatch;
 use Src\Domains\Cms\Models\TravelReview;
 use Src\Domains\Cms\Models\VoucherCampaign;
@@ -35,12 +40,14 @@ class CmsServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(SiteSettingsManager::class);
+        $this->app->scoped(TourSearchFilterService::class);
     }
 
     public function boot(): void
     {
         $this->registerFrontsiteCacheInvalidation();
         $this->registerFrontsiteNotFoundComposer();
+        $this->registerFrontsiteTourDiscoveryComposer();
 
         View::composer('themes.*', function ($view): void {
             $site = $this->app->make(SiteSettingsManager::class);
@@ -86,6 +93,14 @@ class CmsServiceProvider extends ServiceProvider
                 'themeViewBase' => 'themes.'.$activeTheme,
             ]);
         });
+    }
+
+    protected function registerFrontsiteTourDiscoveryComposer(): void
+    {
+        View::composer([
+            'themes.haidangtravel.partials.header',
+            'themes.haidangtravel.partials.hero-tour-search-overlay',
+        ], FrontsiteTourDiscoveryComposer::class);
     }
 
     protected function registerFrontsiteNotFoundComposer(): void
@@ -269,6 +284,7 @@ class CmsServiceProvider extends ServiceProvider
             LandingPage::class,
             Menu::class,
             MenuItem::class,
+            PublicUrlMapping::class,
             Region::class,
             Service::class,
             SiteSetting::class,
@@ -277,6 +293,8 @@ class CmsServiceProvider extends ServiceProvider
             Tour::class,
             TourCategory::class,
             TourDeparture::class,
+            TourFlashSale::class,
+            TourFlashSaleItem::class,
             TourReviewBatch::class,
             TravelReview::class,
             VoucherCampaign::class,

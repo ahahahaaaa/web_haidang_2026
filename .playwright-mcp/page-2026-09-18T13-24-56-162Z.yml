@@ -1,0 +1,603 @@
+- generic [active] [ref=f7e1]:
+  - link "Bỏ qua điều hướng & tới nội dung chính" [ref=f7e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f7e3]:
+    - generic [ref=f7e4]:
+      - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=f7e5] [cursor=pointer]:
+        - /url: http://localhost:8001
+        - img "Du Lịch Hải Đăng Travel" [ref=f7e7]
+      - text:     
+      - group [ref=f7e8]:
+        - generic " Mở menu" [ref=f7e9]:
+          - generic [ref=f7e10]: 
+          - generic [ref=f7e11]: Mở menu
+        - text:                                       
+  - main [ref=f7e12]:
+    - generic [ref=f7e13]:
+      - img "teambuilding" [ref=f7e15]
+      - generic [ref=f7e18]:
+        - navigation "Breadcrumb" [ref=f7e19]:
+          - list [ref=f7e20]:
+            - listitem [ref=f7e21]:
+              - link "Trang chủ" [ref=f7e22] [cursor=pointer]:
+                - /url: http://localhost:8001
+            - listitem [ref=f7e23]:
+              - generic [ref=f7e24]: 
+              - generic [ref=f7e25]: Teambuilding doanh nghiệp cùng Hải Đăng Travel
+        - heading "Tổ chức Teambuidling - Haidangtravel" [level=2] [ref=f7e26]
+        - paragraph [ref=f7e27]: Haidangtravel chuyên tổ chức teambuilding doanh nghiệp chuyên nghiệp. Chúng tôi cung cấp kịch bản sáng tạo, giúp gắn kết đội ngũ và nâng tầm văn hóa công ty thông qua các trải nghiệm đẳng cấp, tinh tế.
+        - button "Gửi yêu cầu " [ref=f7e29]:
+          - text: Gửi yêu cầu
+          - generic [ref=f7e30]: 
+    - generic [ref=f7e34]:
+      - img "banner" [ref=f7e35]
+      - button "" [ref=f7e36]
+      - button "" [ref=f7e38]
+      - generic [ref=f7e40]:
+        - button [ref=f7e41]
+        - button [ref=f7e42]
+        - button [ref=f7e43]
+        - button [ref=f7e44]
+        - button [ref=f7e45]
+    - generic [ref=f7e47]:
+      - generic [ref=f7e48]:
+        - heading "Haidangtravel – 19 năm kiến tạo Team Building & MICE đỉnh cao" [level=1] [ref=f7e49]
+        - paragraph [ref=f7e50]: Giải pháp tổ chức team building doanh nghiệp, Gala Dinner, du lịch MICE chuyên nghiệp – Hơn 200 chương trình mỗi năm, phục vụ 2000+ khách hàng doanh nghiệp.
+        - generic [ref=f7e51]:
+          - generic [ref=f7e52]:
+            - generic [ref=f7e53]: 19+
+            - generic [ref=f7e54]: Năm kinh nghiệm
+          - generic [ref=f7e55]:
+            - generic [ref=f7e56]: 200+
+            - generic [ref=f7e57]: Chương trình/năm
+          - generic [ref=f7e58]:
+            - generic [ref=f7e59]: 2000+
+            - generic [ref=f7e60]: Khách hàng/năm
+          - generic [ref=f7e61]:
+            - generic [ref=f7e62]: 100+
+            - generic [ref=f7e63]: Doanh nghiệp & nhóm khách/năm
+        - generic [ref=f7e64]:
+          - generic [ref=f7e65]:
+            - generic [ref=f7e66]: "2013"
+            - generic [ref=f7e67]: Trusted Brand Index TBI
+            - generic [ref=f7e68]: Thương hiệu tin cậy hàng đầu châu Á
+          - generic [ref=f7e69]:
+            - generic [ref=f7e70]: "2015"
+            - generic [ref=f7e71]: Top Brand
+            - generic [ref=f7e72]: Top 10 thương hiệu du lịch được yêu thích
+          - generic [ref=f7e73]:
+            - generic [ref=f7e74]: "2016"
+            - generic [ref=f7e75]: Doanh nghiệp cống hiến
+            - generic [ref=f7e76]: Vinh danh đóng góp cho du lịch Việt Nam
+          - generic [ref=f7e77]:
+            - generic [ref=f7e78]: Phú Yên
+            - generic [ref=f7e79]: Bằng khen phát triển du lịch
+            - generic [ref=f7e80]: Đóng góp cho du lịch địa phương
+          - generic [ref=f7e81]:
+            - generic [ref=f7e82]: "2026"
+            - generic [ref=f7e83]: THE BEST OF VIETNAM 2026
+            - generic [ref=f7e84]: Top dịch vụ Team Building & MICE xuất sắc nhất
+        - link " Nhận tư vấn ngay" [ref=f7e86] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=f7e87]: 
+          - text: Nhận tư vấn ngay
+      - generic [ref=f7e88]:
+        - heading "Lợi ích khi tổ chức Team Building cùng Haidangtravel" [level=2] [ref=f7e89]
+        - generic [ref=f7e90]:
+          - generic [ref=f7e91]:
+            - generic [ref=f7e92]: 
+            - heading "Gắn kết bền chặt" [level=3] [ref=f7e93]
+            - paragraph [ref=f7e94]: Xây dựng lòng tin, tinh thần đồng đội và văn hóa doanh nghiệp vững mạnh.
+          - generic [ref=f7e95]:
+            - generic [ref=f7e96]: 
+            - heading "Bứt phá hiệu suất" [level=3] [ref=f7e97]
+            - paragraph [ref=f7e98]: Kích hoạt năng lượng mới, nâng cao hiệu quả làm việc nhóm.
+          - generic [ref=f7e99]:
+            - generic [ref=f7e100]: 
+            - heading "Nâng tầm thương hiệu" [level=3] [ref=f7e101]
+            - paragraph [ref=f7e102]: Khẳng định văn hóa doanh nghiệp chuyên nghiệp, thu hút nhân tài.
+          - generic [ref=f7e103]:
+            - generic [ref=f7e104]: 
+            - heading "MICE đẳng cấp quốc tế" [level=3] [ref=f7e105]
+            - paragraph [ref=f7e106]: Tiêu chuẩn dịch vụ 5 sao, kết hợp gala dinner, du lịch trọn gói.
+      - generic [ref=f7e107]:
+        - heading "Các loại hình Team Building sáng tạo" [level=2] [ref=f7e108]
+        - generic [ref=f7e109]:
+          - generic [ref=f7e110]:
+            - heading "Outdoor Adventure" [level=3] [ref=f7e112]
+            - paragraph [ref=f7e113]: Thử thách ngoài trời, săn kho báu, leo núi – gắn kết đồng đội.
+          - generic [ref=f7e114]:
+            - generic [ref=f7e115]: 
+            - heading "Indoor Smart Game" [level=3] [ref=f7e116]
+            - paragraph [ref=f7e117]: Escape room, giải mã, workshop kỹ năng chiến lược.
+          - generic [ref=f7e118]:
+            - generic [ref=f7e119]: 
+            - heading "CSR Teambuilding" [level=3] [ref=f7e120]
+            - paragraph [ref=f7e121]: Kết hợp từ thiện, bảo vệ môi trường, ý nghĩa bền vững.
+      - generic [ref=f7e122]:
+        - heading "Đội ngũ tổ chức chuyên nghiệp" [level=2] [ref=f7e123]
+        - paragraph [ref=f7e124]: Các chuyên gia giàu kinh nghiệm, tận tâm và sáng tạo
+        - generic [ref=f7e125]:
+          - generic [ref=f7e126]:
+            - generic [ref=f7e127]: 
+            - heading "Giám đốc Sáng tạo MICE" [level=3] [ref=f7e129]
+            - generic [ref=f7e130]: 19 năm cống hiến
+            - paragraph [ref=f7e131]: Thiết kế kịch bản team building độc bản, phù hợp từng văn hóa doanh nghiệp.
+          - generic [ref=f7e132]:
+            - generic [ref=f7e133]: 
+            - heading "Chuyên gia Gala Dinner" [level=3] [ref=f7e135]
+            - generic [ref=f7e136]: Điều phối cao cấp
+            - paragraph [ref=f7e137]: Hơn 300 đêm Gala thành công, nghệ thuật & ẩm thực đỉnh cao.
+          - generic [ref=f7e138]:
+            - generic [ref=f7e139]: 
+            - heading "Trưởng Ban Du lịch Doanh nghiệp" [level=3] [ref=f7e141]
+            - generic [ref=f7e142]: Logistics MICE
+            - paragraph [ref=f7e143]: Kết hợp team building & resort 5 sao, tour quốc tế liền mạch.
+      - generic [ref=f7e144]:
+        - heading "Quy trình triển khai chuyên nghiệp" [level=2] [ref=f7e145]
+        - generic [ref=f7e146]:
+          - generic [ref=f7e147]:
+            - generic [ref=f7e148]: 
+            - heading "Khảo sát & Thấu hiểu" [level=3] [ref=f7e149]
+            - paragraph [ref=f7e150]: Phân tích văn hóa, mục tiêu, ngân sách.
+          - generic [ref=f7e151]:
+            - generic [ref=f7e152]: 
+            - heading "Bản thiết kế riêng" [level=3] [ref=f7e153]
+            - paragraph [ref=f7e154]: Kịch bản team building + gala dinner độc quyền.
+          - generic [ref=f7e155]:
+            - generic [ref=f7e156]: 
+            - heading "Triển khai đỉnh cao" [level=3] [ref=f7e157]
+            - paragraph [ref=f7e158]: Đội ngũ chuyên nghiệp, vận hành an toàn tuyệt đối.
+          - generic [ref=f7e159]:
+            - generic [ref=f7e160]: 
+            - heading "Đo lường & Tối ưu" [level=3] [ref=f7e161]
+            - paragraph [ref=f7e162]: Báo cáo hiệu quả, chỉ số gắn kết rõ ràng.
+      - generic [ref=f7e163]:
+        - heading "Team Building kết hợp Gala Dinner & Du lịch Doanh nghiệp – MICE Retreat" [level=2] [ref=f7e164]
+        - paragraph [ref=f7e165]: "Trải nghiệm trọn gói: sân chơi gắn kết, tiệc tối thượng lưu và chuyến du lịch đẳng cấp"
+        - generic [ref=f7e166]:
+          - generic [ref=f7e167]:
+            - generic [ref=f7e168]: 
+            - heading "Gala Dinner & Tiệc vinh danh" [level=3] [ref=f7e169]
+            - paragraph [ref=f7e170]: Sau những giờ phút team building sôi động, Gala Dinner lung linh với ẩm thực cao cấp, chương trình nghệ thuật, trao giải thưởng. Tạo dấu ấn khó quên cho dịp tổng kết năm, sinh nhật công ty.
+          - generic [ref=f7e171]:
+            - generic [ref=f7e172]: 
+            - heading "Du lịch Doanh nghiệp & Resort 5 sao" [level=3] [ref=f7e173]
+            - paragraph [ref=f7e174]: "Kết hợp team building tại các điểm đến hàng đầu: Phú Quốc, Đà Nẵng, Nha Trang, Đà Lạt, Thái Lan, Singapore. Nghỉ dưỡng cao cấp, workshop ngoại khóa, tour MICE chuyên nghiệp."
+        - generic [ref=f7e175]:
+          - generic [ref=f7e176]:
+            - generic [ref=f7e177]: 
+            - text: Hơn 500 chương trình Gala Dinner thành công
+          - generic [ref=f7e178]:
+            - generic [ref=f7e179]: 
+            - text: 300+ tour du lịch doanh nghiệp trọn gói
+      - generic [ref=f7e180]:
+        - heading "Thư viện hình ảnh Team Building" [level=2] [ref=f7e181]
+        - paragraph [ref=f7e182]: Những khoảnh khắc gắn kết đầy cảm hứng (click ảnh để phóng to)
+        - generic [ref=f7e183]:
+          - img "team building outdoor" [ref=f7e185] [cursor=pointer]
+          - img "gala dinner" [ref=f7e187] [cursor=pointer]
+          - img "team building doanh nghiệp" [ref=f7e189] [cursor=pointer]
+          - img "hoạt động teamwork" [ref=f7e191] [cursor=pointer]
+          - img "team building MICE" [ref=f7e193] [cursor=pointer]
+          - img "gala dinner doanh nghiệp" [ref=f7e195] [cursor=pointer]
+          - img "gala dinner doanh nghiệp" [ref=f7e197] [cursor=pointer]
+          - img "gala dinner doanh nghiệp" [ref=f7e199] [cursor=pointer]
+        - button " Xem tất cả hình ảnh" [ref=f7e201] [cursor=pointer]:
+          - generic [ref=f7e202]: 
+          - text: Xem tất cả hình ảnh
+      - generic [ref=f7e203]:
+        - heading "Video Team Building nổi bật" [level=2] [ref=f7e204]
+        - iframe [ref=f7e206]:
+          - generic [ref=f8e1]:
+            - generic "YouTube Video Player" [ref=f8e3]
+            - generic [ref=f8e5]:
+              - generic:
+                - generic:
+                  - generic [ref=f8e6] [cursor=pointer]
+                  - button "Play video" [ref=f8e10] [cursor=pointer]
+                  - button "Hide player controls" [ref=f8e14] [cursor=pointer]
+                  - generic [ref=f8e16]:
+                    - generic [ref=f8e21]:
+                      - generic [ref=f8e22]:
+                        - link "RECAP BOSCH" [ref=f8e23] [cursor=pointer]:
+                          - /url: https://www.youtube.com/watch?v=xSqhUyRWd50
+                        - link "Haidangtravel" [ref=f8e24] [cursor=pointer]:
+                          - /url: /channel/UCNrJVJ1bDZTXtHqexFU7IUw
+                      - generic [ref=f8e26]:
+                        - button [ref=f8e27] [cursor=pointer]
+                        - generic [ref=f8e29]:
+                          - generic: Haidangtravel
+                          - generic: 478 subscribers
+                    - generic [ref=f8e30]:
+                      - button "Share" [ref=f8e33] [cursor=pointer]
+                      - link "Watch on YouTube" [ref=f8e44] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=xSqhUyRWd50
+                        - generic [ref=f8e45]: Watch on
+        - generic [ref=f7e207]:
+          - paragraph [ref=f7e208]: "* Bạn có thể thay link video YouTube của chương trình thực tế tại đây."
+          - button " Xem tất cả video đã thực hiện" [ref=f7e209] [cursor=pointer]:
+            - generic [ref=f7e210]: 
+            - text: Xem tất cả video đã thực hiện
+      - generic [ref=f7e211]:
+        - heading "Giải đáp thắc mắc về Team Building & Gala Dinner" [level=2] [ref=f7e212]
+        - generic [ref=f7e213]:
+          - generic [ref=f7e214]:
+            - generic [ref=f7e215] [cursor=pointer]:
+              - text: Chi phí tổ chức team building cho doanh nghiệp 100 người?
+              - generic [ref=f7e216]: +
+            - generic: Gói cơ bản từ 450k - 1.2tr/người. Khi kết hợp Gala Dinner hoặc du lịch MICE, báo giá chi tiết sau khảo sát. Liên hệ để nhận ưu đãi.
+          - generic [ref=f7e217]:
+            - generic [ref=f7e218] [cursor=pointer]:
+              - text: Có thiết kế chương trình theo chủ đề riêng của công ty không?
+              - generic [ref=f7e219]: +
+            - generic: Chắc chắn! Chúng tôi sáng tạo kịch bản theo thông điệp, màu sắc thương hiệu, mục tiêu cụ thể của doanh nghiệp.
+          - generic [ref=f7e220]:
+            - generic [ref=f7e221] [cursor=pointer]:
+              - text: Thời gian tối thiểu để tổ chức team building chuyên nghiệp?
+              - generic [ref=f7e222]: +
+            - generic: Từ 7-14 ngày. Với gói kết hợp gala dinner cần 3-4 tuần lên kế hoạch. Hỗ trợ gấp rút theo yêu cầu.
+          - generic [ref=f7e223]:
+            - generic [ref=f7e224] [cursor=pointer]:
+              - text: Haidangtravel có hỗ trợ team building tại các tỉnh thành?
+              - generic [ref=f7e225]: +
+            - generic: Có, toàn quốc và quốc tế. Đội ngũ logistics giàu kinh nghiệm tại Đà Nẵng, Nha Trang, Phú Quốc, Đà Lạt, Hạ Long, Thái Lan, Singapore.
+          - generic [ref=f7e226]:
+            - generic [ref=f7e227] [cursor=pointer]:
+              - text: Làm sao để đảm bảo an toàn cho chương trình team building quy mô lớn?
+              - generic [ref=f7e228]: +
+            - generic: Chúng tôi có đội ngũ y tế, bảo hiểm trách nhiệm, quy trình kiểm soát rủi ro nghiêm ngặt, đạt chuẩn quốc tế.
+      - generic [ref=f7e229]:
+        - heading "19 năm đồng hành – Hơn 2000 khách hàng tin tưởng mỗi năm" [level=3] [ref=f7e230]
+        - paragraph [ref=f7e231]: Haidangtravel – Đối tác chiến lược về tổ chức team building, Gala Dinner và du lịch MICE toàn diện.
+        - link " Nhận tư vấn & báo giá ngay" [ref=f7e232] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=f7e233]: 
+          - text: Nhận tư vấn & báo giá ngay
+        - generic [ref=f7e234]:
+          - generic [ref=f7e235]: 
+          - text: 19002011 · 0911222288 |
+          - generic [ref=f7e236]: 
+          - text: info@haidangtravel.com
+    - generic [ref=f7e238]:
+      - heading "Gợi ý địa điểm tổ chức teambuilding" [level=2] [ref=f7e240]
+      - generic [ref=f7e241]: Chưa có bài viết phù hợp điều kiện block hiện tại.
+    - generic [ref=f7e244]:
+      - heading "Ý tưởng teambuilding" [level=2] [ref=f7e246]
+      - generic [ref=f7e247]:
+        - article [ref=f7e248]:
+          - link "kịch bản chơi teambuilding bãi biển  Kinh nghiệm tour đoàn  7 phút đọc" [ref=f7e249] [cursor=pointer]:
+            - /url: http://localhost:8001/y-tuong-tro-choi-kich-ban/kich-ban-team-building-bai-bien-chuyen-nghiep-2026-mau-chuong-trinh-chi-tiet
+            - img "kịch bản chơi teambuilding bãi biển" [ref=f7e250]
+            - generic [ref=f7e251]:
+              - generic [ref=f7e252]:
+                - generic [ref=f7e253]: 
+                - text: Kinh nghiệm tour đoàn
+              - generic [ref=f7e254]:
+                - generic [ref=f7e255]: 
+                - text: 7 phút đọc
+          - generic [ref=f7e256]:
+            - generic [ref=f7e257]: HĐ
+            - generic [ref=f7e259]:
+              - generic [ref=f7e260]: 08/06/2026
+              - generic [ref=f7e261]: "|"
+              - generic [ref=f7e262]: Hải Đăng Travel
+              - generic [ref=f7e263]: "|"
+              - generic [ref=f7e264]: Góc Team Building & Sự kiện / Ý tưởng trò chơi & Kịch bản
+          - generic [ref=f7e265]:
+            - heading [level=3] [ref=f7e266]:
+              - link "Kịch Bản Team Building Bãi Biển Chuyên Nghiệp 2026 | Mẫu Chương Trình Chi Tiết" [ref=f7e267] [cursor=pointer]:
+                - /url: http://localhost:8001/y-tuong-tro-choi-kich-ban/kich-ban-team-building-bai-bien-chuyen-nghiep-2026-mau-chuong-trinh-chi-tiet
+            - paragraph [ref=f7e268]: Giúp bạn chốt brief đoàn, ngân sách và các hạng mục cần hỏi trước khi gửi yêu cầu. Trong những năm gần đây, Team Building bãi biển trở thành hoạt động không thể thiếu trong các chương t...
+            - link "Xem thêm " [ref=f7e270] [cursor=pointer]:
+              - /url: http://localhost:8001/y-tuong-tro-choi-kich-ban/kich-ban-team-building-bai-bien-chuyen-nghiep-2026-mau-chuong-trinh-chi-tiet
+              - text: Xem thêm
+              - generic [ref=f7e271]: 
+        - article [ref=f7e272]:
+          - link "kịch bản teambuilding cho 50 người  Kinh nghiệm tour đoàn  6 phút đọc" [ref=f7e273] [cursor=pointer]:
+            - /url: http://localhost:8001/y-tuong-tro-choi-kich-ban/kich-ban-team-building-cho-cong-ty-50-nguoi-chi-tiet-tu-a-z-2026
+            - img "kịch bản teambuilding cho 50 người" [ref=f7e274]
+            - generic [ref=f7e275]:
+              - generic [ref=f7e276]:
+                - generic [ref=f7e277]: 
+                - text: Kinh nghiệm tour đoàn
+              - generic [ref=f7e278]:
+                - generic [ref=f7e279]: 
+                - text: 6 phút đọc
+          - generic [ref=f7e280]:
+            - generic [ref=f7e281]: HĐ
+            - generic [ref=f7e283]:
+              - generic [ref=f7e284]: 08/06/2026
+              - generic [ref=f7e285]: "|"
+              - generic [ref=f7e286]: Hải Đăng Travel
+              - generic [ref=f7e287]: "|"
+              - generic [ref=f7e288]: Góc Team Building & Sự kiện / Ý tưởng trò chơi & Kịch bản
+          - generic [ref=f7e289]:
+            - heading [level=3] [ref=f7e290]:
+              - link "Kịch Bản Team Building Cho Công Ty 50 Người Chi Tiết Từ A-Z 2026" [ref=f7e291] [cursor=pointer]:
+                - /url: http://localhost:8001/y-tuong-tro-choi-kich-ban/kich-ban-team-building-cho-cong-ty-50-nguoi-chi-tiet-tu-a-z-2026
+            - paragraph [ref=f7e292]: Giúp bạn chốt brief đoàn, ngân sách và các hạng mục cần hỏi trước khi gửi yêu cầu. Đối với các doanh nghiệp quy mô khoảng 50 nhân sự, Team Building là một trong những giải pháp hiệu quả...
+            - link "Xem thêm " [ref=f7e294] [cursor=pointer]:
+              - /url: http://localhost:8001/y-tuong-tro-choi-kich-ban/kich-ban-team-building-cho-cong-ty-50-nguoi-chi-tiet-tu-a-z-2026
+              - text: Xem thêm
+              - generic [ref=f7e295]: 
+        - article [ref=f7e296]:
+          - link "20 trò chơi ý nghĩa teambuilding  Kinh nghiệm tour đoàn  5 phút đọc" [ref=f7e297] [cursor=pointer]:
+            - /url: http://localhost:8001/y-tuong-tro-choi-kich-ban/20-tro-choi-team-building-bai-bien-hay-nhat-2026-kich-ban-gan-ket-doanh-nghiep
+            - img "20 trò chơi ý nghĩa teambuilding" [ref=f7e298]
+            - generic [ref=f7e299]:
+              - generic [ref=f7e300]:
+                - generic [ref=f7e301]: 
+                - text: Kinh nghiệm tour đoàn
+              - generic [ref=f7e302]:
+                - generic [ref=f7e303]: 
+                - text: 5 phút đọc
+          - generic [ref=f7e304]:
+            - generic [ref=f7e305]: HĐ
+            - generic [ref=f7e307]:
+              - generic [ref=f7e308]: 08/06/2026
+              - generic [ref=f7e309]: "|"
+              - generic [ref=f7e310]: Hải Đăng Travel
+              - generic [ref=f7e311]: "|"
+              - generic [ref=f7e312]: Góc Team Building & Sự kiện / Ý tưởng trò chơi & Kịch bản
+          - generic [ref=f7e313]:
+            - heading [level=3] [ref=f7e314]:
+              - link "20 Trò Chơi Team Building Bãi Biển Hay Nhất 2026 | Kịch Bản Gắn Kết Doanh Nghiệp" [ref=f7e315] [cursor=pointer]:
+                - /url: http://localhost:8001/y-tuong-tro-choi-kich-ban/20-tro-choi-team-building-bai-bien-hay-nhat-2026-kich-ban-gan-ket-doanh-nghiep
+            - paragraph [ref=f7e316]: Giúp bạn chốt brief đoàn, ngân sách và các hạng mục cần hỏi trước khi gửi yêu cầu. Không gian rộng lớn, bầu không khí trong lành và cảm giác thoải mái chính là những lý do khiến bãi biể...
+            - link "Xem thêm " [ref=f7e318] [cursor=pointer]:
+              - /url: http://localhost:8001/y-tuong-tro-choi-kich-ban/20-tro-choi-team-building-bai-bien-hay-nhat-2026-kich-ban-gan-ket-doanh-nghiep
+              - text: Xem thêm
+              - generic [ref=f7e319]: 
+        - article [ref=f7e320]:
+          - link "những trò chơi teambuilding haidangtravel  Kinh nghiệm tour đoàn  8 phút đọc" [ref=f7e321] [cursor=pointer]:
+            - /url: http://localhost:8001/y-tuong-tro-choi-kich-ban/top-tro-choi-team-building-hay-nhat-2026-y-tuong-team-building-gan-ket-tap-the
+            - img "những trò chơi teambuilding haidangtravel" [ref=f7e322]
+            - generic [ref=f7e323]:
+              - generic [ref=f7e324]:
+                - generic [ref=f7e325]: 
+                - text: Kinh nghiệm tour đoàn
+              - generic [ref=f7e326]:
+                - generic [ref=f7e327]: 
+                - text: 8 phút đọc
+          - generic [ref=f7e328]:
+            - generic [ref=f7e329]: HĐ
+            - generic [ref=f7e331]:
+              - generic [ref=f7e332]: 08/06/2026
+              - generic [ref=f7e333]: "|"
+              - generic [ref=f7e334]: Hải Đăng Travel
+              - generic [ref=f7e335]: "|"
+              - generic [ref=f7e336]: Góc Team Building & Sự kiện / Ý tưởng trò chơi & Kịch bản
+          - generic [ref=f7e337]:
+            - heading [level=3] [ref=f7e338]:
+              - link "Top Trò Chơi Team Building Hay Nhất 2026 | Ý Tưởng Team Building Gắn Kết Tập Thể" [ref=f7e339] [cursor=pointer]:
+                - /url: http://localhost:8001/y-tuong-tro-choi-kich-ban/top-tro-choi-team-building-hay-nhat-2026-y-tuong-team-building-gan-ket-tap-the
+            - paragraph [ref=f7e340]: Giúp bạn chốt brief đoàn, ngân sách và các hạng mục cần hỏi trước khi gửi yêu cầu. Trong môi trường làm việc hiện đại, việc xây dựng một tập thể đoàn kết không chỉ phụ thuộc vào chuyên...
+            - link "Xem thêm " [ref=f7e342] [cursor=pointer]:
+              - /url: http://localhost:8001/y-tuong-tro-choi-kich-ban/top-tro-choi-team-building-hay-nhat-2026-y-tuong-team-building-gan-ket-tap-the
+              - text: Xem thêm
+              - generic [ref=f7e343]: 
+    - generic [ref=f7e345]:
+      - heading "Ảnh khách hàng" [level=2] [ref=f7e347]
+      - generic [ref=f7e348]:
+        - article [ref=f7e349]:
+          - link "Khám phá chuyến học tập thực tế kết hợp trải nghiệm tại Bảo Lộc và Đà Lạt do Hải Đăng Travel tổ chức.  Kinh nghiệm tour đoàn  6 phút đọc" [ref=f7e350] [cursor=pointer]:
+            - /url: http://localhost:8001/photo-teambuilding/sinh-vien-dai-hoc-nong-lam-hoc-tap-thuc-te-bao-loc-da-lat
+            - img "Khám phá chuyến học tập thực tế kết hợp trải nghiệm tại Bảo Lộc và Đà Lạt do Hải Đăng Travel tổ chức." [ref=f7e351]
+            - generic [ref=f7e352]:
+              - generic [ref=f7e353]:
+                - generic [ref=f7e354]: 
+                - text: Kinh nghiệm tour đoàn
+              - generic [ref=f7e355]:
+                - generic [ref=f7e356]: 
+                - text: 6 phút đọc
+          - generic [ref=f7e357]:
+            - generic [ref=f7e358]: HĐ
+            - generic [ref=f7e360]:
+              - generic [ref=f7e361]: 17/07/2026
+              - generic [ref=f7e362]: "|"
+              - generic [ref=f7e363]: Hải Đăng Travel
+              - generic [ref=f7e364]: "|"
+              - generic [ref=f7e365]: Góc Team Building & Sự kiện / Ảnh khách hàng
+              - generic [ref=f7e366]: "|"
+              - generic [ref=f7e367]: Tour Du Lịch Đà Lạt 2026
+          - generic [ref=f7e368]:
+            - heading [level=3] [ref=f7e369]:
+              - link "Sinh viên năm cuối Trường Đại học Nông Lâm trải nghiệm học tập thực tế, lửa trại tại Bảo Lộc và Gala Dinner tại Đà Lạt cùng Hải Đăng Travel" [ref=f7e370] [cursor=pointer]:
+                - /url: http://localhost:8001/photo-teambuilding/sinh-vien-dai-hoc-nong-lam-hoc-tap-thuc-te-bao-loc-da-lat
+            - paragraph [ref=f7e371]: Giúp bạn chốt brief đoàn, ngân sách và các hạng mục cần hỏi trước khi gửi yêu cầu. Hành trình khép lại tuổi sinh viên bằng những trải nghiệm đáng nhớ Mỗi chuyến đi đều là một dấu mốc đặ...
+            - link "Xem thêm " [ref=f7e373] [cursor=pointer]:
+              - /url: http://localhost:8001/photo-teambuilding/sinh-vien-dai-hoc-nong-lam-hoc-tap-thuc-te-bao-loc-da-lat
+              - text: Xem thêm
+              - generic [ref=f7e374]: 
+        - article [ref=f7e375]:
+          - link "Không khí sôi động trong chương trình Teambuilding của Công ty Nam Sơn và Công ty Quà Việt.  Kinh nghiệm tour đoàn  5 phút đọc" [ref=f7e376] [cursor=pointer]:
+            - /url: http://localhost:8001/photo-teambuilding/cong-ty-nam-son-cong-ty-qua-viet-teambuilding-gala-dinner
+            - img "Không khí sôi động trong chương trình Teambuilding của Công ty Nam Sơn và Công ty Quà Việt." [ref=f7e377]
+            - generic [ref=f7e378]:
+              - generic [ref=f7e379]:
+                - generic [ref=f7e380]: 
+                - text: Kinh nghiệm tour đoàn
+              - generic [ref=f7e381]:
+                - generic [ref=f7e382]: 
+                - text: 5 phút đọc
+          - generic [ref=f7e383]:
+            - generic [ref=f7e384]: HĐ
+            - generic [ref=f7e386]:
+              - generic [ref=f7e387]: 17/07/2026
+              - generic [ref=f7e388]: "|"
+              - generic [ref=f7e389]: Hải Đăng Travel
+              - generic [ref=f7e390]: "|"
+              - generic [ref=f7e391]: Góc Team Building & Sự kiện / Ảnh khách hàng
+              - generic [ref=f7e392]: "|"
+              - generic [ref=f7e393]: Tour Du Lịch Nha Trang 2026
+          - generic [ref=f7e394]:
+            - heading [level=3] [ref=f7e395]:
+              - link "Công ty Nam Sơn và Công ty Quà Việt gắn kết đội ngũ qua chương trình Teambuilding và Gala Dinner" [ref=f7e396] [cursor=pointer]:
+                - /url: http://localhost:8001/photo-teambuilding/cong-ty-nam-son-cong-ty-qua-viet-teambuilding-gala-dinner
+            - paragraph [ref=f7e397]: Giúp bạn chốt brief đoàn, ngân sách và các hạng mục cần hỏi trước khi gửi yêu cầu. Teambuilding & Gala Dinner – Hành trình gắn kết, lan tỏa giá trị tập thể Mỗi chuyến đi đều là cơ hội đ...
+            - link "Xem thêm " [ref=f7e399] [cursor=pointer]:
+              - /url: http://localhost:8001/photo-teambuilding/cong-ty-nam-son-cong-ty-qua-viet-teambuilding-gala-dinner
+              - text: Xem thêm
+              - generic [ref=f7e400]: 
+        - article [ref=f7e401]:
+          - link "Bảo Việt Nhân Thọ Du Lịch Phan Thiết 2N1Đ Ngày 04/08/2025 | Team Building & Gala Dinner Cùng Haidangtravel  Kinh nghiệm tour đoàn  9 phút đọc" [ref=f7e402] [cursor=pointer]:
+            - /url: http://localhost:8001/photo-teambuilding/bao-viet-nhan-tho-du-lich-phan-thiet-2n1d-ngay-04082025-team-building-gala-dinner-cung-haidangtravel
+            - img "Bảo Việt Nhân Thọ Du Lịch Phan Thiết 2N1Đ Ngày 04/08/2025 | Team Building & Gala Dinner Cùng Haidangtravel" [ref=f7e403]
+            - generic [ref=f7e404]:
+              - generic [ref=f7e405]:
+                - generic [ref=f7e406]: 
+                - text: Kinh nghiệm tour đoàn
+              - generic [ref=f7e407]:
+                - generic [ref=f7e408]: 
+                - text: 9 phút đọc
+          - generic [ref=f7e409]:
+            - generic [ref=f7e410]: HĐ
+            - generic [ref=f7e412]:
+              - generic [ref=f7e413]: 07/06/2026
+              - generic [ref=f7e414]: "|"
+              - generic [ref=f7e415]: Hải Đăng Travel
+              - generic [ref=f7e416]: "|"
+              - generic [ref=f7e417]: Góc Team Building & Sự kiện / Ảnh khách hàng
+          - generic [ref=f7e418]:
+            - heading [level=3] [ref=f7e419]:
+              - link "Bảo Việt Nhân Thọ Du Lịch Phan Thiết 2N1Đ Ngày 04/08/2025 | Team Building & Gala Dinner Cùng Haidangtravel" [ref=f7e420] [cursor=pointer]:
+                - /url: http://localhost:8001/photo-teambuilding/bao-viet-nhan-tho-du-lich-phan-thiet-2n1d-ngay-04082025-team-building-gala-dinner-cung-haidangtravel
+            - paragraph [ref=f7e421]: Giúp bạn chốt brief đoàn, ngân sách và các hạng mục cần hỏi trước khi gửi yêu cầu. Đoàn Bảo Việt Nhân Thọ với 40 thành viên đã tham gia chương trình du lịch Phan Thiết 2 ngày 1 đêm ngày...
+            - link "Xem thêm " [ref=f7e423] [cursor=pointer]:
+              - /url: http://localhost:8001/photo-teambuilding/bao-viet-nhan-tho-du-lich-phan-thiet-2n1d-ngay-04082025-team-building-gala-dinner-cung-haidangtravel
+              - text: Xem thêm
+              - generic [ref=f7e424]: 
+        - article [ref=f7e425]:
+          - link "Trường Mầm Non 25A Du Lịch Vũng Tàu 2N1Đ 29/05/2025 | Hành Trình Gắn Kết Cùng Haidangtravel  Kinh nghiệm tour đoàn  7 phút đọc" [ref=f7e426] [cursor=pointer]:
+            - /url: http://localhost:8001/photo-teambuilding/truong-mam-non-25a-du-lich-vung-tau-2n1d-29052025-hanh-trinh-gan-ket-cung-haidangtravel
+            - img "Trường Mầm Non 25A Du Lịch Vũng Tàu 2N1Đ 29/05/2025 | Hành Trình Gắn Kết Cùng Haidangtravel" [ref=f7e427]
+            - generic [ref=f7e428]:
+              - generic [ref=f7e429]:
+                - generic [ref=f7e430]: 
+                - text: Kinh nghiệm tour đoàn
+              - generic [ref=f7e431]:
+                - generic [ref=f7e432]: 
+                - text: 7 phút đọc
+          - generic [ref=f7e433]:
+            - generic [ref=f7e434]: HĐ
+            - generic [ref=f7e436]:
+              - generic [ref=f7e437]: 07/06/2026
+              - generic [ref=f7e438]: "|"
+              - generic [ref=f7e439]: Hải Đăng Travel
+              - generic [ref=f7e440]: "|"
+              - generic [ref=f7e441]: Góc Team Building & Sự kiện / Ảnh khách hàng
+          - generic [ref=f7e442]:
+            - heading [level=3] [ref=f7e443]:
+              - link "Trường Mầm Non 25A Du Lịch Vũng Tàu 2N1Đ 29/05/2025 | Hành Trình Gắn Kết Cùng Haidangtravel" [ref=f7e444] [cursor=pointer]:
+                - /url: http://localhost:8001/photo-teambuilding/truong-mam-non-25a-du-lich-vung-tau-2n1d-29052025-hanh-trinh-gan-ket-cung-haidangtravel
+            - paragraph [ref=f7e445]: Giúp bạn chốt brief đoàn, ngân sách và các hạng mục cần hỏi trước khi gửi yêu cầu. Đoàn Mầm Non 25A tham gia chương trình du lịch Vũng Tàu 2 ngày 1 đêm ngày 29/05/2025 do Haidangtravel...
+            - link "Xem thêm " [ref=f7e447] [cursor=pointer]:
+              - /url: http://localhost:8001/photo-teambuilding/truong-mam-non-25a-du-lich-vung-tau-2n1d-29052025-hanh-trinh-gan-ket-cung-haidangtravel
+              - text: Xem thêm
+              - generic [ref=f7e448]: 
+    - generic [ref=f7e452]:
+      - generic [ref=f7e453]:
+        - generic [ref=f7e454]:
+          - heading "Hotline" [level=3] [ref=f7e455]
+          - link "0911222288" [ref=f7e456] [cursor=pointer]:
+            - /url: tel:0911222288
+          - paragraph [ref=f7e457]: Hỗ trợ tư vấn nhanh theo ngày đi, số lượng khách và nhu cầu hành trình.
+        - generic [ref=f7e458]:
+          - heading "Email" [level=3] [ref=f7e459]
+          - link "info@haidangtravel.com" [ref=f7e460] [cursor=pointer]:
+            - /url: mailto:info@haidangtravel.com
+          - paragraph [ref=f7e461]: Phù hợp khi bạn cần gửi yêu cầu chi tiết hoặc để lại thêm thông tin cho đội ngũ xử lý.
+      - generic [ref=f7e462]:
+        - generic [ref=f7e463]:
+          - generic [ref=f7e464]:
+            - text: Họ tên
+            - textbox "Họ tên" [ref=f7e465]:
+              - /placeholder: Nhập họ tên
+          - generic [ref=f7e466]:
+            - text: Số điện thoại
+            - textbox "Số điện thoại" [ref=f7e467]:
+              - /placeholder: Nhập số điện thoại
+        - generic [ref=f7e468]:
+          - text: Nội dung
+          - textbox "Nội dung" [ref=f7e469]:
+            - /placeholder: Mô tả ngắn nhu cầu tour, ngày đi hoặc số lượng khách
+        - button "Gửi yêu cầu " [ref=f7e471]:
+          - text: Gửi yêu cầu
+          - generic [ref=f7e472]: 
+  - contentinfo [ref=f7e473]:
+    - generic [ref=f7e474]:
+      - generic [ref=f7e475]:
+        - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=f7e476] [cursor=pointer]:
+          - /url: http://localhost:8001
+          - img "Du Lịch Hải Đăng Travel" [ref=f7e478]
+        - paragraph [ref=f7e479]: Haidang Travel chuyên tổ chức du lịch, teambuilding, event trong và ngoài nước.
+        - generic [ref=f7e480]:
+          - paragraph [ref=f7e481]:
+            - generic [aria-hidden] [ref=f7e483]: 
+            - generic [ref=f7e484]: Tòa nhà Building Haidang 367 Tân Sơn, Phường Tân Sơn, thành phố Hồ Chí Minh
+          - paragraph [ref=f7e485]:
+            - generic [aria-hidden] [ref=f7e487]: 
+            - generic [ref=f7e488]: 19002011 · 0911222288
+          - paragraph [ref=f7e489]:
+            - generic [aria-hidden] [ref=f7e491]: 
+            - generic [ref=f7e492]: info@haidangtravel.com
+          - paragraph [ref=f7e493]:
+            - generic [ref=f7e496]: "Giấy phép lữ hành: 79-723/2017/TCDL-GP LHQT"
+      - generic [ref=f7e497]:
+        - generic [ref=f7e498]:
+          - heading "Đi nhanh" [level=2] [ref=f7e499]
+          - list [ref=f7e500]:
+            - listitem [ref=f7e501]:
+              - link "Tour trong nước" [ref=f7e502] [cursor=pointer]:
+                - /url: /tour-trong-nuoc
+            - listitem [ref=f7e503]:
+              - link "Tour nước ngoài" [ref=f7e504] [cursor=pointer]:
+                - /url: /tour-nuoc-ngoai
+            - listitem [ref=f7e505]:
+              - link "Tour đoàn" [ref=f7e506] [cursor=pointer]:
+                - /url: /tour-doan
+            - listitem [ref=f7e507]:
+              - link "Dịch vụ" [ref=f7e508] [cursor=pointer]:
+                - /url: /dich-vu
+            - listitem [ref=f7e509]:
+              - link "Tin Tức & Cẩm Nang" [ref=f7e510] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=f7e511]:
+              - link "Liên hệ" [ref=f7e512] [cursor=pointer]:
+                - /url: /lien-he
+        - generic [ref=f7e513]:
+          - heading "Thông tin" [level=2] [ref=f7e514]
+          - list [ref=f7e515]:
+            - listitem [ref=f7e516]:
+              - link "Login CMS" [ref=f7e517] [cursor=pointer]:
+                - /url: /login
+            - listitem [ref=f7e518]:
+              - link "Login agency" [ref=f7e519] [cursor=pointer]:
+                - /url: https://agency.haidangtravel.com
+            - listitem [ref=f7e520]:
+              - link "Chính Sách Mua Đổi Trả" [ref=f7e521] [cursor=pointer]:
+                - /url: /chinh-sach-dat-tour-huy-doi-hoan-tien
+      - generic [ref=f7e522]:
+        - heading "Kênh hỗ trợ" [level=2] [ref=f7e523]
+        - generic [ref=f7e524]:
+          - link "Zalo hỗ trợ" [ref=f7e525] [cursor=pointer]:
+            - /url: https://zalo.me/0911222288
+          - link "Fanpage chính thức" [ref=f7e530] [cursor=pointer]:
+            - /url: https://www.facebook.com/haidangtraveltanson
+            - generic [aria-hidden] [ref=f7e532]: 
+          - link "YouTube Channel" [ref=f7e535] [cursor=pointer]:
+            - /url: https://www.youtube.com/@haidangtraveltanson
+            - generic [aria-hidden] [ref=f7e537]: 
+          - link "TikTok Channel" [ref=f7e540] [cursor=pointer]:
+            - /url: https://www.tiktok.com/@hddiscovery
+            - generic [aria-hidden] [ref=f7e542]: 
+        - generic [ref=f7e545]:
+          - link "Đã thông báo Bộ Công Thương":
+            - /url: http://online.gov.vn/Home/WebDetails/15656
+            - img "Đã thông báo Bộ Công Thương"
+          - link "DMCA.com Protection Status" [ref=f7e546] [cursor=pointer]:
+            - /url: https://www.dmca.com/Protection/Status.aspx?ID=0b22a7b7-ed93-4820-acbf-7bd6d1caaf34
+            - img "DMCA.com Protection Status" [ref=f7e547]
+    - generic [ref=f7e548]: © Công ty CPXD Du Lịch Hải Đăng
+  - text:  

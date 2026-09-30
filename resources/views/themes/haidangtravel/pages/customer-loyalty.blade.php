@@ -21,20 +21,24 @@
         $canRedeemGifts = $lookup && filled($displayPhone);
     @endphp
 
-    <section class="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.28),transparent_34%),linear-gradient(135deg,#ff6a00_0%,#f04438_55%,#0f172a_140%)]">
-        <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[0.68fr_0.32fr] lg:px-8 lg:py-14">
+    <section class="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(255,140,0,0.2),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(255,106,0,0.12),_transparent_34%),linear-gradient(135deg,_#fffaf5_0%,_#ffe8d5_52%,_#fff4e8_100%)]" data-sitewide-tour-search-host>
+        @if ($heroImageUrl)
+            <img src="{{ $heroImageUrl }}" alt="" aria-hidden="true" fetchpriority="high" class="absolute inset-0 size-full object-cover object-center">
+            <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,23,42,0.88)_0%,rgba(15,23,42,0.72)_55%,rgba(15,23,42,0.52)_100%)]" aria-hidden="true"></div>
+        @endif
+        <div class="relative z-10 mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[0.68fr_0.32fr] lg:px-8 lg:pb-[16rem] lg:pt-14">
             <div>
-                <nav class="mb-6 flex flex-wrap items-center gap-2 text-sm text-white/80" aria-label="Breadcrumb">
-                    <a href="{{ route('home') }}" class="transition hover:text-white">Trang chủ</a>
+                <nav class="mb-6 flex flex-wrap items-center gap-2 text-sm {{ $heroImageUrl ? 'text-white' : 'text-slate-600' }}" aria-label="Breadcrumb">
+                    <a href="{{ route('home') }}" class="transition hover:text-primary">Trang chủ</a>
                     <span aria-hidden="true">/</span>
-                    <span class="font-semibold text-white">Điểm thưởng</span>
+                    <span class="font-semibold {{ $heroImageUrl ? 'text-white' : 'text-slate-900' }}">Điểm thưởng</span>
                 </nav>
 
-                <p class="text-sm font-semibold uppercase tracking-[0.28em] text-orange-100">CRM khách hàng</p>
-                <h1 class="mt-3 max-w-3xl font-heading text-4xl font-extrabold leading-tight text-white sm:text-5xl">
+                <p class="text-sm font-semibold uppercase tracking-[0.28em] {{ $heroImageUrl ? 'text-orange-200' : 'text-primary' }}">CRM khách hàng</p>
+                <h1 class="mt-3 max-w-3xl font-heading text-4xl font-extrabold leading-tight {{ $heroImageUrl ? 'text-white' : 'text-slate-900' }} sm:text-5xl">
                     Kiểm tra điểm và đổi quà Hải Đăng Travel
                 </h1>
-                <p class="mt-4 max-w-3xl text-base leading-8 text-orange-50">
+                <p class="mt-4 max-w-3xl text-base leading-8 {{ $heroImageUrl ? 'text-slate-100' : 'text-slate-700' }}">
                     @if ($showHistorySections)
                         Nhập số điện thoại đã dùng khi đặt tour để xem đơn hàng, tổng điểm hiện có, lịch sử đổi quà và gửi yêu cầu đổi quà. Nhân sự Hải Đăng Travel sẽ liên hệ xác nhận trước khi hoàn tất đổi quà.
                     @else
@@ -53,7 +57,7 @@
                         required
                         class="min-h-13 rounded-[1rem] border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 outline-none transition focus:border-primary focus:ring-4 focus:ring-orange-100"
                     >
-                    <button type="submit" class="inline-flex min-h-13 items-center justify-center gap-2 rounded-[1rem] bg-slate-950 px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-white transition hover:bg-primary focus:outline-none focus:ring-4 focus:ring-orange-100">
+                    <button type="submit" class="inline-flex min-h-13 items-center justify-center gap-2 rounded-[1rem] bg-[linear-gradient(135deg,#FF6A00,#FF8C00)] px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-white shadow-[0_20px_45px_-24px_rgba(255,106,0,0.68)] transition hover:brightness-105 focus:outline-none focus:ring-4 focus:ring-orange-100">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         Kiểm tra
                     </button>
@@ -64,7 +68,7 @@
                 @enderror
             </div>
 
-            <aside data-customer-loyalty-points-card class="self-end rounded-[1.75rem] border border-white/30 bg-white/90 p-5 shadow-2xl shadow-orange-950/20 backdrop-blur">
+            <aside data-customer-loyalty-points-card class="self-end rounded-[1.75rem] border border-orange-100 bg-white/90 p-5 shadow-2xl shadow-orange-950/10 backdrop-blur">
                 <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Số điểm</p>
                 <p class="mt-2 text-4xl font-extrabold text-slate-950">{{ $lookup ? $formatNumber($points) : '---' }}</p>
                 <p class="mt-3 text-sm leading-6 text-slate-600">
@@ -85,6 +89,8 @@
                 @endif
             </aside>
         </div>
+
+        @include('themes.haidangtravel.partials.hero-tour-search-overlay')
     </section>
 
     <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -383,8 +389,11 @@
                                 <p class="mt-2 text-sm leading-7 text-slate-500">Một số tour đang được ưu tiên để khách hàng tham khảo thêm sau khi kiểm tra điểm thưởng.</p>
                             </div>
 
+                        </div>
+
+                        <div class="frontsite-slider-stage mt-5">
                             @if ($featuredTours->count() > 1)
-                                <div class="frontsite-slider-nav flex items-center gap-3">
+                                <div class="frontsite-slider-nav">
                                     <button
                                         type="button"
                                         data-card-carousel-prev
@@ -403,9 +412,6 @@
                                     </button>
                                 </div>
                             @endif
-                        </div>
-
-                        <div class="mt-5">
                             <div class="service-card-carousel-track" data-card-carousel-track>
                                 @foreach ($featuredTours as $tour)
                                     <div class="service-card-carousel-item" data-card-carousel-item>

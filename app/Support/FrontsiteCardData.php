@@ -13,7 +13,7 @@ class FrontsiteCardData
 {
     public static function tour(Tour $tour): array
     {
-        $today = \Illuminate\Support\Carbon::today();
+        $today = \Illuminate\Support\Carbon::today(config('app.timezone'));
         $departureTimestamp = static function (TourDeparture $departure): int {
             $date = $departure->departure_date;
 
@@ -53,15 +53,30 @@ class FrontsiteCardData
         $departurePlace = trim((string) ($tour->departure_location ?: 'Liên hệ'));
         $nextDepartureLabel = $hasFutureDeparture
             ? ($nextDeparture?->departure_date?->format('d/m/Y') ?: 'Liên hệ')
-            : (collect($tour->departure_schedules ?? [])->filter()->first() ?: 'Liên hệ');
+            : (TourDepartureSchedule::firstCurrentLabel($tour->departure_schedules ?? []) ?: 'Liên hệ');
         $durationLabel = trim(sprintf(
             '%s ngày %s đêm',
             $tour->duration_days ?: '?',
             $tour->duration_nights ?: 0,
         ));
+        $durationCompactLabel = collect([
+            filled($tour->duration_days) ? $tour->duration_days.'N' : null,
+            filled($tour->duration_nights) ? $tour->duration_nights.'Đ' : null,
+        ])->filter()->implode('');
+        $departureDateLabels = $publishedDepartures
+            ->filter(fn (TourDeparture $departure): bool => $departureTimestamp($departure) >= $today->timestamp)
+            ->sortBy($departureTimestamp)
+            ->map(fn (TourDeparture $departure): ?string => $departure->departure_date?->format('d/m'))
+            ->filter()
+            ->unique()
+            ->take(5)
+            ->values()
+            ->all();
         $standardLabel = $hasFutureDeparture
             ? trim((string) ($nextDeparture?->standard_label ?: $tour->standard_label ?: 'Liên hệ'))
             : trim((string) ($tour->standard_label ?: 'Liên hệ'));
+        $standardStarValue = Str::match('/([1-5])\s*(?:sao|\*)/iu', $standardLabel);
+        $standardStarCount = is_numeric($standardStarValue) ? (int) $standardStarValue : null;
         $priceValue = $hasFutureDeparture
             ? ($nextDeparture?->sale_price ?: $nextDeparture?->base_price)
             : ($tour->sale_price ?: $tour->base_price);
@@ -96,10 +111,16 @@ class FrontsiteCardData
             trim('Phù hợp cho '.$fitAudience.'. '.$valueHook.' Mở chi tiết để xem tiêu chuẩn, giá và tình trạng chỗ.'),
             190
         );
-        $ratingValue = filled($tour->rating_average) ? number_format((float) $tour->rating_average, 1, ',', '.') : null;
+        $ratingValue = filled($tour->rating_average)
+            ? max(0, min(5, (float) $tour->rating_average))
+            : null;
+        $ratingLabel = $ratingValue !== null ? number_format($ratingValue, 1, ',', '.') : null;
         $ratingCount = is_numeric($tour->rating_count) && (int) $tour->rating_count > 0
             ? (int) $tour->rating_count
             : null;
+        $imageUrl = self::tourImageUrl($tour, FrontsiteMedia::SIZE_MEDIUM);
+        $imageSmallUrl = self::tourImageUrl($tour, FrontsiteMedia::SIZE_SMALL);
+        $imageFullUrl = self::tourImageUrl($tour, FrontsiteMedia::SIZE_FULL);
 
         return [
             'base_price_value' => is_numeric($basePriceValue) ? (int) $basePriceValue : null,
@@ -108,24 +129,51 @@ class FrontsiteCardData
             'destination_label' => $destinationLabel !== '' ? $destinationLabel : 'Theo tư vấn',
             'detail_url' => route('tours.show', $tour),
             'duration_label' => $durationLabel,
+            'duration_compact_label' => $durationCompactLabel !== '' ? $durationCompactLabel : $durationLabel,
+            'departure_date_labels' => $departureDateLabels,
             'image_alt' => trim((string) ($tour->cover_alt ?: $tour->title)),
-            'image_url' => self::tourImageUrl($tour),
+            'image_small_url' => $imageSmallUrl,
+            'image_url' => $imageUrl,
+            'image_full_url' => $imageFullUrl,
             'next_departure_label' => $nextDepartureLabel,
             'departure_place' => $departurePlace,
+            'departure_place_short' => self::abbreviateDeparturePlace($departurePlace),
             'price_label' => is_numeric($priceValue) && (int) $priceValue > 0
                 ? number_format((int) $priceValue, 0, ',', '.').' đ'
                 : 'Liên hệ',
             'primary_topic_label' => $primaryTopicLabel !== '' ? $primaryTopicLabel : null,
             'scope_label' => $tour->scope?->label() ?: 'Tour',
             'rating_count' => $ratingCount,
-            'rating_label' => $ratingValue,
+            'rating_label' => $ratingLabel,
+            'rating_value' => $ratingValue,
             'slot_label' => $slotLabel,
             'slot_status_label' => $statusLabel,
             'standard_label' => $standardLabel,
+            'standard_star_count' => $standardStarCount,
             'summary' => $summary,
             'title' => trim((string) $tour->title),
             'transport_label' => $transportLabel,
         ];
+    }
+
+    public static function abbreviateDeparturePlace(string $place): string
+    {
+        $place = Str::squish($place);
+        $placeWithoutCityPrefix = preg_replace('/^(?:TP\.?\s*|Thành phố\s+)/iu', '', $place) ?? $place;
+
+        // Imported tour data may contain whole itinerary sentences in this field.
+        // Only abbreviate labels that look like proper place names.
+        if (preg_match('/^[\p{Lu}]{2,5}$/u', $placeWithoutCityPrefix) === 1) {
+            return $placeWithoutCityPrefix;
+        }
+
+        if (preg_match('/^[\p{Lu}][\p{L}\p{M}ʼ\x{2019}-]*(?:\s+[\p{Lu}][\p{L}\p{M}ʼ\x{2019}-]*){1,4}$/u', $placeWithoutCityPrefix) !== 1) {
+            return $place;
+        }
+
+        return collect(explode(' ', $placeWithoutCityPrefix))
+            ->map(fn (string $word): string => Str::upper(Str::substr($word, 0, 1)))
+            ->implode('');
     }
 
     /**
@@ -181,15 +229,15 @@ class FrontsiteCardData
             ->all();
     }
 
-    protected static function tourImageUrl(Tour $tour): ?string
+    protected static function tourImageUrl(Tour $tour, string $size = FrontsiteMedia::SIZE_MEDIUM): ?string
     {
-        $coverUrl = self::tourCoverUrl($tour, FrontsiteMedia::SIZE_SMALL);
+        $coverUrl = self::tourCoverUrl($tour, $size);
 
         if ($coverUrl !== '') {
             return $coverUrl;
         }
 
-        $galleryUrl = self::tourGalleryImageUrl($tour, FrontsiteMedia::SIZE_SMALL);
+        $galleryUrl = self::tourGalleryImageUrl($tour, $size);
 
         if ($galleryUrl !== null) {
             return $galleryUrl;
@@ -200,7 +248,7 @@ class FrontsiteCardData
             self::loadedRelation($tour, 'region'),
             self::loadedRelation($tour, 'primaryCategory'),
         ] as $relatedModel) {
-            $relatedImage = self::modelImageUrl($relatedModel, 'avatar', FrontsiteMedia::SIZE_SMALL);
+            $relatedImage = self::modelImageUrl($relatedModel, 'avatar', $size);
 
             if ($relatedImage !== null) {
                 return $relatedImage;

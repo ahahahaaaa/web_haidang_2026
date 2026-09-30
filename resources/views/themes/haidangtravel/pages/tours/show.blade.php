@@ -10,7 +10,9 @@
         $zaloLogoPath = asset('images/zalo-footer-logo.svg');
         $zaloUrl = trim((string) $siteSettings->zalo_url);
         $tourGallery = collect(\App\Support\FrontsiteGalleryData::tour($tour));
-        $today = \Illuminate\Support\Carbon::today();
+        $activeFlashSaleOffer = is_array($flashSaleOffer ?? null) ? $flashSaleOffer : null;
+        $flashSaleDeparture = data_get($activeFlashSaleOffer, 'departure');
+        $today = \Illuminate\Support\Carbon::today(config('app.timezone'));
         $departureDateRank = static function ($departure) use ($today): array {
             $date = $departure->departure_date;
 
@@ -68,12 +70,40 @@
                     ?: ((int) $left->getKey() <=> (int) $right->getKey());
             })
             ->values();
+        $requestedFlashSaleSlug = trim((string) data_get($flashSaleRequest ?? [], 'slug'));
+        $requestedFlashDepartureId = (int) data_get($flashSaleRequest ?? [], 'departure_id');
+        $requestedFlashDeparture = $requestedFlashDepartureId > 0
+            ? $departures->first(fn ($departure): bool => (int) $departure->getKey() === $requestedFlashDepartureId)
+            : null;
         $itineraryItems = collect($tour->itinerary ?? [])
-            ->map(fn ($item) => [
-                'title' => trim((string) data_get($item, 'title')),
-                'content' => trim((string) data_get($item, 'content')),
-            ])
-            ->filter(fn (array $item) => $item['title'] !== '' || $item['content'] !== '')
+            ->map(function ($item) use ($tour): array {
+                $uuid = trim((string) data_get($item, 'uuid'));
+                $externalImageUrl = \App\Support\FrontsiteMedia::validatedUrl((string) data_get($item, 'image_url'));
+                $imageUrls = $uuid !== ''
+                    ? \App\Support\FrontsiteMedia::responsiveUrls(
+                        $tour,
+                        \App\Support\ContentGallery::tourItineraryCollection($uuid),
+                        null,
+                    )
+                    : ['small' => null, 'medium' => null, 'full' => null];
+
+                $imageUrls['full'] = $imageUrls['full'] ?: $externalImageUrl;
+                $imageUrls['medium'] = $imageUrls['medium'] ?: $imageUrls['full'];
+                $imageUrls['small'] = $imageUrls['small'] ?: $imageUrls['medium'];
+
+                return [
+                    'uuid' => $uuid,
+                    'title' => trim((string) data_get($item, 'title')),
+                    'meals' => trim((string) data_get($item, 'meals')),
+                    'image_alt' => trim((string) data_get($item, 'image_alt')),
+                    'image_urls' => $imageUrls,
+                    'content' => trim((string) data_get($item, 'content')),
+                ];
+            })
+            ->filter(fn (array $item) => $item['title'] !== ''
+                || $item['content'] !== ''
+                || $item['meals'] !== ''
+                || filled(data_get($item, 'image_urls.medium')))
             ->values();
         $pricingTableItems = collect($tour->pricing_table ?? [])
             ->map(fn ($item) => [
@@ -136,6 +166,7 @@
             : null;
         $tourShareDescription = trim((string) $tour->excerpt);
         $hasTourDetails = filled($renderedTourContent);
+        $showTourDetailHero = \App\Support\FrontsiteAppearance::tourDetailHeroIsVisible($siteSettings->structured_data);
         $formatPrice = static function ($value): string {
             return filled($value) ? number_format((int) $value, 0, ',', '.').' đ' : 'Liên hệ';
         };
@@ -151,7 +182,9 @@
                 : $resolved;
         };
         $nextDeparture = $departures->first();
-        $sidebarDeparture = $departures->first(function ($departure) use ($today): bool {
+        $sidebarDeparture = $flashSaleDeparture instanceof \Src\Domains\Cms\Models\TourDeparture
+            ? $flashSaleDeparture
+            : ($requestedFlashDeparture ?: $departures->first(function ($departure) use ($today): bool {
             $date = $departure->departure_date;
 
             if (! $date) {
@@ -163,11 +196,9 @@
                 : \Illuminate\Support\Carbon::parse($date)->startOfDay();
 
             return $resolvedDate->greaterThanOrEqualTo($today);
-        });
+            }));
         $hasSidebarDeparture = $sidebarDeparture !== null;
-        $sidebarTourDepartureDateLabel = collect($tour->departure_schedules ?? [])
-            ->map(fn ($schedule) => trim((string) $schedule))
-            ->first(fn (string $schedule): bool => $schedule !== '');
+        $sidebarTourDepartureDateLabel = \App\Support\TourDepartureSchedule::firstCurrentLabel($tour->departure_schedules ?? []);
         $nextDepartureTransport = trim((string) ($nextDeparture?->transport_label ?? ''));
         $displayDepartureLocation = trim((string) ($tour->departure_location ?: data_get($departures->first(), 'departure_location', '')));
         $displayTransport = trim((string) ($tour->transport ?: $nextDepartureTransport));
@@ -178,31 +209,6 @@
                 filled($tour->duration_nights) ? $tour->duration_nights.' đêm' : null,
             ])->filter()->implode(' '))
             : '';
-        $departureDurationLabel = static function ($departure) use ($durationLabel): string {
-            $departureDate = $departure->departure_date;
-            $returnDate = $departure->return_date;
-
-            if ($departureDate && $returnDate) {
-                $resolvedDepartureDate = $departureDate instanceof \Carbon\CarbonInterface
-                    ? $departureDate->copy()->startOfDay()
-                    : \Illuminate\Support\Carbon::parse($departureDate)->startOfDay();
-                $resolvedReturnDate = $returnDate instanceof \Carbon\CarbonInterface
-                    ? $returnDate->copy()->startOfDay()
-                    : \Illuminate\Support\Carbon::parse($returnDate)->startOfDay();
-
-                if ($resolvedReturnDate->greaterThanOrEqualTo($resolvedDepartureDate)) {
-                    $days = (int) $resolvedDepartureDate->diffInDays($resolvedReturnDate) + 1;
-                    $nights = max(0, $days - 1);
-
-                    return trim(collect([
-                        $days > 0 ? $days.' ngày' : null,
-                        $nights > 0 ? $nights.' đêm' : null,
-                    ])->filter()->implode(' '));
-                }
-            }
-
-            return $durationLabel;
-        };
         $hasPricingSection = $pricingTableItems->isNotEmpty();
         $ratingAverage = filled(data_get($reviewSummary, 'average_value'))
             ? number_format((float) data_get($reviewSummary, 'average_value'), 1, ',', '.')
@@ -214,8 +220,23 @@
         $sidebarBasePriceValue = $hasSidebarDeparture
             ? $sidebarDeparture->base_price
             : $tour->base_price;
+        if ($activeFlashSaleOffer) {
+            $sidebarPriceValue = (int) data_get($activeFlashSaleOffer, 'flash_price');
+            $sidebarBasePriceValue = data_get($activeFlashSaleOffer, 'regular_price');
+        }
+        $sidebarBookingDepartureId = $sidebarDeparture?->getKey();
+        $sidebarBookingFlashSaleSlug = $activeFlashSaleOffer
+            ? trim((string) data_get($activeFlashSaleOffer, 'campaign_slug'))
+            : ($requestedFlashDeparture && (int) $requestedFlashDeparture->getKey() === (int) $sidebarBookingDepartureId
+                ? $requestedFlashSaleSlug
+                : '');
+        $sidebarBookingPriceType = $activeFlashSaleOffer
+            ? 'flash_sale'
+            : ($sidebarBookingFlashSaleSlug !== '' ? 'flash_unavailable' : 'regular');
         $nearestDepartureTabLabel = $nextDeparture?->departure_date?->format('d/m');
-        $sidebarDepartureLocation = trim((string) $tour->departure_location);
+        $sidebarDepartureLocation = $activeFlashSaleOffer && $hasSidebarDeparture
+            ? trim((string) ($sidebarDeparture->departure_location ?: $tour->departure_location))
+            : trim((string) $tour->departure_location);
         $sidebarDepartureDateLabel = $hasSidebarDeparture
             ? $sidebarDeparture?->departure_date?->format('d-m-Y')
             : $sidebarTourDepartureDateLabel;
@@ -240,6 +261,27 @@
                 'label' => 'Zalo',
             ]
             : null;
+        $departureDateLabel = static function ($date): string {
+            if (! $date) {
+                return 'Liên hệ';
+            }
+
+            $resolved = $date instanceof \Carbon\CarbonInterface
+                ? $date
+                : \Illuminate\Support\Carbon::parse($date);
+            $weekdayLabels = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
+
+            return $weekdayLabels[$resolved->dayOfWeek].', '.$resolved->format('d/m/Y');
+        };
+        $tourSyncStates = collect($tour->agencySyncStates ?? []);
+        $fallbackTourCode = trim((string) data_get(
+            $tourSyncStates->first(fn ($state) => filled($state->tour_code ?? null)),
+            'tour_code'
+        ));
+        $departureTourCodes = $tourSyncStates
+            ->filter(fn ($state) => filled($state->tour_departure_id ?? null) && filled($state->tour_code ?? null))
+            ->groupBy(fn ($state) => (int) $state->tour_departure_id)
+            ->map(fn ($states) => trim((string) $states->first()->tour_code));
         $monthLabel = static function ($date): string {
             if (! $date) {
                 return 'Lịch khởi hành khác';
@@ -260,50 +302,26 @@
                     'id' => $key !== 'other' ? 'month-'.$key : 'other',
                     'anchor' => $key !== 'other' ? 'departure-month-'.$key : 'departure-month-other',
                     'label' => $key !== 'other' && $firstDate ? $monthLabel($firstDate) : 'Lịch khởi hành khác',
+                    'month_label' => $key !== 'other' && $firstDate ? 'Tháng '.((int) $firstDate->format('m')) : 'Lịch khác',
+                    'year_label' => $key !== 'other' && $firstDate ? $firstDate->format('Y') : null,
                     'count' => $items->count(),
                     'items' => $items->values(),
                 ];
             })
             ->values();
         $activeDepartureGroupId = data_get($departureGroups->first(), 'id');
-        $statusMeta = static function (?string $status, bool $featured = false): array {
-            $normalized = trim((string) $status);
-
-            return match ($normalized) {
-                'published' => [
-                    'label' => $featured ? 'Nổi bật' : 'Mở bán',
-                    'class' => 'border-emerald-200 bg-emerald-50 text-emerald-700',
-                ],
-                'scheduled' => [
-                    'label' => $featured ? 'Nổi bật' : 'Còn chỗ',
-                    'class' => 'border-orange-200 bg-orange-50 text-primary',
-                ],
-                'full' => [
-                    'label' => 'Hết chỗ',
-                    'class' => 'border-rose-200 bg-rose-50 text-rose-700',
-                ],
-                'closed' => [
-                    'label' => 'Tạm khóa',
-                    'class' => 'border-slate-200 bg-slate-100 text-slate-700',
-                ],
-                default => [
-                    'label' => $normalized !== '' ? \Illuminate\Support\Str::headline(str_replace('_', ' ', $normalized)) : 'Liên hệ',
-                    'class' => 'border-slate-200 bg-slate-100 text-slate-700',
-                ],
-            };
-        };
         $heroFacts = collect([
-            ['label' => 'Khởi hành', 'value' => $displayDepartureLocation, 'icon' => 'fa-solid fa-location-arrow'],
-            ['label' => 'Thời lượng', 'value' => $durationLabel, 'icon' => 'fa-regular fa-clock'],
-            ['label' => 'Phương tiện', 'value' => $displayTransport, 'icon' => 'fa-solid fa-bus-simple'],
-            ['label' => 'Tiêu chuẩn', 'value' => $displayStandard ?: 'Liên hệ', 'icon' => 'fa-solid fa-hotel'],
+            ['label' => 'Khởi hành', 'value' => $displayDepartureLocation, 'icon' => \App\Support\TourUiIcons::DEPARTURE_LOCATION],
+            ['label' => 'Thời lượng', 'value' => $durationLabel, 'icon' => \App\Support\TourUiIcons::DURATION],
+            ['label' => 'Phương tiện', 'value' => $displayTransport, 'icon' => \App\Support\TourUiIcons::transport($displayTransport)],
+            ['label' => 'Tiêu chuẩn', 'value' => $displayStandard ?: 'Liên hệ', 'icon' => \App\Support\TourUiIcons::STANDARD],
         ])->filter(fn (array $item) => filled($item['value']))->values();
         $sidebarInfoItems = collect([
-            $sidebarDepartureLocation !== '' ? ['icon' => 'fa-solid fa-location-arrow', 'label' => 'Khởi hành', 'value' => $sidebarDepartureLocation] : null,
-            $sidebarDepartureDateLabel ? ['icon' => 'fa-regular fa-calendar-days', 'label' => 'Ngày khởi hành', 'value' => $sidebarDepartureDateLabel] : null,
-            $compactDurationLabel !== '' ? ['icon' => 'fa-regular fa-clock', 'label' => 'Thời gian', 'value' => $compactDurationLabel] : null,
-            $sidebarTransport !== '' ? ['icon' => 'fa-solid fa-route', 'label' => 'Di chuyển', 'value' => $sidebarTransport] : null,
-            $sidebarStandard !== '' ? ['icon' => 'fa-solid fa-shield-heart', 'label' => 'Tiêu chuẩn', 'value' => $sidebarStandard] : null,
+            $sidebarDepartureLocation !== '' ? ['icon' => \App\Support\TourUiIcons::DEPARTURE_LOCATION, 'label' => 'Khởi hành', 'value' => $sidebarDepartureLocation] : null,
+            $sidebarDepartureDateLabel ? ['icon' => \App\Support\TourUiIcons::DEPARTURE_DATE, 'label' => 'Ngày khởi hành', 'value' => $sidebarDepartureDateLabel] : null,
+            $compactDurationLabel !== '' ? ['icon' => \App\Support\TourUiIcons::DURATION, 'label' => 'Thời gian', 'value' => $compactDurationLabel] : null,
+            $sidebarTransport !== '' ? ['icon' => \App\Support\TourUiIcons::transport($sidebarTransport), 'label' => 'Di chuyển', 'value' => $sidebarTransport] : null,
+            $sidebarStandard !== '' ? ['icon' => \App\Support\TourUiIcons::STANDARD, 'label' => 'Tiêu chuẩn', 'value' => $sidebarStandard] : null,
         ])->filter()->values();
         $sectionLinks = collect([
             $tourGallery->isNotEmpty() ? ['label' => 'Thư viện', 'href' => '#tour-gallery'] : null,
@@ -329,6 +347,7 @@
         $tourCtaHeading = \App\Support\FrontsiteSectionHeadings::resolve($sectionHeadingConfig, 'tour_cta');
     @endphp
 
+    @if ($showTourDetailHero)
     <section class="relative overflow-hidden bg-[#0d1730]" id="tour-hero">
         <div class="relative min-h-[72vh]">
             @if ($cover)
@@ -354,8 +373,8 @@
 
             <div class="theme-grid-pattern absolute inset-0 opacity-20"></div>
 
-            <div class="relative mx-auto flex min-h-[72vh] max-w-7xl items-center px-4 py-8 sm:px-6 lg:px-8">
-                <div class="max-w-4xl space-y-7">
+            <div class="relative mx-auto flex min-h-[72vh] max-w-7xl items-center px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+                <div class="w-full space-y-7">
                     <div class="space-y-4">
                         <div class="frontsite-text-reveal flex flex-wrap items-center gap-3 text-sm font-semibold text-slate-100/85" data-reveal="meta">
                             @if ($tour->primaryCategory)
@@ -384,7 +403,7 @@
                             @endif
                         </div>
 
-                        <h1 class="frontsite-text-reveal font-heading text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl" data-reveal="title">
+                        <h1 class="frontsite-text-reveal font-heading text-lg font-extrabold leading-tight tracking-tight text-white sm:text-2xl lg:text-3xl" data-reveal="title">
                             {{ $tour->title }}
                         </h1>
                     </div>
@@ -396,6 +415,12 @@
                             data-travel-inquiry-open
                             data-travel-inquiry-source="tour"
                             data-travel-inquiry-tour-id="{{ $tour->id }}"
+                            data-travel-inquiry-departure-id="{{ $sidebarBookingDepartureId }}"
+                            data-travel-inquiry-flash-sale-slug="{{ $sidebarBookingFlashSaleSlug }}"
+                            data-travel-inquiry-price-type="{{ $sidebarBookingPriceType }}"
+                            data-travel-inquiry-price-label="{{ $sidebarPriceValue ? $formatPrice($sidebarPriceValue) : '' }}"
+                            data-travel-inquiry-regular-price-label="{{ $sidebarBasePriceValue ? $formatPrice($sidebarBasePriceValue) : ($sidebarPriceValue ? $formatPrice($sidebarPriceValue) : '') }}"
+                            data-travel-inquiry-flash-tickets-remaining="{{ (int) data_get($activeFlashSaleOffer, 'remaining_ticket_quantity', 0) }}"
                             data-travel-inquiry-context="{{ $tour->title }}"
                             data-travel-inquiry-subject="{{ $tour->title }}"
                             data-travel-inquiry-modal-title="Thông tin đặt tour"
@@ -442,6 +467,7 @@
             </div>
         </div>
     </section>
+    @endif
 
     <section class="border-b border-slate-200 bg-white px-4 py-4 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-7xl">
@@ -449,22 +475,34 @@
                 'breadcrumbVariant' => 'plain',
                 'items' => $breadcrumbs ?? [],
             ])
+
+            @if (! $showTourDetailHero)
+                <h1 class="mt-4 w-full font-heading text-[0.9375rem] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-lg lg:text-2xl">
+                    {{ $tour->title }}
+                </h1>
+            @endif
         </div>
     </section>
 
-    @if ($sectionLinks->isNotEmpty())
-        <section class="border-b border-slate-200/80 bg-white/80 px-4 py-4 backdrop-blur-sm sm:px-6 lg:px-8">
-            <div class="mx-auto max-w-7xl">
-                <div class="flex flex-wrap gap-2">
-                    @foreach ($sectionLinks as $link)
-                        <a href="{{ $link['href'] }}" class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-orange-200 hover:bg-[color:var(--color-primary-soft)] hover:text-primary">
-                            {{ $link['label'] }}
-                        </a>
-                    @endforeach
+    <div data-tour-content-shell>
+        @if ($sectionLinks->isNotEmpty())
+            <section
+                class="sticky top-[var(--tour-sticky-header-offset)] z-30 border-b border-slate-200/80 bg-white/95 px-4 py-4 shadow-[0_14px_30px_-28px_rgba(15,23,42,0.45)] backdrop-blur-xl sm:px-6 lg:px-8"
+                data-tour-section-nav
+            >
+                <div class="mx-auto max-w-7xl">
+                    <nav class="-mx-1 overflow-x-auto px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label="Điều hướng nội dung tour">
+                        <div class="flex min-w-max gap-2">
+                            @foreach ($sectionLinks as $link)
+                                <a href="{{ $link['href'] }}" class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-orange-200 hover:bg-[color:var(--color-primary-soft)] hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2" data-tour-section-link>
+                                    {{ $link['label'] }}
+                                </a>
+                            @endforeach
+                        </div>
+                    </nav>
                 </div>
-            </div>
-        </section>
-    @endif
+            </section>
+        @endif
 
     @include('themes.haidangtravel.partials.geo-answer-panel', [
         'geo' => $geo ?? [],
@@ -516,214 +554,130 @@
                             ])
                         @endif
 
-                        <div class="flex flex-wrap gap-3" role="tablist" aria-label="Lịch khởi hành theo tháng">
+                        <div class="-mx-1 overflow-x-auto px-1 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                            <div class="flex min-w-max gap-3" role="tablist" aria-label="Lịch khởi hành theo tháng">
+                                @foreach ($departureGroups as $group)
+                                    @php
+                                        $isActiveDepartureGroup = $group['id'] === $activeDepartureGroupId;
+                                    @endphp
+
+                                    <button
+                                        type="button"
+                                        id="tour-departure-tab-{{ $group['id'] }}"
+                                        role="tab"
+                                        aria-selected="{{ $isActiveDepartureGroup ? 'true' : 'false' }}"
+                                        aria-controls="{{ $group['anchor'] }}"
+                                        tabindex="{{ $isActiveDepartureGroup ? '0' : '-1' }}"
+                                        data-tour-departure-tab="{{ $group['id'] }}"
+                                        class="inline-flex min-h-[60px] min-w-[96px] flex-col items-center justify-center rounded-[1rem] border px-5 py-2.5 text-sm font-semibold leading-tight transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 {{ $isActiveDepartureGroup ? 'border-transparent bg-[linear-gradient(135deg,#FF6A00,#FF8C00)] text-white shadow-[0_20px_45px_-24px_rgba(255,106,0,0.58)]' : 'border-slate-200 bg-white text-slate-600 hover:border-orange-200 hover:text-primary' }}"
+                                    >
+                                        <span class="sr-only">
+                                            {{ $group['label'] }}.
+                                            @if ($loop->first && $nearestDepartureTabLabel)
+                                                Gần nhất {{ $nearestDepartureTabLabel }}.
+                                            @endif
+                                        </span>
+                                        <span aria-hidden="true">{{ $group['month_label'] }}</span>
+                                        @if ($group['year_label'])
+                                            <span aria-hidden="true">{{ $group['year_label'] }}</span>
+                                        @endif
+                                        <span class="sr-only {{ $isActiveDepartureGroup ? 'text-white/90' : 'text-slate-500' }}">
+                                            {{ $group['count'] }} lịch khởi hành
+                                        </span>
+                                    </button>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
                             @foreach ($departureGroups as $group)
                                 @php
                                     $isActiveDepartureGroup = $group['id'] === $activeDepartureGroupId;
                                 @endphp
 
-                                <button
-                                    type="button"
-                                    id="tour-departure-tab-{{ $group['id'] }}"
-                                    role="tab"
-                                    aria-selected="{{ $isActiveDepartureGroup ? 'true' : 'false' }}"
-                                    aria-controls="{{ $group['anchor'] }}"
-                                    tabindex="{{ $isActiveDepartureGroup ? '0' : '-1' }}"
-                                    data-tour-departure-tab="{{ $group['id'] }}"
-                                    class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 {{ $isActiveDepartureGroup ? 'border-transparent bg-[linear-gradient(135deg,#FF6A00,#FF8C00)] text-white shadow-[0_20px_45px_-24px_rgba(255,106,0,0.58)]' : 'border-slate-200 bg-white text-slate-600 hover:border-orange-200 hover:text-primary' }}"
-                                >
-                                    <span>{{ $group['label'] }}</span>
-                                    @if ($loop->first && $nearestDepartureTabLabel)
-                                        <span class="rounded-full bg-black/8 px-2.5 py-1 text-[11px] font-semibold text-current">
-                                            Gần nhất {{ $nearestDepartureTabLabel }}
-                                        </span>
-                                    @endif
-                                    <span class="rounded-full bg-black/8 px-2.5 py-1 text-[11px] font-semibold {{ $isActiveDepartureGroup ? 'text-white/90' : 'text-slate-500' }}">
-                                        {{ $group['count'] }}
-                                    </span>
-                                </button>
-                            @endforeach
-                        </div>
-
-                        <div class="space-y-6">
-                            @foreach ($departureGroups as $group)
-                                <section
+                                <div
                                     id="{{ $group['anchor'] }}"
                                     role="tabpanel"
                                     aria-labelledby="tour-departure-tab-{{ $group['id'] }}"
                                     data-tour-departure-panel="{{ $group['id'] }}"
-                                    class="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_34px_90px_-54px_rgba(15,23,42,0.28)]"
+                                    class="space-y-3"
+                                    @if (! $isActiveDepartureGroup) hidden @endif
                                 >
-                                    <div class="flex flex-col gap-3 border-b border-slate-100 px-6 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-8">
-                                        <div>
-                                            <h2 class="frontsite-h2-card">{{ $group['label'] }}</h2>
-                                        </div>
-                                        <span class="inline-flex items-center rounded-full bg-[color:var(--color-primary-soft)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                                            {{ $group['count'] }} lịch
-                                        </span>
-                                    </div>
+                                    @foreach ($group['items'] as $departure)
+                                        @php
+                                            $rowRegularPriceValue = $departure->sale_price ?: $departure->base_price;
+                                            $rowIsFlashSale = $activeFlashSaleOffer
+                                                && (int) data_get($activeFlashSaleOffer, 'departure_id') === (int) $departure->getKey();
+                                            $rowFlashSaleRequested = $requestedFlashSaleSlug !== ''
+                                                && $requestedFlashDepartureId === (int) $departure->getKey();
+                                            $rowPriceValue = $rowIsFlashSale
+                                                ? (int) data_get($activeFlashSaleOffer, 'flash_price')
+                                                : $rowRegularPriceValue;
+                                            $rowOriginalPriceValue = $rowIsFlashSale
+                                                ? $rowRegularPriceValue
+                                                : ($departure->base_price && $departure->sale_price ? $departure->base_price : null);
+                                            $rowFlashSaleSlug = $rowIsFlashSale || $rowFlashSaleRequested ? $requestedFlashSaleSlug : '';
+                                            $rowDateLabel = $departureDateLabel($departure->departure_date);
+                                            $rowTourCode = trim((string) ($departureTourCodes->get((int) $departure->getKey()) ?: $fallbackTourCode));
+                                            $rowDepartureLocation = trim((string) ($departure->departure_location ?: $displayDepartureLocation));
+                                            $rowSubject = trim($tour->title.' - '.($departure->departure_date?->format('d/m/Y') ?: 'liên hệ'));
+                                        @endphp
 
-                                    <div class="hidden overflow-x-auto lg:block">
-                                        <table class="min-w-[720px] w-full border-collapse">
-                                            <caption class="sr-only">{{ $group['label'] }}</caption>
-                                            <thead>
-                                                <tr class="bg-slate-50 text-left text-xs font-semibold uppercase text-slate-500">
-                                                    <th class="px-2 py-2">Ngày đi</th>
-                                                    <th class="px-2 py-2">Khởi hành</th>
-                                                    <th class="px-2 py-2">Tiêu chuẩn</th>
-                                                    <th class="px-2 py-2">Giá</th>
-                                                    <th class="px-2 py-2">Trạng thái</th>
-                                                    <th class="px-2 py-2 text-right">Tác vụ</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="divide-y divide-slate-100">
-                                                @foreach ($group['items'] as $departure)
-                                                    @php
-                                                        $rowStatus = $statusMeta($departure->status, (bool) $departure->is_featured);
-                                                        $rowPriceValue = $departure->sale_price ?: $departure->base_price;
-                                                        $rowDurationLabel = $departureDurationLabel($departure);
-                                                        $rowSubject = trim($tour->title.' - '.($departure->departure_date?->format('d/m/Y') ?: 'liên hệ'));
-                                                    @endphp
-                                                    <tr class="align-top text-sm text-slate-600">
-                                                        <td class="px-2 py-2 whitespace-nowrap">
-                                                            <p class="font-semibold text-slate-950">{{ $departure->departure_date?->format('d/m/Y') ?: 'Liên hệ' }}</p>
-                                                            @if ($departure->transport_label || $displayTransport !== '')
-                                                                <p class="mt-2 text-xs uppercase text-slate-400">{{ $departure->transport_label ?: $displayTransport }}</p>
-                                                            @endif
-                                                        </td>
-                                                        <td class="px-2 py-2 whitespace-nowrap">
-                                                            <p class="font-medium text-slate-950">{{ filled($departure->departure_location) ? $departure->departure_location : (filled($displayDepartureLocation) ? $displayDepartureLocation : 'Theo tư vấn') }}</p>
-                                                            @if ($tour->destination)
-                                                                <p class="mt-2 text-xs uppercase text-slate-400">{{ $tour->destination->name }}</p>
-                                                            @endif
-                                                        </td>
-                                                        <td class="px-2 py-2 whitespace-nowrap">
-                                                            <p class="font-medium text-slate-950">{{ filled($departure->standard_label) ? $departure->standard_label : (filled($displayStandard) ? $displayStandard : 'Liên hệ') }}</p>
-                                                            @if ($rowDurationLabel !== '')
-                                                                <p class="mt-2 text-xs uppercase text-slate-400">{{ $rowDurationLabel }}</p>
-                                                            @endif
-                                                            @if ($departure->pricing_note)
-                                                                <p class="mt-2 text-sm leading-6 text-slate-500">{{ $departure->pricing_note }}</p>
-                                                            @endif
-                                                        </td>
-                                                        <td class="px-2 py-2 whitespace-nowrap">
-                                                            <p class="font-heading text-xl font-bold text-[color:var(--color-price)] whitespace-nowrap">{{ $formatPrice($rowPriceValue) }}</p>
-                                                            @if ($departure->base_price && $departure->sale_price && $departure->base_price !== $departure->sale_price)
-                                                                <p class="mt-2 whitespace-nowrap text-sm text-slate-400 line-through">{{ $formatPrice($departure->base_price) }}</p>
-                                                            @endif
-                                                        </td>
-                                                        <td class="px-2 py-2 whitespace-nowrap">
-                                                            <span class="inline-flex rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] {{ $rowStatus['class'] }}">
-                                                                {{ $rowStatus['label'] }}
-                                                            </span>
-                                                        </td>
-                                                        <td class="px-2 py-2 text-right whitespace-nowrap">
-                                                            <button
-                                                                type="button"
-                                                                class="inline-flex items-center gap-2 rounded-[0.95rem] border border-orange-200 px-4 py-2.5 text-sm font-semibold text-primary whitespace-nowrap transition hover:bg-orange-50"
-                                                                data-travel-inquiry-open
-                                                                data-travel-inquiry-source="tour"
-                                                                data-travel-inquiry-tour-id="{{ $tour->id }}"
-                                                                data-travel-inquiry-context="{{ $rowSubject }}"
-                                                                data-travel-inquiry-subject="{{ $rowSubject }}"
-                                                                data-travel-inquiry-modal-title="Kiểm tra chỗ còn lại"
-                                                                data-travel-inquiry-modal-description="Điền nhanh thông tin để Hải Đăng Travel kiểm tra chỗ và tư vấn đúng ngày đi bạn đang chọn."
-                                                            >
-                                                                {{ $tour->cta_mode === 'contact' ? 'Nhận tư vấn' : 'Đặt tour' }}
-                                                                <i class="fa-solid fa-arrow-right"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        <article class="grid grid-cols-2 items-center gap-4 rounded-[1.5rem] border border-slate-200 bg-white p-3 shadow-[0_22px_55px_-46px_rgba(15,23,42,0.42)] md:grid-cols-[minmax(0,1fr)_auto_auto] md:gap-6 md:rounded-full md:px-5 md:py-4">
+                                            <div class="col-span-2 flex min-w-0 items-center gap-3 md:col-span-1">
+                                                <time
+                                                    class="inline-flex min-h-11 shrink-0 items-center rounded-full bg-slate-50 px-4 py-2 text-sm font-bold whitespace-nowrap text-primary"
+                                                    @if ($departure->departure_date) datetime="{{ $departure->departure_date->format('Y-m-d') }}" @endif
+                                                >
+                                                    {{ $rowDateLabel }}
+                                                </time>
 
-                                    <div class="grid gap-4 p-4 sm:p-6 lg:hidden">
-                                        @foreach ($group['items'] as $departure)
-                                            @php
-                                                $cardStatus = $statusMeta($departure->status, (bool) $departure->is_featured);
-                                                $cardPriceValue = $departure->sale_price ?: $departure->base_price;
-                                                $cardTransportLabel = trim((string) ($departure->transport_label ?: $displayTransport));
-                                                $cardDurationLabel = $departureDurationLabel($departure);
-                                                $cardSubject = trim($tour->title.' - '.($departure->departure_date?->format('d/m/Y') ?: 'liên hệ'));
-                                            @endphp
-                                            <article class="rounded-[1.25rem] border border-slate-200 bg-white p-4 shadow-[0_18px_45px_-38px_rgba(15,23,42,0.35)]">
-                                                <div class="flex items-start justify-between gap-3">
-                                                    <div class="min-w-0">
-                                                        <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-500">Ngày đi</p>
-                                                        <p class="mt-1 font-heading text-[22px] font-black leading-none text-slate-950">{{ $departure->departure_date?->format('d/m/Y') ?: 'Liên hệ' }}</p>
-                                                    </div>
+                                                @if ($rowTourCode !== '')
+                                                    <p class="min-w-0 break-all text-xs font-semibold leading-5 text-slate-700 sm:text-sm" title="Mã tour: {{ $rowTourCode }}">
+                                                        <i class="fa-solid fa-ticket mr-1.5 text-slate-400" aria-hidden="true"></i>
+                                                        <span class="sr-only">Mã tour: </span>{{ $rowTourCode }}
+                                                    </p>
+                                                @elseif ($rowDepartureLocation !== '')
+                                                    <p class="min-w-0 line-clamp-2 text-sm font-semibold leading-5 text-slate-700" title="Khởi hành: {{ $rowDepartureLocation }}">
+                                                        <i class="fa-solid fa-location-dot mr-1.5 text-slate-400" aria-hidden="true"></i>
+                                                        <span class="sr-only">Khởi hành: </span>{{ $rowDepartureLocation }}
+                                                    </p>
+                                                @endif
+                                            </div>
 
-                                                    <span class="shrink-0 rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] {{ $cardStatus['class'] }}">
-                                                        {{ $cardStatus['label'] }}
-                                                    </span>
-                                                </div>
+                                            <div class="min-w-0 md:text-right">
+                                                @if ($rowOriginalPriceValue && $rowOriginalPriceValue !== $rowPriceValue)
+                                                    <p class="mb-1 text-xs font-semibold whitespace-nowrap text-slate-400 line-through">{{ $formatPrice($rowOriginalPriceValue) }}</p>
+                                                @endif
+                                                <p class="font-heading text-lg font-black whitespace-nowrap text-[color:var(--color-price)] sm:text-xl">{{ $formatPrice($rowPriceValue) }}</p>
+                                            </div>
 
-                                                <div class="mt-4 grid grid-cols-2 gap-2 text-sm">
-                                                    <div class="rounded-2xl bg-slate-50 px-3 py-2">
-                                                        <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">Khởi hành</p>
-                                                        <p class="mt-0.5 font-semibold text-slate-900">{{ filled($departure->departure_location) ? $departure->departure_location : (filled($displayDepartureLocation) ? $displayDepartureLocation : 'Theo tư vấn') }}</p>
-                                                    </div>
-
-                                                    @if ($cardTransportLabel !== '')
-                                                        <div class="rounded-2xl bg-slate-50 px-3 py-2">
-                                                            <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">Phương tiện</p>
-                                                            <p class="mt-0.5 font-semibold text-slate-900">{{ $cardTransportLabel }}</p>
-                                                        </div>
-                                                    @endif
-
-                                                    @if ($cardDurationLabel !== '')
-                                                        <div class="rounded-2xl bg-slate-50 px-3 py-2">
-                                                            <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">Thời lượng</p>
-                                                            <p class="mt-0.5 font-semibold text-slate-900">{{ $cardDurationLabel }}</p>
-                                                        </div>
-                                                    @endif
-
-                                                    <div class="rounded-2xl bg-slate-50 px-3 py-2">
-                                                        <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">Tiêu chuẩn</p>
-                                                        <p class="mt-0.5 font-semibold text-slate-900">{{ filled($departure->standard_label) ? $departure->standard_label : (filled($displayStandard) ? $displayStandard : 'Liên hệ') }}</p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="mt-4 border-t border-slate-100 pt-4">
-                                                    <div class="grid grid-cols-12 items-end gap-3 sm:flex sm:items-end sm:justify-between">
-                                                        <div class="col-span-6 min-w-0 sm:col-auto">
-                                                            <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-500">Giá từ</p>
-
-                                                            @if ($departure->base_price && $departure->sale_price && $departure->base_price !== $departure->sale_price)
-                                                                <p class="whitespace-nowrap text-right text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-                                                                    <span class="block whitespace-nowrap text-[11px] leading-none text-slate-400 line-through">
-                                                                        {{ $formatPrice($departure->base_price) }}
-                                                                    </span>
-                                                                </p>
-                                                            @endif
-
-                                                            <p class="mt-1 whitespace-nowrap text-right font-heading text-[20px] font-black leading-none text-[color:var(--color-price)] sm:text-[26px]">{{ $formatPrice($cardPriceValue) }}</p>
-                                                        </div>
-
-                                                        <div class="col-span-6 sm:col-auto">
-                                                            <button
-                                                                type="button"
-                                                                class="inline-flex h-10 w-full items-center justify-center gap-2 rounded-2xl border border-orange-200 bg-orange-50 px-4 text-sm font-bold text-primary transition hover:bg-orange-100"
-                                                                data-travel-inquiry-open
-                                                                data-travel-inquiry-source="tour"
-                                                                data-travel-inquiry-tour-id="{{ $tour->id }}"
-                                                                data-travel-inquiry-context="{{ $cardSubject }}"
-                                                                data-travel-inquiry-subject="{{ $cardSubject }}"
-                                                                data-travel-inquiry-modal-title="Kiểm tra chỗ còn lại"
-                                                                data-travel-inquiry-modal-description="Điền nhanh thông tin để Hải Đăng Travel kiểm tra chỗ và tư vấn đúng ngày đi bạn đang chọn."
-                                                            >
-                                                                {{ $tour->cta_mode === 'contact' ? 'Nhận tư vấn' : 'Đặt tour' }}
-                                                                <i class="fa-solid fa-arrow-right"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        @endforeach
-                                    </div>
-                                </section>
+                                            <span class="frontsite-tour-card-cta-wrap inline-flex justify-self-end">
+                                                <button
+                                                    type="button"
+                                                    class="frontsite-tour-card-cta frontsite-tour-booking-cta inline-flex min-h-11 items-center justify-center gap-2 border px-5 py-2.5 text-sm font-bold whitespace-nowrap transition focus-visible:outline-none"
+                                                    aria-label="Đặt tour ngày {{ $rowDateLabel }}"
+                                                    data-travel-inquiry-open
+                                                    data-travel-inquiry-source="tour"
+                                                    data-travel-inquiry-tour-id="{{ $tour->id }}"
+                                                    data-travel-inquiry-departure-id="{{ $departure->getKey() }}"
+                                                    data-travel-inquiry-flash-sale-slug="{{ $rowFlashSaleSlug }}"
+                                                    data-travel-inquiry-price-type="{{ $rowIsFlashSale ? 'flash_sale' : ($rowFlashSaleRequested ? 'flash_unavailable' : 'regular') }}"
+                                                    data-travel-inquiry-price-label="{{ $rowPriceValue ? $formatPrice($rowPriceValue) : '' }}"
+                                                    data-travel-inquiry-regular-price-label="{{ $rowRegularPriceValue ? $formatPrice($rowRegularPriceValue) : '' }}"
+                                                    data-travel-inquiry-flash-tickets-remaining="{{ $rowIsFlashSale ? (int) data_get($activeFlashSaleOffer, 'remaining_ticket_quantity', 0) : 0 }}"
+                                                    data-travel-inquiry-context="{{ $rowSubject }}"
+                                                    data-travel-inquiry-subject="{{ $rowSubject }}"
+                                                    data-travel-inquiry-modal-title="Thông tin đặt tour"
+                                                    data-travel-inquiry-modal-description="Điền nhanh thông tin đặt tour để Hải Đăng Travel kiểm tra chỗ và tư vấn đúng ngày đi bạn đã chọn."
+                                                >
+                                                    <span>Đặt tour</span>
+                                                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                                </button>
+                                            </span>
+                                        </article>
+                                    @endforeach
+                                </div>
                             @endforeach
                         </div>
                     </section>
@@ -738,7 +692,7 @@
                             ])
                         @endif
 
-                        <div class="space-y-2">
+                        <div class="relative space-y-5 before:absolute before:bottom-8 before:left-[1.1875rem] before:top-8 before:w-px before:bg-gradient-to-b before:from-orange-300 before:via-orange-200 before:to-orange-100 sm:before:left-[1.4375rem]">
                             @foreach ($itineraryItems as $item)
                                 @php
                                     $itineraryTitle = trim((string) $item['title']);
@@ -750,27 +704,68 @@
                                         ->value();
                                     $isGenericItineraryTitle = $itineraryTitle === ''
                                         || preg_match('/^(chang|ngay|day)\s*0*\d+$/', $normalizedItineraryTitle) === 1;
-                                    $displayItineraryTitle = $isGenericItineraryTitle ? '' : $itineraryTitle;
+                                    $displayItineraryTitle = $isGenericItineraryTitle
+                                        ? ''
+                                        : trim((string) preg_replace('/^(ngày|chặng|day)\s*0*\d+\s*[-:–—]?\s*/iu', '', $itineraryTitle));
+                                    $displayItineraryTitle = $displayItineraryTitle !== '' ? $displayItineraryTitle : ($isGenericItineraryTitle ? '' : $itineraryTitle);
+                                    $itineraryImage = data_get($item, 'image_urls.medium');
+                                    $itineraryImageFull = data_get($item, 'image_urls.full') ?: $itineraryImage;
+                                    $itineraryImageAlt = $item['image_alt'] !== ''
+                                        ? $item['image_alt']
+                                        : ($displayItineraryTitle !== '' ? $displayItineraryTitle : 'Hình lịch trình ngày '.$loop->iteration);
                                 @endphp
 
-                                <details open data-tour-itinerary-details class="group theme-panel overflow-hidden rounded-[1.7rem] border border-slate-200/70 bg-[linear-gradient(180deg,_#ffffff_0%,_#fffaf7_100%)] ring-transparent shadow-[0_22px_60px_-52px_rgba(15,23,42,0.24)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_28px_74px_-52px_rgba(15,23,42,0.3)]" data-reveal="card" data-reveal-delay="{{ number_format($loop->index * 0.06, 2, '.', '') }}">
-                                    <summary class="flex w-full cursor-pointer list-none items-center px-2 py-2 text-left [&::-webkit-details-marker]:hidden sm:px-2.5 sm:py-1.5">
-                                        <span class="flex min-h-[3rem] min-w-0 flex-1 items-center sm:min-h-[1.25rem]">
-                                            @if ($displayItineraryTitle !== '')
-                                                <span class="block font-heading text-base font-extrabold leading-tight tracking-tight text-balance text-primary sm:text-[1.2rem]">{{ $displayItineraryTitle }}</span>
-                                            @endif
-                                        </span>
-                                        <span class="inline-flex size-9 shrink-0 items-center justify-center rounded-[0.95rem] border border-orange-100/80 bg-white text-primary shadow-[0_16px_34px_-28px_rgba(255,106,0,0.32)] transition group-hover:bg-[color:var(--color-primary-soft)] sm:size-10" aria-hidden="true">
-                                            <i class="fa-solid fa-minus text-sm" data-tour-itinerary-icon></i>
-                                        </span>
-                                    </summary>
+                                <article class="relative pl-11 sm:pl-14" data-reveal="card" data-reveal-delay="{{ number_format($loop->index * 0.06, 2, '.', '') }}">
+                                    <span class="absolute left-0 top-5 z-10 inline-flex size-10 items-center justify-center rounded-full border-4 border-white bg-[linear-gradient(135deg,#FF6A00,#FF8C00)] text-white shadow-[0_12px_28px_-12px_rgba(255,106,0,0.78)] sm:size-12" title="Điểm đến chặng {{ $loop->iteration }}">
+                                        <i class="fa-solid fa-location-dot text-base sm:text-lg" aria-hidden="true"></i>
+                                        <span class="sr-only">Điểm đến chặng {{ $loop->iteration }}</span>
+                                    </span>
 
-                                    <div class="px-2 pb-2 sm:px-2.5 sm:pb-2.5">
-                                        <div class="theme-copy rounded-[1.2rem] bg-[linear-gradient(180deg,_#ffffff_0%,_#f8fafc_100%)] px-3 py-3 text-sm leading-7 text-slate-600 sm:px-3.5 sm:py-3.5 sm:text-base">
-                                            {!! \App\Support\RichText::render($item['content']) !!}
+                                    <details open data-tour-itinerary-details class="group theme-panel overflow-hidden rounded-[1.7rem] border border-orange-100/80 bg-[linear-gradient(180deg,_#ffffff_0%,_#fffaf7_100%)] ring-transparent shadow-[0_22px_60px_-52px_rgba(15,23,42,0.24)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_28px_74px_-52px_rgba(15,23,42,0.3)]">
+                                        <summary class="relative grid w-full cursor-pointer list-none items-stretch text-left [&::-webkit-details-marker]:hidden {{ $itineraryImage ? 'sm:grid-cols-[minmax(0,1fr)_minmax(12rem,38%)]' : 'grid-cols-[minmax(0,1fr)_auto]' }}">
+                                            <span class="flex min-w-0 flex-col justify-center gap-2 p-4 sm:p-5">
+                                                <span class="font-heading text-lg font-extrabold leading-none tracking-tight text-primary">Ngày {{ $loop->iteration }}</span>
+
+                                                @if ($displayItineraryTitle !== '')
+                                                    <span class="block font-heading text-base font-bold leading-snug tracking-tight text-balance text-slate-900 sm:text-lg">{{ $displayItineraryTitle }}</span>
+                                                @endif
+
+                                                @if ($item['meals'] !== '')
+                                                    <span class="inline-flex items-center gap-2 text-sm font-medium text-slate-600">
+                                                        <i class="fa-solid fa-utensils text-primary" aria-hidden="true"></i>
+                                                        <span class="sr-only">Bữa ăn: </span>{{ $item['meals'] }}
+                                                    </span>
+                                                @endif
+                                            </span>
+
+                                            @if ($itineraryImage)
+                                                <span class="relative block overflow-hidden bg-orange-50 sm:min-h-44">
+                                                    <img
+                                                        src="{{ $itineraryImage }}"
+                                                        @if ($itineraryImageFull && $itineraryImageFull !== $itineraryImage) srcset="{{ $itineraryImage }} 1x, {{ $itineraryImageFull }} 2x" @endif
+                                                        alt="{{ $itineraryImageAlt }}"
+                                                        loading="lazy"
+                                                        decoding="async"
+                                                        class="h-48 w-full object-cover transition duration-500 group-hover:scale-[1.02] sm:h-full sm:min-h-44"
+                                                    >
+                                                    <span class="absolute right-3 top-3 inline-flex size-9 shrink-0 items-center justify-center rounded-[0.95rem] border border-orange-100/80 bg-white/95 text-primary shadow-[0_16px_34px_-28px_rgba(255,106,0,0.32)] backdrop-blur-sm transition group-hover:bg-[color:var(--color-primary-soft)]" aria-hidden="true">
+                                                        <i class="fa-solid fa-minus text-sm" data-tour-itinerary-icon></i>
+                                                    </span>
+                                                </span>
+                                            @else
+                                                <span class="m-3 inline-flex size-9 shrink-0 items-center justify-center self-start rounded-[0.95rem] border border-orange-100/80 bg-white/95 text-primary shadow-[0_16px_34px_-28px_rgba(255,106,0,0.32)] transition group-hover:bg-[color:var(--color-primary-soft)] sm:m-4" aria-hidden="true">
+                                                    <i class="fa-solid fa-minus text-sm" data-tour-itinerary-icon></i>
+                                                </span>
+                                            @endif
+                                        </summary>
+
+                                        <div class="border-t border-orange-100/70 p-2 sm:p-2.5">
+                                            <div class="theme-copy rounded-[1.2rem] bg-[linear-gradient(180deg,_#ffffff_0%,_#f8fafc_100%)] px-3 py-3 text-sm leading-7 text-slate-600 sm:px-4 sm:py-4 sm:text-base">
+                                                {!! \App\Support\RichText::render($item['content']) !!}
+                                            </div>
                                         </div>
-                                    </div>
-                                </details>
+                                    </details>
+                                </article>
                             @endforeach
                         </div>
                     </section>
@@ -1015,11 +1010,12 @@
 
                         @if ($shouldUseRelatedTourSlider)
                             <div
+                                class="frontsite-slider-stage"
                                 data-card-carousel
                                 data-desktop-slider="true"
                                 style="--mobile-card-width: calc(83.333% - 0.17rem); --desktop-card-width: calc((100% - 2rem) / 3);"
                             >
-                                <div class="mb-4 flex items-center justify-end gap-3 frontsite-slider-nav">
+                                <div class="frontsite-slider-nav">
                                     <button
                                         type="button"
                                         data-card-carousel-prev
@@ -1065,23 +1061,48 @@
                 @endif
             </div>
 
-            <aside class="order-1 space-y-5 lg:order-2 lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-[1.9rem] border border-slate-200 bg-white p-5 shadow-[0_30px_80px_-58px_rgba(15,23,42,0.3)] sm:p-6">
+            <aside class="order-1 space-y-5 lg:order-2 lg:sticky lg:top-[calc(var(--tour-sticky-header-offset)+var(--tour-section-nav-height)+1rem)] lg:self-start" data-tour-price-sidebar>
+                <div class="frontsite-tour-price-panel overflow-hidden rounded-[1.9rem] border border-slate-200 bg-white p-5 shadow-[0_30px_80px_-58px_rgba(15,23,42,0.3)] sm:p-6" data-tour-main-price-panel>
                     <div class="space-y-6">
-                        <div class="space-y-4">
+                        @if ($activeFlashSaleOffer)
+                            <div class="rounded-[1.25rem] bg-[linear-gradient(145deg,#E65F00_0%,#C2410C_58%,#9A3412_100%)] p-4 text-white shadow-[0_18px_40px_-28px_rgba(154,52,18,0.72)]">
+                                <div class="flex items-start gap-3">
+                                    <span class="text-xl text-amber-300"><i class="fa-solid fa-bolt"></i></span>
+                                    <div class="min-w-0 flex-1">
+                                        <p class="font-bold">{{ data_get($activeFlashSaleOffer, 'campaign_title', 'Ưu đãi giờ chót') }}</p>
+                                        <p class="mt-1 text-sm font-semibold text-white/90">Còn {{ (int) data_get($activeFlashSaleOffer, 'remaining_ticket_quantity', 0) }} vé</p>
+                                        <div
+                                            class="mt-2 inline-flex items-center gap-1 rounded-lg bg-white/15 px-2.5 py-1 font-mono text-sm font-bold"
+                                            data-voucher-countdown
+                                            data-voucher-countdown-target="{{ data_get($activeFlashSaleOffer, 'ends_at_iso') }}"
+                                            data-voucher-countdown-expired="Ưu đãi đã kết thúc"
+                                        >
+                                            <span data-voucher-countdown-days>00</span> ngày
+                                            <span data-voucher-countdown-hours>00</span>:<span data-voucher-countdown-minutes>00</span>:<span data-voucher-countdown-seconds>00</span>
+                                            <span class="sr-only" data-voucher-countdown-status>Thời gian ưu đãi còn lại</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
+                        <div class="space-y-4 rounded-[1.25rem] border border-orange-100/80 bg-[linear-gradient(135deg,#fff7ed_0%,#ffffff_58%,#fff7ed_100%)] p-4" data-tour-main-price>
                             <div class="flex items-start justify-between gap-3">
-                                <p class="text-[1.35rem] font-bold leading-none text-slate-950">Giá:</p>
+                                <p class="inline-flex items-center gap-2.5 text-[1.35rem] font-bold leading-none text-slate-950">
+                                    <i class="fa-solid fa-ticket text-primary" aria-hidden="true"></i>
+                                    Giá:
+                                </p>
                                 @if ($sidebarBasePriceValue && $sidebarPriceValue && $sidebarBasePriceValue !== $sidebarPriceValue)
-                                    <p class="pt-1 text-[0.8rem] font-semibold whitespace-nowrap text-slate-300 line-through">{{ $formatPrice($sidebarBasePriceValue) }} / Khách</p>
+                                    <p class="pt-1 text-[0.8rem] font-semibold whitespace-nowrap text-slate-500 line-through">{{ $formatPrice($sidebarBasePriceValue) }} / Khách</p>
                                 @endif
                             </div>
 
                             @if ($sidebarPriceValue)
-                                <div class="flex flex-wrap items-end gap-2">
-                                    <p class="font-heading text-[1.9rem] font-extrabold leading-none whitespace-nowrap text-[color:var(--color-price)]">
+                                <div class="flex flex-nowrap items-baseline gap-1.5 whitespace-nowrap">
+                                    <p class="font-heading text-[clamp(1.125rem,6vw,1.9rem)] font-extrabold leading-none text-[color:var(--color-price)] lg:text-[1.5rem]">
                                         {{ $formatPrice($sidebarPriceValue) }}
                                     </p>
-                                    <p class="pb-0.5 text-[1.25rem] font-semibold leading-none whitespace-nowrap text-slate-900">/ Khách</p>
+                                    <p class="shrink-0 text-[clamp(0.875rem,3.6vw,1.25rem)] font-semibold leading-none text-slate-900 lg:text-base">/ Khách</p>
                                 </div>
                             @else
                                 <p class="font-heading text-[1.75rem] font-extrabold leading-none text-[color:var(--color-price)]">
@@ -1091,19 +1112,18 @@
                         </div>
 
                         @if ($sidebarInfoItems->isNotEmpty())
-                            <div class="space-y-3">
+                            <ul class="grid grid-cols-2 gap-x-3 gap-y-2" aria-label="Thông tin tour" data-tour-main-price-info>
                                 @foreach ($sidebarInfoItems as $item)
-                                    <div class="flex items-start gap-3">
-                                        <span class="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-[1rem] border border-slate-200 bg-slate-50 text-slate-600">
-                                            <i class="{{ $item['icon'] }}"></i>
+                                    <li class="flex min-w-0 items-center gap-1.5 {{ $loop->last && $sidebarInfoItems->count() % 2 !== 0 ? 'col-span-2' : '' }}" title="{{ $item['label'] }}: {{ $item['value'] }}">
+                                        <span class="inline-flex w-4 shrink-0 items-center justify-center text-[0.9rem] text-primary" data-tour-main-price-info-icon="{{ $item['icon'] }}">
+                                            <i class="{{ $item['icon'] }}" aria-hidden="true"></i>
                                         </span>
-                                        <p class="min-w-0 pt-1 text-[0.98rem] font-semibold leading-6 text-slate-900">
-                                            {{ $item['label'] }}:
-                                            <span class="font-bold text-secondary">{{ $item['value'] }}</span>
+                                        <p class="min-w-0 text-[0.85rem] font-semibold leading-5 text-secondary">
+                                            <span class="sr-only">{{ $item['label'] }}: </span>{{ $item['value'] }}
                                         </p>
-                                    </div>
+                                    </li>
                                 @endforeach
-                            </div>
+                            </ul>
                         @endif
 
                         <div class="grid gap-3 {{ $miniContactAction ? 'grid-cols-[auto_minmax(0,1fr)] sm:grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)]' : 'grid-cols-1 sm:grid-cols-2' }}">
@@ -1134,24 +1154,33 @@
                                 {{ $contactShortcutLabel }}
                             </a>
 
-                            <button
-                                type="button"
-                                class="inline-flex min-h-12 items-center justify-center gap-2 rounded-[1rem] bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover {{ $miniContactAction ? 'col-span-2 sm:col-span-1' : '' }}"
-                                data-travel-inquiry-open
-                                data-travel-inquiry-source="tour"
-                                data-travel-inquiry-tour-id="{{ $tour->id }}"
-                                data-travel-inquiry-context="{{ $tour->title }}"
-                                data-travel-inquiry-subject="{{ $tour->title }}"
-                                data-travel-inquiry-modal-title="Thông tin đặt tour"
-                                data-travel-inquiry-modal-description="Điền nhanh thông tin đặt tour để Hải Đăng Travel liên hệ và tư vấn đúng nhu cầu của bạn."
-                            >
-                                Đặt tour
-                            </button>
+                            <span class="frontsite-tour-card-cta-wrap {{ $miniContactAction ? 'col-span-2 sm:col-span-1' : '' }}">
+                                <button
+                                    type="button"
+                                    class="frontsite-tour-card-cta frontsite-tour-booking-cta frontsite-tour-price-cta inline-flex min-h-12 w-full items-center justify-center whitespace-nowrap border px-3 py-3 text-sm font-bold transition focus-visible:outline-none"
+                                    data-travel-inquiry-open
+                                    data-travel-inquiry-source="tour"
+                                    data-travel-inquiry-tour-id="{{ $tour->id }}"
+                                    data-travel-inquiry-departure-id="{{ $sidebarBookingDepartureId }}"
+                                    data-travel-inquiry-flash-sale-slug="{{ $sidebarBookingFlashSaleSlug }}"
+                                    data-travel-inquiry-price-type="{{ $sidebarBookingPriceType }}"
+                                    data-travel-inquiry-price-label="{{ $sidebarPriceValue ? $formatPrice($sidebarPriceValue) : '' }}"
+                                    data-travel-inquiry-regular-price-label="{{ $sidebarBasePriceValue ? $formatPrice($sidebarBasePriceValue) : ($sidebarPriceValue ? $formatPrice($sidebarPriceValue) : '') }}"
+                                    data-travel-inquiry-flash-tickets-remaining="{{ (int) data_get($activeFlashSaleOffer, 'remaining_ticket_quantity', 0) }}"
+                                    data-travel-inquiry-context="{{ $tour->title }}"
+                                    data-travel-inquiry-subject="{{ $tour->title }}"
+                                    data-travel-inquiry-modal-title="Thông tin đặt tour"
+                                    data-travel-inquiry-modal-description="Điền nhanh thông tin đặt tour để Hải Đăng Travel liên hệ và tư vấn đúng nhu cầu của bạn."
+                                >
+                                    <span>Đặt tour</span>
+                                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </span>
                         </div>
 
                         @if ($departureGroups->isNotEmpty())
                             <a href="#tour-departures" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition hover:text-primary">
-                                <i class="fa-regular fa-calendar-days"></i>
+                                <i class="fa-regular fa-calendar-days text-primary"></i>
                                 Xem toàn bộ lịch khởi hành
                             </a>
                         @endif
@@ -1171,6 +1200,7 @@
             </aside>
         </div>
     </section>
+    </div>
 
     @include('themes.haidangtravel.partials.frontsite-gallery-lightbox')
 

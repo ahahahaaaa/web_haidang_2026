@@ -9,6 +9,7 @@ use App\Livewire\Admin\Cms\Concerns\InteractsWithEditorContent;
 use App\Support\FaqContent;
 use App\Support\LandingPageBlocks;
 use App\Support\LandingPageVisuals;
+use App\Support\TourCardStyle;
 use App\Support\TravelHomePageConfig;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
@@ -28,6 +29,8 @@ use Src\Domains\Cms\Models\Region;
 use Src\Domains\Cms\Models\Service;
 use Src\Domains\Cms\Models\Slider;
 use Src\Domains\Cms\Models\TourCategory;
+use Src\Domains\Cms\Models\TourFlashSale;
+use Src\Domains\Cms\Models\VoucherCampaign;
 
 #[Layout('layouts.app')]
 #[Title('Landing pages')]
@@ -100,11 +103,15 @@ class LandingPagesManager extends Component
 
     public function updated(string $property): void
     {
-        if (! preg_match('/^form\.blocks\.(\d+)\.home_position$/', $property, $matches)) {
+        if (preg_match('/^form\.home_config\.featured_tours\.filters\.(\d+)\.source_type$/', $property, $matches)) {
+            data_set($this->form, 'home_config.featured_tours.filters.'.(int) $matches[1].'.source_value', '');
+
             return;
         }
 
-        $this->moveHomeBlockToSelectedPosition((int) $matches[1]);
+        if (preg_match('/^form\.blocks\.(\d+)\.home_position$/', $property, $matches)) {
+            $this->moveHomeBlockToSelectedPosition((int) $matches[1]);
+        }
     }
 
     public function addFaqItem(int $blockIndex): void
@@ -137,6 +144,21 @@ class LandingPagesManager extends Component
 
         $tabs[] = LandingPageBlocks::defaultTourTaxonomyTab();
         data_set($this->form, 'blocks.'.$blockIndex.'.tabs', array_values($tabs));
+    }
+
+    public function addTourTaxonomyPopularSearch(int $blockIndex): void
+    {
+        $this->authorizeAdminPermission('admin.landing-pages.edit');
+
+        $items = data_get($this->form, 'blocks.'.$blockIndex.'.popular_searches', []);
+        $items = is_array($items) ? array_values($items) : [];
+
+        if (count($items) >= TravelHomePageConfig::FEATURED_TOUR_POPULAR_SEARCH_LIMIT) {
+            return;
+        }
+
+        $items[] = TravelHomePageConfig::featuredTourPopularSearch();
+        data_set($this->form, 'blocks.'.$blockIndex.'.popular_searches', $items);
     }
 
     public function addTrustProofCard(int $blockIndex): void
@@ -195,18 +217,73 @@ class LandingPagesManager extends Component
         data_set($this->form, 'blocks.'.$blockIndex.'.steps', array_values($steps));
     }
 
-    public function addHomeTrustCard(): void
+    public function addHomeTrustStat(): void
     {
         $this->authorizeAdminPermission('admin.landing-pages.edit');
 
-        $cards = data_get($this->form, 'home_config.trust.cards', []);
+        $stats = data_get($this->form, 'home_config.trust.stats', []);
 
-        if (! is_array($cards)) {
-            $cards = [];
+        if (! is_array($stats)) {
+            $stats = [];
         }
 
-        $cards[] = $this->blankHomeTrustCard();
-        data_set($this->form, 'home_config.trust.cards', array_values($cards));
+        if (count($stats) >= 3) {
+            return;
+        }
+
+        $stats[] = $this->blankHomeTrustStat();
+        data_set($this->form, 'home_config.trust.stats', array_values($stats));
+    }
+
+    public function addHomeFeaturedTourFilter(): void
+    {
+        $this->authorizeAdminPermission('admin.landing-pages.edit');
+
+        $filters = data_get($this->form, 'home_config.featured_tours.filters', []);
+        $filters = is_array($filters) ? array_values($filters) : [];
+
+        if (count($filters) >= TravelHomePageConfig::FEATURED_TOUR_FILTER_LIMIT) {
+            return;
+        }
+
+        $filters[] = TravelHomePageConfig::featuredTourFilter(
+            TravelHomePageConfig::FEATURED_TOUR_FILTER_SCOPE,
+            TourScope::Domestic->value,
+        );
+        data_set($this->form, 'home_config.featured_tours.filters', $filters);
+    }
+
+    public function addHomeFeaturedTourPopularSearch(): void
+    {
+        $this->authorizeAdminPermission('admin.landing-pages.edit');
+
+        $items = data_get($this->form, 'home_config.featured_tours.popular_searches', []);
+        $items = is_array($items) ? array_values($items) : [];
+
+        if (count($items) >= TravelHomePageConfig::FEATURED_TOUR_POPULAR_SEARCH_LIMIT) {
+            return;
+        }
+
+        $items[] = TravelHomePageConfig::featuredTourPopularSearch();
+        data_set($this->form, 'home_config.featured_tours.popular_searches', $items);
+    }
+
+    public function addHomeTrustAward(): void
+    {
+        $this->authorizeAdminPermission('admin.landing-pages.edit');
+
+        $awards = data_get($this->form, 'home_config.trust.awards', []);
+
+        if (! is_array($awards)) {
+            $awards = [];
+        }
+
+        if (count($awards) >= 12) {
+            return;
+        }
+
+        $awards[] = $this->blankHomeTrustAward();
+        data_set($this->form, 'home_config.trust.awards', array_values($awards));
     }
 
     public function addHomeProcessCard(): void
@@ -236,6 +313,21 @@ class LandingPagesManager extends Component
         data_set($this->form, "home_config.process.cards.{$index}.image_url", '');
         data_set($this->form, "home_config.process.cards.{$index}.image_alt", '');
         data_set($this->form, "home_config.process.cards.{$index}.source_library_media_id", null);
+    }
+
+    public function clearHomeTrustAwardImage(string $uuid): void
+    {
+        $this->authorizeAdminPermission('admin.landing-pages.edit');
+
+        $index = $this->findHomeTrustAwardIndex($uuid);
+
+        if ($index === null) {
+            return;
+        }
+
+        data_set($this->form, "home_config.trust.awards.{$index}.image_url", '');
+        data_set($this->form, "home_config.trust.awards.{$index}.image_alt", '');
+        data_set($this->form, "home_config.trust.awards.{$index}.source_library_media_id", null);
     }
 
     public function applyTemplatePreset(): void
@@ -386,6 +478,32 @@ class LandingPagesManager extends Component
         data_set($this->form, "home_config.process.cards.{$index}.source_library_media_id", (int) $media->getKey());
     }
 
+    public function selectHomeTrustAwardLibraryMedia(string $uuid, int $mediaId, ?string $alt = null): void
+    {
+        $this->authorizeAdminPermission('admin.landing-pages.edit');
+
+        $media = Media::query()
+            ->whereKey($mediaId)
+            ->where('mime_type', 'like', 'image/%')
+            ->firstOrFail();
+
+        $index = $this->findHomeTrustAwardIndex($uuid);
+
+        if ($index === null) {
+            return;
+        }
+
+        data_set($this->form, "home_config.trust.awards.{$index}.image_url", (string) $media->getUrl());
+        data_set(
+            $this->form,
+            "home_config.trust.awards.{$index}.image_alt",
+            trim((string) $alt) !== ''
+                ? trim((string) $alt)
+                : ((string) data_get($media->custom_properties, 'alt', '') ?: $media->name),
+        );
+        data_set($this->form, "home_config.trust.awards.{$index}.source_library_media_id", (int) $media->getKey());
+    }
+
     public function moveBlockDown(int $index): void
     {
         $this->authorizeAdminPermission('admin.landing-pages.edit');
@@ -416,6 +534,72 @@ class LandingPagesManager extends Component
         [$blocks[$index - 1], $blocks[$index]] = [$blocks[$index], $blocks[$index - 1]];
         $this->form['blocks'] = array_values($blocks);
         $this->syncHtmlDraftsFromBlocks();
+    }
+
+    public function sortContentBlock(string $token, int $position): void
+    {
+        $this->authorizeAdminPermission('admin.landing-pages.edit');
+
+        $this->syncHtmlDraftsToFormBlocks();
+
+        if (($this->form['page_key'] ?? null) === 'home') {
+            $order = $this->editableHomeLayoutOrder();
+            $visibleTokens = collect($this->homeLayoutItemsForAdmin())
+                ->reject(fn (array $item): bool => $this->hiddenGeoBlock($item['block_type'] ?? null))
+                ->pluck('token')
+                ->values()
+                ->all();
+
+            if (! in_array($token, $visibleTokens, true) || $position < 0 || $position >= count($visibleTokens)) {
+                return;
+            }
+
+            $sortedTokens = array_values(array_diff($visibleTokens, [$token]));
+            array_splice($sortedTokens, $position, 0, [$token]);
+            $next = 0;
+            $visibleSet = array_fill_keys($visibleTokens, true);
+
+            foreach ($order as &$item) {
+                if (isset($visibleSet[$item])) {
+                    $item = $sortedTokens[$next++];
+                }
+            }
+            unset($item);
+
+            $this->setHomeLayoutOrder($order);
+        } else {
+            $blocks = $this->editableFormBlocks();
+            $visibleIndices = collect($blocks)
+                ->filter(fn (array $block): bool => ! $this->hiddenGeoBlock($block['type'] ?? null))
+                ->keys()
+                ->values()
+                ->all();
+            $visibleBlocks = array_map(fn (int $index): array => $blocks[$index], $visibleIndices);
+            $sourceIndex = array_search($token, array_map(
+                fn (array $block): string => TravelHomePageConfig::homeLayoutTokenForBlock((string) ($block['uuid'] ?? '')),
+                $visibleBlocks,
+            ), true);
+
+            if ($sourceIndex === false || $position < 0 || $position >= count($visibleBlocks)) {
+                return;
+            }
+
+            $movedBlock = array_splice($visibleBlocks, $sourceIndex, 1)[0];
+            array_splice($visibleBlocks, $position, 0, [$movedBlock]);
+
+            foreach ($visibleIndices as $visibleIndex => $blockIndex) {
+                $blocks[$blockIndex] = $visibleBlocks[$visibleIndex];
+            }
+
+            $this->form['blocks'] = $blocks;
+        }
+
+        $this->syncHtmlDraftsFromBlocks();
+    }
+
+    protected function hiddenGeoBlock(mixed $type): bool
+    {
+        return $type === LandingPageBlocks::TYPE_GEO_ANSWER && ! $this->geoCmsEnabled();
     }
 
     public function moveHomeSectionDown(string $sectionKey): void
@@ -536,12 +720,39 @@ class LandingPagesManager extends Component
             return;
         }
 
+        $removedUuid = (string) ($tabs[$tabIndex]['uuid'] ?? '');
         array_splice($tabs, $tabIndex, 1);
         data_set(
             $this->form,
             'blocks.'.$blockIndex.'.tabs',
             $tabs === [] ? [LandingPageBlocks::defaultTourTaxonomyTab()] : array_values($tabs),
         );
+        $popularSearches = data_get($this->form, 'blocks.'.$blockIndex.'.popular_searches', []);
+
+        if (is_array($popularSearches) && $removedUuid !== '') {
+            foreach ($popularSearches as &$item) {
+                if (is_array($item) && ($item['filter_uuid'] ?? null) === $removedUuid) {
+                    $item['filter_uuid'] = '';
+                }
+            }
+            unset($item);
+
+            data_set($this->form, 'blocks.'.$blockIndex.'.popular_searches', $popularSearches);
+        }
+    }
+
+    public function removeTourTaxonomyPopularSearch(int $blockIndex, int $itemIndex): void
+    {
+        $this->authorizeAdminPermission('admin.landing-pages.edit');
+
+        $items = data_get($this->form, 'blocks.'.$blockIndex.'.popular_searches', []);
+
+        if (! is_array($items) || ! array_key_exists($itemIndex, $items)) {
+            return;
+        }
+
+        array_splice($items, $itemIndex, 1);
+        data_set($this->form, 'blocks.'.$blockIndex.'.popular_searches', array_values($items));
     }
 
     public function removeTrustProofCard(int $blockIndex, int $cardIndex): void
@@ -612,21 +823,39 @@ class LandingPagesManager extends Component
         );
     }
 
-    public function removeHomeTrustCard(int $index): void
+    public function removeHomeTrustStat(int $index): void
     {
         $this->authorizeAdminPermission('admin.landing-pages.edit');
 
-        $cards = data_get($this->form, 'home_config.trust.cards', []);
+        $stats = data_get($this->form, 'home_config.trust.stats', []);
 
-        if (! is_array($cards) || ! array_key_exists($index, $cards)) {
+        if (! is_array($stats) || ! array_key_exists($index, $stats)) {
             return;
         }
 
-        array_splice($cards, $index, 1);
+        array_splice($stats, $index, 1);
         data_set(
             $this->form,
-            'home_config.trust.cards',
-            $cards === [] ? [$this->blankHomeTrustCard()] : array_values($cards),
+            'home_config.trust.stats',
+            $stats === [] ? [$this->blankHomeTrustStat()] : array_values($stats),
+        );
+    }
+
+    public function removeHomeTrustAward(int $index): void
+    {
+        $this->authorizeAdminPermission('admin.landing-pages.edit');
+
+        $awards = data_get($this->form, 'home_config.trust.awards', []);
+
+        if (! is_array($awards) || ! array_key_exists($index, $awards)) {
+            return;
+        }
+
+        array_splice($awards, $index, 1);
+        data_set(
+            $this->form,
+            'home_config.trust.awards',
+            $awards === [] ? [$this->blankHomeTrustAward()] : array_values($awards),
         );
     }
 
@@ -648,8 +877,58 @@ class LandingPagesManager extends Component
         );
     }
 
+    public function removeHomeFeaturedTourFilter(int $index): void
+    {
+        $this->authorizeAdminPermission('admin.landing-pages.edit');
+
+        $filters = data_get($this->form, 'home_config.featured_tours.filters', []);
+
+        if (! is_array($filters) || ! array_key_exists($index, $filters)) {
+            return;
+        }
+
+        $removedFilterUuid = (string) data_get($filters, $index.'.uuid', '');
+
+        array_splice($filters, $index, 1);
+        data_set($this->form, 'home_config.featured_tours.filters', array_values($filters));
+
+        if ($removedFilterUuid === '') {
+            return;
+        }
+
+        $popularSearches = data_get($this->form, 'home_config.featured_tours.popular_searches', []);
+
+        if (! is_array($popularSearches)) {
+            return;
+        }
+
+        foreach ($popularSearches as $popularIndex => $popularSearch) {
+            if ((string) data_get($popularSearch, 'filter_uuid', '') === $removedFilterUuid) {
+                data_set($this->form, 'home_config.featured_tours.popular_searches.'.$popularIndex.'.filter_uuid', '');
+            }
+        }
+    }
+
+    public function removeHomeFeaturedTourPopularSearch(int $index): void
+    {
+        $this->authorizeAdminPermission('admin.landing-pages.edit');
+
+        $items = data_get($this->form, 'home_config.featured_tours.popular_searches', []);
+
+        if (! is_array($items) || ! array_key_exists($index, $items)) {
+            return;
+        }
+
+        array_splice($items, $index, 1);
+        data_set($this->form, 'home_config.featured_tours.popular_searches', array_values($items));
+    }
+
     public function render()
     {
+        $destinations = Destination::query()->published()->regularDestinations()->orderBy('sort_order')->orderBy('name')->get();
+        $regions = Region::query()->published()->orderBy('sort_order')->orderBy('name')->get();
+        $scopeOptions = collect(TourScope::cases())->mapWithKeys(fn (TourScope $scope) => [$scope->value => $scope->label()])->all();
+        $tourCategories = TourCategory::query()->published()->orderBy('sort_order')->orderBy('name')->get();
         $pageOptions = LandingPage::query()
             ->orderByRaw('case when page_key is null then 1 else 0 end')
             ->orderBy('page_key')
@@ -677,17 +956,18 @@ class LandingPagesManager extends Component
 
         return view($this->resolveView(), [
             'blockTypes' => $this->blockTypesForCms(),
+            'blockTitles' => collect($this->form['blocks'] ?? [])->map(fn (array $block): string => $this->blockTitleForAdmin($block))->all(),
             'blogCategories' => ContentCategory::query()->forTaxonomy('blog')->orderBy('sort_order')->orderBy('name')->get(),
             'canEdit' => $this->canAdmin('admin.landing-pages.edit'),
-            'destinations' => Destination::query()->published()->regularDestinations()->orderBy('sort_order')->orderBy('name')->get(),
+            'destinations' => $destinations,
             'editorModes' => $this->editorModes(),
             'blogPostOptions' => BlogPost::query()->published()->latest('published_at')->orderBy('title')->get(['id', 'title', 'slug']),
             'pages' => $pages,
             'pageOptions' => $pageOptions,
-            'regions' => Region::query()->published()->orderBy('sort_order')->orderBy('name')->get(),
+            'regions' => $regions,
             'regionTaxonomyCardTypes' => LandingPageBlocks::regionTaxonomyCardTypes(),
             'reservedSlugs' => LandingPageBlocks::reservedSlugs(),
-            'scopeOptions' => collect(TourScope::cases())->mapWithKeys(fn (TourScope $scope) => [$scope->value => $scope->label()])->all(),
+            'scopeOptions' => $scopeOptions,
             'selectedBlockMedia' => $this->selectedBlockMediaPayload(),
             'selectedPage' => $this->selectedId ? LandingPage::query()->find($this->selectedId) : null,
             'serviceOptions' => Service::query()->published()->orderBy('title')->get(['id', 'title', 'slug']),
@@ -698,11 +978,28 @@ class LandingPagesManager extends Component
                 ->get(),
             'systemPages' => LandingPageBlocks::systemPages(),
             'templates' => LandingPageBlocks::templates(),
-            'tourCategories' => TourCategory::query()->published()->orderBy('sort_order')->orderBy('name')->get(),
+            'tourCategories' => $tourCategories,
+            'tourCardCtaVariants' => TourCardStyle::ctaVariants(),
             'tourSortOptions' => LandingPageBlocks::tourSortOptions(),
+            'tourFlashSaleOptions' => TourFlashSale::query()
+                ->orderByDesc('is_active')
+                ->orderBy('sort_order')
+                ->orderBy('title')
+                ->get(['id', 'title', 'slug', 'is_active', 'starts_at', 'ends_at']),
+            'voucherCampaignOptions' => VoucherCampaign::query()
+                ->orderByDesc('is_active')
+                ->orderBy('title')
+                ->get(['id', 'title', 'slug', 'is_active', 'meta']),
             'blogSortOptions' => LandingPageBlocks::blogSortOptions(),
             'galleryTileSizes' => LandingPageBlocks::galleryTileSizes(),
             'galleryVariants' => LandingPageBlocks::galleryVariants(),
+            'featuredTourFilterTypes' => TravelHomePageConfig::featuredTourFilterTypes(),
+            'featuredTourPopularSearchFilterOptions' => $this->featuredTourPopularSearchFilterOptions(
+                $destinations,
+                $regions,
+                $tourCategories,
+                $scopeOptions,
+            ),
             'homeLayoutItems' => $this->homeLayoutItemsForAdmin(),
             'homePositionOptions' => $this->homePositionOptionsForCms(),
             'homeSectionOptions' => $this->homeSectionOptionsForCms(),
@@ -735,6 +1032,7 @@ class LandingPagesManager extends Component
         $this->authorizeAdminPermission('admin.landing-pages.edit');
         $this->syncHtmlDraftsToFormBlocks();
 
+
         $validated = $this->validate($this->rules());
         $editorMode = (string) ($validated['form']['editor_mode'] ?? LandingPage::EDITOR_MODE_BLOCKS);
         $pageKey = filled($validated['form']['page_key'] ?? null) ? (string) $validated['form']['page_key'] : null;
@@ -748,7 +1046,7 @@ class LandingPagesManager extends Component
             ]);
         }
 
-        $blocks = LandingPageBlocks::normalize($this->form['blocks'] ?? []);
+        $blocks = LandingPageBlocks::normalize(LandingPageBlocks::unifyTourWidgetsForEditor($this->form['blocks'] ?? []));
         $schema = $this->decodeJson($validated['form']['schema_json'] ?? null);
         $page = $this->selectedId ? LandingPage::query()->find($this->selectedId) : null;
         $oldBlocks = $page ? LandingPageBlocks::normalize($this->blocksFromModel($page)) : [];
@@ -962,14 +1260,24 @@ class LandingPagesManager extends Component
         return is_array($decoded) ? $decoded : null;
     }
 
-    protected function blankHomeTrustCard(?string $highlight = '', ?string $title = '', ?string $text = '', ?string $icon = ''): array
+    protected function blankHomeTrustStat(?string $value = '', ?string $label = ''): array
     {
         return [
             'uuid' => (string) Str::uuid(),
-            'icon' => trim((string) $icon),
-            'highlight' => trim((string) $highlight),
+            'value' => trim((string) $value),
+            'label' => trim((string) $label),
+        ];
+    }
+
+    protected function blankHomeTrustAward(?string $title = '', ?string $description = ''): array
+    {
+        return [
+            'uuid' => (string) Str::uuid(),
             'title' => trim((string) $title),
-            'text' => trim((string) $text),
+            'description' => trim((string) $description),
+            'image_url' => '',
+            'image_alt' => trim((string) $title),
+            'source_library_media_id' => null,
         ];
     }
 
@@ -995,6 +1303,8 @@ class LandingPagesManager extends Component
     protected function blockTypesForCms(): array
     {
         $types = LandingPageBlocks::blockTypes();
+        unset($types[LandingPageBlocks::TYPE_TOUR_LIST]);
+        $types[LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS] = 'Tour: danh sách hoặc tab';
 
         if (! $this->geoCmsEnabled()) {
             unset($types[LandingPageBlocks::TYPE_GEO_ANSWER]);
@@ -1009,6 +1319,7 @@ class LandingPagesManager extends Component
     protected function homeSectionOptionsForCms(): array
     {
         $sections = TravelHomePageConfig::homeSectionOptions();
+
 
         if (! $this->geoCmsEnabled()) {
             unset($sections['geo_answer']);
@@ -1110,7 +1421,7 @@ class LandingPagesManager extends Component
                     'block_type' => $blockType,
                     'is_enabled' => (bool) ($block['is_enabled'] ?? true),
                     'kind' => 'block',
-                    'label' => $title !== '' ? ($displayType.' - '.$title) : $displayType,
+                    'label' => $title !== '' ? $title : $displayType,
                     'token' => $token,
                     'uuid' => $blockUuid,
                     'wire_key' => 'home-layout-order-block-'.$blockUuid,
@@ -1123,42 +1434,17 @@ class LandingPagesManager extends Component
 
     protected function blockTitleForAdmin(array $block): string
     {
-        $voucherTitle = Str::squish(implode(' ', array_filter([
+        $title = trim((string) ($block['title'] ?? ''));
+
+        if ($title !== '') {
+            return $title;
+        }
+
+        return Str::squish(implode(' ', array_filter([
             $block['title_prefix'] ?? null,
             $block['title_highlight'] ?? null,
             $block['title_suffix'] ?? null,
         ], fn (mixed $part): bool => trim((string) $part) !== '')));
-
-        $candidates = [
-            $block['title'] ?? null,
-            $voucherTitle,
-            $block['panel_title'] ?? null,
-            $block['modal_title'] ?? null,
-            $block['eyebrow'] ?? null,
-            $block['kicker'] ?? null,
-            $block['badge_label'] ?? null,
-            $block['tag_label'] ?? null,
-            $block['offer_label'] ?? null,
-            $block['cta_label'] ?? null,
-        ];
-
-        if (($block['type'] ?? null) === LandingPageBlocks::TYPE_HTML_WIDGET) {
-            $htmlPreview = Str::squish(strip_tags((string) ($block['html'] ?? '')));
-
-            if ($htmlPreview !== '') {
-                $candidates[] = Str::limit($htmlPreview, 80);
-            }
-        }
-
-        foreach ($candidates as $candidate) {
-            $title = trim((string) $candidate);
-
-            if ($title !== '') {
-                return $title;
-            }
-        }
-
-        return '';
     }
 
     protected function setHomeLayoutOrder(array $order): void
@@ -1266,6 +1552,43 @@ class LandingPagesManager extends Component
         return null;
     }
 
+    protected function findHomeTrustAwardIndex(string $uuid): ?int
+    {
+        foreach (data_get($this->form, 'home_config.trust.awards', []) as $index => $award) {
+            if ((string) data_get($award, 'uuid') === $uuid) {
+                return (int) $index;
+            }
+        }
+
+        return null;
+    }
+
+    protected function featuredTourPopularSearchFilterOptions(
+        Collection $destinations,
+        Collection $regions,
+        Collection $tourCategories,
+        array $scopeOptions,
+    ): array {
+        $sourceLabels = [
+            TravelHomePageConfig::FEATURED_TOUR_FILTER_DESTINATION => $destinations->pluck('name', 'slug')->all(),
+            TravelHomePageConfig::FEATURED_TOUR_FILTER_REGION => $regions->pluck('name', 'slug')->all(),
+            TravelHomePageConfig::FEATURED_TOUR_FILTER_SCOPE => $scopeOptions,
+            TravelHomePageConfig::FEATURED_TOUR_FILTER_TOPIC => $tourCategories->pluck('name', 'slug')->all(),
+        ];
+
+        return collect(data_get($this->form, 'home_config.featured_tours.filters', []))
+            ->filter(fn (mixed $filter): bool => is_array($filter) && filled($filter['uuid'] ?? null))
+            ->mapWithKeys(function (array $filter) use ($sourceLabels): array {
+                $uuid = (string) $filter['uuid'];
+                $sourceType = (string) ($filter['source_type'] ?? '');
+                $sourceValue = (string) ($filter['source_value'] ?? '');
+                $label = (string) data_get($sourceLabels, $sourceType.'.'.$sourceValue, $sourceValue);
+
+                return [$uuid => $label !== '' ? $label : $uuid];
+            })
+            ->all();
+    }
+
     protected function normalizedHomeConfig(?array $existingConfig = null, array $submittedConfig = [], array $blocks = []): array
     {
         return TravelHomePageConfig::prepare(array_merge($existingConfig ?? [], $submittedConfig), $blocks);
@@ -1308,11 +1631,23 @@ class LandingPagesManager extends Component
         }
 
         if (($duplicate['type'] ?? null) === LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS) {
+            $tabUuidMap = [];
             $duplicate['tabs'] = collect($duplicate['tabs'] ?? [])
-                ->map(function (array $tab): array {
+                ->map(function (array $tab) use (&$tabUuidMap): array {
+                    $oldUuid = (string) ($tab['uuid'] ?? '');
                     $tab['uuid'] = (string) Str::uuid();
+                    $tabUuidMap[$oldUuid] = $tab['uuid'];
 
                     return $tab;
+                })
+                ->values()
+                ->all();
+            $duplicate['popular_searches'] = collect($duplicate['popular_searches'] ?? [])
+                ->map(function (array $item) use ($tabUuidMap): array {
+                    $item['uuid'] = (string) Str::uuid();
+                    $item['filter_uuid'] = $tabUuidMap[(string) ($item['filter_uuid'] ?? '')] ?? '';
+
+                    return $item;
                 })
                 ->values()
                 ->all();
@@ -1386,7 +1721,7 @@ class LandingPagesManager extends Component
 
     protected function formFromModel(LandingPage $page): array
     {
-        $blocks = $this->blocksFromModel($page);
+        $blocks = LandingPageBlocks::unifyTourWidgetsForEditor($this->blocksFromModel($page));
 
         return [
             'page_key' => $page->page_key,
@@ -1525,22 +1860,93 @@ class LandingPagesManager extends Component
             'form.home_config.geo_answer.is_enabled' => ['boolean'],
             'form.home_config.topic_rail' => ['nullable', 'array'],
             'form.home_config.topic_rail.is_enabled' => ['boolean'],
+            'form.home_config.topic_rail.show_card_titles' => ['boolean'],
             'form.home_config.topic_rail.eyebrow' => ['nullable', 'string', 'max:120'],
             'form.home_config.topic_rail.title' => ['nullable', 'string', 'max:255'],
             'form.home_config.topic_rail.description' => ['nullable', 'string', 'max:500'],
             'form.home_config.featured_tours' => ['nullable', 'array'],
             'form.home_config.featured_tours.is_enabled' => ['boolean'],
+            'form.home_config.featured_tours.show_filters' => ['boolean'],
+            'form.home_config.featured_tours.is_slider' => ['boolean'],
             'form.home_config.featured_tours.cta_label' => ['nullable', 'string', 'max:100'],
-            'form.home_config.featured_tours.tabs' => ['nullable', 'array'],
-            'form.home_config.featured_tours.tabs.domestic.label' => ['nullable', 'string', 'max:255'],
-            'form.home_config.featured_tours.tabs.domestic.title' => ['nullable', 'string', 'max:255'],
-            'form.home_config.featured_tours.tabs.domestic.description' => ['nullable', 'string', 'max:500'],
-            'form.home_config.featured_tours.tabs.international.label' => ['nullable', 'string', 'max:255'],
-            'form.home_config.featured_tours.tabs.international.title' => ['nullable', 'string', 'max:255'],
-            'form.home_config.featured_tours.tabs.international.description' => ['nullable', 'string', 'max:500'],
-            'form.home_config.featured_tours.tabs.group.label' => ['nullable', 'string', 'max:255'],
-            'form.home_config.featured_tours.tabs.group.title' => ['nullable', 'string', 'max:255'],
-            'form.home_config.featured_tours.tabs.group.description' => ['nullable', 'string', 'max:500'],
+            'form.home_config.featured_tours.card_cta_variant' => ['nullable', 'string', Rule::in(array_keys(TourCardStyle::ctaVariants()))],
+            'form.home_config.featured_tours.all' => ['nullable', 'array'],
+            'form.home_config.featured_tours.all.label' => ['nullable', 'string', 'max:255'],
+            'form.home_config.featured_tours.all.title' => ['nullable', 'string', 'max:255'],
+            'form.home_config.featured_tours.all.description' => ['nullable', 'string', 'max:500'],
+            'form.home_config.featured_tours.filters' => ['nullable', 'array', 'max:'.TravelHomePageConfig::FEATURED_TOUR_FILTER_LIMIT],
+            'form.home_config.featured_tours.filters.*.uuid' => ['required', 'string', 'max:100'],
+            'form.home_config.featured_tours.filters.*.source_type' => ['required', 'string', Rule::in(array_keys(TravelHomePageConfig::featuredTourFilterTypes()))],
+            'form.home_config.featured_tours.filters.*.source_value' => [
+                'required',
+                'string',
+                'max:255',
+                function (string $attribute, mixed $value, \Closure $fail): void {
+                    preg_match('/filters\.(\d+)\.source_value$/', $attribute, $matches);
+                    $filterIndex = isset($matches[1]) ? (int) $matches[1] : null;
+                    $sourceType = $filterIndex === null
+                        ? ''
+                        : (string) data_get($this->form, 'home_config.featured_tours.filters.'.$filterIndex.'.source_type');
+                    $sourceValue = trim((string) $value);
+                    $isValid = match ($sourceType) {
+                        TravelHomePageConfig::FEATURED_TOUR_FILTER_SCOPE => TourScope::tryFrom($sourceValue) !== null,
+                        TravelHomePageConfig::FEATURED_TOUR_FILTER_DESTINATION => Destination::query()
+                            ->published()
+                            ->regularDestinations()
+                            ->where('slug', $sourceValue)
+                            ->exists(),
+                        TravelHomePageConfig::FEATURED_TOUR_FILTER_TOPIC => TourCategory::query()
+                            ->published()
+                            ->where('slug', $sourceValue)
+                            ->exists(),
+                        TravelHomePageConfig::FEATURED_TOUR_FILTER_REGION => Region::query()
+                            ->published()
+                            ->where('slug', $sourceValue)
+                            ->exists(),
+                        default => false,
+                    };
+
+                    if (! $isValid) {
+                        $fail('Nguồn phân loại tour đã chọn không hợp lệ hoặc không còn được xuất bản.');
+                    }
+                },
+            ],
+            'form.home_config.featured_tours.filters.*.label' => ['nullable', 'string', 'max:255'],
+            'form.home_config.featured_tours.filters.*.title' => ['nullable', 'string', 'max:255'],
+            'form.home_config.featured_tours.filters.*.description' => ['nullable', 'string', 'max:500'],
+            'form.home_config.featured_tours.popular_searches' => ['nullable', 'array', 'max:'.TravelHomePageConfig::FEATURED_TOUR_POPULAR_SEARCH_LIMIT],
+            'form.home_config.featured_tours.popular_searches.*.uuid' => ['required', 'string', 'max:100'],
+            'form.home_config.featured_tours.popular_searches.*.label' => ['nullable', 'required_with:form.home_config.featured_tours.popular_searches.*.url', 'string', 'max:100'],
+            'form.home_config.featured_tours.popular_searches.*.filter_uuid' => [
+                'nullable',
+                'string',
+                'max:100',
+                function (string $attribute, mixed $value, \Closure $fail): void {
+                    if (blank($value)) {
+                        return;
+                    }
+
+                    $filterUuids = collect(data_get($this->form, 'home_config.featured_tours.filters', []))
+                        ->filter(fn (mixed $filter): bool => is_array($filter))
+                        ->pluck('uuid')
+                        ->map(fn (mixed $uuid): string => (string) $uuid);
+
+                    if (! $filterUuids->containsStrict((string) $value)) {
+                        $fail('Filter của liên kết nổi bật không tồn tại trong block này.');
+                    }
+                },
+            ],
+            'form.home_config.featured_tours.popular_searches.*.url' => [
+                'nullable',
+                'required_with:form.home_config.featured_tours.popular_searches.*.label',
+                'string',
+                'max:2048',
+                function (string $attribute, mixed $value, \Closure $fail): void {
+                    if (filled($value) && ! TravelHomePageConfig::isSafeFeaturedTourPopularSearchUrl($value)) {
+                        $fail('URL phải là đường dẫn nội bộ bắt đầu bằng /, #, ? hoặc URL HTTP(S) đầy đủ.');
+                    }
+                },
+            ],
             'form.home_config.tour_taxonomy_tabs' => ['nullable', 'array'],
             'form.home_config.tour_taxonomy_tabs.is_enabled' => ['boolean'],
             'form.home_config.region_taxonomy_tabs' => ['nullable', 'array'],
@@ -1566,27 +1972,19 @@ class LandingPagesManager extends Component
                 'string',
                 'max:255',
             ],
+            'form.home_config.trust.subtitle' => ['nullable', 'string', 'max:255'],
             'form.home_config.trust.description' => ['nullable', 'string', 'max:500'],
-            'form.home_config.trust.cards' => [
-                Rule::requiredIf(fn (): bool => ($this->form['page_key'] ?? null) === 'home'),
-                'array',
-                'min:1',
-            ],
-            'form.home_config.trust.cards.*.uuid' => ['nullable', 'string', 'max:100'],
-            'form.home_config.trust.cards.*.icon' => ['nullable', 'string', 'max:255'],
-            'form.home_config.trust.cards.*.highlight' => ['nullable', 'string', 'max:120'],
-            'form.home_config.trust.cards.*.title' => [
-                Rule::requiredIf(fn (): bool => ($this->form['page_key'] ?? null) === 'home'),
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'form.home_config.trust.cards.*.text' => [
-                Rule::requiredIf(fn (): bool => ($this->form['page_key'] ?? null) === 'home'),
-                'nullable',
-                'string',
-                'max:1000',
-            ],
+            'form.home_config.trust.stats' => ['nullable', 'array', 'min:1', 'max:3'],
+            'form.home_config.trust.stats.*.uuid' => ['nullable', 'string', 'max:100'],
+            'form.home_config.trust.stats.*.value' => ['nullable', 'string', 'max:100'],
+            'form.home_config.trust.stats.*.label' => ['nullable', 'string', 'max:160'],
+            'form.home_config.trust.awards' => ['nullable', 'array', 'min:1', 'max:12'],
+            'form.home_config.trust.awards.*.uuid' => ['nullable', 'string', 'max:100'],
+            'form.home_config.trust.awards.*.title' => ['nullable', 'string', 'max:255'],
+            'form.home_config.trust.awards.*.description' => ['nullable', 'string', 'max:500'],
+            'form.home_config.trust.awards.*.image_url' => ['nullable', 'string', 'max:2048'],
+            'form.home_config.trust.awards.*.image_alt' => ['nullable', 'string', 'max:255'],
+            'form.home_config.trust.awards.*.source_library_media_id' => ['nullable', 'integer'],
             'form.home_config.process' => ['nullable', 'array'],
             'form.home_config.process.is_enabled' => ['boolean'],
             'form.home_config.process.title' => ['nullable', 'string', 'max:255'],
@@ -1613,6 +2011,28 @@ class LandingPagesManager extends Component
             'form.blocks.*.type' => ['required', 'string', Rule::in(array_keys(LandingPageBlocks::blockTypes()))],
             'form.blocks.*.home_position' => ['nullable', 'string', Rule::in(array_keys(LandingPageBlocks::homePositionOptions()))],
             'form.blocks.*.html' => ['nullable', 'string'],
+            'form.blocks.*.campaign_id' => ['nullable', 'integer', 'exists:tour_flash_sales,id'],
+            'form.blocks.*.show_view_more' => ['boolean'],
+            'form.blocks.*.view_more_label' => ['nullable', 'string', 'max:100'],
+            'form.blocks.*.view_more_url' => [
+                'nullable',
+                'string',
+                'max:2048',
+                function (string $attribute, mixed $value, \Closure $fail): void {
+                    if (filled($value) && ! TravelHomePageConfig::isSafeFeaturedTourPopularSearchUrl($value)) {
+                        $fail('URL phải là đường dẫn nội bộ bắt đầu bằng /, #, ? hoặc URL HTTP(S) đầy đủ.');
+                    }
+                },
+            ],
+            'form.blocks.*.campaign_slugs' => ['nullable', 'array', 'max:12'],
+            'form.blocks.*.campaign_slugs.*' => ['nullable', 'string', 'max:120'],
+            'form.blocks.*.show_expiry' => ['boolean'],
+            'form.blocks.*.is_slider' => ['boolean'],
+            'form.blocks.*.show_all_tab' => ['boolean'],
+            'form.blocks.*.show_filters' => ['boolean'],
+            'form.blocks.*.display_mode' => ['nullable', 'string', Rule::in(['list', 'tabs'])],
+            'form.blocks.*.scope' => ['nullable', 'string', Rule::in(array_merge(['', 'non_group'], array_map(fn (TourScope $scope) => $scope->value, TourScope::cases())))],
+            'form.blocks.*.show_card_titles' => ['boolean'],
             'form.blocks.*.is_hero' => ['boolean'],
             'form.blocks.*.badge_label' => ['nullable', 'string', 'max:120'],
             'form.blocks.*.badge_icon' => ['nullable', 'string', 'max:255'],
@@ -1651,7 +2071,11 @@ class LandingPagesManager extends Component
             'form.blocks.*.decision_notes' => ['nullable', 'array', 'max:5'],
             'form.blocks.*.decision_notes.*' => ['nullable', 'string', 'max:180'],
             'form.blocks.*.variant' => ['nullable', 'string'],
+            'form.blocks.*.desktop_slides_per_view' => ['nullable', 'numeric', 'between:1,4'],
             'form.blocks.*.cta_label' => ['nullable', 'string', 'max:100'],
+            'form.blocks.*.cta_url' => ['nullable', 'string', 'max:2048'],
+            'form.blocks.*.card_cta_variant' => ['nullable', 'string', Rule::in(array_keys(TourCardStyle::ctaVariants()))],
+            'form.blocks.*.icon' => ['nullable', 'string', 'max:255'],
             'form.blocks.*.card_source_type' => ['nullable', 'string', Rule::in(array_keys(LandingPageBlocks::regionTaxonomyCardTypes()))],
             'form.blocks.*.cards' => ['nullable', 'array', 'min:1', 'max:6'],
             'form.blocks.*.cards.*.uuid' => ['nullable', 'string', 'max:100'],
@@ -1671,6 +2095,41 @@ class LandingPagesManager extends Component
             'form.blocks.*.tabs.*.label' => ['nullable', 'string', 'max:255'],
             'form.blocks.*.tabs.*.title' => ['nullable', 'string', 'max:255'],
             'form.blocks.*.tabs.*.description' => ['nullable', 'string', 'max:500'],
+            'form.blocks.*.popular_searches' => ['nullable', 'array', 'max:'.TravelHomePageConfig::FEATURED_TOUR_POPULAR_SEARCH_LIMIT],
+            'form.blocks.*.popular_searches.*.uuid' => ['required', 'string', 'max:100'],
+            'form.blocks.*.popular_searches.*.label' => ['nullable', 'required_with:form.blocks.*.popular_searches.*.url', 'string', 'max:100'],
+            'form.blocks.*.popular_searches.*.filter_uuid' => [
+                'nullable',
+                'string',
+                'max:100',
+                function (string $attribute, mixed $value, \Closure $fail): void {
+                    if (blank($value)) {
+                        return;
+                    }
+
+                    preg_match('/blocks\.(\d+)\.popular_searches\.\d+\.filter_uuid$/', $attribute, $matches);
+                    $blockIndex = isset($matches[1]) ? (int) $matches[1] : null;
+                    $tabUuids = collect(data_get($this->form, 'blocks.'.$blockIndex.'.tabs', []))
+                        ->filter(fn (mixed $tab): bool => is_array($tab))
+                        ->pluck('uuid')
+                        ->map(fn (mixed $uuid): string => (string) $uuid);
+
+                    if ($blockIndex === null || ! $tabUuids->containsStrict((string) $value)) {
+                        $fail('Tab của liên kết nổi bật không tồn tại trong block này.');
+                    }
+                },
+            ],
+            'form.blocks.*.popular_searches.*.url' => [
+                'nullable',
+                'required_with:form.blocks.*.popular_searches.*.label',
+                'string',
+                'max:2048',
+                function (string $attribute, mixed $value, \Closure $fail): void {
+                    if (filled($value) && ! TravelHomePageConfig::isSafeFeaturedTourPopularSearchUrl($value)) {
+                        $fail('URL phải là đường dẫn nội bộ bắt đầu bằng /, #, ? hoặc URL HTTP(S) đầy đủ.');
+                    }
+                },
+            ],
         ];
     }
 

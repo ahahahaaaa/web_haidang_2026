@@ -25,6 +25,8 @@ class LandingPageBlocks
 
     public const TYPE_FAQ = 'faq';
 
+    public const TYPE_FLASH_SALE = 'flash_sale';
+
     public const TYPE_GALLERY_MEDIA = 'gallery_media';
 
     public const TYPE_GALLERY_SLIDER = 'gallery_slider';
@@ -52,6 +54,8 @@ class LandingPageBlocks
     public const TYPE_TRUST_PROOF = 'trust_proof';
 
     public const TYPE_TOUR_LIST = 'tour_list';
+
+    public const TYPE_VOUCHER_RAIL = 'voucher_rail';
 
     public const TYPE_VOUCHER_PROMOTION = 'voucher_promotion';
 
@@ -133,6 +137,7 @@ class LandingPageBlocks
             self::TYPE_GALLERY_MEDIA => 'Gallery từ media',
             self::TYPE_GEO_ANSWER => 'GEO answer',
             self::TYPE_HTML_WIDGET => 'HTML widget',
+            self::TYPE_VOUCHER_RAIL => 'Rail mã ưu đãi du lịch',
             self::TYPE_VOUCHER_PROMOTION => 'Widget voucher promotion',
             self::TYPE_VOUCHER_PROMOTION_PREMIUM => 'Widget voucher promotion premium',
             self::TYPE_RICH_TEXT => 'Rich text',
@@ -143,6 +148,7 @@ class LandingPageBlocks
             self::TYPE_TRUST_PROOF => 'Lý do chọn / trust proof',
             self::TYPE_CTA => 'CTA',
             self::TYPE_FAQ => 'FAQ',
+            self::TYPE_FLASH_SALE => 'Flash Sale - Ưu đãi giờ chót',
             self::TYPE_TOUR_LIST => 'Danh sách tour',
             self::TYPE_BLOG_LIST => 'Danh sách blog',
         ];
@@ -320,9 +326,11 @@ class LandingPageBlocks
             self::TYPE_BLOG_LIST => self::HOME_POSITION_BEFORE_BLOG_PREVIEW,
             self::TYPE_CTA => self::HOME_POSITION_BEFORE_CTA,
             self::TYPE_FAQ => self::HOME_POSITION_BEFORE_FAQ,
+            self::TYPE_FLASH_SALE => self::HOME_POSITION_BEFORE_FEATURED_TOURS,
             self::TYPE_GALLERY_MEDIA, self::TYPE_GALLERY_SLIDER => self::HOME_POSITION_BEFORE_GALLERY,
             self::TYPE_GEO_ANSWER => self::HOME_POSITION_BEFORE_GEO_ANSWER,
             self::TYPE_HTML_WIDGET => self::HOME_POSITION_BEFORE_FEATURED_TOURS,
+            self::TYPE_VOUCHER_RAIL => self::HOME_POSITION_BEFORE_FEATURED_TOURS,
             self::TYPE_REGION_RAIL => self::HOME_POSITION_BEFORE_DESTINATION_SLIDER,
             self::TYPE_REGION_TAXONOMY_TABS => self::HOME_POSITION_BEFORE_REGION_TAXONOMY_TABS,
             self::TYPE_RICH_TEXT,
@@ -415,6 +423,8 @@ class LandingPageBlocks
                 'title' => '',
                 'description' => '',
                 'variant' => self::GALLERY_VARIANT_STANDARD,
+                'is_slider' => false,
+                'desktop_slides_per_view' => 2.2,
                 'items' => [self::defaultGalleryItem()],
             ],
             self::TYPE_GEO_ANSWER => [
@@ -430,6 +440,26 @@ class LandingPageBlocks
                 'type' => $type,
                 'is_enabled' => true,
                 'html' => '',
+            ],
+            self::TYPE_VOUCHER_RAIL => [
+                'uuid' => (string) Str::uuid(),
+                'type' => $type,
+                'is_enabled' => true,
+                'title' => 'Mã ưu đãi tặng bạn',
+                'description' => 'Khám phá ưu đãi dành riêng cho bạn — tiết kiệm nhiều hơn cho mỗi hành trình, mỗi điểm đến.',
+                'campaign_slugs' => [],
+                'limit' => 6,
+                'show_expiry' => true,
+            ],
+            self::TYPE_FLASH_SALE => [
+                'uuid' => (string) Str::uuid(),
+                'type' => $type,
+                'is_enabled' => true,
+                'campaign_id' => null,
+                'is_slider' => false,
+                'show_view_more' => true,
+                'view_more_label' => '',
+                'view_more_url' => '',
             ],
             self::TYPE_VOUCHER_PROMOTION, self::TYPE_VOUCHER_PROMOTION_PREMIUM => [
                 'uuid' => (string) Str::uuid(),
@@ -531,6 +561,7 @@ class LandingPageBlocks
                 'uuid' => (string) Str::uuid(),
                 'type' => $type,
                 'is_enabled' => true,
+                'show_card_titles' => true,
                 'eyebrow' => '',
                 'title' => 'Chủ đề tour nổi bật',
                 'description' => 'Lướt nhanh các chủ đề tour đang có hành trình hoạt động để khoanh vùng nhu cầu phù hợp trước khi so sánh điểm đến, ngày đi và mức giá.',
@@ -541,10 +572,22 @@ class LandingPageBlocks
                 'uuid' => (string) Str::uuid(),
                 'type' => $type,
                 'is_enabled' => true,
+                'display_mode' => 'tabs',
+                'eyebrow' => '',
+                'icon' => 'fa-solid fa-route',
                 'title' => 'Khám phá tour theo vùng, điểm đến và chủ đề',
                 'description' => 'Chuyển nhanh giữa các nhóm tab được chọn để xem danh sách tour live theo vùng miền, điểm đến hoặc chủ đề đang có hành trình hoạt động.',
-                'cta_label' => 'Xem danh sách tour',
+                'cta_label' => 'Xem thêm',
+                'cta_url' => '',
+                'card_cta_variant' => TourCardStyle::DEFAULT_CTA_VARIANT,
+                'is_slider' => false,
+                'show_all_tab' => false,
+                'show_filters' => true,
+                'popular_searches' => [],
                 'scope' => 'domestic',
+                'category_slug' => '',
+                'destination_slug' => '',
+                'region_slug' => '',
                 'featured' => false,
                 'limit' => self::TOUR_TAXONOMY_TABS_DEFAULT_LIMIT,
                 'sort' => 'featured',
@@ -606,8 +649,13 @@ class LandingPageBlocks
                 'type' => $type,
                 'is_enabled' => true,
                 'eyebrow' => '',
+                'icon' => 'fa-solid fa-route',
                 'title' => '',
                 'description' => '',
+                'cta_label' => 'Xem thêm',
+                'cta_url' => '',
+                'card_cta_variant' => TourCardStyle::DEFAULT_CTA_VARIANT,
+                'is_slider' => false,
                 'category_slug' => '',
                 'destination_slug' => '',
                 'region_slug' => '',
@@ -621,8 +669,11 @@ class LandingPageBlocks
                 'type' => $type,
                 'is_enabled' => true,
                 'eyebrow' => '',
+                'icon' => 'fa-regular fa-newspaper',
                 'title' => '',
                 'description' => '',
+                'cta_label' => 'Xem thêm',
+                'cta_url' => '',
                 'category_slug' => '',
                 'featured' => false,
                 'limit' => FrontsiteCardGrid::DEFAULT_LIMIT,
@@ -654,7 +705,7 @@ class LandingPageBlocks
                 self::defaultBlock(self::TYPE_HERO_SLIDER),
                 self::defaultBlock(self::TYPE_GALLERY_SLIDER),
                 self::defaultBlock(self::TYPE_TOPIC_RAIL),
-                self::defaultBlock(self::TYPE_TOUR_LIST),
+                self::defaultTourListWidget(),
                 self::defaultBlock(self::TYPE_TOUR_TAXONOMY_TABS),
                 self::defaultBlock(self::TYPE_REGION_TAXONOMY_TABS),
                 self::defaultBlock(self::TYPE_BLOG_LIST),
@@ -689,7 +740,7 @@ class LandingPageBlocks
                 self::defaultBlock(self::TYPE_HERO_SLIDER),
                 self::defaultBlock(self::TYPE_GALLERY_MEDIA),
                 self::defaultBlock(self::TYPE_RICH_TEXT),
-                self::defaultBlock(self::TYPE_TOUR_LIST),
+                self::defaultTourListWidget(),
                 self::defaultBlock(self::TYPE_CTA),
             ],
             'blank' => [],
@@ -725,6 +776,10 @@ class LandingPageBlocks
                     $normalized['variant'] = array_key_exists((string) ($normalized['variant'] ?? ''), self::galleryVariants())
                         ? (string) $normalized['variant']
                         : self::GALLERY_VARIANT_STANDARD;
+                    $normalized['is_slider'] = (bool) ($normalized['is_slider'] ?? false);
+                    $normalized['desktop_slides_per_view'] = is_numeric($normalized['desktop_slides_per_view'] ?? null)
+                        ? round(min(4, max(1, (float) $normalized['desktop_slides_per_view'])), 1)
+                        : 2.2;
                     $normalized['items'] = self::normalizeGalleryItems($normalized['items'] ?? []);
                 }
 
@@ -755,7 +810,32 @@ class LandingPageBlocks
                     $normalized['steps'] = self::normalizeVoucherPromotionSteps(is_array($normalized['steps'] ?? null) ? $normalized['steps'] : []);
                 }
 
+                if ($type === self::TYPE_VOUCHER_RAIL) {
+                    $normalized['campaign_slugs'] = collect(is_array($normalized['campaign_slugs'] ?? null) ? $normalized['campaign_slugs'] : [])
+                        ->map(fn (mixed $slug): string => trim((string) $slug))
+                        ->filter()
+                        ->unique()
+                        ->take(12)
+                        ->values()
+                        ->all();
+                    $normalized['show_expiry'] = (bool) ($normalized['show_expiry'] ?? true);
+                }
+
+                if ($type === self::TYPE_FLASH_SALE) {
+                    $normalized['campaign_id'] = is_numeric($normalized['campaign_id'] ?? null)
+                        ? (int) $normalized['campaign_id']
+                        : null;
+                    $normalized['show_view_more'] = (bool) ($normalized['show_view_more'] ?? true);
+                    $normalized['view_more_label'] = trim((string) ($normalized['view_more_label'] ?? ''));
+                    $normalized['view_more_url'] = trim((string) ($normalized['view_more_url'] ?? ''));
+                }
+
+                if (in_array($type, [self::TYPE_FLASH_SALE, self::TYPE_TOUR_LIST, self::TYPE_TOUR_TAXONOMY_TABS], true)) {
+                    $normalized['is_slider'] = (bool) ($normalized['is_slider'] ?? false);
+                }
+
                 if ($type === self::TYPE_TOPIC_RAIL) {
+                    $normalized['show_card_titles'] = (bool) ($normalized['show_card_titles'] ?? true);
                     $normalized['show_navigation'] = (bool) ($normalized['show_navigation'] ?? true);
                 }
 
@@ -773,7 +853,31 @@ class LandingPageBlocks
                 }
 
                 if ($type === self::TYPE_TOUR_TAXONOMY_TABS) {
+                    $normalized['display_mode'] = ($normalized['display_mode'] ?? 'tabs') === 'list' ? 'list' : 'tabs';
                     $normalized['tabs'] = self::normalizeTourTaxonomyTabs($normalized['tabs'] ?? []);
+                    $normalized['show_all_tab'] = (bool) ($normalized['show_all_tab'] ?? false);
+                    $normalized['show_filters'] = (bool) ($normalized['show_filters'] ?? true);
+                    $tabUuids = collect($normalized['tabs'])->pluck('uuid')->all();
+                    $normalized['popular_searches'] = collect(is_array($normalized['popular_searches'] ?? null) ? $normalized['popular_searches'] : [])
+                        ->filter(fn (mixed $item) => is_array($item))
+                        ->map(function (array $item) use ($tabUuids): array {
+                            $filterUuid = trim((string) ($item['filter_uuid'] ?? ''));
+
+                            return TravelHomePageConfig::featuredTourPopularSearch(
+                                trim((string) ($item['label'] ?? '')),
+                                trim((string) ($item['url'] ?? '')),
+                                filled($item['uuid'] ?? null) ? (string) $item['uuid'] : null,
+                                in_array($filterUuid, $tabUuids, true) ? $filterUuid : '',
+                            );
+                        })
+                        ->filter(fn (array $item) => $item['label'] !== '' && TravelHomePageConfig::isSafeFeaturedTourPopularSearchUrl($item['url']))
+                        ->take(TravelHomePageConfig::FEATURED_TOUR_POPULAR_SEARCH_LIMIT)
+                        ->values()
+                        ->all();
+                }
+
+                if (in_array($type, [self::TYPE_TOUR_LIST, self::TYPE_TOUR_TAXONOMY_TABS], true)) {
+                    $normalized['card_cta_variant'] = TourCardStyle::normalizeCtaVariant($normalized['card_cta_variant'] ?? null);
                 }
 
                 $normalized['featured'] = (bool) ($normalized['featured'] ?? false);
@@ -781,6 +885,7 @@ class LandingPageBlocks
                     $normalized['limit'] ?? null,
                     match ($type) {
                         self::TYPE_HERO_DEMO_LANDINGPAGE => 3,
+                        self::TYPE_VOUCHER_RAIL => 6,
                         self::TYPE_REGION_RAIL, self::TYPE_TOPIC_RAIL => 8,
                         self::TYPE_REGION_TAXONOMY_TABS => self::REGION_TAXONOMY_TABS_DEFAULT_LIMIT,
                         self::TYPE_TOUR_TAXONOMY_TABS => self::TOUR_TAXONOMY_TABS_DEFAULT_LIMIT,
@@ -792,6 +897,10 @@ class LandingPageBlocks
                     $normalized['limit'] = min(8, (int) $normalized['limit']);
                 }
 
+                if ($type === self::TYPE_VOUCHER_RAIL) {
+                    $normalized['limit'] = min(12, (int) $normalized['limit']);
+                }
+
                 if ($type === self::TYPE_REGION_TAXONOMY_TABS) {
                     $normalized['tab_limit'] = min(8, (int) ($normalized['tab_limit'] ?? self::REGION_TAXONOMY_TABS_DEFAULT_TAB_LIMIT));
                 }
@@ -800,6 +909,38 @@ class LandingPageBlocks
             })
             ->values()
             ->all();
+    }
+
+    /**
+     * Keep old tour_list records readable while editing them through one tour widget.
+     * The canonical type is written when the landing page is saved.
+     *
+     * @param  array<int, array<string, mixed>>  $blocks
+     * @return array<int, array<string, mixed>>
+     */
+    public static function unifyTourWidgetsForEditor(array $blocks): array
+    {
+        return collect($blocks)
+            ->map(function (array $block): array {
+                if (($block['type'] ?? null) !== self::TYPE_TOUR_LIST) {
+                    return $block;
+                }
+
+                return array_replace(self::defaultTourListWidget(), $block, [
+                    'type' => self::TYPE_TOUR_TAXONOMY_TABS,
+                    'display_mode' => 'list',
+                ]);
+            })
+            ->all();
+    }
+
+    public static function defaultTourListWidget(): array
+    {
+        return array_replace(
+            self::defaultBlock(self::TYPE_TOUR_TAXONOMY_TABS),
+            self::defaultBlock(self::TYPE_TOUR_LIST),
+            ['type' => self::TYPE_TOUR_TAXONOMY_TABS, 'display_mode' => 'list'],
+        );
     }
 
     public static function mediaCollection(string $blockUuid): string

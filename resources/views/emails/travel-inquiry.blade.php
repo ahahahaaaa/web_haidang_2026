@@ -9,6 +9,19 @@
         $resolvedInquiryType = $inquiryTypeLabels[$meta['inquiry_type'] ?? ''] ?? null;
         $legacyAdultGuestCount = $meta['company_name'] ?? null;
         $adultGuestCount = $meta['adult_guest_count'] ?? (is_numeric($legacyAdultGuestCount) ? $legacyAdultGuestCount : null);
+        $bookingQuote = is_array($meta['booking_quote'] ?? null) ? $meta['booking_quote'] : null;
+        $priceTypeLabels = [
+            'flash_sale' => 'Flash Sale',
+            'regular' => 'Giá thường',
+            'contact' => 'Liên hệ xác nhận giá',
+        ];
+        $flashStatusLabels = [
+            'reserved' => 'Đã giữ đủ vé Flash Sale',
+            'insufficient_tickets' => 'Không đủ vé cho cả nhóm',
+            'sold_out' => 'Đã hết vé Flash Sale',
+            'invalid_price' => 'Giá Flash Sale không còn hợp lệ',
+            'unavailable' => 'Campaign không còn hiệu lực',
+        ];
     @endphp
 
     <p style="margin:0 0 12px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#0f766e;">Travel Inquiry</p>
@@ -51,6 +64,25 @@
 
     @if (filled($inquiry->party_size))
         <p style="margin:0 0 8px;"><strong>Số trẻ em:</strong> {{ $inquiry->party_size }}</p>
+    @endif
+
+    @if ($bookingQuote)
+        <div style="margin:16px 0;padding:14px 16px;background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;">
+            <p style="margin:0 0 8px;"><strong>Giá ghi nhận:</strong> {{ $priceTypeLabels[$inquiry->price_type] ?? $inquiry->price_type }}</p>
+            @if ($inquiry->quoted_unit_price)
+                <p style="margin:0 0 8px;"><strong>Đơn giá tại thời điểm đặt:</strong> {{ number_format((int) $inquiry->quoted_unit_price, 0, ',', '.') }} đ/khách</p>
+            @endif
+            @if ($inquiry->price_type === 'flash_sale' && $inquiry->regular_unit_price)
+                <p style="margin:0 0 8px;"><strong>Giá thường:</strong> {{ number_format((int) $inquiry->regular_unit_price, 0, ',', '.') }} đ/khách</p>
+            @endif
+            <p style="margin:0 0 8px;"><strong>Số vé:</strong> {{ (int) $inquiry->ticket_count }} (người lớn + trẻ em)</p>
+            @if (! empty($bookingQuote['flash_sale_title']))
+                <p style="margin:0 0 8px;"><strong>Campaign:</strong> {{ $bookingQuote['flash_sale_title'] }} ({{ $flashStatusLabels[$bookingQuote['flash_sale_status'] ?? ''] ?? ($bookingQuote['flash_sale_status'] ?? '') }})</p>
+            @endif
+            @if ($inquiry->quoted_at)
+                <p style="margin:0;"><strong>Thời điểm chốt:</strong> {{ $inquiry->quoted_at->format('d/m/Y H:i:s') }}</p>
+            @endif
+        </div>
     @endif
 
     @if ($inquiry->message)

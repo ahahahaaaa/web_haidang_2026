@@ -51,14 +51,22 @@
                     <div class="flex flex-col gap-3 border-t border-zinc-200 pt-4 dark:border-zinc-800 sm:flex-row sm:items-center sm:justify-between">
                         <p data-media-pagination class="text-sm text-zinc-500 dark:text-zinc-400"></p>
 
-                        <div class="flex items-center gap-3">
-                            <button type="button" data-media-prev class="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition hover:border-red-300 hover:text-red-600 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:text-zinc-200">
+                        <div class="flex flex-wrap items-center justify-end gap-2">
+                            <button type="button" data-media-first class="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-700 transition hover:border-red-300 hover:text-red-600 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:text-zinc-200">
+                                <i class="fa-solid fa-angles-left"></i>
+                                Đầu
+                            </button>
+                            <button type="button" data-media-prev class="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-700 transition hover:border-red-300 hover:text-red-600 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:text-zinc-200">
                                 <i class="fa-solid fa-arrow-left"></i>
                                 Trước
                             </button>
-                            <button type="button" data-media-next class="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition hover:border-red-300 hover:text-red-600 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:text-zinc-200">
+                            <button type="button" data-media-next class="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-700 transition hover:border-red-300 hover:text-red-600 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:text-zinc-200">
                                 Sau
                                 <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <button type="button" data-media-last class="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-700 transition hover:border-red-300 hover:text-red-600 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:text-zinc-200">
+                                Cuối
+                                <i class="fa-solid fa-angles-right"></i>
                             </button>
                         </div>
                     </div>

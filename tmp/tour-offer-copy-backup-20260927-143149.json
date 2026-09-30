@@ -1,0 +1,9 @@
+{
+    "site_setting_id": 1,
+    "path": "frontsite_section_headings.tour_cta",
+    "before": {
+        "is_visible": true,
+        "title": "Gửi yêu cầu tư vấn tour",
+        "description": "Nếu bạn chưa chốt được ngày đi, chỉ cần để lại số điện thoại và nhu cầu, Hải Đăng Travel sẽ gọi lại để kiểm tra chỗ và tư vấn đúng lịch phù hợp."
+    }
+}

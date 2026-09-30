@@ -58,6 +58,20 @@ class AdminNavigationRegistry
                         ['admin.tours.agency-sync-queue'],
                     ),
                     self::action(
+                        'admin.tours.index',
+                        'Flash Sale tour',
+                        'Quản lý campaign ưu đãi giờ chót theo lịch khởi hành.',
+                        'admin.tour-flash-sales',
+                        ['admin.tour-flash-sales'],
+                    ),
+                    self::action(
+                        'admin.tours.edit',
+                        'Tạo Flash Sale',
+                        'Chọn lịch khởi hành, đặt giá ưu đãi và thời gian đếm ngược.',
+                        'admin.tour-flash-sales.create',
+                        ['admin.tour-flash-sales.create', 'admin.tour-flash-sales.edit'],
+                    ),
+                    self::action(
                         'admin.tours.categories.index',
                         'Chủ đề tour',
                         'Quản lý danh mục tour theo intent kinh doanh.',

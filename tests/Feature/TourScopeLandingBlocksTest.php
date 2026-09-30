@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Support\LandingPageBlocks;
+use App\Support\TravelHomePageConfig;
 use Database\Seeders\HaidangTravelBootstrapSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Src\Domains\Cms\Models\LandingPage;
@@ -11,6 +12,68 @@ use Tests\TestCase;
 class TourScopeLandingBlocksTest extends TestCase
 {
     use RefreshDatabase;
+
+    public function test_home_trust_section_renders_about_layout_with_award_slider(): void
+    {
+        $this->seed(HaidangTravelBootstrapSeeder::class);
+
+        $page = LandingPage::query()->where('page_key', 'home')->firstOrFail();
+        $config = $page->home_config ?? [];
+        $config['trust'] = [
+            'is_enabled' => true,
+            'title' => 'HAIDANGTRAVEL – HỆ SINH THÁI LỮ HÀNH TOÀN CẦU',
+            'subtitle' => 'Tận tâm trên từng hành trình',
+            'description' => 'Nội dung giới thiệu doanh nghiệp từ CMS.',
+            'stats' => [
+                ['value' => '19+', 'label' => 'Năm kinh nghiệm'],
+                ['value' => '50.000', 'label' => 'Lượt khách'],
+                ['value' => '150+', 'label' => 'Nhân sự hỗ trợ'],
+            ],
+            'awards' => [
+                ['title' => 'Giải thưởng một', 'image_url' => '/storage/awards/award-one.jpg', 'image_alt' => 'Ảnh giải thưởng một'],
+                ['title' => 'Giải thưởng hai', 'image_url' => '/storage/awards/award-two.jpg', 'image_alt' => 'Ảnh giải thưởng hai'],
+            ],
+        ];
+
+        $page->update([
+            'blocks' => [],
+            'home_config' => TravelHomePageConfig::prepare($config),
+        ]);
+
+        $this->get(route('home'))
+            ->assertOk()
+            ->assertSee('id="trust-and-proof"', false)
+            ->assertSee('HAIDANGTRAVEL – HỆ SINH THÁI LỮ HÀNH TOÀN CẦU')
+            ->assertSee('data-composed-brand-heading', false)
+            ->assertSee('font-editorial', false)
+            ->assertSee('Tận tâm trên từng hành trình')
+            ->assertSee('19+')
+            ->assertSee('Giải thưởng một')
+            ->assertSee('award-one.jpg', false)
+            ->assertSee('data-card-carousel', false)
+            ->assertSee('data-autoplay="true"', false)
+            ->assertSee('data-desktop-slider="true"', false);
+    }
+
+    public function test_home_topic_rail_can_hide_card_titles(): void
+    {
+        $this->seed(HaidangTravelBootstrapSeeder::class);
+
+        $page = LandingPage::query()->where('page_key', 'home')->firstOrFail();
+        $config = $page->home_config ?? [];
+        $config['topic_rail']['show_card_titles'] = false;
+        $page->update([
+            'blocks' => [],
+            'home_config' => TravelHomePageConfig::prepare($config),
+        ]);
+
+        $this->get(route('home'))
+            ->assertOk()
+            ->assertSee('id="home-tour-topics"', false)
+            ->assertSee('aria-label="Xem chủ đề tour:', false)
+            ->assertSee('data-topic-card-hover-title', false)
+            ->assertDontSee('<h3 class="line-clamp-2', false);
+    }
 
     public function test_tour_scope_landing_pages_render_html_widget_blocks(): void
     {

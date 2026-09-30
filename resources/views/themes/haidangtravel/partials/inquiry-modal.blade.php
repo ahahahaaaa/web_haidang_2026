@@ -30,6 +30,10 @@
     $modalHasFeedback = $modalSubmissionAttempted && (session('travel_inquiry_status') || $feedbackMessages->isNotEmpty());
     $openOnLoad = session('travel_inquiry_open_modal') || $hasInquiryErrors;
     $hasVoucherCampaign = filled($voucherCampaignSlug ?? null);
+    $voucherCampaignTitle = trim((string) (($voucherCampaign ?? null)?->title ?? ''));
+    $voucherInquirySubject = $voucherCampaignTitle !== ''
+        ? 'Đăng ký nhận voucher: '.$voucherCampaignTitle
+        : 'Đăng ký nhận voucher du lịch';
 @endphp
 
 <div
@@ -39,9 +43,9 @@
     data-open-on-load="{{ $openOnLoad ? 'true' : 'false' }}"
     data-default-source="general"
     data-default-context="Liên hệ chung"
-    data-default-subject="{{ $hasVoucherCampaign ? 'Đăng ký nhận voucher du lịch 200.000đ' : 'Tư vấn du lịch' }}"
+    data-default-subject="{{ $hasVoucherCampaign ? $voucherInquirySubject : 'Tư vấn du lịch' }}"
     data-default-voucher-campaign="{{ $voucherCampaignSlug ?? '' }}"
-    data-default-title="{{ $hasVoucherCampaign ? 'Nhận voucher du lịch' : 'Thông tin đặt tour' }}"
+    data-default-title="{{ $hasVoucherCampaign && $voucherCampaignTitle !== '' ? $voucherCampaignTitle : ($hasVoucherCampaign ? 'Nhận voucher du lịch' : 'Thông tin đặt tour') }}"
     data-default-description="{{ $hasVoucherCampaign ? 'Để lại thông tin để Hải Đăng Travel giữ voucher và tư vấn tour phù hợp với nhu cầu của bạn.' : 'Điền nhanh thông tin đặt tour để Hải Đăng Travel liên hệ và tư vấn đúng nhu cầu của bạn.' }}"
     data-feedback-focus-on-load="{{ ($modalSubmissionAttempted && (session('travel_inquiry_status') || $feedbackMessages->isNotEmpty())) ? 'true' : 'false' }}"
 >
@@ -87,7 +91,7 @@
                 'submissionAttempted' => $modalSubmissionAttempted,
                 'submissionMode' => 'modal',
                 'source' => 'general',
-                'subject' => $hasVoucherCampaign ? 'Đăng ký nhận voucher du lịch 200.000đ' : 'Tư vấn du lịch',
+                'subject' => $hasVoucherCampaign ? $voucherInquirySubject : 'Tư vấn du lịch',
                 'formVariant' => $hasVoucherCampaign ? 'voucher' : 'default',
                 'submitLabel' => $hasVoucherCampaign ? 'Nhận Voucher' : 'Đặt tour',
                 'voucherCampaignSlug' => $voucherCampaignSlug ?? null,

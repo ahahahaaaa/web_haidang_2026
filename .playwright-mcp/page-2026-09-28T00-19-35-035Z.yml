@@ -1,0 +1,2267 @@
+- generic [ref=f4e1]:
+  - generic [ref=f4e2]:
+    - link "Haidangtravel CMS Haidang Travel" [ref=f4e4] [cursor=pointer]:
+      - /url: http://localhost:8001/dashboard
+      - img "Haidangtravel" [ref=f4e6]
+      - generic [ref=f4e7]: CMS Haidang Travel
+    - navigation [ref=f4e8]:
+      - generic [ref=f4e9]:
+        - link "Dashboard" [ref=f4e10] [cursor=pointer]:
+          - /url: http://localhost:8001/dashboard
+        - generic [ref=f4e14]:
+          - button "Quản lý tour" [ref=f4e16]
+          - button "Quản lý dịch vụ" [ref=f4e23]
+          - button "Quản lý blog" [ref=f4e30]
+          - generic [ref=f4e36]:
+            - button "Landing Pages" [expanded] [ref=f4e37]
+            - generic [ref=f4e43]:
+              - link "Danh sách landing page" [ref=f4e44] [cursor=pointer]:
+                - /url: http://localhost:8001/admin/landing-pages
+              - link "Tạo landing page" [ref=f4e45] [cursor=pointer]:
+                - /url: http://localhost:8001/admin/landing-pages/create
+              - link "Voucher campaigns" [ref=f4e46] [cursor=pointer]:
+                - /url: http://localhost:8001/admin/voucher-campaigns
+              - link "Mã voucher đã cấp phát" [ref=f4e47] [cursor=pointer]:
+                - /url: http://localhost:8001/admin/voucher-codes
+              - link "Tạo voucher campaign" [ref=f4e48] [cursor=pointer]:
+                - /url: http://localhost:8001/admin/voucher-campaigns/create
+          - button "SEO AI Optimize" [ref=f4e50]
+          - button "Sliders" [ref=f4e57]
+          - button "Travel Inquiries" [ref=f4e64]
+          - button "Media" [ref=f4e71]
+          - button "Menus & Theme" [ref=f4e78]
+          - button "Tài khoản" [ref=f4e85]
+        - link "App quản lý" [ref=f4e92] [cursor=pointer]:
+          - /url: https://dashboard.haidangtravel.com
+    - button "q quantri" [ref=f4e97]:
+      - generic [ref=f4e98]: q
+      - generic [ref=f4e101]: quantri
+  - generic [ref=f4e107]:
+    - generic [ref=f4e108]:
+      - generic [ref=f4e109]:
+        - heading "Biên tập landing page" [level=1] [ref=f4e110]
+        - paragraph [ref=f4e111]: Trang chi tiết hỗ trợ cả block builder lẫn HTML thủ công, kèm clone cấu hình, SEO và publish state.
+      - link "Về danh sách" [ref=f4e112] [cursor=pointer]:
+        - /url: http://localhost:8001/admin/landing-pages
+    - generic [ref=f4e114]:
+      - generic [ref=f4e116]:
+        - heading "Landing editor" [level=2] [ref=f4e117]
+        - paragraph [ref=f4e118]: Preset template tạo khung nhanh cho block builder, hoặc chuyển sang HTML thủ công khi bạn cần một page rỗng.
+      - generic [ref=f4e119]:
+        - generic [ref=f4e120]:
+          - generic [ref=f4e121]:
+            - generic [ref=f4e122]: Clone nội dung từ landing page khác
+            - combobox [ref=f4e123]:
+              - option "Chọn landing page nguồn" [selected]
+              - option "Giới thiệu Haidangtravel (about)"
+              - option "Cẩm nang du lịch (blog)"
+              - option "Liên hệ (contact)"
+              - option "Tour trong nước (domestic_tours)"
+              - option "Tour đoàn (group_tours)"
+              - option "Tour nước ngoài (international_tours)"
+              - option "Dự án tiêu biểu (projects)"
+              - option "Dịch vụ du lịch (services)"
+              - option "Chính sách đặt tour, thanh toán, đổi & hủy tour | Hải Đăng Travel (chinh-sach-dat-tour-huy-doi-hoan-tien)"
+              - option "Dịch vụ xe du lịch 4–45 chỗ | Hải Đăng Travel (thue-xe-du-lich)"
+              - option "Event - Gala dinner (event-gala-dinner)"
+              - option "MICE & Hội nghị (mice-hoi-nghi)"
+              - option "Mua bán SIM du lịch và eSIM cho hành trình (mua-ban-sim-du-lich)"
+              - option "Nhận eVoucher du lịch 1.000.000đ (voucher-du-lich-1tr)"
+              - option "Nhận eVoucher du lịch 150.000đ (voucher-du-lich-150k)"
+              - option "Nhận eVoucher du lịch 300.000đ (voucher-du-lich-300k)"
+              - option "Nhận eVoucher du lịch 500.000đ (voucher-du-lich-500k)"
+              - option "Nhận eVoucher du lịch 800.000đ (voucher-du-lich-800k)"
+              - option "Nhận voucher du lịch 200.000đ (voucher-du-lich)"
+              - option "Teambuilding doanh nghiệp cùng Hải Đăng Travel (teambuilding)"
+              - option "Tư vấn du học cùng Hải Đăng Travel (tu-van-du-hoc)"
+              - option "Tư vấn Visa - Passport cùng Hải Đăng Travel (visa-passport)"
+              - option "Vé Máy Bay nội địa & quốc tế | Hải Đăng Travel (ve-may-bay-gia-re)"
+          - button "Clone block" [ref=f4e125]
+        - paragraph [ref=f4e127]: Clone giữ lại identity của page hiện tại nếu bạn đang sửa một landing đã tồn tại, nhưng sao chép block, SEO và media source để chỉnh tiếp.
+      - generic [ref=f4e128]:
+        - generic [ref=f4e129]:
+          - generic [ref=f4e130]:
+            - generic [ref=f4e131]:
+              - heading "Thông tin chung" [level=3] [ref=f4e132]
+              - paragraph [ref=f4e133]: System page dùng route cố định. Custom landing cần slug gốc không trùng reserved routes.
+            - generic [ref=f4e134]:
+              - checkbox "Bật landing page" [checked] [ref=f4e135]
+              - text: Bật landing page
+          - generic [ref=f4e136]:
+            - generic [ref=f4e137]:
+              - text: Template preset
+              - generic [ref=f4e138]:
+                - combobox [ref=f4e139]:
+                  - option "Trang chủ" [selected]
+                  - option "Về chúng tôi"
+                  - option "Liên hệ"
+                  - option "Landing dịch vụ"
+                  - option "Landing blog"
+                  - option "Tour trong nước"
+                  - option "Tour nước ngoài"
+                  - option "Tour đoàn"
+                  - option "Landing rỗng"
+                  - option "Landing tổng quát"
+                - button "Áp preset" [ref=f4e140]
+                - button "Landing rỗng HTML" [ref=f4e142]
+              - paragraph [ref=f4e144]: Preset Landing rỗng dùng khi bạn muốn bắt đầu từ page trắng. Nút bên cạnh sẽ chuyển ngay sang mode HTML thủ công và xóa block trong form.
+            - generic [ref=f4e145]:
+              - text: Loại landing
+              - textbox [ref=f4e146]: Trang chủ
+            - generic [ref=f4e147]:
+              - text: Chế độ biên tập
+              - combobox [ref=f4e148]:
+                - option "Block builder" [selected]
+                - option "HTML thủ công"
+              - paragraph [ref=f4e149]: Block builder phù hợp preset và query block. HTML thủ công sẽ render trực tiếp đoạn code bạn dán vào frontsite.
+            - generic [ref=f4e150]:
+              - text: Tiêu đề landing
+              - textbox [ref=f4e151]: Trang chủ
+            - generic [ref=f4e152]:
+              - text: Slug public
+              - textbox "tu-chon-neu-can" [ref=f4e153]
+              - paragraph [ref=f4e154]: System page vẫn dùng route hệ thống; nếu có nhập slug thì chỉ lưu nội bộ.
+          - generic [ref=f4e155]: "Reserved root slugs: ve-chung-toi, tour-trong-nuoc, tour-nuoc-ngoai, tour-doan, danh-gia-tour, chuong-trinh, tour, dich-vu, blog, lien-he, danh-muc, danh-muc-tour, diem-den, vung-mien, quoc-gia, admin, dashboard, settings, login, register, forgot-password, reset-password, verify-email, confirm-password, robots.txt, sitemap.xml, up"
+        - generic [ref=f4e156]:
+          - generic [ref=f4e158]:
+            - heading "Blocks" [level=3] [ref=f4e159]
+            - paragraph [ref=f4e160]: Danh sách này trộn section hardcode và dynamic block theo đúng thứ tự render trên homepage. Mỗi item là một row có bật/tắt và nút di chuyển; Query blocks chỉ lấy dữ liệu published.
+          - generic [ref=f4e161]:
+            - article [ref=f4e162]:
+              - generic [ref=f4e163]:
+                - generic [ref=f4e164]:
+                  - paragraph [ref=f4e165]: Block 1
+                  - heading "Thanh tìm kiếm" [level=4] [ref=f4e166]
+                  - generic [ref=f4e167]:
+                    - generic [ref=f4e168]: Hardcode
+                    - generic [ref=f4e169]: Đang bật
+                    - paragraph [ref=f4e170]: Form bên dưới điều chỉnh nội dung, bật/tắt và vị trí render của section hardcode này.
+                - generic [ref=f4e171]:
+                  - generic [ref=f4e172]:
+                    - checkbox "Bật block" [checked] [ref=f4e173]
+                    - text: Bật block
+                  - generic [ref=f4e174]:
+                    - button "Chuyển lên" [disabled] [ref=f4e175]
+                    - button "Chuyển xuống" [ref=f4e177]
+              - generic [ref=f4e180]:
+                - generic [ref=f4e181]:
+                  - text: Placeholder
+                  - textbox [ref=f4e182]: Bạn muốn đi đâu?
+                - generic [ref=f4e183]:
+                  - text: Label nút
+                  - textbox [ref=f4e184]: Tìm
+            - article [ref=f4e185]:
+              - generic [ref=f4e186]:
+                - generic [ref=f4e187]:
+                  - paragraph [ref=f4e188]: Block 2
+                  - heading "HTML widget" [level=4] [ref=f4e189]
+                  - generic [ref=f4e190]:
+                    - generic [ref=f4e191]: Dynamic
+                    - generic [ref=f4e192]: Đang tắt
+                    - paragraph [ref=f4e193]: Block tắt sẽ được giữ trong CMS nhưng không render ra landing page.
+                  - paragraph [ref=f4e194]: "Tiêu đề block: /* Reset component – không nền, không bóng, không dots */ .hdtb-banner-slider {..."
+                - generic [ref=f4e195]:
+                  - generic [ref=f4e196]:
+                    - checkbox "Bật block" [ref=f4e197]
+                    - text: Bật block
+                  - generic [ref=f4e198]:
+                    - button "Chuyển lên" [ref=f4e199]
+                    - button "Chuyển xuống" [ref=f4e201]
+                  - button "Nhân đôi" [ref=f4e203]
+                  - button "Xóa" [ref=f4e204]
+              - generic [ref=f4e205]: Block này đang ở trạng thái tắt. Bạn vẫn có thể chỉnh nội dung, đổi thứ tự hoặc bật lại khi cần.
+              - generic [ref=f4e206]:
+                - generic [ref=f4e207]:
+                  - generic [ref=f4e208]: Vị trí trên trang chủ
+                  - combobox [ref=f4e209]:
+                    - option "Theo vị trí mặc định"
+                    - option "Sau hero" [selected]
+                    - option "Trước thanh tìm kiếm"
+                    - option "Trước Chủ đề tour"
+                    - option "Trước Tour nổi bật"
+                    - option "Trước tab tour theo taxonomy"
+                    - option "Trước tab vùng miền"
+                    - option "Trước Điểm đến nổi bật"
+                    - option "Trước gallery landing"
+                    - option "Trước Dịch vụ hỗ trợ"
+                    - option "Trước trust proof"
+                    - option "Trước quy trình tư vấn"
+                    - option "Trước blog preview"
+                    - option "Trước FAQ"
+                    - option "Trước CTA cuối trang"
+                    - option "Sau CTA cuối trang"
+                - paragraph [ref=f4e210]: Chỉ áp dụng cho system page Trang chủ. Vị trí này là fallback cho block mới; thứ tự render thực tế lấy từ danh sách Blocks đang hiển thị ở đây.
+              - generic [ref=f4e211]:
+                - generic [ref=f4e212]: Block này render trực tiếp HTML tại đúng vị trí trong stack landing page. Mặc định block rỗng để bạn dán widget, snippet hoặc markup đã kiểm tra.
+                - generic [ref=f4e213]:
+                  - text: Mã HTML widget
+                  - textbox "<section>...</section>" [ref=f4e214]: "<style> /* Reset component – không nền, không bóng, không dots */ .hdtb-banner-slider { max-width: 1280px; margin: 50px auto; /* Tạo khoảng trống trên và dưới 50px */ position: relative; font-family: system-ui, 'Segoe UI', sans-serif; } .hdtb-slider-container { position: relative; overflow: hidden; background: transparent; /* không nền */ box-shadow: none; /* không bóng */ } .hdtb-slider-track { display: flex; transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1); } /* Slide mặc định (desktop) */ .hdtb-slide { flex: 0 0 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 0; box-sizing: border-box; } .hdtb-slide-item { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 16 / 9; background: transparent; /* không nền */ box-shadow: none; /* không bóng đổ */ transition: transform 0.3s; } .hdtb-slide-item:hover { transform: scale(1.02); } .hdtb-slide-item img { width: 100%; height: 100%; object-fit: cover; display: block; } /* Nút điều hướng */ .hdtb-slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; width: 44px; height: 44px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; transition: 0.2s; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); } .hdtb-slider-btn:hover { background: #e11d48; } .hdtb-prev { left: 15px; } .hdtb-next { right: 15px; } /* ===== MOBILE: mỗi slide chỉ 1 hình ===== */ @media (max-width: 767px) { .hdtb-slide { grid-template-columns: 1fr; /* 1 cột */ gap: 0; padding: 0; } .hdtb-slide-item { border-radius: 16px; } .hdtb-slider-btn { width: 36px; height: 36px; font-size: 1.2rem; } } </style> </head> <body> <div class=\"hdtb-banner-slider\"> <div class=\"hdtb-slider-container\"> <div class=\"hdtb-slider-track\" id=\"hdtbSliderTrack\"></div> <button class=\"hdtb-slider-btn hdtb-prev\" id=\"hdtbPrevBtn\">&#10094;</button> <button class=\"hdtb-slider-btn hdtb-next\" id=\"hdtbNextBtn\">&#10095;</button> </div> <!-- Không có dots --> </div> <script> (function() { // ======================== // DANH SÁCH ẢNH (bạn tự thay link và alt) // ======================== const images = [ { src: \"https://haidangtravel.com/storage/1466/tour-du-lich-singapore.webp\", alt: \"tour-du-lich-singapore\" }, { src: \"https://haidangtravel.com/storage/1465/du-lich-an-do-nepal-hanh-huong.webp\", alt: \"du-lich-an-do-nepal-hanh-huong\" }, { src: \"https://haidangtravel.com/storage/1464/tour-du-lich-ta-dung.webp\", alt: \"tour-du-lich-ta-dung\" }, { src: \"https://haidangtravel.com/storage/1467/tour-binh-hung-ninh-chu%CC%9B.webp\", alt: \"Resort 5 sao cho doanh nghiệp\" }, ]; let currentIndex = 0; let slidesData = []; let autoInterval; const intervalTime = 5000; // 5 giây const track = document.getElementById('hdtbSliderTrack'); const prevBtn = document.getElementById('hdtbPrevBtn'); const nextBtn = document.getElementById('hdtbNextBtn'); // Hàm tạo slides theo từng thiết bị function buildSlides() { const isMobile = window.innerWidth <= 767; const newSlides = []; if (isMobile) { // Mobile: mỗi ảnh là 1 slide images.forEach(img => { newSlides.push([img]); }); } else { // Desktop: ghép cặp 2 ảnh for (let i = 0; i < images.length; i += 2) { const pair = [images[i]]; if (i + 1 < images.length) pair.push(images[i+1]); newSlides.push(pair); } } return newSlides; } // Render slider (không tạo dots) function renderSlider() { slidesData = buildSlides(); track.innerHTML = ''; slidesData.forEach(slideImages => { const slideDiv = document.createElement('div'); slideDiv.className = 'hdtb-slide'; slideImages.forEach(img => { const itemDiv = document.createElement('div'); itemDiv.className = 'hdtb-slide-item'; const imgEl = document.createElement('img'); imgEl.src = img.src; imgEl.alt = img.alt; imgEl.loading = 'lazy'; itemDiv.appendChild(imgEl); slideDiv.appendChild(itemDiv); }); track.appendChild(slideDiv); }); if (currentIndex >= slidesData.length) currentIndex = 0; goToSlide(currentIndex); } function goToSlide(index) { if (!slidesData.length) return; if (index < 0) index = slidesData.length - 1; if (index >= slidesData.length) index = 0; currentIndex = index; track.style.transform = `translateX(-${currentIndex * 100}%)`; resetAutoPlay(); } function nextSlide() { goToSlide(currentIndex + 1); } function prevSlide() { goToSlide(currentIndex - 1); } function startAutoPlay() { if (autoInterval) clearInterval(autoInterval); autoInterval = setInterval(nextSlide, intervalTime); } function resetAutoPlay() { if (autoInterval) clearInterval(autoInterval); startAutoPlay(); } // Xử lý resize màn hình let resizeTimeout; window.addEventListener('resize', () => { clearTimeout(resizeTimeout); resizeTimeout = setTimeout(() => { const oldIndex = currentIndex; renderSlider(); currentIndex = Math.min(oldIndex, slidesData.length - 1); if (currentIndex < 0) currentIndex = 0; goToSlide(currentIndex); }, 150); }); renderSlider(); startAutoPlay(); // Dừng auto khi hover const container = document.querySelector('.hdtb-slider-container'); container.addEventListener('mouseenter', () => clearInterval(autoInterval)); container.addEventListener('mouseleave', startAutoPlay); prevBtn.addEventListener('click', prevSlide); nextBtn.addEventListener('click', nextSlide); })(); </script>"
+                  - paragraph [ref=f4e215]: Để trống nếu bạn chỉ muốn giữ sẵn một vị trí widget và bật nội dung sau.
+            - article [ref=f4e216]:
+              - generic [ref=f4e217]:
+                - generic [ref=f4e218]:
+                  - paragraph [ref=f4e219]: Block 3
+                  - heading "Chủ đề tour" [level=4] [ref=f4e220]
+                  - generic [ref=f4e221]:
+                    - generic [ref=f4e222]: Hardcode
+                    - generic [ref=f4e223]: Đang bật
+                    - paragraph [ref=f4e224]: Form bên dưới điều chỉnh nội dung, bật/tắt và vị trí render của section hardcode này.
+                - generic [ref=f4e225]:
+                  - generic [ref=f4e226]:
+                    - checkbox "Bật block" [checked] [ref=f4e227]
+                    - text: Bật block
+                  - generic [ref=f4e228]:
+                    - button "Chuyển lên" [ref=f4e229]
+                    - button "Chuyển xuống" [ref=f4e231]
+              - generic [ref=f4e234]:
+                - generic [ref=f4e235]:
+                  - text: Eyebrow
+                  - 'textbox "Ví dụ: Khởi đầu từ nhu cầu" [ref=f4e236]'
+                - generic [ref=f4e237]:
+                  - text: Tiêu đề block
+                  - textbox [ref=f4e238]: CHỦ ĐỀ TOUR
+                - generic [ref=f4e239]:
+                  - text: Mô tả block
+                  - textbox [ref=f4e240]: Chủ đề tour tiêu biểu năm 2026 với lịch trình độc bản. Từ hành trình hành hương tâm linh đến nghỉ dưỡng biển đảo đẳng cấp, Haidangtravel mang đến những trải nghiệm tinh tế và trọn gói nhất.
+                - generic [ref=f4e241]:
+                  - checkbox "Hiển thị tên chủ đề dưới ảnh" [ref=f4e242]
+                  - text: Hiển thị tên chủ đề dưới ảnh
+                - paragraph [ref=f4e243]: Khi tắt, tên chủ đề sẽ hiện từ dưới lên trên ảnh khi rê chuột hoặc chọn card bằng bàn phím.
+                - paragraph [ref=f4e244]: Dữ liệu card vẫn lấy live từ các chủ đề đang publish và có tour hoạt động.
+            - article [ref=f4e245]:
+              - generic [ref=f4e246]:
+                - generic [ref=f4e247]:
+                  - paragraph [ref=f4e248]: Block 4
+                  - heading "Rail mã ưu đãi du lịch" [level=4] [ref=f4e249]
+                  - generic [ref=f4e250]:
+                    - generic [ref=f4e251]: Dynamic
+                    - generic [ref=f4e252]: Đang bật
+                    - paragraph [ref=f4e253]: Block tắt sẽ được giữ trong CMS nhưng không render ra landing page.
+                  - paragraph [ref=f4e254]: "Tiêu đề block: Mã ưu đãi tặng bạn"
+                - generic [ref=f4e255]:
+                  - generic [ref=f4e256]:
+                    - checkbox "Bật block" [checked] [ref=f4e257]
+                    - text: Bật block
+                  - generic [ref=f4e258]:
+                    - button "Chuyển lên" [ref=f4e259]
+                    - button "Chuyển xuống" [ref=f4e261]
+                  - button "Nhân đôi" [ref=f4e263]
+                  - button "Xóa" [ref=f4e264]
+              - generic [ref=f4e265]:
+                - generic [ref=f4e266]:
+                  - generic [ref=f4e267]: Vị trí trên trang chủ
+                  - combobox [ref=f4e268]:
+                    - option "Theo vị trí mặc định"
+                    - option "Sau hero"
+                    - option "Trước thanh tìm kiếm"
+                    - option "Trước Chủ đề tour"
+                    - option "Trước Tour nổi bật" [selected]
+                    - option "Trước tab tour theo taxonomy"
+                    - option "Trước tab vùng miền"
+                    - option "Trước Điểm đến nổi bật"
+                    - option "Trước gallery landing"
+                    - option "Trước Dịch vụ hỗ trợ"
+                    - option "Trước trust proof"
+                    - option "Trước quy trình tư vấn"
+                    - option "Trước blog preview"
+                    - option "Trước FAQ"
+                    - option "Trước CTA cuối trang"
+                    - option "Sau CTA cuối trang"
+                - paragraph [ref=f4e269]: Chỉ áp dụng cho system page Trang chủ. Vị trí này là fallback cho block mới; thứ tự render thực tế lấy từ danh sách Blocks đang hiển thị ở đây.
+              - generic [ref=f4e270]:
+                - generic [ref=f4e271]: Widget chỉ tải campaign đang bật, đúng thời gian nhận mã, còn mã khả dụng và đã được bật “Card mã ưu đãi công khai”. Mã riêng cấp cho từng khách không được render trong block này.
+                - generic [ref=f4e272]:
+                  - generic [ref=f4e273]:
+                    - text: Tiêu đề block
+                    - textbox [ref=f4e274]: Mã ưu đãi tặng bạn
+                  - generic [ref=f4e275]:
+                    - text: Số voucher tối đa
+                    - spinbutton [ref=f4e276]: "6"
+                  - generic [ref=f4e277]:
+                    - text: Mô tả block
+                    - textbox [ref=f4e278]: Khám phá ưu đãi dành riêng cho bạn — tiết kiệm nhiều hơn cho mỗi hành trình, mỗi điểm đến.
+                  - generic [ref=f4e279]:
+                    - text: Campaign ưu tiên
+                    - listbox [ref=f4e2603]:
+                      - option "Tặng bạn eVoucher 1 triệu — TRIP1000" [selected] [ref=f4e2604]
+                      - option "Tặng bạn eVoucher 150K — TRIP150" [selected] [ref=f4e2605]
+                      - option "Tặng bạn eVoucher 300K — TRIP300" [selected] [ref=f4e2606]
+                      - option "Tặng bạn eVoucher 500K — TRIP500" [selected] [ref=f4e2607]
+                      - option "Tặng bạn eVoucher 800K — TRIP800" [selected] [ref=f4e2608]
+                      - option "Voucher du lịch 200.000đ — HDTRAVEL200" [selected] [ref=f4e2609]
+                    - generic [ref=f4e2611]:
+                      - generic [ref=f4e2612] [cursor=pointer]:
+                        - text: Tặng bạn eVoucher 1 triệu — TRIP1000
+                        - link "×" [ref=f4e2613]:
+                          - /url: javascript:void(0)
+                      - generic [ref=f4e2614] [cursor=pointer]:
+                        - text: Tặng bạn eVoucher 150K — TRIP150
+                        - link "×" [ref=f4e2615]:
+                          - /url: javascript:void(0)
+                      - generic [ref=f4e2616] [cursor=pointer]:
+                        - text: Tặng bạn eVoucher 300K — TRIP300
+                        - link "×" [ref=f4e2617]:
+                          - /url: javascript:void(0)
+                      - generic [ref=f4e2618] [cursor=pointer]:
+                        - text: Tặng bạn eVoucher 500K — TRIP500
+                        - link "×" [ref=f4e2619]:
+                          - /url: javascript:void(0)
+                      - generic [ref=f4e2620] [cursor=pointer]:
+                        - text: Tặng bạn eVoucher 800K — TRIP800
+                        - link "×" [ref=f4e2621]:
+                          - /url: javascript:void(0)
+                      - generic [ref=f4e2622] [cursor=pointer]:
+                        - text: Voucher du lịch 200.000đ — HDTRAVEL200
+                        - link "×" [ref=f4e2623]:
+                          - /url: javascript:void(0)
+                      - combobox "Chọn campaign và thứ tự ưu tiên" [ref=f4e2624]
+                    - paragraph [ref=f4e290]: Để trống để tự lấy tất cả campaign công khai hợp lệ. Nếu chọn, thứ tự đã chọn là thứ tự card trên frontsite.
+                - generic [ref=f4e291]:
+                  - checkbox "Hiển thị hạn dùng trên card khi campaign có cấu hình" [checked] [ref=f4e292]
+                  - text: Hiển thị hạn dùng trên card khi campaign có cấu hình
+            - article [ref=f4e293]:
+              - generic [ref=f4e294]:
+                - generic [ref=f4e295]:
+                  - paragraph [ref=f4e296]: Block 5
+                  - heading "Flash Sale - Ưu đãi giờ chót" [level=4] [ref=f4e297]
+                  - generic [ref=f4e298]:
+                    - generic [ref=f4e299]: Dynamic
+                    - generic [ref=f4e300]: Đang bật
+                    - paragraph [ref=f4e301]: Block tắt sẽ được giữ trong CMS nhưng không render ra landing page.
+                  - paragraph [ref=f4e302]: "Tiêu đề block: Chưa đặt tiêu đề"
+                - generic [ref=f4e303]:
+                  - generic [ref=f4e304]:
+                    - checkbox "Bật block" [checked] [ref=f4e305]
+                    - text: Bật block
+                  - generic [ref=f4e306]:
+                    - button "Chuyển lên" [ref=f4e307]
+                    - button "Chuyển xuống" [ref=f4e309]
+                  - button "Nhân đôi" [ref=f4e311]
+                  - button "Xóa" [ref=f4e312]
+              - generic [ref=f4e313]:
+                - generic [ref=f4e314]:
+                  - generic [ref=f4e315]: Vị trí trên trang chủ
+                  - combobox [ref=f4e316]:
+                    - option "Theo vị trí mặc định"
+                    - option "Sau hero"
+                    - option "Trước thanh tìm kiếm"
+                    - option "Trước Chủ đề tour"
+                    - option "Trước Tour nổi bật" [selected]
+                    - option "Trước tab tour theo taxonomy"
+                    - option "Trước tab vùng miền"
+                    - option "Trước Điểm đến nổi bật"
+                    - option "Trước gallery landing"
+                    - option "Trước Dịch vụ hỗ trợ"
+                    - option "Trước trust proof"
+                    - option "Trước quy trình tư vấn"
+                    - option "Trước blog preview"
+                    - option "Trước FAQ"
+                    - option "Trước CTA cuối trang"
+                    - option "Sau CTA cuối trang"
+                - paragraph [ref=f4e317]: Chỉ áp dụng cho system page Trang chủ. Vị trí này là fallback cho block mới; thứ tự render thực tế lấy từ danh sách Blocks đang hiển thị ở đây.
+              - generic [ref=f4e318]:
+                - generic [ref=f4e319]: Block chỉ hiển thị khi campaign đang bật, đã bắt đầu, chưa kết thúc và còn ít nhất một lịch khởi hành hợp lệ. Giá Flash Sale không ghi đè giá tour gốc.
+                - generic [ref=f4e320]:
+                  - text: Campaign Flash Sale
+                  - combobox [ref=f4e321]:
+                    - option "Chọn campaign"
+                    - option "Ưu đãi giờ chót — 22/09/2026 08:54 → 24/09/2026 08:55" [selected]
+                - generic [ref=f4e322]:
+                  - checkbox "Hiển thị tour dạng slide một hàng" [checked] [ref=f4e323]
+                  - text: Hiển thị tour dạng slide một hàng
+            - article [ref=f4e324]:
+              - generic [ref=f4e325]:
+                - generic [ref=f4e326]:
+                  - paragraph [ref=f4e327]: Block 6
+                  - heading "Tour nổi bật" [level=4] [ref=f4e328]
+                  - generic [ref=f4e329]:
+                    - generic [ref=f4e330]: Hardcode
+                    - generic [ref=f4e331]: Đang bật
+                    - paragraph [ref=f4e332]: Form bên dưới điều chỉnh nội dung, bật/tắt và vị trí render của section hardcode này.
+                - generic [ref=f4e333]:
+                  - generic [ref=f4e334]:
+                    - checkbox "Bật block" [checked] [ref=f4e335]
+                    - text: Bật block
+                  - generic [ref=f4e336]:
+                    - button "Chuyển lên" [ref=f4e337]
+                    - button "Chuyển xuống" [ref=f4e339]
+              - generic [ref=f4e341]:
+                - generic [ref=f4e342]:
+                  - generic [ref=f4e343]:
+                    - text: Chủ đề ưu tiên chung cho pool tour hot
+                    - combobox [ref=f4e344]:
+                      - option "Tự dò Tour Nổi Bật / fallback sang is_featured" [selected]
+                      - option "Hành hương Châu Á"
+                      - option "Tour Lễ 2 Tháng 9 2026 - Trọn Gói Trong Nước & Nước Ngoài"
+                      - option "Du lịch 30/4"
+                      - option "Tour Giao Mùa Xuân hè Châu Âu"
+                      - option "Tour Du lịch xe Limousine"
+                      - option "Du Lịch Đảo Việt Nam"
+                      - option "Tour Mùa Đông Châu Úc"
+                      - option "Du Lịch Tàu Lửa"
+                      - option "Du lich máy bay"
+                    - paragraph [ref=f4e345]: Điều kiện này áp dụng chung trước khi chia tour theo từng filter. Để trống để dùng cờ tour nổi bật.
+                  - generic [ref=f4e346]:
+                    - text: Số tour mỗi tab
+                    - spinbutton [ref=f4e347]: "4"
+                    - paragraph [ref=f4e348]: Tối đa 12 card cho mỗi tab.
+                  - generic [ref=f4e349]:
+                    - text: Label CTA của block
+                    - textbox [ref=f4e350]: Xem danh sách tour
+                  - generic [ref=f4e351]:
+                    - text: Màu nền nút Đặt ngay
+                    - combobox [ref=f4e352]:
+                      - option "Cam thương hiệu" [selected]
+                      - option "Xanh thương hiệu"
+                      - option "Đỏ khuyến mãi"
+                      - option "Xanh lá"
+                  - generic [ref=f4e353]:
+                    - checkbox "Hiển thị tour dạng slide một hàng" [ref=f4e354]
+                    - text: Hiển thị tour dạng slide một hàng
+                - generic [ref=f4e355]:
+                  - paragraph [ref=f4e356]: Tab hệ thống · active mặc định
+                  - generic [ref=f4e357]:
+                    - generic [ref=f4e358]:
+                      - text: Nhãn tab Tất cả
+                      - textbox [ref=f4e359]: Tất cả
+                    - generic [ref=f4e360]:
+                      - text: Tiêu đề block mặc định
+                      - textbox [ref=f4e361]: Tour hot trong tháng
+                    - generic [ref=f4e362]:
+                      - text: Mô tả mặc định
+                      - textbox [ref=f4e363]: Tổng hợp các tour trọn gói và tour du lịch đoàn đang được quan tâm để bạn dễ so sánh hành trình, lịch đi và mức giá.
+                - generic [ref=f4e364]:
+                  - generic [ref=f4e365]:
+                    - generic [ref=f4e366]:
+                      - heading "Danh sách filter phân loại tour" [level=5] [ref=f4e367]
+                      - paragraph [ref=f4e368]: Chọn loại tour, điểm đến, chủ đề hoặc vùng miền/châu. Tên tab tự lấy từ đối tượng; tiêu đề và mô tả block dùng chung từ tab Tất cả.
+                    - button "Thêm filter" [ref=f4e369]
+                  - generic [ref=f4e371]:
+                    - generic [ref=f4e372]:
+                      - paragraph [ref=f4e373]: Filter 1
+                      - button "Xóa filter 1" [ref=f4e374]
+                    - generic [ref=f4e376]:
+                      - generic [ref=f4e377]:
+                        - text: Phân loại theo
+                        - combobox [ref=f4e378]:
+                          - option "Loại tour"
+                          - option "Điểm đến"
+                          - option "Chủ đề"
+                          - option "Vùng miền / Châu" [selected]
+                      - generic [ref=f4e379]:
+                        - text: Đối tượng
+                        - combobox [ref=f4e380]:
+                          - option "Chọn vùng miền / châu"
+                          - option "Châu Á"
+                          - option "Châu Âu"
+                          - option "Châu Mỹ"
+                          - option "Châu Phi"
+                          - option "Châu Úc"
+                          - option "Đông Nam Á"
+                          - option "Miền Bắc" [selected]
+                          - option "Miền Đông Nam Bộ"
+                          - option "Miền Tây Nam Bộ"
+                          - option "Miền Trung"
+                          - option "Tây Nguyên"
+                  - generic [ref=f4e381]:
+                    - generic [ref=f4e382]:
+                      - paragraph [ref=f4e383]: Filter 2
+                      - button "Xóa filter 2" [ref=f4e384]
+                    - generic [ref=f4e386]:
+                      - generic [ref=f4e387]:
+                        - text: Phân loại theo
+                        - combobox [ref=f4e388]:
+                          - option "Loại tour"
+                          - option "Điểm đến"
+                          - option "Chủ đề"
+                          - option "Vùng miền / Châu" [selected]
+                      - generic [ref=f4e389]:
+                        - text: Đối tượng
+                        - combobox [ref=f4e390]:
+                          - option "Chọn vùng miền / châu"
+                          - option "Châu Á"
+                          - option "Châu Âu"
+                          - option "Châu Mỹ"
+                          - option "Châu Phi"
+                          - option "Châu Úc"
+                          - option "Đông Nam Á"
+                          - option "Miền Bắc"
+                          - option "Miền Đông Nam Bộ"
+                          - option "Miền Tây Nam Bộ"
+                          - option "Miền Trung" [selected]
+                          - option "Tây Nguyên"
+                  - generic [ref=f4e391]:
+                    - generic [ref=f4e392]:
+                      - paragraph [ref=f4e393]: Filter 3
+                      - button "Xóa filter 3" [ref=f4e394]
+                    - generic [ref=f4e396]:
+                      - generic [ref=f4e397]:
+                        - text: Phân loại theo
+                        - combobox [ref=f4e398]:
+                          - option "Loại tour"
+                          - option "Điểm đến"
+                          - option "Chủ đề"
+                          - option "Vùng miền / Châu" [selected]
+                      - generic [ref=f4e399]:
+                        - text: Đối tượng
+                        - combobox [ref=f4e400]:
+                          - option "Chọn vùng miền / châu"
+                          - option "Châu Á"
+                          - option "Châu Âu"
+                          - option "Châu Mỹ"
+                          - option "Châu Phi"
+                          - option "Châu Úc"
+                          - option "Đông Nam Á"
+                          - option "Miền Bắc"
+                          - option "Miền Đông Nam Bộ" [selected]
+                          - option "Miền Tây Nam Bộ"
+                          - option "Miền Trung"
+                          - option "Tây Nguyên"
+                  - generic [ref=f4e401]:
+                    - generic [ref=f4e402]:
+                      - paragraph [ref=f4e403]: Filter 4
+                      - button "Xóa filter 4" [ref=f4e404]
+                    - generic [ref=f4e406]:
+                      - generic [ref=f4e407]:
+                        - text: Phân loại theo
+                        - combobox [ref=f4e408]:
+                          - option "Loại tour"
+                          - option "Điểm đến"
+                          - option "Chủ đề"
+                          - option "Vùng miền / Châu" [selected]
+                      - generic [ref=f4e409]:
+                        - text: Đối tượng
+                        - combobox [ref=f4e410]:
+                          - option "Chọn vùng miền / châu"
+                          - option "Châu Á"
+                          - option "Châu Âu"
+                          - option "Châu Mỹ"
+                          - option "Châu Phi"
+                          - option "Châu Úc"
+                          - option "Đông Nam Á"
+                          - option "Miền Bắc"
+                          - option "Miền Đông Nam Bộ"
+                          - option "Miền Tây Nam Bộ" [selected]
+                          - option "Miền Trung"
+                          - option "Tây Nguyên"
+                  - generic [ref=f4e411]:
+                    - generic [ref=f4e412]:
+                      - paragraph [ref=f4e413]: Filter 5
+                      - button "Xóa filter 5" [ref=f4e414]
+                    - generic [ref=f4e416]:
+                      - generic [ref=f4e417]:
+                        - text: Phân loại theo
+                        - combobox [ref=f4e418]:
+                          - option "Loại tour"
+                          - option "Điểm đến"
+                          - option "Chủ đề"
+                          - option "Vùng miền / Châu" [selected]
+                      - generic [ref=f4e419]:
+                        - text: Đối tượng
+                        - combobox [ref=f4e420]:
+                          - option "Chọn vùng miền / châu"
+                          - option "Châu Á" [selected]
+                          - option "Châu Âu"
+                          - option "Châu Mỹ"
+                          - option "Châu Phi"
+                          - option "Châu Úc"
+                          - option "Đông Nam Á"
+                          - option "Miền Bắc"
+                          - option "Miền Đông Nam Bộ"
+                          - option "Miền Tây Nam Bộ"
+                          - option "Miền Trung"
+                          - option "Tây Nguyên"
+                  - generic [ref=f4e421]:
+                    - generic [ref=f4e422]:
+                      - paragraph [ref=f4e423]: Filter 6
+                      - button "Xóa filter 6" [ref=f4e424]
+                    - generic [ref=f4e426]:
+                      - generic [ref=f4e427]:
+                        - text: Phân loại theo
+                        - combobox [ref=f4e428]:
+                          - option "Loại tour"
+                          - option "Điểm đến"
+                          - option "Chủ đề"
+                          - option "Vùng miền / Châu" [selected]
+                      - generic [ref=f4e429]:
+                        - text: Đối tượng
+                        - combobox [ref=f4e430]:
+                          - option "Chọn vùng miền / châu"
+                          - option "Châu Á"
+                          - option "Châu Âu" [selected]
+                          - option "Châu Mỹ"
+                          - option "Châu Phi"
+                          - option "Châu Úc"
+                          - option "Đông Nam Á"
+                          - option "Miền Bắc"
+                          - option "Miền Đông Nam Bộ"
+                          - option "Miền Tây Nam Bộ"
+                          - option "Miền Trung"
+                          - option "Tây Nguyên"
+                  - generic [ref=f4e431]:
+                    - generic [ref=f4e432]:
+                      - paragraph [ref=f4e433]: Filter 7
+                      - button "Xóa filter 7" [ref=f4e434]
+                    - generic [ref=f4e436]:
+                      - generic [ref=f4e437]:
+                        - text: Phân loại theo
+                        - combobox [ref=f4e438]:
+                          - option "Loại tour"
+                          - option "Điểm đến"
+                          - option "Chủ đề"
+                          - option "Vùng miền / Châu" [selected]
+                      - generic [ref=f4e439]:
+                        - text: Đối tượng
+                        - combobox [ref=f4e440]:
+                          - option "Chọn vùng miền / châu"
+                          - option "Châu Á"
+                          - option "Châu Âu"
+                          - option "Châu Mỹ" [selected]
+                          - option "Châu Phi"
+                          - option "Châu Úc"
+                          - option "Đông Nam Á"
+                          - option "Miền Bắc"
+                          - option "Miền Đông Nam Bộ"
+                          - option "Miền Tây Nam Bộ"
+                          - option "Miền Trung"
+                          - option "Tây Nguyên"
+                  - generic [ref=f4e441]:
+                    - generic [ref=f4e442]:
+                      - paragraph [ref=f4e443]: Filter 8
+                      - button "Xóa filter 8" [ref=f4e444]
+                    - generic [ref=f4e446]:
+                      - generic [ref=f4e447]:
+                        - text: Phân loại theo
+                        - combobox [ref=f4e448]:
+                          - option "Loại tour"
+                          - option "Điểm đến"
+                          - option "Chủ đề"
+                          - option "Vùng miền / Châu" [selected]
+                      - generic [ref=f4e449]:
+                        - text: Đối tượng
+                        - combobox [ref=f4e450]:
+                          - option "Chọn vùng miền / châu"
+                          - option "Châu Á"
+                          - option "Châu Âu"
+                          - option "Châu Mỹ"
+                          - option "Châu Phi"
+                          - option "Châu Úc" [selected]
+                          - option "Đông Nam Á"
+                          - option "Miền Bắc"
+                          - option "Miền Đông Nam Bộ"
+                          - option "Miền Tây Nam Bộ"
+                          - option "Miền Trung"
+                          - option "Tây Nguyên"
+                  - generic [ref=f4e451]:
+                    - generic [ref=f4e452]:
+                      - paragraph [ref=f4e453]: Filter 9
+                      - button "Xóa filter 9" [ref=f4e454]
+                    - generic [ref=f4e456]:
+                      - generic [ref=f4e457]:
+                        - text: Phân loại theo
+                        - combobox [ref=f4e458]:
+                          - option "Loại tour"
+                          - option "Điểm đến"
+                          - option "Chủ đề"
+                          - option "Vùng miền / Châu" [selected]
+                      - generic [ref=f4e459]:
+                        - text: Đối tượng
+                        - combobox [ref=f4e460]:
+                          - option "Chọn vùng miền / châu"
+                          - option "Châu Á"
+                          - option "Châu Âu"
+                          - option "Châu Mỹ"
+                          - option "Châu Phi" [selected]
+                          - option "Châu Úc"
+                          - option "Đông Nam Á"
+                          - option "Miền Bắc"
+                          - option "Miền Đông Nam Bộ"
+                          - option "Miền Tây Nam Bộ"
+                          - option "Miền Trung"
+                          - option "Tây Nguyên"
+                - generic [ref=f4e461]:
+                  - generic [ref=f4e462]:
+                    - generic [ref=f4e463]:
+                      - heading "Tìm kiếm nổi bật" [level=5] [ref=f4e464]
+                      - paragraph [ref=f4e465]: Mỗi URL có thể thuộc một tab Miền/Châu. Không chọn filter thì liên kết chỉ hiện ở tab Tất cả.
+                    - button "Thêm liên kết" [ref=f4e466]
+                  - generic [ref=f4e468]:
+                    - generic [ref=f4e469]:
+                      - text: Nhãn hiển thị
+                      - 'textbox "Ví dụ: Hà Giang" [ref=f4e470]': Hà Giang
+                    - generic [ref=f4e471]:
+                      - text: Thuộc filter
+                      - combobox [ref=f4e472]:
+                        - option "Chỉ tab Tất cả"
+                        - option "Miền Bắc" [selected]
+                        - option "Miền Trung"
+                        - option "Miền Đông Nam Bộ"
+                        - option "Miền Tây Nam Bộ"
+                        - option "Châu Á"
+                        - option "Châu Âu"
+                        - option "Châu Mỹ"
+                        - option "Châu Úc"
+                        - option "Châu Phi"
+                    - generic [ref=f4e473]:
+                      - text: URL
+                      - textbox "/tim-tour?destination=ha-giang" [ref=f4e474]: /tim-tour?q=ha-giang
+                    - button "Xóa liên kết nổi bật 1" [ref=f4e475]
+                  - generic [ref=f4e477]:
+                    - generic [ref=f4e478]:
+                      - text: Nhãn hiển thị
+                      - 'textbox "Ví dụ: Hà Giang" [ref=f4e479]': Đà Nẵng
+                    - generic [ref=f4e480]:
+                      - text: Thuộc filter
+                      - combobox [ref=f4e481]:
+                        - option "Chỉ tab Tất cả"
+                        - option "Miền Bắc"
+                        - option "Miền Trung" [selected]
+                        - option "Miền Đông Nam Bộ"
+                        - option "Miền Tây Nam Bộ"
+                        - option "Châu Á"
+                        - option "Châu Âu"
+                        - option "Châu Mỹ"
+                        - option "Châu Úc"
+                        - option "Châu Phi"
+                    - generic [ref=f4e482]:
+                      - text: URL
+                      - textbox "/tim-tour?destination=ha-giang" [ref=f4e483]: /tim-tour?q=da-nang
+                    - button "Xóa liên kết nổi bật 2" [ref=f4e484]
+                  - generic [ref=f4e486]:
+                    - generic [ref=f4e487]:
+                      - text: Nhãn hiển thị
+                      - 'textbox "Ví dụ: Hà Giang" [ref=f4e488]': Tây Ninh
+                    - generic [ref=f4e489]:
+                      - text: Thuộc filter
+                      - combobox [ref=f4e490]:
+                        - option "Chỉ tab Tất cả"
+                        - option "Miền Bắc"
+                        - option "Miền Trung"
+                        - option "Miền Đông Nam Bộ" [selected]
+                        - option "Miền Tây Nam Bộ"
+                        - option "Châu Á"
+                        - option "Châu Âu"
+                        - option "Châu Mỹ"
+                        - option "Châu Úc"
+                        - option "Châu Phi"
+                    - generic [ref=f4e491]:
+                      - text: URL
+                      - textbox "/tim-tour?destination=ha-giang" [ref=f4e492]: /tim-tour?q=tay-ninh
+                    - button "Xóa liên kết nổi bật 3" [ref=f4e493]
+                  - generic [ref=f4e495]:
+                    - generic [ref=f4e496]:
+                      - text: Nhãn hiển thị
+                      - 'textbox "Ví dụ: Hà Giang" [ref=f4e497]': Phú Quốc
+                    - generic [ref=f4e498]:
+                      - text: Thuộc filter
+                      - combobox [ref=f4e499]:
+                        - option "Chỉ tab Tất cả"
+                        - option "Miền Bắc"
+                        - option "Miền Trung"
+                        - option "Miền Đông Nam Bộ"
+                        - option "Miền Tây Nam Bộ" [selected]
+                        - option "Châu Á"
+                        - option "Châu Âu"
+                        - option "Châu Mỹ"
+                        - option "Châu Úc"
+                        - option "Châu Phi"
+                    - generic [ref=f4e500]:
+                      - text: URL
+                      - textbox "/tim-tour?destination=ha-giang" [ref=f4e501]: /tim-tour?q=phu-quoc
+                    - button "Xóa liên kết nổi bật 4" [ref=f4e502]
+                  - generic [ref=f4e504]:
+                    - generic [ref=f4e505]:
+                      - text: Nhãn hiển thị
+                      - 'textbox "Ví dụ: Hà Giang" [ref=f4e506]': Thái Lan
+                    - generic [ref=f4e507]:
+                      - text: Thuộc filter
+                      - combobox [ref=f4e508]:
+                        - option "Chỉ tab Tất cả"
+                        - option "Miền Bắc"
+                        - option "Miền Trung"
+                        - option "Miền Đông Nam Bộ"
+                        - option "Miền Tây Nam Bộ"
+                        - option "Châu Á" [selected]
+                        - option "Châu Âu"
+                        - option "Châu Mỹ"
+                        - option "Châu Úc"
+                        - option "Châu Phi"
+                    - generic [ref=f4e509]:
+                      - text: URL
+                      - textbox "/tim-tour?destination=ha-giang" [ref=f4e510]: /tim-tour?q=thai-lan
+                    - button "Xóa liên kết nổi bật 5" [ref=f4e511]
+                  - generic [ref=f4e513]:
+                    - generic [ref=f4e514]:
+                      - text: Nhãn hiển thị
+                      - 'textbox "Ví dụ: Hà Giang" [ref=f4e515]': Pháp
+                    - generic [ref=f4e516]:
+                      - text: Thuộc filter
+                      - combobox [ref=f4e517]:
+                        - option "Chỉ tab Tất cả"
+                        - option "Miền Bắc"
+                        - option "Miền Trung"
+                        - option "Miền Đông Nam Bộ"
+                        - option "Miền Tây Nam Bộ"
+                        - option "Châu Á"
+                        - option "Châu Âu" [selected]
+                        - option "Châu Mỹ"
+                        - option "Châu Úc"
+                        - option "Châu Phi"
+                    - generic [ref=f4e518]:
+                      - text: URL
+                      - textbox "/tim-tour?destination=ha-giang" [ref=f4e519]: /tim-tour?q=phap
+                    - button "Xóa liên kết nổi bật 6" [ref=f4e520]
+                  - generic [ref=f4e522]:
+                    - generic [ref=f4e523]:
+                      - text: Nhãn hiển thị
+                      - 'textbox "Ví dụ: Hà Giang" [ref=f4e524]': Mỹ
+                    - generic [ref=f4e525]:
+                      - text: Thuộc filter
+                      - combobox [ref=f4e526]:
+                        - option "Chỉ tab Tất cả"
+                        - option "Miền Bắc"
+                        - option "Miền Trung"
+                        - option "Miền Đông Nam Bộ"
+                        - option "Miền Tây Nam Bộ"
+                        - option "Châu Á"
+                        - option "Châu Âu"
+                        - option "Châu Mỹ" [selected]
+                        - option "Châu Úc"
+                        - option "Châu Phi"
+                    - generic [ref=f4e527]:
+                      - text: URL
+                      - textbox "/tim-tour?destination=ha-giang" [ref=f4e528]: /tim-tour?q=my
+                    - button "Xóa liên kết nổi bật 7" [ref=f4e529]
+                  - generic [ref=f4e531]:
+                    - generic [ref=f4e532]:
+                      - text: Nhãn hiển thị
+                      - 'textbox "Ví dụ: Hà Giang" [ref=f4e533]': New Zealand
+                    - generic [ref=f4e534]:
+                      - text: Thuộc filter
+                      - combobox [ref=f4e535]:
+                        - option "Chỉ tab Tất cả"
+                        - option "Miền Bắc"
+                        - option "Miền Trung"
+                        - option "Miền Đông Nam Bộ"
+                        - option "Miền Tây Nam Bộ"
+                        - option "Châu Á"
+                        - option "Châu Âu"
+                        - option "Châu Mỹ"
+                        - option "Châu Úc" [selected]
+                        - option "Châu Phi"
+                    - generic [ref=f4e536]:
+                      - text: URL
+                      - textbox "/tim-tour?destination=ha-giang" [ref=f4e537]: /tim-tour?q=new-zealand
+                    - button "Xóa liên kết nổi bật 8" [ref=f4e538]
+                  - generic [ref=f4e540]:
+                    - generic [ref=f4e541]:
+                      - text: Nhãn hiển thị
+                      - 'textbox "Ví dụ: Hà Giang" [ref=f4e542]': Ai Cập
+                    - generic [ref=f4e543]:
+                      - text: Thuộc filter
+                      - combobox [ref=f4e544]:
+                        - option "Chỉ tab Tất cả"
+                        - option "Miền Bắc"
+                        - option "Miền Trung"
+                        - option "Miền Đông Nam Bộ"
+                        - option "Miền Tây Nam Bộ"
+                        - option "Châu Á"
+                        - option "Châu Âu"
+                        - option "Châu Mỹ"
+                        - option "Châu Úc"
+                        - option "Châu Phi" [selected]
+                    - generic [ref=f4e545]:
+                      - text: URL
+                      - textbox "/tim-tour?destination=ha-giang" [ref=f4e546]: /tim-tour?q=ai-cap
+                    - button "Xóa liên kết nổi bật 9" [ref=f4e547]
+            - article [ref=f4e549]:
+              - generic [ref=f4e550]:
+                - generic [ref=f4e551]:
+                  - paragraph [ref=f4e552]: Block 7
+                  - heading "Tab tour theo taxonomy" [level=4] [ref=f4e553]
+                  - generic [ref=f4e554]:
+                    - generic [ref=f4e555]: Hardcode
+                    - generic [ref=f4e556]: Đang bật
+                    - paragraph [ref=f4e557]: Form bên dưới điều chỉnh nội dung, bật/tắt và vị trí render của section hardcode này.
+                - generic [ref=f4e558]:
+                  - generic [ref=f4e559]:
+                    - checkbox "Bật block" [checked] [ref=f4e560]
+                    - text: Bật block
+                  - generic [ref=f4e561]:
+                    - button "Chuyển lên" [ref=f4e562]
+                    - button "Chuyển xuống" [ref=f4e564]
+              - generic [ref=f4e566]: Section này hiện chỉ có bật/tắt và vị trí render trong stack homepage.
+            - article [ref=f4e568]:
+              - generic [ref=f4e569]:
+                - generic [ref=f4e570]:
+                  - paragraph [ref=f4e571]: Block 8
+                  - heading "Tab vùng miền + card taxonomy" [level=4] [ref=f4e572]
+                  - generic [ref=f4e573]:
+                    - generic [ref=f4e574]: Dynamic
+                    - generic [ref=f4e575]: Đang bật
+                    - paragraph [ref=f4e576]: Block tắt sẽ được giữ trong CMS nhưng không render ra landing page.
+                  - paragraph [ref=f4e577]: "Tiêu đề block: TOUR THEO VÙNG MIỀN"
+                - generic [ref=f4e578]:
+                  - generic [ref=f4e579]:
+                    - checkbox "Bật block" [checked] [ref=f4e580]
+                    - text: Bật block
+                  - generic [ref=f4e581]:
+                    - button "Chuyển lên" [ref=f4e582]
+                    - button "Chuyển xuống" [ref=f4e584]
+                  - button "Nhân đôi" [ref=f4e586]
+                  - button "Xóa" [ref=f4e587]
+              - generic [ref=f4e588]:
+                - generic [ref=f4e589]:
+                  - generic [ref=f4e590]: Vị trí trên trang chủ
+                  - combobox [ref=f4e591]:
+                    - option "Theo vị trí mặc định"
+                    - option "Sau hero"
+                    - option "Trước thanh tìm kiếm"
+                    - option "Trước Chủ đề tour"
+                    - option "Trước Tour nổi bật"
+                    - option "Trước tab tour theo taxonomy" [selected]
+                    - option "Trước tab vùng miền"
+                    - option "Trước Điểm đến nổi bật"
+                    - option "Trước gallery landing"
+                    - option "Trước Dịch vụ hỗ trợ"
+                    - option "Trước trust proof"
+                    - option "Trước quy trình tư vấn"
+                    - option "Trước blog preview"
+                    - option "Trước FAQ"
+                    - option "Trước CTA cuối trang"
+                    - option "Sau CTA cuối trang"
+                - paragraph [ref=f4e592]: Chỉ áp dụng cho system page Trang chủ. Vị trí này là fallback cho block mới; thứ tự render thực tế lấy từ danh sách Blocks đang hiển thị ở đây.
+              - generic [ref=f4e593]:
+                - generic [ref=f4e594]: Block này lấy vùng miền làm tablist. Mỗi tab sẽ tự query dữ liệu live theo vùng miền, còn phần card bên phải có thể chuyển giữa Điểm đến hoặc Chủ đề tour. Mobile hiển thị tab ở trên, desktop chuyển sang cột trái.
+                - generic [ref=f4e595]:
+                  - generic [ref=f4e596]:
+                    - text: Tiêu đề block
+                    - textbox [ref=f4e597]: TOUR THEO VÙNG MIỀN
+                  - generic [ref=f4e598]:
+                    - text: CTA vùng miền
+                    - textbox "Xem hub vùng miền" [ref=f4e599]: Xem tất cả tour
+                  - generic [ref=f4e600]:
+                    - text: Mô tả block
+                    - textbox [ref=f4e601]
+                  - generic [ref=f4e602]:
+                    - text: Loại card trong tab
+                    - combobox [ref=f4e603]:
+                      - option "Điểm đến" [selected]
+                      - option "Chủ đề tour"
+                  - generic [ref=f4e604]:
+                    - text: CTA trên card
+                    - textbox "Để trống sẽ tự lấy theo loại card" [ref=f4e605]
+                  - generic [ref=f4e606]:
+                    - text: Scope
+                    - combobox [ref=f4e607]:
+                      - option "Tất cả" [selected]
+                      - option "Tour trong nước"
+                      - option "Tour nước ngoài"
+                      - option "Tour đoàn"
+                  - generic [ref=f4e608]:
+                    - text: Số tab vùng miền
+                    - spinbutton [ref=f4e609]: "8"
+                    - paragraph [ref=f4e610]: Tối đa 8 vùng miền để desktop sidebar vẫn gọn và dễ quét.
+                  - generic [ref=f4e611]:
+                    - text: Số card mỗi tab
+                    - spinbutton [ref=f4e612]: "8"
+                    - paragraph [ref=f4e613]: Giới hạn card dùng chung cho mọi tab vùng miền trong block này.
+                  - generic [ref=f4e614]:
+                    - checkbox "Chỉ lấy vùng miền featured làm tab" [ref=f4e615]
+                    - text: Chỉ lấy vùng miền featured làm tab
+            - article [ref=f4e616]:
+              - generic [ref=f4e617]:
+                - generic [ref=f4e618]:
+                  - paragraph [ref=f4e619]: Block 9
+                  - heading "Tab tour theo taxonomy" [level=4] [ref=f4e620]
+                  - generic [ref=f4e621]:
+                    - generic [ref=f4e622]: Dynamic
+                    - generic [ref=f4e623]: Đang bật
+                    - paragraph [ref=f4e624]: Block tắt sẽ được giữ trong CMS nhưng không render ra landing page.
+                  - paragraph [ref=f4e625]: "Tiêu đề block: Khám phá tour theo vùng, điểm đến và chủ đề"
+                - generic [ref=f4e626]:
+                  - generic [ref=f4e627]:
+                    - checkbox "Bật block" [checked] [ref=f4e628]
+                    - text: Bật block
+                  - generic [ref=f4e629]:
+                    - button "Chuyển lên" [ref=f4e630]
+                    - button "Chuyển xuống" [ref=f4e632]
+                  - button "Nhân đôi" [ref=f4e634]
+                  - button "Xóa" [ref=f4e635]
+              - generic [ref=f4e636]:
+                - generic [ref=f4e637]:
+                  - generic [ref=f4e638]: Vị trí trên trang chủ
+                  - combobox [ref=f4e639]:
+                    - option "Theo vị trí mặc định"
+                    - option "Sau hero"
+                    - option "Trước thanh tìm kiếm"
+                    - option "Trước Chủ đề tour"
+                    - option "Trước Tour nổi bật"
+                    - option "Trước tab tour theo taxonomy" [selected]
+                    - option "Trước tab vùng miền"
+                    - option "Trước Điểm đến nổi bật"
+                    - option "Trước gallery landing"
+                    - option "Trước Dịch vụ hỗ trợ"
+                    - option "Trước trust proof"
+                    - option "Trước quy trình tư vấn"
+                    - option "Trước blog preview"
+                    - option "Trước FAQ"
+                    - option "Trước CTA cuối trang"
+                    - option "Sau CTA cuối trang"
+                - paragraph [ref=f4e640]: Chỉ áp dụng cho system page Trang chủ. Vị trí này là fallback cho block mới; thứ tự render thực tế lấy từ danh sách Blocks đang hiển thị ở đây.
+              - generic [ref=f4e641]:
+                - generic [ref=f4e642]: Block này dùng cùng visual family với cụm tab tour nổi bật ở homepage, nhưng mỗi tab có thể trỏ đến một Vùng miền, Điểm đến hoặc Chủ đề tour để kéo danh sách tour live theo taxonomy tương ứng.
+                - generic [ref=f4e643]:
+                  - generic [ref=f4e644]:
+                    - text: Tiêu đề block
+                    - textbox [ref=f4e645]: Khám phá tour theo vùng, điểm đến và chủ đề
+                  - generic [ref=f4e646]:
+                    - text: Label CTA đầu block
+                    - textbox "Xem thêm" [ref=f4e647]: Xem danh sách tour
+                  - generic [ref=f4e648]:
+                    - text: Màu nền nút Xem trên card
+                    - combobox [ref=f4e649]:
+                      - option "Cam thương hiệu" [selected]
+                      - option "Xanh thương hiệu"
+                      - option "Đỏ khuyến mãi"
+                      - option "Xanh lá"
+                  - generic [ref=f4e650]:
+                    - text: Mô tả block
+                    - textbox [ref=f4e651]: Chuyển nhanh giữa các nhóm tab được chọn để xem danh sách tour live theo vùng miền, điểm đến hoặc chủ đề đang có hành trình hoạt động.
+                  - generic [ref=f4e652]:
+                    - text: Scope
+                    - combobox [ref=f4e653]:
+                      - option "Tất cả" [selected]
+                      - option "Tour trong nước"
+                      - option "Tour nước ngoài"
+                      - option "Tour đoàn"
+                  - generic [ref=f4e654]:
+                    - text: Sort
+                    - combobox [ref=f4e655]:
+                      - option "featured" [selected]
+                      - option "latest"
+                      - option "price_asc"
+                      - option "price_desc"
+                      - option "title_asc"
+                      - option "title_desc"
+                  - generic [ref=f4e656]:
+                    - text: Số lượng card mỗi tab
+                    - spinbutton [ref=f4e657]: "8"
+                    - paragraph [ref=f4e658]: Mỗi tab dùng chung giới hạn card để giữ layout đồng đều và dễ so sánh.
+                  - generic [ref=f4e659]:
+                    - checkbox "Chỉ lấy tour featured" [ref=f4e660]
+                    - text: Chỉ lấy tour featured
+                  - generic [ref=f4e661]:
+                    - checkbox "Hiển thị tour dạng slide một hàng" [checked] [ref=f4e662]
+                    - text: Hiển thị tour dạng slide một hàng
+                - generic [ref=f4e663]:
+                  - generic [ref=f4e664]:
+                    - generic [ref=f4e665]:
+                      - paragraph [ref=f4e666]: Tab 1
+                      - button "Xóa tab" [ref=f4e667]
+                    - generic [ref=f4e668]:
+                      - generic [ref=f4e669]:
+                        - text: Nguồn tab
+                        - combobox [ref=f4e670]:
+                          - option "Vùng miền"
+                          - option "Điểm đến"
+                          - option "Chủ đề tour" [selected]
+                      - generic [ref=f4e671]:
+                        - text: Chọn chủ đề tour
+                        - combobox [ref=f4e672]:
+                          - option "Chọn chủ đề tour" [selected]
+                          - option "Hành hương Châu Á"
+                          - option "Tour Lễ 2 Tháng 9 2026 - Trọn Gói Trong Nước & Nước Ngoài"
+                          - option "Du lịch 30/4"
+                          - option "Tour Giao Mùa Xuân hè Châu Âu"
+                          - option "Tour Du lịch xe Limousine"
+                          - option "Du Lịch Đảo Việt Nam"
+                          - option "Tour Mùa Đông Châu Úc"
+                          - option "Du Lịch Tàu Lửa"
+                          - option "Du lich máy bay"
+                      - generic [ref=f4e673]:
+                        - text: Label tab
+                        - textbox "Để trống sẽ dùng tên taxonomy" [ref=f4e674]
+                      - generic [ref=f4e675]:
+                        - text: Tiêu đề khi tab active
+                        - textbox "Để trống sẽ dùng tên taxonomy" [ref=f4e676]
+                      - generic [ref=f4e677]:
+                        - text: Mô tả tab active
+                        - textbox "Để trống sẽ ưu tiên excerpt của taxonomy hoặc mô tả mặc định." [ref=f4e678]
+                  - generic [ref=f4e679]:
+                    - generic [ref=f4e680]:
+                      - paragraph [ref=f4e681]: Tab 2
+                      - button "Xóa tab" [ref=f4e682]
+                    - generic [ref=f4e683]:
+                      - generic [ref=f4e684]:
+                        - text: Nguồn tab
+                        - combobox [ref=f4e685]:
+                          - option "Vùng miền"
+                          - option "Điểm đến"
+                          - option "Chủ đề tour" [selected]
+                      - generic [ref=f4e686]:
+                        - text: Chọn chủ đề tour
+                        - combobox [ref=f4e687]:
+                          - option "Chọn chủ đề tour"
+                          - option "Hành hương Châu Á"
+                          - option "Tour Lễ 2 Tháng 9 2026 - Trọn Gói Trong Nước & Nước Ngoài"
+                          - option "Du lịch 30/4"
+                          - option "Tour Giao Mùa Xuân hè Châu Âu"
+                          - option "Tour Du lịch xe Limousine" [selected]
+                          - option "Du Lịch Đảo Việt Nam"
+                          - option "Tour Mùa Đông Châu Úc"
+                          - option "Du Lịch Tàu Lửa"
+                          - option "Du lich máy bay"
+                      - generic [ref=f4e688]:
+                        - text: Label tab
+                        - textbox "Để trống sẽ dùng tên taxonomy" [ref=f4e689]
+                      - generic [ref=f4e690]:
+                        - text: Tiêu đề khi tab active
+                        - textbox "Để trống sẽ dùng tên taxonomy" [ref=f4e691]
+                      - generic [ref=f4e692]:
+                        - text: Mô tả tab active
+                        - textbox "Để trống sẽ ưu tiên excerpt của taxonomy hoặc mô tả mặc định." [ref=f4e693]
+                  - generic [ref=f4e694]:
+                    - generic [ref=f4e695]:
+                      - paragraph [ref=f4e696]: Tab 3
+                      - button "Xóa tab" [ref=f4e697]
+                    - generic [ref=f4e698]:
+                      - generic [ref=f4e699]:
+                        - text: Nguồn tab
+                        - combobox [ref=f4e700]:
+                          - option "Vùng miền"
+                          - option "Điểm đến"
+                          - option "Chủ đề tour" [selected]
+                      - generic [ref=f4e701]:
+                        - text: Chọn chủ đề tour
+                        - combobox [ref=f4e702]:
+                          - option "Chọn chủ đề tour"
+                          - option "Hành hương Châu Á"
+                          - option "Tour Lễ 2 Tháng 9 2026 - Trọn Gói Trong Nước & Nước Ngoài"
+                          - option "Du lịch 30/4"
+                          - option "Tour Giao Mùa Xuân hè Châu Âu"
+                          - option "Tour Du lịch xe Limousine"
+                          - option "Du Lịch Đảo Việt Nam"
+                          - option "Tour Mùa Đông Châu Úc"
+                          - option "Du Lịch Tàu Lửa" [selected]
+                          - option "Du lich máy bay"
+                      - generic [ref=f4e703]:
+                        - text: Label tab
+                        - textbox "Để trống sẽ dùng tên taxonomy" [ref=f4e704]
+                      - generic [ref=f4e705]:
+                        - text: Tiêu đề khi tab active
+                        - textbox "Để trống sẽ dùng tên taxonomy" [ref=f4e706]
+                      - generic [ref=f4e707]:
+                        - text: Mô tả tab active
+                        - textbox "Để trống sẽ ưu tiên excerpt của taxonomy hoặc mô tả mặc định." [ref=f4e708]
+                  - generic [ref=f4e709]:
+                    - generic [ref=f4e710]:
+                      - paragraph [ref=f4e711]: Tab 4
+                      - button "Xóa tab" [ref=f4e712]
+                    - generic [ref=f4e713]:
+                      - generic [ref=f4e714]:
+                        - text: Nguồn tab
+                        - combobox [ref=f4e715]:
+                          - option "Vùng miền"
+                          - option "Điểm đến"
+                          - option "Chủ đề tour" [selected]
+                      - generic [ref=f4e716]:
+                        - text: Chọn chủ đề tour
+                        - combobox [ref=f4e717]:
+                          - option "Chọn chủ đề tour"
+                          - option "Hành hương Châu Á" [selected]
+                          - option "Tour Lễ 2 Tháng 9 2026 - Trọn Gói Trong Nước & Nước Ngoài"
+                          - option "Du lịch 30/4"
+                          - option "Tour Giao Mùa Xuân hè Châu Âu"
+                          - option "Tour Du lịch xe Limousine"
+                          - option "Du Lịch Đảo Việt Nam"
+                          - option "Tour Mùa Đông Châu Úc"
+                          - option "Du Lịch Tàu Lửa"
+                          - option "Du lich máy bay"
+                      - generic [ref=f4e718]:
+                        - text: Label tab
+                        - textbox "Để trống sẽ dùng tên taxonomy" [ref=f4e719]
+                      - generic [ref=f4e720]:
+                        - text: Tiêu đề khi tab active
+                        - textbox "Để trống sẽ dùng tên taxonomy" [ref=f4e721]
+                      - generic [ref=f4e722]:
+                        - text: Mô tả tab active
+                        - textbox "Để trống sẽ ưu tiên excerpt của taxonomy hoặc mô tả mặc định." [ref=f4e723]
+                  - button "Thêm tab taxonomy" [ref=f4e725]
+            - article [ref=f4e727]:
+              - generic [ref=f4e728]:
+                - generic [ref=f4e729]:
+                  - paragraph [ref=f4e730]: Block 10
+                  - heading "HTML widget" [level=4] [ref=f4e731]
+                  - generic [ref=f4e732]:
+                    - generic [ref=f4e733]: Dynamic
+                    - generic [ref=f4e734]: Đang bật
+                    - paragraph [ref=f4e735]: Block tắt sẽ được giữ trong CMS nhưng không render ra landing page.
+                  - paragraph [ref=f4e736]: "Tiêu đề block: DỊCH VỤ KHÁC Giải pháp toàn diện đáp ứng mọi nhu cầu di chuyển và lưu trú của qu..."
+                - generic [ref=f4e737]:
+                  - generic [ref=f4e738]:
+                    - checkbox "Bật block" [checked] [ref=f4e739]
+                    - text: Bật block
+                  - generic [ref=f4e740]:
+                    - button "Chuyển lên" [ref=f4e741]
+                    - button "Chuyển xuống" [ref=f4e743]
+                  - button "Nhân đôi" [ref=f4e745]
+                  - button "Xóa" [ref=f4e746]
+              - generic [ref=f4e747]:
+                - generic [ref=f4e748]:
+                  - generic [ref=f4e749]: Vị trí trên trang chủ
+                  - combobox [ref=f4e750]:
+                    - option "Theo vị trí mặc định"
+                    - option "Sau hero"
+                    - option "Trước thanh tìm kiếm"
+                    - option "Trước Chủ đề tour"
+                    - option "Trước Tour nổi bật"
+                    - option "Trước tab tour theo taxonomy"
+                    - option "Trước tab vùng miền"
+                    - option "Trước Điểm đến nổi bật"
+                    - option "Trước gallery landing"
+                    - option "Trước Dịch vụ hỗ trợ" [selected]
+                    - option "Trước trust proof"
+                    - option "Trước quy trình tư vấn"
+                    - option "Trước blog preview"
+                    - option "Trước FAQ"
+                    - option "Trước CTA cuối trang"
+                    - option "Sau CTA cuối trang"
+                - paragraph [ref=f4e751]: Chỉ áp dụng cho system page Trang chủ. Vị trí này là fallback cho block mới; thứ tự render thực tế lấy từ danh sách Blocks đang hiển thị ở đây.
+              - generic [ref=f4e752]:
+                - generic [ref=f4e753]: Block này render trực tiếp HTML tại đúng vị trí trong stack landing page. Mặc định block rỗng để bạn dán widget, snippet hoặc markup đã kiểm tra.
+                - generic [ref=f4e754]:
+                  - text: Mã HTML widget
+                  - textbox "<section>...</section>" [ref=f4e755]: "<!-- PHẦN: CÁC DỊCH VỤ KHÁC --> <section class=\"bg-[color:var(--color-bg-soft)] px-4 py-8 sm:px-6 lg:px-8 lg:py-10\"> <div class=\"mx-auto max-w-7xl\"> <div class=\"mx-auto max-w-3xl text-center\"> <h2 class=\"frontsite-h2 mx-auto text-center\">DỊCH VỤ KHÁC</h2> <p class=\"mt-3 text-sm leading-7 text-slate-600\">Giải pháp toàn diện đáp ứng mọi nhu cầu di chuyển và lưu trú của quý khách</p> </div> <div class=\"mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4\"> <!-- Dịch vụ Cho thuê xe --> <a href=\"https://haidangtravel.com/thue-xe-du-lich\" class=\"group overflow-hidden rounded-[1.75rem] border border-orange-100 bg-[linear-gradient(180deg,_#fff8f2_0%,_#ffffff_100%)] shadow-[0_24px_70px_-50px_rgba(255,106,0,0.25)] hover:shadow-lg transition\"> <div class=\"p-6\"> <div class=\"inline-flex size-14 items-center justify-center rounded-full bg-white text-lg font-black text-primary shadow-sm group-hover:bg-primary group-hover:text-white transition\"> <i class=\"fa-solid fa-car text-xl\"></i> </div> <h3 class=\"mt-5 font-heading text-xl font-bold text-slate-950 group-hover:text-primary transition\">Cho thuê xe</h3> <p class=\"mt-4 text-sm leading-7 text-slate-600\">Đa dạng xe từ 4 chỗ đến 45 chỗ, xe giường nằm, xe Limousine. Tài xế chuyên nghiệp, giá tốt nhất.</p> <div class=\"mt-4 inline-flex items-center gap-1 text-primary text-sm font-semibold group-hover:gap-2 transition\">Xem chi tiết <i class=\"fa-solid fa-arrow-right\"></i></div> </div> </a> <!-- Dịch vụ Vé máy bay --> <a href=\"https://haidangtravel.com/ve-may-bay-gia-re\" class=\"group overflow-hidden rounded-[1.75rem] border border-orange-100 bg-[linear-gradient(180deg,_#fff8f2_0%,_#ffffff_100%)] shadow-[0_24px_70px_-50px_rgba(255,106,0,0.25)] hover:shadow-lg transition\"> <div class=\"p-6\"> <div class=\"inline-flex size-14 items-center justify-center rounded-full bg-white text-lg font-black text-primary shadow-sm group-hover:bg-primary group-hover:text-white transition\"> <i class=\"fa-solid fa-plane-departure text-xl\"></i> </div> <h3 class=\"mt-5 font-heading text-xl font-bold text-slate-950 group-hover:text-primary transition\">Vé máy bay</h3> <p class=\"mt-4 text-sm leading-7 text-slate-600\">Đại lý chính thức của các hãng bay nội địa và quốc tế. Giá tốt, hỗ trợ đổi/hoàn vé linh hoạt.</p> <div class=\"mt-4 inline-flex items-center gap-1 text-primary text-sm font-semibold group-hover:gap-2 transition\">Xem chi tiết <i class=\"fa-solid fa-arrow-right\"></i></div> </div> </a> <!-- Dịch vụ Visa --> <a href=\"https://haidangtravel.com/visa-passport\" class=\"group overflow-hidden rounded-[1.75rem] border border-orange-100 bg-[linear-gradient(180deg,_#fff8f2_0%,_#ffffff_100%)] shadow-[0_24px_70px_-50px_rgba(255,106,0,0.25)] hover:shadow-lg transition\"> <div class=\"p-6\"> <div class=\"inline-flex size-14 items-center justify-center rounded-full bg-white text-lg font-black text-primary shadow-sm group-hover:bg-primary group-hover:text-white transition\"> <i class=\"fa-solid fa-passport text-4xl\"></i> </div> <h3 class=\"mt-5 font-heading text-xl font-bold text-slate-950 group-hover:text-primary transition\">Dịch vụ Visa</h3> <p class=\"mt-4 text-sm leading-7 text-slate-600\">Hỗ trợ xin visa các nước Châu Á, Châu Âu, Châu Mỹ, Châu Úc. Tỷ lệ đậu cao, thủ tục nhanh.</p> <div class=\"mt-4 inline-flex items-center gap-1 text-primary text-sm font-semibold group-hover:gap-2 transition\">Xem chi tiết <i class=\"fa-solid fa-arrow-right\"></i></div> </div> </a> <!-- Dịch vụ Du học --> <a href=\"https://haidangtravel.com/tu-van-du-hoc\" class=\"group overflow-hidden rounded-[1.75rem] border border-orange-100 bg-[linear-gradient(180deg,_#fff8f2_0%,_#ffffff_100%)] shadow-[0_24px_70px_-50px_rgba(255,106,0,0.25)] hover:shadow-lg transition\"> <div class=\"p-6\"> <div class=\"inline-flex size-14 items-center justify-center rounded-full bg-white text-lg font-black text-primary shadow-sm group-hover:bg-primary group-hover:text-white transition\"> <i class=\"fa-solid fa-graduation-cap text-4xl\"></i> </div> <h3 class=\"mt-5 font-heading text-xl font-bold text-slate-950 group-hover:text-primary transition\">Tư vấn du học</h3> <p class=\"mt-4 text-sm leading-7 text-slate-600\">Định hướng lộ trình, chọn trường, hoàn thiện hồ sơ du học các nước. Hỗ trợ săn học bổng.</p> <div class=\"mt-4 inline-flex items-center gap-1 text-primary text-sm font-semibold group-hover:gap-2 transition\">Xem chi tiết <i class=\"fa-solid fa-arrow-right\"></i></div> </div> </a> </div> </div> </section>"
+                  - paragraph [ref=f4e756]: Để trống nếu bạn chỉ muốn giữ sẵn một vị trí widget và bật nội dung sau.
+            - article [ref=f4e757]:
+              - generic [ref=f4e758]:
+                - generic [ref=f4e759]:
+                  - paragraph [ref=f4e760]: Block 11
+                  - heading "Tab vùng miền" [level=4] [ref=f4e761]
+                  - generic [ref=f4e762]:
+                    - generic [ref=f4e763]: Hardcode
+                    - generic [ref=f4e764]: Đang bật
+                    - paragraph [ref=f4e765]: Form bên dưới điều chỉnh nội dung, bật/tắt và vị trí render của section hardcode này.
+                - generic [ref=f4e766]:
+                  - generic [ref=f4e767]:
+                    - checkbox "Bật block" [checked] [ref=f4e768]
+                    - text: Bật block
+                  - generic [ref=f4e769]:
+                    - button "Chuyển lên" [ref=f4e770]
+                    - button "Chuyển xuống" [ref=f4e772]
+              - generic [ref=f4e774]: Section này hiện chỉ có bật/tắt và vị trí render trong stack homepage.
+            - article [ref=f4e776]:
+              - generic [ref=f4e777]:
+                - generic [ref=f4e778]:
+                  - paragraph [ref=f4e779]: Block 12
+                  - heading "Điểm đến nổi bật" [level=4] [ref=f4e780]
+                  - generic [ref=f4e781]:
+                    - generic [ref=f4e782]: Hardcode
+                    - generic [ref=f4e783]: Đang bật
+                    - paragraph [ref=f4e784]: Form bên dưới điều chỉnh nội dung, bật/tắt và vị trí render của section hardcode này.
+                - generic [ref=f4e785]:
+                  - generic [ref=f4e786]:
+                    - checkbox "Bật block" [checked] [ref=f4e787]
+                    - text: Bật block
+                  - generic [ref=f4e788]:
+                    - button "Chuyển lên" [ref=f4e789]
+                    - button "Chuyển xuống" [ref=f4e791]
+              - generic [ref=f4e794]:
+                - generic [ref=f4e795]:
+                  - text: Tiêu đề block
+                  - textbox [ref=f4e796]: TOUR THEO ĐIỂM ĐẾN
+                - generic [ref=f4e797]:
+                  - text: Mô tả block
+                  - textbox [ref=f4e798]: Tổng hợp các tour du lịch theo điểm đến đang được quan tâm nhất trong tháng
+                - generic [ref=f4e799]:
+                  - text: Label CTA trên card
+                  - textbox [ref=f4e800]: Xem tất cả
+                - generic [ref=f4e801]:
+                  - text: Điểm đến ưu tiên
+                  - listbox [ref=f4e2625]:
+                    - option "Du Lịch Buôn Ma Thuột" [ref=f4e2626]
+                    - option "Du Lịch Cà Mau" [ref=f4e2627]
+                    - option "Du Lịch Cần Thơ" [ref=f4e2628]
+                    - option "Du Lịch Châu Đốc" [ref=f4e2629]
+                    - option "Du Lịch Côn Đảo" [ref=f4e2630]
+                    - option "Du Lịch Đà Nẵng" [ref=f4e2631]
+                    - option "Du Lịch Đảo Bình Ba" [ref=f4e2632]
+                    - option "Du Lịch Đảo Bình Hưng" [ref=f4e2633]
+                    - option "Du Lịch Đảo Lý Sơn" [ref=f4e2634]
+                    - option "Du Lịch Đồng Tháp" [ref=f4e2635]
+                    - option "Du Lịch Hà Giang" [ref=f4e2636]
+                    - option "Du Lịch Hạ Long" [ref=f4e2637]
+                    - option "Du Lịch Hà Nội" [ref=f4e2638]
+                    - option "Du Lịch Hội An" [ref=f4e2639]
+                    - option "Du Lịch Huế" [ref=f4e2640]
+                    - option "Du Lịch Mộc Châu" [ref=f4e2641]
+                    - option "Du Lịch Ninh Bình" [ref=f4e2642]
+                    - option "Du Lịch Ninh Chữ" [ref=f4e2643]
+                    - option "Du Lịch Quy Nhơn" [ref=f4e2644]
+                    - option "Du Lịch Sapa" [ref=f4e2645]
+                    - option "Du Lịch Tây Ninh" [ref=f4e2646]
+                    - option "Du Lịch Tây Tạng" [ref=f4e2647]
+                    - option "Tour Du Lịch Nha Trang 2026" [ref=f4e2648]
+                    - option "Tour Du Lịch Phú Yên 2026" [ref=f4e2649]
+                    - option "Tour Phan Thiết 2026" [ref=f4e2650]
+                    - option "Du Lịch Phú Quốc" [selected] [ref=f4e2651]
+                    - option "Tour Du Lịch Đà Lạt 2026" [selected] [ref=f4e2652]
+                    - option "Tour Du Lịch Măng Đen 2026" [selected] [ref=f4e2653]
+                    - option "Tour du lịch Tà Đùng 2026" [selected] [ref=f4e2654]
+                  - generic [ref=f4e2656]:
+                    - generic [ref=f4e2657] [cursor=pointer]:
+                      - text: Du Lịch Phú Quốc
+                      - link "×" [ref=f4e2658]:
+                        - /url: javascript:void(0)
+                    - generic [ref=f4e2659] [cursor=pointer]:
+                      - text: Tour Du Lịch Đà Lạt 2026
+                      - link "×" [ref=f4e2660]:
+                        - /url: javascript:void(0)
+                    - generic [ref=f4e2661] [cursor=pointer]:
+                      - text: Tour Du Lịch Măng Đen 2026
+                      - link "×" [ref=f4e2662]:
+                        - /url: javascript:void(0)
+                    - generic [ref=f4e2663] [cursor=pointer]:
+                      - text: Tour du lịch Tà Đùng 2026
+                      - link "×" [ref=f4e2664]:
+                        - /url: javascript:void(0)
+                    - combobox "Chọn tối đa 8 điểm đến cho slider" [ref=f4e2665]
+                  - paragraph [ref=f4e835]: Nếu để trống, frontsite sẽ tự lấy các điểm đến nổi bật đang có tour hoạt động.
+            - article [ref=f4e1757]:
+              - generic [ref=f4e1758]:
+                - generic [ref=f4e1759]:
+                  - paragraph [ref=f4e1760]: Block 13
+                  - heading "Gallery từ media" [level=4] [ref=f4e1761]
+                  - generic [ref=f4e1762]:
+                    - generic [ref=f4e1763]: Dynamic
+                    - generic [ref=f4e1764]: Đang bật
+                    - paragraph [ref=f4e1765]: Block tắt sẽ được giữ trong CMS nhưng không render ra landing page.
+                  - paragraph [ref=f4e1766]: "Tiêu đề block: Chưa đặt tiêu đề"
+                - generic [ref=f4e1767]:
+                  - generic [ref=f4e1768]:
+                    - checkbox "Bật block" [checked] [ref=f4e1769]
+                    - text: Bật block
+                  - generic [ref=f4e1770]:
+                    - button "Chuyển lên" [ref=f4e1771]
+                    - button "Chuyển xuống" [ref=f4e1773]
+                  - button "Nhân đôi" [ref=f4e1775]
+                  - button "Xóa" [ref=f4e1776]
+              - generic [ref=f4e1777]:
+                - generic [ref=f4e1778]:
+                  - generic [ref=f4e1779]: Vị trí trên trang chủ
+                  - combobox [ref=f4e1780]:
+                    - option "Theo vị trí mặc định"
+                    - option "Sau hero"
+                    - option "Trước thanh tìm kiếm"
+                    - option "Trước Chủ đề tour"
+                    - option "Trước Tour nổi bật"
+                    - option "Trước tab tour theo taxonomy"
+                    - option "Trước tab vùng miền"
+                    - option "Trước Điểm đến nổi bật"
+                    - option "Trước gallery landing" [selected]
+                    - option "Trước Dịch vụ hỗ trợ"
+                    - option "Trước trust proof"
+                    - option "Trước quy trình tư vấn"
+                    - option "Trước blog preview"
+                    - option "Trước FAQ"
+                    - option "Trước CTA cuối trang"
+                    - option "Sau CTA cuối trang"
+                - paragraph [ref=f4e1781]: Chỉ áp dụng cho system page Trang chủ. Vị trí này là fallback cho block mới; thứ tự render thực tế lấy từ danh sách Blocks đang hiển thị ở đây.
+              - generic [ref=f4e1782]:
+                - generic [ref=f4e1783]:
+                  - text: Eyebrow
+                  - textbox [ref=f4e1784]
+                - generic [ref=f4e1785]:
+                  - text: Tiêu đề
+                  - textbox [ref=f4e1786]
+                - generic [ref=f4e1787]:
+                  - text: Mô tả
+                  - generic [ref=f4e1791]:
+                    - text: Mô tả ngắn cho hero hoặc gallery.
+                    - paragraph [ref=f4e1792]
+              - generic [ref=f4e1793]:
+                - generic [ref=f4e1794]:
+                  - generic [ref=f4e1795]:
+                    - text: Kiểu gallery
+                    - combobox [ref=f4e1796]:
+                      - option "Lưới thường" [selected]
+                      - option "Gallery tab ảnh"
+                  - generic [ref=f4e1797]: "`Gallery tab ảnh` sẽ nhóm item theo trường Nhãn tab và render kiểu mosaic giống block landing khám phá điểm đến. Mỗi tab cần ít nhất 1 item để hiển thị."
+                - generic [ref=f4e1798]:
+                  - generic [ref=f4e1799]:
+                    - paragraph [ref=f4e1800]: Gallery item 1
+                    - button "Xóa item" [ref=f4e1801]
+                  - generic [ref=f4e1802]:
+                    - generic [ref=f4e1803]: Chưa chọn media.
+                    - generic [ref=f4e1805]:
+                      - generic [ref=f4e1806]:
+                        - generic [ref=f4e1807]:
+                          - text: Nhãn tab
+                          - 'textbox "Ví dụ: Miền Bắc, Châu Á..." [ref=f4e1808]'
+                        - generic [ref=f4e1809]:
+                          - text: Tiêu đề
+                          - textbox [ref=f4e1810]
+                        - generic [ref=f4e1811]:
+                          - text: Subtitle
+                          - textbox [ref=f4e1812]
+                        - generic [ref=f4e1813]:
+                          - text: Kiểu tile
+                          - combobox [ref=f4e1814]:
+                            - option "Ô chuẩn" [selected]
+                            - option "Ô ngang"
+                            - option "Ô dọc"
+                            - option "Ô nổi bật"
+                        - generic [ref=f4e1815]:
+                          - text: Link
+                          - textbox [ref=f4e1816]
+                        - generic [ref=f4e1817]:
+                          - text: Alt text
+                          - textbox [ref=f4e1818]
+                        - generic [ref=f4e1819]:
+                          - text: Mô tả
+                          - generic [ref=f4e1823]:
+                            - text: Mô tả ngắn cho item gallery.
+                            - paragraph [ref=f4e1824]
+                      - button "Chọn từ Media popup" [ref=f4e1826]
+                - generic [ref=f4e2666]:
+                  - generic [ref=f4e2667]:
+                    - paragraph [ref=f4e2668]: Gallery item 2
+                    - button "Xóa item" [ref=f4e2669]
+                  - generic [ref=f4e2670]:
+                    - generic [ref=f4e2671]: Chưa chọn media.
+                    - generic [ref=f4e2673]:
+                      - generic [ref=f4e2674]:
+                        - generic [ref=f4e2675]:
+                          - text: Nhãn tab
+                          - 'textbox "Ví dụ: Miền Bắc, Châu Á..." [ref=f4e2676]'
+                        - generic [ref=f4e2677]:
+                          - text: Tiêu đề
+                          - textbox [ref=f4e2678]
+                        - generic [ref=f4e2679]:
+                          - text: Subtitle
+                          - textbox [ref=f4e2680]
+                        - generic [ref=f4e2681]:
+                          - text: Kiểu tile
+                          - combobox [ref=f4e2682]:
+                            - option "Ô chuẩn" [selected]
+                            - option "Ô ngang"
+                            - option "Ô dọc"
+                            - option "Ô nổi bật"
+                        - generic [ref=f4e2683]:
+                          - text: Link
+                          - textbox [ref=f4e2684]
+                        - generic [ref=f4e2685]:
+                          - text: Alt text
+                          - textbox [ref=f4e2686]
+                        - generic [ref=f4e2687]:
+                          - text: Mô tả
+                          - generic [ref=f4e2691]:
+                            - text: Mô tả ngắn cho item gallery.
+                            - paragraph [ref=f4e2692]
+                      - button "Chọn từ Media popup" [ref=f4e2694]
+                - button "Thêm item gallery" [active] [ref=f4e1829]
+            - article [ref=f4e1831]:
+              - generic [ref=f4e1832]:
+                - generic [ref=f4e1833]:
+                  - paragraph [ref=f4e1834]: Block 14
+                  - heading "Gallery landing" [level=4] [ref=f4e1835]
+                  - generic [ref=f4e1836]:
+                    - generic [ref=f4e1837]: Hardcode
+                    - generic [ref=f4e1838]: Đang bật
+                    - paragraph [ref=f4e1839]: Form bên dưới điều chỉnh nội dung, bật/tắt và vị trí render của section hardcode này.
+                - generic [ref=f4e1840]:
+                  - generic [ref=f4e1841]:
+                    - checkbox "Bật block" [checked] [ref=f4e1842]
+                    - text: Bật block
+                  - generic [ref=f4e1843]:
+                    - button "Chuyển lên" [ref=f4e1844]
+                    - button "Chuyển xuống" [ref=f4e1846]
+              - generic [ref=f4e1848]: Section này hiện chỉ có bật/tắt và vị trí render trong stack homepage.
+            - article [ref=f4e1850]:
+              - generic [ref=f4e1851]:
+                - generic [ref=f4e1852]:
+                  - paragraph [ref=f4e1853]: Block 15
+                  - heading "Dịch vụ hỗ trợ" [level=4] [ref=f4e1854]
+                  - generic [ref=f4e1855]:
+                    - generic [ref=f4e1856]: Hardcode
+                    - generic [ref=f4e1857]: Đang tắt
+                    - paragraph [ref=f4e1858]: Form bên dưới điều chỉnh nội dung, bật/tắt và vị trí render của section hardcode này.
+                - generic [ref=f4e1859]:
+                  - generic [ref=f4e1860]:
+                    - checkbox "Bật block" [ref=f4e1861]
+                    - text: Bật block
+                  - generic [ref=f4e1862]:
+                    - button "Chuyển lên" [ref=f4e1863]
+                    - button "Chuyển xuống" [ref=f4e1865]
+              - generic [ref=f4e1868]:
+                - generic [ref=f4e1869]:
+                  - text: Tiêu đề block
+                  - textbox [ref=f4e1870]: DỊCH VỤ HỖ TRỢ
+                - generic [ref=f4e1871]:
+                  - text: Label CTA
+                  - textbox [ref=f4e1872]
+                - generic [ref=f4e1873]:
+                  - text: Mô tả block
+                  - textbox [ref=f4e1874]
+                - generic [ref=f4e1875]:
+                  - text: URL CTA
+                  - textbox [ref=f4e1876]
+                - generic [ref=f4e1877]:
+                  - text: Dịch vụ ưu tiên
+                  - listbox [ref=f4e2696]:
+                    - option "Đại lý vé máy bay giá rẻ" [ref=f4e2697]
+                    - option "Làm visa - passport chuyên nghiệp" [ref=f4e2698]
+                    - option "Sim du lịch quốc tế" [ref=f4e2699]
+                    - option "Tư vấn du học - lộ trình rõ ràng" [ref=f4e2700]
+                  - combobox "Chọn tối đa 4 dịch vụ" [ref=f4e2703]
+                  - paragraph [ref=f4e1886]: Nếu để trống, homepage sẽ tự lấy các dịch vụ đang được đánh dấu nổi bật.
+            - article [ref=f4e1887]:
+              - generic [ref=f4e1888]:
+                - generic [ref=f4e1889]:
+                  - paragraph [ref=f4e1890]: Block 16
+                  - heading "Rich text" [level=4] [ref=f4e1891]
+                  - generic [ref=f4e1892]:
+                    - generic [ref=f4e1893]: Dynamic
+                    - generic [ref=f4e1894]: Đang tắt
+                    - paragraph [ref=f4e1895]: Block tắt sẽ được giữ trong CMS nhưng không render ra landing page.
+                  - paragraph [ref=f4e1896]: "Tiêu đề block: Mình đi đâu ta?"
+                - generic [ref=f4e1897]:
+                  - generic [ref=f4e1898]:
+                    - checkbox "Bật block" [ref=f4e1899]
+                    - text: Bật block
+                  - generic [ref=f4e1900]:
+                    - button "Chuyển lên" [ref=f4e1901]
+                    - button "Chuyển xuống" [ref=f4e1903]
+                  - button "Nhân đôi" [ref=f4e1905]
+                  - button "Xóa" [ref=f4e1906]
+              - generic [ref=f4e1907]: Block này đang ở trạng thái tắt. Bạn vẫn có thể chỉnh nội dung, đổi thứ tự hoặc bật lại khi cần.
+              - generic [ref=f4e1908]:
+                - generic [ref=f4e1909]:
+                  - generic [ref=f4e1910]: Vị trí trên trang chủ
+                  - combobox [ref=f4e1911]:
+                    - option "Theo vị trí mặc định"
+                    - option "Sau hero"
+                    - option "Trước thanh tìm kiếm"
+                    - option "Trước Chủ đề tour"
+                    - option "Trước Tour nổi bật"
+                    - option "Trước tab tour theo taxonomy"
+                    - option "Trước tab vùng miền"
+                    - option "Trước Điểm đến nổi bật"
+                    - option "Trước gallery landing"
+                    - option "Trước Dịch vụ hỗ trợ"
+                    - option "Trước trust proof" [selected]
+                    - option "Trước quy trình tư vấn"
+                    - option "Trước blog preview"
+                    - option "Trước FAQ"
+                    - option "Trước CTA cuối trang"
+                    - option "Sau CTA cuối trang"
+                - paragraph [ref=f4e1912]: Chỉ áp dụng cho system page Trang chủ. Vị trí này là fallback cho block mới; thứ tự render thực tế lấy từ danh sách Blocks đang hiển thị ở đây.
+              - generic [ref=f4e1913]:
+                - generic [ref=f4e1914]:
+                  - text: Eyebrow
+                  - textbox [ref=f4e1915]
+                - generic [ref=f4e1916]:
+                  - text: Tiêu đề
+                  - textbox [ref=f4e1917]: Mình đi đâu ta?
+                - generic [ref=f4e1918]:
+                  - text: Excerpt
+                  - paragraph [ref=f4e1923]: Khởi tạo nhanh hành trình từ nhóm tour nổi bật, điểm đến yêu thích và dịch vụ cần thiết.
+                - generic [ref=f4e1924]:
+                  - text: Body
+                  - generic [ref=f4e1998]:
+                    - generic [ref=f4e1999]:
+                      - paragraph [ref=f4e2000]
+                      - paragraph [ref=f4e2001]: Launch set giữ lại các nhóm hành trình và dịch vụ cốt lõi để site travel ra mắt gọn, dễ mở rộng.
+                    - text: "Visit URL: EditRemove"
+            - article [ref=f4e2002]:
+              - generic [ref=f4e2003]:
+                - generic [ref=f4e2004]:
+                  - paragraph [ref=f4e2005]: Block 17
+                  - heading "Giới thiệu & giải thưởng" [level=4] [ref=f4e2006]
+                  - generic [ref=f4e2007]:
+                    - generic [ref=f4e2008]: Hardcode
+                    - generic [ref=f4e2009]: Đang bật
+                    - paragraph [ref=f4e2010]: Form bên dưới điều chỉnh nội dung, bật/tắt và vị trí render của section hardcode này.
+                - generic [ref=f4e2011]:
+                  - generic [ref=f4e2012]:
+                    - checkbox "Bật block" [checked] [ref=f4e2013]
+                    - text: Bật block
+                  - generic [ref=f4e2014]:
+                    - button "Chuyển lên" [ref=f4e2015]
+                    - button "Chuyển xuống" [ref=f4e2017]
+              - generic [ref=f4e2019]:
+                - generic [ref=f4e2020]:
+                  - generic [ref=f4e2021]:
+                    - text: Tiêu đề section
+                    - textbox [ref=f4e2022]: HAIDANGTRAVEL – HỆ SINH THÁI LỮ HÀNH TOÀN CẦU
+                  - generic [ref=f4e2023]:
+                    - text: Dòng giới thiệu ngắn
+                    - 'textbox "Ví dụ: Nâng tầm giá trị cuộc sống" [ref=f4e2024]'
+                  - generic [ref=f4e2025]:
+                    - text: Mô tả doanh nghiệp
+                    - textbox [ref=f4e2026]: Với mạng lưới đối tác toàn cầu và hệ thống vận hành chuyên nghiệp, Haidangtravel tự hào là đơn vị lữ hành uy tín hàng đầu, cung cấp giải pháp du lịch toàn diện cho hàng triệu khách hàng cá nhân và doanh nghiệp mỗi năm.
+                - generic [ref=f4e2027]:
+                  - generic [ref=f4e2029]:
+                    - heading "Số liệu nổi bật" [level=4] [ref=f4e2030]
+                    - paragraph [ref=f4e2031]: Tối đa 3 chỉ số, hiển thị thành ba thẻ bên dưới phần giới thiệu.
+                  - generic [ref=f4e2032]:
+                    - generic [ref=f4e2033]:
+                      - generic [ref=f4e2034]:
+                        - paragraph [ref=f4e2035]: Chỉ số 1
+                        - button "Xóa" [ref=f4e2036]
+                      - generic [ref=f4e2037]:
+                        - generic [ref=f4e2038]:
+                          - text: Giá trị
+                          - textbox "19+" [ref=f4e2039]
+                        - generic [ref=f4e2040]:
+                          - text: Nhãn
+                          - textbox "Năm kinh nghiệm" [ref=f4e2041]
+                    - generic [ref=f4e2042]:
+                      - generic [ref=f4e2043]:
+                        - paragraph [ref=f4e2044]: Chỉ số 2
+                        - button "Xóa" [ref=f4e2045]
+                      - generic [ref=f4e2046]:
+                        - generic [ref=f4e2047]:
+                          - text: Giá trị
+                          - textbox "19+" [ref=f4e2048]
+                        - generic [ref=f4e2049]:
+                          - text: Nhãn
+                          - textbox "Năm kinh nghiệm" [ref=f4e2050]
+                    - generic [ref=f4e2051]:
+                      - generic [ref=f4e2052]:
+                        - paragraph [ref=f4e2053]: Chỉ số 3
+                        - button "Xóa" [ref=f4e2054]
+                      - generic [ref=f4e2055]:
+                        - generic [ref=f4e2056]:
+                          - text: Giá trị
+                          - textbox "19+" [ref=f4e2057]
+                        - generic [ref=f4e2058]:
+                          - text: Nhãn
+                          - textbox "Năm kinh nghiệm" [ref=f4e2059]
+                - generic [ref=f4e2060]:
+                  - generic [ref=f4e2061]:
+                    - generic [ref=f4e2062]:
+                      - heading "Ảnh giải thưởng" [level=4] [ref=f4e2063]
+                      - paragraph [ref=f4e2064]: Các ảnh hợp lệ sẽ chạy thành slider bên phải. Nên dùng ảnh rõ nét, nền sạch và cùng tỷ lệ.
+                    - button "Thêm giải thưởng" [ref=f4e2065]
+                  - generic [ref=f4e2066]:
+                    - generic [ref=f4e2067]:
+                      - generic [ref=f4e2068]:
+                        - paragraph [ref=f4e2069]: Giải thưởng 1
+                        - button "Xóa" [ref=f4e2070]
+                      - generic [ref=f4e2071]:
+                        - generic [ref=f4e2072]:
+                          - img "6-italia" [ref=f4e2074]
+                          - generic [ref=f4e2075]:
+                            - button "Chọn từ Media popup" [ref=f4e2076]
+                            - button "Xóa ảnh" [ref=f4e2078]
+                        - generic [ref=f4e2080]:
+                          - text: Tên giải thưởng
+                          - textbox [ref=f4e2081]
+                        - generic [ref=f4e2082]:
+                          - text: Mô tả ngắn
+                          - textbox [ref=f4e2083]
+                        - generic [ref=f4e2084]:
+                          - text: Alt ảnh
+                          - textbox [ref=f4e2085]: 6-italia
+                    - generic [ref=f4e2086]:
+                      - generic [ref=f4e2087]:
+                        - paragraph [ref=f4e2088]: Giải thưởng 2
+                        - button "Xóa" [ref=f4e2089]
+                      - generic [ref=f4e2090]:
+                        - generic [ref=f4e2091]:
+                          - img "thac-dray-nur" [ref=f4e2093]
+                          - generic [ref=f4e2094]:
+                            - button "Chọn từ Media popup" [ref=f4e2095]
+                            - button "Xóa ảnh" [ref=f4e2097]
+                        - generic [ref=f4e2099]:
+                          - text: Tên giải thưởng
+                          - textbox [ref=f4e2100]
+                        - generic [ref=f4e2101]:
+                          - text: Mô tả ngắn
+                          - textbox [ref=f4e2102]
+                        - generic [ref=f4e2103]:
+                          - text: Alt ảnh
+                          - textbox [ref=f4e2104]: thac-dray-nur
+            - article [ref=f4e2105]:
+              - generic [ref=f4e2106]:
+                - generic [ref=f4e2107]:
+                  - paragraph [ref=f4e2108]: Block 18
+                  - heading "Quy trình tư vấn" [level=4] [ref=f4e2109]
+                  - generic [ref=f4e2110]:
+                    - generic [ref=f4e2111]: Hardcode
+                    - generic [ref=f4e2112]: Đang bật
+                    - paragraph [ref=f4e2113]: Form bên dưới điều chỉnh nội dung, bật/tắt và vị trí render của section hardcode này.
+                - generic [ref=f4e2114]:
+                  - generic [ref=f4e2115]:
+                    - checkbox "Bật block" [checked] [ref=f4e2116]
+                    - text: Bật block
+                  - generic [ref=f4e2117]:
+                    - button "Chuyển lên" [ref=f4e2118]
+                    - button "Chuyển xuống" [ref=f4e2120]
+              - generic [ref=f4e2122]:
+                - generic [ref=f4e2123]:
+                  - generic [ref=f4e2124]:
+                    - text: Tiêu đề block
+                    - textbox [ref=f4e2125]: DỊCH VỤ TOUR DOANH NGHIỆP
+                  - generic [ref=f4e2126]:
+                    - text: Mô tả block
+                    - textbox [ref=f4e2127]
+                - generic [ref=f4e2128]:
+                  - generic [ref=f4e2129]:
+                    - generic [ref=f4e2130]:
+                      - paragraph [ref=f4e2131]: Bước 1
+                      - button "Xóa" [ref=f4e2132]
+                    - generic [ref=f4e2133]:
+                      - generic [ref=f4e2134]:
+                        - text: Ảnh bước
+                        - generic [ref=f4e2135]: Chưa có ảnh cho bước này.
+                        - button "Chọn từ Media popup" [ref=f4e2138]
+                      - generic [ref=f4e2140]:
+                        - text: Tiêu đề bước
+                        - textbox [ref=f4e2141]: THIẾT KẾ TOUR ĐOÀN
+                      - generic [ref=f4e2142]:
+                        - text: Mô tả
+                        - textbox [ref=f4e2143]: Tư vấn và thiết kế lịch trình tour trong và ngoài nước riêng biệt, tối ưu ngân sách và phù hợp với đặc thù từng doanh nghiệp.
+                      - generic [ref=f4e2144]:
+                        - text: Alt ảnh
+                        - textbox [ref=f4e2145]
+                  - generic [ref=f4e2146]:
+                    - generic [ref=f4e2147]:
+                      - paragraph [ref=f4e2148]: Bước 2
+                      - button "Xóa" [ref=f4e2149]
+                    - generic [ref=f4e2150]:
+                      - generic [ref=f4e2151]:
+                        - text: Ảnh bước
+                        - generic [ref=f4e2152]: Chưa có ảnh cho bước này.
+                        - button "Chọn từ Media popup" [ref=f4e2155]
+                      - generic [ref=f4e2157]:
+                        - text: Tiêu đề bước
+                        - textbox [ref=f4e2158]: TỔ CHỨC TEAMBUILDING
+                      - generic [ref=f4e2159]:
+                        - text: Mô tả
+                        - textbox [ref=f4e2160]: Xây dựng kịch bản Teambuilding sáng tạo, truyền tải thông điệp thương hiệu và thắt chặt tinh thần đồng đội cho tập thể.
+                      - generic [ref=f4e2161]:
+                        - text: Alt ảnh
+                        - textbox [ref=f4e2162]
+                  - generic [ref=f4e2163]:
+                    - generic [ref=f4e2164]:
+                      - paragraph [ref=f4e2165]: Bước 3
+                      - button "Xóa" [ref=f4e2166]
+                    - generic [ref=f4e2167]:
+                      - generic [ref=f4e2168]:
+                        - text: Ảnh bước
+                        - generic [ref=f4e2169]: Chưa có ảnh cho bước này.
+                        - button "Chọn từ Media popup" [ref=f4e2172]
+                      - generic [ref=f4e2174]:
+                        - text: Tiêu đề bước
+                        - textbox [ref=f4e2175]: TỔ CHỨC MICE
+                      - generic [ref=f4e2176]:
+                        - text: Mô tả
+                        - textbox [ref=f4e2177]: Giải pháp tổ chức hội nghị, hội thảo và du lịch khen thưởng trọn gói tại các không gian sang trọng, đảm bảo vận hành chỉn chu.
+                      - generic [ref=f4e2178]:
+                        - text: Alt ảnh
+                        - textbox [ref=f4e2179]
+                  - generic [ref=f4e2180]:
+                    - generic [ref=f4e2181]:
+                      - paragraph [ref=f4e2182]: Bước 4
+                      - button "Xóa" [ref=f4e2183]
+                    - generic [ref=f4e2184]:
+                      - generic [ref=f4e2185]:
+                        - text: Ảnh bước
+                        - generic [ref=f4e2186]: Chưa có ảnh cho bước này.
+                        - button "Chọn từ Media popup" [ref=f4e2189]
+                      - generic [ref=f4e2191]:
+                        - text: Tiêu đề bước
+                        - textbox [ref=f4e2192]: TỔ CHỨC GALA DINNER
+                      - generic [ref=f4e2193]:
+                        - text: Mô tả
+                        - textbox [ref=f4e2194]: Hiện thực hóa đêm tiệc Gala Dinner ấn tượng, kết hợp dịch vụ bổ trợ trọn gói (Visa, xe, vé máy bay) mang lại trải nghiệm hoàn hảo.
+                      - generic [ref=f4e2195]:
+                        - text: Alt ảnh
+                        - textbox [ref=f4e2196]
+                - button "Thêm bước" [ref=f4e2198]
+            - article [ref=f4e2199]:
+              - generic [ref=f4e2200]:
+                - generic [ref=f4e2201]:
+                  - paragraph [ref=f4e2202]: Block 19
+                  - heading "Blog preview" [level=4] [ref=f4e2203]
+                  - generic [ref=f4e2204]:
+                    - generic [ref=f4e2205]: Hardcode
+                    - generic [ref=f4e2206]: Đang bật
+                    - paragraph [ref=f4e2207]: Form bên dưới điều chỉnh nội dung, bật/tắt và vị trí render của section hardcode này.
+                - generic [ref=f4e2208]:
+                  - generic [ref=f4e2209]:
+                    - checkbox "Bật block" [checked] [ref=f4e2210]
+                    - text: Bật block
+                  - generic [ref=f4e2211]:
+                    - button "Chuyển lên" [ref=f4e2212]
+                    - button "Chuyển xuống" [ref=f4e2214]
+              - generic [ref=f4e2217]:
+                - generic [ref=f4e2218]:
+                  - text: Tiêu đề block
+                  - textbox [ref=f4e2219]: TIN TỨC KHUYẾN MÃI
+                - generic [ref=f4e2220]:
+                  - text: Label CTA
+                  - textbox [ref=f4e2221]: Xem tất cả bài viết
+                - generic [ref=f4e2222]:
+                  - text: Mô tả block
+                  - textbox [ref=f4e2223]
+                - generic [ref=f4e2224]:
+                  - text: URL CTA
+                  - textbox [ref=f4e2225]: /danh-muc/khuyen-mai-haidangtravel
+                - generic [ref=f4e2226]:
+                  - text: Số BlogCard
+                  - spinbutton [ref=f4e2227]: "4"
+                  - paragraph [ref=f4e2228]: Tối đa 12 card cho widget blog.
+                - generic [ref=f4e2229]:
+                  - text: Bài viết ưu tiên
+                  - listbox [ref=f4e2704]:
+                    - 'option "Tour nước ngoài lễ 2/9/2026: Gợi ý điểm đến, giá tour & kinh nghiệm" [ref=f4e2705]'
+                    - 'option "Tour Côn Đảo lễ 2/9/2026: Giá tour, lịch trình & kinh nghiệm du lịch" [ref=f4e2706]'
+                    - 'option "Tour Quy Nhơn lễ 2/9/2026: Giá tour, lịch trình & kinh nghiệm du lịch" [ref=f4e2707]'
+                    - 'option "Tour Măng Đen lễ 2/9/2026: Lịch trình, giá tour & kinh nghiệm du lịch" [ref=f4e2708]'
+                    - option "Kinh nghiệm hành hương Tứ Động Tâm lần đầu" [ref=f4e2709]
+                    - option "Khám Phá Tour Nha Trang – Thiên Đường Biển Đảo Miền Trung" [ref=f4e2710]
+                    - option "Tour Nha Trang 2024 - Khám Phá Thiên Đường Biển Đảo Việt Nam" [ref=f4e2711]
+                    - 'option "Tour Lễ 2/9/2026 — Tổng Hợp A→Z: Đặt Tour, Đi Đâu, Giá & Kinh Nghiệm" [ref=f4e2712]'
+                    - option "Tour Phan Thiết Lễ 2/9 Giá Rẻ Trọn Gói 2026 — Thiên Đường Biển Mũi Né" [ref=f4e2713]
+                    - option "Tour Phú Quốc Lễ 2/9 Giá Rẻ Trọn Gói 2026 — Đảo Ngọc Thiên Đường" [ref=f4e2714]
+                    - option "Tour Nha Trang Lễ 2/9 Giá Rẻ Trọn Gói 2026 — Thiên Đường Biển Đảo" [ref=f4e2715]
+                    - option "Tour Đà Lạt Lễ 2/9 Giá Rẻ Trọn Gói 2026 — Đặt Sớm Tiết Kiệm 30%" [ref=f4e2716]
+                    - option "[Smoke Inline 2026-08-22] Du lịch Phú Yên và Gành Đá Dĩa" [ref=f4e2717]
+                    - option "[Smoke Inline 2026-08-22] Kinh nghiệm du lịch Nha Trang 3 ngày 2 đêm" [ref=f4e2718]
+                    - option "Kinh Nghiệm Du Lịch Phú Yên 2026 Từ A-Z" [ref=f4e2719]
+                    - option "Top 10 Điểm Đến Phú Yên Phải Đi 2026" [ref=f4e2720]
+                    - 'option "Tour Đà Lạt lễ 2/9/2026: Giá tour, lịch trình & kinh nghiệm du lịch" [ref=f4e2721]'
+                    - 'option "Tour Nha Trang lễ 2/9/2026: Lịch trình, giá tour & kinh nghiệm đặt tour" [ref=f4e2722]'
+                    - 'option "Tour Phú Quốc lễ 2/9/2026: Lịch trình, giá tour và kinh nghiệm du lịch" [ref=f4e2723]'
+                    - 'option "Tour Đà Nẵng lễ 2/9/2026: Lịch trình, giá tham khảo và kinh nghiệm đặt tour" [ref=f4e2724]'
+                    - 'option "Giá tour lễ 2/9/2026: Chi phí bao nhiêu? Kinh nghiệm chọn tour tiết kiệm" [ref=f4e2725]'
+                    - 'option "Kinh nghiệm du lịch lễ 2/9/2026: Cẩm nang chọn tour, điểm đến và chi phí" [ref=f4e2726]'
+                    - 'option "Lịch nghỉ lễ 2/9/2026: Nghỉ mấy ngày? Gợi ý tour lễ 2/9 hấp dẫn" [ref=f4e2727]'
+                    - option "Tour Lễ 2/9 Đi Đâu? Top 10 Tour Du Lịch Lễ 2/9 Hot Nhất 2026" [ref=f4e2728]
+                    - 'option "Tour lễ 2/9 2026: Gợi ý hành trình đáng đi, lịch nghỉ và kinh nghiệm đặt tour" [ref=f4e2729]'
+                    - option "Kinh Nghiệm Đi Tour Nha Trang 3 Ngày 2 Đêm Trọn Gói 2026" [ref=f4e2730]
+                    - option "Tour Lễ 2 Tháng 9 Giá Rẻ Trọn Gói 2026 — Đặt Sớm Tiết Kiệm 30%" [ref=f4e2731]
+                    - option "Giá Tour Lễ 2/9 - Bảng Giá Chi Tiết & So Sánh Tour Hot 2026" [ref=f4e2732]
+                    - 'option "Tour Lễ 2 Tháng 9: Top 15+ Điểm Đến HOT & Giá Tour Quốc Khánh 2026" [ref=f4e2733]'
+                    - 'option "Tour Lễ 2 Tháng 9: Top Điểm Đến HOT & Kinh Nghiệm Du Lịch 2026" [ref=f4e2734]'
+                    - option "Tour Du Lịch Miền Tây Việt Nam - Khám Phá Vùng Đất Sông Nước 2026" [ref=f4e2735]
+                    - option "Tour Du Lịch Trung Quốc 2026 - Lịch Trình, Giá & Kinh Nghiệm Từ Hải Đăng Travel" [ref=f4e2736]
+                    - option "Kinh Nghiệm Du Lịch Măng Đen 3 Ngày 2 Đêm Chi Tiết 2026" [ref=f4e2737]
+                    - 'option "Hồ Đăk Ke Măng Đen: Hướng Dẫn Du Lịch Thực Tế Và Chi Tiết 2026" [ref=f4e2738]'
+                    - option "Review Tour Tà Đùng Thực Tế Từ Khách Hàng Chân Thực Nhất" [ref=f4e2739]
+                    - option "Giá Tour Tà Đùng Trọn Gói Bao Nhieu? Bảng Giá Mới Nhất 2026" [ref=f4e2740]
+                    - option "Tour Tà Đùng Từ TP.HCM Giá Mới Nhất 2026" [ref=f4e2741]
+                    - option "Ăn Gì Ở Măng Đen? Top 5 Đặc Sản Phải Thử Khi Đi Du Lịch" [ref=f4e2742]
+                    - option "Chi Phí Đi Tour Măng Đen Hết Bao Nhiêu Tiền? Mẹo Rẻ Nhất" [ref=f4e2743]
+                    - option "Măng Đen Có Gì Chơi? Top 7 Địa Điểm Khách Đi Tour Phải Check-in" [ref=f4e2744]
+                    - option "Đi Tà Đùng Cần Chuẩn Bị Những Gì? Kinh Nghiệm Từ A-Z" [ref=f4e2745]
+                    - option "Đi Tà Đùng Tự Túc Hay Đi Tour Tiết Kiệm Hơn? So Sánh Chi Phí" [ref=f4e2746]
+                    - option "Top 10 Đặc Sản Đắk Nông Hấp Dẫn Nên Thử & Mua Làm Quà" [ref=f4e2747]
+                    - option "Tour Tà Đùng 2 ngày 2 đêm có gì hấp dẫn? Review chi tiết" [ref=f4e2748]
+                    - 'option "Tour Hà Giang Khám Phá Nhà Của Pao: Check-in Bối Cảnh Phim Đẹp Như Tranh" [ref=f4e2749]'
+                    - 'option "Ghé Thăm Dinh Thự Vua Mèo: Công Trình Kiến Trúc Độc Đáo Trong Tour Hà Giang" [ref=f4e2750]'
+                    - option "Chi Phí Đi Tà Đùng Hết Bao Nhiêu Tiền? Lịch Trình Tự Túc 2026" [ref=f4e2751]
+                    - option "Review 5 Địa Điểm Lưu Trú Tà Đùng Đẹp Nhất 2026" [ref=f4e2752]
+                    - option "Top 5 khách sạn gần Tà Đùng giá tốt, view hồ cực đỉnh" [ref=f4e2753]
+                    - option "Trải Nghiệm Đi Thuyền Trên Sông Nho Quế, Ngắm Hẻm Vực Tu Sản Kỳ Vĩ" [ref=f4e2754]
+                    - option "Kinh Nghiệm Đi Tour Du Lịch Hà Giang Check-in Cột Cờ Lũng Cú Thiêng Liêng" [ref=f4e2755]
+                    - option "Chinh Phục Đèo Mã Pí Lèng - Vua Của Tứ Đại Đỉnh Đèo Trong Tour Hà Giang" [ref=f4e2756]
+                    - option "Top 5 Cung Đường Đèo Thử Thách Nhất Trong Lịch Trình Tour Du Lịch Hà Giang" [ref=f4e2757]
+                    - option "Feedback Khách Hàng Đi Tour Trung Quốc Haidang Travel" [ref=f4e2758]
+                    - option "Top 10 khách sạn chuẩn 4-5 sao trong các hành trình tour Trung Quốc cao cấp" [ref=f4e2759]
+                    - option "5 Chiêu Trò Lừa Đảo Tour Trung Quốc Giá Rẻ Kém Chất Lượng" [ref=f4e2760]
+                    - 'option "Ẩm thực Trung Hoa qua các vùng miền: Đi tour Trung Quốc ăn gì ngon nhất?" [ref=f4e2761]'
+                    - 'option "Nhật Ký Khách Hàng: 6 Ngày Phá Đảo Phượng Hoàng Cổ Trấn" [ref=f4e2762]'
+                    - option "Sinh viên năm cuối Trường Đại học Nông Lâm trải nghiệm học tập thực tế, lửa trại tại Bảo Lộc và Gala Dinner tại Đà Lạt cùng Hải Đăng Travel" [ref=f4e2763]
+                    - option "Công ty Nam Sơn và Công ty Quà Việt gắn kết đội ngũ qua chương trình Teambuilding và Gala Dinner" [ref=f4e2764]
+                    - option "Kinh Nghiệm Cắm Trại Qua Đêm Tại Tà Đùng Tự Túc Từ A-Z" [ref=f4e2765]
+                    - option "Đi Tour Măng Đen Mùa Nào Đẹp Nhất? Mẹo Từ Người Bản Địa" [ref=f4e2766]
+                    - 'option "Review Tour Măng Đen 2 Ngày 1 Đêm: Giá Tốt Từ Haidang Travel" [ref=f4e2767]'
+                    - 'option "Tour Hà Giang Cho Người Già Và Trẻ Em: Thiết Kế Lịch Trình Ô Tô An Toàn" [ref=f4e2768]'
+                    - 'option "Nhật ký khách hàng: Hành trình 6 ngày phá đảo Phượng Hoàng Cổ Trấn thực tế" [ref=f4e2769]'
+                    - option "Mùa Nào Đi Tour Hà Giang Đẹp Nhất? Cẩm Nang 12 Mùa Hoa Thương Nhớ" [ref=f4e2770]
+                    - option "Review công ty tổ chức tour du lịch Trung Quốc uy tín, chất lượng hiện nay" [ref=f4e2771]
+                    - option "Gợi ý lịch trình tour du lịch Trung Quốc từ Hà Nội bằng đường bộ tiết kiệm" [ref=f4e2772]
+                    - 'option "Tour Trung Quốc từ TP.HCM: Tổng hợp các đường bay thẳng hot nhất hiện nay" [ref=f4e2773]'
+                    - 'option "Tour du lịch Trung Quốc cho người cao tuổi: Lịch trình nhẹ nhàng, dịch vụ 5 sao" [ref=f4e2774]'
+                    - option "Kinh nghiệm đi tour du lịch Trung Quốc mùa đông ngắm tuyết rơi cực lãng mạn" [ref=f4e2775]
+                    - option "Ngắm hoa anh đào nở rộ cùng các tour du lịch Trung Quốc mùa xuân" [ref=f4e2776]
+                    - 'option "Tour du lịch Trung Quốc Tết Nguyên Đán: Nên đi tuyến nào thời tiết ấm áp?" [ref=f4e2777]'
+                    - 'option "Du lịch Trung Quốc mùa thu: Top 5 cung đường ngắm lá vàng lá đỏ đẹp nhất" [ref=f4e2778]'
+                    - option "Lịch Trình Tour Hà Giang 2 Ngày 1 Đêm Tốc Hành Cho Người Bận Rộn" [ref=f4e2779]
+                    - 'option "Tour Hà Giang Từ Hà Nội: Lịch Trình Xe Giường Nằm Chất Lượng Cao Giá Tốt" [ref=f4e2780]'
+                    - option "Cẩm Nang Săn Mây Măng Đen Thành Công 100% Cho Khách Đi Lần Đầu" [ref=f4e2781]
+                    - option "Top 5 ứng dụng điện thoại bắt buộc phải tải trước khi bay tour Trung Quốc" [ref=f4e2782]
+                    - option "Đi Tour Trung Quốc Cần Chuẩn Bị Gì? Kinh Nghiệm Chuẩn Hành Lý" [ref=f4e2783]
+                    - option "Kinh nghiệm mua sắm và cách trả giá tại các chợ khi đi tour Trung Quốc" [ref=f4e2784]
+                    - 'option "So sánh chi tiết: Nên đi du lịch Trung Quốc tự túc hay đi theo tour trọn gói?" [ref=f4e2785]'
+                    - option "Hướng dẫn thủ tục xin Visa du lịch Trung Quốc theo tour đơn giản, bao đậu" [ref=f4e2786]
+                    - option "Kinh nghiệm du lịch Thác Liêng Nung Đắk Nông từ A-Z" [ref=f4e2787]
+                    - option "Top 20 địa điểm check-in đẹp nhất ở Tà Đùng hot nhất" [ref=f4e2788]
+                    - option "Top 5 Homestay Đẹp Ở Tà Đùng View Hồ Cực Đỉnh Bán Chạy Nhất" [ref=f4e2789]
+                    - option "Vườn quốc gia Tà Đùng có gì hấp dẫn? Kinh nghiệm từ A-Z" [ref=f4e2790]
+                    - 'option "Bảng giá tour du lịch Trung Quốc trọn gói mới nhất năm nay: Đi đâu kinh tế nhất?" [ref=f4e2791]'
+                    - option "Topview Tà Đùng Có Gì Chơi? Giá Vé & Kinh Nghiệm Từ A-Z" [ref=f4e2792]
+                    - option "Hồ Tà Đùng có gì đẹp? Khám phá Vịnh Hạ Long Tây Nguyên" [ref=f4e2793]
+                    - option "Cắm trại tại Tà Đùng tháng mấy đẹp nhất? Bí kíp từ chuyên gia" [ref=f4e2794]
+                    - option "Thời điểm lý tưởng để săn mây ở Tà Đùng chuẩn nhất" [ref=f4e2795]
+                    - option "Đi Tour Măng Đen Mua Gì Làm Quà? Top 5 Đặc Sản Ý Nghĩa" [ref=f4e2796]
+                    - option "Top 5 Đơn Vị Tổ Chức Tour Măng Đen Uy Tín, Dịch Vụ Tốt Nhất" [ref=f4e2797]
+                    - option "Top Homestay Rừng Thông Siêu Chill Cho Tour Măng Đen" [ref=f4e2798]
+                    - 'option "Tour Măng Đen 3 Ngày 2 Đêm: Lịch Trình & Giá Mới Nhất 2026" [ref=f4e2799]'
+                    - 'option "Tour du lịch Côn Minh - Đại Lý - Lệ Giang: Tìm về vùng đất \"Đi đến nơi có gió\"" [ref=f4e2800]'
+                    - 'option "Hành trình tâm linh: Tour Nga Mi Sơn - Lạc Sơn Đại Phật có gì đặc biệt?" [ref=f4e2801]'
+                    - 'option "Tour du lịch Quảng Châu - Thâm Quyến: Thiên đường mua sắm và công nghệ" [ref=f4e2802]'
+                    - option "Xu Hướng Tour Phú Yên Nghỉ Dưỡng Resort 4-5 Sao Cao Cấp 2026" [ref=f4e2803]
+                    - 'option "Gà Nướng Cơm Lam Măng Đen: Ăn Ở Đâu Ngon Chuẩn Vị?" [ref=f4e2804]'
+                    - option "Tại Sao Nên Chọn Tour Phú Yên Khởi Hành Hàng Tuần Tại Hải Đăng?" [ref=f4e2805]
+                    - option "Top 5 Công Ty Tổ Chức Tour Phú Yên Uy Tín Chất Lượng 2026" [ref=f4e2806]
+                    - 'option "Review Tour Phú Yên 3 Ngày 2 Đêm Thực Tế: Khen Chê Chi Tiết 2026" [ref=f4e2807]'
+                    - 'option "Trang Phục Đi Tour Phú Yên: Mặc Gì Check-in Đẹp Nhất 2026" [ref=f4e2808]'
+                    - option "5 Sai Lầm Khi Đặt Tour Phú Yên Lần Đầu Cần Tránh 2026" [ref=f4e2809]
+                    - option "Kinh Nghiệm Du Lịch Phú Yên Cho Người Già & Trẻ Nhỏ 2026" [ref=f4e2810]
+                    - option "Đi Tour Phú Yên Cần Chuẩn Bị Gì? Danh Sách Hành Lý Cần Thiết 2026" [ref=f4e2811]
+                    - option "Top Quán Cafe View Biển Phú Yên Đẹp Nhất Đi Tour 2026" [ref=f4e2812]
+                    - option "Đi Tour Phú Yên Mua Gì Làm Quà? Top 5 Đặc Sản Tiêu Biểu 2026" [ref=f4e2813]
+                    - 'option "Mắt Cá Ngừ Đại Dương Phú Yên: Món Ngon \"Độc Bản\" Xứ Nẫu" [ref=f4e2814]'
+                    - 'option "Đổi gió với Tour Tân Cương: Hành trình khám phá con đường tơ lụa vĩ đại" [ref=f4e2815]'
+                    - option "Ăn Gì Ở Xứ Nẫu? Top 10 Đặc Sản Phú Yên Phải Thử 2026" [ref=f4e2816]
+                    - option "Review Chi Phí Đi Tour Phú Yên 3N2Đ Cho Nhóm & Gia Đình" [ref=f4e2817]
+                    - option "Mẹo Săn Tour Du Lịch Phú Yên Giá Rẻ Mùa Hè 2026" [ref=f4e2818]
+                    - 'option "Tour du lịch Trung Quốc đường bộ: Khám phá Bình Biên - Kiến Thủy - Mông Tự 3N2Đ" [ref=f4e2819]'
+                    - option "Nên Đi Tour Phú Yên Tự Túc Hay Trọn Gói Tiết Kiệm Nhất?" [ref=f4e2820]
+                    - option "Chi Phí Đi Tour Phú Yên Hết Bao Nhiêu Tiền? Bảng Giá Trọn Gói từ A-Z" [ref=f4e2821]
+                    - 'option "Khám Phá Hành Trình Huyền Thoại: Tour Tây Tạng Cho Người Đi Lần Đầu" [ref=f4e2822]'
+                    - option "Vẻ Đẹp Hoang Sơ Của Vịnh Vũng Rô Trong Tour Phú Yên" [ref=f4e2823]
+                    - 'option "Tour Phú Yên Đảo Nhất Tự Sơn: Con Đường Đi Bộ Giữa Biển Độc Đáo" [ref=f4e2824]'
+                    - 'option "Tour Lệ Giang - Shangrila đường bộ và đường bay: Nên chọn loại nào?" [ref=f4e2825]'
+                    - 'option "Check-in Bãi Xép: Phim Trường Hoa Vàng Trên Cỏ Xanh Phú Yên" [ref=f4e2826]'
+                    - option "Kinh Nghiệm Đi Tour Phú Yên Khám Phá Đảo Hòn Yến Mùa San Hô" [ref=f4e2827]
+                    - 'option "Review Tour Cửu Trại Câu: Thiên đường hạ giới mùa nào đẹp nhất?" [ref=f4e2828]'
+                    - 'option "Đón Bình Minh Mũi Điện: Điểm Nhấn Đắt Giá Trong Tour Phú Yên" [ref=f4e2829]'
+                    - 'option "Khám Phá Gành Đá Đĩa: Tuyệt Tác Trong Tour Du Lịch Phú Yên" [ref=f4e2830]'
+                    - option "Lịch Trình Tour Phú Yên 2 Ngày 1 Đêm Cho Cuối Tuần Bận Rộn" [ref=f4e2831]
+                    - option "Top 7 Địa Điểm Check-in Bắt Buộc Phải Có Trong Tour Phú Yên" [ref=f4e2832]
+                    - 'option "Tour Phú Yên Khởi Hành Từ TP.HCM: Lịch Trình Bay Thẳng VIP" [ref=f4e2833]'
+                    - option "Mùa Nào Đi Tour Phú Yên Đẹp Nhất? Kinh Nghiệm Bản Địa 2026" [ref=f4e2834]
+                    - 'option "Tour Phú Yên Quy Nhơn: Hành Trình 1 Cung Đường 2 Điểm Đến Hot" [ref=f4e2835]'
+                    - option "Kế Hoạch Tour Phú Yên 4 Ngày 3 Đêm Khám Phá Trọn Vẹn Xứ Nẫu" [ref=f4e2836]
+                    - 'option "Tour Phú Yên 3 Ngày 2 Đêm: Lịch Trình & Giá Trọn Gói 2026" [ref=f4e2837]'
+                    - 'option "Thời tiết Tà Đùng từng tháng: Đi mùa nào đẹp nhất?" [ref=f4e2838]'
+                    - option "Tà Đùng mùa nào đẹp nhất để du lịch và săn mây?" [ref=f4e2839]
+                    - option "Có Nên Đi Tà Đùng Vào Mùa Mưa? Kinh Nghiệm Thực Tế" [ref=f4e2840]
+                    - option "Top 5 Quán Cà Phê View Rừng Thông Măng Đen Siêu \"Chill\"" [ref=f4e2841]
+                    - option "Ăn Gì Ở Măng Đen? Top 10 Đặc Sản Phải Thử Năm 2026" [ref=f4e2842]
+                    - 'option "Teambuilding Măng Đen Cho Doanh Nghiệp: Kế Hoạch Hoàn Hảo" [ref=f4e2843]'
+                    - 'option "Xu Hướng Đi Tour Măng Đen Một Mình: An Toàn Và Trải Nghiệm" [ref=f4e2844]'
+                    - 'option "Tour Măng Đen Cho Gia Đình Có Người Già Và Trẻ Em: Lưu Ý" [ref=f4e2845]'
+                    - option "Lịch Trình Tour Măng Đen Cho Cặp Đôi Lãng Mạn Từng Phút" [ref=f4e2846]
+                    - option "Bí Kíp Phá Đảo Công Viên Châu Á (Asia Park) Trong Tour Du Lịch Đà Nẵng" [ref=f4e2847]
+                    - option "Lịch trình Tour Bắc Kinh - Thượng Hải - Hàng Châu - Tô Châu từ A-Z" [ref=f4e2848]
+                    - option "Đi Tour Măng Đen Mùa Nào Đẹp Nhất? Cách Tránh Mùa Mưa" [ref=f4e2849]
+                    - 'option "Tour du lịch Trung Quốc 6 ngày 5 đêm: Phượng Hoàng Cổ Trấn - Trương Gia Giới" [ref=f4e2850]'
+                    - option "Đi Tour Măng Đen Mang Gì? Vật Dụng \"Sống Còn\" Phải Có" [ref=f4e2851]
+                    - 'option "Cảnh Báo: Đừng Đặt Tour Du Lịch Măng Đen Khi Chưa Đọc Bài Này!" [ref=f4e2852]'
+                    - 'option "Kinh Nghiệm Đi Tour Bà Nà Hills: Check-in Đường Lên Tiên Cảnh Chi Tiết Nhất" [ref=f4e2853]'
+                    - option "Tà Đùng Thuộc Tỉnh Nào? Có Gì Đặc Biệt Đến Thế?" [ref=f4e2854]
+                    - 'option "Tour Đà Nẵng Cho Gia Đình: Thiết Kế Lịch Trình Thư Giãn, Không Lo Mệt Mỏi" [ref=f4e2855]'
+                    - option "Tà Đùng ở đâu? Hướng dẫn di chuyển từ TP.HCM chi tiết" [ref=f4e2856]
+                    - option "Kế Hoạch Đi Tour Du Lịch Hà Giang 4 Ngày 3 Đêm Bản Làng" [ref=f4e2857]
+                    - 'option "Đi Tour Măng Đen Lần Đầu: 5 Sai Lầm Tránh Để Không Vỡ Mộng" [ref=f4e2858]'
+                    - option "Mùa Nào Đi Tour Đà Nẵng Đẹp Nhất? Kinh Nghiệm Dân Bản Địa" [ref=f4e2859]
+                    - option "Từ TP.HCM đi Tà Đùng bao nhiêu km? Mất bao lâu?" [ref=f4e2860]
+                    - option "Kinh nghiệm du lịch Tà Đùng tự túc từ A-Z mới nhất" [ref=f4e2861]
+                    - 'option "Tour Du Lịch Đà Nẵng Khởi Hành Từ TP.HCM/Hà Nội: Lịch Trình Bay Đêm Giá Tốt" [ref=f4e2862]'
+                    - option "Lịch Trình Tour Đà Nẵng 2 Ngày 1 Đêm Gợi Ý Cho Chuyến Đi Ngắn Ngày" [ref=f4e2863]
+                    - 'option "Tour Hà Giang 3 Ngày 2 Đêm: Lịch Trình Chinh Phục Đông Bắc Chi Tiết Nhất 2026" [ref=f4e2864]'
+                    - 'option "Tour Đà Nẵng - Hội An - Huế: Hành Trình Di Sản Miền Trung Ăn Khách Nhất" [ref=f4e2865]'
+                    - option "Kế Hoạch Đi Tour Du Lịch Đà Nẵng 4 Ngày 3 Đêm Khám Phá Trọn Vẹn 3 Tỉnh" [ref=f4e2866]
+                    - 'option "Tour Đà Nẵng 4 Ngày 3 Đêm: Lịch Trình Chi Tiết & Giá Trọn Gói Mới Nhất 2026" [ref=f4e2867]'
+                    - option "Kinh nghiệm du lịch Tà Đùng tự túc từ A-Z" [ref=f4e2868]
+                    - option "Top 5 Resort Gần Hồ Tà Đùng Đáng Trải Nghiệm Nhất" [ref=f4e2869]
+                    - 'option "Thủ Tục Xin Visa 5 Năm Hàn Quốc 2026: Điều Kiện & Hồ Sơ Mới Nhất" [ref=f4e2870]'
+                    - option "Hướng Dẫn Nộp Hồ Sơ Visa Hàn Quốc Tại KVAC TP.HCM (Mới Nhất)" [ref=f4e2871]
+                    - 'option "Hướng Dẫn Chứng Minh Tài Chỉnh Visa Hàn Quốc 2026: Đúng Và Đủ" [ref=f4e2872]'
+                    - option "Visa Hàn Quốc Cần Gì 2026? Checklist Hồ Sơ Chi Tiết & Mẹo Đậu 99%" [ref=f4e2873]
+                    - option "Quy Trình Tổ Chức Sự Kiện Chuyên Nghiệp Từ A-Z Cho Doanh Nghiệp 2026" [ref=f4e2874]
+                    - option "Kinh Nghiệm Tổ Chức Event Thành Công Cho Doanh Nghiệp Từ A-Z 2026" [ref=f4e2875]
+                    - option "Kịch Bản Team Building Bãi Biển Chuyên Nghiệp 2026 | Mẫu Chương Trình Chi Tiết" [ref=f4e2876]
+                    - option "Kịch Bản Team Building Cho Công Ty 50 Người Chi Tiết Từ A-Z 2026" [ref=f4e2877]
+                    - option "20 Trò Chơi Team Building Bãi Biển Hay Nhất 2026 | Kịch Bản Gắn Kết Doanh Nghiệp" [ref=f4e2878]
+                    - option "Top Trò Chơi Team Building Hay Nhất 2026 | Ý Tưởng Team Building Gắn Kết Tập Thể" [ref=f4e2879]
+                    - option "Bảo Việt Nhân Thọ Du Lịch Phan Thiết 2N1Đ Ngày 04/08/2025 | Team Building & Gala Dinner Cùng Haidangtravel" [ref=f4e2880]
+                    - option "Trường Mầm Non 25A Du Lịch Vũng Tàu 2N1Đ 29/05/2025 | Hành Trình Gắn Kết Cùng Haidangtravel" [ref=f4e2881]
+                    - option "Tứ Động Tâm gồm những địa điểm nào? Hành trình hành hương Phật giáo linh thiêng" [ref=f4e2882]
+                    - option "Kathmandu Nepal có gì đẹp? Kinh nghiệm du lịch Kathmandu 2026" [ref=f4e2883]
+                    - 'option "Bãi Sao và Bãi Khem: Đâu là bãi biển đẹp nhất để du lịch Phú Quốc?" [ref=f4e2884]'
+                    - option "Hòn Thơm Phú Quốc có gì chơi? Kinh nghiệm khám phá công viên nước Sun World" [ref=f4e2885]
+                    - 'option "\"Phá đảo\" Grand World Phú Quốc: Những góc check-in không góc chết" [ref=f4e2886]'
+                    - option "Mẹo tránh bị \"chặt chém\" khi mua sắm tại các điểm du lịch Phú Quốc" [ref=f4e2887]
+                    - option "Top 5 khách sạn gần biển giá tốt dành cho người đi du lịch Phú Quốc" [ref=f4e2888]
+                    - option "Tổng hợp chi phí du lịch Phú Quốc tự túc và đi tour chi tiết nhất" [ref=f4e2889]
+                    - option "Những lưu ý quan trọng khi đi du lịch Phú Quốc cùng người già và trẻ nhỏ" [ref=f4e2890]
+                    - 'option "Hướng dẫn di chuyển tại Phú Quốc: Thuê xe máy, taxi hay xe điện?" [ref=f4e2891]'
+                    - option "Cách săn tour du lịch Phú Quốc giá rẻ mà vẫn đảm bảo chất lượng" [ref=f4e2892]
+                    - option "Du lịch Phú Quốc mùa nào đẹp nhất để có những tấm ảnh triệu view?" [selected] [ref=f4e2893]
+                    - option "Đi du lịch Phú Quốc nên mang theo gì? Gợi ý checklist đồ dùng cần thiết" [selected] [ref=f4e2894]
+                    - option "Review lịch trình du lịch Phú Quốc 3 ngày 2 đêm tối ưu và tiết kiệm nhất" [selected] [ref=f4e2895]
+                    - 'option "Kinh nghiệm du lịch Phú Quốc tự túc 2026: Lịch trình ăn chơi từ A-Z" [selected] [ref=f4e2896]'
+                  - generic [ref=f4e2898]:
+                    - generic [ref=f4e2899] [cursor=pointer]:
+                      - text: Du lịch Phú Quốc mùa nào đẹp nhất để có những tấm ảnh triệu view?
+                      - link "×" [ref=f4e2900]:
+                        - /url: javascript:void(0)
+                    - generic [ref=f4e2901] [cursor=pointer]:
+                      - text: Đi du lịch Phú Quốc nên mang theo gì? Gợi ý checklist đồ dùng cần thiết
+                      - link "×" [ref=f4e2902]:
+                        - /url: javascript:void(0)
+                    - generic [ref=f4e2903] [cursor=pointer]:
+                      - text: Review lịch trình du lịch Phú Quốc 3 ngày 2 đêm tối ưu và tiết kiệm nhất
+                      - link "×" [ref=f4e2904]:
+                        - /url: javascript:void(0)
+                    - generic [ref=f4e2905] [cursor=pointer]:
+                      - text: "Kinh nghiệm du lịch Phú Quốc tự túc 2026: Lịch trình ăn chơi từ A-Z"
+                      - link "×" [ref=f4e2906]:
+                        - /url: javascript:void(0)
+                    - combobox "Chọn các bài viết muốn ưu tiên hiển thị" [ref=f4e2907]
+                  - paragraph [ref=f4e2434]: Nếu để trống, homepage sẽ tự lấy các bài blog publish mới nhất.
+            - article [ref=f4e2435]:
+              - generic [ref=f4e2436]:
+                - generic [ref=f4e2437]:
+                  - paragraph [ref=f4e2438]: Block 20
+                  - heading "FAQ" [level=4] [ref=f4e2439]
+                  - generic [ref=f4e2440]:
+                    - generic [ref=f4e2441]: Dynamic
+                    - generic [ref=f4e2442]: Đang tắt
+                    - paragraph [ref=f4e2443]: Block tắt sẽ được giữ trong CMS nhưng không render ra landing page.
+                  - paragraph [ref=f4e2444]: "Tiêu đề block: Câu hỏi thường gặp"
+                - generic [ref=f4e2445]:
+                  - generic [ref=f4e2446]:
+                    - checkbox "Bật block" [ref=f4e2447]
+                    - text: Bật block
+                  - generic [ref=f4e2448]:
+                    - button "Chuyển lên" [ref=f4e2449]
+                    - button "Chuyển xuống" [ref=f4e2451]
+                  - button "Nhân đôi" [ref=f4e2453]
+                  - button "Xóa" [ref=f4e2454]
+              - generic [ref=f4e2455]: Block này đang ở trạng thái tắt. Bạn vẫn có thể chỉnh nội dung, đổi thứ tự hoặc bật lại khi cần.
+              - generic [ref=f4e2456]:
+                - generic [ref=f4e2457]:
+                  - generic [ref=f4e2458]: Vị trí trên trang chủ
+                  - combobox [ref=f4e2459]:
+                    - option "Theo vị trí mặc định"
+                    - option "Sau hero"
+                    - option "Trước thanh tìm kiếm"
+                    - option "Trước Chủ đề tour"
+                    - option "Trước Tour nổi bật"
+                    - option "Trước tab tour theo taxonomy"
+                    - option "Trước tab vùng miền"
+                    - option "Trước Điểm đến nổi bật"
+                    - option "Trước gallery landing"
+                    - option "Trước Dịch vụ hỗ trợ"
+                    - option "Trước trust proof"
+                    - option "Trước quy trình tư vấn"
+                    - option "Trước blog preview"
+                    - option "Trước FAQ" [selected]
+                    - option "Trước CTA cuối trang"
+                    - option "Sau CTA cuối trang"
+                - paragraph [ref=f4e2460]: Chỉ áp dụng cho system page Trang chủ. Vị trí này là fallback cho block mới; thứ tự render thực tế lấy từ danh sách Blocks đang hiển thị ở đây.
+              - generic [ref=f4e2461]:
+                - generic [ref=f4e2462]:
+                  - generic [ref=f4e2463]:
+                    - text: Tiêu đề khối FAQ
+                    - textbox [ref=f4e2464]: Câu hỏi thường gặp
+                  - generic [ref=f4e2465]:
+                    - text: Mô tả khối FAQ
+                    - textbox [ref=f4e2466]
+                - generic [ref=f4e2467]:
+                  - generic [ref=f4e2468]:
+                    - paragraph [ref=f4e2469]: FAQ item 1
+                    - button "Xóa item" [ref=f4e2470]
+                  - generic [ref=f4e2471]:
+                    - generic [ref=f4e2472]:
+                      - text: Câu hỏi
+                      - textbox [ref=f4e2473]: Tại sao nên chọn Hải Đăng Travel cho tour đoàn và doanh nghiệp?
+                    - generic [ref=f4e2474]:
+                      - text: Trả lời
+                      - paragraph [ref=f4e2479]: <p>Với 19 năm kinh nghiệm và nhiều giải thưởng danh giá trong ngành lữ hành, Hải Đăng Travel tự hào là đơn vị uy tín hàng đầu chuyên tổ chức tour đoàn, teambuilding và du lịch MICE. Chúng tôi cam kết dịch vụ chuyên nghiệp, minh bạch và mang lại giá trị vượt trội cho mọi hành trình.</p>
+                - generic [ref=f4e2480]:
+                  - generic [ref=f4e2481]:
+                    - paragraph [ref=f4e2482]: FAQ item 2
+                    - button "Xóa item" [ref=f4e2483]
+                  - generic [ref=f4e2484]:
+                    - generic [ref=f4e2485]:
+                      - text: Câu hỏi
+                      - textbox [ref=f4e2486]: Hải Đăng Travel có tổ chức các tour du lịch nước ngoài trọn gói không?
+                    - generic [ref=f4e2487]:
+                      - text: Trả lời
+                      - paragraph [ref=f4e2492]: <p>Có, chúng tôi cung cấp đa dạng các tour du lịch nước ngoài trọn gói đến các thị trường lớn như Trung Quốc, Nhật Bản, Úc, Châu Âu và Hoa Kỳ. Dịch vụ bao gồm trọn gói từ tư vấn visa, vé máy bay đến các tiêu chuẩn lưu trú cao cấp nhất.</p>
+                - generic [ref=f4e2493]:
+                  - generic [ref=f4e2494]:
+                    - paragraph [ref=f4e2495]: FAQ item 3
+                    - button "Xóa item" [ref=f4e2496]
+                  - generic [ref=f4e2497]:
+                    - generic [ref=f4e2498]:
+                      - text: Câu hỏi
+                      - textbox [ref=f4e2499]: Công ty có thiết kế kịch bản Teambuilding riêng theo yêu cầu không?
+                    - generic [ref=f4e2500]:
+                      - text: Trả lời
+                      - paragraph [ref=f4e2505]: <p>Hải Đăng Travel chuyên thiết kế kịch bản Teambuilding và Gala Dinner độc bản, phù hợp với văn hóa và mục tiêu riêng của từng doanh nghiệp. Với đội ngũ vận hành giàu kinh nghiệm, chúng tôi đảm bảo sự gắn kết tối đa cho tập thể và sự thành công cho sự kiện.</p>
+                - generic [ref=f4e2506]:
+                  - generic [ref=f4e2507]:
+                    - paragraph [ref=f4e2508]: FAQ item 4
+                    - button "Xóa item" [ref=f4e2509]
+                  - generic [ref=f4e2510]:
+                    - generic [ref=f4e2511]:
+                      - text: Câu hỏi
+                      - textbox [ref=f4e2512]: Các giải thưởng mà Hải Đăng Travel đã đạt được là gì?
+                    - generic [ref=f4e2513]:
+                      - text: Trả lời
+                      - paragraph [ref=f4e2518]: <p>Sự uy tín của chúng tôi được khẳng định qua nhiều giải thưởng danh giá trong ngành du lịch Việt Nam qua các năm. Đây là minh chứng cho cam kết về chất lượng dịch vụ và sự tận tâm mà chúng tôi dành cho hàng ngàn đoàn khách trong nước và quốc tế. Xem các giải thưởng du lịch tại trang giới thiệu "Về Chúng Tôi"</p>
+                - button "Thêm FAQ item" [ref=f4e2520]
+            - article [ref=f4e2522]:
+              - generic [ref=f4e2523]:
+                - generic [ref=f4e2524]:
+                  - paragraph [ref=f4e2525]: Block 21
+                  - heading "FAQ" [level=4] [ref=f4e2526]
+                  - generic [ref=f4e2527]:
+                    - generic [ref=f4e2528]: Hardcode
+                    - generic [ref=f4e2529]: Đang bật
+                    - paragraph [ref=f4e2530]: Form bên dưới điều chỉnh nội dung, bật/tắt và vị trí render của section hardcode này.
+                - generic [ref=f4e2531]:
+                  - generic [ref=f4e2532]:
+                    - checkbox "Bật block" [checked] [ref=f4e2533]
+                    - text: Bật block
+                  - generic [ref=f4e2534]:
+                    - button "Chuyển lên" [ref=f4e2535]
+                    - button "Chuyển xuống" [ref=f4e2537]
+              - generic [ref=f4e2539]: Section này hiện chỉ có bật/tắt và vị trí render trong stack homepage.
+            - article [ref=f4e2541]:
+              - generic [ref=f4e2542]:
+                - generic [ref=f4e2543]:
+                  - paragraph [ref=f4e2544]: Block 22
+                  - heading "CTA" [level=4] [ref=f4e2545]
+                  - generic [ref=f4e2546]:
+                    - generic [ref=f4e2547]: Dynamic
+                    - generic [ref=f4e2548]: Đang tắt
+                    - paragraph [ref=f4e2549]: Block tắt sẽ được giữ trong CMS nhưng không render ra landing page.
+                  - paragraph [ref=f4e2550]: "Tiêu đề block: NHẬN ƯU ĐÃI - CẦN TƯ VẤN?"
+                - generic [ref=f4e2551]:
+                  - generic [ref=f4e2552]:
+                    - checkbox "Bật block" [ref=f4e2553]
+                    - text: Bật block
+                  - generic [ref=f4e2554]:
+                    - button "Chuyển lên" [ref=f4e2555]
+                    - button "Chuyển xuống" [ref=f4e2557]
+                  - button "Nhân đôi" [ref=f4e2559]
+                  - button "Xóa" [ref=f4e2560]
+              - generic [ref=f4e2561]: Block này đang ở trạng thái tắt. Bạn vẫn có thể chỉnh nội dung, đổi thứ tự hoặc bật lại khi cần.
+              - generic [ref=f4e2562]:
+                - generic [ref=f4e2563]:
+                  - generic [ref=f4e2564]: Vị trí trên trang chủ
+                  - combobox [ref=f4e2565]:
+                    - option "Theo vị trí mặc định"
+                    - option "Sau hero"
+                    - option "Trước thanh tìm kiếm"
+                    - option "Trước Chủ đề tour"
+                    - option "Trước Tour nổi bật"
+                    - option "Trước tab tour theo taxonomy"
+                    - option "Trước tab vùng miền"
+                    - option "Trước Điểm đến nổi bật"
+                    - option "Trước gallery landing"
+                    - option "Trước Dịch vụ hỗ trợ"
+                    - option "Trước trust proof"
+                    - option "Trước quy trình tư vấn"
+                    - option "Trước blog preview"
+                    - option "Trước FAQ"
+                    - option "Trước CTA cuối trang" [selected]
+                    - option "Sau CTA cuối trang"
+                - paragraph [ref=f4e2566]: Chỉ áp dụng cho system page Trang chủ. Vị trí này là fallback cho block mới; thứ tự render thực tế lấy từ danh sách Blocks đang hiển thị ở đây.
+              - generic [ref=f4e2567]:
+                - generic [ref=f4e2568]:
+                  - text: Tiêu đề CTA
+                  - textbox [ref=f4e2569]: NHẬN ƯU ĐÃI - CẦN TƯ VẤN?
+                - generic [ref=f4e2570]:
+                  - text: Mô tả CTA
+                  - paragraph [ref=f4e2575]: Chỉ cần để lại yêu cầu, đội ngũ chuyên gia Hải Đăng Travel sẽ gửi đến bạn giải pháp lữ hành tối ưu nhất.
+                - generic [ref=f4e2576]:
+                  - text: Button chính
+                  - generic [ref=f4e2577]:
+                    - textbox "Label" [ref=f4e2578]: Gửi yêu cầu
+                    - textbox "/lien-he" [ref=f4e2579]
+                - generic [ref=f4e2580]:
+                  - text: Button phụ
+                  - generic [ref=f4e2581]:
+                    - textbox "Label" [ref=f4e2582]: Xem tour nổi bật
+                    - textbox "/tour-doan" [ref=f4e2583]: danh-muc-tour/du-lich-mua-he
+            - article [ref=f4e2584]:
+              - generic [ref=f4e2585]:
+                - generic [ref=f4e2586]:
+                  - paragraph [ref=f4e2587]: Block 23
+                  - heading "CTA cuối trang" [level=4] [ref=f4e2588]
+                  - generic [ref=f4e2589]:
+                    - generic [ref=f4e2590]: Hardcode
+                    - generic [ref=f4e2591]: Đang bật
+                    - paragraph [ref=f4e2592]: Form bên dưới điều chỉnh nội dung, bật/tắt và vị trí render của section hardcode này.
+                - generic [ref=f4e2593]:
+                  - generic [ref=f4e2594]:
+                    - checkbox "Bật block" [checked] [ref=f4e2595]
+                    - text: Bật block
+                  - generic [ref=f4e2596]:
+                    - button "Chuyển lên" [ref=f4e2597]
+                    - button "Chuyển xuống" [disabled] [ref=f4e2599]
+              - generic [ref=f4e2601]: Section này hiện chỉ có bật/tắt và vị trí render trong stack homepage.
+          - generic [ref=f4e1600]:
+            - paragraph [ref=f4e1601]: Thêm block mới
+            - generic [ref=f4e1602]:
+              - button "Hero từ slider" [ref=f4e1603]
+              - button "Hero từ media" [ref=f4e1606]
+              - button "Hero Demo Landingpage" [ref=f4e1609]
+              - button "Gallery từ slider" [ref=f4e1612]
+              - button "Gallery từ media" [ref=f4e1615]
+              - button "HTML widget" [ref=f4e1618]
+              - button "Rail mã ưu đãi du lịch" [ref=f4e1621]
+              - button "Widget voucher promotion" [ref=f4e1624]
+              - button "Widget voucher promotion premium" [ref=f4e1627]
+              - button "Rich text" [ref=f4e1630]
+              - button "Block Vùng / miền" [ref=f4e1633]
+              - button "Tab vùng miền + card taxonomy" [ref=f4e1636]
+              - button "Block Chủ đề tour" [ref=f4e1639]
+              - button "Tab tour theo taxonomy" [ref=f4e1642]
+              - button "Lý do chọn / trust proof" [ref=f4e1645]
+              - button "CTA" [ref=f4e1648]
+              - button "FAQ" [ref=f4e1651]
+              - button "Flash Sale - Ưu đãi giờ chót" [ref=f4e1654]
+              - button "Danh sách tour" [ref=f4e1657]
+              - button "Danh sách blog" [ref=f4e1660]
+        - generic [ref=f4e1663]:
+          - generic [ref=f4e1664]:
+            - heading "SEO" [level=3] [ref=f4e1665]
+            - paragraph [ref=f4e1666]: Schema JSON có thể thêm thủ công nếu landing cần cấu trúc đặc biệt ngoài block contract mặc định.
+          - generic [ref=f4e1667]:
+            - generic [ref=f4e1668]:
+              - text: Meta title
+              - textbox [ref=f4e1669]: Hải Đăng Travel | Tour Trọn Gói, Teambuilding & Dịch Vụ Visa
+            - generic [ref=f4e1670]:
+              - text: OG title
+              - textbox [ref=f4e1671]: Hải Đăng Travel | Trải Nghiệm Du Lịch Đẳng Cấp & Trọn Gói
+            - generic [ref=f4e1672]:
+              - text: Meta description
+              - paragraph [ref=f4e1677]: "Hải Đăng Travel chuyên thiết kế hành trình du lịch đẳng cấp: tour trọn gói trong & ngoài nước, teambuilding chuyên nghiệp, dịch vụ visa & cho thuê xe uy tín. Khám phá hành trình của bạn ngay!"
+            - generic [ref=f4e1678]:
+              - text: OG description
+              - paragraph [ref=f4e1683]: Thiết kế hành trình độc bản cùng Hải Đăng Travel. Tour trong nước, quốc tế, teambuilding & dịch vụ hỗ trợ visa chuyên nghiệp. Đặt tour ngay!
+            - generic [ref=f4e1684]:
+              - text: Canonical URL
+              - textbox [ref=f4e1685]: https://haidangtravel.com
+            - generic [ref=f4e1686]:
+              - text: Robots directive
+              - textbox [ref=f4e1687]: index,follow
+            - generic [ref=f4e1688]:
+              - text: Schema JSON
+              - textbox [ref=f4e1689]
+        - button "Lưu landing page" [ref=f4e1692]

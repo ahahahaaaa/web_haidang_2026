@@ -53,8 +53,10 @@ function enhanceSelect(select) {
     }
 
     const isSearchable = select.dataset.frontsiteSelectSearch !== 'false';
+    const hidePlaceholder = select.dataset.frontsiteSelectHidePlaceholder === 'true';
     const maxWidth = select.dataset.frontsiteSelectMaxWidth?.trim() || '';
     const placeholder = selectPlaceholder(select);
+    const singleLine = select.dataset.frontsiteSelectSingleLine === 'true';
     const variant = select.dataset.frontsiteSelectVariant?.trim() || 'panel';
 
     return new TomSelect(select, {
@@ -63,9 +65,10 @@ function enhanceSelect(select) {
         copyClassesToDropdown: false,
         create: false,
         dropdownParent: 'body',
-        hidePlaceholder: false,
+        hidePlaceholder,
         maxItems: 1,
         placeholder,
+        plugins: singleLine && isSearchable ? ['input_autogrow'] : [],
         render: {
             no_results(data, escape) {
                 return `<div class="px-3 py-2 text-sm text-slate-500">Không tìm thấy kết quả cho "${escape(data.input)}".</div>`;
@@ -75,6 +78,10 @@ function enhanceSelect(select) {
         onInitialize() {
             this.wrapper.classList.add('frontsite-select', `frontsite-select--${variant}`);
             this.dropdown.classList.add('frontsite-select-dropdown', `frontsite-select-dropdown--${variant}`);
+
+            if (singleLine) {
+                this.wrapper.classList.add('frontsite-select--single-line');
+            }
 
             if (maxWidth) {
                 this.wrapper.style.setProperty('--frontsite-select-max-width', maxWidth);
@@ -108,6 +115,7 @@ function enhanceDatepicker(input) {
     const maxWidth = input.dataset.frontsiteDatepickerMaxWidth?.trim() || '';
     const minDate = input.dataset.frontsiteDatepickerMinDate?.trim() || undefined;
     const maxDate = input.dataset.frontsiteDatepickerMaxDate?.trim() || undefined;
+    const monthSelectorType = input.dataset.frontsiteDatepickerMonthSelector === 'static' ? 'static' : 'dropdown';
     const placeholder = input.dataset.frontsiteDatepickerPlaceholder?.trim() || 'Chọn ngày';
     const variant = input.dataset.frontsiteDatepickerVariant?.trim() || 'panel';
     const datepickerOptions = {
@@ -118,6 +126,7 @@ function enhanceDatepicker(input) {
         dateFormat: 'Y-m-d',
         disableMobile: true,
         locale: vietnameseFlatpickrLocale,
+        monthSelectorType,
         formatDate(date, format, locale) {
             if (format === customLongDateFormat) {
                 return formatVietnameseLongDate(date);

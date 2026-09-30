@@ -7,7 +7,7 @@
         <a
             href="{{ $item['url'] }}"
             @if (! empty($item['target'])) target="{{ $item['target'] }}" rel="noopener noreferrer" @endif
-            class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-[color:var(--color-primary-soft)] hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+            class="inline-flex items-center gap-2 whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-[color:var(--color-primary-soft)] hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 min-[1480px]:px-4"
         >
             <span>{{ $item['label'] }}</span>
             <i class="fa-solid fa-chevron-down text-[11px] transition group-hover:rotate-180"></i>
@@ -23,7 +23,7 @@
     <a
         href="{{ $item['url'] }}"
         @if (! empty($item['target'])) target="{{ $item['target'] }}" rel="noopener noreferrer" @endif
-        class="rounded-full px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-[color:var(--color-primary-soft)] hover:text-primary"
+        class="whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-[color:var(--color-primary-soft)] hover:text-primary min-[1480px]:px-4"
     >
         {{ $item['label'] }}
     </a>

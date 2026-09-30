@@ -178,7 +178,7 @@
             'fallbackPrimaryUrl' => $landing?->cta_primary_url ?: route('contact'),
             'fallbackSecondaryLabel' => $landing?->cta_secondary_label ?: 'Xem tour nổi bật',
             'fallbackSecondaryUrl' => $landing?->cta_secondary_url ?: route('tours.domestic'),
-            'fallbackTitle' => $landing?->hero_title ?: 'Du lịch hè 2026 cùng Haidangtravel',
+            'fallbackTitle' => $landing?->hero_title ?: '',
             'hero' => $landingHero ?? [],
             'landing' => $landing,
         ])

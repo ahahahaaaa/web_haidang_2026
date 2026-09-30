@@ -69,6 +69,27 @@ class VoucherCampaign extends Model
             });
     }
 
+    public function scopePubliclyListed(Builder $query): Builder
+    {
+        return $query
+            ->where('meta->public_widget_enabled', true)
+            ->whereNotNull('meta->public_code');
+    }
+
+    public function publicCode(): ?string
+    {
+        $code = trim((string) data_get($this->meta, 'public_code'));
+
+        return $code !== '' ? $code : null;
+    }
+
+    public function publicTerms(): ?string
+    {
+        $terms = trim((string) data_get($this->meta, 'public_terms'));
+
+        return $terms !== '' ? $terms : null;
+    }
+
     public function cookieName(): string
     {
         return 'haidang_voucher_'.Str::slug($this->slug, '_');

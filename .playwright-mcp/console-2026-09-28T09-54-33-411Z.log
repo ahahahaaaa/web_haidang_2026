@@ -1,0 +1,8 @@
+[    1120ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8001/_boost/browser-logs @ http://127.0.0.1:8001/:69
+[    5864ms] [LOG] Zalo Social Plugin is loaded successfully @ http://127.0.0.1:8001/:128
+[    5865ms] [LOG] socialPluginsShare:  [] @ http://127.0.0.1:8001/:128
+[  334224ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8001/_boost/browser-logs @ http://127.0.0.1:8001/:69
+[  334739ms] [LOG] Zalo Social Plugin is loaded successfully @ http://127.0.0.1:8001/:128
+[  334740ms] [LOG] socialPluginsShare:  [] @ http://127.0.0.1:8001/:128
+[10895441ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ http://gc.kis.v2.scr.kaspersky-labs.com/CA8EB8C2-2F3B-4B1A-861B-1D04CFAAB9DA/713D10A7-3FCF-4A34-8BB3-D15CBF2901BD/from?get&nocache=1bd62&tm=2026-09-28T12%3A56%3A08.835Z:0
+[10895578ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ http://gc.kis.v2.scr.kaspersky-labs.com/CA8EB8C2-2F3B-4B1A-861B-1D04CFAAB9DA/713D10A7-3FCF-4A34-8BB3-D15CBF2901BD/from?get&nocache=1de6b&tm=2026-09-28T12%3A56%3A08.851Z&second=true:0

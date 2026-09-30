@@ -6,6 +6,7 @@ use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\TourReviewSubmissionController;
 use App\Http\Controllers\TravelInquiryController;
 use App\Http\Controllers\VoucherCampaignController;
+use App\Services\Seo\SitemapBuilder;
 use App\Support\LandingPageBlocks;
 use Illuminate\Support\Facades\Route;
 
@@ -59,6 +60,13 @@ Route::post('/danh-gia-tour/{tour}/{token}', [TourReviewSubmissionController::cl
 Route::middleware('frontsite.cache')->group(function () use ($reservedBlogCategoryPrefixes): void {
     Route::get('/robots.txt', [SitemapController::class, 'robots'])->name('robots');
     Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+    Route::get('/sitemap-index.xml', [SitemapController::class, 'sitemapIndex'])->name('sitemap.index');
+    Route::get('/sitemap-{type}-{page}.xml', [SitemapController::class, 'type'])
+        ->where(['type' => implode('|', SitemapBuilder::TYPES), 'page' => '[1-9][0-9]{0,5}'])
+        ->name('sitemap.type.page');
+    Route::get('/sitemap-{type}.xml', [SitemapController::class, 'type'])
+        ->where('type', implode('|', SitemapBuilder::TYPES))
+        ->name('sitemap.type');
 
     Route::get('/', [FrontsiteController::class, 'home'])->name('home');
     Route::get('/ve-chung-toi', [FrontsiteController::class, 'about'])->name('about');

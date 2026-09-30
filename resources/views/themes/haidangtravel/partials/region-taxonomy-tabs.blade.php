@@ -93,7 +93,7 @@
                 </div>
 
                 <div class="min-w-0">
-                    <div class="flex flex-col gap-4 border-b border-slate-200 pb-5 sm:flex-row sm:items-end sm:justify-between">
+                    <div class="flex flex-col gap-4 border-b border-slate-200 pb-5 sm:flex-row sm:items-start sm:justify-between">
                         <div class="min-w-0 flex-1">
                             <h3 class="frontsite-text-reveal font-heading text-[1.7rem] font-bold leading-tight text-slate-950 sm:text-[1.95rem]" data-reveal="title" data-tour-list-summary-title>
                                 {{ data_get($activeTab, 'title') }}
@@ -107,15 +107,14 @@
                             </p>
                         </div>
 
-                        <a
-                            href="{{ data_get($activeTab, 'url') }}"
-                            class="frontsite-text-reveal inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.24em] text-secondary transition hover:text-primary"
-                            data-reveal="cta"
-                            data-tour-list-summary-link
-                        >
-                            {{ $ctaLabel }}
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
+                        @include('themes.haidangtravel.partials.block-view-more-link', [
+                            'label' => $ctaLabel,
+                            'linkAttributes' => [
+                                'data-reveal' => 'cta',
+                                'data-tour-list-summary-link' => true,
+                            ],
+                            'url' => data_get($activeTab, 'url'),
+                        ])
                     </div>
 
                     <div class="mt-6 space-y-6">
@@ -162,12 +161,13 @@
                                 @if (! $isActiveTab) hidden @endif
                             >
                                 <div
+                                    class="frontsite-slider-stage"
                                     data-card-carousel
                                     @if ($desktopSlider) data-desktop-slider="true" @endif
                                     style="--desktop-columns: 3; --desktop-card-width: calc((100% - 2rem) / 3); --mobile-card-width: calc(83.333% - 0.17rem); --tablet-card-width: calc((100% - 1rem) / 2.18);"
                                 >
                                     @if ($normalizedItems->count() > 1)
-                                        <div class="mb-4 flex items-center justify-end gap-3 frontsite-slider-nav">
+                                        <div class="frontsite-slider-nav">
                                             <button
                                                 type="button"
                                                 data-card-carousel-prev

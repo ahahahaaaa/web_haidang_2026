@@ -1,5 +1,6 @@
 <?php
 
+use App\Modules\LegacyMigration\LegacyMigrationServiceProvider;
 use App\Providers\AppServiceProvider;
 use App\Providers\CmsServiceProvider;
 use App\Providers\FortifyServiceProvider;
@@ -9,4 +10,5 @@ return [
     CmsServiceProvider::class,
     FortifyServiceProvider::class,
     App\Providers\SeoOptimizationServiceProvider::class,
+    LegacyMigrationServiceProvider::class,
 ];

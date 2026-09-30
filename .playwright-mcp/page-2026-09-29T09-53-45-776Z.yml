@@ -1,0 +1,149 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]: Internal Server Error
+    - button "Copy as Markdown" [ref=e11] [cursor=pointer]
+  - generic [ref=e18]:
+    - generic [ref=e19]:
+      - heading "Illuminate\\Database\\QueryException" [level=1] [ref=e20]
+      - generic [ref=e21]: vendor\laravel\framework\src\Illuminate\Database\Connection.php:841
+      - paragraph [ref=e23]: "SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: haidangtravel_2026, SQL: select * from `sessions` where `id` = 1xcRWt5BAkcJ3GvppX2MuFupyMuUIqyXEMv5ORzg limit 1)"
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - generic [ref=e27]: LARAVEL
+          - generic [ref=e28]: 13.11.2
+        - generic [ref=e29]:
+          - generic [ref=e30]: PHP
+          - generic [ref=e31]: 8.5.2
+      - generic [ref=e32]: UNHANDLED
+      - generic [ref=e36]: CODE 2002
+    - generic [ref=e38]:
+      - generic [ref=e39]: "500"
+      - generic [ref=e43]: GET
+      - generic [ref=e47]: http://127.0.0.1:8001
+      - button [ref=e48] [cursor=pointer]
+  - generic [ref=e53]:
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - heading "Exception trace" [level=3] [ref=e60]
+        - link "1 previous exception" [ref=e61] [cursor=pointer]:
+          - /url: "#previous-exceptions"
+      - generic [ref=e62]:
+        - generic [ref=e64] [cursor=pointer]:
+          - generic [ref=e69]: 32 vendor frames
+          - button [ref=e70]
+        - generic [ref=e75]:
+          - generic [ref=e76] [cursor=pointer]:
+            - generic [ref=e79]:
+              - code [ref=e83]:
+                - generic [ref=e84]: "Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():194}:195}()"
+              - generic [ref=e85]: app\Http\Middleware\CanonicalizeFrontsiteUrl.php:16
+            - button [ref=e88]
+          - code [ref=e97]:
+            - generic [ref=e98]: 11class CanonicalizeFrontsiteUrl
+            - generic [ref=e99]: "12{"
+            - generic [ref=e100]: "13 public function handle(Request $request, Closure $next): Response"
+            - generic [ref=e101]: "14 {"
+            - generic [ref=e102]: "15 if (! $this->shouldRedirect($request)) {"
+            - generic [ref=e103]: 16 return $next($request);
+            - generic [ref=e104]: "17 }"
+            - generic [ref=e105]: "18"
+            - generic [ref=e106]: 19 $targetUrl = $this->targetUrl($request);
+            - generic [ref=e107]: "20"
+            - generic [ref=e108]: "21 if ($targetUrl === null) {"
+            - generic [ref=e109]: 22 return $next($request);
+            - generic [ref=e110]: "23 }"
+            - generic [ref=e111]: "24"
+            - generic [ref=e112]: 25 return redirect()->away($targetUrl, 301);
+            - generic [ref=e113]: "26 }"
+            - generic [ref=e114]: "27"
+            - generic [ref=e115]: "28"
+        - generic [ref=e117] [cursor=pointer]:
+          - generic [ref=e122]: 23 vendor frames
+          - button [ref=e123]
+        - generic [ref=e129] [cursor=pointer]:
+          - generic [ref=e132]:
+            - code [ref=e136]:
+              - generic [ref=e137]: Illuminate\Foundation\Application->handleRequest()
+            - generic [ref=e138]: public\index.php:20
+          - button [ref=e141]
+        - generic [ref=e147] [cursor=pointer]:
+          - generic [ref=e152]: 1 vendor frame
+          - button [ref=e153]
+    - generic [ref=e158]:
+      - heading "Previous exception" [level=3] [ref=e164]
+      - generic [ref=e168] [cursor=pointer]:
+        - generic [ref=e169]:
+          - heading "PDOException" [level=4] [ref=e170]
+          - paragraph [ref=e171]: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+        - button [ref=e172]
+    - generic [ref=e177]:
+      - heading "Queries" [level=3] [ref=e183]
+      - generic [ref=e184]: // No queries executed
+  - generic [ref=e187]:
+    - generic [ref=e188]:
+      - heading "Headers" [level=2] [ref=e189]
+      - generic [ref=e190]:
+        - generic [ref=e191]:
+          - generic [ref=e192]: host
+          - generic [ref=e194]: 127.0.0.1:8001
+        - generic [ref=e195]:
+          - generic [ref=e196]: connection
+          - generic [ref=e198]: keep-alive
+        - generic [ref=e199]:
+          - generic [ref=e200]: sec-ch-ua
+          - generic [ref=e202]: "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A(Brand\";v=\"99\""
+        - generic [ref=e203]:
+          - generic [ref=e204]: sec-ch-ua-mobile
+          - generic [ref=e206]: "?0"
+        - generic [ref=e207]:
+          - generic [ref=e208]: sec-ch-ua-platform
+          - generic [ref=e210]: "\"Windows\""
+        - generic [ref=e211]:
+          - generic [ref=e212]: upgrade-insecure-requests
+          - generic [ref=e214]: "1"
+        - generic [ref=e215]:
+          - generic [ref=e216]: user-agent
+          - generic [ref=e218]: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36
+        - generic [ref=e219]:
+          - generic [ref=e220]: accept
+          - generic [ref=e222]: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+        - generic [ref=e223]:
+          - generic [ref=e224]: sec-fetch-site
+          - generic [ref=e226]: none
+        - generic [ref=e227]:
+          - generic [ref=e228]: sec-fetch-mode
+          - generic [ref=e230]: navigate
+        - generic [ref=e231]:
+          - generic [ref=e232]: sec-fetch-user
+          - generic [ref=e234]: "?1"
+        - generic [ref=e235]:
+          - generic [ref=e236]: sec-fetch-dest
+          - generic [ref=e238]: document
+        - generic [ref=e239]:
+          - generic [ref=e240]: accept-encoding
+          - generic [ref=e242]: gzip, deflate, br, zstd
+        - generic [ref=e243]:
+          - generic [ref=e244]: accept-language
+          - generic [ref=e246]: en-US,en;q=0.9
+        - generic [ref=e247]:
+          - generic [ref=e248]: cookie
+          - generic [ref=e250]: _ga=GA1.1.1679739900.1790043550; _fbp=fb.3.1790043549779.12183462506205307; _ga_RCW2PECL7F=GS2.1.s1790589275$o6$g1$t1790589616$j51$l0$h0
+    - generic [ref=e251]:
+      - heading "Body" [level=2] [ref=e252]
+      - generic [ref=e253]: // No request body
+    - generic [ref=e254]:
+      - heading "Routing" [level=2] [ref=e255]
+      - generic [ref=e256]:
+        - generic [ref=e257]:
+          - generic [ref=e258]: controller
+          - generic [ref=e260]: App\Http\Controllers\FrontsiteController@home
+        - generic [ref=e261]:
+          - generic [ref=e262]: route name
+          - generic [ref=e264]: home
+        - generic [ref=e265]:
+          - generic [ref=e266]: middleware
+          - generic [ref=e268]: web, frontsite.cache
+    - generic [ref=e269]:
+      - heading "Routing parameters" [level=2] [ref=e270]
+      - generic [ref=e271]: // No routing parameters

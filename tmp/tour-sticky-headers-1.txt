@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Host: localhost:8001
+Connection: close
+X-Powered-By: PHP/8.5.2
+Content-Type: text/html; charset=utf-8
+Cache-Control: no-cache, private
+Date: Sun, 27 Sep 2026 13:06:10 GMT
+X-Frontsite-Cache: MISS
+Set-Cookie: XSRF-TOKEN=eyJpdiI6InVmSm1UYTF5OFdIWXJ4TnpWZGMxMUE9PSIsInZhbHVlIjoiTEUyMGxiaWczb3dYc1pFMThWUEpoL1YrN3creGZGT3VBT3dxdi9NRGdHUHQ3bFNudXNJZHptUzhCdXN5eGJrM292SnlmdmZwaEVnRGhEZCtTVFl5ZlEzM1BwTFhtWFNQbTk1OWcxbFVJbFFmM3JyUDRtTFVkd25YSitMZUtQTmIiLCJtYWMiOiJlNzg0N2Y3MWFiYTI1YWE0OTE2OWE1MDAyY2I2MDcwNTA1NDkwZmY5NDNmMzRmMjk3ZjQ2ZWE2YTYzM2QxMjhjIiwidGFnIjoiIn0%3D; expires=Sun, 27 Sep 2026 15:06:11 GMT; Max-Age=7200; path=/; samesite=lax
+Set-Cookie: haidangtravel-session=eyJpdiI6IlNCWkFsZkVJV291Y1h0VWcxMkxDOUE9PSIsInZhbHVlIjoiNjU2VElkaUR3STRyL2lrSzFpcFdEbzZ1NXRhZ0ZTVDBsdys0ZFlic1MwbzJyNTFUdEljRnlERDIyY3QrWFJzVytsSWxLcWtXRTNOVXNoMWdrZk1wRU9NY054ay9CUWpKNGJBVmQ4ZjFtam14MkMzK0YxREYwUndwTVBaZUJPNTciLCJtYWMiOiJjY2ZkODJlMWI4ODBiZDc5NzlhMmI4YWY2MTk4ZmFkNDc4ZDkwNGM3YTNlZWUzZjI5MThmYjUxYjRlNzg0M2E1IiwidGFnIjoiIn0%3D; expires=Sun, 27 Sep 2026 15:06:11 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+

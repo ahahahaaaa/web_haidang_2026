@@ -5,6 +5,21 @@
     $selectedVoucherVariant = data_get($selectedInquiry->meta, 'voucher_variant', data_get($selectedInquiry->meta, 'ab_variant'));
     $selectedExpectedDestination = data_get($selectedInquiry->meta, 'expected_destination');
     $selectedExpectedTime = data_get($selectedInquiry->meta, 'expected_time');
+    $selectedBookingQuote = data_get($selectedInquiry->meta, 'booking_quote');
+    $selectedPriceTypeLabel = match ($selectedInquiry->price_type) {
+        'flash_sale' => 'Flash Sale',
+        'regular' => 'Giá thường',
+        'contact' => 'Liên hệ xác nhận giá',
+        default => 'Chưa ghi nhận',
+    };
+    $selectedFlashStatusLabel = match (data_get($selectedBookingQuote, 'flash_sale_status')) {
+        'reserved' => 'Đã giữ đủ vé Flash Sale',
+        'insufficient_tickets' => 'Không đủ vé cho cả nhóm',
+        'sold_out' => 'Đã hết vé Flash Sale',
+        'invalid_price' => 'Giá Flash Sale không còn hợp lệ',
+        'unavailable' => 'Campaign không còn hiệu lực',
+        default => null,
+    };
 @endphp
 
 <div class="space-y-4 rounded-[24px] border border-zinc-200 bg-white p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
@@ -67,6 +82,24 @@
     @endif
 
     <div class="grid gap-4 md:grid-cols-2">
+        @if (is_array($selectedBookingQuote))
+            <div class="rounded-2xl bg-orange-50 p-4 dark:bg-orange-500/10 md:col-span-2">
+                <p class="text-xs uppercase tracking-[0.2em] text-orange-700 dark:text-orange-300">Giá tại thời điểm đặt</p>
+                <div class="mt-3 grid gap-3 text-sm sm:grid-cols-2 lg:grid-cols-4">
+                    <p><strong>Loại giá:</strong> {{ $selectedPriceTypeLabel }}</p>
+                    <p><strong>Đơn giá:</strong> {{ $selectedInquiry->quoted_unit_price ? number_format((int) $selectedInquiry->quoted_unit_price, 0, ',', '.').' đ/khách' : 'Liên hệ' }}</p>
+                    <p><strong>Số vé:</strong> {{ (int) $selectedInquiry->ticket_count }} (người lớn + trẻ em)</p>
+                    <p><strong>Thời điểm:</strong> {{ $selectedInquiry->quoted_at?->format('d/m/Y H:i:s') ?: 'Chưa có' }}</p>
+                    @if (data_get($selectedBookingQuote, 'flash_sale_title'))
+                        <p><strong>Campaign:</strong> {{ data_get($selectedBookingQuote, 'flash_sale_title') }}</p>
+                        <p><strong>Trạng thái:</strong> {{ $selectedFlashStatusLabel ?: data_get($selectedBookingQuote, 'flash_sale_status') }}</p>
+                        <p><strong>Vé còn trước:</strong> {{ (int) data_get($selectedBookingQuote, 'flash_tickets_remaining_before') }}</p>
+                        <p><strong>Vé còn sau:</strong> {{ (int) data_get($selectedBookingQuote, 'flash_tickets_remaining_after') }}</p>
+                    @endif
+                </div>
+            </div>
+        @endif
+
         @if (data_get($selectedInquiry->meta, 'voucher.code'))
             <div class="rounded-2xl bg-orange-50 p-4 dark:bg-orange-500/10">
                 <p class="text-xs uppercase tracking-[0.2em] text-orange-700 dark:text-orange-300">Voucher</p>

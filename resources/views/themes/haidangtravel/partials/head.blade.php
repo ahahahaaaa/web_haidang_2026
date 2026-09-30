@@ -13,7 +13,9 @@
 <meta name="robots" content="{{ $seo['robots'] ?? 'index,follow' }}">
 <meta name="theme-color" content="#FF6A00">
 <meta property="og:site_name" content="{{ $siteSettings->site_name }}">
-<link rel="canonical" href="{{ $canonicalUrl }}">
+@if ($seo['emit_canonical'] ?? true)
+    <link rel="canonical" href="{{ $canonicalUrl }}">
+@endif
 
 <meta property="og:type" content="{{ $seo['type'] ?? 'website' }}">
 <meta property="og:title" content="{{ $seo['og_title'] ?? $seo['title'] ?? $siteSettings->site_name }}">
@@ -45,7 +47,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 @php
-    $frontsiteFontHref = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap';
+    $frontsiteFontHref = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap';
 @endphp
 <link rel="preload" href="{{ $frontsiteFontHref }}" as="style">
 <link rel="stylesheet" href="{{ $frontsiteFontHref }}" media="print" onload="this.media='all'">

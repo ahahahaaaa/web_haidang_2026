@@ -7,6 +7,7 @@ use App\Services\Travel\TravelInquiryService;
 use App\Services\Travel\VoucherCampaignService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Symfony\Component\HttpFoundation\Cookie;
 use Throwable;
 
 class TravelInquiryController extends Controller
@@ -15,8 +16,7 @@ class TravelInquiryController extends Controller
         StoreTravelInquiryRequest $request,
         TravelInquiryService $service,
         VoucherCampaignService $vouchers,
-    ): RedirectResponse|JsonResponse
-    {
+    ): RedirectResponse|JsonResponse {
         $voucherResult = null;
 
         try {
@@ -46,16 +46,17 @@ class TravelInquiryController extends Controller
             }
         }
 
-        $message = 'Yêu cầu của bạn đã được ghi nhận. Hải Đăng Travel sẽ liên hệ sớm nhất.';
+        $message = $service->confirmationMessage($inquiry);
 
         if ($request->expectsJson()) {
             $response = response()->json([
                 'message' => $message,
+                'booking_quote' => data_get($inquiry->meta, 'booking_quote'),
                 'voucher' => $voucherResult['voucher'] ?? null,
                 'voucher_status' => $voucherResult['status'] ?? null,
             ]);
 
-            if (($voucherResult['cookie'] ?? null) instanceof \Symfony\Component\HttpFoundation\Cookie) {
+            if (($voucherResult['cookie'] ?? null) instanceof Cookie) {
                 $response->withCookie($voucherResult['cookie']);
             }
 
@@ -71,7 +72,7 @@ class TravelInquiryController extends Controller
             $response->with('travel_inquiry_voucher', $voucherResult['voucher']);
         }
 
-        if (($voucherResult['cookie'] ?? null) instanceof \Symfony\Component\HttpFoundation\Cookie) {
+        if (($voucherResult['cookie'] ?? null) instanceof Cookie) {
             $response->withCookie($voucherResult['cookie']);
         }
 

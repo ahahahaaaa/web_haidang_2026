@@ -41,7 +41,7 @@
             </div>
         @endif
 
-        <div class="frontsite-media-content absolute inset-x-3 top-3 flex items-start justify-between gap-2">
+        <div class="absolute inset-x-3 top-3 z-20 flex items-start justify-between gap-2">
             <span class="inline-flex items-center gap-1.5 rounded-full border border-white/16 bg-white/14 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white shadow-[0_16px_38px_-28px_rgba(15,23,42,0.68)] backdrop-blur-sm">
                 <i class="fa-regular fa-newspaper text-orange-200"></i>
                 {{ $card['intent_label'] }}

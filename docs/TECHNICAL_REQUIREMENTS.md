@@ -284,6 +284,9 @@ Reserved examples:
 - `gallery_slider`
 - `gallery_media`
 - `html_widget`
+- `voucher_rail`
+- `voucher_promotion`
+- `voucher_promotion_premium`
 - `rich_text`
 - `region_rail`
 - `region_taxonomy_tabs`
@@ -301,6 +304,10 @@ Reserved examples:
 - query blocks must only resolve published runtime data; taxonomy query blocks must count related tours or posts by their published scopes instead of including draft content in visible counts
 - `html_widget` starts empty and renders the pasted HTML directly at its position in the block stack for widget/snippet use cases
 - `html_widget` trên homepage mặc định neo trước `featured_tours` để banner/widget không rơi xuống sau destination slider; nội dung giữ theo `uuid`, khi có nhiều widget thì move bằng `home_config.layout_order` để tránh lẫn nội dung giữa các block
+- `voucher_rail` queries only redeemable `VoucherCampaign` records that are explicitly enabled for public display, have a dedicated public offer code, still have an available generated-code inventory, and are linked one-to-one to an active custom `LandingPage`; it never exposes customer-specific generated voucher codes
+- `voucher_rail` keeps a horizontally scrollable `1 + 0.2 card` preview on mobile and uses the shared desktop carousel as one row with exactly `3` visible cards per viewport; each card uses a responsive split-voucher composition with a branded offer panel, benefit/condition details, expiry, public code, and `Nhận voucher` CTA; that CTA routes to the campaign's own landing page with `#nhan-voucher`, where the existing shared `TravelInquiry` modal opens with the matching campaign context. The panel must sit inside the standard `mx-auto max-w-7xl` content container, and its cream/orange surface, travel icons, and plane watermark should stay visually aligned with the premium `/voucher-du-lich` campaign, while campaign selection and ordering remain configurable in the LandingPage block editor
+- seeded voucher landing promotion blocks must copy `offer_code` from the owning campaign sample's `public_code`; never retain another campaign's default code, and never expose a generated customer voucher before a successful claim
+- voucher demo seed data must resolve secondary CTA URLs from one ordered query of published international `Destination::countryRoots()`, exclude the aggregate `du-lich-quoc-te` hub, cycle deterministically when campaigns outnumber countries, and store relative canonical `countries.show` paths; use the named international-tour route as the empty-data fallback
 - `hero_*` and `gallery_*` may source only from `slider` or shared `media popup`
 - `hero_demo_landingpage` reuses the homepage demo hero section as an optional landing hero block, queries live published tours across domestic, international, and group scopes, suppresses the default landing hero when enabled, and keeps the primary CTA wired to `TravelInquiry`
 - `region_rail` queries published `Region` hubs with published tours, supports `scope`, `featured`, and `limit`, and renders with the same taxonomy-card carousel family used on homepage browse-entry rails
@@ -308,7 +315,14 @@ Reserved examples:
 - `region_taxonomy_tabs` should pass `imageSize = medium` to active panel cards in both dynamic landing-page widgets and the homepage fixed section, even though the default frontsite card contract otherwise prefers `small`
 - `topic_rail` queries the same featured `TourCategory` set currently used by homepage `Chủ đề tour`, supports `eyebrow`, `title`, `description`, `show_navigation`, and `limit`, and must hide empty heading sub-parts instead of forcing fallback copy on custom landing pages
 - `tour_taxonomy_tabs` renders the same tablist family used by the homepage featured-tour section, but each tab can target one live `Region`, `Destination`, or `TourCategory` source and query tours by that taxonomy plus optional shared `scope`, `featured`, `limit`, and `sort`
+- homepage `featured_tours` always resolves an immutable `all` tab first, followed by at most 12 CMS-ordered filters sourced from `TourScope`, published `Destination`, published `TourCategory`, or published `Region`; legacy `featured_tours.tabs` scope config must normalize into this filter contract without requiring a schema migration
+- the CMS filter repeater stores only the selected source contract as its active authoring surface; runtime labels resolve from the selected object and every tab reuses the global `all.title` / `all.description`
+- the Haidang Travel bootstrap snapshot supplies nine deterministic region/continent filters after `Tất cả`: `Miền Bắc`, `Miền Trung`, `Miền Đông Nam Bộ`, `Miền Tây Nam Bộ`, `Châu Á`, `Châu Âu`, `Châu Mỹ`, `Châu Úc`, and `Châu Phi`
+- homepage `featured_tours.popular_searches` stores at most 12 label/URL pairs plus an optional `filter_uuid` reference to a filter in the same block. Validate this reference against the submitted filter UUID allowlist; normalize stale references to empty. `Tất cả` renders every link, a specific tab renders exact matches only, and unassigned links appear only under `Tất cả`. Accept internal paths, query/hash links, and HTTP(S) URLs only, and discard unsafe or incomplete entries during normalization
+- For the homepage featured tours and the dynamic tour taxonomy tabs, derive up to 12 default popular-search links from published child destinations of the configured region tabs, requiring at least one published tour in the block's scope. Use the tour search route with destination and applicable scope. Keep CMS `popular_searches` as additional manual URL links; when a manual link shares a label and tab with an automatic link, its exact URL wins. Tour, Destination and Region changes must invalidate cached custom landing responses as well as home.
+- the Haidang Travel bootstrap snapshot supplies a deterministic homepage popular-search demo list with stable UUIDs and safe internal tour-search URLs; repeated bootstrap imports must reproduce the same ordered list without duplicate items
 - `tour_list` queries published tours by `category`, `destination`, `region`, `country`, `scope`, `featured`, `limit`, and `sort`
+- `tour_list`, `tour_taxonomy_tabs`, and `flash_sale` expose `is_slider`; homepage featured tours use `home_config.featured_tours.is_slider`. The default `false` keeps a grid, while `true` uses one horizontal row of cards on mobile and desktop through the shared card-carousel runtime.
 - `blog_list` queries published blog posts by `category`, `featured`, `limit`, and `sort`
 - frontsite rendering must use live query data instead of copied snapshots
 - cloned landing pages must preserve block order and media-backed assets for continued editing
@@ -323,7 +337,7 @@ Homepage system-page note:
 - các cụm cố định trong `home_config` phải có `is_enabled`; khi tắt trong CMS thì frontsite không render block đó và schema homepage không dùng dữ liệu ẩn làm `mainEntity`,
 - các cụm cố định trong `home_config` cũng phải giữ thứ tự qua `layout_order`; hero không nằm trong danh sách này vì hero luôn giữ H1 và CTA đầu trang,
 - riêng block `tour_taxonomy_tabs` của homepage nằm trong `landing_pages.home.blocks` để có thể tái sử dụng đúng contract block-builder cho landing page khác; nếu homepage chưa cấu hình block này thì runtime có thể fallback sang một bộ tab mặc định theo taxonomy domestic đang có tour publish,
-- riêng `home_config.trust` dùng contract biên tập ngắn gồm `title`, `description`, và các card `highlight/title/text`; không dùng nó như một rich-text section dài,
+- riêng `home_config.trust` dùng layout giới thiệu hai cột: `title/subtitle/description` và tối đa 3 `stats` ở bên trái, danh sách `awards` chọn từ Media Library ở bên phải; từ 2 ảnh hợp lệ trở lên phải chạy slider, còn landing block `trust_proof` giữ contract proof-card độc lập,
 - các block này vẫn phải render dữ liệu live từ runtime `Tour`, `Destination`, `Service`, `BlogPost` đang publish; không snapshot cứng dữ liệu card vào `home_config`.
 
 ---
@@ -367,14 +381,18 @@ Frontsite form contract:
 
 Listing search contract:
 
-- homepage and frontsite listing pages should prefer one shared GET search bar contract based on the query key `q`
-- the default shared listing search surface is text query + submit only; taxonomy chips/links may still exist outside the search bar when needed
+- homepage and `/tim-tour` use the advanced GET filter contract documented in `TOUR_FILTER_DESIGN.md`: `scope`, `departure_location`, `destination`, and `departure_date`, while preserving supported legacy keys
+- advanced filter input is validated by a Form Request and query construction lives in a dedicated service; Blade must not query models
+- every advanced filter is optional, combined with `AND`, retained through pagination, and maps to the canonical result route `/tim-tour`
+- other frontsite listing pages keep the compact `q` + submit contract; taxonomy chips/links may still exist outside that search bar
 - `/tour-trong-nuoc` and `/tour-nuoc-ngoai` are the controlled exception: they may add one `Chủ đề` select inside the same search surface, submitted through the GET key `category`
 - the `category` options on those 2 pages must resolve from published `TourCategory` records that still have at least one published `Tour` in the current scope
-- if a listing page needs to keep a current taxonomy context while searching, preserve that context through the route path or hidden GET inputs instead of introducing a second filter UI
+- if a compact listing page needs to keep a current taxonomy context while searching, preserve that context through the route path or hidden GET inputs instead of introducing a second filter UI
 - for the domestic and international scope pages, the route path remains the scope context and the extra `Chủ đề` select must stay visually compact instead of turning into a full multi-filter bar
 - homepage taxonomy browse-entry rails should remain outside that shared search bar and link directly to canonical taxonomy hubs such as `/danh-muc-tour/{slug}` and `/tour-{slug}`
 - destination items exposed in the homepage browse-entry rail should have at least one published tour behind them
+- advanced option lists must only expose published/current runtime records; origin aliases are normalized at the service boundary without rewriting source data
+- `/tim-tour` result URLs remain `noindex,follow` and omit the canonical tag under the current SEO contract; the form must not create another result route
 
 ### Tour departure pricing contract
 
@@ -486,3 +504,15 @@ Run the smallest relevant checks for the changed scope:
 - `npm run build`
 
 Use targeted test files when a smaller check is enough, but do not skip route and authorization verification when the task touches CMS navigation or permissions.
+
+### Flash Sale pricing invariant
+
+- `tour_flash_sales` quản lý cửa sổ thời gian; `tour_flash_sale_items` liên kết campaign với đúng `tour_id` và `tour_departure_id`.
+- Flash price chỉ là contextual override trên URL có `flash_sale` + `flash_departure`, phải thấp hơn giá bán hiện tại của lịch khởi hành và không được persist ngược vào giá chuẩn.
+- Mỗi item Flash Sale có quota vé riêng. Số vé một yêu cầu sử dụng bằng `adult_guest_count + party_size`; một người lớn hoặc một trẻ em đều tính là một vé.
+- Việc cấp giá Flash Sale áp dụng trọn gói cho toàn bộ nhóm: chỉ khi quota còn đủ cho tổng số khách thì toàn bộ yêu cầu dùng giá Flash Sale; nếu không đủ, toàn bộ yêu cầu dùng giá thường hiện tại và phải báo rõ kết quả trên form.
+- Khi submit, backend phải tự kiểm tra campaign/lịch/giá/quota và trừ quota trong cùng transaction với lúc tạo `TravelInquiry`; không tin giá hoặc số vé còn lại do browser gửi lên.
+- `TravelInquiry` phải lưu snapshot đơn giá, loại giá, tổng số vé, lịch khởi hành, thời điểm chốt và ngữ cảnh campaign để admin/email không phụ thuộc giá thay đổi về sau.
+- CMS nhận `flash_price` theo contract số nguyên dương `integer|min:1`; number input phía browser phải dùng cùng miền giá trị `min="1" step="1"` để không sinh `stepMismatch` cho giá hợp lệ. Chỉ được ép bội `1.000` khi cả business rule, server validation và test cùng được thay đổi rõ ràng.
+- Request có `flash_sale` không được đọc hoặc ghi full-page response cache để tránh giữ giá sau thời điểm hết hạn.
+- JSON-LD trên detail và landing Flash Sale phải dùng cùng contextual price đang nhìn thấy; canonical vẫn bỏ query campaign.

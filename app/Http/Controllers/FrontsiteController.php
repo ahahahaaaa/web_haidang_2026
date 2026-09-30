@@ -2,23 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TourSearchRequest;
 use App\Services\Cms\PublicBlogPostPresenter;
 use App\Services\Cms\SiteSettingsManager;
 use App\Services\Frontsite\FrontsiteGeoPresenter;
+use App\Services\Frontsite\FeaturedTourPopularSearchResolver;
+use App\Services\Frontsite\HomepageFeaturedTourTabsResolver;
+use App\Services\Frontsite\TourFlashSaleService;
+use App\Services\Frontsite\TourSearchFilterService;
 use App\Services\Travel\VoucherCampaignService;
-use App\Support\ContentGallery;
 use App\Support\ContentCategoryTree;
+use App\Support\ContentGallery;
 use App\Support\FrontsiteCardData;
 use App\Support\FrontsiteCardGrid;
 use App\Support\FrontsiteGalleryData;
 use App\Support\FrontsiteMedia;
 use App\Support\FrontsiteUrls;
 use App\Support\LandingPageBlocks;
+use App\Support\LandingPageHtml;
 use App\Support\LandingPageVisuals;
 use App\Support\ReviewContent;
 use App\Support\RichText;
 use App\Support\SliderLocations;
 use App\Support\TravelHomePageConfig;
+use Carbon\CarbonInterface;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -26,6 +33,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -41,6 +49,7 @@ use Src\Domains\Cms\Models\SliderItem;
 use Src\Domains\Cms\Models\Tour;
 use Src\Domains\Cms\Models\TourCategory;
 use Src\Domains\Cms\Models\TourDeparture;
+use Src\Domains\Cms\Models\VoucherCampaign;
 
 class FrontsiteController extends Controller
 {
@@ -48,6 +57,10 @@ class FrontsiteController extends Controller
         protected SiteSettingsManager $site,
         protected PublicBlogPostPresenter $blogPresenter,
         protected FrontsiteGeoPresenter $geoPresenter,
+        protected FeaturedTourPopularSearchResolver $featuredTourPopularSearches,
+        protected HomepageFeaturedTourTabsResolver $homepageFeaturedTourTabs,
+        protected TourSearchFilterService $tourSearchFilters,
+        protected TourFlashSaleService $tourFlashSales,
         protected VoucherCampaignService $voucherCampaigns,
     ) {}
 
@@ -72,12 +85,37 @@ class FrontsiteController extends Controller
         $featuredTourCategory = $this->homepageFeaturedTourCategory(
             trim((string) data_get($homeConfig, 'featured_tour_category_slug', '')),
         );
-        $domesticTours = $this->queryHomepageFeaturedTours(TourScope::Domestic, $featuredTourLimit, $featuredTourCategory);
-        $internationalTours = $this->queryHomepageFeaturedTours(TourScope::International, $featuredTourLimit, $featuredTourCategory);
-        $groupTours = $this->queryHomepageFeaturedTours(TourScope::Group, $featuredTourLimit, $featuredTourCategory);
+        $domesticTours = $this->homepageFeaturedTourTabs->queryForScope(TourScope::Domestic, $featuredTourLimit, $featuredTourCategory);
+        $internationalTours = $this->homepageFeaturedTourTabs->queryForScope(TourScope::International, $featuredTourLimit, $featuredTourCategory);
+        $groupTours = $this->homepageFeaturedTourTabs->queryForScope(TourScope::Group, $featuredTourLimit, $featuredTourCategory);
         $featuredTours = collect([$domesticTours, $internationalTours, $groupTours])
             ->flatten(1)
             ->values();
+        $featuredTourTabs = $this->homepageFeaturedTourTabs->resolve(
+            data_get($homeConfig, 'featured_tours', []),
+            $featuredTourLimit,
+            $featuredTourCategory,
+            $featuredTours,
+            collect([
+                TourScope::Domestic->value => $domesticTours,
+                TourScope::International->value => $internationalTours,
+                TourScope::Group->value => $groupTours,
+            ]),
+        );
+        $visibleFeaturedTabIds = $featuredTourTabs->pluck('id')->all();
+        $featuredTourPopularSearches = $homeBlockVisibility['featured_tours'] ? $this->featuredTourPopularSearches->resolve(
+            collect(data_get($homeConfig, 'featured_tours.filters', []))
+                ->filter(fn (mixed $filter) => is_array($filter)
+                    && ($filter['source_type'] ?? null) === TravelHomePageConfig::FEATURED_TOUR_FILTER_REGION
+                    && in_array(Str::slug((string) ($filter['uuid'] ?? '')), $visibleFeaturedTabIds, true))
+                ->map(fn (array $filter): array => [
+                    'uuid' => Str::slug((string) $filter['uuid']),
+                    'source_slug' => (string) ($filter['source_value'] ?? ''),
+                ])
+                ->values()
+                ->all(),
+            data_get($homeConfig, 'featured_tours.popular_searches', []),
+        ) : [];
 
         $featuredServices = Service::query()
             ->published()
@@ -143,7 +181,14 @@ class FrontsiteController extends Controller
             'homePositionedBlockTypes' => collect($homeLayoutOrder)
                 ->map(fn (string $token) => TravelHomePageConfig::homeLayoutBlockUuid($token))
                 ->filter()
-                ->map(fn (string $uuid) => data_get($homeLayoutBlocks->get($uuid), 'type'))
+                ->map(function (string $uuid) use ($homeLayoutBlocks) {
+                    $block = $homeLayoutBlocks->get($uuid);
+
+                    return data_get($block, 'type') === LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS
+                        && data_get($block, 'display_mode', 'tabs') === 'list'
+                        ? LandingPageBlocks::TYPE_TOUR_LIST
+                        : data_get($block, 'type');
+                })
                 ->filter()
                 ->unique()
                 ->values()
@@ -151,6 +196,8 @@ class FrontsiteController extends Controller
             'homeLayoutBlocks' => $homeLayoutBlocks,
             'homeLayoutOrder' => $homeLayoutOrder,
             'featuredTours' => $featuredTours,
+            'featuredTourTabs' => $featuredTourTabs,
+            'featuredTourPopularSearches' => $featuredTourPopularSearches,
             'featuredServices' => $featuredServices,
             'featuredPosts' => $featuredPosts,
             'homeConfig' => $homeConfig,
@@ -166,6 +213,7 @@ class FrontsiteController extends Controller
             'homePopupSlider' => $homePopupSlider,
             'homeRegionTaxonomyTabsBlock' => $homeRegionTaxonomyTabsBlock,
             'homeTourTaxonomyTabsBlock' => $homeTourTaxonomyTabsBlock,
+            'tourSearchFilter' => $this->tourSearchFilters->viewData(request()),
             ...$this->landingVisuals($landing),
             'seo' => $this->seo([
                 'title' => $landing?->meta_title ?: $this->site->current()->seo_title ?: $this->site->current()->site_name,
@@ -320,7 +368,7 @@ class FrontsiteController extends Controller
             'seo' => $this->seo([
                 'title' => $service->meta_title ?: $service->title.' | '.$this->site->current()->site_name,
                 'description' => $service->meta_description ?: $service->excerpt ?: $this->site->current()->seo_description,
-                'canonical' => $service->canonical_url ?: $serviceUrl,
+                'canonical' => FrontsiteUrls::canonicalModelUrl($service, $serviceUrl),
                 'og_title' => $service->og_title ?: $service->meta_title ?: $service->title,
                 'og_description' => $service->og_description ?: $service->meta_description ?: $service->excerpt ?: $this->site->current()->seo_description,
                 'og_image' => $this->modelMediaUrl($service, 'cover', FrontsiteMedia::SIZE_SMALL),
@@ -386,7 +434,7 @@ class FrontsiteController extends Controller
         );
     }
 
-    public function tourSearch(Request $request): View
+    public function tourSearch(TourSearchRequest $request): View
     {
         $searchQuery = trim($request->string('q')->toString());
         $pageTitle = $searchQuery !== ''
@@ -407,6 +455,8 @@ class FrontsiteController extends Controller
                 'canonical' => route('tours.search'),
                 'context_badge' => 'Tìm tour',
                 'context_label' => 'Tìm tour',
+                'allow_scope_filter' => true,
+                'use_advanced_search' => true,
                 'page_description' => $pageDescription,
                 'page_intro' => 'Kết quả tìm nhanh',
                 'page_title' => $pageTitle,
@@ -418,9 +468,9 @@ class FrontsiteController extends Controller
         );
     }
 
-    public function toursShow(Tour $tour): View
+    public function toursShow(Request $request, Tour $tour): View
     {
-        $tour->loadMissing(['primaryCategory', 'destination.country', 'destination.region', 'region']);
+        $tour->loadMissing(['primaryCategory', 'destination.country', 'destination.region', 'media', 'region']);
         $reviewsEnabled = $this->travelReviewsEnabled();
         $tourRelations = [
             'agencySyncStates' => fn ($syncStateQuery) => $syncStateQuery
@@ -440,7 +490,14 @@ class FrontsiteController extends Controller
 
         $tour->load($tourRelations);
         $tourUrl = route('tours.show', $tour);
-        $offerGraph = $this->tourOfferGraph($tour, $tourUrl);
+        $flashSaleOffer = $this->tourFlashSales->activeOfferForTour(
+            $tour,
+            $request->string('flash_sale')->toString(),
+            $request->integer('flash_departure'),
+        );
+        $offerGraph = $flashSaleOffer
+            ? $this->tourFlashSaleOfferGraph($tour, $tourUrl, $flashSaleOffer)
+            : $this->tourOfferGraph($tour, $tourUrl);
         $faqSchema = $this->faqSchema($tour->faq_items ?? []);
         $itinerarySchema = $this->tourItinerarySchema($tour, $tourUrl);
         $reviewItems = $reviewsEnabled ? ReviewContent::fromModels($tour->publishedReviews) : [];
@@ -469,10 +526,15 @@ class FrontsiteController extends Controller
             'tourHeroMedia' => $tourHeroMedia,
             'tourVoucherCta' => $this->tourVoucherCta(),
             'relatedTours' => $relatedTours,
+            'flashSaleOffer' => $flashSaleOffer,
+            'flashSaleRequest' => [
+                'slug' => $request->string('flash_sale')->toString(),
+                'departure_id' => $request->integer('flash_departure'),
+            ],
             'seo' => $this->seo([
                 'title' => $tour->meta_title ?: $tour->title,
                 'description' => $tour->meta_description ?: $tour->excerpt ?: $this->site->current()->seo_description,
-                'canonical' => $tour->canonical_url ?: $tourUrl,
+                'canonical' => FrontsiteUrls::canonicalModelUrl($tour, $tourUrl),
                 'og_image' => $tourHeroMedia[FrontsiteMedia::SIZE_SMALL] ?? null,
                 'schema' => $this->graphSchema(array_merge([
                     $this->organizationSchema(),
@@ -639,6 +701,7 @@ class FrontsiteController extends Controller
                 'page_rating_average' => filled($destinationModel->rating_average) ? (float) $destinationModel->rating_average : null,
                 'page_rating_count' => filled($destinationModel->rating_count) ? (int) $destinationModel->rating_count : null,
                 'page_reviews' => $reviewsEnabled ? ReviewContent::fromModels($destinationModel->publishedReviews) : [],
+                'page_h1' => trim((string) $destinationModel->meta_title) ?: $destinationModel->name,
                 'page_title' => $destinationModel->name,
                 'show_tours_on_page' => (bool) ($destinationModel->show_tours_on_page ?? true),
                 'show_blogs_on_page' => (bool) ($destinationModel->show_blogs_on_page ?? false),
@@ -1016,8 +1079,11 @@ class FrontsiteController extends Controller
         $landingHasGeoAnswerBlock = collect($this->resolveLandingBlocks($landing))
             ->contains(fn (array $block): bool => ($block['type'] ?? null) === LandingPageBlocks::TYPE_GEO_ANSWER);
         $landingHtmlContent = $landingEditorMode === LandingPage::EDITOR_MODE_HTML
-            ? (string) ($landing->body ?? '')
+            ? LandingPageHtml::render($landing->body, allowPrimaryHeading: true)
             : null;
+        $landingHasHtmlHeading = $landingEditorMode === LandingPage::EDITOR_MODE_HTML
+            ? LandingPageHtml::hasPrimaryHeading($landingHtmlContent)
+            : collect($landingContentBlocks)->contains(fn (array $block): bool => LandingPageHtml::hasPrimaryHeading($block['rendered_html'] ?? null));
         $landingUrl = FrontsiteUrls::canonicalUrl($landing->canonical_url ?: url('/'.$landing->slug));
         $voucherCampaign = $this->voucherCampaigns->activeForLanding($landing);
 
@@ -1028,6 +1094,7 @@ class FrontsiteController extends Controller
             'landingHasGeoAnswerBlock' => $landingHasGeoAnswerBlock,
             'geo' => $landingHasGeoAnswerBlock ? ['is_enabled' => false] : $this->geoPresenter->forLanding($landing),
             'landingHtmlContent' => $landingHtmlContent,
+            'landingHasHtmlHeading' => $landingHasHtmlHeading,
             'voucherCampaign' => $voucherCampaign,
             'voucherCampaignSlug' => $voucherCampaign?->slug,
             ...$this->landingVisuals($landing),
@@ -1071,110 +1138,7 @@ class FrontsiteController extends Controller
         array $fixedFilters = [],
         array $except = [],
     ): Builder|Relation {
-        $searchQuery = trim($request->string('q')->toString());
-        $selectedBudget = $request->string('budget')->toString();
-        $selectedDepartureDate = $request->string('departure_date')->toString();
-        $selectedTransport = $request->string('transport')->toString();
-        $selectedCategory = $request->string('category')->toString();
-        $selectedDestination = $request->string('destination')->toString();
-        $selectedScope = $request->string('scope')->toString();
-
-        if (($fixedFilters['category'] ?? null) instanceof TourCategory) {
-            $query->whereHas('categories', fn (Builder $taxonomyQuery) => $taxonomyQuery->whereKey($fixedFilters['category']->getKey()));
-        }
-
-        if (($fixedFilters['destination'] ?? null) instanceof Destination) {
-            $query->whereHas('destinations', fn (Builder $taxonomyQuery) => $taxonomyQuery->whereKey($fixedFilters['destination']->getKey()));
-        }
-
-        if (($fixedFilters['country'] ?? null) instanceof Destination) {
-            $this->applyCountryDestinationFilter($query, $fixedFilters['country']);
-        }
-
-        if (($fixedFilters['region'] ?? null) instanceof Region) {
-            $query->whereHas('regions', fn (Builder $taxonomyQuery) => $taxonomyQuery->whereKey($fixedFilters['region']->getKey()));
-        }
-
-        if ($searchQuery !== '' && ! in_array('q', $except, true)) {
-            $query->where(function (Builder $searchBuilder) use ($searchQuery): void {
-                [$likeQuery, $slugLikeQuery] = $this->frontsiteSearchLikeTerms($searchQuery);
-
-                $searchBuilder
-                    ->where('title', 'like', $likeQuery)
-                    ->when($slugLikeQuery, fn (Builder $query, string $slugLikeQuery) => $query->orWhere('slug', 'like', $slugLikeQuery))
-                    ->orWhereHas('primaryCategory', fn (Builder $category) => $this->applyFrontsiteNameOrSlugSearch($category, $likeQuery, $slugLikeQuery))
-                    ->orWhereHas('categories', fn (Builder $category) => $this->applyFrontsiteNameOrSlugSearch($category, $likeQuery, $slugLikeQuery))
-                    ->orWhereHas('destination', fn (Builder $destination) => $this->applyFrontsiteNameOrSlugSearch($destination, $likeQuery, $slugLikeQuery))
-                    ->orWhereHas('destinations', fn (Builder $destination) => $this->applyFrontsiteNameOrSlugSearch($destination, $likeQuery, $slugLikeQuery))
-                    ->orWhereHas('region', fn (Builder $region) => $this->applyFrontsiteNameOrSlugSearch($region, $likeQuery, $slugLikeQuery));
-            });
-        }
-
-        if ($selectedCategory !== '' && ! in_array('category', $except, true) && ! isset($fixedFilters['category'])) {
-            $query->whereHas('categories', fn (Builder $category) => $category->where('slug', $selectedCategory));
-        }
-
-        if ($selectedDestination !== '' && ! in_array('destination', $except, true) && ! isset($fixedFilters['destination'])) {
-            $query->whereHas('destinations', fn (Builder $destination) => $destination->where('slug', $selectedDestination));
-        }
-
-        if ($selectedScope !== '' && ! in_array('scope', $except, true) && ($tourScope = TourScope::tryFrom($selectedScope))) {
-            $query->forScope($tourScope);
-        }
-
-        if ($selectedTransport !== '' && ! in_array('transport', $except, true)) {
-            $query->where(function (Builder $transportQuery) use ($selectedTransport): void {
-                $transportQuery
-                    ->where('transport', $selectedTransport)
-                    ->orWhereHas('departures', fn (Builder $departure) => $departure->upcomingPublic()->where('transport_label', $selectedTransport));
-            });
-        }
-
-        if ($selectedDepartureDate !== '' && ! in_array('departure_date', $except, true)) {
-            $query->whereHas(
-                'departures',
-                fn (Builder $departure) => $departure->upcomingPublic()->whereDate('departure_date', $selectedDepartureDate)
-            );
-        }
-
-        if ($selectedBudget !== '' && ! in_array('budget', $except, true)) {
-            [$minBudget, $maxBudget] = $this->tourBudgetRange($selectedBudget);
-
-            if ($minBudget !== null) {
-                $query->where(function (Builder $priceQuery) use ($maxBudget, $minBudget): void {
-                    $priceQuery
-                        ->where(function (Builder $tourPrice) use ($maxBudget, $minBudget): void {
-                            $this->applyBudgetAmountConstraint($tourPrice, ['sale_price', 'base_price'], $minBudget, $maxBudget);
-                        })
-                        ->orWhereHas('departures', function (Builder $departure) use ($maxBudget, $minBudget): void {
-                            $departure
-                                ->upcomingPublic()
-                                ->where(function (Builder $departurePrice) use ($maxBudget, $minBudget): void {
-                                    $this->applyBudgetAmountConstraint($departurePrice, ['sale_price', 'base_price'], $minBudget, $maxBudget);
-                                });
-                        });
-                });
-            }
-        }
-
-        return $query;
-    }
-
-    protected function applyCountryDestinationFilter(Builder|Relation $query, Destination $country): void
-    {
-        $query->where(function (Builder $tourQuery) use ($country): void {
-            $tourQuery
-                ->whereHas('destination', function (Builder $destinationQuery) use ($country): void {
-                    $destinationQuery
-                        ->whereKey($country->getKey())
-                        ->orWhere('country_id', $country->getKey());
-                })
-                ->orWhereHas('destinations', function (Builder $destinationQuery) use ($country): void {
-                    $destinationQuery
-                        ->whereKey($country->getKey())
-                        ->orWhere('country_id', $country->getKey());
-                });
-        });
+        return $this->tourSearchFilters->apply($query, $request, $fixedFilters, $except);
     }
 
     protected function renderTourListing(Request $request, Builder|Relation $baseQuery, array $page): View
@@ -1185,9 +1149,10 @@ class FrontsiteController extends Controller
             'destination' => data_get($page, 'fixed_destination'),
             'region' => data_get($page, 'fixed_region'),
         ]);
-        $selectedCategory = $request->string('category')->toString();
+        $normalizedFilters = $this->tourSearchFilters->filters($request);
+        $selectedCategory = $normalizedFilters['category'];
         $allowScopeFilter = (bool) data_get($page, 'allow_scope_filter', false);
-        $selectedScope = $allowScopeFilter ? $request->string('scope')->toString() : '';
+        $selectedScope = $allowScopeFilter ? $normalizedFilters['scope'] : '';
         $filterExcept = $allowScopeFilter ? [] : ['scope'];
         $showToursOnPage = (bool) data_get($page, 'show_tours_on_page', true);
         $showBlogsOnPage = (bool) data_get($page, 'show_blogs_on_page', false);
@@ -1199,6 +1164,7 @@ class FrontsiteController extends Controller
         if ($showToursOnPage) {
             $tours = $this->applyTourFilters(
                 (clone $baseQuery)->with([
+                    'media',
                     'primaryCategory.media',
                     'destination.country',
                     'destination.media',
@@ -1218,15 +1184,16 @@ class FrontsiteController extends Controller
         }
 
         $listingUrl = data_get($page, 'canonical', url()->current());
-        $searchQuery = $request->string('q')->toString();
+        $searchQuery = $normalizedFilters['q'];
         $searchCategoryOptions = collect(data_get($page, 'search_category_options', []));
         $hasVariableFilters = collect([
             $searchQuery !== '',
-            $request->string('budget')->toString() !== '',
-            $request->string('departure_date')->toString() !== '',
-            $request->string('transport')->toString() !== '',
+            $normalizedFilters['budget'] !== '',
+            $normalizedFilters['departure_date'] !== '',
+            $normalizedFilters['departure_location'] !== '',
+            $normalizedFilters['transport'] !== '',
             ! isset($fixedFilters['category']) && $selectedCategory !== '',
-            ! isset($fixedFilters['destination']) && $request->string('destination')->toString() !== '',
+            ! isset($fixedFilters['destination']) && $normalizedFilters['destination'] !== '',
             $allowScopeFilter && $selectedScope !== '',
         ])->contains(true);
         $currentUrl = url()->current();
@@ -1297,7 +1264,6 @@ class FrontsiteController extends Controller
         $listingHero = $this->listingPageHeroFromGallery($page);
         $showTourVoucherCta = (bool) data_get($page, 'show_voucher_cta', false);
 
-
         if ($listingHero) {
             $landingVisuals['landingHero'] = $listingHero;
         }
@@ -1305,11 +1271,7 @@ class FrontsiteController extends Controller
         return view($this->theme('pages.tours.listing'), [
             'breadcrumbs' => data_get($page, 'breadcrumbs', []),
             'currentUrl' => $currentUrl,
-            'filters' => [
-                'category' => $selectedCategory,
-                'q' => $searchQuery,
-                'scope' => $selectedScope,
-            ],
+            'filters' => array_merge($normalizedFilters, ['scope' => $selectedScope]),
             'fixedContextCards' => $fixedContextCards,
             'countryClusterDestinations' => $countryClusterDestinations,
             'pageGallery' => $pageGallery,
@@ -1322,6 +1284,7 @@ class FrontsiteController extends Controller
             'pageIntro' => data_get($page, 'page_intro'),
             'pageReviewItems' => $pageReviewItems,
             'pageReviewSummary' => $pageReviewSummary,
+            'pageH1' => data_get($page, 'page_h1', data_get($page, 'page_title')),
             'searchSelectFields' => collect()
                 ->when($searchCategoryOptions->isNotEmpty(), fn (Collection $fields) => $fields->push([
                     'icon' => 'fa-solid fa-shapes',
@@ -1354,6 +1317,10 @@ class FrontsiteController extends Controller
                 ->values()
                 ->all(),
             'landingContentBlocks' => $this->resolveLandingContentBlocks(data_get($page, 'landing')),
+            'tourSearchFilter' => (bool) data_get($page, 'use_advanced_search', false)
+                ? $this->tourSearchFilters->viewData($request)
+                : null,
+            'useAdvancedTourSearch' => (bool) data_get($page, 'use_advanced_search', false),
             ...$landingVisuals,
             'seo' => $this->seo([
                 'title' => data_get($page, 'seo_title'),
@@ -1739,7 +1706,7 @@ class FrontsiteController extends Controller
                     ]),
                 ]),
             ]),
-            ]);
+        ]);
     }
 
     protected function frontsiteSearchLikeTerms(string $searchQuery): array
@@ -1766,6 +1733,8 @@ class FrontsiteController extends Controller
             return [];
         }
 
+        $htmlHeadingClaimed = false;
+
         return collect($this->resolveLandingBlocks($landing))
             ->filter(fn (array $block) => (bool) ($block['is_enabled'] ?? true))
             ->when(! $includeVisualBlocks, fn (Collection $blocks) => $blocks->reject(fn (array $block) => in_array($block['type'] ?? null, [
@@ -1775,7 +1744,14 @@ class FrontsiteController extends Controller
                 LandingPageBlocks::TYPE_GALLERY_SLIDER,
                 LandingPageBlocks::TYPE_GALLERY_MEDIA,
             ], true)))
-            ->map(function (array $block) use ($landing): array {
+            ->map(function (array $block) use ($landing, &$htmlHeadingClaimed): array {
+                if (($block['type'] ?? null) === LandingPageBlocks::TYPE_HTML_WIDGET) {
+                    $html = LandingPageHtml::render((string) ($block['html'] ?? ''), ! $landing->isSystemPage() && ! $htmlHeadingClaimed);
+                    $htmlHeadingClaimed = $htmlHeadingClaimed || LandingPageHtml::hasPrimaryHeading($html);
+
+                    return array_merge($block, ['rendered_html' => $html]);
+                }
+
                 return match ($block['type'] ?? null) {
                     LandingPageBlocks::TYPE_HERO_SLIDER, LandingPageBlocks::TYPE_HERO_MEDIA => array_merge($block, [
                         'rendered_hero' => $this->resolveLandingHeroBlock($landing, $block),
@@ -1785,12 +1761,17 @@ class FrontsiteController extends Controller
                         'rendered_gallery' => $this->resolveLandingGalleryBlock($landing, $block),
                     ]),
                     LandingPageBlocks::TYPE_REGION_TAXONOMY_TABS => $this->resolveRegionTaxonomyTabsBlock($block),
-                    LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS => $this->resolveTourTaxonomyTabsBlock($block),
+                    LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS => ($block['display_mode'] ?? 'tabs') === 'list'
+                        ? array_merge($block, ['items' => $this->queryLandingTours($block)])
+                        : $this->resolveTourTaxonomyTabsBlock($block),
                     LandingPageBlocks::TYPE_GEO_ANSWER => array_merge($block, [
                         'geo' => $this->geoPresenter->forLandingBlock($block, $landing),
                     ]),
                     LandingPageBlocks::TYPE_TOUR_LIST => array_merge($block, [
                         'items' => $this->queryLandingTours($block),
+                    ]),
+                    LandingPageBlocks::TYPE_FLASH_SALE => array_merge($block, [
+                        'flash_sale' => $this->tourFlashSales->activeCampaignForBlock($block['campaign_id'] ?? null),
                     ]),
                     LandingPageBlocks::TYPE_BLOG_LIST => array_merge($block, [
                         'items' => $this->queryLandingBlogs($block),
@@ -1801,8 +1782,8 @@ class FrontsiteController extends Controller
                     LandingPageBlocks::TYPE_TOPIC_RAIL => array_merge($block, [
                         'items' => $this->queryLandingTourCategories($block),
                     ]),
-                    LandingPageBlocks::TYPE_HTML_WIDGET => array_merge($block, [
-                        'rendered_html' => (string) ($block['html'] ?? ''),
+                    LandingPageBlocks::TYPE_VOUCHER_RAIL => array_merge($block, [
+                        'items' => $this->queryLandingVoucherCampaigns($block),
                     ]),
                     LandingPageBlocks::TYPE_RICH_TEXT => array_merge($block, [
                         'rendered_body' => RichText::render((string) ($block['body'] ?? '')),
@@ -1824,7 +1805,7 @@ class FrontsiteController extends Controller
             ->filter(fn (array $block) => (bool) ($block['is_enabled'] ?? true))
             ->filter(fn (array $block) => ($block['type'] ?? null) === LandingPageBlocks::TYPE_HTML_WIDGET)
             ->map(fn (array $block) => array_merge($block, [
-                'rendered_html' => (string) ($block['html'] ?? ''),
+                'rendered_html' => LandingPageHtml::render((string) ($block['html'] ?? '')),
             ]))
             ->values()
             ->all();
@@ -1887,11 +1868,48 @@ class FrontsiteController extends Controller
             LandingPageBlocks::TOUR_TAXONOMY_TABS_DEFAULT_LIMIT,
         );
         $tabs = collect($this->queryLandingTourTaxonomyTabs($block))->values();
-        $defaultTabId = (string) ($tabs->first(fn (array $tab) => collect($tab['items'] ?? [])->isNotEmpty())['uuid'] ?? $tabs->first()['uuid'] ?? '');
+        if ((bool) ($block['show_all_tab'] ?? false) || ! (bool) ($block['show_filters'] ?? true)) {
+            $scope = TourScope::tryFrom((string) ($block['scope'] ?? ''));
+            $tabs->prepend([
+                'uuid' => 'all',
+                'label' => 'Tất cả',
+                'title' => trim((string) ($block['title'] ?? '')) ?: 'Danh sách tour',
+                'description' => trim((string) ($block['description'] ?? '')),
+                'items' => $this->queryLandingTours(array_merge($block, [
+                    'category_slug' => '',
+                    'destination_slug' => '',
+                    'region_slug' => '',
+                ])),
+                'url' => trim((string) ($block['cta_url'] ?? '')) ?: ($scope
+                    ? route($scope->routeName())
+                    : route('tours.search', ($block['scope'] ?? null) === 'non_group' ? ['scope' => 'non_group'] : [])),
+            ]);
+        }
+        $defaultTabId = (string) ((($block['show_all_tab'] ?? false) || ! ($block['show_filters'] ?? true))
+            ? 'all'
+            : ($tabs->first(fn (array $tab) => collect($tab['items'] ?? [])->isNotEmpty())['uuid'] ?? $tabs->first()['uuid'] ?? ''));
+        $visibleTabUuids = $tabs->pluck('uuid')->all();
+        $manualSearches = collect($block['popular_searches'] ?? [])
+            ->filter(fn (mixed $item) => is_array($item)
+                && in_array((string) ($item['filter_uuid'] ?? ''), array_merge([''], $visibleTabUuids), true)
+                && TravelHomePageConfig::isSafeFeaturedTourPopularSearchUrl($item['url'] ?? null))
+            ->values()
+            ->all();
 
         return array_merge($block, [
             'default_tab_id' => $defaultTabId,
             'tabs' => $tabs->all(),
+            'popular_searches' => $this->featuredTourPopularSearches->resolve(
+                $tabs->filter(fn (array $tab) => ($tab['source_type'] ?? null) === 'region')
+                    ->map(fn (array $tab): array => [
+                        'uuid' => (string) $tab['uuid'],
+                        'source_slug' => (string) ($tab['source_slug'] ?? ''),
+                    ])
+                    ->values()
+                    ->all(),
+                $manualSearches,
+                (string) ($block['scope'] ?? ''),
+            ),
         ]);
     }
 
@@ -1938,6 +1956,7 @@ class FrontsiteController extends Controller
                 if ($sourceSlug === '' || ! array_key_exists($sourceType, LandingPageBlocks::tourTaxonomyTabTypes())) {
                     return null;
                 }
+
 
                 $source = match ($sourceType) {
                     'destination' => Destination::query()
@@ -1986,6 +2005,10 @@ class FrontsiteController extends Controller
                     default => array_merge($block, ['region_slug' => $sourceSlug, 'category_slug' => '', 'destination_slug' => '']),
                 });
 
+                if ($items->isEmpty()) {
+                    return null;
+                }
+
                 $sourceName = trim((string) data_get($source, 'name'));
                 $description = trim((string) ($tab['description'] ?? ''));
                 $sourceDescription = RichText::normalizePlain((string) data_get($source, 'excerpt'));
@@ -1996,11 +2019,19 @@ class FrontsiteController extends Controller
                     'label' => trim((string) ($tab['label'] ?? '')) ?: $sourceName,
                     'source_label' => LandingPageBlocks::tourTaxonomyTabTypes()[$sourceType] ?? $sourceType,
                     'title' => trim((string) ($tab['title'] ?? '')) ?: $sourceName,
-                    'url' => match ($sourceType) {
-                        'destination' => route('destinations.show', $source),
-                        'tour_category' => route('tour-categories.show', $source),
-                        default => route('regions.show', $source),
-                    },
+                    'url' => $scope === TourScope::Group
+                        ? route('tours.group')
+                        : (($block['scope'] ?? null) === 'non_group'
+                            ? route('tours.search', array_filter([
+                                'scope' => 'non_group',
+                                'destination' => $sourceType === 'destination' ? $sourceSlug : null,
+                                'category' => $sourceType === 'tour_category' ? $sourceSlug : null,
+                            ]))
+                        : match ($sourceType) {
+                            'destination' => route('destinations.show', $source),
+                            'tour_category' => route('tour-categories.show', $source),
+                            default => route('regions.show', $source),
+                        }),
                 ]);
             })
             ->filter()
@@ -2102,27 +2133,27 @@ class FrontsiteController extends Controller
         if ($cardSourceType === 'tour_category') {
             return $this->prioritizeTaxonomyItemsWithImages(
                 TourCategory::query()
-                ->published()
-                ->with('media')
-                ->whereHas('tours', function (Builder $tourQuery) use ($region, $scope): void {
-                    $tourQuery
-                        ->published()
-                        ->when($scope, fn (Builder $query) => $query->forScope($scope))
-                        ->whereHas('regions', fn (Builder $regionQuery) => $regionQuery->whereKey($region->getKey()));
-                })
-                ->withCount([
-                    'tours' => function (Builder $tourQuery) use ($region, $scope): void {
+                    ->published()
+                    ->with('media')
+                    ->whereHas('tours', function (Builder $tourQuery) use ($region, $scope): void {
                         $tourQuery
                             ->published()
                             ->when($scope, fn (Builder $query) => $query->forScope($scope))
                             ->whereHas('regions', fn (Builder $regionQuery) => $regionQuery->whereKey($region->getKey()));
-                    },
-                ])
-                ->orderByDesc('is_featured')
-                ->orderBy('sort_order')
-                ->orderBy('name')
-                ->limit($fetchLimit)
-                ->get(),
+                    })
+                    ->withCount([
+                        'tours' => function (Builder $tourQuery) use ($region, $scope): void {
+                            $tourQuery
+                                ->published()
+                                ->when($scope, fn (Builder $query) => $query->forScope($scope))
+                                ->whereHas('regions', fn (Builder $regionQuery) => $regionQuery->whereKey($region->getKey()));
+                        },
+                    ])
+                    ->orderByDesc('is_featured')
+                    ->orderBy('sort_order')
+                    ->orderBy('name')
+                    ->limit($fetchLimit)
+                    ->get(),
                 $limit,
             );
         }
@@ -2311,6 +2342,8 @@ class FrontsiteController extends Controller
 
         if (filled($block['scope'] ?? null) && ($scope = TourScope::tryFrom((string) $block['scope']))) {
             $query->forScope($scope);
+        } elseif (($block['scope'] ?? null) === 'non_group') {
+            $query->where('scope', '!=', TourScope::Group->value);
         }
 
         if ((bool) ($block['featured'] ?? false)) {
@@ -2369,6 +2402,71 @@ class FrontsiteController extends Controller
             ->orderBy('name')
             ->limit($limit)
             ->get();
+    }
+
+    protected function queryLandingVoucherCampaigns(array $block): Collection
+    {
+        $configuredSlugs = collect($block['campaign_slugs'] ?? [])
+            ->map(fn (mixed $slug): string => trim((string) $slug))
+            ->filter()
+            ->unique()
+            ->values()
+            ->all();
+        $limit = min(12, FrontsiteCardGrid::normalizeLimit($block['limit'] ?? null, 6));
+        $query = VoucherCampaign::query()
+            ->with('landingPage:id,slug')
+            ->redeemable()
+            ->publiclyListed()
+            ->whereHas('landingPage', fn (Builder $landingQuery) => $landingQuery
+                ->whereNull('page_key')
+                ->whereNotNull('slug')
+                ->where('is_active', true))
+            ->whereHas('codes', fn (Builder $codeQuery) => $codeQuery->available());
+
+        if ($configuredSlugs !== []) {
+            $query->whereIn('slug', $configuredSlugs);
+        }
+
+        $campaigns = $query
+            ->orderByRaw('case when ends_at is null then 1 else 0 end')
+            ->orderBy('ends_at')
+            ->orderByDesc('starts_at')
+            ->orderByDesc('id')
+            ->get([
+                'id',
+                'landing_page_id',
+                'title',
+                'slug',
+                'description',
+                'starts_at',
+                'ends_at',
+                'code_valid_until',
+                'meta',
+            ]);
+
+        if ($configuredSlugs !== []) {
+            $campaigns = $this->sortModelsBySlug($campaigns, $configuredSlugs);
+        }
+
+        return $campaigns
+            ->take($limit)
+            ->map(function (VoucherCampaign $campaign): array {
+                $landingSlug = trim((string) $campaign->landingPage?->slug);
+
+                return [
+                    'claim_url' => $landingSlug !== ''
+                        ? route('landing.show', ['slug' => $landingSlug]).'#nhan-voucher'
+                        : null,
+                    'code' => $campaign->publicCode(),
+                    'description' => trim((string) $campaign->description),
+                    'slug' => $campaign->slug,
+                    'terms' => $campaign->publicTerms(),
+                    'title' => $campaign->title,
+                    'valid_until_label' => $campaign->code_valid_until?->format('d/m/Y'),
+                ];
+            })
+            ->filter(fn (array $campaign): bool => filled($campaign['code']) && filled($campaign['claim_url']))
+            ->values();
     }
 
     protected function tourListingSearchCategories(TourScope $scope): array
@@ -2433,7 +2531,8 @@ class FrontsiteController extends Controller
     protected function resolveHomeTourTaxonomyTabsBlock(?LandingPage $landing): ?array
     {
         $configuredBlock = collect($this->resolveLandingBlocks($landing))
-            ->first(fn (array $block) => ($block['type'] ?? null) === LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS);
+            ->first(fn (array $block) => ($block['type'] ?? null) === LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS
+                && ($block['display_mode'] ?? 'tabs') === 'tabs');
 
         if (is_array($configuredBlock)) {
             if (! (bool) ($configuredBlock['is_enabled'] ?? true)) {
@@ -2613,6 +2712,8 @@ class FrontsiteController extends Controller
             'enabled' => $items !== [],
             'eyebrow' => trim((string) ($galleryBlock['eyebrow'] ?? '')),
             'items' => $items,
+            'is_slider' => (bool) ($galleryBlock['is_slider'] ?? false),
+            'desktop_slides_per_view' => (float) ($galleryBlock['desktop_slides_per_view'] ?? 2.2),
             'managed' => true,
             'mode' => LandingPageVisuals::SOURCE_MEDIA,
             'title' => trim((string) ($galleryBlock['title'] ?? '')),
@@ -3009,6 +3110,7 @@ class FrontsiteController extends Controller
             'title' => $settings->seo_title ?: $settings->site_name,
             'description' => $settings->seo_description,
             'canonical' => url()->current(),
+            'emit_canonical' => ! request()->routeIs('tours.search'),
             'robots' => $settings->seo_robots ?: 'index,follow',
             'type' => 'website',
             'og_title' => null,
@@ -4148,7 +4250,7 @@ class FrontsiteController extends Controller
             ['label' => 'Phạm vi tour', 'value' => $tour->scope?->label()],
             ['label' => 'Chủ đề tour', 'value' => $tour->primaryCategory?->name],
             ['label' => 'Điểm khởi hành', 'value' => $tour->departure_location],
-//            ['label' => 'Quốc gia', 'value' => $tour->destination?->country?->name],
+            //            ['label' => 'Quốc gia', 'value' => $tour->destination?->country?->name],
             ['label' => 'Điểm đến', 'value' => $tour->destination?->name],
             ['label' => 'Vùng miền', 'value' => $tour->region?->name],
             ['label' => 'Phương tiện', 'value' => $tour->transport],
@@ -4389,6 +4491,12 @@ class FrontsiteController extends Controller
             $name = trim((string) data_get($block, 'title'));
             $description = trim((string) data_get($block, 'description'));
             $resolvedGraphs = match ($block['type'] ?? null) {
+                LandingPageBlocks::TYPE_FLASH_SALE => array_filter([
+                    $this->landingFlashSaleBlockSchemaGraph(
+                        data_get($block, 'flash_sale'),
+                        $landingUrl.'#flash-sale-'.($index + 1),
+                    ),
+                ]),
                 LandingPageBlocks::TYPE_TOUR_LIST => array_filter([
                     $this->landingTourBlockSchemaGraph(
                         collect(data_get($block, 'items', [])),
@@ -4445,11 +4553,18 @@ class FrontsiteController extends Controller
                     $landingUrl,
                     'region-taxonomy-tab-'.($index + 1),
                 ),
-                LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS => $this->tourTaxonomyTabSchemaGraphs(
-                    is_array($block) ? $block : null,
-                    $landingUrl,
-                    'tour-taxonomy-tab-'.($index + 1),
-                ),
+                LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS => ($block['display_mode'] ?? 'tabs') === 'list'
+                    ? array_filter([$this->landingTourBlockSchemaGraph(
+                        collect(data_get($block, 'items', [])),
+                        $landingUrl.'#tour-list-'.($index + 1),
+                        $name !== '' ? $name : null,
+                        $description !== '' ? $description : null,
+                    )])
+                    : $this->tourTaxonomyTabSchemaGraphs(
+                        is_array($block) ? $block : null,
+                        $landingUrl,
+                        'tour-taxonomy-tab-'.($index + 1),
+                    ),
                 default => [],
             };
 
@@ -5040,6 +5155,54 @@ class FrontsiteController extends Controller
         ];
     }
 
+    /**
+     * @return array{list: array<string, mixed>, nodes: array<int, array<string, mixed>>}|null
+     */
+    protected function landingFlashSaleBlockSchemaGraph(mixed $campaign, string $listId): ?array
+    {
+        if (! is_array($campaign)) {
+            return null;
+        }
+
+        $graphNodes = [];
+        $items = collect(data_get($campaign, 'offers', []))
+            ->filter(fn (mixed $offer): bool => is_array($offer) && data_get($offer, 'tour') instanceof Tour)
+            ->values()
+            ->map(function (array $offer, int $index) use (&$graphNodes): array {
+                /** @var Tour $tour */
+                $tour = data_get($offer, 'tour');
+                $tourUrl = route('tours.show', $tour);
+                $offerGraph = $this->tourFlashSaleOfferGraph($tour, $tourUrl, $offer);
+                $offerRef = ['@id' => data_get($offerGraph, 'primary.@id')];
+
+                $graphNodes[] = $this->landingTourProductSchema($tour, $tourUrl, $offerRef);
+                $graphNodes[] = $this->landingTouristTripSchema($tour, $tourUrl, $offerRef);
+                $graphNodes[] = $offerGraph['primary'];
+
+                return $this->schemaNode([
+                    '@type' => 'ListItem',
+                    'item' => ['@id' => $this->tourSchemaId($tour)],
+                    'position' => $index + 1,
+                ]);
+            });
+
+        if ($items->isEmpty()) {
+            return null;
+        }
+
+        return [
+            'list' => $this->schemaNode([
+                '@id' => $listId,
+                '@type' => 'ItemList',
+                'description' => data_get($campaign, 'description'),
+                'itemListElement' => $items->all(),
+                'name' => data_get($campaign, 'title', 'Ưu đãi giờ chót'),
+                'numberOfItems' => $items->count(),
+            ]),
+            'nodes' => $this->uniqueSchemaNodes($graphNodes),
+        ];
+    }
+
     protected function collectionPageSchema(
         string $pageUrl,
         string $name,
@@ -5309,8 +5472,7 @@ class FrontsiteController extends Controller
         ?ContentCategory $selectedServiceCategory,
         ?LandingPage $landing,
         string $size = FrontsiteMedia::SIZE_FULL,
-    ): ?string
-    {
+    ): ?string {
         return ($selectedServiceCategory ? $this->modelMediaUrl($selectedServiceCategory, 'avatar', $size) : null)
             ?: $this->landingPrimaryImageUrl($landing, $size)
             ?: $this->siteMediaUrl('og_image', $size);
@@ -5320,8 +5482,7 @@ class FrontsiteController extends Controller
         ?ContentCategory $selectedBlogCategory,
         ?LandingPage $landing,
         string $size = FrontsiteMedia::SIZE_FULL,
-    ): ?string
-    {
+    ): ?string {
         return ($selectedBlogCategory ? $this->modelMediaUrl($selectedBlogCategory, 'avatar', $size) : null)
             ?: $this->landingPrimaryImageUrl($landing, $size)
             ?: $this->siteMediaUrl('og_image', $size);
@@ -5374,8 +5535,7 @@ class FrontsiteController extends Controller
         string $listId,
         ?string $name = null,
         ?string $description = null,
-    ): ?array
-    {
+    ): ?array {
         $items = $services
             ->values()
             ->map(function (Service $service, int $index): array {
@@ -5464,7 +5624,7 @@ class FrontsiteController extends Controller
 
     protected function currentPublicDepartures(Tour $tour): Collection
     {
-        $today = \Illuminate\Support\Carbon::today(config('app.timezone'));
+        $today = Carbon::today(config('app.timezone'));
 
         return $tour->departures
             ->filter(function (TourDeparture $departure) use ($today): bool {
@@ -5476,9 +5636,9 @@ class FrontsiteController extends Controller
                     return true;
                 }
 
-                $departureDate = $departure->departure_date instanceof \Carbon\CarbonInterface
+                $departureDate = $departure->departure_date instanceof CarbonInterface
                     ? $departure->departure_date->copy()->startOfDay()
-                    : \Illuminate\Support\Carbon::parse($departure->departure_date)->startOfDay();
+                    : Carbon::parse($departure->departure_date)->startOfDay();
 
                 return $departureDate->greaterThanOrEqualTo($today);
             })
@@ -5547,6 +5707,43 @@ class FrontsiteController extends Controller
             'priceCurrency' => 'VND',
             'shippingDetails' => $this->tourShippingDetailsSchema(),
             'url' => $tourUrl,
+        ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $flashSaleOffer
+     * @return array{nodes: array<int, array<string, mixed>>, primary: array<string, mixed>}
+     */
+    protected function tourFlashSaleOfferGraph(Tour $tour, string $tourUrl, array $flashSaleOffer): array
+    {
+        $departure = data_get($flashSaleOffer, 'departure');
+        $contextUrl = (string) data_get($flashSaleOffer, 'detail_url', $tourUrl);
+        $dateLabel = $departure instanceof TourDeparture ? $departure->departure_date?->format('d/m/Y') : null;
+
+        return [
+            'nodes' => [],
+            'primary' => $this->schemaNode([
+                '@id' => $tourUrl.'#flash-sale-offer-'.data_get($flashSaleOffer, 'item_id'),
+                '@type' => 'Offer',
+                'availability' => $this->offerAvailabilityValue(
+                    $departure instanceof TourDeparture ? $departure->status : null,
+                    $departure instanceof TourDeparture ? $departure->available_slots : null,
+                ),
+                'description' => collect([
+                    data_get($flashSaleOffer, 'campaign_title'),
+                    $dateLabel ? 'Khởi hành '.$dateLabel : null,
+                ])->filter()->implode(' · '),
+                'hasMerchantReturnPolicy' => $this->tourMerchantReturnPolicySchema(),
+                'itemCondition' => 'https://schema.org/NewCondition',
+                'itemOffered' => ['@id' => $this->tourSchemaId($tour)],
+                'name' => trim($tour->title.' - '.data_get($flashSaleOffer, 'campaign_title')),
+                'price' => (int) data_get($flashSaleOffer, 'flash_price'),
+                'priceCurrency' => 'VND',
+                'priceValidUntil' => data_get($flashSaleOffer, 'ends_at')?->format('Y-m-d'),
+                'seller' => $this->organizationSummarySchema(),
+                'shippingDetails' => $this->tourShippingDetailsSchema(),
+                'url' => $contextUrl,
+            ]),
         ];
     }
 
@@ -5724,8 +5921,7 @@ class FrontsiteController extends Controller
         string $collection,
         string $size = FrontsiteMedia::SIZE_FULL,
         array|string|null $directUrlAttributes = 'cover_image_url',
-    ): ?string
-    {
+    ): ?string {
         return FrontsiteMedia::modelUrl($model, $collection, $size, $directUrlAttributes);
     }
 
@@ -5914,28 +6110,6 @@ class FrontsiteController extends Controller
             ->all();
     }
 
-    protected function queryHomepageFeaturedTours(TourScope $scope, int $limit, ?TourCategory $featuredTourCategory = null): Collection
-    {
-        return Tour::query()
-            ->published()
-            ->forScope($scope)
-            ->with([
-                'media',
-                'departures' => fn ($departureQuery) => $departureQuery->upcomingPublic()->orderBy('departure_date'),
-                'destination.media',
-                'primaryCategory.media',
-                'region.media',
-            ])
-            ->when(
-                $featuredTourCategory,
-                fn (Builder $query) => $query->whereHas('categories', fn (Builder $taxonomyQuery) => $taxonomyQuery->whereKey($featuredTourCategory->getKey())),
-                fn (Builder $query) => $query->where('is_featured', true),
-            )
-            ->latest('updated_at')
-            ->limit($limit)
-            ->get();
-    }
-
     protected function sortModelsBySlug(Collection $items, array $slugs): Collection
     {
         $positions = array_flip($slugs);
@@ -5943,45 +6117,5 @@ class FrontsiteController extends Controller
         return $items
             ->sortBy(fn ($item) => $positions[data_get($item, 'slug')] ?? PHP_INT_MAX)
             ->values();
-    }
-
-    protected function applyBudgetAmountConstraint(Builder $query, array $columns, int $min, ?int $max): void
-    {
-        $query->where(function (Builder $amountQuery) use ($columns, $max, $min): void {
-            foreach (array_values($columns) as $index => $column) {
-                $method = $index === 0 ? 'where' : 'orWhere';
-
-                $amountQuery->{$method}(function (Builder $columnQuery) use ($column, $max, $min): void {
-                    $columnQuery
-                        ->whereNotNull($column)
-                        ->where($column, '>=', $min);
-
-                    if ($max !== null) {
-                        $columnQuery->where($column, '<=', $max);
-                    }
-                });
-            }
-        });
-    }
-
-    protected function tourBudgetOptions(): array
-    {
-        return [
-            ['value' => 'under-5m', 'label' => 'Dưới 5 triệu'],
-            ['value' => '5m-10m', 'label' => 'Từ 5 đến 10 triệu'],
-            ['value' => '10m-20m', 'label' => 'Từ 10 đến 20 triệu'],
-            ['value' => '20m-plus', 'label' => 'Trên 20 triệu'],
-        ];
-    }
-
-    protected function tourBudgetRange(string $value): array
-    {
-        return match ($value) {
-            'under-5m' => [0, 5000000],
-            '5m-10m' => [5000000, 10000000],
-            '10m-20m' => [10000000, 20000000],
-            '20m-plus' => [20000000, null],
-            default => [null, null],
-        };
     }
 }

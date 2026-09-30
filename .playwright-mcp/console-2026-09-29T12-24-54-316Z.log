@@ -1,0 +1,12 @@
+[    3252ms] [LOG] Zalo Social Plugin is loaded successfully @ https://sp.zalo.me/plugins/sdk.js:1
+[    3253ms] [LOG] socialPluginsShare:  [] @ https://sp.zalo.me/plugins/sdk.js:1
+[   79859ms] [LOG] Zalo Social Plugin is loaded successfully @ https://sp.zalo.me/plugins/sdk.js:1
+[   79860ms] [LOG] socialPluginsShare:  [] @ https://sp.zalo.me/plugins/sdk.js:1
+[   80148ms] Uncaught TypeError: Cannot read properties of null (reading 'postMessage')
+    at value (https://sp.zalo.me/plugins/sdk.js:1:43063)
+[  250756ms] [LOG] Zalo Social Plugin is loaded successfully @ https://sp.zalo.me/plugins/sdk.js:1
+[  250756ms] [LOG] socialPluginsShare:  [] @ https://sp.zalo.me/plugins/sdk.js:1
+[  250920ms] Uncaught TypeError: Cannot read properties of null (reading 'postMessage')
+    at value (https://sp.zalo.me/plugins/sdk.js:1:43063)
+[  250921ms] Uncaught TypeError: Cannot read properties of null (reading 'postMessage')
+    at value (https://sp.zalo.me/plugins/sdk.js:1:43063)

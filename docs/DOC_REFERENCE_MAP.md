@@ -11,6 +11,7 @@ Tài liệu này là điểm vào chính để đọc `docs/` theo đúng case t
 | `docs/DESIGN_SYSTEM.md` | UX/UI | Màu sắc, typography, spacing, interaction | Core |
 | `docs/BACKEND_AGENT.md` | Backend | Model, route, validation, lead flow, publish flow | Core |
 | `docs/TECHNICAL_REQUIREMENTS.md` | Shared architecture | Stack, page inventory, SEO engine, queue, contracts | Core |
+| `docs/TOUR_FILTER_DESIGN.md` | Frontend / tour discovery | UI, query contract, data mapping và acceptance criteria cho bộ lọc tour | Core |
 | `docs/CUSTOMER_LOYALTY_API_REQUIREMENTS.md` | Backend / API integration | Contract API điểm thưởng, danh sách quà, phiếu đổi quà chờ duyệt, và flag hiển thị đơn hàng/lịch sử đổi quà | Core |
 | `docs/AGENCY_TOUR_SYNC_API.md` | Backend / API integration | Contract đồng bộ tour và ngày khởi hành hai chiều giữa CMS Haidang Travel và API Master Data DashBoard | Core |
 | `docs/AGENCY_TOUR_SYNC_QUEUE_DESIGN.md` | Backend / admin ops | Thiết kế màn hình và lifecycle hàng chờ push tour từ CMS sang API Master Data DashBoard | Core |
@@ -30,13 +31,13 @@ Tài liệu này là điểm vào chính để đọc `docs/` theo đúng case t
 
 ## 2. Đường đọc mặc định để giảm dư thừa
 
-- Task frontend: `AGENTS.md` -> `FRONTSITE_AGENT.md` -> `DESIGN_SYSTEM.md`
+- Task frontend: `AGENTS.md` -> `FRONTSITE_AGENT.md` -> `DESIGN_SYSTEM.md`; nếu liên quan bộ lọc tour, đọc thêm `TOUR_FILTER_DESIGN.md`
 - Task backend: `AGENTS.md` -> `BACKEND_AGENT.md` -> `TECHNICAL_REQUIREMENTS.md`
 - Task API Master Data DashBoard tour sync / hàng chờ: `AGENTS.md` -> `AGENCY_TOUR_SYNC_API.md` -> `AGENCY_TOUR_SYNC_QUEUE_DESIGN.md`
 - Task SEO / render schema: `AGENTS.md` -> `FRONTSITE_AGENT.md` -> `TOUR_SITEMAP_BLOCKS.md` -> `TECHNICAL_REQUIREMENTS.md` -> `SEO_SCHEMA_MAPPING.md`
 - Task SEO AI Optimize trực tiếp: `AGENTS.md` -> `TECHNICAL_REQUIREMENTS.md` -> `SEO_DIRECT_MCP_OPTIMIZER_PLAN.md` -> `.agents/skills/haidang-travel-seo-post-optimizer/SKILL.md`; đọc thêm `ADMIN_CMS.md` khi triển khai UI.
 - Task UX/UI: `AGENTS.md` -> `DESIGN_SYSTEM.md` -> `TOUR_SITEMAP_BLOCKS.md` -> `FRONTSITE_AGENT.md`
-- Task form: `AGENTS.md` -> `BACKEND_AGENT.md` -> `FRONTSITE_AGENT.md`
+- Task form: `AGENTS.md` -> `BACKEND_AGENT.md` -> `FRONTSITE_AGENT.md`; form filter tour đọc thêm `TOUR_FILTER_DESIGN.md`
 - Task slider / motion: `DESIGN_SYSTEM.md` -> `TOUR_SITEMAP_BLOCKS.md` -> `FRONTSITE_AGENT.md`
 - Task setup / chạy local: `PROJECT_START_GUIDE.md`
 
@@ -58,6 +59,7 @@ Tài liệu này là điểm vào chính để đọc `docs/` theo đúng case t
 - `docs/DESIGN_SYSTEM.md`
 - `docs/TECHNICAL_REQUIREMENTS.md`
 - `docs/TOUR_SITEMAP_BLOCKS.md` cho tour IA, taxonomy pages, sitemap, block order
+- `docs/TOUR_FILTER_DESIGN.md` nếu task chạm homepage tour filter hoặc `/tim-tour`
 - `docs/SEO_SCHEMA_MAPPING.md` nếu task có H1/FAQ/schema/meta
 
 ### Nội dung chính đã được gom
@@ -112,6 +114,7 @@ Tài liệu này có thể gợi ý art direction, nhưng không nên override `
 - `docs/DESIGN_SYSTEM.md`
 - `docs/FRONTSITE_AGENT.md`
 - `docs/TECHNICAL_REQUIREMENTS.md`
+- `docs/TOUR_FILTER_DESIGN.md` đối với listing filter tour
 
 ### Nguồn nội dung theo vai trò
 

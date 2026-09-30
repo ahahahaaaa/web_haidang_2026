@@ -107,7 +107,7 @@
                             @if (($social['type'] ?? null) === 'zalo')
                                 <img
                                     src="{{ $zaloLogoPath }}"
-                                    alt=""
+                                    alt="HaidangTravel Zalo"
                                     class="h-11 w-auto"
                                     width="50"
                                     height="50"

@@ -1,0 +1,902 @@
+- generic [active] [ref=f20e1]:
+  - link "Bỏ qua điều hướng & tới nội dung chính" [ref=f20e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f20e3]:
+    - generic [ref=f20e4]:
+      - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=f20e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8000
+        - img "Du Lịch Hải Đăng Travel" [ref=f20e7]
+      - group [ref=f20e8]:
+        - generic "TP. Hồ Chí Minh" [ref=f20e9] [cursor=pointer]
+      - group [ref=f20e13]:
+        - generic "Mở menu" [ref=f20e14]
+    - region "Khám phá dịch vụ du lịch" [ref=f20e17]:
+      - generic [ref=f20e18]:
+        - navigation "Đi nhanh" [ref=f20e19]:
+          - link "Tour trọn gói" [ref=f20e20] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/tim-tour
+          - link "Vé máy bay" [ref=f20e24] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/dich-vu/danh-muc/ve-may-bay
+          - link "Dịch vụ cộng thêm" [ref=f20e28] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/dich-vu
+          - link "Tour trong nước" [ref=f20e32] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/tour-trong-nuoc
+          - link "Tour nước ngoài" [ref=f20e36] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/tour-nuoc-ngoai
+          - link "Tour đoàn" [ref=f20e40] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/tour-doan
+        - generic [ref=f20e44]:
+          - generic [ref=f20e45]: "Nổi bật:"
+          - generic [ref=f20e47]:
+            - link "Hành hương Châu Á" [ref=f20e48] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/danh-muc-tour/tour-hanh-huong
+            - link "Tour Lễ 2 Tháng 9 2026 - Trọn Gói Trong Nước & Nước Ngoài" [ref=f20e50] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/danh-muc-tour/tour-le-2-thang-9
+            - link "Tour Du lịch xe Limousine" [ref=f20e52] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/danh-muc-tour/du-lich-xe-limousine
+            - link "Du Lịch Đảo Việt Nam" [ref=f20e54] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/danh-muc-tour/tour-du-lich-dao
+            - link "Tour Mùa Đông Châu Úc" [ref=f20e56] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/danh-muc-tour/du-lich-mua-dong-chau-uc
+            - link "Du Lịch Tàu Lửa" [ref=f20e58] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/danh-muc-tour/du-lich-tau-lua
+            - link "Du lich máy bay" [ref=f20e60] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/danh-muc-tour/du-lich-may-bay
+  - main [ref=f20e62]:
+    - generic [ref=f20e64]:
+      - img "tour du lich trung quoc an thi truong gia gioi phuong hoang co tran 5 ngay 4 dem haidangtravel" [ref=f20e66]
+      - generic [ref=f20e70]:
+        - generic [ref=f20e71]:
+          - generic [ref=f20e72]:
+            - link "Du lịch hè 2026" [ref=f20e73] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/danh-muc-tour/du-lich-mua-he
+            - link "Du Lịch Trung Quốc" [ref=f20e75] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/tour-du-lich-trung-quoc
+            - link "Châu Á" [ref=f20e77] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/vung-mien/du-lich-chau-a
+            - generic [ref=f20e79]: 5,0/5 • 21 lượt đánh giá
+          - heading "Tour Trung Quốc Ân Thi Trương Gia Giới Phượng Hoàng Cổ Trấn 5 Ngày 4 Đêm" [level=1] [ref=f20e81]
+        - generic [ref=f20e82]:
+          - button "Kiểm tra chỗ ngay" [ref=f20e83]
+          - link "0911222288" [ref=f20e85] [cursor=pointer]:
+            - /url: tel:0911222288
+          - link "Nhận voucher du lịch - Voucher du lịch 200.000đ" [ref=f20e89] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/voucher-du-lich
+            - generic [ref=f20e91]: Nhận voucher du lịch
+          - link "Xem lịch khởi hành" [ref=f20e93] [cursor=pointer]:
+            - /url: "#tour-departures"
+        - generic [ref=f20e95]:
+          - generic [ref=f20e96]:
+            - paragraph [ref=f20e97]: Khởi hành
+            - paragraph [ref=f20e99]: HCM
+          - generic [ref=f20e100]:
+            - paragraph [ref=f20e101]: Thời lượng
+            - paragraph [ref=f20e103]: 5 ngày 4 đêm
+          - generic [ref=f20e104]:
+            - paragraph [ref=f20e105]: Phương tiện
+            - paragraph [ref=f20e107]: Máy Bay
+          - generic [ref=f20e108]:
+            - paragraph [ref=f20e109]: Tiêu chuẩn
+            - paragraph [ref=f20e111]: 4 sao
+    - navigation "Breadcrumb" [ref=f20e114]:
+      - list [ref=f20e115]:
+        - listitem [ref=f20e116]:
+          - link "Trang chủ" [ref=f20e117] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000
+        - listitem [ref=f20e118]:
+          - link "Tour nước ngoài" [ref=f20e120] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/tour-nuoc-ngoai
+        - listitem [ref=f20e121]:
+          - link "Châu Á" [ref=f20e123] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/vung-mien/du-lich-chau-a
+        - listitem [ref=f20e124]:
+          - link "Du Lịch Trung Quốc" [ref=f20e126] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/tour-du-lich-trung-quoc
+        - listitem [ref=f20e127]:
+          - generic [ref=f20e129]: Tour Trung Quốc Ân Thi Trương Gia Giới Phượng Hoàng Cổ Trấn 5 Ngày 4 Đêm
+    - generic [ref=f20e132]:
+      - link "Thư viện" [ref=f20e133] [cursor=pointer]:
+        - /url: "#tour-gallery"
+      - link "Chi tiết tour" [ref=f20e134] [cursor=pointer]:
+        - /url: "#tour-details"
+      - link "Lịch khởi hành" [ref=f20e135] [cursor=pointer]:
+        - /url: "#tour-departures"
+      - link "Lịch trình" [ref=f20e136] [cursor=pointer]:
+        - /url: "#tour-itinerary"
+      - link "Quyền lợi" [ref=f20e137] [cursor=pointer]:
+        - /url: "#tour-inclusions"
+      - link "Điều khoản tour" [ref=f20e138] [cursor=pointer]:
+        - /url: "#tour-terms"
+      - link "Đánh giá" [ref=f20e139] [cursor=pointer]:
+        - /url: "#tour-review-form"
+      - link "FAQ" [ref=f20e140] [cursor=pointer]:
+        - /url: "#tour-faq"
+    - generic [ref=f20e142]:
+      - generic [ref=f20e143]:
+        - generic [ref=f20e148]:
+          - generic [ref=f20e149]:
+            - generic:
+              - button "Media trước" [ref=f20e151]
+              - button "Media tiếp theo" [ref=f20e153]
+            - generic [ref=f20e155]:
+              - generic [ref=f20e156]: Ảnh đại diện
+              - button "Phóng to" [ref=f20e158]
+            - generic: 1 / 5
+            - img "tour du lich trung quoc an thi truong gia gioi phuong hoang co tran 5 ngay 4 dem haidangtravel" [ref=f20e162]
+          - generic [ref=f20e165]:
+            - button [pressed] [ref=f20e166]:
+              - img "tour du lich trung quoc an thi truong gia gioi phuong hoang co tran 5 ngay 4 dem haidangtravel" [ref=f20e168]
+            - button [ref=f20e169]:
+              - img "cap treo thien mon son trung quoc dai nhat the gioi haidangtravel" [ref=f20e171]
+            - button [ref=f20e172]:
+              - img "cau kinh dai hiep coc truong gia gioi trung quoc haidangtravel" [ref=f20e174]
+            - button [ref=f20e175]:
+              - img "phuong hoang co tran trung quoc ve dem haidangtravel" [ref=f20e177]
+            - button [ref=f20e178]:
+              - img "ung vay rong ky quan dia chat trung quoc haidangtravel" [ref=f20e180]
+        - generic [ref=f20e181]:
+          - heading "GIỚI THIỆU TOUR" [level=2] [ref=f20e184]
+          - generic [ref=f20e186]:
+            - generic [ref=f20e189]:
+              - heading [level=2] [ref=f20e190]:
+                - strong [ref=f20e191]: "Tour Ân Thi – Trương Gia Giới – Phượng Hoàng Cổ Trấn: Kỳ quan karst, thung lũng phim Avatar và cổ trấn nghìn năm"
+              - paragraph [ref=f20e192]: "Haidangtravel tự hào giới thiệu tour Ân Thi – Trương Gia Giới – Phượng Hoàng Cổ Trấn 5 ngày 4 đêm – hành trình nối ba vùng đất biểu tượng của Trung Quốc: từ Đại Hiệp Cốc Ân Thi được mệnh danh \"Thụy Sĩ phương Đông\", đến những cột đá kỳ vĩ của Trương Gia Giới – bối cảnh chính của phim Avatar, và kết thúc bằng không gian cổ kính bên sông Đà của Phượng Hoàng Cổ Trấn. Không chỉ ngắm cảnh, tour còn đưa bạn trải nghiệm kiến trúc Thổ Ty Thành, thưởng thức lễ hội đa dân tộc và khám phá những công trình kỷ lục thế giới như cáp treo dài nhất hành tinh. Mọi thủ tục visa, di chuyển, lưu trú đều đã được chúng tôi lo trọn gói."
+              - heading "Tại sao nên chọn tour này qua Haidangtravel?" [level=3] [ref=f20e193]
+              - paragraph [ref=f20e194]:
+                - strong [ref=f20e195]: "Kết hợp hoàn hảo ba miền di sản:"
+                - text: Một hành trình duy nhất đưa bạn đến cảnh quan karst hùng vĩ của Ân Thi, kỳ quan cột đá của Trương Gia Giới và nét cổ kính của Phượng Hoàng – trải nghiệm đa dạng hiếm có.
+              - paragraph [ref=f20e196]:
+                - strong [ref=f20e197]: "Khám phá văn hóa Thổ Gia độc đáo:"
+                - text: Điểm đặc biệt của tour so với các tour Trung Quốc thông thường là bạn được tìm hiểu về văn hóa dân tộc Thổ Gia – dân tộc thiểu số lớn nhất Trung Quốc với lối sống mẫu hệ độc đáo, thông qua các điểm đến như Nữ Nhi Thành và Thổ Ty Thành.
+              - paragraph [ref=f20e198]:
+                - strong [ref=f20e199]: "Hỗ trợ visa trọn gói:"
+                - text: Chúng tôi lo toàn bộ thủ tục visa Trung Quốc, bạn chỉ cần cung cấp hộ chiếu và ảnh.
+              - paragraph [ref=f20e200]:
+                - strong [ref=f20e201]: "Hướng dẫn viên tiếng Việt tại chỗ:"
+                - text: Am hiểu từng địa danh, biết cách săn thời điểm chụp ảnh đẹp và chăm sóc khách Việt chu đáo.
+              - paragraph [ref=f20e202]:
+                - strong [ref=f20e203]: "Không phát sinh chi phí:"
+                - text: Mọi khoản đã được báo trước trong hợp đồng, không phát sinh thêm.
+              - paragraph [ref=f20e204]:
+                - strong [ref=f20e205]: "Lịch trình khoa học:"
+                - text: Sắp xếp thời gian hợp lý, không chạy show, có thời gian nghỉ ngơi và chụp ảnh thoải mái.
+              - heading "Tour Ân Thi – Trương Gia Giới – Phượng Hoàng đi những đâu?" [level=3] [ref=f20e206]
+              - paragraph [ref=f20e207]:
+                - strong [ref=f20e208]: Ân Thi (Enshi) – "Thụy Sĩ phương Đông" giữa lòng Hồ Bắc
+              - paragraph [ref=f20e209]: Ân Thi là một châu tự trị thuộc tỉnh Hồ Bắc, nơi sinh sống của 45 dân tộc, trong đó người Thổ Gia, Miêu và Đồng chiếm đa số. Được mệnh danh là "Thụy Sĩ phương Đông", nơi đây sở hữu địa hình núi non hiểm trở, những hẻm núi karst kỳ vĩ và dòng sông pha lê trong vắt.
+              - heading [level=3] [ref=f20e210]:
+                - strong [ref=f20e211]: "Điểm đến nổi bật tại Ân Thi trong tour:"
+              - list [ref=f20e212]:
+                - listitem [ref=f20e213]:
+                  - strong [ref=f20e214]: "Đại Hiệp Cốc Ân Thi (Enshi Grand Canyon):"
+                  - text: Trái tim của cảnh quan karst, nơi những vách đá dựng đứng và sông ngầm tạo nên bức tranh thiên nhiên hùng vĩ.
+                - listitem [ref=f20e215]: "Nữ Nhi Thành (Daughter City): Tái hiện sinh động chế độ mẫu hệ độc đáo của người Thổ Gia – nơi phụ nữ nắm quyền trong gia đình và xã hội."
+                - listitem [ref=f20e216]:
+                  - strong [ref=f20e217]: "Thổ Ty Thành (Enshi Tusi Castle):"
+                  - text: Biểu tượng văn hóa Thổ Gia với lịch sử hơn 450 năm.
+                - listitem [ref=f20e218]:
+                  - strong [ref=f20e219]: "Long Lân Cung:"
+                  - text: Hang động được hình thành bởi hàng triệu năm kiến tạo, nổi bật với hệ thống nhũ đá kỳ ảo.
+              - heading [level=3] [ref=f20e220]:
+                - strong [ref=f20e221]: Trương Gia Giới (Zhangjiajie) – Thung lũng phim Avatar
+              - paragraph [ref=f20e222]: "Công viên rừng quốc gia đầu tiên của Trung Quốc, nơi có hơn 3.000 cột đá sa thạch được UNESCO công nhận là Di sản thế giới. Đây cũng là bối cảnh chính truyền cảm hứng cho những ngọn núi lơ lửng trong bom tấn Avatar. Các điểm tham quan chính bao gồm: cáp treo Thiên Môn Sơn dài 7,45km (dài nhất thế giới), hang Thiên Môn (cao 131,5m – hang tự nhiên cho máy bay bay qua), đường 99 khúc cua ngoạn mục, và cầu kính Đại Hiệp Cốc dài 430m treo trên vực sâu."
+              - heading [level=3] [ref=f20e223]:
+                - strong [ref=f20e224]: Phượng Hoàng Cổ Trấn (Fenghuang Ancient Town) – Venice phương Đông
+              - paragraph [ref=f20e225]: Thị trấn cổ hơn 1.300 năm tuổi thuộc châu tự trị người Thổ Gia, Miêu Tương Tây, nằm nép mình bên dòng Đà Giang. Đây là một trong những cổ trấn đẹp nhất Trung Quốc với những mái ngói đen rêu phong, cầu Hồng Kiều cổ kính và chợ đêm đèn lồng rực rỡ.
+              - heading [level=3] [ref=f20e226]:
+                - strong [ref=f20e227]: Mùa nào đẹp nhất cho tour Ân Thi – Trương Gia Giới – Phượng Hoàng?
+              - paragraph [ref=f20e228]: "Hành trình trải dài qua ba điểm đến với khí hậu tương đối đồng nhất. Tham khảo mùa đẹp nhất cho từng thời điểm:"
+              - paragraph [ref=f20e229]:
+                - strong [ref=f20e230]: "Mùa xuân (tháng 3 – 5):"
+              - paragraph [ref=f20e231]: Ân Thi và Trương Gia Giới bước vào mùa đẹp nhất, khí hậu ấm áp dễ chịu, cây cối đâm chồi nảy lộc, hoa rừng nở rộ. Nhiệt độ dao động 15-22°C, mưa phùn nhẹ tạo nên biển mây lãng mạn trên đỉnh núi.
+              - paragraph [ref=f20e232]: Phượng Hoàng Cổ Trấn cũng trở nên thơ mộng với mưa xuân và những con phố đá ẩm ướt.
+              - paragraph [ref=f20e233]:
+                - strong [ref=f20e234]: "Mùa thu (tháng 9 – 11):"
+              - paragraph [ref=f20e235]: Đây là thời điểm đẹp nhất trong năm tại cả ba điểm đến. Nhiệt độ 18-25°C, trời trong xanh, rất thuận lợi cho việc ngắm cảnh và chụp ảnh.
+              - paragraph [ref=f20e236]: Trương Gia Giới bước vào mùa lá vàng đỏ đẹp nhất. Lượng khách thường đông vào tuần lễ vàng (1-7/10), vì vậy nên tránh dịp này.
+              - paragraph [ref=f20e237]:
+                - strong [ref=f20e238]: "Mùa hè (tháng 6 – 8):"
+              - paragraph [ref=f20e239]: Nhiệt độ 26-32°C, mưa nhiều. Tuy nhiên, đây là mùa cao điểm du lịch do học sinh, sinh viên nghỉ hè.
+              - paragraph [ref=f20e240]: Ân Thi nhờ nằm trong thung lũng nên có khí hậu mát mẻ quanh năm, dễ chịu hơn nhiều so với các thành phố khác của Trung Quốc.
+              - paragraph [ref=f20e241]:
+                - strong [ref=f20e242]: "Mùa đông (tháng 12 – 2):"
+              - paragraph [ref=f20e243]: Nhiệt độ xuống dưới 10°C, vùng núi Trương Gia Giới có tuyết rơi tạo nên khung cảnh "ngàn năm băng giá". Đường trơn nên cần chú ý an toàn.
+              - paragraph [ref=f20e244]: "Khuyến nghị của Haidangtravel: Tháng 4-5 và tháng 9-10 (tránh tuần lễ vàng) là thời điểm lý tưởng nhất. Nếu bạn thích cảnh tuyết trắng, hãy chọn tháng 1-2 và chuẩn bị quần áo ấm thật tốt."
+              - heading [level=3] [ref=f20e245]:
+                - strong [ref=f20e246]: Những trải nghiệm không thể bỏ lỡ trong tour
+              - list [ref=f20e247]:
+                - listitem [ref=f20e248]: Chiêm ngưỡng Đại Hiệp Cốc Ân Thi – hẻm núi karst hùng vĩ bậc nhất Trung Quốc, được ví như "Thụy Sĩ phương Đông".
+                - listitem [ref=f20e249]: Khám phá văn hóa mẫu hệ tại Nữ Nhi Thành – tìm hiểu lối sống độc đáo của người Thổ Gia.
+                - listitem [ref=f20e250]: Tham quan Thổ Ty Thành – chiêm ngưỡng Điện Cửu Cẩm với 333 cột trụ và hàng ngàn chi tiết chạm khắc tinh xảo, được dựng hoàn toàn bằng kỹ thuật mộng gỗ không đinh sắt.
+                - listitem [ref=f20e251]: Chinh phục cáp treo dài nhất thế giới Thiên Môn Sơn – 30 phút lơ lửng giữa trời.
+                - listitem [ref=f20e252]: Bước trên cầu kính trong suốt – trải nghiệm đi bộ trên không ở độ cao 300m.
+                - listitem [ref=f20e253]: Dạo phố cổ Phượng Hoàng về đêm – thả đèn hoa đăng trên sông Đà.
+                - listitem [ref=f20e254]: Đi thuyền gỗ ngắm cổ trấn – cảm nhận "Venice phương Đông" từ dòng nước.
+                - listitem [ref=f20e255]: Ăn gì? – Ẩm thực Thổ Gia, Hồ Nam và đặc sản Phượng Hoàng
+              - heading [level=3] [ref=f20e256]:
+                - strong [ref=f20e257]: "Gợi Ý Ẩm thực Ân Thi (Thổ Gia):"
+              - list [ref=f20e258]:
+                - listitem [ref=f20e259]: "Lẩu Thổ Gia: Nồi gang với nước dùng được ninh từ xương và các loại thảo mộc núi rừng."
+                - listitem [ref=f20e260]: "Thịt hun khói (Lạp Nhục): Thịt ba chỉ được hun bằng củi và vỏ cam, mang hương vị núi rừng đặc trưng."
+                - listitem [ref=f20e261]: "Bánh gạo Thổ Gia (Ci Ba): Bánh làm từ gạo nếp, nướng trên than hồng."
+                - listitem [ref=f20e262]: "Ẩm thực Trương Gia Giới (Hồ Nam):"
+                - listitem [ref=f20e263]: "Lẩu Tam Cấp: Nồi gang 3 ngăn (cay, chua, thanh đạm) – món không thể bỏ lỡ."
+                - listitem [ref=f20e264]: "Đậu hũ thối Trương Gia Giới: Vàng, giòn ngoài, mềm trong, chấm tương ớt."
+                - listitem [ref=f20e265]: "Cơm nắm lá tre: Gạo nếp trộn đậu xanh và thịt, gói trong lá tre hấp chín."
+              - heading [level=3] [ref=f20e266]:
+                - strong [ref=f20e267]: "Gợi Ý Ẩm thực Phượng Hoàng Cổ Trấn:"
+              - list [ref=f20e268]:
+                - listitem [ref=f20e269]: "Bánh gạo Phượng Hoàng (Jiangmi Ci): Bánh gạo nếp nhân đậu xanh."
+                - listitem [ref=f20e270]: "Thịt bò khô cay: Món nhắm không thể thiếu khi dạo chợ đêm."
+                - listitem [ref=f20e271]: "Trứng muối vịt: Có bán tại hầu hết các quán ăn ven sông."
+              - heading [level=3] [ref=f20e272]:
+                - strong [ref=f20e273]: Kinh nghiệm tham gia tour từ Haidangtravel
+              - list [ref=f20e274]:
+                - listitem [ref=f20e275]: "Giày dép: Mang giày thể thao đế bám chắc chắn. Tour có nhiều hoạt động leo núi nhẹ và đi bộ đường dài (Đại Hiệp Cốc, Thiên Môn Sơn)."
+                - listitem [ref=f20e276]: "Quần áo: Chuẩn bị áo khoát mỏng ngay cả mùa hè (trên núi lạnh hơn dưới thung lũng 5-8°C). Mang ô/dù đề phòng mưa bất chợt."
+                - listitem [ref=f20e277]: "Thuốc men: Mang theo thuốc say xe, cảm cúm, dầu gió."
+                - listitem [ref=f20e278]: "Tiền mặt: Nên đổi 1.000-2.000 NDT/người (khoảng 3,5-7 triệu VND) để mua sắm tại chợ đêm và các quán ăn nhỏ (họ không nhận thẻ)."
+                - listitem [ref=f20e279]: "VPN: Cài sẵn VPN trước khi bay để sử dụng các ứng dụng như Facebook, Gmail."
+                - listitem [ref=f20e280]: "Pin dự phòng: Máy ảnh và điện thoại sẽ nhanh hết pin khi nhiệt độ lạnh."
+              - heading [level=3] [ref=f20e281]:
+                - strong [ref=f20e282]: Câu hỏi thường gặp về tour Ân Thi – Trương Gia Giới – Phượng Hoàng
+              - paragraph [ref=f20e283]:
+                - strong [ref=f20e284]: 1. Tour có khởi hành thường xuyên không?
+              - paragraph [ref=f20e285]: Có. Haidangtravel có lịch khởi hành ghép đoàn hàng tuần. Khách lẻ hoặc nhóm 2-3 người vẫn có thể đăng ký.
+              - paragraph [ref=f20e286]:
+                - strong [ref=f20e287]: 2. Tôi có thể đặt tour cho gia đình có người lớn tuổi không?
+              - paragraph [ref=f20e288]: Rất phù hợp. Tour có cáp treo, thang máy và xe đưa đón, hạn chế leo bộ không cần thiết. Hướng dẫn viên Haidangtravel có kinh nghiệm chăm sóc khách lớn tuổi (đi chậm, chú ý sức khỏe).
+              - paragraph [ref=f20e289]:
+                - strong [ref=f20e290]: 3. Có thể điều chỉnh chế độ ăn (chay, kiêng) không?
+              - paragraph [ref=f20e291]: Có. Bạn chỉ cần báo trước khi đặt tour, chúng tôi sẽ sắp xếp suất ăn chay, không cay hoặc theo yêu cầu khác.
+              - paragraph [ref=f20e292]:
+                - strong [ref=f20e293]: 4. Tour có bắt buộc mua sắm không?
+              - paragraph [ref=f20e294]: Tour Ân Thi – Trương Gia Giới – Phượng Hoàng của Haidangtravel KHÔNG ép mua sắm. Các điểm chợ/chợ đêm là để tham quan và trải nghiệm văn hóa, hoàn toàn tự nguyện.
+              - paragraph [ref=f20e295]:
+                - strong [ref=f20e296]: 5. Ân Thi có gì đặc biệt mà nên kết hợp vào tour?
+              - paragraph [ref=f20e297]: Ân Thi là "viên ngọc thô" mới nổi của du lịch Trung Quốc, sở hữu Đại Hiệp Cốc hùng vĩ không thua kém Trương Gia Giới nhưng với vẻ đẹp nguyên sơ, hoang dã hơn. Nơi đây còn là quê hương của người Thổ Gia, nơi lưu giữ nền văn hóa mẫu hệ độc đáo hiếm nơi nào có được. Kết hợp Ân Thi vào hành trình giúp bạn có cái nhìn đa chiều hơn về Trung Quốc – không chỉ là các danh lam thắng cảnh nổi tiếng mà còn là văn hóa bản địa tinh túy.
+              - heading [level=3] [ref=f20e298]:
+                - strong [ref=f20e299]: Các tour khác tại Trung Quốc bạn có thể quan tâm
+              - paragraph [ref=f20e300]: "Sau hành trình Ân Thi – Trương Gia Giới – Phượng Hoàng, bạn có thể tham khảo thêm các tour khác của Haidangtravel:"
+              - list [ref=f20e301]:
+                - listitem [ref=f20e302]:
+                  - link "Tour du lịch Trung Quốc Lệ Giang (Trương Gia Giới)" [ref=f20e303] [cursor=pointer]:
+                    - /url: https://haidangtravel.com/chuong-trinh/tour-du-lich-trung-quoc-le-giang
+                  - text: – chuyên sâu Trương Gia Giới 5 ngày.
+                - listitem [ref=f20e304]:
+                  - link "Tour du lịch Trung Quốc Thượng Hải" [ref=f20e305] [cursor=pointer]:
+                    - /url: https://haidangtravel.com/chuong-trinh/tour-du-lich-trung-quoc-thuong-hai
+                  - text: – siêu đô thị hiện đại.
+                - listitem [ref=f20e306]:
+                  - link "Tour du lịch Cửu Trại Câu Thành Đô Lạc Sơn Đại Phật" [ref=f20e307] [cursor=pointer]:
+                    - /url: https://haidangtravel.com/chuong-trinh/tour-du-lich-cuu-trai-cau-thanh-do-lac-son-dai-phat-6-ngay-5-dem
+                  - text: – thung lũng màu nước.
+                - listitem [ref=f20e308]:
+                  - link "Tour Hồng Kông Thâm Quyến Quảng Châu" [ref=f20e309] [cursor=pointer]:
+                    - /url: https://haidangtravel.com/chuong-trinh/tour-du-lich-hong-kong-tham-quyen-quang-chau
+                  - text: – mua sắm, Disneyland.
+                - listitem [ref=f20e310]:
+                  - text: Hoặc quay lại
+                  - link "tour du lịch Trung Quốc tổng hợp" [ref=f20e311] [cursor=pointer]:
+                    - /url: https://haidangtravel.com/tour-du-lich-trung-quoc
+                  - text: để xem đầy đủ danh sách tour.
+              - paragraph [ref=f20e312]: Haidangtravel tự hào là đơn vị tiên phong đưa khách Việt khám phá Ân Thi – vùng đất còn nhiều bí ẩn của Trung Quốc. Đội ngũ hướng dẫn viên người Việt tại chỗ am hiểu văn hóa Thổ Gia, kinh nghiệm săn cảnh đẹp và tận tình chăm sóc khách hàng. Liên hệ ngay để được tư vấn chi tiết về lịch trình, giá tour và những ưu đãi đặc biệt.
+            - button "Xem thêm" [ref=f20e313]
+        - generic [ref=f20e316]:
+          - generic [ref=f20e318]:
+            - heading "LỊCH KHỞI HÀNH" [level=2] [ref=f20e319]
+            - paragraph [ref=f20e320]: Tổng hợp lịch khởi hành tour trong năm
+          - tablist "Lịch khởi hành theo tháng" [ref=f20e321]:
+            - tab "Tháng 09/2026 Gần nhất 23/09 1" [selected] [ref=f20e322]:
+              - generic [ref=f20e323]: Tháng 09/2026
+              - generic [ref=f20e324]: Gần nhất 23/09
+              - generic [ref=f20e325]: "1"
+            - tab "Tháng 10/2026 2" [ref=f20e326]:
+              - generic [ref=f20e327]: Tháng 10/2026
+              - generic [ref=f20e328]: "2"
+            - tab "Tháng 06/2027 1" [ref=f20e329]:
+              - generic [ref=f20e330]: Tháng 06/2027
+              - generic [ref=f20e331]: "1"
+          - tabpanel "Tháng 09/2026 Gần nhất 23/09 1" [ref=f20e333]:
+            - generic [ref=f20e334]:
+              - heading "Tháng 09/2026" [level=2] [ref=f20e336]
+              - generic [ref=f20e337]: 1 lịch
+            - article [ref=f20e339]:
+              - generic [ref=f20e340]:
+                - generic [ref=f20e341]:
+                  - paragraph [ref=f20e342]: Ngày đi
+                  - paragraph [ref=f20e343]: 23/09/2026
+                - generic [ref=f20e344]: Còn chỗ
+              - generic [ref=f20e345]:
+                - generic [ref=f20e346]:
+                  - paragraph [ref=f20e347]: Khởi hành
+                  - paragraph [ref=f20e348]: HCM
+                - generic [ref=f20e349]:
+                  - paragraph [ref=f20e350]: Phương tiện
+                  - paragraph [ref=f20e351]: Máy Bay
+                - generic [ref=f20e352]:
+                  - paragraph [ref=f20e353]: Thời lượng
+                  - paragraph [ref=f20e354]: 5 ngày 4 đêm
+                - generic [ref=f20e355]:
+                  - paragraph [ref=f20e356]: Tiêu chuẩn
+                  - paragraph [ref=f20e357]: 4 sao
+              - generic [ref=f20e359]:
+                - generic [ref=f20e360]:
+                  - paragraph [ref=f20e361]: Giá từ
+                  - paragraph [ref=f20e362]: 15.990.000 đ
+                - button "Đặt tour" [ref=f20e364]
+        - generic [ref=f20e366]:
+          - heading "LỊCH TRÌNH TOUR" [level=2] [ref=f20e369]
+          - generic [ref=f20e370]:
+            - group [ref=f20e371]:
+              - 'generic "Ngày 1: HỒ CHÍ MINH - ÂN THI (Ăn 1 bữa)" [ref=f20e372] [cursor=pointer]'
+              - generic [ref=f20e378]:
+                - blockquote [ref=f20e379]: "ĐIỂM NỔI BẬT NGÀY 1: Bay thẳng Vietjet từ TP.HCM đến Ân Thi Trung Quốc – khởi đầu hành trình cùng HAIDANGTRAVEL."
+                - list [ref=f20e380]:
+                  - listitem [ref=f20e381]:
+                    - text: Trưởng đoàn đón Quý khách tại
+                    - strong [ref=f20e382]: sân bay Tân Sơn Nhất
+                    - text: và làm thủ tục khởi hành đi
+                    - strong [ref=f20e383]: Ân Thi
+                    - text: trên chuyến bay
+                    - strong [ref=f20e384]: VJ 3674 SGN - ENH 14:35 - 19:00
+                    - text: của hãng
+                    - strong [ref=f20e385]: VIETJET
+                    - text: .
+                  - listitem [ref=f20e386]:
+                    - text: Đến sân bay
+                    - strong [ref=f20e387]: Ân Thi
+                    - text: ", đoàn làm thủ tục nhập cảnh"
+                    - strong [ref=f20e388]: Trung Quốc
+                    - text: .
+                  - listitem [ref=f20e389]:
+                    - text: Đoàn dùng cơm tối, sau đó về khách sạn nhận phòng nghỉ ngơi. Nghỉ đêm tại
+                    - strong [ref=f20e390]: Ân Thi, Trung Quốc.
+            - group [ref=f20e391]:
+              - 'generic "Ngày 2: ÂN THI - PHƯỢNG HOÀNG CỔ TRẤN (Ăn 3 bữa)" [ref=f20e392] [cursor=pointer]'
+              - generic [ref=f20e398]:
+                - blockquote [ref=f20e399]: "ĐIỂM NỔI BẬT NGÀY 2: Phượng Hoàng Cổ Trấn hơn 1.000 năm tuổi bên dòng Đà Giang – nơi đẹp nhất Trung Quốc."
+                - list [ref=f20e400]:
+                  - listitem [ref=f20e401]:
+                    - text: Quý khách ăn sáng tại khách sạn, làm thủ tục trả phòng, khởi hành đi
+                    - strong [ref=f20e402]: Phượng Hoàng Cổ Trấn
+                    - text: "-- thị trấn cổ được xây dựng bên dòng"
+                    - strong [ref=f20e403]: Đà Giang
+                    - text: ", có nền văn hóa lịch sử"
+                    - strong [ref=f20e404]: hơn 1.000 năm tuổi
+                    - text: nhưng vẫn còn nguyên vẹn nét văn hóa, kiến trúc đặc trưng. Là một trong những danh lam thắng cảnh di tích văn hóa nổi tiếng hấp dẫn bậc nhất
+                    - strong [ref=f20e405]: Trung Quốc
+                    - text: .
+                  - listitem [ref=f20e406]:
+                    - text: Ăn trưa xong,
+                    - strong [ref=f20e407]: có xe buýt đưa đón
+                    - text: vào trung tâm
+                    - strong [ref=f20e408]: "\"Thành Cổ Phượng Hoàng\""
+                    - text: là một thành cổ nằm ở phía tây tỉnh Hồ Nam,
+                    - strong [ref=f20e409]: Trung Quốc
+                    - text: ", được nhà văn Tân Tây Lan Alley Rewi khen ngợi là"
+                    - strong [ref=f20e410]: nơi đẹp nhất Trung Quốc
+                    - text: ", với những ngôi nhà cổ áp sát vào núi và soi mình xuống dòng Đà Giang. Đặc biệt với những cây cầu nối hai bờ của dòng sông là nét đặc biệt của thị trấn này. Có đến cả chục cây cầu bắc qua con sông nhỏ, từ những cây cầu đá có tuổi đời bằng với khu thành cổ, cây cầu gỗ hình gấp khúc, cây cầu sắt cho đến cây cầu bê-tông lớn dành cho xe cơ giới qua lại. Với những thắng cảnh nổi tiếng"
+                    - strong [ref=f20e411]: (Hồng Kiều, Cầu Đá Nhảy, Thành lầu Đông Môn, tháp Vạn Danh)
+                    - text: .
+                  - listitem [ref=f20e412]:
+                    - text: Sau khi ăn tối, đoàn tự do tham quan ngắm cảnh
+                    - strong [ref=f20e413]: Phượng Hoàng Cổ Trấn.
+                  - listitem [ref=f20e414]:
+                    - text: Nghỉ đêm tại
+                    - strong [ref=f20e415]: Phượng Hoàng Cổ Trấn, Trung Quốc.
+            - group [ref=f20e416]:
+              - 'generic "Ngày 3: PHƯỢNG HOÀNG CỔ TRẤN - TRƯƠNG GIA GIỚI (Ăn 3 bữa)" [ref=f20e417] [cursor=pointer]'
+              - generic [ref=f20e423]:
+                - blockquote [ref=f20e424]: "ĐIỂM NỔI BẬT NGÀY 3: Cầu Pha Lê Đại Hiệp Cốc – cầu kính dài 430m, cao 300m, cao và dài nhất thế giới tại Trương Gia Giới."
+                - list [ref=f20e425]:
+                  - listitem [ref=f20e426]:
+                    - text: Quý khách ăn sáng, làm thủ tục trả phòng, sau đó ngồi xe trở về
+                    - strong [ref=f20e427]: Trương Gia Giới, Trung Quốc
+                    - text: ". Quý khách tiếp tục mua sắm tại:"
+                    - strong [ref=f20e428]: "\"Trung Tâm Y Dược\""
+                    - text: tìm hiểu văn hóa lịch sử y học Trung Hoa.
+                  - listitem [ref=f20e429]:
+                    - text: Đoàn ăn trưa, sau đó
+                    - strong [ref=f20e430]: Quý khách có thể đăng ký tham quan "Đại Hiệp Cốc"
+                    - text: hay còn gọi "Cầu Pha Lê" – cây cầu đáy kính nổi tiếng này rộng 6m, dài 430m, bắc qua 2 vách đá ở độ cao 300m và nhìn xuống công viên Trương Gia Giới,
+                    - strong [ref=f20e431]: Trung Quốc
+                    - text: ", được xem là"
+                    - strong [ref=f20e432]: cây cầu cao và dài nhất thế giới
+                    - text: (Chi phí tự túc). Đoàn di chuyển tham quan mua sắm tại
+                    - strong [ref=f20e433]: cửa hàng trà.
+                  - listitem [ref=f20e434]:
+                    - text: Tham quan và chụp ảnh bên ngoài
+                    - strong [ref=f20e435]: 72 Kỳ Lầu
+                    - text: – một toà nhà cao chót vót, đồ sộ và tráng lệ nằm ở giao điểm của đại lộ Vũ Lăng Sơn và đại lộ Kè Cát (Shadi). Với lối kiến trúc độc đáo và mang tính biểu tượng cao, tòa nhà không chỉ thu hút nhiều du khách trong và ngoài nước đến tham quan, khám phá.
+                  - listitem [ref=f20e436]:
+                    - text: Đoàn dùng cơm tối, nghỉ đêm tại
+                    - strong [ref=f20e437]: Vũ Lăng Nguyên, Trung Quốc.
+            - group [ref=f20e438]:
+              - 'generic "Ngày 4: TRƯƠNG GIA GIỚI - ÂN THI (Ăn 3 bữa)" [ref=f20e439] [cursor=pointer]'
+              - generic [ref=f20e445]:
+                - blockquote [ref=f20e446]: "ĐIỂM NỔI BẬT NGÀY 4: Cáp treo dài nhất thế giới lên Thiên Môn Sơn, đường thủy tinh ở độ cao 1.400m, thang cuốn xuyên lòng núi."
+                - list [ref=f20e447]:
+                  - listitem [ref=f20e448]:
+                    - text: Sau bữa sáng, Quý khách khởi hành
+                    - strong [ref=f20e449]: tham quan
+                    - strong [ref=f20e450]: "\"Thiên Môn Sơn\""
+                    - text: ngọn núi rất nổi tiếng của
+                    - strong [ref=f20e451]: Trung Quốc
+                    - text: với con đường trên trời và
+                    - strong [ref=f20e452]: hệ thống cáp treo tại Thiên Môn
+                    - text: được tuyên bố trong các ấn phẩm du lịch là
+                    - emphasis [ref=f20e453]: "\"cáp treo dài nhất tại một ngọn núi cao nhất trên thế giới\""
+                    - text: . Quý khách men theo
+                    - strong [ref=f20e454]: "\"Con Đường Vách Đá\""
+                    - text: – một con đường nhỏ cạnh vách đá cao ngất của đỉnh Thiên Môn dài khoảng 40m, dạo bước trên
+                    - strong [ref=f20e455]: "\"Con Đường Thủy Tinh\""
+                    - text: một đoạn được lát bằng kính. Tại đây, Quý khách có thể ngắm nhìn cảnh núi non trùng trùng điệp điệp ngay dưới chân ở độ cao 1,400m, cảm nhận cảm giác như đi trên mây. Đi thang cuốn xuyên lòng núi – một kiệt tác của nhân loại.
+                  - listitem [ref=f20e456]:
+                    - text: Sau khi ăn trưa đoàn tham quan mua sắm tại
+                    - strong [ref=f20e457]: "\"cơ sở sản xuất tơ lụa\""
+                    - text: và
+                    - strong [ref=f20e458]: "\"Trung Tâm Trang Sức Đá Quý\""
+                    - text: – nơi trưng bày các sản phẩm tơ lụa độc đáo cùng những viên ngọc quý tinh xảo, đặc trưng của vùng đất Trương Gia Giới,
+                    - strong [ref=f20e459]: Trung Quốc
+                    - text: .
+                  - listitem [ref=f20e460]:
+                    - text: Quý khách dùng cơm tối tại nhà hàng địa phương, di chuyển về thành phố
+                    - strong [ref=f20e461]: Ân Thi, Trung Quốc.
+                    - text: Tham quan
+                    - strong [ref=f20e462]: Nữ Nhi Thành
+                    - text: – một cổ trấn thứ 8 của
+                    - strong [ref=f20e463]: Trung Quốc
+                    - text: ", được dày công xây dựng theo phong cách kiến trúc đậm chất Thổ Gia với nhà sàn cổ xưa phản ánh hoàn hảo phong tục dân gian của dân tộc Thổ Gia."
+                  - listitem [ref=f20e464]:
+                    - text: Đoàn về khách sạn nhận phòng nghỉ ngơi. Nghỉ đêm tại
+                    - strong [ref=f20e465]: Ân Thi, Trung Quốc.
+            - group [ref=f20e466]:
+              - 'generic "Ngày 5: ÂN THI - TP.HỒ CHÍ MINH (Ăn 2 bữa)" [ref=f20e467] [cursor=pointer]'
+              - generic [ref=f20e473]:
+                - blockquote [ref=f20e474]: "ĐIỂM NỔI BẬT NGÀY 5: Vương cung Tusi – cung điện vua Thổ Gia, và Cung Vảy Rồng – kỳ quan địa chất thế giới tại Ân Thi Trung Quốc."
+                - list [ref=f20e475]:
+                  - listitem [ref=f20e476]:
+                    - text: Đoàn dùng bữa sáng tại khách sạn, trả phòng. Quý khách tham quan
+                    - strong [ref=f20e477]: "\"Vương cung Tusi\" – cung điện của vua người Thổ Gia tại Ân Thi, Trung Quốc."
+                  - listitem [ref=f20e478]:
+                    - text: Sau khi ăn trưa, đoàn đi tham quan
+                    - strong [ref=f20e479]: Cung Long Lin
+                    - text: hay còn có tên là
+                    - strong [ref=f20e480]: Cung Vảy Rồng
+                    - text: ", là một hệ thống hang động dày đặc hùng vĩ tại"
+                    - strong [ref=f20e481]: Trung Quốc
+                    - text: . Có thể nói
+                    - strong [ref=f20e482]: Cung Vảy Rồng
+                    - text: chính là biểu tượng của sự hùng vĩ, nguy hiểm, kỳ lạ, yên tĩnh núi, nước, hang động và rừng. Nó được mệnh danh là
+                    - strong [ref=f20e483]: "\"kỳ quan địa chất của thế giới\""
+                  - listitem [ref=f20e484]:
+                    - text: Đoàn dùng bữa tối tự túc. Sau đó xe đưa đoàn ra sân bay làm thủ tục xuất cảnh khỏi
+                    - strong [ref=f20e485]: Trung Quốc
+                    - text: đáp chuyến bay
+                    - strong [ref=f20e486]: VJ3675 ENH -- SGN 20:00 - 23:05
+                    - text: về
+                    - strong [ref=f20e487]: TP.HCM.
+                  - listitem [ref=f20e488]:
+                    - text: Đến sân bay
+                    - strong [ref=f20e489]: Tân Sơn Nhất,
+                    - text: đoàn làm thủ tục nhập cảnh lấy hành lý.
+                    - strong [ref=f20e490]: Trưởng đoàn tạm biệt quý khách – Kết thúc chuyến du lịch Trung Quốc vui vẻ cùng HAIDANGTRAVEL!
+                - blockquote [ref=f20e491]: "Chú ý: Thứ tự chương trình có thể thay đổi theo sự sắp xếp của Hướng Dẫn Viên để phù hợp với tình hình thực tế nhưng vẫn đảm bảo đầy đủ các điểm tham quan đã nêu trong chương trình."
+                - paragraph [ref=f20e492]:
+                  - strong [ref=f20e493]: LƯU Ý BẢN QUYỀN HÌNH ẢNH
+                - paragraph [ref=f20e494]: Haidangtravel luôn tôn trọng quyền sở hữu trí tuệ về tác phẩm nhiếp ảnh, ảnh chụp của các cá nhân và tổ chức. Chúng tôi luôn cố gắng nỗ lực liên hệ với tất cả các tác giả có ảnh được sử dụng để xin sự cho phép sử dụng ảnh. Nếu có sự sơ xuất hay thiếu sót nào, chúng tôi xin được gửi lời xin lỗi tới các tác giả, chủ sở hữu hình ảnh. Các anh/chị cũng vui lòng gửi phản hồi lại cho Haidangtravel.
+                - paragraph
+        - generic [ref=f20e496]:
+          - heading "TOUR BAO GỒM" [level=2] [ref=f20e498]
+          - list [ref=f20e499]:
+            - listitem [ref=f20e500]:
+              - generic [ref=f20e503]: Vé máy bay khứ hồi theo đoàn TPHCM – Ân Thi. (gồm 20kg hành lý kí gửi + 07kg hành lý xách tay)
+            - listitem [ref=f20e504]:
+              - generic [ref=f20e507]: Bảo hiểm du lịch Quốc tế suốt tuyến.
+            - listitem [ref=f20e508]:
+              - generic [ref=f20e511]: Phí an ninh sân bay, bảo hiểm hàng không thuế phi trường 2 nước (có thể thay đổi tại thời điểm xuất vé).
+            - listitem [ref=f20e512]:
+              - generic [ref=f20e515]: Khách sạn tiêu chuẩn 4 sao địa phương (2 người/phòng - phòng 3 người trường hợp đi lẻ nam hoặc nữ).
+            - listitem [ref=f20e516]:
+              - generic [ref=f20e519]: Visa đoàn nhập cảnh Trung Quốc cho khách hộ chiếu Việt Nam. (Scan Hộ chiếu + FILE hình thẻ 4x6 nền trắng)
+            - listitem [ref=f20e520]:
+              - generic [ref=f20e523]: "Ân Thi: Meihou Hotel (hoặc tương đương)"
+            - listitem [ref=f20e524]:
+              - generic [ref=f20e527]: "Phượng Hoàng: Phoenix Morning Dragon Golden Exhibition (hoặc tương đương)"
+            - listitem [ref=f20e528]:
+              - generic [ref=f20e531]: "Vũ Lăng Nguyên: Yunxi Meijing Hotel (hoặc tương đương)"
+            - listitem [ref=f20e532]:
+              - generic [ref=f20e535]: Phục vụ 1 chai nước suối/khách/ngày.
+            - listitem [ref=f20e536]:
+              - generic [ref=f20e539]: Các bữa ăn như chương trình (các bữa ăn có thể thay đổi phù hợp với tuyến điểm tuy nhiên vẫn đảm bảo đủ số lượng và chất lượng bữa ăn tương đương hoặc hơn).
+            - listitem [ref=f20e540]:
+              - generic [ref=f20e543]: Xe máy lạnh vận chuyển suốt tuyến.
+            - listitem [ref=f20e544]:
+              - generic [ref=f20e547]: Vé tham quan như chương trình.
+            - listitem [ref=f20e548]:
+              - generic [ref=f20e551]: Trưởng đoàn và HDV địa phương phục vụ suốt tuyến theo chương trình.
+        - generic [ref=f20e553]:
+          - heading "ĐIỀU KHOẢN TOUR" [level=2] [ref=f20e556]
+          - generic [ref=f20e557]:
+            - article [ref=f20e558]:
+              - heading [level=3] [ref=f20e559]:
+                - button "GIÁ TOUR KHÔNG BAO GỒM" [expanded] [ref=f20e560]
+              - region "GIÁ TOUR KHÔNG BAO GỒM" [ref=f20e564]:
+                - list [ref=f20e566]:
+                  - listitem [ref=f20e567]: Chi phí cá nhân, hành lý quá cước, điện thoại, giặt ủi, tham quan ngoài chương trình.
+                  - listitem [ref=f20e568]:
+                    - text: Phụ thu phòng đơn (nếu có)
+                    - strong [ref=f20e569]: (3.000.000 VND).
+                  - listitem [ref=f20e570]:
+                    - text: "Visa tái nhập Việt Nam cho khách quốc tịch nước ngoài (nếu có): (giá tham khảo"
+                    - strong [ref=f20e571]: 945.000 VND/khách
+                    - text: ).
+                  - listitem [ref=f20e572]:
+                    - text: Tips cho tài xế địa phương và hướng dẫn viên thanh toán tại nước ngoài sẽ tính theo tỷ giá tại thời điểm, mức đề nghị
+                    - strong [ref=f20e573]: 25 đô la Mỹ/khách/tour
+                    - text: tương đương
+                    - strong [ref=f20e574]: 700.000 VND/khách/tour
+            - article [ref=f20e575]:
+              - heading [level=3] [ref=f20e576]:
+                - button "GIÁ TOUR TRẺ EM" [ref=f20e577]
+            - article [ref=f20e581]:
+              - heading [level=3] [ref=f20e582]:
+                - button "ĐIỀU KIỆN HOÀN HỦY" [ref=f20e583]
+        - generic [ref=f20e587]:
+          - generic [ref=f20e588]:
+            - heading "Gửi đánh giá tour" [level=2] [ref=f20e589]
+            - paragraph [ref=f20e590]: Đánh giá mới sẽ được lưu ở trạng thái chờ duyệt trước khi hiển thị ngoài trang tour.
+          - generic [ref=f20e591]:
+            - generic [ref=f20e592]:
+              - generic [ref=f20e593]:
+                - text: Họ tên
+                - textbox "Họ tên" [ref=f20e594]
+              - generic [ref=f20e595]:
+                - text: Số điện thoại
+                - textbox "Số điện thoại" [ref=f20e596]
+              - generic [ref=f20e597]:
+                - text: Email
+                - textbox "Email" [ref=f20e598]
+              - generic [ref=f20e599]:
+                - text: Ngữ cảnh chuyến đi
+                - textbox "Ngữ cảnh chuyến đi" [ref=f20e600]:
+                  - /placeholder: Gia đình, đoàn công ty, nhóm bạn...
+            - generic [ref=f20e601]:
+              - text: Tiêu đề ngắn
+              - textbox "Tiêu đề ngắn" [ref=f20e602]:
+                - /placeholder: "Ví dụ: Lịch trình rõ ràng, tư vấn chu đáo"
+            - group "Điểm đánh giá" [ref=f20e603]:
+              - generic [ref=f20e605]:
+                - generic [ref=f20e606] [cursor=pointer]:
+                  - radio "1/5" [ref=f20e607]
+                  - generic [ref=f20e608]: 1/5
+                - generic [ref=f20e611] [cursor=pointer]:
+                  - radio "2/5" [ref=f20e612]
+                  - generic [ref=f20e613]: 2/5
+                - generic [ref=f20e616] [cursor=pointer]:
+                  - radio "3/5" [ref=f20e617]
+                  - generic [ref=f20e618]: 3/5
+                - generic [ref=f20e621] [cursor=pointer]:
+                  - radio "4/5" [ref=f20e622]
+                  - generic [ref=f20e623]: 4/5
+                - generic [ref=f20e626] [cursor=pointer]:
+                  - radio "5/5" [checked] [ref=f20e627]
+                  - generic [ref=f20e628]: 5/5
+            - generic [ref=f20e631]:
+              - text: Nội dung đánh giá
+              - textbox "Nội dung đánh giá" [ref=f20e632]
+            - button "Gửi đánh giá" [ref=f20e633]
+        - generic [ref=f20e636]:
+          - heading "CÂU HỎI THƯỜNG GẶP" [level=2] [ref=f20e639]
+          - generic [ref=f20e640]:
+            - article [ref=f20e641]:
+              - heading [level=3] [ref=f20e642]:
+                - button "Tour có đưa khách tham quan Thiên Môn Sơn và cáp treo không?" [expanded] [ref=f20e643]
+              - region "Tour có đưa khách tham quan Thiên Môn Sơn và cáp treo không?" [ref=f20e647]:
+                - paragraph [ref=f20e649]: Có. Theo chương trình Ngày 4, quý khách tham quan Thiên Môn Sơn với hệ thống cáp treo được tuyên bố là dài nhất tại một ngọn núi cao nhất trên thế giới, men theo Con Đường Vách Đá dài 40m và dạo bước trên Con Đường Thủy Tinh ở độ cao 1.400m.
+            - article [ref=f20e650]:
+              - heading [level=3] [ref=f20e651]:
+                - button "Chi phí tham quan cầu kính Đại Hiệp Cốc đã bao gồm trong giá tour chưa?" [ref=f20e652]
+            - article [ref=f20e656]:
+              - heading [level=3] [ref=f20e657]:
+                - button "Tour có hỗ trợ visa Trung Quốc không?" [ref=f20e658]
+        - generic [ref=f20e662]:
+          - generic [ref=f20e664]:
+            - heading "TOUR LIÊN QUAN" [level=2] [ref=f20e665]
+            - paragraph [ref=f20e666]: Tổng hợp các tour liên quan được nhiều khách yêu thích
+          - generic [ref=f20e667]:
+            - generic:
+              - button "Xem tour liên quan trước" [disabled] [ref=f20e668]
+              - button "Xem tour liên quan tiếp theo" [ref=f20e670]
+            - generic [ref=f20e672]:
+              - article [ref=f20e674]:
+                - link "tour da nang hoi an hue pha tam giang tron goi may bay haidangtravel Du lich máy bay" [ref=f20e675] [cursor=pointer]:
+                  - /url: http://127.0.0.1:8000/chuong-trinh/tour-da-nang-hoi-an-hue-tron-goi-may-bay
+                  - img "tour da nang hoi an hue pha tam giang tron goi may bay haidangtravel" [ref=f20e676]
+                  - generic [ref=f20e677]: Du lich máy bay
+                - generic [ref=f20e681]:
+                  - generic "Đánh giá 4,9 trên 5 từ 63 lượt đánh giá" [ref=f20e682]:
+                    - text: 4,9/5
+                    - generic [ref=f20e684]: • 63 đánh giá
+                  - generic [ref=f20e685]:
+                    - heading [level=3] [ref=f20e686]:
+                      - 'link "Tour Đà Nẵng - Hội An - Huế Trọn Gói 4N3Đ: Trải Nghiệm Hoàng Hôn Phá Tam Giang" [ref=f20e687] [cursor=pointer]':
+                        - /url: http://127.0.0.1:8000/chuong-trinh/tour-da-nang-hoi-an-hue-tron-goi-may-bay
+                    - img "Tiêu chuẩn 4 sao" [ref=f20e688]
+                    - generic [ref=f20e693]:
+                      - list "Thông tin nhanh của tour" [ref=f20e694]:
+                        - 'listitem "Điểm khởi hành: HCM" [ref=f20e695]':
+                          - generic [ref=f20e697]: HCM
+                        - 'listitem "Phương tiện: Máy bay" [ref=f20e698]':
+                          - generic [ref=f20e700]: Máy bay
+                        - 'listitem "Thời gian: 4N3Đ" [ref=f20e701]':
+                          - strong [ref=f20e703]: 4N3Đ
+                      - paragraph [ref=f20e704]: Tư vấn thêm
+                    - generic [ref=f20e706]:
+                      - generic [ref=f20e707]:
+                        - generic [ref=f20e708]:
+                          - paragraph [ref=f20e709]: Giá từ
+                          - paragraph [ref=f20e710]: 7.290.000 đ
+                        - paragraph [ref=f20e711]: 6.990.000 đ
+                      - link "Đặt ngay" [ref=f20e713] [cursor=pointer]:
+                        - /url: http://127.0.0.1:8000/chuong-trinh/tour-da-nang-hoi-an-hue-tron-goi-may-bay
+              - article [ref=f20e717]:
+                - link [ref=f20e718] [cursor=pointer]:
+                  - /url: http://127.0.0.1:8000/chuong-trinh/tour-du-lich-trung-quoc-thuong-hai
+                  - img "Tour du lich Trung Quoc 4 ngay 4 dem tham quan Bac Kinh HAIDANGTRAVEL" [ref=f20e719]
+                - generic [ref=f20e720]:
+                  - generic "Đánh giá 5,0 trên 5 từ 21 lượt đánh giá" [ref=f20e721]:
+                    - text: 5,0/5
+                    - generic [ref=f20e723]: • 21 đánh giá
+                  - generic [ref=f20e724]:
+                    - heading [level=3] [ref=f20e725]:
+                      - link "Tour Trung Quốc Bắc Kinh - Thượng Hải - Hàng Châu - Tô Châu 6 ngày 6 đêm" [ref=f20e726] [cursor=pointer]:
+                        - /url: http://127.0.0.1:8000/chuong-trinh/tour-du-lich-trung-quoc-thuong-hai
+                    - img "Tiêu chuẩn 4 sao" [ref=f20e727]
+                    - generic [ref=f20e732]:
+                      - list "Thông tin nhanh của tour" [ref=f20e733]:
+                        - 'listitem "Điểm khởi hành: HCM" [ref=f20e734]':
+                          - generic [ref=f20e736]: HCM
+                        - 'listitem "Phương tiện: Máy Bay" [ref=f20e737]':
+                          - generic [ref=f20e739]: Máy Bay
+                        - 'listitem "Thời gian: 6N6Đ" [ref=f20e740]':
+                          - strong [ref=f20e742]: 6N6Đ
+                      - generic "Các ngày khởi hành gần nhất" [ref=f20e743]:
+                        - button "Xem ngày khởi hành phía trước" [disabled] [ref=f20e744]
+                        - generic [ref=f20e747]:
+                          - generic [ref=f20e748]: 27/09
+                          - generic [ref=f20e749]: 04/10
+                          - generic [ref=f20e750]: 11/10
+                          - generic [ref=f20e751]: 18/10
+                        - button "Xem ngày khởi hành tiếp theo" [ref=f20e752]
+                      - paragraph [ref=f20e754]: Đang nhận khách
+                    - generic [ref=f20e756]:
+                      - generic [ref=f20e757]:
+                        - paragraph [ref=f20e759]: Giá từ
+                        - paragraph [ref=f20e760]: 20.990.000 đ
+                      - link "Đặt ngay" [ref=f20e762] [cursor=pointer]:
+                        - /url: http://127.0.0.1:8000/chuong-trinh/tour-du-lich-trung-quoc-thuong-hai
+              - article [ref=f20e766]:
+                - link [ref=f20e767] [cursor=pointer]:
+                  - /url: http://127.0.0.1:8000/chuong-trinh/tour-du-lich-hong-kong-tham-quyen-quang-chau
+                  - img "tour-du-lich-hong-kong-tham-quyen-quang-chau-haidangtravel" [ref=f20e768]
+                - generic [ref=f20e769]:
+                  - generic "Đánh giá 4,5 trên 5 từ 45 lượt đánh giá" [ref=f20e770]:
+                    - text: 4,5/5
+                    - generic [ref=f20e772]: • 45 đánh giá
+                  - generic [ref=f20e773]:
+                    - heading [level=3] [ref=f20e774]:
+                      - link "Tour Hồng Kông - Thẩm Quyến - Quảng Châu Trọn Gói 5 ngày 4 đêm" [ref=f20e775] [cursor=pointer]:
+                        - /url: http://127.0.0.1:8000/chuong-trinh/tour-du-lich-hong-kong-tham-quyen-quang-chau
+                    - img "Tiêu chuẩn 4 sao" [ref=f20e776]
+                    - generic [ref=f20e781]:
+                      - list "Thông tin nhanh của tour" [ref=f20e782]:
+                        - 'listitem "Điểm khởi hành: HCM" [ref=f20e783]':
+                          - generic [ref=f20e785]: HCM
+                        - 'listitem "Phương tiện: Máy Bay" [ref=f20e786]':
+                          - generic [ref=f20e788]: Máy Bay
+                        - 'listitem "Thời gian: 5N4Đ" [ref=f20e789]':
+                          - strong [ref=f20e791]: 5N4Đ
+                      - generic "Các ngày khởi hành gần nhất" [ref=f20e792]:
+                        - button "Xem ngày khởi hành phía trước" [disabled] [ref=f20e793]
+                        - generic [ref=f20e796]:
+                          - generic [ref=f20e797]: 30/09
+                          - generic [ref=f20e798]: 08/10
+                          - generic [ref=f20e799]: 15/10
+                          - generic [ref=f20e800]: 21/10
+                          - generic [ref=f20e801]: 28/10
+                        - button "Xem ngày khởi hành tiếp theo" [ref=f20e802]
+                      - paragraph [ref=f20e804]: Đang nhận khách
+                    - generic [ref=f20e806]:
+                      - generic [ref=f20e807]:
+                        - paragraph [ref=f20e809]: Giá từ
+                        - paragraph [ref=f20e810]: 18.990.000 đ
+                      - link "Đặt ngay" [ref=f20e812] [cursor=pointer]:
+                        - /url: http://127.0.0.1:8000/chuong-trinh/tour-du-lich-hong-kong-tham-quyen-quang-chau
+              - article [ref=f20e816]:
+                - link [ref=f20e817] [cursor=pointer]:
+                  - /url: http://127.0.0.1:8000/chuong-trinh/tour-du-lich-trung-quoc-tham-quyen-chu-hai-quang-chau
+                  - img "tour-du-lich-trung-quoc-tham-quyen-chu-hai-haidangtravel" [ref=f20e818]
+                - generic [ref=f20e819]:
+                  - generic "Đánh giá 5,0 trên 5 từ 31 lượt đánh giá" [ref=f20e820]:
+                    - text: 5,0/5
+                    - generic [ref=f20e822]: • 31 đánh giá
+                  - generic [ref=f20e823]:
+                    - heading [level=3] [ref=f20e824]:
+                      - 'link "Tour Trung Quốc: Khám phá Thẩm Quyến - Quảng Châu - Chu Hải - Trung Sơn 4 ngày 4 đêm" [ref=f20e825] [cursor=pointer]':
+                        - /url: http://127.0.0.1:8000/chuong-trinh/tour-du-lich-trung-quoc-tham-quyen-chu-hai-quang-chau
+                    - generic [ref=f20e826]:
+                      - list "Thông tin nhanh của tour" [ref=f20e827]:
+                        - 'listitem "Điểm khởi hành: HCM" [ref=f20e828]':
+                          - generic [ref=f20e830]: HCM
+                        - 'listitem "Phương tiện: Máy Bay" [ref=f20e831]':
+                          - generic [ref=f20e833]: Máy Bay
+                        - 'listitem "Thời gian: 4N4Đ" [ref=f20e834]':
+                          - strong [ref=f20e836]: 4N4Đ
+                      - generic "Các ngày khởi hành gần nhất" [ref=f20e837]:
+                        - button "Xem ngày khởi hành phía trước" [disabled] [ref=f20e838]
+                        - generic [ref=f20e841]:
+                          - generic [ref=f20e842]: 24/09
+                          - generic [ref=f20e843]: 25/09
+                          - generic [ref=f20e844]: 09/10
+                          - generic [ref=f20e845]: 15/10
+                          - generic [ref=f20e846]: 16/10
+                        - button "Xem ngày khởi hành tiếp theo" [ref=f20e847]
+                      - paragraph [ref=f20e849]: Đang nhận khách
+                    - generic [ref=f20e851]:
+                      - generic [ref=f20e852]:
+                        - paragraph [ref=f20e854]: Giá từ
+                        - paragraph [ref=f20e855]: 11.990.000 đ
+                      - link "Đặt ngay" [ref=f20e857] [cursor=pointer]:
+                        - /url: http://127.0.0.1:8000/chuong-trinh/tour-du-lich-trung-quoc-tham-quyen-chu-hai-quang-chau
+      - complementary [ref=f20e860]:
+        - generic [ref=f20e862]:
+          - generic [ref=f20e863]:
+            - paragraph [ref=f20e865]: "Giá:"
+            - generic [ref=f20e868]:
+              - paragraph [ref=f20e869]: 15.990.000 đ
+              - paragraph [ref=f20e870]: / Khách
+          - list "Thông tin tour" [ref=f20e871]:
+            - 'listitem "Khởi hành: HCM" [ref=f20e872]':
+              - paragraph [ref=f20e875]:
+                - generic [ref=f20e876]: "Khởi hành:"
+                - text: HCM
+            - 'listitem "Ngày khởi hành: 23-09-2026" [ref=f20e877]':
+              - paragraph [ref=f20e880]:
+                - generic [ref=f20e881]: "Ngày khởi hành:"
+                - text: 23-09-2026
+            - 'listitem "Thời gian: 5N4Đ" [ref=f20e882]':
+              - paragraph [ref=f20e885]:
+                - generic [ref=f20e886]: "Thời gian:"
+                - text: 5N4Đ
+            - 'listitem "Di chuyển: Máy Bay" [ref=f20e887]':
+              - paragraph [ref=f20e890]:
+                - generic [ref=f20e891]: "Di chuyển:"
+                - text: Máy Bay
+            - 'listitem "Tiêu chuẩn: 4 sao" [ref=f20e892]':
+              - paragraph [ref=f20e895]:
+                - generic [ref=f20e896]: "Tiêu chuẩn:"
+                - text: 4 sao
+          - generic [ref=f20e897]:
+            - link "Zalo" [ref=f20e898] [cursor=pointer]:
+              - /url: https://zalo.me/0911222288
+            - link "Gọi" [ref=f20e900] [cursor=pointer]:
+              - /url: tel:0911222288
+            - button "Đặt tour" [ref=f20e903]
+          - link "Xem toàn bộ lịch khởi hành" [ref=f20e906] [cursor=pointer]:
+            - /url: "#tour-departures"
+          - generic [ref=f20e908]:
+            - generic "Chia sẻ tour này" [ref=f20e910]:
+              - button "Chia sẻ" [ref=f20e911]
+              - link "Chia sẻ qua Zalo" [ref=f20e913] [cursor=pointer]:
+                - /url: https://zalo.me/share?u=http%3A%2F%2F127.0.0.1%3A8000%2Fchuong-trinh%2Ftour-trung-quoc-an-thi-truong-gia-gioi-phuong-hoang-co-tran-5-ngay-4-dem
+              - link "Chia sẻ lên Facebook" [ref=f20e915] [cursor=pointer]:
+                - /url: https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2Fchuong-trinh%2Ftour-trung-quoc-an-thi-truong-gia-gioi-phuong-hoang-co-tran-5-ngay-4-dem
+              - button "Chia sẻ qua Instagram" [ref=f20e917]
+              - link "Chia sẻ qua Telegram" [ref=f20e919] [cursor=pointer]:
+                - /url: https://t.me/share/url?url=http%3A%2F%2F127.0.0.1%3A8000%2Fchuong-trinh%2Ftour-trung-quoc-an-thi-truong-gia-gioi-phuong-hoang-co-tran-5-ngay-4-dem&text=Tour+Trung+Qu%E1%BB%91c+%C3%82n+Thi+Tr%C6%B0%C6%A1ng+Gia+Gi%E1%BB%9Bi+Ph%C6%B0%E1%BB%A3ng+Ho%C3%A0ng+C%E1%BB%95+Tr%E1%BA%A5n+5+Ng%C3%A0y+4+%C4%90%C3%AAm
+              - button "Sao chép link" [ref=f20e921]
+            - paragraph [ref=f20e923]
+    - generic [ref=f20e927]:
+      - generic [ref=f20e928]:
+        - heading "Gửi yêu cầu tư vấn tour" [level=2] [ref=f20e929]
+        - paragraph [ref=f20e930]: Nếu bạn chưa chốt được ngày đi, chỉ cần để lại số điện thoại và nhu cầu, Hải Đăng Travel sẽ gọi lại để kiểm tra chỗ và tư vấn đúng lịch phù hợp.
+      - generic [ref=f20e931]:
+        - generic [ref=f20e932]:
+          - heading "Hotline" [level=3] [ref=f20e933]
+          - link "0911222288" [ref=f20e934] [cursor=pointer]:
+            - /url: tel:0911222288
+          - paragraph [ref=f20e935]: Hỗ trợ tư vấn nhanh theo ngày đi, số lượng khách và nhu cầu hành trình.
+        - generic [ref=f20e936]:
+          - heading "Email" [level=3] [ref=f20e937]
+          - link "info@haidangtravel.com" [ref=f20e938] [cursor=pointer]:
+            - /url: mailto:info@haidangtravel.com
+          - paragraph [ref=f20e939]: Phù hợp khi bạn cần gửi yêu cầu chi tiết hoặc để lại thêm thông tin cho đội ngũ xử lý.
+      - generic [ref=f20e940]:
+        - generic [ref=f20e941]:
+          - generic [ref=f20e942]:
+            - text: Họ tên
+            - textbox "Họ tên" [ref=f20e943]:
+              - /placeholder: Nhập họ tên
+          - generic [ref=f20e944]:
+            - text: Số điện thoại
+            - textbox "Số điện thoại" [ref=f20e945]:
+              - /placeholder: Nhập số điện thoại
+        - generic [ref=f20e946]:
+          - text: Nội dung
+          - textbox "Nội dung" [ref=f20e947]:
+            - /placeholder: Mô tả ngắn nhu cầu tour, ngày đi hoặc số lượng khách
+        - generic [ref=f20e948]:
+          - button "Gửi yêu cầu" [ref=f20e949]
+          - link "Xem thêm tour" [ref=f20e951] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/tour-nuoc-ngoai
+  - contentinfo [ref=f20e952]:
+    - generic [ref=f20e953]:
+      - generic [ref=f20e954]:
+        - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=f20e955] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000
+          - img "Du Lịch Hải Đăng Travel" [ref=f20e957]
+        - paragraph [ref=f20e958]: Haidang Travel chuyên tổ chức du lịch, teambuilding, event trong và ngoài nước.
+        - generic [ref=f20e959]:
+          - paragraph [ref=f20e960]:
+            - generic [ref=f20e963]: Tòa nhà Building Haidang 367 Tân Sơn, Phường Tân Sơn, thành phố Hồ Chí Minh
+          - paragraph [ref=f20e964]:
+            - generic [ref=f20e967]: 19002011 · 0911222288
+          - paragraph [ref=f20e968]:
+            - generic [ref=f20e971]: info@haidangtravel.com
+          - paragraph [ref=f20e972]:
+            - generic [ref=f20e975]: "Giấy phép lữ hành: 79-723/2017/TCDL-GP LHQT"
+      - generic [ref=f20e976]:
+        - generic [ref=f20e977]:
+          - heading "Đi nhanh" [level=2] [ref=f20e978]
+          - list [ref=f20e979]:
+            - listitem [ref=f20e980]:
+              - link "Tour trong nước" [ref=f20e981] [cursor=pointer]:
+                - /url: /tour-trong-nuoc
+            - listitem [ref=f20e982]:
+              - link "Tour nước ngoài" [ref=f20e983] [cursor=pointer]:
+                - /url: /tour-nuoc-ngoai
+            - listitem [ref=f20e984]:
+              - link "Tour đoàn" [ref=f20e985] [cursor=pointer]:
+                - /url: /tour-doan
+            - listitem [ref=f20e986]:
+              - link "Dịch vụ" [ref=f20e987] [cursor=pointer]:
+                - /url: /dich-vu
+            - listitem [ref=f20e988]:
+              - link "Tin Tức & Cẩm Nang" [ref=f20e989] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=f20e990]:
+              - link "Liên hệ" [ref=f20e991] [cursor=pointer]:
+                - /url: /lien-he
+        - generic [ref=f20e992]:
+          - heading "Thông tin" [level=2] [ref=f20e993]
+          - list [ref=f20e994]:
+            - listitem [ref=f20e995]:
+              - link "Login CMS" [ref=f20e996] [cursor=pointer]:
+                - /url: /login
+            - listitem [ref=f20e997]:
+              - link "Login agency" [ref=f20e998] [cursor=pointer]:
+                - /url: https://agency.haidangtravel.com
+            - listitem [ref=f20e999]:
+              - link "Chính Sách Mua Đổi Trả" [ref=f20e1000] [cursor=pointer]:
+                - /url: /chinh-sach-dat-tour-huy-doi-hoan-tien
+      - generic [ref=f20e1001]:
+        - heading "Kênh hỗ trợ" [level=2] [ref=f20e1002]
+        - generic [ref=f20e1003]:
+          - link "Zalo hỗ trợ" [ref=f20e1004] [cursor=pointer]:
+            - /url: https://zalo.me/0911222288
+          - link "Fanpage chính thức" [ref=f20e1009] [cursor=pointer]:
+            - /url: https://www.facebook.com/haidangtraveltanson
+          - link "YouTube Channel" [ref=f20e1014] [cursor=pointer]:
+            - /url: https://www.youtube.com/@haidangtraveltanson
+          - link "TikTok Channel" [ref=f20e1019] [cursor=pointer]:
+            - /url: https://www.tiktok.com/@hddiscovery
+        - generic [ref=f20e1024]:
+          - link "Đã thông báo Bộ Công Thương":
+            - /url: http://online.gov.vn/Home/WebDetails/15656
+            - img "Đã thông báo Bộ Công Thương"
+          - link "DMCA.com Protection Status" [ref=f20e1025] [cursor=pointer]:
+            - /url: https://www.dmca.com/Protection/Status.aspx?ID=0b22a7b7-ed93-4820-acbf-7bd6d1caaf34
+            - img "DMCA.com Protection Status" [ref=f20e1026]
+    - generic [ref=f20e1027]: © Công ty CPXD Du Lịch Hải Đăng

@@ -1,0 +1,4 @@
+[    1361ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://localhost:8001/_boost/browser-logs @ http://localhost:8001/teambuilding:69
+[    2604ms] [WARNING] The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127 @ :0
+[    5010ms] [LOG] Zalo Social Plugin is loaded successfully @ http://localhost:8001/teambuilding:128
+[    5011ms] [LOG] socialPluginsShare:  [] @ http://localhost:8001/teambuilding:128

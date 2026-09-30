@@ -14,8 +14,8 @@
             || filled($slide['thumbnail_url'] ?? null)
             || filled($slide['embed_url'] ?? null)
             || filled($slide['video_url'] ?? null)
-            || (filled($slide['primary_label'] ?? null) && filled($slide['primary_url'] ?? null))
-            || (filled($slide['secondary_label'] ?? null) && filled($slide['secondary_url'] ?? null)))
+            || (filled($slide['primary_label'] ?? null) && filled($slide['primary_url'] ?? null) && mb_strtolower(trim((string) $slide['primary_label'])) !== 'xem thêm')
+            || (filled($slide['secondary_label'] ?? null) && filled($slide['secondary_url'] ?? null) && mb_strtolower(trim((string) $slide['secondary_label'])) !== 'xem thêm'))
         ->values();
     $popupVersion = trim((string) data_get($popup, 'version', 'home-popup'));
     $popupInterval = (int) data_get($popup, 'autoplay_delay', 0);
@@ -41,7 +41,7 @@
             aria-modal="true"
             aria-labelledby="{{ $popupHeadingId }}"
             tabindex="-1"
-            class="relative z-10 flex w-[80vw] max-w-5xl flex-col overflow-hidden rounded-[1.35rem] bg-white shadow-[0_42px_120px_-42px_rgba(15,23,42,0.82)] outline-none ring-1 ring-white/20"
+            class="relative z-10 flex w-[min(80vw,45vh)] flex-col overflow-hidden rounded-[1.35rem] bg-white shadow-[0_42px_120px_-42px_rgba(15,23,42,0.82)] outline-none ring-1 ring-white/20 md:w-[min(80vw,142vh,64rem)]"
         >
             <button
                 type="button"
@@ -52,7 +52,7 @@
                 <i class="fa-solid fa-xmark" aria-hidden="true"></i>
             </button>
 
-            <div class="relative bg-slate-950" style="height: min(80vh, 44rem);">
+            <div class="relative aspect-[9/16] bg-slate-950 md:aspect-video">
                 @foreach ($popupSlides as $slide)
                     @php
                         $slideTitle = trim((string) ($slide['title'] ?? ''));
@@ -62,6 +62,8 @@
                         $slidePrimaryUrl = trim((string) ($slide['primary_url'] ?? ''));
                         $slideSecondaryLabel = trim((string) ($slide['secondary_label'] ?? ''));
                         $slideSecondaryUrl = trim((string) ($slide['secondary_url'] ?? ''));
+                        $showPrimaryCta = $slidePrimaryLabel !== '' && $slidePrimaryUrl !== '' && mb_strtolower($slidePrimaryLabel) !== 'xem thêm';
+                        $showSecondaryCta = $slideSecondaryLabel !== '' && $slideSecondaryUrl !== '' && mb_strtolower($slideSecondaryLabel) !== 'xem thêm';
                         $slideDesktopImage = trim((string) ($slide['full_image_url'] ?? $slide['image_url'] ?? $slide['thumbnail_url'] ?? ''));
                         $slideMobileImage = trim((string) ($slide['full_mobile_image_url'] ?? $slide['mobile_image_url'] ?? $slideDesktopImage));
                         $slideImageAlt = trim((string) ($slide['image_alt'] ?? $slideTitle ?: $firstPopupTitle ?: 'Popup Hải Đăng Travel'));
@@ -71,8 +73,8 @@
                         $slideHasText = $slideTitle !== ''
                             || $slideSubtitle !== ''
                             || $slideDescription !== ''
-                            || ($slidePrimaryLabel !== '' && $slidePrimaryUrl !== '')
-                            || ($slideSecondaryLabel !== '' && $slideSecondaryUrl !== '');
+                            || $showPrimaryCta
+                            || $showSecondaryCta;
                         $slideHasMedia = $slideDesktopImage !== '' || $slideMobileImage !== '' || $slideEmbedUrl !== '' || $slideVideoUrl !== '';
                     @endphp
 
@@ -101,7 +103,7 @@
                                 <img
                                     src="{{ $slideDesktopImage ?: $slideMobileImage }}"
                                     alt="{{ $slideImageAlt }}"
-                                    class="h-full w-full object-contain"
+                                    class="h-full w-full object-cover"
                                     width="1280"
                                     height="720"
                                     loading="lazy"
@@ -133,16 +135,16 @@
                                         </p>
                                     @endif
 
-                                    @if (($slidePrimaryLabel !== '' && $slidePrimaryUrl !== '') || ($slideSecondaryLabel !== '' && $slideSecondaryUrl !== ''))
+                                    @if ($showPrimaryCta || $showSecondaryCta)
                                         <div class="flex flex-wrap gap-2.5 pt-1">
-                                            @if ($slidePrimaryLabel !== '' && $slidePrimaryUrl !== '')
+                                            @if ($showPrimaryCta)
                                                 <a href="{{ $slidePrimaryUrl }}" class="inline-flex min-h-10 items-center gap-2 rounded-sm bg-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-hover">
                                                     {{ $slidePrimaryLabel }}
                                                     <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                                                 </a>
                                             @endif
 
-                                            @if ($slideSecondaryLabel !== '' && $slideSecondaryUrl !== '')
+                                            @if ($showSecondaryCta)
                                                 <a href="{{ $slideSecondaryUrl }}" class="inline-flex min-h-10 items-center rounded-sm border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/16">
                                                     {{ $slideSecondaryLabel }}
                                                 </a>
@@ -158,15 +160,15 @@
                 @endforeach
 
                 @if ($popupSlides->count() > 1)
-                    <div class="absolute bottom-3 right-3 z-20 flex items-center gap-2 rounded-full border border-white/15 bg-slate-950/46 px-2.5 py-2 text-white backdrop-blur">
-                        <button type="button" data-home-popup-prev class="inline-flex h-8 w-8 items-center justify-center rounded-full transition hover:bg-white/12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80" aria-label="Xem popup trước">
+                    <div class="frontsite-slider-nav">
+                        <button type="button" data-home-popup-prev class="inline-flex size-11 items-center justify-center rounded-full border border-white/20 bg-slate-950/50 text-white backdrop-blur-sm transition hover:bg-slate-950/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80" aria-label="Xem popup trước">
                             <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
                         </button>
-                        <span class="min-w-12 text-center text-xs font-semibold" data-home-popup-counter>1 / {{ $popupSlides->count() }}</span>
-                        <button type="button" data-home-popup-next class="inline-flex h-8 w-8 items-center justify-center rounded-full transition hover:bg-white/12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80" aria-label="Xem popup tiếp theo">
+                        <button type="button" data-home-popup-next class="inline-flex size-11 items-center justify-center rounded-full border border-white/20 bg-slate-950/50 text-white backdrop-blur-sm transition hover:bg-slate-950/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80" aria-label="Xem popup tiếp theo">
                             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                         </button>
                     </div>
+                    <span class="pointer-events-none absolute bottom-3 left-1/2 z-20 inline-flex min-w-14 -translate-x-1/2 items-center justify-center rounded-full border border-white/15 bg-slate-950/46 px-3 py-2 text-xs font-semibold text-white backdrop-blur" data-home-popup-counter>1 / {{ $popupSlides->count() }}</span>
                 @endif
             </div>
         </section>

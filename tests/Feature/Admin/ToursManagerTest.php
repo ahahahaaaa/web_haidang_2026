@@ -6,14 +6,17 @@ use App\Livewire\Admin\Cms\ToursManager;
 use App\Jobs\Travel\PushTourToAgencyJob;
 use App\Models\User;
 use App\Services\Cms\SiteSettingsManager;
+use App\Support\ContentGallery;
 use Database\Seeders\CmsBootstrapSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Livewire;
 use Src\Domains\Cms\Enums\TourScope;
 use Src\Domains\Cms\Models\Destination;
@@ -189,7 +192,11 @@ class ToursManagerTest extends TestCase
             ->set('form.rating_count', 214)
             ->set('form.itinerary_items', [
                 [
+                    'uuid' => 'ha-noi-ngay-1',
                     'title' => 'Ngày 1 - Phố cổ',
+                    'meals' => 'Sáng, trưa',
+                    'image_alt' => 'Phố cổ Hà Nội trong lịch trình ngày 1',
+                    'image_url' => 'https://example.com/pho-co-ngay-1.jpg',
                     'content' => '<p>Tham quan <a href="https://example.com/pho-co">phố cổ</a> và khu trung tâm.</p>',
                 ],
             ])
@@ -212,12 +219,64 @@ class ToursManagerTest extends TestCase
 
         $this->assertSame('4.9', (string) $tour->rating_average);
         $this->assertSame(214, $tour->rating_count);
+        $this->assertSame('ha-noi-ngay-1', data_get($tour->itinerary, '0.uuid'));
         $this->assertSame('Ngày 1 - Phố cổ', data_get($tour->itinerary, '0.title'));
+        $this->assertSame('Sáng, trưa', data_get($tour->itinerary, '0.meals'));
+        $this->assertSame('Phố cổ Hà Nội trong lịch trình ngày 1', data_get($tour->itinerary, '0.image_alt'));
+        $this->assertSame('https://example.com/pho-co-ngay-1.jpg', data_get($tour->itinerary, '0.image_url'));
         $this->assertStringContainsString('href="https://example.com/pho-co"', (string) data_get($tour->itinerary, '0.content'));
         $this->assertSame('Giá từ', data_get($tour->pricing_table, '0.label'));
         $this->assertSame('5.990.000 đ', data_get($tour->pricing_table, '0.price'));
         $this->assertSame('Điều khoản riêng cho tour test', data_get($tour->tour_terms_items, '0.question'));
         $this->assertStringContainsString('href="https://example.com/dieu-khoan-rieng"', (string) data_get($tour->tour_terms_items, '0.answer'));
+    }
+
+    public function test_tour_itinerary_day_can_use_image_selected_from_media_library(): void
+    {
+        Storage::fake('public');
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $this->actingAs($user);
+
+        $libraryMedia = SiteSetting::query()
+            ->findOrFail(1)
+            ->addMedia(UploadedFile::fake()->image('itinerary-day.jpg', 1200, 800))
+            ->usingName('Ảnh lịch trình ngày 1')
+            ->usingFileName('itinerary-day.jpg')
+            ->withCustomProperties(['alt' => 'Ảnh ngày 1 từ thư viện'])
+            ->toMediaCollection('library', 'public');
+        $uuid = 'tour-itinerary-day-1';
+
+        Livewire::test(ToursManager::class)
+            ->set('form.title', 'Tour có ảnh từng ngày')
+            ->set('form.status', 'draft')
+            ->set('form.itinerary_items', [[
+                'uuid' => $uuid,
+                'title' => 'Ngày 1 - Khởi hành',
+                'meals' => 'Sáng, trưa, chiều',
+                'image_alt' => '',
+                'image_url' => '',
+                'content' => '<p>Khởi hành và tham quan.</p>',
+            ]])
+            ->call(
+                'selectLibraryMediaForUpload',
+                'itineraryImageUploads.'.$uuid,
+                $libraryMedia->id,
+                'Ảnh hành trình ngày đầu',
+                'form.itinerary_items.0.image_alt',
+            )
+            ->call('saveTour')
+            ->assertHasNoErrors();
+
+        $tour = Tour::query()->where('slug', 'tour-co-anh-tung-ngay')->firstOrFail();
+        $storedMedia = $tour->getFirstMedia(ContentGallery::tourItineraryCollection($uuid));
+
+        $this->assertSame('Sáng, trưa, chiều', data_get($tour->itinerary, '0.meals'));
+        $this->assertSame('Ảnh hành trình ngày đầu', data_get($tour->itinerary, '0.image_alt'));
+        $this->assertNotNull($storedMedia);
+        $this->assertSame($libraryMedia->id, (int) data_get($storedMedia?->custom_properties, 'source_library_media_id'));
+        $this->assertSame('Ảnh hành trình ngày đầu', (string) data_get($storedMedia?->custom_properties, 'alt'));
     }
 
     public function test_tour_can_auto_generate_slug_from_title_when_left_blank(): void

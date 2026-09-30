@@ -174,6 +174,11 @@ class ContentGallery
         return 'tour-gallery-'.$uuid;
     }
 
+    public static function tourItineraryCollection(string $uuid): string
+    {
+        return 'tour-itinerary-'.$uuid;
+    }
+
     public static function youtubeId(?string $url): ?string
     {
         $url = trim((string) $url);

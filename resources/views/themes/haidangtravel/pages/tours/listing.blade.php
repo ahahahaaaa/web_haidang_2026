@@ -78,6 +78,8 @@
         };
         $landingContentBlocks = collect($landingContentBlocks ?? [])->values();
         $landingTourListBlockIndex = $landingContentBlocks->search(fn (array $block): bool => ($block['type'] ?? null) === \App\Support\LandingPageBlocks::TYPE_TOUR_LIST);
+        $landingTourListBlock = $landingTourListBlockIndex !== false ? $landingContentBlocks->get((int) $landingTourListBlockIndex) : null;
+        $tourCardCtaVariant = \App\Support\TourCardStyle::normalizeCtaVariant(data_get($landingTourListBlock, 'card_cta_variant'));
         $landingCtaBlockIndex = $landingContentBlocks->search(fn (array $block): bool => ($block['type'] ?? null) === \App\Support\LandingPageBlocks::TYPE_CTA);
         $landingCtaBlock = $landingCtaBlockIndex !== false ? $landingContentBlocks->get((int) $landingCtaBlockIndex) : null;
         $landingHasConfiguredCtaBlock = collect($landingConfiguredBlockTypes ?? [])->contains(\App\Support\LandingPageBlocks::TYPE_CTA);
@@ -111,7 +113,7 @@
         'fallbackPrimaryUrl' => route('contact'),
         'fallbackSecondaryLabel' => 'Xem dịch vụ',
         'fallbackSecondaryUrl' => route('services.index'),
-        'fallbackTitle' => $pageTitle,
+        'fallbackTitle' => $pageH1 ?? $pageTitle,
         'hero' => $landingHero ?? [],
         'landing' => null,
         'metaItems' => $listingHeroMetaItems->all(),
@@ -172,14 +174,16 @@
         <div class="mx-auto max-w-7xl space-y-6">
             <div id="tour-list"  class="space-y-6">
                 @if ($showToursOnPage)
-                    @include('themes.haidangtravel.partials.shared-search-bar', [
-                        'action' => $currentUrl,
-                        'containerClasses' => 'max-w-none',
-                        'inputValue' => $filters['q'] ?? '',
-                        'placeholder' => $searchPlaceholder,
-                        'selectFields' => $searchSelectFields ?? [],
-                        'sectionClasses' => 'px-0 py-0',
-                    ])
+                    @unless ($useAdvancedTourSearch ?? false)
+                        @include('themes.haidangtravel.partials.shared-search-bar', [
+                            'action' => $currentUrl,
+                            'containerClasses' => 'max-w-none',
+                            'inputValue' => $filters['q'] ?? '',
+                            'placeholder' => $searchPlaceholder,
+                            'selectFields' => $searchSelectFields ?? [],
+                            'sectionClasses' => 'px-0 py-0',
+                        ])
+                    @endunless
 
                     <div class="frontsite-text-reveal flex items-center justify-between gap-3" data-reveal="meta">
                         <h2 class="text-sm font-medium text-slate-500">Có <span class="text-orange-500">{{ $tours->total() }}</span> tour <span class="font-bold text-orange-500">{{ $pageTitle }}</span> đang bán chạy</h2>
@@ -200,6 +204,7 @@
                             @include('themes.haidangtravel.partials.tour-card', [
                                 'tour' => $tour,
                                 'variant' => $tourCardVariant,
+                                'ctaVariant' => $tourCardCtaVariant,
                                 'revealDelay' => number_format(($loop->index % 4) * 0.08, 2, '.', ''),
                                 'showRating' => true,
                             ])

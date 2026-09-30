@@ -75,24 +75,39 @@
         $searchConfig = data_get($homeConfig, 'search', []);
         $topicRailConfig = data_get($homeConfig, 'topic_rail', []);
         $featuredToursConfig = data_get($homeConfig, 'featured_tours', []);
-        $featuredTourTabsConfig = data_get($featuredToursConfig, 'tabs', []);
-        $featuredTourCtaLabel = trim((string) data_get($featuredToursConfig, 'cta_label', '')) ?: 'Xem danh sách tour';
+        $featuredTourCtaLabel = trim((string) data_get($featuredToursConfig, 'cta_label', '')) ?: 'Xem thêm';
         $destinationSliderConfig = data_get($homeConfig, 'destination_slider', []);
         $servicesConfig = data_get($homeConfig, 'services', []);
         $processConfig = data_get($homeConfig, 'process', []);
         $blogPreviewConfig = data_get($homeConfig, 'blog_preview', []);
         $trustConfig = data_get($homeConfig, 'trust', []);
-        $homeTrustTitle = trim((string) data_get($trustConfig, 'title', '')) ?: 'Hải Đăng Travel phù hợp khi bạn cần chốt rõ và nhanh';
+        $homeTrustLogoMedia = \App\Support\FrontsiteMedia::responsiveUrls($siteSettings, 'logo', 'logo_url');
+        $homeTrustLogoUrl = $homeTrustLogoMedia[\App\Support\FrontsiteMedia::SIZE_MEDIUM] ?? null;
+        $homeTrustLogoSmallUrl = $homeTrustLogoMedia[\App\Support\FrontsiteMedia::SIZE_SMALL] ?? $homeTrustLogoUrl;
+        $homeTrustTitle = trim((string) data_get($trustConfig, 'title', '')) ?: 'HAIDANGTRAVEL – HỆ SINH THÁI LỮ HÀNH TOÀN CẦU';
+        $homeTrustSubtitle = trim((string) data_get($trustConfig, 'subtitle', ''));
         $homeTrustDescription = trim((string) data_get($trustConfig, 'description', ''));
-        $homeTrustCards = collect(data_get($trustConfig, 'cards', []))
-            ->filter(fn ($card) => is_array($card))
-            ->map(fn (array $card) => [
-                'icon' => trim((string) ($card['icon'] ?? '')),
-                'highlight' => trim((string) ($card['highlight'] ?? '')),
-                'title' => trim((string) ($card['title'] ?? '')),
-                'text' => trim((string) ($card['text'] ?? '')),
+        $homeTrustStats = collect(data_get($trustConfig, 'stats', []))
+            ->filter(fn ($stat) => is_array($stat))
+            ->map(fn (array $stat) => [
+                'value' => trim((string) ($stat['value'] ?? '')),
+                'label' => trim((string) ($stat['label'] ?? '')),
             ])
-            ->filter(fn (array $card) => $card['title'] !== '' && $card['text'] !== '')
+            ->filter(fn (array $stat) => $stat['value'] !== '' && $stat['label'] !== '')
+            ->take(3)
+            ->values();
+        $homeTrustStats = $homeTrustStats->isNotEmpty()
+            ? $homeTrustStats
+            : collect($stats)->take(3)->values();
+        $homeTrustAwards = collect(data_get($trustConfig, 'awards', []))
+            ->filter(fn ($award) => is_array($award))
+            ->map(fn (array $award) => [
+                'title' => trim((string) ($award['title'] ?? '')),
+                'description' => trim((string) ($award['description'] ?? '')),
+                'image_url' => trim((string) ($award['image_url'] ?? '')),
+                'image_alt' => trim((string) ($award['image_alt'] ?? '')),
+            ])
+            ->filter(fn (array $award) => $award['image_url'] !== '')
             ->values();
         $servicesTitle = trim((string) data_get($servicesConfig, 'title', '')) ?: 'Dịch vụ hỗ trợ';
         $servicesDescription = trim((string) data_get($servicesConfig, 'description', ''));
@@ -146,33 +161,18 @@
         $blogPreviewCtaUrl = $normalizeUrl(data_get($blogPreviewConfig, 'cta_url'), route('blog.index'));
         $articleCardGridClasses = \App\Support\FrontsiteCardGrid::classes();
 
-        $featuredTabs = [
-            [
-                'description' => trim((string) data_get($featuredTourTabsConfig, 'international.description', '')) ?: 'Gom các tour nước ngoài vừa được cập nhật để thuận tiện so sánh ngày đi, chi phí và hồ sơ đi kèm.',
-                'id' => 'international',
-                'items' => $internationalTours,
-                'label' => trim((string) data_get($featuredTourTabsConfig, 'international.label', '')) ?: 'Tour nước ngoài',
-                'title' => trim((string) data_get($featuredTourTabsConfig, 'international.title', '')) ?: 'Tour nước ngoài',
-                'url' => route('tours.international'),
-            ],
-            [
-                'description' => trim((string) data_get($featuredTourTabsConfig, 'domestic.description', '')) ?: 'Ưu tiên những tour trong nước được cập nhật gần đây nhất để bạn theo dõi lịch khởi hành, thời lượng và mức giá thuận tiện hơn.',
-                'id' => 'domestic',
-                'items' => $domesticTours,
-                'label' => trim((string) data_get($featuredTourTabsConfig, 'domestic.label', '')) ?: 'Tour trong nước',
-                'title' => trim((string) data_get($featuredTourTabsConfig, 'domestic.title', '')) ?: 'Tour trong nước',
-                'url' => route('tours.domestic'),
-            ],
-            [
-                'description' => trim((string) data_get($featuredTourTabsConfig, 'group.description', '')) ?: 'Dành cho tour đoàn, MICE và nhu cầu thiết kế chương trình riêng với danh sách ưu tiên theo lần cập nhật mới nhất.',
-                'id' => 'group',
-                'items' => $groupTours,
-                'label' => trim((string) data_get($featuredTourTabsConfig, 'group.label', '')) ?: 'Tour đoàn',
-                'title' => trim((string) data_get($featuredTourTabsConfig, 'group.title', '')) ?: 'Tour đoàn',
-                'url' => route('tours.group'),
-            ],
-        ];
-        $defaultFeaturedTabId = (string) (collect($featuredTabs)->first(fn (array $tab) => $tab['items']->isNotEmpty())['id'] ?? 'international');
+        $featuredTabs = collect($featuredTourTabs ?? []);
+        $featuredTabs = $featuredTabs->isNotEmpty()
+            ? $featuredTabs
+            : collect([[
+                'description' => 'Tổng hợp các tour trọn gói và tour du lịch đoàn đang được quan tâm để bạn dễ so sánh hành trình, lịch đi và mức giá.',
+                'id' => 'all',
+                'items' => $featuredTours,
+                'label' => 'Tất cả',
+                'title' => 'Tour hot trong tháng',
+                'url' => route('tours.search'),
+            ]]);
+        $defaultFeaturedTabId = 'all';
         $activeFeaturedTab = collect($featuredTabs)->firstWhere('id', $defaultFeaturedTabId) ?? $featuredTabs[0];
         $homeHeroDemoBlock = is_array($homeHeroDemoBlock ?? null)
             ? $homeHeroDemoBlock
@@ -198,6 +198,7 @@
             'phoneLink' => $phoneLink,
             'scopeCards' => $scopeCards,
             'sectionId' => 'home-hero',
+            'visuallyHideHeading' => true,
         ])
     @elseif ($customHomeHero)
         @include('themes.haidangtravel.partials.landing-hero', [
@@ -207,9 +208,10 @@
             'fallbackPrimaryUrl' => $landing?->cta_primary_url ?: route('contact'),
             'fallbackSecondaryLabel' => $landing?->cta_secondary_label ?: 'Xem tour nổi bật',
             'fallbackSecondaryUrl' => $landing?->cta_secondary_url ?: route('tours.domestic'),
-            'fallbackTitle' => $landing?->hero_title ?: 'Du lịch hè 2026 cùng Haidangtravel',
+            'fallbackTitle' => $landing?->hero_title ?: '',
             'hero' => $landingHero ?? [],
             'landing' => $landing,
+            'visuallyHideHeading' => true,
         ])
     @else
         @include('themes.haidangtravel.partials.landing-hero-demo', [
@@ -223,6 +225,7 @@
             'phoneLink' => $phoneLink,
             'scopeCards' => $scopeCards,
             'sectionId' => 'home-hero',
+            'visuallyHideHeading' => true,
         ])
     @endif
 

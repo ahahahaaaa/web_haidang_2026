@@ -68,6 +68,7 @@
     $cardCtaLabel = trim((string) ($cardCtaLabel ?? '')) ?: $taxonomyDefaults['card_cta_label'];
     $description = trim((string) ($description ?? ''));
     $isTopicStyle = $visualStyle === 'topic';
+    $showCardTitles = ($showCardTitles ?? true) === true;
     $title = trim((string) ($title ?? ''));
     $displayTitle = $title !== '' ? $title : ($useDefaultCopy ? $taxonomyDefaults['title'] : '');
     $displayDescription = $description !== '' ? $description : ($useDefaultCopy ? $taxonomyDefaults['description'] : '');
@@ -144,7 +145,7 @@
                 data-interval="4200"
                 style="{{ $carouselInlineStyle }}"
             >
-                @if ($displayEyebrow !== '' || $displayTitle !== '' || $displayDescription !== '' || ($showNavigator && $normalizedItems->count() > 1))
+                @if ($displayEyebrow !== '' || $displayTitle !== '' || $displayDescription !== '')
                     <div class="{{ $headerClass }}">
                         @if ($displayEyebrow !== '' || $displayTitle !== '' || $displayDescription !== '')
                             <div class="max-w-3xl">
@@ -166,32 +167,30 @@
                             </div>
                         @endif
 
-                        @if ($showNavigator && $normalizedItems->count() > 1)
-                            <div class="frontsite-slider-nav flex items-center gap-3">
-                                <button
-                                    type="button"
-                                    data-card-carousel-prev
-                                    class="service-card-carousel-control frontsite-text-reveal"
-                                    data-reveal="meta"
-                                    aria-label="{{ $taxonomyDefaults['prev_label'] }}"
-                                >
-                                    <i class="fa-solid fa-arrow-left"></i>
-                                </button>
-                                <button
-                                    type="button"
-                                    data-card-carousel-next
-                                    class="service-card-carousel-control frontsite-text-reveal"
-                                    data-reveal="meta"
-                                    aria-label="{{ $taxonomyDefaults['next_label'] }}"
-                                >
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        @endif
                     </div>
                 @endif
 
-                <div class="{{ $trackSpacingClass }}">
+                <div class="frontsite-slider-stage {{ $trackSpacingClass }}">
+                    @if ($showNavigator && $normalizedItems->count() > 1)
+                        <div class="frontsite-slider-nav">
+                            <button
+                                type="button"
+                                data-card-carousel-prev
+                                class="service-card-carousel-control"
+                                aria-label="{{ $taxonomyDefaults['prev_label'] }}"
+                            >
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                            <button
+                                type="button"
+                                data-card-carousel-next
+                                class="service-card-carousel-control"
+                                aria-label="{{ $taxonomyDefaults['next_label'] }}"
+                            >
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    @endif
                     <div class="service-card-carousel-track" data-card-carousel-track>
                         @foreach ($normalizedItems as $item)
                             <div class="service-card-carousel-item" data-card-carousel-item>
@@ -202,8 +201,9 @@
                                         data-reveal="card"
                                         data-reveal-delay="{{ number_format(($loop->index % 6) * $style['delay_step'], 2, '.', '') }}"
                                         @if ($item['is_active']) aria-current="page" @endif
+                                        @if (! $showCardTitles) aria-label="Xem chủ đề tour: {{ $item['label'] }}" @endif
                                     >
-                                        <div class="flex aspect-square w-full items-center justify-center overflow-hidden rounded-[1.45rem] {{ $style['image_background'] }} shadow-[0_16px_30px_-24px_rgba(15,23,42,0.22)]">
+                                        <div class="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-[1.45rem] {{ $style['image_background'] }} shadow-[0_16px_30px_-24px_rgba(15,23,42,0.22)]">
                                             @if ($item['avatar'] !== '')
                                                 <img src="{{ $item['avatar'] }}" alt="{{ $item['alt'] }}" class="h-full w-full object-cover" width="500" height="500" loading="lazy" decoding="async" fetchpriority="low">
                                             @else
@@ -213,11 +213,18 @@
                                                     </span>
                                                 </div>
                                             @endif
+                                            @if (! $showCardTitles)
+                                                <span aria-hidden="true" data-topic-card-hover-title class="pointer-events-none absolute inset-x-0 bottom-0 translate-y-3 bg-[linear-gradient(180deg,_transparent_0%,_rgba(15,23,42,0.88)_100%)] px-2 pb-3 pt-8 text-center font-heading text-[0.8rem] font-extrabold leading-[1.1rem] text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-none sm:text-[0.85rem] xl:text-[0.9rem]">
+                                                    <span class="line-clamp-2">{{ $item['label'] }}</span>
+                                                </span>
+                                            @endif
                                         </div>
 
-                                        <h3 class="line-clamp-2 text-center font-heading text-[0.8rem] font-extrabold leading-[1.1rem] text-primary transition group-hover:text-primary-hover sm:text-[0.85rem] xl:text-[0.9rem]">
-                                            {{ $item['label'] }}
-                                        </h3>
+                                        @if ($showCardTitles)
+                                            <h3 class="line-clamp-2 text-center font-heading text-[0.8rem] font-extrabold leading-[1.1rem] text-primary transition group-hover:text-primary-hover sm:text-[0.85rem] xl:text-[0.9rem]">
+                                                {{ $item['label'] }}
+                                            </h3>
+                                        @endif
                                     </a>
                                 @else
                                     <a

@@ -10,6 +10,8 @@
     'fallbackPrimaryUrl' => null,
     'fallbackSecondaryLabel' => null,
     'fallbackSecondaryUrl' => null,
+    'headingTag' => 'h1',
+    'visuallyHideHeading' => false,
 ])
 
 @php
@@ -61,10 +63,14 @@
     $staticMediaUrl = trim((string) ($hero['media_url'] ?? ''));
     $staticMediaMediumUrl = trim((string) ($hero['media_medium_url'] ?? $hero['media_small_url'] ?? $staticMediaUrl));
     $staticMediaAlt = trim((string) ($hero['media_alt'] ?? $staticTitle ?: 'Landing hero'));
+    $staticHasMedia = $staticMediaUrl !== '' || $staticMediaMediumUrl !== '';
+    $firstSlideHasTitle = filled(data_get($heroSlides->first(), 'title'));
+    $heroHeadingTag = $headingTag === 'h2' ? 'h2' : 'h1';
+    $visuallyHidePrimaryHeading = (bool) $visuallyHideHeading && $heroHeadingTag === 'h1';
 @endphp
 
 @if ($heroMode === 'slider' && $heroSlides->isNotEmpty())
-    <section class="relative overflow-hidden bg-secondary">
+    <section class="relative overflow-hidden bg-secondary" data-sitewide-tour-search-host>
         <div data-hero-slider class="relative min-h-[34rem] lg:min-h-[38rem]" data-interval="{{ ((int) ($hero['autoplay_delay'] ?? 0)) > 0 ? (int) $hero['autoplay_delay'] : 5500 }}">
             @foreach ($heroSlides as $slide)
                 @php
@@ -245,16 +251,23 @@
                         <div data-hero-overlay class="absolute inset-0 bg-[linear-gradient(110deg,_rgba(3,18,43,0.92)_0%,_rgba(3,18,43,0.82)_42%,_rgba(255,106,0,0.2)_100%)]"></div>
                     @endif
 
-                    <div class="relative mx-auto grid min-h-[34rem] max-w-7xl gap-10 px-4 py-8 sm:px-6 lg:min-h-[38rem] {{ $slideGridClasses }} lg:px-8 lg:py-10">
+                    <div class="relative mx-auto grid min-h-[34rem] max-w-7xl gap-10 px-4 py-8 sm:px-6 lg:min-h-[38rem] {{ $slideGridClasses }} lg:px-8 lg:pb-[16rem] lg:pt-10">
+                        @if ($loop->first && $slideTitle !== '' && $visuallyHidePrimaryHeading)
+                            <h1 class="sr-only">{{ $slideTitle }}</h1>
+                        @endif
+
                         <div class="{{ $slideCopyWidth }} space-y-6">
                             @if ($breadcrumbItems !== [])
                                 @include('themes.haidangtravel.partials.breadcrumbs', ['items' => $breadcrumbItems])
                             @endif
 
-                            @if ($slideTitle !== '')
-                                <h1 data-hero-text="title" data-hero-effect="{{ $slideEffect }}" class="font-heading text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                            @if ($slideTitle !== '' && ! ($loop->first && $visuallyHidePrimaryHeading))
+                                @php
+                                    $slideHeadingTag = $loop->first ? $heroHeadingTag : 'h2';
+                                @endphp
+                                <{{ $slideHeadingTag }} data-hero-text="title" data-hero-effect="{{ $slideEffect }}" class="font-heading text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
                                     {{ $slideTitle }}
-                                </h1>
+                                </{{ $slideHeadingTag }}>
                             @endif
 
                             @if ($slideDescription !== '')
@@ -352,7 +365,7 @@
                     </button>
                 </div>
 
-                <div class="pointer-events-none absolute inset-x-0 bottom-6 z-10 flex justify-center">
+                <div class="pointer-events-none absolute inset-x-0 bottom-6 z-10 flex justify-center lg:bottom-[14.5rem]">
                     <div class="pointer-events-auto flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/25 px-3 py-2 backdrop-blur">
                         @foreach ($heroSlides as $slide)
                             <button type="button" data-hero-dot class="service-hero-dot {{ $loop->first ? 'is-active' : '' }}" aria-label="Đi tới slide {{ $loop->iteration }}" aria-current="{{ $loop->first ? 'true' : 'false' }}"></button>
@@ -361,10 +374,22 @@
                 </div>
             @endif
         </div>
+        @include('themes.haidangtravel.partials.hero-tour-search-overlay')
     </section>
+    @if (! $firstSlideHasTitle && $staticTitle !== '')
+        @if ($visuallyHidePrimaryHeading)
+            <h1 class="sr-only">{{ $staticTitle }}</h1>
+        @else
+            <section class="px-4 py-8 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-7xl">
+                    <{{ $heroHeadingTag }} class="font-heading text-3xl font-semibold text-slate-900 sm:text-4xl">{{ $staticTitle }}</{{ $heroHeadingTag }}>
+                </div>
+            </section>
+        @endif
+    @endif
 @else
-    <section class="relative overflow-hidden bg-secondary">
-        @if ($staticMediaUrl !== '' || $staticMediaMediumUrl !== '')
+    <section class="relative overflow-hidden {{ $staticHasMedia ? 'bg-secondary' : 'bg-[#fff7ed]' }}" data-sitewide-tour-search-host>
+        @if ($staticHasMedia)
             <picture class="absolute inset-0 block h-full w-full">
                 @if ($staticMediaMediumUrl !== '')
                     <source media="(max-width: 767px)" srcset="{{ $staticMediaMediumUrl }}">
@@ -382,33 +407,40 @@
             </picture>
             <div class="absolute inset-0 bg-[linear-gradient(110deg,_rgba(3,18,43,0.94)_0%,_rgba(3,18,43,0.84)_46%,_rgba(255,106,0,0.22)_100%)]"></div>
         @else
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,106,0,0.22),_transparent_24%),linear-gradient(135deg,_#004A99_0%,_#0c3569_50%,_#002d5f_100%)]"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,140,0,0.2),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(255,106,0,0.12),_transparent_34%),linear-gradient(135deg,_#fffaf5_0%,_#ffe8d5_52%,_#fff4e8_100%)]"></div>
         @endif
 
-        <div class="relative mx-auto grid max-w-7xl gap-10 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1.02fr)_22rem] lg:items-center lg:px-8 lg:py-10">
+        <div class="relative mx-auto grid max-w-7xl gap-10 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1.02fr)_22rem] lg:items-center lg:px-8 lg:pb-[16rem] lg:pt-10">
+            @if ($staticTitle !== '' && $visuallyHidePrimaryHeading)
+                <h1 class="sr-only">{{ $staticTitle }}</h1>
+            @endif
+
             <div class="max-w-3xl space-y-6">
                 @if ($breadcrumbItems !== [])
-                    @include('themes.haidangtravel.partials.breadcrumbs', ['items' => $breadcrumbItems])
+                    @include('themes.haidangtravel.partials.breadcrumbs', [
+                        'items' => $breadcrumbItems,
+                        'breadcrumbVariant' => $staticHasMedia ? 'prominent' : 'plain',
+                    ])
                 @endif
 
-                @if ($staticTitle !== '')
-                    <h1 class="font-heading text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                @if ($staticTitle !== '' && ! $visuallyHidePrimaryHeading)
+                    <{{ $heroHeadingTag }} class="font-heading text-4xl font-extrabold leading-tight tracking-tight {{ $staticHasMedia ? 'text-white' : 'text-slate-900' }} sm:text-5xl lg:text-6xl">
                         {{ $staticTitle }}
-                    </h1>
+                    </{{ $heroHeadingTag }}>
                 @endif
 
                 @if ($staticDescription !== '')
-                    <p class="max-w-3xl text-lg leading-8 text-slate-200">
+                    <p class="max-w-3xl text-lg leading-8 {{ $staticHasMedia ? 'text-slate-200' : 'text-slate-700' }}">
                         {!! nl2br(e($staticDescription)) !!}
                     </p>
                 @endif
 
                 @if ($metaItems->isNotEmpty())
-                    <div class="flex flex-wrap items-center gap-3 text-sm font-semibold text-slate-100/85">
+                    <div class="flex flex-wrap items-center gap-3 text-sm font-semibold {{ $staticHasMedia ? 'text-slate-100/85' : 'text-slate-700' }}">
                         @foreach ($metaItems as $metaItem)
-                            <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2">
+                            <span class="inline-flex items-center gap-2 rounded-full border px-4 py-2 {{ $staticHasMedia ? 'border-white/15 bg-white/10' : 'border-orange-200/80 bg-white/70 shadow-sm' }}">
                                 @if (trim((string) data_get($metaItem, 'icon')) !== '')
-                                    <i class="{{ data_get($metaItem, 'icon') }} text-orange-200"></i>
+                                    <i class="{{ data_get($metaItem, 'icon') }} {{ $staticHasMedia ? 'text-orange-200' : 'text-primary' }}"></i>
                                 @endif
                                 {{ data_get($metaItem, 'label') }}
                             </span>
@@ -442,7 +474,7 @@
                         @endif
 
                         @if ($staticSecondaryLabel !== '' && $staticSecondaryUrl !== '')
-                            <a href="{{ $staticSecondaryUrl }}" class="inline-flex min-h-11 items-center gap-2 rounded-sm border border-white/18 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/14">
+                            <a href="{{ $staticSecondaryUrl }}" class="inline-flex min-h-11 items-center gap-2 rounded-sm border px-5 py-3 text-sm font-semibold transition {{ $staticHasMedia ? 'border-white/18 bg-white/10 text-white hover:bg-white/14' : 'border-orange-200 bg-white/75 text-secondary shadow-sm hover:border-orange-300 hover:bg-white' }}">
                                 {{ $staticSecondaryLabel }}
                             </a>
                         @endif
@@ -450,7 +482,7 @@
                 @endif
             </div>
 
-            @if ($staticMediaUrl !== '' || $staticMediaMediumUrl !== '')
+            @if ($staticHasMedia)
                 <div class="hidden lg:block">
                     <div class="overflow-hidden rounded-[1.8rem] border border-white/12 bg-white/10 p-4 shadow-[0_24px_70px_-40px_rgba(15,23,42,0.58)] backdrop-blur">
                         <img src="{{ $staticMediaMediumUrl !== '' ? $staticMediaMediumUrl : $staticMediaUrl }}" alt="{{ $staticMediaAlt }}" class="aspect-[4/5] h-full w-full rounded-[1.35rem] object-cover" width="640" height="800" loading="lazy" decoding="async">
@@ -458,5 +490,6 @@
                 </div>
             @endif
         </div>
+        @include('themes.haidangtravel.partials.hero-tour-search-overlay')
     </section>
 @endif

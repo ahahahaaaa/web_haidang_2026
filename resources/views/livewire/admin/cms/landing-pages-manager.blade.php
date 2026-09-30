@@ -342,7 +342,7 @@
                             <div class="mb-4 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
                                 <div>
                                     <h4 class="text-base font-semibold text-zinc-900 dark:text-white">Tab tour nổi bật</h4>
-                                    <p class="text-sm text-zinc-500 dark:text-zinc-400">Mỗi tab vẫn query tour live theo scope. Bạn có thể điều chỉnh nhãn tab, title, mô tả, CTA và danh mục ưu tiên dùng để gom tour nổi bật.</p>
+                                    <p class="text-sm text-zinc-500 dark:text-zinc-400">Tab Tất cả luôn tải trước. Các filter còn lại có thể lấy tour theo loại tour, điểm đến hoặc chủ đề đang xuất bản.</p>
                                 </div>
                                 <div class="flex flex-wrap items-center gap-2">
                                     @php
@@ -363,13 +363,14 @@
 
                             <div class="grid gap-4 md:grid-cols-3">
                                 <div class="space-y-2 md:col-span-2">
-                                    <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Danh mục ưu tiên cho tour nổi bật</label>
+                                    <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Chủ đề ưu tiên chung cho pool tour hot</label>
                                     <select wire:model.defer="form.home_config.featured_tour_category_slug" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
                                         <option value="">Tự dò Tour Nổi Bật / fallback sang is_featured</option>
                                         @foreach ($tourCategories as $category)
                                             <option value="{{ $category->slug }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
+                                    <p class="text-xs text-zinc-500 dark:text-zinc-400">Điều kiện này áp dụng chung trước khi chia tour theo từng filter. Để trống để dùng cờ tour nổi bật.</p>
                                 </div>
 
                                 <div class="space-y-2">
@@ -382,28 +383,157 @@
                                     <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Label CTA của block</label>
                                     <input type="text" wire:model.defer="form.home_config.featured_tours.cta_label" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
                                 </div>
+                                <label class="inline-flex items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200 md:col-span-3">
+                                    <input type="checkbox" wire:model.defer="form.home_config.featured_tours.is_slider" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
+                                    Hiển thị tour dạng slide một hàng
+                                </label>
+                                <label class="inline-flex items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200 md:col-span-3">
+                                    <input type="checkbox" wire:model.defer="form.home_config.featured_tours.show_filters" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
+                                    Hiển thị filter tour (tắt sẽ lấy tab Tất cả)
+                                </label>
                             </div>
 
-                            <div class="mt-4 grid gap-4 xl:grid-cols-3">
-                                @foreach (['international' => 'Tour nước ngoài', 'domestic' => 'Tour trong nước', 'group' => 'Tour đoàn'] as $scopeKey => $scopeLabel)
-                                    <div class="rounded-3xl border border-zinc-200 bg-zinc-50/80 p-4 dark:border-zinc-700 dark:bg-zinc-950/40">
-                                        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-teal-600 dark:text-teal-300">{{ $scopeLabel }}</p>
-                                        <div class="mt-4 grid gap-3">
+                            <div class="mt-5 rounded-3xl border border-zinc-200 bg-zinc-50/80 p-4 dark:border-zinc-700 dark:bg-zinc-950/40">
+                                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-600 dark:text-teal-300">Tab hệ thống · active mặc định</p>
+                                <div class="mt-4 grid gap-3 lg:grid-cols-2">
+                                    <div class="space-y-2">
+                                        <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Nhãn tab Tất cả</label>
+                                        <input type="text" wire:model.defer="form.home_config.featured_tours.all.label" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Tiêu đề block mặc định</label>
+                                        <input type="text" wire:model.defer="form.home_config.featured_tours.all.title" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                    </div>
+                                    <div class="space-y-2 lg:col-span-2">
+                                        <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Mô tả mặc định</label>
+                                        <textarea rows="3" wire:model.defer="form.home_config.featured_tours.all.description" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 space-y-3">
+                                <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                                    <div>
+                                        <h5 class="text-sm font-semibold text-zinc-900 dark:text-white">Danh sách filter phân loại tour</h5>
+                                        <p class="text-xs text-zinc-500 dark:text-zinc-400">Tối đa {{ \App\Support\TravelHomePageConfig::FEATURED_TOUR_FILTER_LIMIT }} filter; thứ tự tại đây là thứ tự tab ngoài trang chủ.</p>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        wire:click="addHomeFeaturedTourFilter"
+                                        wire:loading.attr="disabled"
+                                        wire:target="addHomeFeaturedTourFilter"
+                                        @disabled(count(data_get($form, 'home_config.featured_tours.filters', [])) >= \App\Support\TravelHomePageConfig::FEATURED_TOUR_FILTER_LIMIT)
+                                        class="inline-flex items-center justify-center gap-2 rounded-2xl border border-teal-200 bg-teal-50 px-4 py-2 text-sm font-semibold text-teal-700 transition hover:border-teal-300 hover:bg-teal-100 disabled:cursor-not-allowed disabled:opacity-50 dark:border-teal-800 dark:bg-teal-950/50 dark:text-teal-200"
+                                    >
+                                        <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                                        Thêm filter
+                                    </button>
+                                </div>
+
+                                @forelse (data_get($form, 'home_config.featured_tours.filters', []) as $filterIndex => $filter)
+                                    @php
+                                        $filterUuid = (string) data_get($filter, 'uuid', 'filter-'.$filterIndex);
+                                        $filterSourceType = (string) data_get($filter, 'source_type', \App\Support\TravelHomePageConfig::FEATURED_TOUR_FILTER_SCOPE);
+                                    @endphp
+                                    <div wire:key="home-featured-tour-filter-{{ $filterUuid }}" class="rounded-3xl border border-zinc-200 bg-zinc-50/80 p-4 dark:border-zinc-700 dark:bg-zinc-950/40">
+                                        <div class="flex items-center justify-between gap-3">
+                                            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-600 dark:text-teal-300">Filter {{ $filterIndex + 1 }}</p>
+                                            <button type="button" wire:click="removeHomeFeaturedTourFilter({{ $filterIndex }})" class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-rose-200 bg-white text-rose-600 transition hover:bg-rose-50 dark:border-rose-900 dark:bg-zinc-900" aria-label="Xóa filter {{ $filterIndex + 1 }}">
+                                                <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+
+                                        <div class="mt-4 grid gap-3 lg:grid-cols-2">
                                             <div class="space-y-2">
-                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Nhãn tab</label>
-                                                <input type="text" wire:model.defer="form.home_config.featured_tours.tabs.{{ $scopeKey }}.label" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Phân loại theo</label>
+                                                <select wire:model.live="form.home_config.featured_tours.filters.{{ $filterIndex }}.source_type" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                                    @foreach ($featuredTourFilterTypes as $filterType => $filterTypeLabel)
+                                                        <option value="{{ $filterType }}">{{ $filterTypeLabel }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="space-y-2">
+                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Giá trị phân loại</label>
+                                                <select wire:model.defer="form.home_config.featured_tours.filters.{{ $filterIndex }}.source_value" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                                    <option value="">Chọn {{ \Illuminate\Support\Str::lower($featuredTourFilterTypes[$filterSourceType] ?? 'nguồn lọc') }}</option>
+                                                    @if ($filterSourceType === \App\Support\TravelHomePageConfig::FEATURED_TOUR_FILTER_DESTINATION)
+                                                        @foreach ($destinations as $destination)
+                                                            <option value="{{ $destination->slug }}">{{ $destination->name }}</option>
+                                                        @endforeach
+                                                    @elseif ($filterSourceType === \App\Support\TravelHomePageConfig::FEATURED_TOUR_FILTER_TOPIC)
+                                                        @foreach ($tourCategories as $category)
+                                                            <option value="{{ $category->slug }}">{{ $category->name }}</option>
+                                                        @endforeach
+                                                    @else
+                                                        @foreach ($scopeOptions as $scopeValue => $scopeLabel)
+                                                            <option value="{{ $scopeValue }}">{{ $scopeLabel }}</option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                                @error('form.home_config.featured_tours.filters.'.$filterIndex.'.source_value')
+                                                    <p class="text-xs font-medium text-rose-600">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+
+                                            <div class="space-y-2">
+                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Nhãn filter</label>
+                                                <input type="text" wire:model.defer="form.home_config.featured_tours.filters.{{ $filterIndex }}.label" placeholder="Để trống sẽ lấy tên nguồn" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
                                             </div>
                                             <div class="space-y-2">
-                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Tiêu đề khi tab active</label>
-                                                <input type="text" wire:model.defer="form.home_config.featured_tours.tabs.{{ $scopeKey }}.title" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Tiêu đề khi active</label>
+                                                <input type="text" wire:model.defer="form.home_config.featured_tours.filters.{{ $filterIndex }}.title" placeholder="Để trống sẽ lấy tên nguồn" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
                                             </div>
-                                            <div class="space-y-2">
-                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Mô tả khi tab active</label>
-                                                <textarea rows="5" wire:model.defer="form.home_config.featured_tours.tabs.{{ $scopeKey }}.description" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"></textarea>
+                                            <div class="space-y-2 lg:col-span-2">
+                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Mô tả khi active</label>
+                                                <textarea rows="3" wire:model.defer="form.home_config.featured_tours.filters.{{ $filterIndex }}.description" placeholder="Để trống sẽ lấy mô tả của nguồn phân loại" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"></textarea>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                @empty
+                                    <div class="rounded-2xl border border-dashed border-zinc-300 px-4 py-6 text-center text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">Chưa có filter phụ. Trang chủ vẫn hiển thị tab Tất cả mặc định.</div>
+                                @endforelse
+                            </div>
+
+                            <div class="mt-5 space-y-3 border-t border-zinc-200 pt-5 dark:border-zinc-700">
+                                <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                                    <div>
+                                        <h5 class="text-sm font-semibold text-zinc-900 dark:text-white">Tìm kiếm nổi bật</h5>
+                                        <p class="text-xs text-zinc-500 dark:text-zinc-400">Cấu hình nhãn và URL tùy ý; hỗ trợ đường dẫn nội bộ hoặc URL HTTP(S) đầy đủ.</p>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        wire:click="addHomeFeaturedTourPopularSearch"
+                                        wire:loading.attr="disabled"
+                                        wire:target="addHomeFeaturedTourPopularSearch"
+                                        @disabled(count(data_get($form, 'home_config.featured_tours.popular_searches', [])) >= \App\Support\TravelHomePageConfig::FEATURED_TOUR_POPULAR_SEARCH_LIMIT)
+                                        class="inline-flex items-center justify-center gap-2 rounded-2xl border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700 transition hover:border-orange-300 hover:bg-orange-100 disabled:cursor-not-allowed disabled:opacity-50 dark:border-orange-900 dark:bg-orange-950/40 dark:text-orange-200"
+                                    >
+                                        <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                                        Thêm liên kết
+                                    </button>
+                                </div>
+
+                                @forelse (data_get($form, 'home_config.featured_tours.popular_searches', []) as $popularIndex => $popularSearch)
+                                    <div wire:key="home-featured-popular-{{ data_get($popularSearch, 'uuid', $popularIndex) }}" class="grid gap-3 rounded-2xl border border-zinc-200 bg-zinc-50/80 p-3 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)_auto] md:items-end dark:border-zinc-700 dark:bg-zinc-950/40">
+                                        <div class="space-y-2">
+                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Nhãn hiển thị</label>
+                                            <input type="text" wire:model.defer="form.home_config.featured_tours.popular_searches.{{ $popularIndex }}.label" placeholder="Ví dụ: Hà Giang" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-orange-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                        </div>
+                                        <div class="space-y-2">
+                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">URL</label>
+                                            <input type="text" wire:model.defer="form.home_config.featured_tours.popular_searches.{{ $popularIndex }}.url" placeholder="/tim-tour?destination=ha-giang" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-orange-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                            @error('form.home_config.featured_tours.popular_searches.'.$popularIndex.'.url')
+                                                <p class="text-xs font-medium text-rose-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                        <button type="button" wire:click="removeHomeFeaturedTourPopularSearch({{ $popularIndex }})" class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-rose-200 bg-white text-rose-600 transition hover:bg-rose-50 dark:border-rose-900 dark:bg-zinc-900" aria-label="Xóa liên kết nổi bật {{ $popularIndex + 1 }}">
+                                            <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                @empty
+                                    <div class="rounded-2xl border border-dashed border-zinc-300 px-4 py-5 text-center text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">Chưa cấu hình liên kết tìm kiếm nổi bật.</div>
+                                @endforelse
                             </div>
                         </div>
                     </section>
@@ -471,8 +601,8 @@
                     <section class="space-y-5 rounded-3xl border border-zinc-200 bg-zinc-50/70 p-5 dark:border-zinc-800 dark:bg-zinc-950/40">
                         <div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
                             <div>
-                                <h3 class="text-lg font-semibold text-zinc-900 dark:text-white">Block Lý do khách chọn Hải Đăng</h3>
-                                <p class="text-sm text-zinc-500 dark:text-zinc-400">Section này nên thiên về proof ngắn thay vì paragraph dài. Icon dùng class Font Awesome; bốn chỉ số bên dưới section vẫn lấy từ Cấu hình theme.</p>
+                                <h3 class="text-lg font-semibold text-zinc-900 dark:text-white">Giới thiệu & giải thưởng</h3>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400">Bên trái hiển thị nội dung doanh nghiệp và tối đa 3 chỉ số; bên phải là slider ảnh giải thưởng chọn từ Media Library.</p>
                             </div>
                             <div class="flex flex-wrap items-center gap-2">
                                 @php
@@ -491,67 +621,9 @@
                             </div>
                         </div>
 
-                        <div class="grid gap-4 md:grid-cols-2">
-                            <div class="space-y-2">
-                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Tiêu đề section</label>
-                                <input type="text" wire:model.defer="form.home_config.trust.title" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
-                                @error('form.home_config.trust.title') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-                            </div>
-
-                            <div class="space-y-2 md:col-span-2">
-                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Mô tả ngắn</label>
-                                <textarea rows="3" wire:model.defer="form.home_config.trust.description" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"></textarea>
-                                @error('form.home_config.trust.description') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-                            </div>
-                        </div>
-
-                        <div class="grid gap-4 xl:grid-cols-3">
-                            @foreach (($form['home_config']['trust']['cards'] ?? []) as $index => $card)
-                                <div wire:key="landing-home-trust-card-{{ $card['uuid'] ?? $index }}" class="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
-                                    <div class="mb-4 flex items-center justify-between gap-3">
-                                        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-teal-600 dark:text-teal-300">Lý do {{ $loop->iteration }}</p>
-
-                                        @if (count($form['home_config']['trust']['cards'] ?? []) > 1)
-                                            <button type="button" wire:click="removeHomeTrustCard({{ $index }})" class="rounded-2xl border border-rose-200 px-3 py-2 text-sm font-medium text-rose-600 dark:border-rose-500/30 dark:text-rose-300">
-                                                Xóa
-                                            </button>
-                                        @endif
-                                    </div>
-
-                                    <div class="grid gap-3">
-                                        <div class="space-y-2">
-                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Icon Font Awesome</label>
-                                            <input type="text" wire:model.defer="form.home_config.trust.cards.{{ $index }}.icon" placeholder="fa-solid fa-route" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
-                                            @error("form.home_config.trust.cards.$index.icon") <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-                                        </div>
-
-                                        <div class="space-y-2">
-                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Nhãn nổi bật</label>
-                                            <input type="text" wire:model.defer="form.home_config.trust.cards.{{ $index }}.highlight" placeholder="Ví dụ: Một đầu mối xử lý" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
-                                            @error("form.home_config.trust.cards.$index.highlight") <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-                                        </div>
-
-                                        <div class="space-y-2">
-                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Tiêu đề card</label>
-                                            <input type="text" wire:model.defer="form.home_config.trust.cards.{{ $index }}.title" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
-                                            @error("form.home_config.trust.cards.$index.title") <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-                                        </div>
-
-                                        <div class="space-y-2">
-                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Bằng chứng ngắn</label>
-                                            <textarea rows="4" wire:model.defer="form.home_config.trust.cards.{{ $index }}.text" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white"></textarea>
-                                            @error("form.home_config.trust.cards.$index.text") <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-
-                        <div class="flex flex-wrap justify-end">
-                            <button type="button" wire:click="addHomeTrustCard" class="rounded-2xl border border-zinc-300 px-4 py-2 text-sm font-semibold text-zinc-700 transition hover:border-teal-300 hover:text-teal-700 dark:border-zinc-700 dark:text-zinc-200">
-                                Thêm lý do
-                            </button>
-                        </div>
+                        @include('livewire.admin.cms.partials.home-trust-config', [
+                            'wireKeyPrefix' => 'landing-home-trust-primary',
+                        ])
                     </section>
 
                     <section class="space-y-5 rounded-3xl border border-zinc-200 bg-zinc-50/70 p-5 dark:border-zinc-800 dark:bg-zinc-950/40">
@@ -742,14 +814,14 @@
                         <div>
                             <h3 class="text-lg font-semibold text-zinc-900 dark:text-white">Blocks</h3>
                             @if (($form['page_key'] ?? null) === 'home')
-                                <p class="text-sm text-zinc-500 dark:text-zinc-400">Danh sách này trộn section hardcode và dynamic block theo đúng thứ tự render trên homepage. Mỗi item là một row có bật/tắt và nút di chuyển; Query blocks chỉ lấy dữ liệu published.</p>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400">Danh sách này trộn section cố định và widget theo đúng thứ tự hiển thị trên trang chủ. Kéo tay nắm hoặc dùng nút Lên/Xuống để đổi vị trí.</p>
                             @else
-                                <p class="text-sm text-zinc-500 dark:text-zinc-400">Sắp xếp block theo thứ tự hiển thị trên frontsite. Query blocks chỉ lấy dữ liệu published.</p>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400">Kéo tay nắm hoặc dùng nút Lên/Xuống để sắp xếp block theo thứ tự hiển thị trên trang.</p>
                             @endif
                         </div>
                     </div>
 
-                    <div class="space-y-5">
+                    <div class="space-y-3" @if ($canEdit) wire:sort="sortContentBlock" @endif>
                         @php
                             $isHomeBlockStack = ($form['page_key'] ?? null) === 'home';
                             $contentBlockRows = $isHomeBlockStack
@@ -778,22 +850,22 @@
                                     $sectionEnabled = (bool) data_get($form, 'home_config.'.$homeLayoutSectionKey.'.is_enabled', true);
                                 @endphp
 
-                                <article wire:key="{{ $homeLayoutWireKey }}" class="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+                                <article wire:key="{{ $homeLayoutWireKey }}" @if ($canEdit) wire:sort:item="{{ $homeLayoutToken }}" @endif x-data="{ expanded: {{ $errors->has('form.home_config.'.$homeLayoutSectionKey.'.*') ? 'true' : 'false' }} }" class="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
                                     <div class="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
                                         <div class="min-w-0">
                                             <p class="text-xs font-semibold uppercase tracking-[0.28em] text-sky-600 dark:text-sky-300">Block {{ $contentBlockRowIndex + 1 }}</p>
                                             <h4 class="mt-2 truncate text-lg font-semibold text-zinc-900 dark:text-white">{{ $homeLayoutItem['label'] ?? $homeLayoutToken }}</h4>
                                             <div class="mt-3 flex flex-wrap items-center gap-2">
-                                                <span class="inline-flex rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700 dark:bg-sky-500/15 dark:text-sky-200">Hardcode</span>
+                                                <span class="inline-flex rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700 dark:bg-sky-500/15 dark:text-sky-200">Section cố định</span>
                                                 <span class="inline-flex rounded-full px-3 py-1 text-xs font-semibold {{ $sectionEnabled ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300' : 'bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300' }}">
                                                     {{ $sectionEnabled ? 'Đang bật' : 'Đang tắt' }}
                                                 </span>
-                                                <p class="text-xs text-zinc-500 dark:text-zinc-400">Form bên dưới điều chỉnh nội dung, bật/tắt và vị trí render của section hardcode này.</p>
                                             </div>
                                         </div>
 
-                                        @if ($canEdit)
-                                            <div class="flex flex-wrap gap-2">
+                                        <div class="flex flex-wrap items-center gap-2">
+                                            @if ($canEdit)
+                                                <button type="button" wire:sort:handle aria-label="Kéo để đổi vị trí {{ $homeLayoutItem['label'] ?? $homeLayoutToken }}" title="Kéo để đổi vị trí" class="inline-flex cursor-grab items-center rounded-2xl border border-zinc-200 px-3 py-2 text-zinc-500 active:cursor-grabbing dark:border-zinc-700 dark:text-zinc-300"><i class="fa-solid fa-grip-vertical" aria-hidden="true"></i></button>
                                                 <label class="inline-flex items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
                                                     <input type="checkbox" wire:model.defer="form.home_config.{{ $homeLayoutSectionKey }}.is_enabled" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
                                                     Bật block
@@ -804,35 +876,36 @@
                                                     'isLast' => $contentBlockRowIndex === count($contentBlockRows) - 1,
                                                     'token' => $homeLayoutToken,
                                                 ])
-                                            </div>
-                                        @endif
+                                            @endif
+                                            <button type="button" @click="expanded = !expanded" :aria-expanded="expanded.toString()" aria-controls="home-section-config-{{ $homeLayoutSectionKey }}" class="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"><span x-text="expanded ? 'Thu gọn' : 'Chỉnh sửa'">Chỉnh sửa</span><i class="fa-solid fa-chevron-down text-xs transition-transform" :class="expanded && 'rotate-180'" aria-hidden="true"></i></button>
+                                        </div>
 
                                     </div>
 
-                                    <div class="mt-5 border-t border-zinc-100 pt-5 dark:border-zinc-800">
+                                    <div id="home-section-config-{{ $homeLayoutSectionKey }}" x-show="expanded" style="display: none;" class="mt-5 border-t border-zinc-100 pt-5 dark:border-zinc-800">
                                         @include('livewire.admin.cms.partials.home-section-config', [
                                             'sectionKey' => $homeLayoutSectionKey,
                                         ])
                                     </div>
                                 </article>
 
-                                @continue
-                            @endif
-
+                            @else
                             @php
                                 $blockIndex = (int) ($contentBlockRow['block_index'] ?? ($homeLayoutItem['block_index'] ?? $contentBlockRowIndex));
                                 $block = $contentBlockRow['block'] ?? data_get($form, 'blocks.'.$blockIndex);
                             @endphp
 
-                            @continue(! is_array($block))
-
+                            @if (is_array($block))
                             @php
                                 $blockType = $block['type'] ?? \App\Support\LandingPageBlocks::TYPE_RICH_TEXT;
                                 $blockEnabled = (bool) ($block['is_enabled'] ?? true);
                                 $blockUuid = $block['uuid'] ?? ('block-' . $blockIndex);
                                 $blockRowNumber = $isHomeBlockStack ? ($contentBlockRowIndex + 1) : ($blockIndex + 1);
                                 $blockWireKey = $isHomeBlockStack ? $homeLayoutWireKey : ('landing-block-'.$blockUuid);
-                                $homeLayoutBlockTitle = trim((string) ($homeLayoutItem['block_title'] ?? ''));
+                                $blockSummaryTitle = trim((string) ($blockTitles[$blockIndex] ?? ''));
+                                $blockTypeLabel = $blockTypes[$blockType] ?? $blockType;
+                                $blockDisplayTitle = $blockSummaryTitle !== '' ? $blockSummaryTitle : $blockTypeLabel;
+                                $blockSortToken = $isHomeBlockStack ? $homeLayoutToken : \App\Support\TravelHomePageConfig::homeLayoutTokenForBlock((string) $blockUuid);
                                 $htmlDraft = (string) data_get($blockHtmlDrafts ?? [], $blockUuid, $block['html'] ?? '');
                                 $selectedMedia = data_get($selectedBlockMedia, $blockUuid . '.media');
                                 $heroMediaPreview = $selectedMedia?->getUrl() ?: ($selectedPage?->getFirstMediaUrl(\App\Support\LandingPageBlocks::mediaCollection($blockUuid)) ?: null);
@@ -846,13 +919,15 @@
                                     ? (string) $form['page_key']
                                     : \Illuminate\Support\Str::slug((string) ($form['slug'] ?: $form['title'] ?: 'landing'));
                             @endphp
-                            @continue($blockType === \App\Support\LandingPageBlocks::TYPE_GEO_ANSWER && ! config('frontsite_geo.enabled', true))
-
-                            <article wire:key="{{ $blockWireKey }}" class="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+                            @if ($blockType !== \App\Support\LandingPageBlocks::TYPE_GEO_ANSWER || config('frontsite_geo.enabled', true))
+                            <article wire:key="{{ $blockWireKey }}" @if ($canEdit) wire:sort:item="{{ $blockSortToken }}" @endif x-data="{ expanded: {{ $errors->has('form.blocks.'.$blockIndex.'.*') ? 'true' : 'false' }} }" class="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
                                 <div class="mb-5 flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
-                                    <div>
+                                    <div class="min-w-0">
                                         <p class="text-xs font-semibold uppercase tracking-[0.28em] text-teal-600 dark:text-teal-300">Block {{ $blockRowNumber }}</p>
-                                        <h4 class="mt-2 text-lg font-semibold text-zinc-900 dark:text-white">{{ $blockTypes[$blockType] ?? $blockType }}</h4>
+                                        <h4 class="mt-2 truncate text-lg font-semibold text-zinc-900 dark:text-white" title="{{ $blockDisplayTitle }}">{{ $blockDisplayTitle }}</h4>
+                                        @if ($blockSummaryTitle !== '')
+                                            <p class="mt-1 truncate text-xs text-zinc-500 dark:text-zinc-400">{{ $blockTypeLabel }}</p>
+                                        @endif
                                         <div class="mt-3 flex flex-wrap items-center gap-2">
                                             @if ($isHomeBlockStack)
                                                 <span class="inline-flex rounded-full bg-teal-100 px-3 py-1 text-xs font-semibold text-teal-700 dark:bg-teal-500/15 dark:text-teal-200">Dynamic</span>
@@ -860,18 +935,15 @@
                                             <span class="inline-flex rounded-full px-3 py-1 text-xs font-semibold {{ $blockEnabled ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300' : 'bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300' }}">
                                                 {{ $blockEnabled ? 'Đang bật' : 'Đang tắt' }}
                                             </span>
-                                            <p class="text-xs text-zinc-500 dark:text-zinc-400">Block tắt sẽ được giữ trong CMS nhưng không render ra landing page.</p>
                                         </div>
-                                        @if ($isHomeBlockStack)
-                                            <p class="mt-2 truncate text-xs text-zinc-500 dark:text-zinc-400" title="{{ $homeLayoutBlockTitle !== '' ? $homeLayoutBlockTitle : 'Chưa đặt tiêu đề' }}">
-                                                Tiêu đề block:
-                                                <span class="font-medium text-zinc-700 dark:text-zinc-200">{{ $homeLayoutBlockTitle !== '' ? $homeLayoutBlockTitle : 'Chưa đặt tiêu đề' }}</span>
-                                            </p>
+                                        @if ($blockType === \App\Support\LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS)
+                                            <p class="mt-1 text-xs text-zinc-500 dark:text-zinc-400">{{ ($block['display_mode'] ?? 'tabs') === 'list' ? 'Danh sách thường' : 'Có tab lọc' }} · {{ match ($block['scope'] ?? '') { 'group' => 'Chỉ tour đoàn', 'non_group' => 'Không gồm tour đoàn', default => 'Tất cả tour' } }}</p>
                                         @endif
                                     </div>
 
-                                    @if ($canEdit)
-                                        <div class="flex flex-wrap gap-2">
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        @if ($canEdit)
+                                            <button type="button" wire:sort:handle aria-label="Kéo để đổi vị trí {{ $blockDisplayTitle }}" title="Kéo để đổi vị trí" class="inline-flex cursor-grab items-center rounded-2xl border border-zinc-200 px-3 py-2 text-zinc-500 active:cursor-grabbing dark:border-zinc-700 dark:text-zinc-300"><i class="fa-solid fa-grip-vertical" aria-hidden="true"></i></button>
                                             <label class="inline-flex items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
                                                 <input type="checkbox" wire:model.defer="form.blocks.{{ $blockIndex }}.is_enabled" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
                                                 Bật block
@@ -889,10 +961,12 @@
                                             @endif
                                             <button type="button" wire:click="duplicateBlock({{ $blockIndex }})" class="rounded-2xl border border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-600 dark:border-zinc-700 dark:text-zinc-300">Nhân đôi</button>
                                             <button type="button" wire:click="removeBlock({{ $blockIndex }})" class="rounded-2xl border border-rose-200 px-3 py-2 text-sm font-medium text-rose-600 dark:border-rose-500/30 dark:text-rose-300">Xóa</button>
-                                        </div>
-                                    @endif
+                                        @endif
+                                        <button type="button" @click="expanded = !expanded" :aria-expanded="expanded.toString()" aria-controls="landing-block-config-{{ $blockUuid }}" class="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"><span x-text="expanded ? 'Thu gọn' : 'Chỉnh sửa'">Chỉnh sửa</span><i class="fa-solid fa-chevron-down text-xs transition-transform" :class="expanded && 'rotate-180'" aria-hidden="true"></i></button>
+                                    </div>
                                 </div>
 
+                                <div id="landing-block-config-{{ $blockUuid }}" x-show="expanded" style="display: none;" class="border-t border-zinc-100 pt-5 dark:border-zinc-800">
                                 @if (! $blockEnabled)
                                     <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50/80 px-4 py-3 text-sm text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-200">
                                         Block này đang ở trạng thái tắt. Bạn vẫn có thể chỉnh nội dung, đổi thứ tự hoặc bật lại khi cần.
@@ -937,8 +1011,17 @@
                                             <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.title" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
                                         </div>
                                         <div class="space-y-2 md:col-span-2">
-                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Mô tả</label>
-                                            <x-admin.quill-editor wire:key="landing-block-description-{{ $blockUuid }}" model="form.blocks.{{ $blockIndex }}.description" :value="$block['description'] ?? ''" rows="4" placeholder="Mô tả ngắn cho hero hoặc gallery." />
+                                            @if ($blockType === \App\Support\LandingPageBlocks::TYPE_GALLERY_MEDIA)
+                                                <details class="rounded-2xl border border-zinc-200 bg-white px-3 py-2 dark:border-zinc-700 dark:bg-zinc-900">
+                                                    <summary class="cursor-pointer text-sm font-medium text-zinc-700 dark:text-zinc-200">Mô tả gallery (tùy chọn)</summary>
+                                                    <div class="mt-3">
+                                                        <x-admin.quill-editor wire:key="landing-block-description-{{ $blockUuid }}" model="form.blocks.{{ $blockIndex }}.description" :value="$block['description'] ?? ''" rows="4" placeholder="Mô tả ngắn cho gallery." />
+                                                    </div>
+                                                </details>
+                                            @else
+                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Mô tả</label>
+                                                <x-admin.quill-editor wire:key="landing-block-description-{{ $blockUuid }}" model="form.blocks.{{ $blockIndex }}.description" :value="$block['description'] ?? ''" rows="4" placeholder="Mô tả ngắn cho hero hoặc gallery." />
+                                            @endif
                                         </div>
                                     </div>
                                 @endif
@@ -1199,6 +1282,96 @@
                                         <div class="space-y-2 md:col-span-2">
                                             <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Body</label>
                                             <x-admin.quill-editor wire:key="landing-rich-body-{{ $blockUuid }}" model="form.blocks.{{ $blockIndex }}.body" :value="$block['body'] ?? ''" mode="rich" :allow-images="true" rows="10" placeholder="Nội dung chính của landing." />
+                                        </div>
+                                    </div>
+                                @endif
+
+                                @if ($blockType === \App\Support\LandingPageBlocks::TYPE_VOUCHER_RAIL)
+                                    <div class="space-y-5">
+                                        <div class="rounded-2xl border border-sky-200 bg-sky-50/80 px-4 py-4 text-sm leading-7 text-sky-800 dark:border-sky-500/30 dark:bg-sky-500/10 dark:text-sky-200">
+                                            Widget chỉ tải campaign đang bật, đúng thời gian nhận mã, còn mã khả dụng và đã được bật “Card mã ưu đãi công khai”. Mã riêng cấp cho từng khách không được render trong block này.
+                                        </div>
+
+                                        <div class="grid gap-4 md:grid-cols-2">
+                                            <div class="space-y-2">
+                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Tiêu đề block</label>
+                                                <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.title" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
+                                            </div>
+                                            <div class="space-y-2">
+                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Số voucher tối đa</label>
+                                                <input type="number" min="1" max="12" wire:model.defer="form.blocks.{{ $blockIndex }}.limit" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
+                                            </div>
+                                            <div class="space-y-2 md:col-span-2">
+                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Mô tả block</label>
+                                                <textarea rows="3" wire:model.defer="form.blocks.{{ $blockIndex }}.description" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white"></textarea>
+                                            </div>
+                                            <div class="space-y-2 md:col-span-2">
+                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Campaign ưu tiên</label>
+                                                <select
+                                                    wire:model.defer="form.blocks.{{ $blockIndex }}.campaign_slugs"
+                                                    multiple
+                                                    size="6"
+                                                    data-admin-multiselect
+                                                    data-admin-multiselect-placeholder="Chọn campaign và thứ tự ưu tiên"
+                                                    data-admin-multiselect-search="true"
+                                                    class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white"
+                                                >
+                                                    @foreach ($voucherCampaignOptions as $campaignOption)
+                                                        <option value="{{ $campaignOption->slug }}">
+                                                            {{ $campaignOption->title }} — {{ data_get($campaignOption->meta, 'public_code', 'chưa có mã công khai') }}{{ $campaignOption->is_active ? '' : ' — đang tắt' }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                <p class="text-xs text-zinc-500 dark:text-zinc-400">Để trống để tự lấy tất cả campaign công khai hợp lệ. Nếu chọn, thứ tự đã chọn là thứ tự card trên frontsite.</p>
+                                            </div>
+                                        </div>
+
+                                        <label class="inline-flex items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+                                            <input type="checkbox" wire:model.defer="form.blocks.{{ $blockIndex }}.show_expiry" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
+                                            Hiển thị hạn dùng trên card khi campaign có cấu hình
+                                        </label>
+                                    </div>
+                                @endif
+
+                                @if ($blockType === \App\Support\LandingPageBlocks::TYPE_FLASH_SALE)
+                                    <div class="space-y-4">
+                                        <div class="rounded-2xl border border-rose-200 bg-rose-50/80 px-4 py-4 text-sm leading-7 text-rose-800 dark:border-rose-500/30 dark:bg-rose-500/10 dark:text-rose-200">
+                                            Dùng “Bật block” ở đầu thẻ để ẩn/hiện widget mà vẫn giữ cấu hình. Khi bật, block chỉ hiển thị nếu campaign đang bật, đã bắt đầu, chưa kết thúc và còn ít nhất một lịch khởi hành hợp lệ. Giá Flash Sale không ghi đè giá tour gốc.
+                                        </div>
+                                        <div class="space-y-2">
+                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Campaign Flash Sale</label>
+                                            <select wire:model.defer="form.blocks.{{ $blockIndex }}.campaign_id" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
+                                                <option value="">Chọn campaign</option>
+                                                @foreach ($tourFlashSaleOptions as $campaignOption)
+                                                    <option value="{{ $campaignOption->id }}">
+                                                        {{ $campaignOption->title }} — {{ $campaignOption->starts_at?->format('d/m/Y H:i') }} → {{ $campaignOption->ends_at?->format('d/m/Y H:i') }}{{ $campaignOption->is_active ? '' : ' — đang tắt' }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @error('form.blocks.'.$blockIndex.'.campaign_id') <p class="text-xs text-red-600">{{ $message }}</p> @enderror
+                                        </div>
+                                        <label class="inline-flex items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+                                            <input type="checkbox" wire:model.defer="form.blocks.{{ $blockIndex }}.is_slider" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
+                                            Hiển thị tour dạng slide một hàng
+                                        </label>
+                                        <div class="space-y-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-800">
+                                            <label class="inline-flex items-center gap-3 text-sm font-medium text-zinc-700 dark:text-zinc-200">
+                                                <input type="checkbox" wire:model.defer="form.blocks.{{ $blockIndex }}.show_view_more" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
+                                                Hiển thị nút Xem thêm
+                                            </label>
+                                            <p class="text-xs text-zinc-500 dark:text-zinc-400">Để trống nhãn hoặc URL bên dưới để dùng cấu hình của campaign Flash Sale.</p>
+                                            <div class="grid gap-4 md:grid-cols-2">
+                                                <div class="space-y-2">
+                                                    <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Nhãn nút Xem thêm</label>
+                                                    <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.view_more_label" placeholder="Lấy từ campaign" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                                    @error('form.blocks.'.$blockIndex.'.view_more_label') <p class="text-xs text-red-600">{{ $message }}</p> @enderror
+                                                </div>
+                                                <div class="space-y-2">
+                                                    <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">URL nút Xem thêm</label>
+                                                    <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.view_more_url" placeholder="Lấy từ campaign" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                                    @error('form.blocks.'.$blockIndex.'.view_more_url') <p class="text-xs text-red-600">{{ $message }}</p> @enderror
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 @endif
@@ -1552,120 +1725,110 @@
                                 @endif
 
                                 @if ($blockType === \App\Support\LandingPageBlocks::TYPE_GALLERY_MEDIA)
-                                    <div class="mt-5 space-y-5">
-                                        <div class="grid gap-4 md:grid-cols-2">
-                                            <div class="space-y-2">
-                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Kiểu gallery</label>
-                                                <select wire:model.defer="form.blocks.{{ $blockIndex }}.variant" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                    <div class="mt-4 space-y-3">
+                                        <div class="grid gap-3 rounded-2xl border border-zinc-200 bg-zinc-50/70 p-3 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-center dark:border-zinc-700 dark:bg-zinc-950/40">
+                                            <label class="flex items-center gap-3 text-sm font-medium text-zinc-700 dark:text-zinc-200">
+                                                <input type="checkbox" wire:model.defer="form.blocks.{{ $blockIndex }}.is_slider" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
+                                                Dùng slide trên desktop
+                                            </label>
+                                            <label class="flex items-center gap-3 text-sm text-zinc-700 dark:text-zinc-200">
+                                                <span class="shrink-0">Ảnh hiện cùng lúc</span>
+                                                <input type="number" min="1" max="4" step="0.1" inputmode="decimal" wire:model.defer="form.blocks.{{ $blockIndex }}.desktop_slides_per_view" class="w-24 rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                            </label>
+                                            <p class="text-xs text-zinc-500 dark:text-zinc-400 md:col-span-2">Mobile luôn trượt, hiện 1 ảnh và 0,2 ảnh kế tiếp. Hệ số desktop chỉ áp dụng khi bật slide; số lẻ như 2,2 sẽ gợi ý còn ảnh phía sau.</p>
+                                        </div>
+
+                                        <details class="rounded-2xl border border-zinc-200 bg-white px-3 py-2 dark:border-zinc-700 dark:bg-zinc-900">
+                                            <summary class="cursor-pointer text-sm font-medium text-zinc-700 dark:text-zinc-200">Tùy chọn gallery nâng cao</summary>
+                                            <div class="mt-3 space-y-2">
+                                                <label class="block text-sm text-zinc-700 dark:text-zinc-200">Kiểu gallery</label>
+                                                <select wire:model.defer="form.blocks.{{ $blockIndex }}.variant" class="w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
                                                     @foreach (($galleryVariants ?? []) as $variantKey => $variantLabel)
                                                         <option value="{{ $variantKey }}">{{ $variantLabel }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div class="rounded-2xl border border-dashed border-zinc-300 px-4 py-3 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">
-                                                `Gallery tab ảnh` sẽ nhóm item theo trường <span class="font-semibold">Nhãn tab</span> và render kiểu mosaic giống block landing khám phá điểm đến. Mỗi tab cần ít nhất 1 item để hiển thị.
-                                            </div>
-                                        </div>
+                                        </details>
 
-                                        @foreach ($block['items'] ?? [] as $itemIndex => $item)
-                                            @php
-                                                $galleryMedia = data_get($selectedBlockMedia, $blockUuid . '.gallery.' . ($item['uuid'] ?? ''));
-                                                $galleryPreview = $galleryMedia?->getUrl()
-                                                    ?: ($selectedPage?->getFirstMediaUrl(\App\Support\LandingPageBlocks::galleryItemCollection($blockUuid, (string) ($item['uuid'] ?? ''))) ?: null)
-                                                    ?: (filled($item['image_url'] ?? null) ? (string) $item['image_url'] : null);
-                                            @endphp
+                                        <div class="space-y-3">
+                                            @foreach ($block['items'] ?? [] as $itemIndex => $item)
+                                                @php
+                                                    $galleryMedia = data_get($selectedBlockMedia, $blockUuid . '.gallery.' . ($item['uuid'] ?? ''));
+                                                    $galleryPreview = $galleryMedia?->getUrl()
+                                                        ?: ($selectedPage?->getFirstMediaUrl(\App\Support\LandingPageBlocks::galleryItemCollection($blockUuid, (string) ($item['uuid'] ?? ''))) ?: null)
+                                                        ?: (filled($item['image_url'] ?? null) ? (string) $item['image_url'] : null);
+                                                @endphp
 
-                                            <div wire:key="landing-gallery-item-{{ $item['uuid'] ?? $itemIndex }}" class="rounded-3xl border border-zinc-200 bg-zinc-50/80 p-4 dark:border-zinc-800 dark:bg-zinc-950/40">
-                                                <div class="mb-4 flex items-center justify-between gap-3">
-                                                    <p class="text-sm font-semibold text-zinc-900 dark:text-white">Gallery item {{ $itemIndex + 1 }}</p>
-                                                    @if ($canEdit)
-                                                        <button type="button" wire:click="removeGalleryItem({{ $blockIndex }}, {{ $itemIndex }})" class="rounded-2xl border border-rose-200 px-3 py-2 text-sm font-medium text-rose-600 dark:border-rose-500/30 dark:text-rose-300">Xóa item</button>
-                                                    @endif
-                                                </div>
-
-                                                <div class="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
-                                                    <div class="overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-950">
-                                                        @if ($galleryPreview)
-                                                            <img src="{{ $galleryPreview }}" alt="{{ $item['image_alt'] ?? $item['title'] ?? 'Gallery item' }}" class="h-52 w-full object-cover">
-                                                        @else
-                                                            <div class="flex h-52 items-center justify-center text-sm text-zinc-500 dark:text-zinc-400">Chưa chọn media.</div>
+                                                <div wire:key="landing-gallery-item-{{ $item['uuid'] ?? $itemIndex }}" class="rounded-2xl border border-zinc-200 bg-zinc-50/80 p-3 dark:border-zinc-700 dark:bg-zinc-950/40">
+                                                    <div class="mb-3 flex items-center justify-between gap-3">
+                                                        <p class="truncate text-sm font-semibold text-zinc-900 dark:text-white">Ảnh {{ $itemIndex + 1 }}{{ filled($item['title'] ?? null) ? ' · '.$item['title'] : '' }}</p>
+                                                        @if ($canEdit)
+                                                            <button type="button" wire:click="removeGalleryItem({{ $blockIndex }}, {{ $itemIndex }})" class="shrink-0 rounded-xl px-2 py-1 text-xs font-medium text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-500/10">Xóa ảnh</button>
                                                         @endif
                                                     </div>
-
-                                                    <div class="space-y-4">
-                                                        <div class="grid gap-4 md:grid-cols-2">
-                                                            <div class="space-y-2">
-                                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Nhãn tab</label>
-                                                                <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.tab_label" placeholder="Ví dụ: Miền Bắc, Châu Á..." class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
-                                                            </div>
-                                                            <div class="space-y-2">
-                                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Tiêu đề</label>
-                                                                <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.title" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
-                                                            </div>
-                                                            <div class="space-y-2">
-                                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Subtitle</label>
-                                                                <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.subtitle" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
-                                                            </div>
-                                                            <div class="space-y-2">
-                                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Kiểu tile</label>
-                                                                <select wire:model.defer="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.tile_size" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
-                                                                    @foreach (($galleryTileSizes ?? []) as $tileKey => $tileLabel)
-                                                                        <option value="{{ $tileKey }}">{{ $tileLabel }}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                            <div class="space-y-2 md:col-span-2">
-                                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Link</label>
-                                                                <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.url" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
-                                                            </div>
-                                                            <div class="space-y-2 md:col-span-2">
-                                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Alt text</label>
-                                                                <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.image_alt" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
-                                                            </div>
-                                                            <div class="space-y-2 md:col-span-2">
-                                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Mô tả</label>
-                                                                <x-admin.quill-editor wire:key="landing-gallery-description-{{ $item['uuid'] ?? $itemIndex }}" model="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.description" :value="$item['description'] ?? ''" rows="3" placeholder="Mô tả ngắn cho item gallery." />
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="flex flex-wrap gap-3">
-                                                            <button
-                                                                type="button"
-                                                                data-admin-media-picker-trigger
-                                                                data-livewire-id="{{ $this->getId() }}"
-                                                                data-pick-method="selectLibraryMediaForUpload"
-                                                                data-pick-target="blockUploads.{{ $blockUuid }}.gallery.{{ $item['uuid'] }}"
-                                                                data-pick-alt-target="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.image_alt"
-                                                                data-button-label="Chọn ảnh cho gallery item"
-                                                                class="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200"
-                                                            >
-                                                                <i class="fa-regular fa-images"></i>
-                                                                Chọn từ Media popup
-                                                            </button>
-
-                                                            @if ($galleryMedia)
-                                                                <button type="button" wire:click="clearLibraryMediaSelectionForUpload('blockUploads.{{ $blockUuid }}.gallery.{{ $item['uuid'] }}')" class="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 px-4 py-3 text-sm font-medium text-zinc-600 dark:border-zinc-700 dark:text-zinc-300">
-                                                                    <i class="fa-solid fa-rotate-left"></i>
-                                                                    Bỏ chọn
-                                                                </button>
+                                                    <div class="grid gap-3 sm:grid-cols-[7rem_minmax(0,1fr)]">
+                                                        <div class="overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900">
+                                                            @if ($galleryPreview)
+                                                                <img src="{{ $galleryPreview }}" alt="{{ $item['image_alt'] ?? $item['title'] ?? 'Ảnh gallery' }}" class="h-24 w-full object-cover">
+                                                            @else
+                                                                <div class="flex h-24 items-center justify-center px-2 text-center text-xs text-zinc-500 dark:text-zinc-400">Chưa chọn ảnh</div>
                                                             @endif
+                                                        </div>
+                                                        <div class="min-w-0 space-y-3">
+                                                            <div class="flex flex-wrap gap-2">
+                                                                <button type="button" data-admin-media-picker-trigger data-livewire-id="{{ $this->getId() }}" data-pick-method="selectLibraryMediaForUpload" data-pick-target="blockUploads.{{ $blockUuid }}.gallery.{{ $item['uuid'] }}" data-pick-alt-target="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.image_alt" data-button-label="Chọn ảnh gallery {{ $itemIndex + 1 }}" class="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-3 py-2 text-xs font-semibold text-zinc-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200">
+                                                                    <i class="fa-regular fa-images"></i> Chọn từ thư viện
+                                                                </button>
+                                                                @if ($galleryMedia)
+                                                                    <button type="button" wire:click="clearLibraryMediaSelectionForUpload('blockUploads.{{ $blockUuid }}.gallery.{{ $item['uuid'] }}')" class="rounded-xl border border-zinc-200 px-3 py-2 text-xs font-medium text-zinc-600 dark:border-zinc-700 dark:text-zinc-300">Bỏ chọn ảnh mới</button>
+                                                                @endif
+                                                            </div>
+                                                            <div class="grid gap-2 md:grid-cols-2">
+                                                                <label class="space-y-1 text-xs text-zinc-600 dark:text-zinc-300">Tiêu đề
+                                                                    <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.title" class="w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                                                </label>
+                                                                <label class="space-y-1 text-xs text-zinc-600 dark:text-zinc-300">Alt ảnh
+                                                                    <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.image_alt" class="w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                                                </label>
+                                                                <label class="space-y-1 text-xs text-zinc-600 dark:text-zinc-300 md:col-span-2">Liên kết khi bấm ảnh
+                                                                    <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.url" class="w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                                                </label>
+                                                            </div>
+                                                            <details class="rounded-xl border border-zinc-200 bg-white px-3 py-2 dark:border-zinc-700 dark:bg-zinc-900">
+                                                                <summary class="cursor-pointer text-xs font-medium text-zinc-600 dark:text-zinc-300">Nội dung ảnh nâng cao</summary>
+                                                                <div class="mt-3 grid gap-3 md:grid-cols-2">
+                                                                    <label class="space-y-1 text-xs text-zinc-600 dark:text-zinc-300">Nhãn tab
+                                                                        <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.tab_label" class="w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                                                    </label>
+                                                                    <label class="space-y-1 text-xs text-zinc-600 dark:text-zinc-300">Subtitle
+                                                                        <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.subtitle" class="w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                                                    </label>
+                                                                    <label class="space-y-1 text-xs text-zinc-600 dark:text-zinc-300">Kiểu tile
+                                                                        <select wire:model.defer="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.tile_size" class="w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                                                            @foreach (($galleryTileSizes ?? []) as $tileKey => $tileLabel)
+                                                                                <option value="{{ $tileKey }}">{{ $tileLabel }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </label>
+                                                                    <div class="md:col-span-2">
+                                                                        <p class="mb-1 text-xs text-zinc-600 dark:text-zinc-300">Mô tả</p>
+                                                                        <x-admin.quill-editor wire:key="landing-gallery-description-{{ $item['uuid'] ?? $itemIndex }}" model="form.blocks.{{ $blockIndex }}.items.{{ $itemIndex }}.description" :value="$item['description'] ?? ''" rows="3" placeholder="Mô tả ngắn cho item gallery." />
+                                                                    </div>
+                                                                </div>
+                                                            </details>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        @endforeach
+                                            @endforeach
+                                        </div>
 
                                         @if ($canEdit)
-                                            <div class="flex flex-wrap justify-end">
-                                                <button type="button" wire:click="addGalleryItem({{ $blockIndex }})" class="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 px-4 py-3 text-sm font-semibold text-zinc-700 dark:border-zinc-700 dark:text-zinc-200">
-                                                    <i class="fa-solid fa-plus"></i>
-                                                    Thêm item gallery
-                                                </button>
-                                            </div>
+                                            <button type="button" wire:click="addGalleryItem({{ $blockIndex }})" class="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200">
+                                                <i class="fa-solid fa-plus"></i> Thêm ảnh
+                                            </button>
                                         @endif
                                     </div>
                                 @endif
-
                                 @if ($blockType === \App\Support\LandingPageBlocks::TYPE_FAQ)
                                     <div class="space-y-4">
                                         <div class="grid gap-4 md:grid-cols-2">
@@ -1814,7 +1977,7 @@
                                 @if ($blockType === \App\Support\LandingPageBlocks::TYPE_TOPIC_RAIL)
                                     <div class="space-y-5">
                                         <div class="rounded-3xl border border-dashed border-zinc-300 bg-zinc-50/70 px-4 py-4 text-sm leading-7 text-zinc-500 dark:border-zinc-700 dark:bg-zinc-950/40 dark:text-zinc-400">
-                                            Block này dùng đúng pattern <span class="font-semibold">Chủ đề tour</span> ở homepage: card icon gọn, chỉ còn ảnh và tiêu đề. Dữ liệu mặc định lấy các chủ đề featured hiện đang dùng ở homepage; field nào để trống thì frontsite sẽ ẩn field đó thay vì tự bơm fallback.
+                                            Block này dùng đúng pattern <span class="font-semibold">Chủ đề tour</span> ở homepage: card icon gọn với ảnh và tên chủ đề tùy chọn. Dữ liệu mặc định lấy các chủ đề featured hiện đang dùng ở homepage; field nào để trống thì frontsite sẽ ẩn field đó thay vì tự bơm fallback.
                                         </div>
 
                                         <div class="grid gap-4 md:grid-cols-2">
@@ -1839,11 +2002,24 @@
                                                 <input type="checkbox" wire:model.defer="form.blocks.{{ $blockIndex }}.show_navigation" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
                                                 Hiển thị navigator prev / next
                                             </label>
+                                            <label class="inline-flex items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+                                                <input type="checkbox" wire:model.defer="form.blocks.{{ $blockIndex }}.show_card_titles" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
+                                                Hiển thị tên chủ đề dưới ảnh
+                                            </label>
+                                            <p class="text-xs leading-6 text-zinc-500 dark:text-zinc-400 md:col-span-2">Khi tắt, tên chủ đề sẽ hiện từ dưới lên trên ảnh khi rê chuột hoặc chọn card bằng bàn phím.</p>
                                         </div>
                                     </div>
                                 @endif
 
                                 @if ($blockType === \App\Support\LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS)
+                                    <div class="mb-5 space-y-2">
+                                        <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Kiểu hiển thị tour</label>
+                                        <select wire:model.live="form.blocks.{{ $blockIndex }}.display_mode" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                            <option value="tabs">Có tab lọc</option>
+                                            <option value="list">Danh sách thường</option>
+                                        </select>
+                                    </div>
+                                    @if (($block['display_mode'] ?? 'tabs') === 'tabs')
                                     <div class="space-y-5">
                                         <div class="rounded-3xl border border-dashed border-zinc-300 bg-zinc-50/70 px-4 py-4 text-sm leading-7 text-zinc-500 dark:border-zinc-700 dark:bg-zinc-950/40 dark:text-zinc-400">
                                             Block này dùng cùng visual family với cụm tab tour nổi bật ở homepage, nhưng mỗi tab có thể trỏ đến một <span class="font-semibold">Vùng miền</span>, <span class="font-semibold">Điểm đến</span> hoặc <span class="font-semibold">Chủ đề tour</span> để kéo danh sách tour live theo taxonomy tương ứng.
@@ -1856,7 +2032,19 @@
                                             </div>
                                             <div class="space-y-2">
                                                 <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Label CTA đầu block</label>
-                                                <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.cta_label" placeholder="Xem danh sách tour" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
+                                                <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.cta_label" placeholder="Xem thêm" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
+                                            </div>
+                                            <div class="space-y-2">
+                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">URL CTA tab Tất cả</label>
+                                                <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.cta_url" placeholder="/tour-doan" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
+                                            </div>
+                                            <div class="space-y-2">
+                                                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Màu nền nút Xem trên card</label>
+                                                <select wire:model.defer="form.blocks.{{ $blockIndex }}.card_cta_variant" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                                    @foreach ($tourCardCtaVariants as $variantValue => $variantLabel)
+                                                        <option value="{{ $variantValue }}">{{ $variantLabel }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                             <div class="space-y-2 md:col-span-2">
                                                 <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Mô tả block</label>
@@ -1866,6 +2054,7 @@
                                                 <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Scope</label>
                                                 <select wire:model.defer="form.blocks.{{ $blockIndex }}.scope" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
                                                     <option value="">Tất cả</option>
+                                                    <option value="non_group">Không phải tour đoàn</option>
                                                     @foreach ($scopeOptions as $scopeValue => $scopeLabel)
                                                         <option value="{{ $scopeValue }}">{{ $scopeLabel }}</option>
                                                     @endforeach
@@ -1887,6 +2076,18 @@
                                             <label class="inline-flex items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
                                                 <input type="checkbox" wire:model.defer="form.blocks.{{ $blockIndex }}.featured" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
                                                 Chỉ lấy tour featured
+                                            </label>
+                                            <label class="inline-flex items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+                                                <input type="checkbox" wire:model.defer="form.blocks.{{ $blockIndex }}.is_slider" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
+                                                Hiển thị tour dạng slide một hàng
+                                            </label>
+                                            <label class="inline-flex items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+                                                <input type="checkbox" wire:model.defer="form.blocks.{{ $blockIndex }}.show_all_tab" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
+                                                Thêm tab Tất cả
+                                            </label>
+                                            <label class="inline-flex items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200 md:col-span-2">
+                                                <input type="checkbox" wire:model.defer="form.blocks.{{ $blockIndex }}.show_filters" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
+                                                Hiển thị filter tour (tắt sẽ lấy tất cả tour theo phạm vi block)
                                             </label>
                                         </div>
 
@@ -1973,10 +2174,40 @@
                                                 </div>
                                             @endif
                                         </div>
+
+                                        <div class="space-y-4 rounded-3xl border border-zinc-200 p-4 dark:border-zinc-800">
+                                            <div class="flex flex-wrap items-center justify-between gap-3">
+                                                <div>
+                                                    <p class="text-sm font-semibold text-zinc-900 dark:text-white">Tìm kiếm nổi bật</p>
+                                                    <p class="text-xs text-zinc-500 dark:text-zinc-400">Tab Vùng miền tự lấy điểm đến con có tour phù hợp. Liên kết nhập tay dùng đúng URL đã nhập; tab Tất cả hiển thị tất cả.</p>
+                                                </div>
+                                                @if ($canEdit)
+                                                    <button type="button" wire:click="addTourTaxonomyPopularSearch({{ $blockIndex }})" class="rounded-2xl border border-zinc-200 px-4 py-2 text-sm font-semibold text-zinc-700 dark:border-zinc-700 dark:text-zinc-200">
+                                                        Thêm liên kết
+                                                    </button>
+                                                @endif
+                                            </div>
+                                            @foreach (($block['popular_searches'] ?? []) as $popularIndex => $popularSearch)
+                                                <div wire:key="landing-tour-popular-{{ $blockUuid }}-{{ $popularSearch['uuid'] ?? $popularIndex }}" class="grid gap-3 rounded-2xl bg-zinc-50 p-3 md:grid-cols-[1fr_2fr_1fr_auto] dark:bg-zinc-900">
+                                                    <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.popular_searches.{{ $popularIndex }}.label" placeholder="Nhãn, ví dụ Cà Mau" class="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-950 dark:text-white">
+                                                    <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.popular_searches.{{ $popularIndex }}.url" placeholder="/tim-tour?scope=group&destination=..." class="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-950 dark:text-white">
+                                                    <select wire:model.defer="form.blocks.{{ $blockIndex }}.popular_searches.{{ $popularIndex }}.filter_uuid" class="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-950 dark:text-white">
+                                                        <option value="">Chỉ tab Tất cả</option>
+                                                        @foreach (($block['tabs'] ?? []) as $tab)
+                                                            <option value="{{ $tab['uuid'] ?? '' }}">{{ ($tab['label'] ?? '') ?: ($tab['source_slug'] ?? 'Tab taxonomy') }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @if ($canEdit)
+                                                        <button type="button" wire:click="removeTourTaxonomyPopularSearch({{ $blockIndex }}, {{ $popularIndex }})" class="rounded-xl px-3 py-2 text-sm font-semibold text-rose-600 dark:text-rose-300">Xóa</button>
+                                                    @endif
+                                                </div>
+                                            @endforeach
+                                        </div>
                                     </div>
+                                    @endif
                                 @endif
 
-                                @if ($blockType === \App\Support\LandingPageBlocks::TYPE_TOUR_LIST)
+                                @if ($blockType === \App\Support\LandingPageBlocks::TYPE_TOUR_LIST || ($blockType === \App\Support\LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS && ($block['display_mode'] ?? 'tabs') === 'list'))
                                     <div class="grid gap-4 md:grid-cols-2">
                                         <div class="space-y-2">
                                             <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Eyebrow</label>
@@ -1989,6 +2220,26 @@
                                         <div class="space-y-2 md:col-span-2">
                                             <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Mô tả</label>
                                             <x-admin.quill-editor wire:key="landing-tour-list-description-{{ $blockUuid }}" model="form.blocks.{{ $blockIndex }}.description" :value="$block['description'] ?? ''" rows="3" placeholder="Giới thiệu logic query cho block danh sách tour." />
+                                        </div>
+                                        <div class="space-y-2">
+                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Icon tiêu đề</label>
+                                            <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.icon" placeholder="fa-solid fa-route" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
+                                        </div>
+                                        <div class="space-y-2">
+                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Nhãn liên kết</label>
+                                            <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.cta_label" placeholder="Xem thêm" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
+                                        </div>
+                                        <div class="space-y-2">
+                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Màu nền nút Xem trên card</label>
+                                            <select wire:model.defer="form.blocks.{{ $blockIndex }}.card_cta_variant" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
+                                                @foreach ($tourCardCtaVariants as $variantValue => $variantLabel)
+                                                    <option value="{{ $variantValue }}">{{ $variantLabel }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="space-y-2 md:col-span-2">
+                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">URL xem thêm</label>
+                                            <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.cta_url" placeholder="/tour" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
                                         </div>
                                         <div class="space-y-2">
                                             <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Danh mục tour</label>
@@ -2021,6 +2272,7 @@
                                             <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Scope</label>
                                             <select wire:model.defer="form.blocks.{{ $blockIndex }}.scope" class="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
                                                 <option value="">Tất cả</option>
+                                                <option value="non_group">Không phải tour đoàn</option>
                                                 @foreach ($scopeOptions as $scopeValue => $scopeLabel)
                                                     <option value="{{ $scopeValue }}">{{ $scopeLabel }}</option>
                                                 @endforeach
@@ -2043,6 +2295,10 @@
                                             <input type="checkbox" wire:model.defer="form.blocks.{{ $blockIndex }}.featured" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
                                             Chỉ lấy tour featured
                                         </label>
+                                        <label class="inline-flex items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+                                            <input type="checkbox" wire:model.defer="form.blocks.{{ $blockIndex }}.is_slider" class="rounded border-zinc-300 text-teal-600 focus:ring-teal-500">
+                                            Hiển thị tour dạng slide một hàng
+                                        </label>
                                     </div>
                                 @endif
 
@@ -2059,6 +2315,18 @@
                                         <div class="space-y-2 md:col-span-2">
                                             <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Mô tả</label>
                                             <x-admin.quill-editor wire:key="landing-blog-list-description-{{ $blockUuid }}" model="form.blocks.{{ $blockIndex }}.description" :value="$block['description'] ?? ''" rows="3" placeholder="Giới thiệu logic query cho block blog." />
+                                        </div>
+                                        <div class="space-y-2">
+                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Icon tiêu đề</label>
+                                            <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.icon" placeholder="fa-regular fa-newspaper" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
+                                        </div>
+                                        <div class="space-y-2">
+                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Nhãn liên kết</label>
+                                            <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.cta_label" placeholder="Xem thêm" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
+                                        </div>
+                                        <div class="space-y-2 md:col-span-2">
+                                            <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">URL xem thêm</label>
+                                            <input type="text" wire:model.defer="form.blocks.{{ $blockIndex }}.cta_url" placeholder="/blog" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
                                         </div>
                                         <div class="space-y-2">
                                             <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Danh mục blog</label>
@@ -2088,7 +2356,11 @@
                                         </label>
                                     </div>
                                 @endif
+                                </div>
                             </article>
+                            @endif
+                            @endif
+                            @endif
                         @empty
                             <div class="rounded-3xl border border-dashed border-zinc-300 px-6 py-12 text-center text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">
                                 Chưa có block nào. Hãy chọn preset hoặc thêm block mới ở cuối section này.

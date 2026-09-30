@@ -7,6 +7,9 @@ export function initTabbedTourLists() {
             summaryTitleSelector: '[data-home-featured-summary-title]',
             panelDataKey: 'homeFeaturedPanel',
             panelSelector: '[data-home-featured-panel]',
+            popularSearchFilterDataKey: 'homeFeaturedPopularSearchFilter',
+            popularSearchItemSelector: '[data-home-featured-popular-search-filter]',
+            popularSearchesSelector: '[data-home-featured-popular-searches]',
             readyKey: 'homeFeaturedTabsReady',
             rootSelector: '[data-home-featured-tabs]',
             tabSelector: '[data-home-featured-tab]',
@@ -21,6 +24,9 @@ export function initTabbedTourLists() {
             summaryTitleSelector: '[data-tour-list-summary-title]',
             panelDataKey: 'tourListPanel',
             panelSelector: '[data-tour-list-panel]',
+            popularSearchFilterDataKey: 'tourListPopularSearchFilter',
+            popularSearchItemSelector: '[data-tour-list-popular-search-filter]',
+            popularSearchesSelector: '[data-tour-list-popular-searches]',
             readyKey: 'tourListTabsReady',
             rootSelector: '[data-tour-list-tabs]',
             tabSelector: '[data-tour-list-tab]',
@@ -82,6 +88,12 @@ export function initTabbedTourLists() {
             const summaryTitle = root.querySelector(config.summaryTitleSelector);
             const summaryDescription = root.querySelector(config.summaryDescriptionSelector);
             const summaryLink = root.querySelector(config.summaryLinkSelector);
+            const popularSearches = config.popularSearchesSelector
+                ? root.querySelector(config.popularSearchesSelector)
+                : null;
+            const popularSearchItems = config.popularSearchItemSelector
+                ? Array.from(root.querySelectorAll(config.popularSearchItemSelector))
+                : [];
 
             if (!buttons.length || !panels.length) {
                 return;
@@ -109,6 +121,24 @@ export function initTabbedTourLists() {
                 panels.forEach((panel) => {
                     panel.hidden = panel.dataset[config.panelDataKey] !== targetTab;
                 });
+
+                if (popularSearches) {
+                    let visiblePopularSearches = 0;
+
+                    popularSearchItems.forEach((item) => {
+                        const filterUuid = item.dataset[config.popularSearchFilterDataKey] ?? '';
+                        const isVisible = targetTab === 'all' || filterUuid === targetTab;
+
+                        item.hidden = !isVisible;
+                        item.classList.toggle('hidden', !isVisible);
+                        item.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
+                        visiblePopularSearches += isVisible ? 1 : 0;
+                    });
+
+                    popularSearches.hidden = visiblePopularSearches === 0;
+                    popularSearches.classList.toggle('hidden', visiblePopularSearches === 0);
+                    popularSearches.dispatchEvent(new CustomEvent('frontsite:chip-rail-changed'));
+                }
 
                 if (!activeButton) {
                     return;

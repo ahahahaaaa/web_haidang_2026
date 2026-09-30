@@ -1,6 +1,8 @@
+@layer frontsite-vendor, theme, base, components, utilities;
 @import './app.css';
 @import 'animate.css';
 @import '@fortawesome/fontawesome-free/css/all.min.css';
+@import './frontsite-tour-offer.css';
 
 
 

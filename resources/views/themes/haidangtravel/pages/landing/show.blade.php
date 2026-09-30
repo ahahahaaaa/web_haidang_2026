@@ -1,11 +1,14 @@
 @extends('themes.haidangtravel.layouts.app')
 
 @section('content')
+    @php
+        $landingHeadingTag = ($landingHasHtmlHeading ?? false) ? 'h2' : 'h1';
+    @endphp
     @if (($landingEditorMode ?? \Src\Domains\Cms\Models\LandingPage::EDITOR_MODE_BLOCKS) === \Src\Domains\Cms\Models\LandingPage::EDITOR_MODE_HTML)
         <section class="px-4 pt-8 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-7xl">
                 <div class="theme-panel p-6 sm:p-8">
-                    <h1 class="text-3xl font-semibold text-slate-900 sm:text-4xl">{{ $landing->title }}</h1>
+                    <{{ $landingHeadingTag }} class="text-3xl font-semibold text-slate-900 sm:text-4xl">{{ $landing->title }}</{{ $landingHeadingTag }}>
                 </div>
             </div>
         </section>
@@ -48,6 +51,7 @@
                 'fallbackSecondaryUrl' => $landing->cta_secondary_url,
                 'fallbackTitle' => $landing->hero_title ?: $landing->title,
                 'hero' => $landingHero ?? [],
+                'headingTag' => $landingHeadingTag,
                 'landing' => $landing,
             ])
         @endif
@@ -69,6 +73,7 @@
 
         @include('themes.haidangtravel.partials.landing-content-blocks', [
             'blocks' => $landingContentBlocks,
+            'headingTag' => $landingHeadingTag,
             'landing' => $landing,
             'voucherCampaign' => $voucherCampaign ?? null,
             'voucherCampaignSlug' => $voucherCampaignSlug ?? null,

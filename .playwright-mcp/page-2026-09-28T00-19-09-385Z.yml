@@ -1,0 +1,38 @@
+- generic [ref=f2e3]:
+  - link "Du Lịch Hải Đăng Travel Du Lịch Hải Đăng Travel Thắp Sáng Niềm Tin" [ref=f2e4] [cursor=pointer]:
+    - /url: http://127.0.0.1:8001
+    - img "Du Lịch Hải Đăng Travel" [ref=f2e5]
+    - generic [ref=f2e6]:
+      - generic [ref=f2e7]: Du Lịch Hải Đăng Travel
+      - generic [ref=f2e8]: Thắp Sáng Niềm Tin
+  - generic [ref=f2e10]:
+    - generic [ref=f2e11]:
+      - generic [ref=f2e12]:
+        - generic [aria-hidden] [ref=f2e13]: Email quản trị
+        - textbox "Email quản trị" [active] [ref=f2e15]:
+          - /placeholder: admin@haidangtravel.com
+      - generic [ref=f2e16]:
+        - generic [ref=f2e17]:
+          - generic [aria-hidden] [ref=f2e18]: Mật khẩu
+          - generic [ref=f2e19]:
+            - textbox "Mật khẩu" [ref=f2e20]:
+              - /placeholder: Nhập mật khẩu
+            - button "Toggle password visibility" [ref=f2e22]
+        - link "Quên mật khẩu?" [ref=f2e26] [cursor=pointer]:
+          - /url: http://127.0.0.1:8001/forgot-password
+      - generic [ref=f2e27]:
+        - checkbox "Ghi nhớ đăng nhập" [ref=f2e28]
+        - generic [aria-hidden] [ref=f2e30]: Ghi nhớ đăng nhập
+      - button "Đăng nhập" [ref=f2e32]
+    - generic [ref=f2e38]:
+      - paragraph [ref=f2e39]: Thông tin công ty
+      - generic [ref=f2e40]:
+        - generic [ref=f2e41]:
+          - term [ref=f2e42]: "Hotline:"
+          - definition [ref=f2e43]: "0911222288"
+        - generic [ref=f2e44]:
+          - term [ref=f2e45]: "Email:"
+          - definition [ref=f2e46]: info@haidangtravel.com
+        - generic [ref=f2e47]:
+          - term [ref=f2e48]: "Địa chỉ:"
+          - definition [ref=f2e49]: Tòa nhà Building Haidang 367 Tân Sơn, Phường Tân Sơn, thành phố Hồ Chí Minh

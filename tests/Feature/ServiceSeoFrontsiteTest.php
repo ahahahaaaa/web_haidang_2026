@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Src\Domains\Cms\Models\ContentCategory;
+use Src\Domains\Cms\Models\LandingPage;
 use Src\Domains\Cms\Models\Service;
 use Src\Domains\Cms\Models\SiteSetting;
 use Tests\TestCase;
@@ -28,6 +29,29 @@ class ServiceSeoFrontsiteTest extends TestCase
         $this->get(route('sitemap'))
             ->assertOk()
             ->assertSee(route('service-categories.show', ['category' => $category->slug]), false);
+    }
+
+    public function test_service_pages_hide_legacy_landing_placeholder_and_use_soft_orange_default_hero(): void
+    {
+        [$category] = $this->serviceFixture();
+        LandingPage::query()->create([
+            'page_key' => 'services',
+            'title' => 'Dịch vụ du lịch',
+            'slug' => 'dich-vu',
+            'is_active' => true,
+            'hero_title' => 'Dịch vụ cho mọi hành trình',
+            'body' => '<p>Trang dịch vụ travel thay thế hoàn toàn nhánh dịch vụ xây dựng cũ.</p>',
+        ]);
+
+        $this->get(route('service-categories.show', ['category' => $category->slug]))
+            ->assertOk()
+            ->assertSeeText('Nội dung danh mục visa du lịch')
+            ->assertDontSeeText('Trang dịch vụ travel thay thế hoàn toàn nhánh dịch vụ xây dựng cũ.')
+            ->assertSee('linear-gradient(135deg,_#fffaf5_0%,_#ffe8d5_52%,_#fff4e8_100%)', false);
+
+        $this->get(route('services.index'))
+            ->assertOk()
+            ->assertDontSeeText('Trang dịch vụ travel thay thế hoàn toàn nhánh dịch vụ xây dựng cũ.');
     }
 
     public function test_service_detail_outputs_service_and_faq_schema_with_visible_category_links(): void

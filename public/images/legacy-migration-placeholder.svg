@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-labelledby="title desc">
+  <title id="title">Ảnh đang chờ kiểm tra</title>
+  <desc id="desc">Không tải được ảnh nguồn trong lần chuyển dữ liệu website cũ.</desc>
+  <rect width="800" height="450" fill="#f1f5f9"/>
+  <rect x="325" y="105" width="150" height="115" rx="12" fill="none" stroke="#94a3b8" stroke-width="6"/>
+  <circle cx="367" cy="142" r="12" fill="#94a3b8"/>
+  <path d="m335 208 45-45 30 30 25-25 30 40" fill="none" stroke="#94a3b8" stroke-width="6"/>
+  <text x="400" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#475569">Ảnh đang chờ kiểm tra</text>
+  <text x="400" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#64748b">Nội dung bài viết đã được chuyển dữ liệu</text>
+</svg>

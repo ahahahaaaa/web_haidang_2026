@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CustomerLoyaltyLookupRequest;
 use App\Http\Requests\RedeemCustomerGiftRequest;
+use App\Services\Cms\SiteSettingsManager;
 use App\Services\Travel\CustomerLoyaltyApi;
 use App\Services\Travel\CustomerLoyaltyApiException;
+use App\Support\FrontsiteMedia;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -15,7 +17,7 @@ use Src\Domains\Cms\Models\Tour;
 
 class CustomerLoyaltyController extends Controller
 {
-    public function index(CustomerLoyaltyLookupRequest $request, CustomerLoyaltyApi $loyaltyApi): View
+    public function index(CustomerLoyaltyLookupRequest $request, CustomerLoyaltyApi $loyaltyApi, SiteSettingsManager $site): View
     {
         $lookup = null;
         $lookupError = null;
@@ -62,6 +64,7 @@ class CustomerLoyaltyController extends Controller
             'phone' => $request->phone(),
             'showHistorySections' => $showHistorySections,
             'giftCatalog' => $giftCatalog,
+            'heroImageUrl' => FrontsiteMedia::modelUrl($site->current(), 'customer_loyalty_hero', FrontsiteMedia::SIZE_FULL, null),
             'featuredTours' => $this->featuredTours(),
             'seo' => [
                 'title' => 'Kiểm tra điểm và đổi quà | Hải Đăng Travel',

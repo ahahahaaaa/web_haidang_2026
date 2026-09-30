@@ -45,6 +45,20 @@ function renderCountdown(root, targetTime) {
         return;
     }
 
+    if (root.dataset.voucherCountdownTotalHours === 'true') {
+        const hours = Math.floor(remaining / (60 * 60 * 1000));
+        const afterHours = remaining - (hours * 60 * 60 * 1000);
+        const minutes = Math.floor(afterHours / (60 * 1000));
+        const seconds = Math.floor((afterHours - (minutes * 60 * 1000)) / 1000);
+
+        setUnit(root, 'days', 0);
+        setUnit(root, 'hours', hours);
+        setUnit(root, 'minutes', minutes);
+        setUnit(root, 'seconds', seconds);
+
+        return;
+    }
+
     let cursor = remaining;
 
     UNITS.forEach(([unit, duration]) => {

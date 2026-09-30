@@ -14,6 +14,8 @@
     $panelTitle = trim((string) data_get($block, 'panel_title')) ?: 'Bắt đầu từ nhóm tour phù hợp nhất';
     $sectionId = trim((string) ($sectionId ?? data_get($block, 'section_id', 'landing-hero-demo')));
     $sectionId = $sectionId !== '' ? $sectionId : 'landing-hero-demo';
+    $heroHeadingTag = ($headingTag ?? 'h1') === 'h2' ? 'h2' : 'h1';
+    $visuallyHidePrimaryHeading = (bool) ($visuallyHideHeading ?? false) && $heroHeadingTag === 'h1';
 
     $normalizeUrl = static function (?string $url, string $fallback): string {
         $url = trim((string) $url);
@@ -72,7 +74,11 @@
     }
 @endphp
 
-<section class="relative overflow-hidden bg-secondary" id="{{ $sectionId }}">
+<section class="relative overflow-hidden bg-secondary" id="{{ $sectionId }}" data-sitewide-tour-search-host>
+    @if ($visuallyHidePrimaryHeading)
+        <h1 class="sr-only">{{ $heroTitle }}</h1>
+    @endif
+
     @if ($heroCover !== '')
         <picture class="absolute inset-0 block h-full w-full">
             @if ($heroCoverMedium !== '')
@@ -96,12 +102,14 @@
 
     <div class="absolute inset-0 bg-[linear-gradient(to_bottom,_rgba(15,23,42,0.05),_rgba(15,23,42,0.55))]"></div>
 
-    <div class="relative mx-auto grid min-h-[calc(100svh-5rem)] max-w-7xl gap-10 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1.15fr)_24rem] lg:items-center lg:px-8 lg:py-10">
+    <div class="relative mx-auto grid min-h-[calc(100svh-5rem)] max-w-7xl gap-10 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1.15fr)_24rem] lg:items-center lg:px-8 lg:pb-[16rem] lg:pt-10">
         <div class="max-w-4xl space-y-8">
             <div class="space-y-5">
-                <h1 class="frontsite-text-reveal max-w-4xl font-heading text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl" data-reveal="title">
-                    {{ $heroTitle }}
-                </h1>
+                @unless ($visuallyHidePrimaryHeading)
+                    <{{ $heroHeadingTag }} class="frontsite-text-reveal max-w-4xl font-heading text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl" data-reveal="title">
+                        {{ $heroTitle }}
+                    </{{ $heroHeadingTag }}>
+                @endunless
                 <p class="frontsite-text-reveal max-w-3xl text-base leading-8 text-white/85 sm:text-lg lg:text-xl" data-reveal="body">
                     {{ $heroDescription }}
                 </p>
@@ -196,4 +204,5 @@
             @endif
         </aside>
     </div>
+    @include('themes.haidangtravel.partials.hero-tour-search-overlay')
 </section>

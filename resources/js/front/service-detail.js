@@ -13,6 +13,7 @@ const revealPresets = Object.freeze({
 const revealEffectClasses = [...new Set(Object.values(revealPresets).map((preset) => preset.effect))];
 const revealedElements = new WeakSet();
 const tourDetailExpandableControllers = new WeakMap();
+const tourStickyNavigationControllers = new WeakMap();
 const socialShareBlocks = new WeakSet();
 const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)') ?? { matches: false };
 const heroFocusableSelector = [
@@ -433,6 +434,157 @@ function initTourItineraryDetails() {
         details.addEventListener('toggle', syncIcon);
     });
 }
+
+function initTourStickyNavigation() {
+    document.querySelectorAll('[data-tour-content-shell]').forEach((shell) => {
+        if (tourStickyNavigationControllers.has(shell)) {
+            return;
+        }
+
+        const header = document.querySelector('body > header');
+        const sectionNav = shell.querySelector('[data-tour-section-nav]');
+        const sectionNavRail = sectionNav?.querySelector('nav');
+        const sectionLinks = Array.from(sectionNav?.querySelectorAll('[data-tour-section-link][href^="#"]') ?? []);
+        const sectionRecords = sectionLinks
+            .map((link) => {
+                const href = link.getAttribute('href') ?? '';
+                let targetId = href.slice(1);
+
+                try {
+                    targetId = decodeURIComponent(targetId);
+                } catch {
+                    // Keep the original fragment when it is not URI encoded correctly.
+                }
+
+                return {
+                    link,
+                    target: targetId !== '' ? document.getElementById(targetId) : null,
+                };
+            })
+            .filter((record) => record.target);
+        const desktopHeaderQuery = window.matchMedia('(min-width: 64rem)');
+        let offsetAnimationFrame = 0;
+        let scrollSpyAnimationFrame = 0;
+        let activeLink = null;
+
+        const revealActiveLink = (link) => {
+            if (! link || ! sectionNavRail || sectionNavRail.scrollWidth <= sectionNavRail.clientWidth) {
+                return;
+            }
+
+            const railRect = sectionNavRail.getBoundingClientRect();
+            const linkRect = link.getBoundingClientRect();
+            const edgeGap = 8;
+            let nextScrollLeft = sectionNavRail.scrollLeft;
+
+            if (linkRect.left < railRect.left + edgeGap) {
+                nextScrollLeft -= railRect.left + edgeGap - linkRect.left;
+            } else if (linkRect.right > railRect.right - edgeGap) {
+                nextScrollLeft += linkRect.right - railRect.right + edgeGap;
+            }
+
+            if (nextScrollLeft !== sectionNavRail.scrollLeft) {
+                sectionNavRail.scrollTo({
+                    left: Math.max(0, nextScrollLeft),
+                    behavior: prefersReducedMotion.matches ? 'auto' : 'smooth',
+                });
+            }
+        };
+
+        const setActiveLink = (nextActiveLink) => {
+            if (activeLink === nextActiveLink) {
+                return;
+            }
+
+            sectionLinks.forEach((link) => {
+                const isActive = link === nextActiveLink;
+
+                link.classList.toggle('is-active', isActive);
+
+                if (isActive) {
+                    link.setAttribute('aria-current', 'location');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+
+            activeLink = nextActiveLink;
+            revealActiveLink(activeLink);
+        };
+
+        const syncActiveSection = () => {
+            window.cancelAnimationFrame(scrollSpyAnimationFrame);
+            scrollSpyAnimationFrame = window.requestAnimationFrame(() => {
+                if (! sectionRecords.length) {
+                    setActiveLink(null);
+
+                    return;
+                }
+
+                const styles = getComputedStyle(shell);
+                const headerOffset = Number.parseFloat(styles.getPropertyValue('--tour-sticky-header-offset')) || 0;
+                const sectionNavHeight = Number.parseFloat(styles.getPropertyValue('--tour-section-nav-height')) || 0;
+                const readingInset = Math.min(96, Math.max(48, window.innerHeight * 0.12));
+                const activationLine = headerOffset + sectionNavHeight + readingInset;
+                const shellRect = shell.getBoundingClientRect();
+
+                if (shellRect.bottom <= activationLine) {
+                    setActiveLink(null);
+
+                    return;
+                }
+
+                const orderedRecords = [...sectionRecords].sort(
+                    (first, second) => first.target.getBoundingClientRect().top - second.target.getBoundingClientRect().top,
+                );
+                let activeRecord = null;
+
+                orderedRecords.forEach((record) => {
+                    if (record.target.getBoundingClientRect().top <= activationLine) {
+                        activeRecord = record;
+                    }
+                });
+
+                setActiveLink(activeRecord?.link ?? null);
+            });
+        };
+
+        const syncOffsets = () => {
+            window.cancelAnimationFrame(offsetAnimationFrame);
+            offsetAnimationFrame = window.requestAnimationFrame(() => {
+                const headerHeight = desktopHeaderQuery.matches && header
+                    ? Math.ceil(header.getBoundingClientRect().height)
+                    : 0;
+                const sectionNavHeight = sectionNav
+                    ? Math.ceil(sectionNav.getBoundingClientRect().height)
+                    : 0;
+
+                shell.style.setProperty('--tour-sticky-header-offset', `${headerHeight}px`);
+                shell.style.setProperty('--tour-section-nav-height', `${sectionNavHeight}px`);
+                syncActiveSection();
+            });
+        };
+
+        const resizeObserver = typeof ResizeObserver !== 'undefined'
+            ? new ResizeObserver(syncOffsets)
+            : null;
+
+        if (header) {
+            resizeObserver?.observe(header);
+        }
+
+        if (sectionNav) {
+            resizeObserver?.observe(sectionNav);
+        }
+
+        window.addEventListener('resize', syncOffsets, { passive: true });
+        window.addEventListener('scroll', syncActiveSection, { passive: true });
+        desktopHeaderQuery.addEventListener?.('change', syncOffsets);
+        tourStickyNavigationControllers.set(shell, { resizeObserver, syncActiveSection, syncOffsets });
+        syncOffsets();
+    });
+}
+
 function initFaqAccordions() {
     document.querySelectorAll('[data-faq-accordion]').forEach((accordion) => {
         if (accordion.dataset.faqInitialized === 'true') {
@@ -1236,6 +1388,7 @@ export function initFrontsiteInteractions() {
     initTourDetailExpandables();
     initCardCarousels();
     initTourItineraryDetails();
+    initTourStickyNavigation();
     initFaqAccordions();
     initTextReveals();
     initConsultationModal();
@@ -1249,7 +1402,8 @@ export function initFrontsiteInteractions() {
                 initTourDetailExpandables();
                 initCardCarousels();
                 initTourItineraryDetails();
-    initFaqAccordions();
+                initTourStickyNavigation();
+                initFaqAccordions();
                 initTextReveals();
                 initSocialShareBlocks();
             });

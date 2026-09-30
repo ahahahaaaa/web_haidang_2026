@@ -72,4 +72,9 @@ class TourDeparture extends Model
     {
         return $this->hasMany(TourReviewBatch::class, 'tour_departure_id');
     }
+
+    public function flashSaleItems(): HasMany
+    {
+        return $this->hasMany(TourFlashSaleItem::class, 'tour_departure_id');
+    }
 }

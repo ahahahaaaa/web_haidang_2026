@@ -2,8 +2,13 @@
 
 namespace App\Support;
 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Src\Domains\Cms\Models\BlogPost;
+use Src\Domains\Cms\Models\PublicUrlMapping;
+use Src\Domains\Cms\Models\Service;
+use Src\Domains\Cms\Models\Tour;
 
 class FrontsiteUrls
 {
@@ -27,11 +32,43 @@ class FrontsiteUrls
 
     public static function canonicalBlogPost(BlogPost $post): string
     {
-        $url = filled($post->canonical_url)
-            ? (string) $post->canonical_url
-            : self::blogPost($post);
+        return self::canonicalModelUrl($post, self::blogPost($post));
+    }
 
-        return self::canonicalUrl($url);
+    public static function canonicalModelUrl(Model $model, string $nativeUrl): string
+    {
+        $canonical = self::canonicalUrl($model->getAttribute('canonical_url') ?: $nativeUrl);
+        $redirectPath = match (true) {
+            $model instanceof BlogPost => '/blog/'.$model->slug,
+            $model instanceof Tour => '/tour/'.$model->slug,
+            $model instanceof Service => '/page/'.$model->slug,
+            default => null,
+        };
+
+        if ($redirectPath !== null && self::canonicalPath($canonical) === $redirectPath && ! self::hasRenderedPublicPath($redirectPath)) {
+            return self::canonicalUrl($nativeUrl);
+        }
+
+        return $canonical;
+    }
+
+    protected static function hasRenderedPublicPath(string $path): bool
+    {
+        if (! config('public_url_mappings.enabled')) {
+            return false;
+        }
+
+        $paths = once(fn (): array => ! Schema::hasTable('public_url_mappings') ? [] : PublicUrlMapping::query()
+            ->where('is_active', true)
+            ->where('mode', PublicUrlMapping::MODE_RENDER)
+            ->where('status_code', 200)
+            ->get(['source_hash', 'source_path'])
+            ->filter(fn (PublicUrlMapping $mapping) => hash_equals(hash('sha256', $mapping->source_path), (string) $mapping->source_hash))
+            ->pluck('source_path')
+            ->flip()
+            ->all());
+
+        return array_key_exists($path, $paths);
     }
 
     public static function blogPostCategorySlug(BlogPost $post): string

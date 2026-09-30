@@ -30,7 +30,9 @@ class MediaManagerTest extends TestCase
         $this->get(route('admin.media'))
             ->assertOk()
             ->assertSeeText('Quản lý media')
-            ->assertSeeText('Kiểm tra file thất lạc');
+            ->assertSeeText('Kiểm tra file thất lạc')
+            ->assertSee('data-media-first', false)
+            ->assertSee('data-media-last', false);
 
         $this->getJson(route('admin.media.browser.images'))
             ->assertOk()

@@ -6,7 +6,9 @@ use App\Services\Frontsite\FrontsiteCache;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Vite;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class CacheFrontsiteResponse
@@ -46,7 +48,8 @@ class CacheFrontsiteResponse
 
     protected function cacheKey(Request $request): string
     {
-        return 'response:'.sha1($request->fullUrl());
+        // Tour departures expire at local midnight, even when the response TTL has not elapsed.
+        return 'response:'.Carbon::today(config('app.timezone'))->toDateString().':'.(Vite::manifestHash() ?? 'dev').':'.sha1($request->fullUrl());
     }
 
     protected function groupsFor(Request $request): array
@@ -114,6 +117,7 @@ class CacheFrontsiteResponse
         return (bool) config('frontsite_cache.middleware.enabled', true)
             && $this->cache->enabled()
             && $request->isMethod('GET')
+            && ! $request->has('flash_sale')
             && ! Auth::check()
             && ! $request->ajax()
             && ! $this->hasSessionFeedback($request);
@@ -132,6 +136,7 @@ class CacheFrontsiteResponse
         $contentType = (string) $response->headers->get('Content-Type');
 
         return str_contains($contentType, 'text/html')
+            && ! $request->has('flash_sale')
             && ! $this->hasUnsafeCookies($response)
             && ! $this->hasSessionFeedback($request);
     }

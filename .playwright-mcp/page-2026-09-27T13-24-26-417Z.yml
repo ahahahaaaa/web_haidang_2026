@@ -1,0 +1,737 @@
+- generic [active] [ref=f13e1]:
+  - link "Bỏ qua điều hướng & tới nội dung chính" [ref=f13e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f13e3]:
+    - generic [ref=f13e4]:
+      - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=f13e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8001
+        - img "Du Lịch Hải Đăng Travel" [ref=f13e7]
+      - group [ref=f13e8]:
+        - generic "TP. Hồ Chí Minh" [ref=f13e9] [cursor=pointer]
+      - group [ref=f13e13]:
+        - generic "Mở menu" [ref=f13e14]
+    - region "Khám phá dịch vụ du lịch" [ref=f13e17]:
+      - generic [ref=f13e18]:
+        - navigation "Đi nhanh" [ref=f13e19]:
+          - link "Tour trọn gói" [ref=f13e20] [cursor=pointer]:
+            - /url: http://127.0.0.1:8001/tim-tour
+          - link "Vé máy bay" [ref=f13e24] [cursor=pointer]:
+            - /url: http://127.0.0.1:8001/dich-vu/danh-muc/ve-may-bay
+          - link "Dịch vụ cộng thêm" [ref=f13e28] [cursor=pointer]:
+            - /url: http://127.0.0.1:8001/dich-vu
+          - link "Tour trong nước" [ref=f13e32] [cursor=pointer]:
+            - /url: http://127.0.0.1:8001/tour-trong-nuoc
+          - link "Tour nước ngoài" [ref=f13e36] [cursor=pointer]:
+            - /url: http://127.0.0.1:8001/tour-nuoc-ngoai
+          - link "Tour đoàn" [ref=f13e40] [cursor=pointer]:
+            - /url: http://127.0.0.1:8001/tour-doan
+        - generic [ref=f13e44]:
+          - generic [ref=f13e45]: "Nổi bật:"
+          - generic [ref=f13e47]:
+            - link "Hành hương Châu Á" [ref=f13e48] [cursor=pointer]:
+              - /url: http://127.0.0.1:8001/danh-muc-tour/tour-hanh-huong
+            - link "Tour Lễ 2 Tháng 9 2026 - Trọn Gói Trong Nước & Nước Ngoài" [ref=f13e50] [cursor=pointer]:
+              - /url: http://127.0.0.1:8001/danh-muc-tour/tour-le-2-thang-9
+            - link "Tour Du lịch xe Limousine" [ref=f13e52] [cursor=pointer]:
+              - /url: http://127.0.0.1:8001/danh-muc-tour/du-lich-xe-limousine
+            - link "Du Lịch Đảo Việt Nam" [ref=f13e54] [cursor=pointer]:
+              - /url: http://127.0.0.1:8001/danh-muc-tour/tour-du-lich-dao
+            - link "Tour Mùa Đông Châu Úc" [ref=f13e56] [cursor=pointer]:
+              - /url: http://127.0.0.1:8001/danh-muc-tour/du-lich-mua-dong-chau-uc
+            - link "Du Lịch Tàu Lửa" [ref=f13e58] [cursor=pointer]:
+              - /url: http://127.0.0.1:8001/danh-muc-tour/du-lich-tau-lua
+            - link "Du lich máy bay" [ref=f13e60] [cursor=pointer]:
+              - /url: http://127.0.0.1:8001/danh-muc-tour/du-lich-may-bay
+  - main [ref=f13e62]:
+    - generic [ref=f13e64]:
+      - navigation "Breadcrumb" [ref=f13e65]:
+        - list [ref=f13e66]:
+          - listitem [ref=f13e67]:
+            - link "Trang chủ" [ref=f13e68] [cursor=pointer]:
+              - /url: http://127.0.0.1:8001
+          - listitem [ref=f13e69]:
+            - link "Tour nước ngoài" [ref=f13e71] [cursor=pointer]:
+              - /url: http://127.0.0.1:8001/tour-nuoc-ngoai
+          - listitem [ref=f13e72]:
+            - link "Châu Á" [ref=f13e74] [cursor=pointer]:
+              - /url: http://127.0.0.1:8001/vung-mien/du-lich-chau-a
+          - listitem [ref=f13e75]:
+            - link "Du Lịch Tây Tạng" [ref=f13e77] [cursor=pointer]:
+              - /url: http://127.0.0.1:8001/tour-du-lich-tay-tang
+          - listitem [ref=f13e78]:
+            - generic [ref=f13e80]: "Tour Tây Tạng Bản Đặc Biệt: Hành Trình Huyền Bí 6N5Đ – Chạm Vào Nóc Nhà Thế Giới"
+      - 'heading "Tour Tây Tạng Bản Đặc Biệt: Hành Trình Huyền Bí 6N5Đ – Chạm Vào Nóc Nhà Thế Giới" [level=1] [ref=f13e81]'
+    - generic [ref=f13e82]:
+      - navigation "Điều hướng nội dung tour" [ref=f13e85]:
+        - generic [ref=f13e86]:
+          - link "Thư viện" [ref=f13e87] [cursor=pointer]:
+            - /url: "#tour-gallery"
+          - link "Chi tiết tour" [ref=f13e88] [cursor=pointer]:
+            - /url: "#tour-details"
+          - link "Lịch trình" [ref=f13e89] [cursor=pointer]:
+            - /url: "#tour-itinerary"
+          - link "Quyền lợi" [ref=f13e90] [cursor=pointer]:
+            - /url: "#tour-inclusions"
+          - link "Điều khoản tour" [ref=f13e91] [cursor=pointer]:
+            - /url: "#tour-terms"
+          - link "Đánh giá" [ref=f13e92] [cursor=pointer]:
+            - /url: "#tour-review-form"
+          - link "FAQ" [ref=f13e93] [cursor=pointer]:
+            - /url: "#tour-faq"
+      - generic [ref=f13e95]:
+        - generic [ref=f13e96]:
+          - generic [ref=f13e101]:
+            - generic [ref=f13e102]:
+              - generic:
+                - button "Media trước" [ref=f13e104]
+                - button "Media tiếp theo" [ref=f13e106]
+              - generic [ref=f13e108]:
+                - generic [ref=f13e109]: Ảnh đại diện
+                - button "Phóng to" [ref=f13e111]
+              - generic: 1 / 5
+              - img "tour-du-lich-tay-tang-cung-dien-potala" [ref=f13e115]
+            - generic [ref=f13e118]:
+              - button [pressed] [ref=f13e119]:
+                - img "tour-du-lich-tay-tang-cung-dien-potala" [ref=f13e121]
+              - button [ref=f13e122]:
+                - img "Cung dien Potala huyen bi tour Tay Tang Haidangtravel" [ref=f13e124]
+              - button [ref=f13e125]:
+                - img "Ho Yamdrok Tay Tang tuyet tac Haidangtravel" [ref=f13e127]
+              - button [ref=f13e128]:
+                - img "Chup anh voi Ngao Tang tour Tay Tang Haidangtravel" [ref=f13e130]
+              - button [ref=f13e131]:
+                - img "Song bang Karola Tay Tang hung vi Haidangtravel" [ref=f13e133]
+          - generic [ref=f13e134]:
+            - heading "GIỚI THIỆU TOUR" [level=2] [ref=f13e137]
+            - generic [ref=f13e139]:
+              - generic [ref=f13e142]:
+                - paragraph [ref=f13e143]:
+                  - strong [ref=f13e144]: Điểm Khác Biệt Duy Nhất Chỉ Có Tại Tour Tây Tạng 2026 Của Hải Đăng Travel
+                - heading [level=3] [ref=f13e145]:
+                  - strong [ref=f13e146]: Lịch trình tinh gọn – Tối ưu trải nghiệm
+                - paragraph [ref=f13e147]:
+                  - text: Khác với các tour dài ngày gây mệt mỏi, hành trình
+                  - strong [ref=f13e148]: 6 ngày 5 đêm
+                  - text: được thiết kế để bạn đủ thời gian thẩm thấu văn hóa Mật Tông nhưng vẫn đảm bảo sức khỏe. Chúng tôi chú trọng vào việc thích nghi độ cao tại Côn Minh trước khi bay đến Lhasa.
+                - heading [level=3] [ref=f13e149]:
+                  - strong [ref=f13e150]: Đặc quyền chăm sóc sức khỏe thượng lưu
+                - paragraph [ref=f13e151]:
+                  - text: Hải Đăng Travel thấu hiểu sự lo lắng của du khách, vì vậy chúng tôi tặng kèm
+                  - strong [ref=f13e152]: liệu trình thuốc xử lý chống say độ cao trị giá 1 triệu đồng
+                  - text: . Bạn sẽ được chăm sóc để tận hưởng vẻ đẹp của đèo Gambala (5000m) hay sông băng Karola một cách trọn vẹn nhất.
+                - heading [level=3] [ref=f13e153]:
+                  - strong [ref=f13e154]: Dấu ấn văn hóa bản địa độc đáo
+                - list [ref=f13e155]:
+                  - listitem [ref=f13e156]:
+                    - strong [ref=f13e157]: "Thưởng thức ẩm thực:"
+                    - text: Đại tiệc lẩu bò Yak truyền thống và trà bơ nóng hổi giữa lòng phố cổ Bakhor.
+                  - listitem [ref=f13e158]:
+                    - strong [ref=f13e159]: "Tâm linh huyền bí:"
+                    - text: Thăm đền thờ Thần Tài Dzambala cầu tài lộc và chiêm bái tôn tượng Di Lặc bằng vàng khổng lồ tại tu viện Tashilhunpo
+              - button "Xem thêm" [ref=f13e160]
+          - generic [ref=f13e163]:
+            - heading "LỊCH TRÌNH TOUR" [level=2] [ref=f13e166]
+            - generic [ref=f13e167]:
+              - article [ref=f13e168]:
+                - generic "Điểm đến chặng 1" [ref=f13e169]
+                - group [ref=f13e172]:
+                  - 'generic "Ngày 1 VIỆT NAM – CÔN MINH 100KM Bữa ăn: Tối (trên máy bay) Khung cảnh cao nguyên mở đầu hành trình khám phá Tây Tạng" [ref=f13e173] [cursor=pointer]':
+                    - generic [ref=f13e174]:
+                      - generic [ref=f13e175]: Ngày 1
+                      - generic [ref=f13e176]: VIỆT NAM – CÔN MINH 100KM
+                      - generic [ref=f13e177]:
+                        - generic [ref=f13e179]: "Bữa ăn:"
+                        - text: Tối (trên máy bay)
+                    - img "Khung cảnh cao nguyên mở đầu hành trình khám phá Tây Tạng" [ref=f13e181]
+                  - generic [ref=f13e185]:
+                    - paragraph [ref=f13e186]: Đoàn tập chung tại điểm hẹn sau đó chuyến bay đi Côn Minh.
+                    - paragraph [ref=f13e187]:
+                      - text: Từ
+                      - strong [ref=f13e188]: Hà Nội
+                      - text: chuyến bay MU9606 1730 2015
+                    - paragraph [ref=f13e189]:
+                      - text: Từ
+                      - strong [ref=f13e190]: TP Hồ Chí Minh
+                      - text: chuyến bay MU9634 1930 2330
+                    - paragraph [ref=f13e191]:
+                      - text: Đến sân bay Quốc tế
+                      - strong [ref=f13e192]: Côn Minh
+                      - text: đoàn nghỉ đêm tại
+                      - strong [ref=f13e193]: Côn Minh
+                      - text: ", để thích nghi với độ cao ở"
+                      - strong [ref=f13e194]: Lhasa,
+                      - text: đoàn cần có thời gian nghỉ ngơi chặng trung chuyển.
+                    - paragraph [ref=f13e195]:
+                      - emphasis [ref=f13e196]: (Do điều kiện đường bay Tây Tạng có thể thay đổi, giờ bay có thể thay đổi, nên một vài trường hợp đoàn có thể nối chuyến tại Trùng Khánh, Côn Minh hoặc các thành phố lân cận Lhasa)
+              - article [ref=f13e197]:
+                - generic "Điểm đến chặng 2" [ref=f13e198]
+                - group [ref=f13e201]:
+                  - 'generic "Ngày 2 CÔN MINH – LHASA – PHỐ ĐI BỘ BAKHOR 100KM Bữa ăn: Sáng, trưa, tối Khung cảnh hồ Yamdrok trên hành trình đến Lhasa" [ref=f13e202] [cursor=pointer]':
+                    - generic [ref=f13e203]:
+                      - generic [ref=f13e204]: Ngày 2
+                      - generic [ref=f13e205]: CÔN MINH – LHASA – PHỐ ĐI BỘ BAKHOR 100KM
+                      - generic [ref=f13e206]:
+                        - generic [ref=f13e208]: "Bữa ăn:"
+                        - text: Sáng, trưa, tối
+                    - img "Khung cảnh hồ Yamdrok trên hành trình đến Lhasa" [ref=f13e210]
+                  - generic [ref=f13e214]:
+                    - paragraph [ref=f13e215]:
+                      - text: Sáng đoàn theo chuyến bay
+                      - strong [ref=f13e216]: MU9695 lúc 13h00 – 15h00
+                      - text: đến sân bay
+                      - strong [ref=f13e217]: Gonggar, Lhasa
+                      - text: . Xe đón đoàn về thủ phủ Tây Tạng – Lhasa cũng là thành phố lớn nhất của đặc khu tự trị Tây Tạng và là thánh địa Mật Tông Giáo.
+                    - paragraph [ref=f13e218]: Đến sân bay Gongo Lhasa, xe đón đoàn về trung tâm Lhasa nghỉ ngơi cho việc quen dần với phản ứng cao nguyên.
+                    - paragraph [ref=f13e219]: 18h00 Bữa tối với lẩu bò Yak nấu kiểu truyền thống Tây Tạng.
+                    - paragraph [ref=f13e220]
+                    - paragraph [ref=f13e221]:
+                      - text: Tối du khách thăm quan, dạo chơi, mua sắm ở
+                      - strong [ref=f13e222]: phố Bát Giác Nhai
+                      - text: – con phố huyền thoại mang đầy âm hưởng sắc màu Lhasa, nơi du khách cảm nhận được hơi thở của Lhasa qua những dòng người tay không ngừng quay kinh luân, miệng tụng chú Mani đi quanh chùa Đại Chiêu theo chiều kim đồng hồ. cũng tận mặt chứng kiến các nghi thức tam bộ nhất bái ngũ thể nhập địa của những tín đồ sùng đạo hoặc hóa thân thành những chàng trai cô gái Tạng trong bộ trang phục truyền thống Tạng đầy sắc màu.
+                    - paragraph [ref=f13e223]
+                    - paragraph [ref=f13e224]:
+                      - strong [ref=f13e225]: Nghỉ đêm ở khách sạn 4 sao trung tâm Lhasa.
+                    - paragraph [ref=f13e226]: "Chú ý: Ngày đầu tiên tại Lhasa du khách hạn chế vận động, uống nhiều nước ấm, mọi hoạt động sẽ được hướng dẫn tư vấn chi tiết, phù hợp cơ địa từng du khách."
+                    - paragraph [ref=f13e227]
+              - article [ref=f13e228]:
+                - generic "Điểm đến chặng 3" [ref=f13e229]
+                - group [ref=f13e232]:
+                  - 'generic "Ngày 3 CHÙA ĐẠI CHIÊU – CUNG ĐIỆN POTALA – ĐỀN THỜ THẦN TÀI DZAMBALA Bữa ăn: Sáng, trưa, tối Du khách trong trang phục Tây Tạng trước cung điện Potala" [ref=f13e233] [cursor=pointer]':
+                    - generic [ref=f13e234]:
+                      - generic [ref=f13e235]: Ngày 3
+                      - generic [ref=f13e236]: CHÙA ĐẠI CHIÊU – CUNG ĐIỆN POTALA – ĐỀN THỜ THẦN TÀI DZAMBALA
+                      - generic [ref=f13e237]:
+                        - generic [ref=f13e239]: "Bữa ăn:"
+                        - text: Sáng, trưa, tối
+                    - img "Du khách trong trang phục Tây Tạng trước cung điện Potala" [ref=f13e241]
+                  - generic [ref=f13e245]:
+                    - paragraph [ref=f13e246]:
+                      - text: Sau bữa sáng đoàn thăm
+                      - strong [ref=f13e247]: chùa Đại Chiêu
+                      - text: ", một trong những ngôi chùa linh thiêng nhất với Phật giáo Tây Tạng, tận mắt chứng kiến những tín đồ Phật giáo Tây Tạng trong các nghi lễ Tam bộ nhất bái ngũ thể nhập địa, cùng nhiễu những vòng"
+                      - strong [ref=f13e248]: Kora
+                      - text: quanh chùa với tâm khẩu ý thanh tịnh và bình an.
+                    - paragraph [ref=f13e249]
+                    - paragraph [ref=f13e250]:
+                      - text: Chiều thăm quần thể
+                      - strong [ref=f13e251]: cung điện Potala
+                      - text: trái tim của Lhasa – cung điện Potala huyền thoại nằm kiêu hãnh trên đồi Hồng, được coi là nơi ở của Quán Thế Âm Bồ Tát, đoàn check in tại Bạch Tháp, thăm
+                      - strong [ref=f13e252]: Bạch tháp
+                      - text: ","
+                      - strong [ref=f13e253]: quảng trường Potala
+                      - text: và khám phá 999 gian phòng của cung điện được coi là 1 trong 7 kỳ quan của thế giới hiện đại với những tôn tượng nghìn năm tuổi, tàng kinh các, linh điện tháp của 12 vị Đạt Lai Lạt Ma… chạm vào sự hùng vĩ của cung Potala với những bức tường đá dày hơn 1m, tìm hiểu về Bạch Cung và Hồng Cung…
+                    - paragraph [ref=f13e254]
+                    - paragraph [ref=f13e255]:
+                      - text: Tiếp theo đoàn thăm
+                      - strong [ref=f13e256]: Đền thờ thần tài
+                      - text: ngôi đền nổi tiếng vùng
+                      - strong [ref=f13e257]: Himalaya
+                      - text: về việc cầu tài lộc.
+                    - paragraph [ref=f13e258]:
+                      - text: Ngài Hoàng Thần Tài Dzambala, thường được biết đến với tên
+                      - strong [ref=f13e259]: Dzambala hay Jambhala
+                      - text: ", là một trong những vị Phật Tài bảo quan trọng trong Phật giáo Tây Tạng, được coi là hóa thân của"
+                      - strong [ref=f13e260]: Quán Thế Âm Bồ Tát.
+                    - paragraph [ref=f13e261]
+              - article [ref=f13e262]:
+                - generic "Điểm đến chặng 4" [ref=f13e263]
+                - group [ref=f13e266]:
+                  - 'generic "Ngày 4 LHASA – ĐÈO GAMBALA – HỒ YAMDROK – SÔNG BĂNG VĨNH CỬU – SHIGATSE Bữa ăn: Sáng, trưa, tối Sông băng Karola hùng vĩ trên đường đến Shigatse" [ref=f13e267] [cursor=pointer]':
+                    - generic [ref=f13e268]:
+                      - generic [ref=f13e269]: Ngày 4
+                      - generic [ref=f13e270]: LHASA – ĐÈO GAMBALA – HỒ YAMDROK – SÔNG BĂNG VĨNH CỬU – SHIGATSE
+                      - generic [ref=f13e271]:
+                        - generic [ref=f13e273]: "Bữa ăn:"
+                        - text: Sáng, trưa, tối
+                    - img "Sông băng Karola hùng vĩ trên đường đến Shigatse" [ref=f13e275]
+                  - generic [ref=f13e279]:
+                    - paragraph [ref=f13e280]:
+                      - text: Sau bữa sáng, đoàn lên đường chinh phục đỉnh
+                      - strong [ref=f13e281]: đèo Gambala
+                      - text: ở độ cao 5000m so với mực nước biển, cùng
+                      - strong [ref=f13e282]: chụp ảnh với Ngao Tạng
+                      - text: – linh vật được coi là thần thú của thảo nguyên.
+                    - paragraph [ref=f13e283]
+                    - paragraph [ref=f13e284]:
+                      - text: Thăm và chiêm ngưỡng
+                      - strong [ref=f13e285]: hồ Yamdrok
+                      - text: tiếng Hán là thánh hồ
+                      - strong [ref=f13e286]: Dương Thác Ung Trác
+                      - text: hay thánh Dương Hồ – một trong 4 thánh hồ lớn nhất và đẹp nhất của Tây Tạng, tại đây Quý khách có thể tự do chụp ảnh với
+                      - strong [ref=f13e287]: Yak
+                      - text: hoặc
+                      - strong [ref=f13e288]: ngao Tạng
+                      - emphasis [ref=f13e289]: (chi phí tự túc).
+                    - paragraph [ref=f13e290]:
+                      - text: Đoàn tiếp tục ghé thăm
+                      - strong [ref=f13e291]: sông băng Vĩnh Cửu
+                      - text: ở độ cao 5020m so với mực nước biển, đoàn có những cảnh chụp vô cùng ngoạn mục tại đây.
+                    - paragraph [ref=f13e292]:
+                      - text: Sau đó tiếp tục đến thành phố lớn thứ 2 Tây Tạng
+                      - strong [ref=f13e293]: Shigatse
+                      - text: . Ăn tối,
+                      - strong [ref=f13e294]: Nghỉ đêm ở Shigatse.
+              - article [ref=f13e295]:
+                - generic "Điểm đến chặng 5" [ref=f13e296]
+                - group [ref=f13e299]:
+                  - 'generic "Ngày 5 SHIGATSE – TU VIỆN TASHILHUNPO – SÂN BAY LHASA – CÔN MINH Bữa ăn: Sáng, trưa, tối Du khách trải nghiệm chụp ảnh cùng bò Yak tại Tây Tạng" [ref=f13e300] [cursor=pointer]':
+                    - generic [ref=f13e301]:
+                      - generic [ref=f13e302]: Ngày 5
+                      - generic [ref=f13e303]: SHIGATSE – TU VIỆN TASHILHUNPO – SÂN BAY LHASA – CÔN MINH
+                      - generic [ref=f13e304]:
+                        - generic [ref=f13e306]: "Bữa ăn:"
+                        - text: Sáng, trưa, tối
+                    - img "Du khách trải nghiệm chụp ảnh cùng bò Yak tại Tây Tạng" [ref=f13e308]
+                  - generic [ref=f13e312]:
+                    - paragraph [ref=f13e313]:
+                      - text: Sau bữa sáng đoàn thăm
+                      - strong [ref=f13e314]: Tu viện Tashilhunpo
+                      - text: – Tu viện của các đời Phật sống Ban Thiền cũng là một trong 4 đại tu viện lớn nhất và đẹp nhất Tây Tạng, tu viện gồm 4 điện chính đặc biệt là tôn tượng Di Lặc khổng lồ cao hơn 26m được làm bằng 279kg vàng cùng 150.000kg đồng và những linh điện tháp linh thiêng của các vị ban thiền lạt ma được làm bằng vàng, bạc, đồng và đá quý. Nếu may mắn đoàn có thể gặp hơn 500 vị tăng tan học với những chiếc y áo màu đỏ sẫm, một cảnh tượng vô cùng ấn tượng.
+                    - paragraph [ref=f13e315]
+                    - paragraph [ref=f13e316]:
+                      - text: Đoàn trở về sân bay Lhasa ăn trưa gần sân bay sau đó theo chuyến bay
+                      - strong [ref=f13e317]: MU9738 LXA KMG
+                      - text: về
+                      - strong [ref=f13e318]: Côn Minh
+                      - text: lúc
+                      - strong [ref=f13e319]: 16:30 - 19:10
+                      - text: về đến sân bay Côn Minh, xe đón đoàn về khách sạn ăn tối,
+                    - paragraph [ref=f13e320]:
+                      - strong [ref=f13e321]: Nghỉ đêm tại Côn Minh.
+              - article [ref=f13e322]:
+                - generic "Điểm đến chặng 6" [ref=f13e323]
+                - group [ref=f13e326]:
+                  - 'generic "Ngày 6 CÔN MINH – VIỆT NAM Bữa ăn: Sáng, trưa, tối (trên máy bay) Khung cảnh Tây Tạng khép lại hành trình sáu ngày" [ref=f13e327] [cursor=pointer]':
+                    - generic [ref=f13e328]:
+                      - generic [ref=f13e329]: Ngày 6
+                      - generic [ref=f13e330]: CÔN MINH – VIỆT NAM
+                      - generic [ref=f13e331]:
+                        - generic [ref=f13e333]: "Bữa ăn:"
+                        - text: Sáng, trưa, tối (trên máy bay)
+                    - img "Khung cảnh Tây Tạng khép lại hành trình sáu ngày" [ref=f13e335]
+                  - generic [ref=f13e339]:
+                    - paragraph [ref=f13e340]:
+                      - text: Sáng đoàn thăm
+                      - strong [ref=f13e341]: Kim Điện
+                      - text: "- nơi được mệnh danh là miền đất hứa của tuyệt cảnh trần gian với sơn thủy hữu tình. Có một ngôi chùa tỏa sáng cả một vùng trời không chỉ bởi nét linh thiêng ngàn đời của nó mà còn ở kiến trúc độc lạ có 1-0-2 khó có thể bắt gặp ở bất cứ đâu."
+                      - strong [ref=f13e342]: Chùa Đồng Kim Điện
+                      - text: chính là cái tên của công trình kiến trúc Phật giáo đình đám này.
+                    - paragraph [ref=f13e343]: Ăn trưa sau đó ra sân bay về Việt Nam
+                    - paragraph [ref=f13e344]:
+                      - strong [ref=f13e345]: Côn Minh - Hà Nội
+                      - text: chuyến MU9605 KMG HAN 14:40 – 15:15
+                    - paragraph [ref=f13e346]:
+                      - strong [ref=f13e347]: Côn Minh – TP HCM
+                      - text: chuyến MU9633 KMG SGN 13:45 – 16:00
+                    - paragraph [ref=f13e348]: Về đến Việt Nam, chia tay đoàn và hẹn gặp lại với những chương trình thú vị sau.
+                    - paragraph [ref=f13e349]: LƯU Ý BẢN QUYỀN HÌNH ẢNH
+                    - paragraph [ref=f13e350]: Haidangtravel luôn tôn trọng quyền sở hữu trí tuệ về tác phẩm nhiếp ảnh, ảnh chụp của các cá nhân và tổ chức. Chúng tôi luôn cố gắng nỗ lực liên hệ với tất cả các tác giả có ảnh được sử dụng để xin sự cho phép sử dụng ảnh. Nếu có sự sơ xuất hay thiếu sót nào, chúng tôi xin được gửi lời xin lỗi tới các tác giả, chủ sở hữu hình ảnh. Các anh/chị cũng vui lòng gửi phản hồi lại cho Haidangtravel.
+          - generic [ref=f13e352]:
+            - heading "TOUR BAO GỒM" [level=2] [ref=f13e354]
+            - list [ref=f13e355]:
+              - listitem [ref=f13e356]:
+                - generic [ref=f13e359]: Visa nhập cảnh Trung quốc 01 lần đi và về cùng ngày theo đoàn
+              - listitem [ref=f13e360]:
+                - generic [ref=f13e363]: Giấy phép vào Tây Tạng và khu vực phi quân sự theo đoàn
+              - listitem [ref=f13e364]:
+                - generic [ref=f13e367]: Vé máy bay khứ hồi Việt Nam – Lhasa, hành lý ký gửi 20kg, xách tay 07kg mỗi khách
+              - listitem [ref=f13e368]:
+                - generic [ref=f13e371]: Hướng dẫn viên kinh nghiệm suốt tuyến từ Việt Nam
+              - listitem [ref=f13e372]:
+                - generic [ref=f13e375]: Hướng dẫn bản địa nói tiếng Trung/ Anh
+              - listitem [ref=f13e376]:
+                - generic [ref=f13e379]: Phương tiện vận chuyển chất lượng cao phục vụ suốt hành trình
+              - listitem [ref=f13e380]:
+                - generic [ref=f13e383]: Ăn các bữa theo chương trình thực đơn phong phú hợp khẩu vị
+              - listitem [ref=f13e384]:
+                - generic [ref=f13e387]: Vé vào cửa thứ nhất các điểm tham quan theo chương trình
+              - listitem [ref=f13e388]:
+                - generic [ref=f13e391]: Khách sạn 4* tiêu chuẩn Tây Tạng tại các thành phố Lhasa, Shigatse.
+              - listitem [ref=f13e392]:
+                - generic [ref=f13e395]: Bảo hiểm du lịch Quốc tế mức bồi thường tối đa 50.000USD
+              - listitem [ref=f13e396]:
+                - generic [ref=f13e399]: "Các dich vụ đặc biệt:"
+              - listitem [ref=f13e400]:
+                - generic [ref=f13e403]: Nước khoáng trong suốt chuyến đi
+              - listitem [ref=f13e404]:
+                - generic [ref=f13e407]: Bữa tối đặc biệt vào ngày cuối cùng của chuyến đi
+              - listitem [ref=f13e408]:
+                - generic [ref=f13e411]: ĐẶC BIỆT THUỐC CHỐNG PHẢN ỨNG CAO NGUYÊN CHO 2 NGÀY ĐẦU TẶNG MIỄN PHÍ.
+              - listitem [ref=f13e412]:
+                - generic [ref=f13e415]: "(Khuyến cáo: Hướng dẫn viên chuyên tuyến sẽ theo từng cơ địa và sức khỏe của khách để dùng thuốc thảo dược phù hợp)"
+          - generic [ref=f13e417]:
+            - heading "ĐIỀU KHOẢN TOUR" [level=2] [ref=f13e420]
+            - article [ref=f13e422]:
+              - heading [level=3] [ref=f13e423]:
+                - button "KHÔNG BAO GỒM" [expanded] [ref=f13e424]
+              - region "KHÔNG BAO GỒM" [ref=f13e428]:
+                - generic [ref=f13e429]:
+                  - paragraph [ref=f13e430]: Lệ phí làm hộ chiếu;
+                  - paragraph [ref=f13e431]: Ngủ phòng đơn 4.800.000VND/hành trình
+                  - paragraph [ref=f13e432]: Visa nhập lại Việt Nam & phí chênh lệch visa Trung Quốc cho khách mang quốc tịch nước ngoài;
+                  - paragraph [ref=f13e433]: Trường hợp quý khách dán Visa riêng lẻ làm tại Đại sứ quán TQ hoặc Lãnh sự quán TQ tại Tp Hồ Chí Minh thì phải trả thêm 100USD/khách, phát sinh phí làm visa khẩn;
+                  - paragraph [ref=f13e434]: Tiền típ cho HDViên và lái xe 10USD/người/ngày
+                  - paragraph [ref=f13e435]: Tiền cúng dàng tăng ni tại các ngôi chùa;
+                  - paragraph [ref=f13e436]: Chi phí tiền mua hương hoa, các lễ vật dâng chùa và chi phí mời thầy giảng thuyết và các lễ vật riêng cho đoàn ngoài chương trình;
+                  - paragraph [ref=f13e437]: Báo giá không áp dụng trong dịp hội chợ và dịp tuần lễ vàng của Trung Quốc (nếu đoàn đi đúng dịp hội chợ, ngày lễ hội thì tiền tour sẽ được tính lại);
+                  - paragraph [ref=f13e438]: Tiền cưỡi ngựa/ ngưu mao /lạc đà, chụp ảnh cùng Ngao Tạng tại các điểm thắng cảnh;
+                  - paragraph [ref=f13e439]: Tiền mua túi ô xi tại Tây Tạng, Thuốc men, bệnh viện và các chi phí cá nhân của khách ngoài chương trình;
+                  - paragraph [ref=f13e440]: Tiền ăn uống ngoài chương trình, tiền điện thoại, tiền giật là, hành lý quá cước theo qui định của hàng không và các khoản chi tiêu cá nhân...
+          - generic [ref=f13e441]:
+            - generic [ref=f13e442]:
+              - heading "Gửi đánh giá tour" [level=2] [ref=f13e443]
+              - paragraph [ref=f13e444]: Đánh giá mới sẽ được lưu ở trạng thái chờ duyệt trước khi hiển thị ngoài trang tour.
+            - generic [ref=f13e445]:
+              - generic [ref=f13e446]:
+                - generic [ref=f13e447]:
+                  - text: Họ tên
+                  - textbox "Họ tên" [ref=f13e448]
+                - generic [ref=f13e449]:
+                  - text: Số điện thoại
+                  - textbox "Số điện thoại" [ref=f13e450]
+                - generic [ref=f13e451]:
+                  - text: Email
+                  - textbox "Email" [ref=f13e452]
+                - generic [ref=f13e453]:
+                  - text: Ngữ cảnh chuyến đi
+                  - textbox "Ngữ cảnh chuyến đi" [ref=f13e454]:
+                    - /placeholder: Gia đình, đoàn công ty, nhóm bạn...
+              - generic [ref=f13e455]:
+                - text: Tiêu đề ngắn
+                - textbox "Tiêu đề ngắn" [ref=f13e456]:
+                  - /placeholder: "Ví dụ: Lịch trình rõ ràng, tư vấn chu đáo"
+              - group "Điểm đánh giá" [ref=f13e457]:
+                - generic [ref=f13e459]:
+                  - generic [ref=f13e460] [cursor=pointer]:
+                    - radio "1/5" [ref=f13e461]
+                    - generic [ref=f13e462]: 1/5
+                  - generic [ref=f13e465] [cursor=pointer]:
+                    - radio "2/5" [ref=f13e466]
+                    - generic [ref=f13e467]: 2/5
+                  - generic [ref=f13e470] [cursor=pointer]:
+                    - radio "3/5" [ref=f13e471]
+                    - generic [ref=f13e472]: 3/5
+                  - generic [ref=f13e475] [cursor=pointer]:
+                    - radio "4/5" [ref=f13e476]
+                    - generic [ref=f13e477]: 4/5
+                  - generic [ref=f13e480] [cursor=pointer]:
+                    - radio "5/5" [checked] [ref=f13e481]
+                    - generic [ref=f13e482]: 5/5
+              - generic [ref=f13e485]:
+                - text: Nội dung đánh giá
+                - textbox "Nội dung đánh giá" [ref=f13e486]
+              - button "Gửi đánh giá" [ref=f13e487]
+          - generic [ref=f13e490]:
+            - heading "CÂU HỎI THƯỜNG GẶP" [level=2] [ref=f13e493]
+            - generic [ref=f13e494]:
+              - article [ref=f13e495]:
+                - heading [level=3] [ref=f13e496]:
+                  - button "Thủ tục xin visa và giấy phép vào Tây Tạng có khó không?" [expanded] [ref=f13e497]
+                - region "Thủ tục xin visa và giấy phép vào Tây Tạng có khó không?" [ref=f13e501]:
+                  - paragraph [ref=f13e503]: Rất đơn giản! Bạn chỉ cần gửi ảnh chụp hộ chiếu và ảnh cá nhân trước ngày khởi hành 25 ngày. Hải Đăng Travel sẽ hoàn tất mọi thủ tục visa và giấy phép vào khu vực phi quân sự cho bạn.
+              - article [ref=f13e504]:
+                - heading [level=3] [ref=f13e505]:
+                  - button "Người cao tuổi có tham gia tour Tây Tạng được không?" [ref=f13e506]
+              - article [ref=f13e510]:
+                - heading [level=3] [ref=f13e511]:
+                  - button "Tour đã bao gồm những chi phí gì?" [ref=f13e512]
+              - article [ref=f13e516]:
+                - heading [level=3] [ref=f13e517]:
+                  - button "Tôi cần chuẩn bị gì để không bị say độ cao?" [ref=f13e518]
+          - generic [ref=f13e522]:
+            - generic [ref=f13e524]:
+              - heading "TOUR LIÊN QUAN" [level=2] [ref=f13e525]
+              - paragraph [ref=f13e526]: Tổng hợp các tour liên quan được nhiều khách yêu thích
+            - generic [ref=f13e527]:
+              - generic:
+                - button "Xem tour liên quan trước" [disabled] [ref=f13e528]
+                - button "Xem tour liên quan tiếp theo" [ref=f13e530]
+              - generic [ref=f13e532]:
+                - article [ref=f13e534]:
+                  - link "tour-hanh-huong-an-do-nepal Hành hương Châu Á" [ref=f13e535] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8001/chuong-trinh/tour-an-do-nepal
+                    - img "tour-hanh-huong-an-do-nepal" [ref=f13e536]
+                    - generic [ref=f13e537]: Hành hương Châu Á
+                  - generic [ref=f13e541]:
+                    - generic "Đánh giá 5,0 trên 5 từ 312 lượt đánh giá" [ref=f13e542]:
+                      - text: 5,0/5
+                      - generic [ref=f13e544]: • 312 đánh giá
+                    - generic [ref=f13e545]:
+                      - heading [level=3] [ref=f13e546]:
+                        - 'link "Tour hành hương Ấn Độ – Nepal 6N5Đ: Tứ Động Tâm" [ref=f13e547] [cursor=pointer]':
+                          - /url: http://127.0.0.1:8001/chuong-trinh/tour-an-do-nepal
+                      - img "Tiêu chuẩn 4 sao" [ref=f13e548]
+                      - generic [ref=f13e553]:
+                        - list "Thông tin nhanh của tour" [ref=f13e554]:
+                          - 'listitem "Điểm khởi hành: HCM" [ref=f13e555]':
+                            - generic [ref=f13e557]: HCM
+                          - 'listitem "Phương tiện: Máy bay" [ref=f13e558]':
+                            - generic [ref=f13e560]: Máy bay
+                          - 'listitem "Thời gian: 6N5Đ" [ref=f13e561]':
+                            - strong [ref=f13e563]: 6N5Đ
+                        - paragraph [ref=f13e564]: Tư vấn thêm
+                      - generic [ref=f13e566]:
+                        - generic [ref=f13e567]:
+                          - generic [ref=f13e568]:
+                            - paragraph [ref=f13e569]: Giá từ
+                            - paragraph [ref=f13e570]: 27.990.000 đ
+                          - paragraph [ref=f13e571]: 24.990.000 đ
+                        - link "Tư vấn" [ref=f13e573] [cursor=pointer]:
+                          - /url: http://127.0.0.1:8001/chuong-trinh/tour-an-do-nepal
+                - article [ref=f13e577]:
+                  - link "tour-du-lich-tay-tang-cung-dien-potala Hành hương Châu Á" [ref=f13e578] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8001/chuong-trinh/tour-du-lich-tay-tang-potalaho-yamdrok
+                    - img "tour-du-lich-tay-tang-cung-dien-potala" [ref=f13e579]
+                    - generic [ref=f13e580]: Hành hương Châu Á
+                  - generic [ref=f13e584]:
+                    - generic "Đánh giá 5,0 trên 5 từ 32 lượt đánh giá" [ref=f13e585]:
+                      - text: 5,0/5
+                      - generic [ref=f13e587]: • 32 đánh giá
+                    - generic [ref=f13e588]:
+                      - heading [level=3] [ref=f13e589]:
+                        - 'link "Tour Tây Tạng Giá Rẻ: Potala, hồ Yamdrok Hành Trình Khám Phá Vùng Đất Thiêng Huyền Bí" [ref=f13e590] [cursor=pointer]':
+                          - /url: http://127.0.0.1:8001/chuong-trinh/tour-du-lich-tay-tang-potalaho-yamdrok
+                      - img "Tiêu chuẩn 4 sao" [ref=f13e591]
+                      - generic [ref=f13e596]:
+                        - list "Thông tin nhanh của tour" [ref=f13e597]:
+                          - 'listitem "Điểm khởi hành: HCM" [ref=f13e598]':
+                            - generic [ref=f13e600]: HCM
+                          - 'listitem "Phương tiện: Máy bay" [ref=f13e601]':
+                            - generic [ref=f13e603]: Máy bay
+                          - 'listitem "Thời gian: 7N7Đ" [ref=f13e604]':
+                            - strong [ref=f13e606]: 7N7Đ
+                        - paragraph [ref=f13e607]: Tư vấn thêm
+                      - generic [ref=f13e609]:
+                        - generic [ref=f13e610]:
+                          - generic [ref=f13e611]:
+                            - paragraph [ref=f13e612]: Giá từ
+                            - paragraph [ref=f13e613]: 37.990.000 đ
+                          - paragraph [ref=f13e614]: 36.990.000 đ
+                        - link "Đặt ngay" [ref=f13e616] [cursor=pointer]:
+                          - /url: http://127.0.0.1:8001/chuong-trinh/tour-du-lich-tay-tang-potalaho-yamdrok
+                - article [ref=f13e620]:
+                  - link "Tour Sri Lanka Hành hương Châu Á" [ref=f13e621] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8001/chuong-trinh/tour-sri-lanka-8-ngay-7-dem-tham-du-le-hoi-ruoc-xa-loi-rang-phat-2026
+                    - img "Tour Sri Lanka" [ref=f13e622]
+                    - generic [ref=f13e623]: Hành hương Châu Á
+                  - generic [ref=f13e627]:
+                    - generic "Đánh giá 4,8 trên 5 từ 21 lượt đánh giá" [ref=f13e628]:
+                      - text: 4,8/5
+                      - generic [ref=f13e630]: • 21 đánh giá
+                    - generic [ref=f13e631]:
+                      - heading [level=3] [ref=f13e632]:
+                        - link "Tour Sri Lanka 8 Ngày 7 Đêm – Tham Dự Lễ Hội Rước Xá Lợi Răng Phật 2026" [ref=f13e633] [cursor=pointer]:
+                          - /url: http://127.0.0.1:8001/chuong-trinh/tour-sri-lanka-8-ngay-7-dem-tham-du-le-hoi-ruoc-xa-loi-rang-phat-2026
+                      - img "Tiêu chuẩn 4 sao" [ref=f13e634]
+                      - generic [ref=f13e639]:
+                        - list "Thông tin nhanh của tour" [ref=f13e640]:
+                          - 'listitem "Điểm khởi hành: HCM" [ref=f13e641]':
+                            - generic [ref=f13e643]: HCM
+                          - 'listitem "Phương tiện: Máy Bay" [ref=f13e644]':
+                            - generic [ref=f13e646]: Máy Bay
+                          - 'listitem "Thời gian: 8N7Đ" [ref=f13e647]':
+                            - strong [ref=f13e649]: 8N7Đ
+                        - paragraph [ref=f13e650]: Tư vấn thêm
+                      - generic [ref=f13e652]:
+                        - generic [ref=f13e653]:
+                          - generic [ref=f13e654]:
+                            - paragraph [ref=f13e655]: Giá từ
+                            - paragraph [ref=f13e656]: 47.000.000 đ
+                          - paragraph [ref=f13e657]: 45.000.000 đ
+                        - link "Đặt ngay" [ref=f13e659] [cursor=pointer]:
+                          - /url: http://127.0.0.1:8001/chuong-trinh/tour-sri-lanka-8-ngay-7-dem-tham-du-le-hoi-ruoc-xa-loi-rang-phat-2026
+                - article [ref=f13e663]:
+                  - link "tour-du-lich-bhutan-thimphu-punakha-paro Hành hương Châu Á" [ref=f13e664] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8001/chuong-trinh/tour-du-lich-bhutan-thimphu-punakha-paro
+                    - img "tour-du-lich-bhutan-thimphu-punakha-paro" [ref=f13e665]
+                    - generic [ref=f13e666]: Hành hương Châu Á
+                  - generic [ref=f13e670]:
+                    - generic "Đánh giá 5,0 trên 5 từ 211 lượt đánh giá" [ref=f13e671]:
+                      - text: 5,0/5
+                      - generic [ref=f13e673]: • 211 đánh giá
+                    - generic [ref=f13e674]:
+                      - heading [level=3] [ref=f13e675]:
+                        - 'link "Tour Bhutan 5N4Đ Trọn Gói: Hành Trình Tìm Về Hạnh Phúc Tại Vương Quốc Rồng Sấm" [ref=f13e676] [cursor=pointer]':
+                          - /url: http://127.0.0.1:8001/chuong-trinh/tour-du-lich-bhutan-thimphu-punakha-paro
+                      - img "Tiêu chuẩn 3 sao" [ref=f13e677]
+                      - generic [ref=f13e681]:
+                        - list "Thông tin nhanh của tour" [ref=f13e682]:
+                          - 'listitem "Điểm khởi hành: HCM" [ref=f13e683]':
+                            - generic [ref=f13e685]: HCM
+                          - 'listitem "Phương tiện: Máy Bay" [ref=f13e686]':
+                            - generic [ref=f13e688]: Máy Bay
+                          - 'listitem "Thời gian: 5N4Đ" [ref=f13e689]':
+                            - strong [ref=f13e691]: 5N4Đ
+                        - generic "Các ngày khởi hành gần nhất" [ref=f13e692]:
+                          - button "Xem ngày khởi hành phía trước" [disabled] [ref=f13e693]
+                          - generic [ref=f13e696]:
+                            - generic [ref=f13e697]: 30/09
+                            - generic [ref=f13e698]: 04/11
+                            - generic [ref=f13e699]: 30/12
+                          - button "Xem ngày khởi hành tiếp theo" [ref=f13e700]
+                        - paragraph [ref=f13e702]: Đang nhận khách
+                      - generic [ref=f13e704]:
+                        - generic [ref=f13e705]:
+                          - paragraph [ref=f13e707]: Giá từ
+                          - paragraph [ref=f13e708]: 54.990.000 đ
+                        - link "Đặt ngay" [ref=f13e710] [cursor=pointer]:
+                          - /url: http://127.0.0.1:8001/chuong-trinh/tour-du-lich-bhutan-thimphu-punakha-paro
+        - complementary [ref=f13e713]:
+          - generic [ref=f13e715]:
+            - generic [ref=f13e716]:
+              - generic [ref=f13e717]:
+                - paragraph [ref=f13e718]: "Giá:"
+                - paragraph [ref=f13e720]: 36.000.000 đ / Khách
+              - generic [ref=f13e721]:
+                - paragraph [ref=f13e722]: 33.000.000 đ
+                - paragraph [ref=f13e723]: / Khách
+            - list "Thông tin tour" [ref=f13e724]:
+              - 'listitem "Khởi hành: HCM" [ref=f13e725]':
+                - paragraph [ref=f13e728]:
+                  - generic [ref=f13e729]: "Khởi hành:"
+                  - text: HCM
+              - 'listitem "Thời gian: 6N5Đ" [ref=f13e730]':
+                - paragraph [ref=f13e733]:
+                  - generic [ref=f13e734]: "Thời gian:"
+                  - text: 6N5Đ
+              - 'listitem "Di chuyển: Máy bay" [ref=f13e735]':
+                - paragraph [ref=f13e738]:
+                  - generic [ref=f13e739]: "Di chuyển:"
+                  - text: Máy bay
+              - 'listitem "Tiêu chuẩn: 4 sao" [ref=f13e740]':
+                - paragraph [ref=f13e743]:
+                  - generic [ref=f13e744]: "Tiêu chuẩn:"
+                  - text: 4 sao
+            - generic [ref=f13e745]:
+              - link "Zalo" [ref=f13e746] [cursor=pointer]:
+                - /url: https://zalo.me/0911222288
+              - link "Gọi" [ref=f13e748] [cursor=pointer]:
+                - /url: tel:0911222288
+              - button "Đặt tour" [ref=f13e751]
+            - generic [ref=f13e754]:
+              - generic "Chia sẻ tour này" [ref=f13e756]:
+                - button "Chia sẻ" [ref=f13e757]
+                - link "Chia sẻ qua Zalo" [ref=f13e759] [cursor=pointer]:
+                  - /url: https://zalo.me/share?u=http%3A%2F%2F127.0.0.1%3A8001%2Fchuong-trinh%2Ftour-du-lich-tay-tang-cung-dien-potala
+                - link "Chia sẻ lên Facebook" [ref=f13e761] [cursor=pointer]:
+                  - /url: https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8001%2Fchuong-trinh%2Ftour-du-lich-tay-tang-cung-dien-potala
+                - button "Chia sẻ qua Instagram" [ref=f13e763]
+                - link "Chia sẻ qua Telegram" [ref=f13e765] [cursor=pointer]:
+                  - /url: https://t.me/share/url?url=http%3A%2F%2F127.0.0.1%3A8001%2Fchuong-trinh%2Ftour-du-lich-tay-tang-cung-dien-potala&text=Tour+T%C3%A2y+T%E1%BA%A1ng+B%E1%BA%A3n+%C4%90%E1%BA%B7c+Bi%E1%BB%87t%3A+H%C3%A0nh+Tr%C3%ACnh+Huy%E1%BB%81n+B%C3%AD+6N5%C4%90+%E2%80%93+Ch%E1%BA%A1m+V%C3%A0o+N%C3%B3c+Nh%C3%A0+Th%E1%BA%BF+Gi%E1%BB%9Bi
+                - button "Sao chép link" [ref=f13e767]
+              - paragraph [ref=f13e769]
+    - generic [ref=f13e773]:
+      - generic [ref=f13e774]:
+        - generic [ref=f13e775]:
+          - heading "Chuyến đi đáng nhớ, ưu đãi dành cho bạn" [level=2] [ref=f13e776]
+          - paragraph [ref=f13e777]: Bạn đang tìm một hành trình thật đáng đi? Chia sẻ mong muốn để Hải Đăng Travel gợi ý tour hấp dẫn và kiểm tra ưu đãi phù hợp với lịch đi của bạn.
+        - list [ref=f13e778]:
+          - listitem [ref=f13e779]:
+            - generic [ref=f13e782]:
+              - heading "Tour hấp dẫn, đúng gu của bạn" [level=3] [ref=f13e783]
+              - paragraph [ref=f13e784]: Gợi ý hành trình theo sở thích, lịch đi và ngân sách.
+          - listitem [ref=f13e785]:
+            - generic [ref=f13e788]:
+              - heading "Khám phá ưu đãi phù hợp" [level=3] [ref=f13e789]
+              - paragraph [ref=f13e790]: Được tư vấn chương trình khuyến mãi đang áp dụng cho chuyến đi của bạn.
+          - listitem [ref=f13e791]:
+            - generic [ref=f13e794]:
+              - heading "Chưa chốt ngày đi? Vẫn có thể hỏi!" [level=3] [ref=f13e795]
+              - paragraph [ref=f13e796]: Cùng Hải Đăng Travel tìm lịch khởi hành và phương án phù hợp.
+        - generic [ref=f13e797]:
+          - paragraph [ref=f13e798]: Muốn trao đổi trực tiếp?
+          - link "0911222288" [ref=f13e799]:
+            - /url: tel:0911222288
+          - link "info@haidangtravel.com" [ref=f13e801]:
+            - /url: mailto:info@haidangtravel.com
+      - form [ref=f13e804]:
+        - generic [ref=f13e805]:
+          - heading "Nhận gợi ý cho chuyến đi của bạn" [level=3] [ref=f13e806]
+          - paragraph [ref=f13e807]: Để lại tên và số điện thoại, Hải Đăng Travel sẽ liên hệ tư vấn tour cùng ưu đãi phù hợp.
+        - generic [ref=f13e808]:
+          - generic [ref=f13e809]:
+            - generic [ref=f13e810]: Họ tên *
+            - textbox "Họ tên" [ref=f13e811]:
+              - /placeholder: Tên của bạn
+          - generic [ref=f13e812]:
+            - generic [ref=f13e813]: Số điện thoại *
+            - textbox "Số điện thoại" [ref=f13e814]:
+              - /placeholder: Số điện thoại liên hệ
+        - generic [ref=f13e815]:
+          - generic [ref=f13e816]: Bạn muốn đi đâu? (Không bắt buộc)
+          - textbox "Bạn muốn đi đâu? (Không bắt buộc)" [ref=f13e817]:
+            - /placeholder: "Ví dụ: Phú Quốc, 2 người, đi tháng 10, khoảng 5 triệu/người..."
+        - generic [ref=f13e818]:
+          - button "Nhận gợi ý tour & ưu đãi" [ref=f13e819]
+          - paragraph [ref=f13e822]: Gửi yêu cầu để được tư vấn, chưa phải đặt tour.Ưu đãi tùy tour và thời điểm áp dụng.
+          - link "Xem thêm tour" [ref=f13e823]:
+            - /url: http://127.0.0.1:8001/tour-nuoc-ngoai
+  - contentinfo [ref=f13e825]:
+    - generic [ref=f13e826]:
+      - generic [ref=f13e827]:
+        - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=f13e828] [cursor=pointer]:
+          - /url: http://127.0.0.1:8001
+          - img "Du Lịch Hải Đăng Travel" [ref=f13e830]
+        - paragraph [ref=f13e831]: Haidang Travel chuyên tổ chức du lịch, teambuilding, event trong và ngoài nước.
+        - generic [ref=f13e832]:
+          - paragraph [ref=f13e833]:
+            - generic [ref=f13e836]: Tòa nhà Building Haidang 367 Tân Sơn, Phường Tân Sơn, thành phố Hồ Chí Minh
+          - paragraph [ref=f13e837]:
+            - generic [ref=f13e840]: 19002011 · 0911222288
+          - paragraph [ref=f13e841]:
+            - generic [ref=f13e844]: info@haidangtravel.com
+          - paragraph [ref=f13e845]:
+            - generic [ref=f13e848]: "Giấy phép lữ hành: 79-723/2017/TCDL-GP LHQT"
+      - generic [ref=f13e849]:
+        - generic [ref=f13e850]:
+          - heading "Đi nhanh" [level=2] [ref=f13e851]
+          - list [ref=f13e852]:
+            - listitem [ref=f13e853]:
+              - link "Tour trong nước" [ref=f13e854] [cursor=pointer]:
+                - /url: /tour-trong-nuoc
+            - listitem [ref=f13e855]:
+              - link "Tour nước ngoài" [ref=f13e856] [cursor=pointer]:
+                - /url: /tour-nuoc-ngoai
+            - listitem [ref=f13e857]:
+              - link "Tour đoàn" [ref=f13e858] [cursor=pointer]:
+                - /url: /tour-doan
+            - listitem [ref=f13e859]:
+              - link "Dịch vụ" [ref=f13e860] [cursor=pointer]:
+                - /url: /dich-vu
+            - listitem [ref=f13e861]:
+              - link "Tin Tức & Cẩm Nang" [ref=f13e862] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=f13e863]:
+              - link "Liên hệ" [ref=f13e864] [cursor=pointer]:
+                - /url: /lien-he
+        - generic [ref=f13e865]:
+          - heading "Thông tin" [level=2] [ref=f13e866]
+          - list [ref=f13e867]:
+            - listitem [ref=f13e868]:
+              - link "Login CMS" [ref=f13e869] [cursor=pointer]:
+                - /url: /login
+            - listitem [ref=f13e870]:
+              - link "Login agency" [ref=f13e871] [cursor=pointer]:
+                - /url: https://agency.haidangtravel.com
+            - listitem [ref=f13e872]:
+              - link "Chính Sách Mua Đổi Trả" [ref=f13e873] [cursor=pointer]:
+                - /url: /chinh-sach-dat-tour-huy-doi-hoan-tien
+      - generic [ref=f13e874]:
+        - heading "Kênh hỗ trợ" [level=2] [ref=f13e875]
+        - generic [ref=f13e876]:
+          - link "Zalo hỗ trợ" [ref=f13e877] [cursor=pointer]:
+            - /url: https://zalo.me/0911222288
+          - link "Fanpage chính thức" [ref=f13e880] [cursor=pointer]:
+            - /url: https://www.facebook.com/haidangtraveltanson
+          - link "YouTube Channel" [ref=f13e883] [cursor=pointer]:
+            - /url: https://www.youtube.com/@haidangtraveltanson
+          - link "TikTok Channel" [ref=f13e886] [cursor=pointer]:
+            - /url: https://www.tiktok.com/@hddiscovery
+        - generic [ref=f13e889]:
+          - link "Đã thông báo Bộ Công Thương":
+            - /url: http://online.gov.vn/Home/WebDetails/15656
+            - img "Đã thông báo Bộ Công Thương"
+          - link "DMCA.com Protection Status" [ref=f13e890] [cursor=pointer]:
+            - /url: https://www.dmca.com/Protection/Status.aspx?ID=0b22a7b7-ed93-4820-acbf-7bd6d1caaf34
+            - img "DMCA.com Protection Status" [ref=f13e891]
+    - generic [ref=f13e892]: © Công ty CPXD Du Lịch Hải Đăng

@@ -9,6 +9,7 @@ use App\Livewire\Admin\Cms\MenuManager;
 use App\Livewire\Admin\Cms\ServicesManager;
 use App\Livewire\Admin\Cms\SlidersManager;
 use App\Livewire\Admin\Cms\ThemeSettingsManager;
+use App\Livewire\Admin\Cms\TourFlashSalesManager;
 use App\Livewire\Admin\Cms\ToursManager;
 use App\Livewire\Admin\Cms\TourAgencySyncQueueManager;
 use App\Livewire\Admin\Cms\TravelReviewsManager;
@@ -33,6 +34,9 @@ Route::middleware(['auth', 'verified', 'permission:access admin panel', 'noindex
         Route::get('/', ToursManager::class)->middleware('permission:admin.tours.index')->name('tours');
         Route::get('/create', ToursManager::class)->middleware('permission:admin.tours.edit')->name('tours.create');
         Route::get('/agency-sync-queue', TourAgencySyncQueueManager::class)->middleware('permission:admin.tours.edit')->name('tours.agency-sync-queue');
+        Route::get('/flash-sales', TourFlashSalesManager::class)->middleware('permission:admin.tours.index')->name('tour-flash-sales');
+        Route::get('/flash-sales/create', TourFlashSalesManager::class)->middleware('permission:admin.tours.edit')->name('tour-flash-sales.create');
+        Route::get('/flash-sales/{flashSale}/edit', TourFlashSalesManager::class)->middleware('permission:admin.tours.edit')->name('tour-flash-sales.edit');
         Route::get('/{tour}/edit', ToursManager::class)->middleware('permission:admin.tours.edit')->name('tours.edit');
         Route::get('/{tour}/reviews', TravelReviewsManager::class)->middleware('permission:admin.tours.edit')->name('tours.reviews.index');
         Route::get('/{tour}/reviews/create', TravelReviewsManager::class)->middleware('permission:admin.tours.edit')->name('tours.reviews.create');

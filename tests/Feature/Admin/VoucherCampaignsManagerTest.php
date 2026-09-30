@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\Admin;
 
-use App\Livewire\Admin\Cms\VoucherCampaignsManager;
 use App\Livewire\Admin\Cms\VoucherCampaignCodesManager;
+use App\Livewire\Admin\Cms\VoucherCampaignsManager;
 use App\Models\User;
 use Database\Seeders\CmsBootstrapSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -259,18 +259,65 @@ class VoucherCampaignsManagerTest extends TestCase
 
         $user = User::query()->where('email', 'test@example.com')->firstOrFail();
         $campaign = $this->createVoucherCampaign();
+        $receiveUntil = now()->addDays(20)->endOfDay();
+        $validUntil = now()->addDays(30)->endOfDay();
 
         $this->actingAs($user);
 
         Livewire::test(VoucherCampaignsManager::class, ['campaign' => $campaign])
-            ->set('form.ends_at', '07/07/2026')
-            ->set('form.code_valid_until', '20/07/2026')
+            ->set('form.ends_at', $receiveUntil->format('d/m/Y'))
+            ->set('form.code_valid_until', $validUntil->format('d/m/Y'))
             ->call('save')
             ->assertHasNoErrors();
 
         $campaign->refresh();
 
-        $this->assertSame('2026-07-20 23:59:59', $campaign->code_valid_until?->format('Y-m-d H:i:s'));
+        $this->assertSame($validUntil->format('Y-m-d H:i:s'), $campaign->code_valid_until?->format('Y-m-d H:i:s'));
+    }
+
+    public function test_voucher_campaign_editor_saves_public_widget_configuration_without_exposing_generated_codes(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $campaign = $this->createVoucherCampaign(['meta' => ['legacy_key' => 'preserved']]);
+
+        $this->actingAs($user);
+
+        Livewire::test(VoucherCampaignsManager::class, ['campaign' => $campaign])
+            ->set('form.public_widget_enabled', true)
+            ->set('form.public_code', 'trip1500')
+            ->set('form.public_terms', 'Áp dụng cho tour nội địa, Đông Nam Á')
+            ->call('save')
+            ->assertHasNoErrors();
+
+        $campaign->refresh();
+
+        $this->assertTrue((bool) data_get($campaign->meta, 'public_widget_enabled'));
+        $this->assertSame('TRIP1500', data_get($campaign->meta, 'public_code'));
+        $this->assertSame('Áp dụng cho tour nội địa, Đông Nam Á', data_get($campaign->meta, 'public_terms'));
+        $this->assertSame('preserved', data_get($campaign->meta, 'legacy_key'));
+    }
+
+    public function test_public_voucher_widget_requires_an_active_custom_landing_page(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $campaign = $this->createVoucherCampaign(['landing_page_id' => null]);
+
+        $this->actingAs($user);
+
+        Livewire::test(VoucherCampaignsManager::class, ['campaign' => $campaign])
+            ->set('form.public_widget_enabled', true)
+            ->set('form.public_code', 'TRIP1500')
+            ->call('save')
+            ->assertHasErrors(['form.landing_page_id']);
+
+        $campaign->refresh();
+
+        $this->assertNull($campaign->landing_page_id);
+        $this->assertFalse((bool) data_get($campaign->meta, 'public_widget_enabled', false));
     }
 
     public function test_voucher_campaign_can_be_deleted_by_admin(): void

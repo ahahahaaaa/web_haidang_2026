@@ -12,16 +12,7 @@
 
 @switch($sectionKey)
     @case('search')
-        @if ($homeBlockEnabled('search'))
-            @include('themes.haidangtravel.partials.shared-search-bar', [
-                'action' => route('tours.search'),
-                'buttonLabel' => trim((string) data_get($searchConfig, 'button_label', '')) ?: 'Tìm',
-                'containerClasses' => 'max-w-5xl',
-                'inputValue' => request('q'),
-                'placeholder' => trim((string) data_get($searchConfig, 'placeholder', '')) ?: 'Bạn muốn đi đâu?',
-                'sectionClasses' => 'relative z-10 -mt-6 px-4 sm:px-6 lg:-mt-8 lg:px-8',
-            ])
-        @endif
+        {{-- The sitewide desktop filter is rendered inside the hero; mobile discovery lives in the header. --}}
         @break
 
     @case('geo_answer')
@@ -38,6 +29,7 @@
             @include('themes.haidangtravel.partials.home-tour-topics', [
                 'description' => trim((string) data_get($topicRailConfig, 'description', '')),
                 'eyebrow' => trim((string) data_get($topicRailConfig, 'eyebrow', '')),
+                'showCardTitles' => (bool) data_get($topicRailConfig, 'show_card_titles', true),
                 'title' => trim((string) data_get($topicRailConfig, 'title', '')),
                 'tourCategories' => $homeTourCategories ?? collect(),
             ])
@@ -46,19 +38,30 @@
 
     @case('featured_tours')
         @if ($homeBlockEnabled('featured_tours'))
+            @php
+                $featuredToursIsSlider = (bool) data_get($featuredToursConfig, 'is_slider', false);
+                $showFeaturedTourFilters = (bool) data_get($featuredToursConfig, 'show_filters', true);
+                $visibleFeaturedTabs = $showFeaturedTourFilters ? $featuredTabs : $featuredTabs->where('id', 'all');
+                $featuredTourPopularSearches = collect($featuredTourPopularSearches ?? []);
+            @endphp
             <section class="bg-white px-4 py-8 sm:px-6 lg:px-8 lg:py-10" id="featured-tours">
                 <div class="mx-auto max-w-7xl" data-home-featured-tabs>
-                    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                    <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                         <div class="max-w-3xl">
-                            <h2 class="frontsite-text-reveal frontsite-h2" data-reveal="title" data-home-featured-summary-title>{{ $activeFeaturedTab['title'] }}</h2>
+                            <h2 class="frontsite-text-reveal frontsite-h2" data-reveal="title" data-home-featured-summary-title><i class="fa-solid fa-route mr-2 text-primary" aria-hidden="true"></i>{{ $activeFeaturedTab['title'] }}</h2>
                             <p class="frontsite-text-reveal mt-3 text-sm leading-7 text-slate-600 sm:text-base" data-reveal="body" data-home-featured-summary-description>{{ $activeFeaturedTab['description'] }}</p>
                         </div>
-                        <a href="{{ $activeFeaturedTab['url'] }}" class="frontsite-text-reveal inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.24em] text-secondary transition hover:text-primary" data-reveal="cta" data-home-featured-summary-link>
-                            {{ $featuredTourCtaLabel }}
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
+                        @include('themes.haidangtravel.partials.block-view-more-link', [
+                            'label' => $featuredTourCtaLabel,
+                            'linkAttributes' => [
+                                'data-reveal' => 'cta',
+                                'data-home-featured-summary-link' => true,
+                            ],
+                            'url' => $activeFeaturedTab['url'],
+                        ])
                     </div>
 
+                    @if ($showFeaturedTourFilters)
                     <div class="frontsite-mobile-tablist frontsite-featured-mobile-tablist mt-6" role="tablist" aria-label="Nhóm tour">
                         @foreach ($featuredTabs as $tab)
                             @php
@@ -80,45 +83,86 @@
                                 data-reveal="meta"
                             >
                                 {{ $tab['label'] }}
-                                <span class="ml-2 rounded-full bg-black/8 px-2.5 py-1 text-[11px] font-semibold {{ $isActiveTab ? 'text-white/90' : 'text-slate-500' }}">
-                                    {{ $tab['items']->count() }}
-                                </span>
                             </button>
                         @endforeach
                     </div>
+                    @endif
 
-                    <div class="mt-8 space-y-6">
-                        @foreach ($featuredTabs as $tab)
+                    <div class="{{ $showFeaturedTourFilters ? 'mt-8' : 'mt-6' }} space-y-6">
+                        @foreach ($visibleFeaturedTabs as $tab)
                             @php
                                 $isActiveTab = $tab['id'] === $defaultFeaturedTabId;
-                                $featuredTourCardGridClasses = \App\Support\FrontsiteCardGrid::DEFAULT_CLASSES;
+                                $featuredTourCardGridClasses = 'grid gap-x-2 gap-y-1 md:grid-cols-2 lg:grid-cols-4';
                                 $featuredTourCardVariant = 'default';
                             @endphp
 
                             <section
                                 id="home-featured-panel-{{ $tab['id'] }}"
-                                role="tabpanel"
-                                aria-labelledby="home-featured-tab-{{ $tab['id'] }}"
+                                @if ($showFeaturedTourFilters) role="tabpanel" aria-labelledby="home-featured-tab-{{ $tab['id'] }}" @endif
                                 data-home-featured-panel="{{ $tab['id'] }}"
                                 @if (! $isActiveTab) hidden @endif
                             >
-                                <div class="{{ $featuredTourCardGridClasses }}">
-                                    @forelse ($tab['items'] as $tour)
-                                        @include('themes.haidangtravel.partials.tour-card', [
-                                            'tour' => $tour,
-                                            'showRating' => true,
-                                            'variant' => $featuredTourCardVariant,
-                                            'revealDelay' => number_format(($loop->index % 4) * 0.08, 2, '.', ''),
-                                        ])
-                                    @empty
-                                        <div class="col-span-full rounded-[1.75rem] border border-dashed border-slate-300 bg-slate-50 p-8 text-center text-sm leading-7 text-slate-500">
-                                            Chưa có tour phù hợp trong nhóm này. Bạn có thể mở toàn bộ danh mục để xem thêm hành trình đang hoạt động.
+                                <div
+                                    class="frontsite-slider-stage"
+                                    @if ($featuredToursIsSlider)
+                                        data-card-carousel
+                                        data-desktop-slider="true"
+                                        data-tour-card-slider="true"
+                                        style="--desktop-columns: 4; --mobile-card-width: calc(83.333% - 0.17rem); --desktop-card-width: calc((100% - 3rem) / 4);"
+                                    @endif
+                                >
+                                    @if ($featuredToursIsSlider && $tab['items']->count() > 1)
+                                        <div class="frontsite-slider-nav">
+                                            <button type="button" class="service-card-carousel-control" data-card-carousel-prev aria-label="Xem tour nổi bật trước"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+                                            <button type="button" class="service-card-carousel-control" data-card-carousel-next aria-label="Xem tour nổi bật tiếp theo"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
                                         </div>
-                                    @endforelse
+                                    @endif
+                                    <div class="{{ $featuredToursIsSlider ? 'service-card-carousel-track' : $featuredTourCardGridClasses }}" @if ($featuredToursIsSlider) data-card-carousel-track @endif>
+                                        @forelse ($tab['items'] as $tour)
+                                            @if ($featuredToursIsSlider)<div class="service-card-carousel-item" data-card-carousel-item>@endif
+                                                @include('themes.haidangtravel.partials.tour-card', [
+                                                    'tour' => $tour,
+                                                    'showRating' => true,
+                                                    'variant' => $featuredTourCardVariant,
+                                                    'ctaVariant' => data_get($featuredToursConfig, 'card_cta_variant'),
+                                                    'revealDelay' => number_format(($loop->index % 4) * 0.08, 2, '.', ''),
+                                                ])
+                                            @if ($featuredToursIsSlider)</div>@endif
+                                        @empty
+                                            <div class="col-span-full rounded-[1.75rem] border border-dashed border-slate-300 bg-slate-50 p-8 text-center text-sm leading-7 text-slate-500">
+                                                Chưa có tour phù hợp trong nhóm này. Bạn có thể mở toàn bộ danh mục để xem thêm hành trình đang hoạt động.
+                                            </div>
+                                        @endforelse
+                                    </div>
                                 </div>
                             </section>
                         @endforeach
                     </div>
+
+                    @if ($featuredTourPopularSearches->isNotEmpty())
+                        <nav class="mt-6 grid min-w-0 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 border-t border-slate-100 pt-5 sm:grid-cols-[auto_auto_minmax(0,1fr)_auto]" aria-label="Tìm kiếm tour nổi bật" data-home-featured-popular-searches data-popular-search-rail>
+                            <span class="col-span-3 shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-700 sm:col-span-1">Tìm kiếm nổi bật:</span>
+                            <button type="button" class="inline-flex aspect-square min-h-[46px] min-w-[46px] items-center justify-center rounded-full border border-orange-200 bg-white p-[15px] text-primary transition hover:border-primary hover:bg-orange-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 disabled:cursor-not-allowed disabled:opacity-35" data-popular-search-rail-prev aria-label="Xem tìm kiếm nổi bật phía trước">
+                                <i class="fa-solid fa-play rotate-180 text-[0.7rem]" aria-hidden="true"></i>
+                            </button>
+                            <div class="min-w-0 overflow-x-auto scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-popular-search-rail-track>
+                                <div class="flex min-w-max items-center gap-2">
+                                    @foreach ($featuredTourPopularSearches as $popularSearch)
+                                        <a
+                                            href="{{ $popularSearch['url'] }}"
+                                            data-home-featured-popular-search-filter="{{ data_get($popularSearch, 'filter_uuid', '') }}"
+                                            class="inline-flex min-h-9 shrink-0 items-center rounded-full border border-orange-200 bg-orange-50 px-3.5 py-2 text-xs font-semibold uppercase tracking-[0.04em] text-orange-700 transition hover:border-orange-300 hover:bg-orange-100 hover:text-orange-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300"
+                                        >
+                                            {{ $popularSearch['label'] }}
+                                        </a>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <button type="button" class="inline-flex aspect-square min-h-[46px] min-w-[46px] items-center justify-center rounded-full border border-orange-200 bg-white p-[15px] text-primary transition hover:border-primary hover:bg-orange-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 disabled:cursor-not-allowed disabled:opacity-35" data-popular-search-rail-next aria-label="Xem tìm kiếm nổi bật tiếp theo">
+                                <i class="fa-solid fa-play text-[0.7rem]" aria-hidden="true"></i>
+                            </button>
+                        </nav>
+                    @endif
                 </div>
             </section>
         @endif
@@ -165,7 +209,7 @@
         @if ($homeBlockEnabled('services'))
             <section class="bg-white px-4 py-8 sm:px-6 lg:px-8 lg:py-10" id="core-services">
                 <div class="mx-auto max-w-7xl">
-                    <div class="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                    <div class="mb-10 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                         <div class="max-w-3xl">
                             <h2 class="{{ $homeBlockTitleClasses }}" data-reveal="title">{{ $servicesTitle }}</h2>
                             @if ($servicesDescription !== '')
@@ -173,10 +217,11 @@
                             @endif
                         </div>
 
-                        <a href="{{ $servicesCtaUrl }}" class="frontsite-text-reveal inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.24em] text-secondary transition hover:text-primary" data-reveal="cta">
-                            {{ $servicesCtaLabel }}
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
+                        @include('themes.haidangtravel.partials.block-view-more-link', [
+                            'label' => $servicesCtaLabel,
+                            'linkAttributes' => ['data-reveal' => 'cta'],
+                            'url' => $servicesCtaUrl,
+                        ])
                     </div>
 
                     <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -205,12 +250,15 @@
 
     @case('trust')
         @if ($homeBlockEnabled('trust'))
-            @include('themes.haidangtravel.partials.trust-proof-section', [
-                'cards' => $homeTrustCards,
+            @include('themes.haidangtravel.partials.home-about-awards-section', [
+                'awards' => $homeTrustAwards,
                 'description' => $homeTrustDescription,
-                'sectionClasses' => 'overflow-hidden bg-[linear-gradient(180deg,#fffaf5_0%,#eef5ff_100%)] px-4 py-8 sm:px-6 lg:px-8 lg:py-10',
+                'logoSmallUrl' => $homeTrustLogoSmallUrl,
+                'logoUrl' => $homeTrustLogoUrl,
+                'sectionClasses' => 'overflow-hidden bg-slate-50 px-4 py-8 sm:px-6 lg:px-8 lg:py-12',
                 'sectionId' => 'trust-and-proof',
-                'stats' => $stats,
+                'stats' => $homeTrustStats,
+                'subtitle' => $homeTrustSubtitle,
                 'title' => $homeTrustTitle,
             ])
         @endif
@@ -268,17 +316,18 @@
         @if ($homeBlockEnabled('blog_preview'))
             <section class="bg-[color:var(--color-bg-soft)] px-4 py-8 sm:px-6 lg:px-8 lg:py-10" id="blog-preview">
                 <div class="mx-auto max-w-7xl">
-                    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                    <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                         <div class="max-w-3xl">
-                            <h2 class="{{ $homeBlockTitleClasses }}" data-reveal="title">{{ $blogPreviewTitle }}</h2>
+                            <h2 class="{{ $homeBlockTitleClasses }}" data-reveal="title"><i class="fa-regular fa-newspaper mr-2 text-primary" aria-hidden="true"></i>{{ $blogPreviewTitle }}</h2>
                             @if ($blogPreviewDescription !== '')
                                 <p class="frontsite-text-reveal mt-3 text-sm leading-7 text-slate-600 sm:text-base" data-reveal="body">{{ $blogPreviewDescription }}</p>
                             @endif
                         </div>
-                        <a href="{{ $blogPreviewCtaUrl }}" class="frontsite-text-reveal inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.24em] text-secondary transition hover:text-primary" data-reveal="cta">
-                            {{ $blogPreviewCtaLabel }}
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
+                        @include('themes.haidangtravel.partials.block-view-more-link', [
+                            'label' => $blogPreviewCtaLabel,
+                            'linkAttributes' => ['data-reveal' => 'cta'],
+                            'url' => $blogPreviewCtaUrl,
+                        ])
                     </div>
 
                     <div class="mt-10 {{ $articleCardGridClasses }}">

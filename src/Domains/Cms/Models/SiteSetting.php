@@ -94,11 +94,12 @@ class SiteSetting extends Model implements HasMedia
         $this->addMediaCollection('logo')->singleFile();
         $this->addMediaCollection('favicon')->singleFile();
         $this->addMediaCollection('og_image')->singleFile();
+        $this->addMediaCollection('customer_loyalty_hero')->singleFile();
         $this->addMediaCollection('library');
     }
 
     public function registerMediaConversions(?Media $media = null): void
     {
-        $this->registerFrontsiteImageConversions(['logo', 'og_image']);
+        $this->registerFrontsiteImageConversions(['logo', 'og_image', 'customer_loyalty_hero']);
     }
 }

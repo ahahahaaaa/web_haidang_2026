@@ -8,7 +8,7 @@ Primary frontsite palette:
 - Primary orange: `#FF6A00`
 - Primary orange hover: `#E65F00`
 - Primary gradient: `linear-gradient(135deg, #FF6A00, #FF8C00)`
-- Secondary blue: `#004A99`
+- Secondary graphite: `#334155`
 - Accent dark: `#222222`
 - Background main: `#F8FAFC`
 - Background soft: `#FDFAF7`
@@ -59,12 +59,11 @@ Use for:
 - key actions,
 - high-conversion emphasis.
 
-### Blue
+### Neutral graphite
 Use for:
 - headings,
 - navigation accents,
 - trust/authority cues,
-- metric numbers,
 - brand anchors.
 
 ### Gradient rule
@@ -73,7 +72,7 @@ Preferred angle: subtle 15-degree gradient using core tone → container/variant
 
 Examples:
 - CTA button: orange → orange hover/deeper orange
-- hero overlays: blue/orange atmospheric blend
+- hero overlays: charcoal/orange atmospheric blend
 - avoid using orange on more than roughly 20% of a screen at once
 
 ---
@@ -225,6 +224,40 @@ Use asymmetry carefully:
 - Lỗi validation phải hiển thị trực tiếp dưới từng field; khi field bị lỗi cần có trạng thái invalid rõ ràng nhưng vẫn giữ visual sạch của frontsite.
 - Redirect + flash message chỉ là fallback cho no-JS hoặc lỗi bất khả kháng; không xem đó là UX chuẩn mặc định.
 
+### Inline tour offer form (2026-09-27)
+
+- Component: `resources/views/themes/haidangtravel/partials/cta-banner.blade.php`; style riêng tại `resources/css/frontsite-tour-offer.css`, import qua `frontsite.css`. Áp dụng cho các trang dùng CTA banner chung; modal tiếp tục dùng thiết kế hiện hữu.
+- Mục tiêu: giúp khách để lại thông tin để nhận gợi ý hành trình và được tư vấn chương trình khuyến mãi phù hợp, kể cả khi chưa chốt ngày đi.
+- Desktop từ `1024px`: hai cột, lợi ích bên trái và form nền trắng bên phải. Mobile/tablet: xếp một cột theo thứ tự lợi ích → form; hai field tên/điện thoại tách hàng dưới `640px`.
+- Nền cam đào `#FFF1E4` → `#FFF9F3`, ánh cam nhạt `#FFD5AD`, viền nhấn trên `#FF6A00`; heading cam đậm `#9A3412`, chữ nội dung slate. Form trắng, radius theo token frontsite `8px`, shadow cam nhẹ. Không dùng nền xanh cho CTA banner này.
+- Nút chính dùng gradient `#C2410C` → `#9A3412` với chữ trắng để giữ độ tương phản; link xem thêm và hotline/email là hành động phụ. Không đặt hai card liên hệ lớn trước form.
+
+Copy mặc định cho CTA cuối trang tour:
+
+| Thành phần | Nội dung |
+| --- | --- |
+| Heading | Chuyến đi đáng nhớ, ưu đãi dành cho bạn |
+| Mô tả | Bạn đang tìm một hành trình thật đáng đi? Chia sẻ mong muốn để Hải Đăng Travel gợi ý tour hấp dẫn và kiểm tra ưu đãi phù hợp với lịch đi của bạn. |
+| Lợi ích 1 | Tour hấp dẫn, đúng gu của bạn — Gợi ý hành trình theo sở thích, lịch đi và ngân sách. |
+| Lợi ích 2 | Khám phá ưu đãi phù hợp — Được tư vấn chương trình khuyến mãi đang áp dụng cho chuyến đi của bạn. |
+| Lợi ích 3 | Chưa chốt ngày đi? Vẫn có thể hỏi! — Cùng Hải Đăng Travel tìm lịch khởi hành và phương án phù hợp. |
+| Tiêu đề form | Nhận gợi ý cho chuyến đi của bạn |
+| Mô tả form | Để lại tên và số điện thoại, Hải Đăng Travel sẽ liên hệ tư vấn tour cùng ưu đãi phù hợp. |
+| Nút gửi | Nhận gợi ý tour & ưu đãi |
+| Đang gửi | Đang gửi yêu cầu… |
+| Chú thích | Gửi yêu cầu để được tư vấn, chưa phải đặt tour. Ưu đãi tùy tour và thời điểm áp dụng. |
+
+- `Họ tên` và `Số điện thoại` bắt buộc; `Bạn muốn đi đâu? (Không bắt buộc)` là textarea gợi ý điểm đến/ngày đi/số người/ngân sách. Số điện thoại dùng `type="tel"`, `inputmode="tel"`, autocomplete; font input tối thiểu `16px`, chiều cao tối thiểu `48px`.
+- Không thêm bước đăng ký tài khoản. Không hứa mức giảm, thời hạn, số chỗ, nhận voucher tự động hay thời gian gọi lại nếu chưa có dữ liệu/campaign xác nhận. Ví dụ trong placeholder chỉ minh họa nhu cầu, không phải báo giá tour.
+- Heading/mô tả từng trang vẫn lấy từ CMS. Default của tour nằm ở `FrontsiteSectionHeadings::definitions()['tour']['items']['tour_cta']`; khi triển khai trên dữ liệu đã lưu, cập nhật riêng title/description tại **Theme Settings → CTA cuối trang tour**, giữ trạng thái hiển thị và các heading khác.
+- Reveal dùng `data-reveal="title|body|panel"` của runtime hiện hữu; panel trễ `0.18s`. Form tái sử dụng trực tiếp animation của TourCard trong `app.css`: viền sáng cam chạy quanh theo `frontsite-tour-card-border-orbit` chu kỳ `11s`, nút có vệt sáng `frontsite-tour-card-cta-shine` chu kỳ `4.8s`. Giữ nguyên nhịp và hình thức của TourCard, không thêm timer hoặc thư viện animation mới.
+- Hover/focus nút nâng `2px`, icon mũi tên dịch phải `4px`; hover từng lợi ích nâng icon `3px`, nghiêng `-8deg` và phóng nhẹ `1.06`. Focus input có vòng cam, form có shadow nhẹ. Khi focus nằm trong form, dừng viền/vệt sáng để khách nhập liệu; khi đang gửi thì ẩn vệt sáng và dùng cursor chờ. `prefers-reduced-motion` tắt viền động, vệt sáng, hover transform và reveal; nội dung vẫn đọc được khi không có JavaScript.
+- Cursor du lịch dùng máy bay cam có viền trắng tại `public/images/cursors/tour-plane.svg` (`32×32px`, hotspot `6 6` tại mũi máy bay), chỉ áp dụng trong CTA banner ở thiết bị `(hover: hover) and (pointer: fine)`. Nút/link có fallback `pointer`, vùng nền fallback `auto`; input/textarea luôn dùng `text`, nút đang gửi dùng `wait`. Thiết bị cảm ứng giữ hành vi mặc định, không dùng cursor giả bằng JavaScript.
+- Giữ `POST /yeu-cau-tu-van`, `submission_mode=compact`, CSRF/reCAPTCHA và pipeline `TravelInquiry`. Hidden subject có fallback khi CMS ẩn heading. AJAX giữ lỗi dưới field + summary, `aria-invalid`, `aria-describedby`, trạng thái đang gửi/disabled và success tại chỗ; no-JS dùng redirect + flash. Có reCAPTCHA thì cần JavaScript để lấy token.
+- Acceptance: xem desktop/mobile không tràn ngang, kiểm tra focus bàn phím, required/optional fields, feedback lỗi/thành công, reduced motion và render không JavaScript; chạy build và test inquiry hiện hữu trước bàn giao.
+- Đã kiểm tra tại local ngày `2026-09-27`: build thành công; `TravelInquiryFormTest` đạt `5 tests / 34 assertions`; trình duyệt ở `1440px`, `390px`, `320px` không tràn ngang; submit trống trả `422` và focus field lỗi. Trạng thái đang gửi/thành công được kiểm tra bằng response giả lập để không tạo lead/gửi mail thử. Reduced motion và render no-JS đạt; cache trả `MISS` rồi `HIT`. Title/description của `tour_cta` trong CMS local đã cập nhật, có backup tại `tmp/tour-offer-copy-backup-20260927-143149.json`.
+- Kiểm tra bổ sung animation/cursor: build thành công; computed styles của form và TourCard cùng dùng viền `11s`, nút dùng shine `4.8s`; cursor SVG được Vite đóng gói và trả HTTP `200`. Focus trong form chuyển cả hai animation sang `paused`, trạng thái đang gửi dùng `wait`; trên touch không áp cursor máy bay, reduced motion tắt animation/hover transform. Desktop `1440px` và mobile `390px` không tràn ngang.
+
 ### Voucher promotion landing
 - Landing page voucher là biến thể promotion của custom landing page, nhưng lead vẫn phải ghi vào pipeline `TravelInquiry`; không tạo public lead handler song song.
 - Mỗi campaign voucher cần có thời gian áp dụng `starts_at` / `ends_at`, trạng thái bật/tắt, số lượng mã, prefix mã, và frame hình chung dùng cho popup hiển thị mã.
@@ -235,8 +268,24 @@ Use asymmetry carefully:
 - Admin `Travel Inquiries` phải cho phép lọc lead voucher theo campaign riêng. Filter cần có lựa chọn xem toàn bộ lead voucher và từng campaign cụ thể, đồng thời đọc cả `meta.voucher_campaign_slug` lẫn `meta.voucher.campaign_slug` để bao phủ lead chưa được cấp mã, lead đã cấp mã, và các trường hợp campaign không còn redeemable.
 - Admin `Voucher Campaigns` khi mở một campaign phải có filter cục bộ cho bảng mã đã cấp phát theo mã voucher, thông tin khách/lead, trạng thái lead và ngày cấp phát; đây là filter nghiệp vụ của campaign đang mở, không phải filter toàn cục của danh sách campaign.
 
+### Voucher rail widget
+- `voucher_rail` là block LandingPage dùng lại được trên homepage và landing page; vị trí mặc định trên homepage nằm ngay sau `Chủ đề Tour`, nhưng thứ tự cuối cùng vẫn do `home_config.layout_order` quản lý.
+- Toàn bộ panel phải nằm trong content container chuẩn `mx-auto max-w-7xl`; không để nền hoặc viền của panel tràn toàn viewport như một full-bleed section.
+- Visual dùng hệ màu kem, cam và vàng của `/voucher-du-lich`, kết hợp icon vé, vương miện, nhóm icon hành trình và watermark máy bay ở độ tương phản thấp. Không đưa bảng màu lạnh của card voucher cũ trở lại block này.
+- Heading, mô tả, icon hành trình, nút điều hướng và track card cùng nằm trong một panel bo góc. Khoảng đệm đáy panel chỉ giữ mức tối thiểu khoảng `16px` để bảo vệ viền và shadow, không tạo vùng nền rỗng dưới card.
+- Desktop dùng shared card carousel một hàng với đúng `3` card nhìn thấy. Nút trước/sau chỉ hiện từ tablet/desktop; autoplay phải dừng khi hover, focus hoặc người dùng tương tác trực tiếp.
+- Từ breakpoint `xl`, mỗi card dùng bố cục vé chia ngang: mảng offer cam/vàng ở trái, quyền lợi và điều kiện ở phải, footer chứa hạn sử dụng, public code và CTA `Nhận voucher`. Ở desktop hẹp hơn `xl`, card vẫn giữ `3` item trên một hàng nhưng nội dung bên trong xếp dọc để tránh bó chữ.
+- Mobile giữ horizontal swipe với card width khoảng `80%`, tạo affordance `1 card + khoảng 0,2 card tiếp theo`; ẩn nút điều hướng desktop và xếp phần offer, thông tin, footer theo chiều dọc.
+- Mảng offer ưu tiên hiển thị giá trị giảm được rút từ title/description, sau đó là ngữ cảnh voucher ngắn. Phần thông tin dùng tối đa hai dòng cho điều kiện và hai dòng cho mô tả; icon chỉ giải thích ý nghĩa, không dùng như decoration rời rạc.
+- Footer card luôn giữ `HSD`, public code và CTA `Nhận voucher` trong vùng nhìn thấy. CTA chỉ render cho campaign có một custom landing page đang hoạt động, dẫn đến landing page riêng của campaign và dùng hash `#nhan-voucher` để tự mở shared `TravelInquiry` modal sau khi điều hướng. Rail không sao chép mã công khai trực tiếp và không tạo form nhận voucher thứ hai.
+- Mã ưu đãi hiển thị trên promotion block của landing riêng phải đồng bộ với `meta.public_code` của chính campaign đó; landing mẫu không được kế thừa mã `HDTRAVEL200` từ default block của campaign 200K.
+- Các landing voucher demo phải lấy liên kết CTA phụ từ `Destination` quốc gia root quốc tế đang publish và dùng route canonical `/tour-{slug}`. Không hard-code URL một quốc gia; thứ tự phân bổ phải ổn định, bỏ qua điểm đến con, bản nháp và hub tổng hợp `du-lich-quoc-te`, đồng thời fallback về `/tour-nuoc-ngoai` khi chưa có dữ liệu quốc gia hợp lệ.
+- Chiều cao card phải do nội dung thực quyết định. Không đặt `min-height` cố định chỉ để các card trông cao hơn; vẫn dùng `h-full`/grid stretch khi cần cân hàng, nhưng không được tạo khoảng trắng dư bên trong card hoặc dưới track.
+- Card có thể dùng hover lift rất nhẹ và shadow nhuộm cam; không dùng bounce, glow mạnh hoặc motion riêng ngoài shared reveal/carousel runtime.
+
 ### Frontsite cache contract
 - Frontsite public pages may be response-cached, so UI changes that affect header, footer, menus, sliders, taxonomy rails, listing cards, landing blocks, tour/service/blog detail, or shared media must be treated as cache-sensitive changes.
+- HTML cache frontsite phân biệt ngày theo timezone ứng dụng; sang ngày mới phải tạo lại markup để dải lịch/card và tour detail không giữ ngày đã qua từ bản cache hôm trước.
 - Cached markup must not depend on per-user or per-session state, except the CSRF token placeholder restored by `CacheFrontsiteResponse`; session errors, old input, and inquiry flash feedback must continue bypassing the response cache.
 - Inquiry modal and inline inquiry variants must remain safe under cached page HTML: submit state, validation errors, success feedback, and field values should be driven by Ajax or fallback redirect state, not by stale server-rendered fragments.
 - Any new public CTA, search surface, carousel, or block that renders data from CMS models must confirm the related model changes invalidate the right frontsite cache groups.
@@ -267,13 +316,19 @@ Use asymmetry carefully:
 - cụm đánh giá cấu hình từ `rating_average` và `rating_count` là rating summary độc lập với review item chi tiết; feature flag `TRAVEL_REVIEWS_ENABLED` không được ẩn cụm rating này trên card, hero, listing, hoặc schema `AggregateRating`
 - content chip row của `TourCard` ngang không được render lại `Chủ đề tour` nếu chủ đề đã nằm trên media/slider; giữ hàng content gọn với `standard_label` và rating khi có
 - image block should lead the card visually and may contain lightweight overlay chips for high-signal status such as scope, topic, intent, date, or CTA bridge
+- ảnh chính của `TourCard` dọc dùng đúng tỉ lệ ngang `4:3` (`aspect-ratio: 4 / 3`) với intrinsic size `1200x900`; phần info chồng lên khoảng `30%` chiều cao ảnh, tương ứng negative margin `22.5%` theo chiều rộng card. Không đưa card dọc trở lại khung ảnh chân dung `3:4`
 - content block should start with the title, then follow with scannable information rows that use icons to explain meaning quickly
 - `TourCard` information rows should prioritize practical buying fields such as departure place, departure date, duration, transport, and price; slot/contact state may stay as a compact chip instead of becoming an extra meta row
+- Dải ngày khởi hành của `TourCard` chỉ lấy lịch `scheduled`/`published` có ngày đi từ hôm nay trở đi theo timezone ứng dụng (hiện là `Asia/Ho_Chi_Minh`); ngày hôm nay vẫn hợp lệ. Lọc và sắp xếp theo ngày đầy đủ `YYYY-MM-DD`, không so riêng `dd/mm` hoặc suy ra năm từ tên tour.
+- Chip ngày trên card hiện rút gọn thành `dd/mm` để giữ chiều rộng. Vì vậy `20/08` vẫn có thể là `20/08/2027` khi hôm nay thuộc năm 2026; tháng trên chip nhỏ hơn tháng hiện tại không có nghĩa lịch đã qua. Khi đối chiếu dữ liệu, dùng ngày đầy đủ trong `tour_departures` hoặc lịch ở tour detail; không ẩn lịch tương lai chỉ vì tiêu đề tour còn ghi năm cũ.
 - `BlogCard` information rows should prioritize reading-support fields such as category, published date, reading time, author, and the bridge toward tour/service exploration
 - shared frontsite grids that render `TourCard` or `BlogCard` should use the common helper rhythm `gap-2`; do not expand card spacing ad hoc on listing, homepage, landing, or related-content sections
 - `TourCard` meta rows should stay compact and inline: keep `Khởi Hành:` as the only explicit label, while duration and transport rely on icon + value without extra label noise
 - icons inside cards are explanatory, not decorative; prefer one icon per data row and keep labels short
 - CTA and price area should stay at the bottom of the content block so comparison remains stable across cards of different lengths
+- trên card dọc mobile, cụm giá dùng cột co giãn `minmax(0, 1fr)` còn CTA là cột cố định; giá hiện tại phải giữ một dòng và giảm cỡ chữ trong giới hạn đọc được khi card hẹp, không được đẩy CTA hoặc tràn sang cột hành động
+- CTA `Đặt ngay` của card dọc giữ cạnh trái cắt chéo để tạo hướng chuyển động nhưng cạnh phải phải thẳng, không dùng polygon cắt lùi góc dưới-phải. Trên mobile nút chạm mép dưới/phải; từ breakpoint `sm`, wrapper chủ động dịch lên và sang trái `6px` để tạo khoảng thở desktop
+- riêng trên mobile, hàng giá/CTA giữ chiều cao `58px`, dùng `justify-content: space-between` và `align-items: flex-start`; CTA wrapper đặt `position: relative` với `top: -14px`. Từ breakpoint `sm` trở lên hàng trả về chiều cao tự động và canh cuối; CTA wrapper vẫn `position: relative` nhưng dùng `top: -6px` và `left: -6px` để nút cân với viền card desktop
 - in the default non-horizontal `TourCard`, the price cluster should render as 2 lines: line 1 keeps `Giá từ` and the crossed base price on the same row, line 2 shows the current highlighted sale/current price below
 - in that default non-horizontal price cluster, `Giá từ` and the crossed base price should read like one aligned label row with a small intentional spacing, not like two disconnected fragments
 - in the horizontal `TourCard` variant, the price cluster may stay on a single compact row with the current price and crossed base price aligned together
@@ -288,14 +343,16 @@ Use asymmetry carefully:
 - navigator arrows belong to the rail wrapper and should be optionally suppressible from CMS when a landing page wants the strip to feel quieter
 
 ### Trust proof sections
-- khối `Vì sao chọn / trust proof` không nên render như 3-4 card paragraph dài có trọng số thị giác ngang nhau
-- pattern ưu tiên là `1 featured proof card + nhóm proof card phụ + dải trust metrics` khi dữ liệu thực có sẵn
+- homepage `trust` dùng layout giới thiệu hai cột: bên trái là `title -> subtitle -> description -> tối đa 3 metrics`, bên phải là một khung slider ảnh giải thưởng
+- heading homepage `trust` kết hợp logo thương hiệu với slogan serif; slogan dùng graphite `#334155`, vạch phân cách và counter dùng cam theme, không dùng xanh
+- ảnh giải thưởng phải chọn qua Media Library, giữ `object-contain`, không dùng logo công ty thay cho bằng chứng giải thưởng; từ 2 ảnh hợp lệ trở lên mới hiện điều hướng và autoplay
+- metric homepage chỉ dùng số liệu thật; khi CMS chưa nhập metric riêng thì runtime có thể dùng tối đa 3 chỉ số thật đang có trong Theme Settings
+- landing-page `trust_proof` vẫn dùng pattern `1 featured proof card + nhóm proof card phụ + dải trust metrics` khi dữ liệu thực có sẵn
 - mỗi proof card nên đi theo cấu trúc `nhãn nổi bật ngắn -> tiêu đề rõ -> một đoạn chứng minh gọn`
 - mỗi proof card có thể cấu hình một icon Font Awesome; frontsite dùng fallback icon theo vị trí khi dữ liệu cũ chưa có icon
 - mobile trust proof phải gọn hơn desktop: chỉ giữ icon chính, số thứ tự nhẹ, tiêu đề và một đoạn ngắn; các icon nền lớn chỉ là trang trí desktop/tablet
 - landing-page `trust_proof` block có thể nhập thêm dải chỉ số tin cậy gồm `value`, `label`, và icon Font Awesome; chỉ render khi số liệu là thật và đã được nhập trong CMS
 - copy trong proof card phải ngắn hơn rich text; ưu tiên câu xác nhận có tính quyết định thay vì mô tả lan man
-- homepage `trust` config và landing-page block `trust_proof` phải dùng cùng visual contract để người biên tập không tạo ra hai kiểu `Vì sao chọn chúng tôi` khác nhau
 - trust metrics chỉ dùng khi số liệu là thật; nếu không có số liệu tốt thì dừng ở proof cards, không bù bằng counter giả
 
 ### Homepage process cards
@@ -304,6 +361,14 @@ Use asymmetry carefully:
 - when a step has an image, the preferred treatment is image on top with the step number overlaid or kept tightly coupled to the media surface
 - each step still keeps the explanatory copy as the primary content; do not let decorative imagery overpower the process title or description
 - CMS should store the chosen step image as part of the homepage config for that step instead of introducing a separate upload runtime just for the process block
+
+### Tour detail hero and content navigation
+- `Tour detail hero` mặc định hiển thị; toggle toàn site nằm trong `Theme Settings -> Cấu hình giao diện`. Tắt hero chỉ bỏ phần media/banner, không được làm mất H1 hoặc breadcrumb.
+- H1 tour detail dùng wrapper `w-full` và thang chữ gọn hơn khoảng 50% so với scale hero H1 chung: trong hero là `text-lg -> sm:text-2xl -> lg:text-3xl`; khi hero bị tắt là `0.9375rem -> sm:text-lg -> lg:text-2xl` dưới breadcrumb.
+- Thanh điều hướng section nằm trong `data-tour-content-shell`, sticky ngay dưới main header khi người dùng đang đọc content tour và phải nhả sticky khi shell kết thúc; không kéo thanh này xuống CTA/footer ngoài content.
+- Mỗi anchor section dùng scroll offset bằng tổng chiều cao main header + thanh section nav + khoảng thở, để heading không bị hai lớp sticky che sau khi click.
+- Scrollspy đánh dấu đúng button của section đang đọc bằng trạng thái cam mềm và `aria-current="location"`; khi active item nằm ngoài khung nhìn trên mobile, rail tự cuộn ngang để đưa item vào vùng nhìn thấy. Ra khỏi vùng content thì bỏ trạng thái active.
+- Khung giá desktop sticky bên phải phải nằm dưới cả main header và section nav; offset của nó dùng cùng biến chiều cao động để thanh nav và khung giá không chồng lên nhau.
 
 ### Tour detail sidebar
 - tour detail sticky aside should use one light surface card that combines the starting price block and quick-info rows, instead of a dark pricing card plus a second separate info card
@@ -321,6 +386,8 @@ Use asymmetry carefully:
 
 ### Tour departure schedule block
 - the `Lịch khởi hành & giá theo tháng` block on tour detail should stay comparison-friendly and lighter than the older dense table version
+- Lịch hiển thị ở tour detail áp dụng cùng ngưỡng ngày với `TourCard`: bỏ ngày trước hôm nay, giữ hôm nay và các ngày tương lai theo timezone ứng dụng; các dòng lịch chưa có ngày vẫn có thể giữ trạng thái tư vấn/liên hệ thay vì bị coi là ngày đã qua.
+- Khi sidebar phải dùng `Tour.departure_schedules` làm dữ liệu dự phòng, bỏ các dòng chứa ngày đầy đủ đã qua ở những định dạng được nhận diện; giữ ghi chú không phải ngày như `Lịch linh hoạt theo yêu cầu`. Không lấy một ngày cũ làm `Ngày khởi hành` chỉ vì nó đứng đầu danh sách dự phòng.
 - the default desktop table columns are: `Ngày đi`, `Khởi hành`, `Tiêu chuẩn`, `Giá`, `Trạng thái`, and `Tác vụ`
 - do not render `Ngày về` and `Số chỗ` as default columns in this desktop schedule table
 - desktop schedule tables inside `departure-month-*` panels should not use wide `tracking-[0.18em]` letter spacing; keep table headers and secondary hints on normal tracking so dates, destinations, and duration labels stay easier to scan
@@ -362,13 +429,19 @@ Use asymmetry carefully:
 - FAQ and shared `Điều khoản tour` use a compact accordion density with internal padding reduced by about 50% from the previous roomy spacing
 
 ### Tour itinerary accordion
-- `Lịch trình chi tiết` on tour detail reuses the shared frontsite accordion mechanics, but it should not inherit the old FAQ-like title row with a large left badge/day chip
-- the itinerary trigger row should lead directly with the title content, aligned flush to the start of the text line
-- itinerary titles use the orange emphasis text color instead of a standalone badge block; the title span inside `#tour-itinerary-trigger-*` should render at `1rem` on mobile/base and scale back to `1.2rem` from the small breakpoint upward
-- keep the right-side `+ / -` control smaller and secondary so the title remains the primary visual anchor
-- itinerary items use a compact rhythm: small gaps between cards and trigger/panel padding reduced by about 50% from the older roomy version
-- opening a `tour-itinerary-trigger-*` item should scroll the accordion item back to the top of the viewport below the sticky header so the newly opened content is easier to read
-- the expanded `tour-itinerary-panel-*` content surface should stay bright, clean, and borderless; avoid inner ring or outline styling that makes the panel feel boxed twice
+- `Lịch trình chi tiết` dùng timeline dọc; mỗi chặng có marker `location-dot` màu cam theme để người đọc nhận ra tuyến đi theo từng ngày.
+- Mỗi ngày render bằng `<details>` độc lập và mở sẵn theo mặc định. Người dùng có thể thu gọn từng ngày mà không ép đóng các ngày khác.
+- Summary của ngày theo cấu trúc `Ngày N -> tiêu đề chặng -> bữa ăn`; bữa ăn chỉ render khi có dữ liệu và luôn đi kèm icon `utensils` cùng nhãn hỗ trợ screen reader.
+- Ảnh ngày là dữ liệu tùy chọn từ CMS. Khi có ảnh, summary chuyển thành bố cục text/ảnh, ảnh dùng `object-cover`, chiếm sát mép phải card và giữ khung ổn định trên mobile lẫn desktop; khi không có ảnh, card phải tự co lại sạch sẽ.
+- Nút `+ / -` nằm position tuyệt đối ở góc trên bên phải của ảnh để không tạo cột trống và để ảnh chạm sát góc phải card. Với ngày không có ảnh, nút vẫn nằm ở mép phải summary.
+- Nội dung chi tiết mở rộng nằm bên dưới summary trong bề mặt sáng, gọn; không lặp thêm badge ngày, ảnh hoặc bữa ăn trong panel.
+- Tiêu đề chặng dùng cỡ `text-base` và tăng lên `text-lg` từ breakpoint nhỏ; nhãn `Ngày N` dùng màu cam và giữ vai trò định vị chính.
+
+### Flash Sale CMS pricing rows
+- Widget Flash Sale và thẻ ưu đãi Flash Sale trong sidebar trang chi tiết tour dùng cùng nền gradient cam đậm theo theme (`#E65F00` → `#C2410C` → `#9A3412`); giá Flash Sale và các điểm nhấn trên card dùng cam đậm thay cho đỏ/xanh.
+- Mỗi dòng giá dùng một surface riêng theo thứ tự thị giác `Tour / lịch khởi hành -> Giá Flash Sale -> Thứ tự -> Xóa`; select tour/lịch chiếm phần ngang lớn nhất để tên dài và ngày đi vẫn đọc được.
+- `Giá Flash Sale` là number input cho số nguyên dương VND, với client/server constraint parity: `min="1"`, `step="1"`, Livewire `integer|min:1`; lỗi business như giá không thấp hơn giá hiện tại hiển thị ngay dưới field.
+- Các mốc giá tròn như `14.400.000` phải qua native browser validation. Bước `1.000` chỉ có thể là gợi ý nhập liệu, không được là hard constraint của browser khi backend chưa có rule bội `1.000` tương ứng.
 
 ### Sliders — “Showcases”
 - use sliders only for landing hero or media gallery surfaces where sequential visuals add real value
@@ -382,6 +455,7 @@ Use asymmetry carefully:
 - the hero inner mini visual is optional and must collapse completely when the item disables `show_inner_media` or when no usable asset exists
 - overlay is item-level and must be truly removable; do not leave a phantom dark wash, empty wrapper, or dead visual layer after the toggle is turned off
 - gallery cards may use the same item-level visual contract, including responsive images and a softer media overlay treatment
+- `gallery_media` khi hiển thị dạng slide dùng cùng khung ảnh ngang `3:2` cho mọi card trên mobile và desktop; ảnh phủ kín khung bằng `object-cover` để các slide luôn cao bằng nhau dù ảnh nguồn có tỷ lệ khác nhau. Chỉ áp dụng khung cố định cho nhánh slide, không ép gallery dạng lưới theo chiều cao này.
 - gallery cards that open media in a lightbox should show a clear `Phóng to` action with a magnifying-glass style affordance; the open action should be obvious before hover and not depend on guesswork
 - shared gallery lightboxes should present a visible item counter plus `prev / next` navigation, and support `Esc`, backdrop close, and left/right keyboard navigation on desktop
 - when multiple gallery sets exist on the same page, lightbox navigation must stay inside the active gallery collection instead of stepping across unrelated media blocks
@@ -467,6 +541,8 @@ Use asymmetry carefully:
 - fixed homepage sections after hero use `home_config.layout_order` for their order and `home_config.{section}.is_enabled` for visibility; keep the underlying Blade sections available and hide through config instead of deleting hardcoded sections for layout changes
 - hero blocks remain locked as the first visual block because they carry the page H1, primary offer, and first CTA
 - block cards should expose the block type quickly and keep the most important controls visible at the top edge
+- Trong CMS LandingPage, mỗi hàng block/widget và section cố định của homepage mặc định thu gọn phần cấu hình. Với block/widget có tiêu đề, tiêu đề là tên chính và chức năng/loại block là mô tả nhỏ bên dưới; nếu chưa có tiêu đề, dùng tên loại block làm tên chính. Hàng vẫn hiện số thứ tự, trạng thái bật/tắt và các thao tác chính. Nút `Chỉnh sửa` mở cấu hình của đúng hàng.
+- Tay nắm kéo thả sắp xếp trực tiếp các hàng trong danh sách `Blocks`; giữ nút Lên/Xuống làm cách thao tác bằng bàn phím. Trang thường lưu thứ tự vào `blocks`; homepage lưu thứ tự hỗn hợp widget và section cố định vào `home_config.layout_order`. Hero vẫn giữ vị trí đầu trang chủ.
 - reorder, duplicate, and delete actions should stay lightweight and not require modal friction
 - hero and gallery blocks should clearly indicate whether the source is `slider` or `media`
 - query-driven blocks such as `tour_list` and `blog_list` should present filters as editorial targeting controls, not database jargon
@@ -483,20 +559,29 @@ Use asymmetry carefully:
 - Admin editors and filters should not expose U.S. ordering such as `mm/dd/yyyy`; helper text, placeholders, table cells, detail panels, exports, and validation messages should all reinforce `dd/mm/yyyy`.
 - Internal persistence, Livewire state, API payloads, and query filters may normalize to ISO formats such as `YYYY-MM-DD` or ISO 8601, but that normalization must stay behind the UI boundary.
 
-### Homepage Search Bar
-- the homepage search block directly below the hero should use the same shared search-bar component language as the listing pages
-- structure: search icon, one text field, one submit button, grouped inside one rounded light surface
-- the main homepage search field is a text query for tours; do not replace it with quick-intent rails, date, budget, or select-driven destination pickers
-- the submit action should send users into the existing tour browse/search flow instead of creating a homepage-only filter state
-- the bar should feel light, premium, and utility-first: white surface, restrained shadow, dark text, and one clear orange CTA
-- mobile should stack the grouped search controls cleanly without changing the underlying one-query-one-submit contract
+### Advanced Hero Tour Search
+- the homepage retains exactly one semantic H1 but renders it with Tailwind `sr-only` (1x1 pixel); shared hero headings remain visible on every other route unless explicitly configured otherwise
+- discovery, listing, and applicable landing heroes use the advanced tour filter component defined in `TOUR_FILTER_DESIGN.md` on desktop; position it inside the hero at `bottom: 20px` and reserve enough desktop bottom padding for the panel; tour-detail and blog/article-detail heroes omit both the panel and its reserved padding
+- structure: real product tabs, tour-type select, departure-location select, destination select, exact departure-date input, and one submit button
+- the submit action sends a GET request to the existing `/tim-tour` result page; no homepage-only state
+- visual language: the product nav stays transparent over the hero; its route-aware active tab uses white/orange while secondary tabs use the theme's soft-orange surface; the filter body remains one white rounded surface with restrained shadow, dark text, and one orange high-contrast CTA
+- product tabs only appear for a real route/domain; do not render disabled or fake hotel/combo tabs
+- the desktop popular rail hides its scrollbar, places reverse-play before the first chip and play after the last chip, and never shows a select value plus its identical placeholder at the same time
+- hide the full advanced panel below `lg`; mobile uses the header discovery surface with a departure selector, up to six real route shortcuts, and a horizontally scrollable `Nổi bật` rail with its scrollbar hidden
+
+### Hero trang điểm thưởng (`/diem-thuong`)
+- Ảnh nền hero là visual riêng của trang chức năng cố định `/diem-thuong`; biên tập tại `Cấu hình theme → Cấu hình chung → Trang điểm thưởng`, cạnh cấu hình API quà tặng CRM.
+- Trường ảnh dùng dropzone và Media popup chung. Mỗi thời điểm chỉ có một ảnh hero; có thể thay ảnh hoặc xóa để trở về nền mặc định. Ưu tiên ảnh ngang, giới hạn upload 10 MB.
+- Khi có ảnh, ảnh phủ toàn bộ hero theo `object-cover` và có lớp phủ than đen để breadcrumb, H1 và mô tả màu sáng vẫn đọc rõ trên desktop lẫn mobile. Ảnh chỉ mang tính trang trí, không thay thế nội dung chữ hay form tra cứu.
+- Khi chưa có ảnh hoặc đã xóa ảnh, hero dùng nền chuyển sắc cam nhạt hiện tại cùng chữ tối. Form tra cứu và thẻ điểm giữ bề mặt sáng, dễ đọc trong cả hai trạng thái.
+- Giữ một H1 hiển thị, CTA tra cứu và vị trí bộ lọc tour desktop của hero; ảnh nền không được che các thành phần tương tác.
 
 ### Listing Search Bar
-- homepage and public listing pages should use one shared compact search bar surface instead of bespoke filter bars per page family
+- `/tim-tour` uses the advanced panel in its hero only; other public listing pages may use the shared compact search bar surface in content
 - the default composition is: search icon, one text field, one submit button, grouped inside one rounded light surface
 - `/tour-trong-nuoc` and `/tour-nuoc-ngoai` may use the extended composition: search icon, text query field, `Chủ đề` select, submit button, still grouped inside the same rounded light surface
 - on those 2 scope pages, the `Chủ đề` select uses the shared `Tom Select` styling, keeps the outer wrapper in the compact secondary slot with a desktop minimum width around `18rem`, but lets the desktop `Tom Select` control itself expand to around `21rem` so long topic labels do not get clipped; on mobile it still stacks between the text field and submit button
-- this search bar pattern applies across blog, service category/listing, tour scope pages, tour taxonomy pages, destination pages, region pages, and country pages
+- this compact search bar pattern applies across blog, service category/listing, tour scope pages, tour taxonomy pages, destination pages, region pages, and country pages
 - avoid adding extra select/date/budget controls into this shared listing bar beyond that controlled `Chủ đề` exception unless the product rule is explicitly changed repo-wide
 
 ### Blog listing category grid
@@ -529,12 +614,34 @@ Use asymmetry carefully:
 - only show destinations that currently have published tours so the homepage does not send users into thin or empty destination hubs
 
 ### Homepage featured-tour tabs
-- `data-home-featured-tabs` uses the same mobile tablist contract as taxonomy tabs: `home-featured-tab-international`, `home-featured-tab-domestic`, and `home-featured-tab-group` scroll horizontally on mobile without creating page-level horizontal overflow
+- `data-home-featured-tabs` renders `home-featured-tab-all` first and active by default. The remaining tabs follow the CMS repeater order and may resolve featured tours by tour scope, published destination, published tour topic, or published region/continent; the full tablist scrolls horizontally on mobile without creating page-level horizontal overflow
+- filter tabs derive their visible labels from the selected source object and keep the block title/description shared with `Tất cả`; switching filters must not replace the heading or introduction with per-filter copy
+- `home-featured-tab-all` combines the current featured collections from all three scopes and links the shared `Xem thêm` action to `/tim-tour`; existing fixed scope-tab data is migrated to the configurable filter list when older homepage config is normalized
 - `home-featured-tab-*` buttons use `text-sm` at every breakpoint; mobile compactness comes from button height/padding, not from shrinking the label type to `text-xs`
-- from tablet/desktop upward, the featured-tour tablist may wrap normally so the three scope buttons sit with the existing homepage rhythm
+- `home-featured-tab-*` buttons show only the filter label; do not render a tour-count badge beside the label
+- from tablet/desktop upward, the featured-tour tablist may wrap normally so configured filter buttons sit with the existing homepage rhythm
+- in the static-grid mode of this block, keep the column gap at `0.5rem` and reduce the row gap to `0.25rem`, exactly 50% of the shared `gap-2` rhythm; this is a block-specific exception for the multi-row `Tất cả` panel
+- when `featured_tours.popular_searches` contains valid items, render a `Tìm kiếm nổi bật` link rail after every tab panel. Each item uses its CMS label and internal or HTTP(S) URL. `filter_uuid` ties the item to one configured tab: `Tất cả` reveals every item, a specific tab reveals only matching items, and an unassigned item is limited to `Tất cả`. Hide the complete rail when the active tab has no matching item. Unsafe URL schemes must be rejected before persistence and omitted during config normalization
 - featured-tour rails that opt into shared desktop slider mode with `data-desktop-slider="true"` must set `--desktop-card-width` explicitly; `--desktop-columns` only controls the inactive/static grid state, while the active slider track uses `--desktop-card-width`
 - for a 4-card desktop viewport/row, set `--desktop-columns: 4` together with `--desktop-card-width: calc((100% - 3rem) / 4)` because the shared carousel gap is `1rem` and four cards create three gaps
 - the `/diem-thuong` featured-tour slider follows this 4-card desktop contract
+
+### Homepage tour đoàn block
+- Sau section cố định `Tour hot trong tháng`, trang chủ hiển thị một instance của LandingPage block `tour_taxonomy_tabs` với tiêu đề `Tour đoàn nổi bật`; thứ tự được lưu bằng `block:{uuid}` ngay sau `section:featured_tours` trong `home_config.layout_order`.
+- Block lấy tour đã xuất bản với `scope = group`, giới hạn 4 card mỗi tab và dùng card tour chung của frontsite. Tab `Tất cả` đứng đầu; các tab vùng miền chỉ dùng nguồn taxonomy có tour đoàn đang xuất bản. CTA `Xem tất cả tour đoàn` dẫn đến `/tour-doan`.
+- Với dữ liệu hiện tại, hai tab vùng miền là `Miền Tây Nam Bộ` và `Miền Đông Nam Bộ`. Hàng `Tìm kiếm nổi bật` tự lấy điểm đến con có tour đoàn đã xuất bản của từng vùng; các URL nhập tay trong CMS được thêm hoặc thay thế liên kết trùng nhãn. Tab `Tất cả` hiện mọi liên kết, mỗi tab vùng miền chỉ hiện các liên kết thuộc tab đó. Cấu hình tab, URL riêng, số card, lưới/slide và trạng thái hiển thị được biên tập trong CMS.
+- Chỉ bật block ở môi trường có tour đoàn đã xuất bản và nguồn taxonomy tương ứng; snapshot khởi tạo hiện chưa có tour `scope = group`, nên không tạo sẵn khu lọc tour đoàn từ snapshot đó.
+- Block Tour đoàn là một khu khám phá riêng, không thay đổi dữ liệu của tab `Tất cả` trong `featured_tours`; tab này hiện vẫn gộp tour trong nước, nước ngoài và tour đoàn.
+
+### Widget tour trong CMS LandingPage
+
+- Bộ chọn block chỉ có một widget `Tour: danh sách hoặc tab` (`tour_taxonomy_tabs`). Trường `Kiểu hiển thị tour` chọn `Danh sách thường` hoặc `Có tab lọc`; mỗi instance có cấu hình và thứ tự riêng.
+- Chế độ danh sách giữ các bộ lọc danh mục, điểm đến, vùng miền, scope, featured, số card, sort và lưới/slide. Chế độ tab giữ tab taxonomy, tab `Tất cả`, tìm kiếm nổi bật và cùng các tùy chọn card. Scope `Không phải tour đoàn` loại tour `group` khỏi danh sách truy vấn.
+- Block `tour_list` cũ vẫn render được. Khi mở trong CMS, nó hiện dưới widget chung ở chế độ danh sách và được lưu lại theo kiểu block chung mà vẫn giữ UUID, bộ lọc và vị trí.
+- Ở hai block tour có tab trên trang chủ, dải `Tìm kiếm nổi bật` mặc định lấy điểm đến con của từng tab Miền/Châu hoặc Vùng miền từ dữ liệu đã xuất bản, chỉ khi điểm đến có tour đã xuất bản phù hợp với scope của block. Link tự sinh trỏ tới tìm kiếm theo điểm đến và scope; URL nhập tay trong CMS được giữ nguyên và ưu tiên nếu trùng nhãn trong cùng tab. Tab `Tất cả` gom các liên kết từ mọi tab; URL không gán tab chỉ xuất hiện ở `Tất cả`.
+- Dải `Tìm kiếm nổi bật` ở hai block tour luôn là một hàng chip cuộn ngang, dùng nút trước/sau và cách cuộn của dải tìm kiếm trong bộ lọc tour tổng. Khi đổi tab, thanh trở về đầu và nút điều hướng cập nhật theo các chip đang hiển thị.
+- `Tour hot trong tháng` và widget `Tour đoàn nổi bật` có `show_filters` mặc định bật. Khi tắt, ẩn dải tab filter và chỉ render panel `Tất cả`; widget tour đoàn tự tạo panel `Tất cả` dù tùy chọn `show_all_tab` đang tắt. Phạm vi tour của từng block và dải `Tìm kiếm nổi bật` vẫn áp dụng như cấu hình.
+- Khi cần đổi cách lấy dữ liệu của `featured_tours`, dùng một lựa chọn loại trừ nhau `Tất cả / Chỉ tour đoàn / Không gồm tour đoàn` thay cho hai công tắc bật/tắt độc lập. Không thêm một loại widget hoặc cờ boolean mới vào model `Tour` chỉ để tạo khu Tour đoàn này.
 
 ### Region taxonomy tabs
 - `region_taxonomy_tabs` uses a distinct region-first compare layout: region tablist on top for mobile and a left sidebar tablist on desktop
@@ -563,7 +670,7 @@ Use asymmetry carefully:
 - any shared admin JS that powers `Media popup`, image pickers, or `Quill` integrations must be resilient to DOM re-render/replacement and must re-bind correctly after admin view navigation
 
 ### Project stats
-- large blue numbers
+- large orange numbers
 - restrained labels
 
 ---
@@ -592,6 +699,7 @@ Avoid:
 - CTA pulse only sparingly
 - glass/backdrop effects only where they add clarity (e.g. fixed nav)
 - admin feedback motion should be quick and quiet: loading states reassure, success toasts auto-dismiss, warnings stay confirm-driven
+- shared tour booking CTAs (`frontsite-tour-card-cta`) must not show the secondary blue outline on pointer or context-menu focus. Keep an orange brand outline only for `:focus-visible` keyboard navigation through the CTA wrapper.
 
 ### Frontsite Header Submenu Flyout Navigation
 - Desktop menu level 1 is laid out horizontally on the header bar.

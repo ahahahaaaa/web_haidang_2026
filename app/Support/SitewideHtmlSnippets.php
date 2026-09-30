@@ -9,7 +9,7 @@ class SitewideHtmlSnippets
 {
     protected const ZALO_SDK_URL = 'https://sp.zalo.me/plugins/sdk.js';
 
-    protected const ZALO_WIDGET_STYLE = 'position: fixed; left: auto; right: 16px; bottom: 16px; z-index: 60; width: 60px; height: 60px; max-width: 60px; max-height: 60px; contain: layout size;';
+    protected const ZALO_WIDGET_STYLE = 'position: fixed; left: auto !important; right: 16px !important; bottom: 16px !important; z-index: 60; width: 60px; height: 60px; max-width: 60px; max-height: 60px; contain: layout size;';
 
     protected const ZALO_IDLE_DELAY_MS = 12000;
 
@@ -94,7 +94,12 @@ HTML;
     {
         return (string) preg_replace_callback(
             '/<div\b(?=[^>]*\bzalo-chat-widget\b)[^>]*>/i',
-            fn (array $matches): string => self::mergeStyleAttribute($matches[0], self::ZALO_WIDGET_STYLE),
+            function (array $matches): string {
+                $tag = (string) preg_replace('/\sdata-left-side\s*=\s*(?:"[^"]*"|\'[^\']*\'|[^\s>]+)/i', '', $matches[0]);
+                $tag = self::appendAttributes($tag, ['data-left-side' => 'false']);
+
+                return self::mergeStyleAttribute($tag, self::ZALO_WIDGET_STYLE);
+            },
             $html,
         );
     }
@@ -136,7 +141,9 @@ HTML;
         if (self::hasAttribute($tag, 'style')) {
             return (string) preg_replace_callback(
                 '/\sstyle\s*=\s*([\'\"])(.*?)\1/i',
-                fn (array $matches): string => ' style='.$matches[1].rtrim($matches[2], '; ').'; '.$style.$matches[1],
+                fn (array $matches): string => str_contains($matches[2], $style)
+                    ? $matches[0]
+                    : ' style='.$matches[1].rtrim($matches[2], '; ').'; '.$style.$matches[1],
                 $tag,
                 1,
             );

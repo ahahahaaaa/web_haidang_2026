@@ -10,6 +10,7 @@ use Database\Seeders\CmsBootstrapSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Livewire\Livewire;
 use Src\Domains\Cms\Enums\TourScope;
 use Src\Domains\Cms\Models\BlogPost;
@@ -20,6 +21,7 @@ use Src\Domains\Cms\Models\Service;
 use Src\Domains\Cms\Models\SiteSetting;
 use Src\Domains\Cms\Models\Tour;
 use Src\Domains\Cms\Models\TourCategory;
+use Src\Domains\Cms\Models\VoucherCampaign;
 use Tests\TestCase;
 
 class LandingPagesManagerTest extends TestCase
@@ -206,6 +208,80 @@ class LandingPagesManagerTest extends TestCase
         $this->assertSame($galleryMedia->id, (int) data_get($galleryStored?->custom_properties, 'source_library_media_id'));
     }
 
+    public function test_homepage_can_add_and_render_a_gallery_with_three_library_images(): void
+    {
+        Storage::fake('public');
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $siteSetting = SiteSetting::query()->findOrFail(1);
+        $page = LandingPage::query()->where('page_key', 'home')->firstOrFail();
+        $libraryMedia = collect(range(1, 3))->map(fn (int $number) => $siteSetting
+            ->addMedia(UploadedFile::fake()->image("voucher-{$number}.jpg", 1200, 800))
+            ->usingName("Voucher {$number}")
+            ->toMediaCollection('library', 'public'));
+
+        $this->actingAs($user);
+
+        $component = Livewire::withQueryParams(['page' => $page->id])
+            ->test(LandingPagesManager::class)
+            ->call('addBlock', LandingPageBlocks::TYPE_GALLERY_MEDIA);
+
+        $blockIndex = count($component->get('form.blocks')) - 1;
+        $component
+            ->call('addGalleryItem', $blockIndex)
+            ->call('addGalleryItem', $blockIndex)
+            ->set("form.blocks.{$blockIndex}.title", 'Ba ưu đãi voucher')
+            ->set("form.blocks.{$blockIndex}.is_slider", true)
+            ->set("form.blocks.{$blockIndex}.desktop_slides_per_view", 1.8);
+
+        $galleryBlock = $component->get("form.blocks.{$blockIndex}");
+        $this->assertCount(3, $galleryBlock['items']);
+
+        foreach ($libraryMedia as $itemIndex => $media) {
+            $itemUuid = $galleryBlock['items'][$itemIndex]['uuid'];
+            $component->call(
+                'selectLibraryMediaForUpload',
+                "blockUploads.{$galleryBlock['uuid']}.gallery.{$itemUuid}",
+                $media->id,
+                null,
+                "form.blocks.{$blockIndex}.items.{$itemIndex}.image_alt",
+            );
+        }
+
+        $component
+            ->call('save')
+            ->assertHasNoErrors()
+            ->assertRedirect(route('admin.landing-pages.edit', $page));
+
+        $page->refresh();
+        $storedBlock = collect($page->blocks)->firstWhere('uuid', $galleryBlock['uuid']);
+        $this->assertCount(3, $storedBlock['items']);
+        $this->assertTrue($storedBlock['is_slider']);
+        $this->assertSame(1.8, $storedBlock['desktop_slides_per_view']);
+        $this->assertContains(
+            TravelHomePageConfig::homeLayoutTokenForBlock($galleryBlock['uuid']),
+            data_get($page->home_config, 'layout_order', []),
+        );
+
+        foreach ($libraryMedia as $itemIndex => $media) {
+            $itemUuid = $storedBlock['items'][$itemIndex]['uuid'];
+            $storedMedia = $page->getFirstMedia(LandingPageBlocks::galleryItemCollection($galleryBlock['uuid'], $itemUuid));
+            $this->assertNotNull($storedMedia);
+            $this->assertSame($media->id, (int) data_get($storedMedia->custom_properties, 'source_library_media_id'));
+        }
+
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('Ba ưu đãi voucher')
+            ->assertSee('data-desktop-slider="true"', false)
+            ->assertSee('--desktop-card-width: calc((100% - 0.8rem) / 1.8)', false)
+            ->assertSee('--mobile-card-width: calc((100% - 1rem) / 1.2)', false)
+            ->assertSee('alt="Voucher 1"', false)
+            ->assertSee('alt="Voucher 2"', false)
+            ->assertSee('alt="Voucher 3"', false);
+    }
+
     public function test_landing_page_can_store_hero_demo_background_from_media_library(): void
     {
         Storage::fake('public');
@@ -328,6 +404,65 @@ HTML;
         $this->assertSame(LandingPageBlocks::HOME_POSITION_BEFORE_FEATURED_TOURS, data_get($page->blocks, '0.home_position'));
     }
 
+    public function test_drag_sort_reorders_landing_blocks_and_preserves_html_drafts(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $page = LandingPage::query()->where('page_key', 'about')->firstOrFail();
+        $first = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_HTML_WIDGET);
+        $second = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_HTML_WIDGET);
+        $second['html'] = '<div>Nội dung cũ</div>';
+        $this->actingAs($user);
+
+        Livewire::withQueryParams(['page' => $page->id])
+            ->test(LandingPagesManager::class)
+            ->set('form.blocks', [$first, $second])
+            ->set('blockHtmlDrafts.'.$second['uuid'], '<div>Nội dung mới</div>')
+            ->assertSeeHtml('wire:sort="sortContentBlock"')
+            ->assertSeeHtml('wire:sort:item="block:'.$second['uuid'].'"')
+            ->assertSeeHtml('x-data="{ expanded: false }"')
+            ->call('sortContentBlock', 'block:'.$second['uuid'], 0)
+            ->assertSet('form.blocks.0.uuid', $second['uuid'])
+            ->assertSet('form.blocks.0.html', '<div>Nội dung mới</div>')
+            ->call('save')
+            ->assertHasNoErrors();
+
+        $this->assertSame($second['uuid'], data_get($page->fresh()->blocks, '0.uuid'));
+    }
+
+    public function test_drag_sort_home_updates_mixed_layout_order(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $page = LandingPage::query()->where('page_key', 'home')->firstOrFail();
+        $widget = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_HTML_WIDGET);
+        $widget['html'] = '<div>Widget tour</div>';
+        $widgetToken = TravelHomePageConfig::homeLayoutTokenForBlock($widget['uuid']);
+        $searchToken = TravelHomePageConfig::homeLayoutTokenForSection('search');
+        $featuredToken = TravelHomePageConfig::homeLayoutTokenForSection('featured_tours');
+        $this->actingAs($user);
+
+        Livewire::withQueryParams(['page' => $page->id])
+            ->test(LandingPagesManager::class)
+            ->set('form.blocks', [$widget])
+            ->set('form.home_config.layout_order', [$searchToken, $featuredToken, $widgetToken])
+            ->call('sortContentBlock', $widgetToken, 1)
+            ->assertSet('form.home_config.layout_order.0', $searchToken)
+            ->assertSet('form.home_config.layout_order.1', $widgetToken)
+            ->assertSet('form.home_config.layout_order.2', $featuredToken)
+            ->call('sortContentBlock', $searchToken, 2)
+            ->assertSet('form.home_config.layout_order.0', $widgetToken)
+            ->assertSet('form.home_config.layout_order.1', $featuredToken)
+            ->assertSet('form.home_config.layout_order.2', $searchToken)
+            ->call('save')
+            ->assertHasNoErrors();
+
+        $order = data_get($page->fresh()->home_config, 'layout_order', []);
+        $this->assertLessThan(array_search($featuredToken, $order, true), array_search($widgetToken, $order, true));
+    }
+
     public function test_changing_home_block_position_updates_mixed_layout_order(): void
     {
         $this->seed(CmsBootstrapSeeder::class);
@@ -360,25 +495,52 @@ HTML;
         );
     }
 
-    public function test_home_layout_order_displays_dynamic_block_title(): void
+    public function test_home_layout_order_displays_tour_title_as_block_name(): void
     {
         $this->seed(CmsBootstrapSeeder::class);
 
         $user = User::query()->where('email', 'test@example.com')->firstOrFail();
         $page = LandingPage::query()->where('page_key', 'home')->firstOrFail();
-        $richText = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_RICH_TEXT);
-        $richText['title'] = 'Banner ưu đãi tour hè';
-        $token = TravelHomePageConfig::homeLayoutTokenForBlock((string) $richText['uuid']);
+        $tourBlock = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS);
+        $tourBlock['title'] = 'Tour đoàn nổi bật';
+        $token = TravelHomePageConfig::homeLayoutTokenForBlock((string) $tourBlock['uuid']);
 
         $this->actingAs($user);
 
-        Livewire::withQueryParams(['page' => $page->id])
+        $component = Livewire::withQueryParams(['page' => $page->id])
             ->test(LandingPagesManager::class)
-            ->set('form.blocks', [$richText])
+            ->set('form.blocks', [$tourBlock])
             ->set('form.home_config.layout_order', [$token])
-            ->assertSeeHtml('home-layout-order-block-'.$richText['uuid'])
-            ->assertSeeText('Tiêu đề block:')
-            ->assertSeeText('Banner ưu đãi tour hè');
+            ->assertSeeHtml('home-layout-order-block-'.$tourBlock['uuid'])
+            ->assertSeeText('Tour đoàn nổi bật')
+            ->assertDontSeeText('Tiêu đề block:');
+
+        $this->assertMatchesRegularExpression(
+            '/<h4[^>]*>Tour đoàn nổi bật<\/h4>.*?<p[^>]*>Tour: danh sách hoặc tab<\/p>/su',
+            $component->html(),
+        );
+    }
+
+    public function test_regular_landing_block_uses_type_as_name_when_title_is_empty(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $page = LandingPage::query()->where('page_key', 'about')->firstOrFail();
+        $untitledBlock = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_RICH_TEXT);
+        $titledBlock = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_RICH_TEXT);
+        $titledBlock['title'] = 'Giới thiệu về hành trình';
+
+        $this->actingAs($user);
+
+        $component = Livewire::withQueryParams(['page' => $page->id])
+            ->test(LandingPagesManager::class)
+            ->set('form.blocks', [$untitledBlock, $titledBlock]);
+
+        $this->assertMatchesRegularExpression(
+            '/<h4[^>]*>Rich text<\/h4>.*?<h4[^>]*>Giới thiệu về hành trình<\/h4>.*?<p[^>]*>Rich text<\/p>/su',
+            $component->html(),
+        );
     }
 
     public function test_home_blocks_stack_displays_hardcode_sections_as_rows(): void
@@ -392,8 +554,19 @@ HTML;
 
         Livewire::withQueryParams(['page' => $page->id])
             ->test(LandingPagesManager::class)
-            ->assertSeeText('Danh sách này trộn section hardcode và dynamic block')
-            ->assertSeeText('Hardcode')
+            ->assertSeeText('Danh sách này trộn section cố định và widget')
+            ->assertSeeText('Section cố định')
+            ->assertSeeHtml('wire:model.defer="form.home_config.topic_rail.show_card_titles"')
+            ->assertSeeText('Hiển thị tên chủ đề dưới ảnh')
+            ->assertSeeText('Danh sách filter phân loại tour')
+            ->assertSeeText('Vùng miền / Châu')
+            ->assertSeeText('Đối tượng')
+            ->assertDontSeeText('Nhãn filter')
+            ->assertDontSeeText('Tiêu đề khi active')
+            ->assertDontSeeText('Mô tả khi active')
+            ->assertSeeHtml('wire:click="addHomeFeaturedTourFilter"')
+            ->assertSeeText('Tìm kiếm nổi bật')
+            ->assertSeeHtml('wire:click="addHomeFeaturedTourPopularSearch"')
             ->assertSeeText('Thanh tìm kiếm')
             ->assertSeeText('Chuyển xuống')
             ->assertSeeHtml("moveHomeLayoutItemDown('section:search')");
@@ -584,6 +757,7 @@ HTML;
         $topicRail['description'] = 'Card icon gọn để khách quét nhanh các nhóm hành trình trước khi đi sâu vào điểm đến.';
         $topicRail['limit'] = 6;
         $topicRail['show_navigation'] = false;
+        $topicRail['show_card_titles'] = false;
 
         $this->actingAs($user);
 
@@ -600,6 +774,50 @@ HTML;
         $this->assertSame('Khởi đầu từ nhu cầu', data_get($page->blocks, '0.eyebrow'));
         $this->assertSame('Chọn nhanh chủ đề tour', data_get($page->blocks, '0.title'));
         $this->assertFalse((bool) data_get($page->blocks, '0.show_navigation'));
+        $this->assertFalse((bool) data_get($page->blocks, '0.show_card_titles'));
+    }
+
+    public function test_landing_page_can_store_voucher_rail_campaign_selection(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $page = LandingPage::query()->where('page_key', 'about')->firstOrFail();
+        $campaign = VoucherCampaign::query()->create([
+            'title' => 'Voucher rail campaign',
+            'slug' => 'voucher-rail-campaign',
+            'code_prefix' => 'RAIL',
+            'code_quantity' => 10,
+            'code_set_version' => (string) Str::uuid(),
+            'starts_at' => now()->subDay(),
+            'ends_at' => now()->addDay(),
+            'is_active' => true,
+            'meta' => [
+                'public_widget_enabled' => true,
+                'public_code' => 'TRIP300',
+            ],
+        ]);
+        $voucherRail = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_VOUCHER_RAIL);
+        $voucherRail['title'] = 'Ưu đãi dành cho bạn';
+        $voucherRail['campaign_slugs'] = [$campaign->slug];
+        $voucherRail['limit'] = 4;
+        $voucherRail['show_expiry'] = false;
+
+        $this->actingAs($user);
+
+        Livewire::withQueryParams(['page' => $page->id])
+            ->test(LandingPagesManager::class)
+            ->set('form.blocks', [$voucherRail])
+            ->call('save')
+            ->assertHasNoErrors()
+            ->assertRedirect(route('admin.landing-pages.edit', $page));
+
+        $page->refresh();
+
+        $this->assertSame(LandingPageBlocks::TYPE_VOUCHER_RAIL, data_get($page->blocks, '0.type'));
+        $this->assertSame([$campaign->slug], data_get($page->blocks, '0.campaign_slugs'));
+        $this->assertSame(4, data_get($page->blocks, '0.limit'));
+        $this->assertFalse((bool) data_get($page->blocks, '0.show_expiry'));
     }
 
     public function test_landing_page_can_store_region_taxonomy_tabs_block(): void
@@ -674,6 +892,10 @@ HTML;
         $tourTaxonomyTabs['title'] = 'Khám phá tour theo taxonomy';
         $tourTaxonomyTabs['description'] = 'Đổi tab để xem tour live theo vùng miền, điểm đến hoặc chủ đề.';
         $tourTaxonomyTabs['cta_label'] = 'Xem trang nhóm tour';
+        $tourTaxonomyTabs['card_cta_variant'] = 'blue';
+        $tourTaxonomyTabs['is_slider'] = true;
+        $tourTaxonomyTabs['show_all_tab'] = true;
+        $tourTaxonomyTabs['show_filters'] = false;
         $tourTaxonomyTabs['scope'] = TourScope::Domestic->value;
         $tourTaxonomyTabs['limit'] = 4;
         $tourTaxonomyTabs['tabs'] = [
@@ -681,8 +903,18 @@ HTML;
             LandingPageBlocks::defaultTourTaxonomyTab('destination', $destination->slug, 'Hà Nội', 'Tour theo Hà Nội'),
             LandingPageBlocks::defaultTourTaxonomyTab('tour_category', $category->slug, 'Gia đình', 'Tour cho gia đình'),
         ];
+        $tourTaxonomyTabs['popular_searches'] = [
+            TravelHomePageConfig::featuredTourPopularSearch('Hà Nội', '/tim-tour?scope=domestic&destination=ha-noi', null, $tourTaxonomyTabs['tabs'][1]['uuid']),
+        ];
 
         $this->actingAs($user);
+
+        Livewire::withQueryParams(['page' => $page->id])
+            ->test(LandingPagesManager::class)
+            ->set('form.blocks', [$tourTaxonomyTabs])
+            ->set('form.blocks.0.popular_searches.0.url', 'javascript:alert(1)')
+            ->call('save')
+            ->assertHasErrors(['form.blocks.0.popular_searches.0.url']);
 
         Livewire::withQueryParams(['page' => $page->id])
             ->test(LandingPagesManager::class)
@@ -695,11 +927,123 @@ HTML;
 
         $this->assertSame(LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS, data_get($page->blocks, '0.type'));
         $this->assertSame('Xem trang nhóm tour', data_get($page->blocks, '0.cta_label'));
+        $this->assertSame('blue', data_get($page->blocks, '0.card_cta_variant'));
+        $this->assertTrue(data_get($page->blocks, '0.is_slider'));
+        $this->assertTrue(data_get($page->blocks, '0.show_all_tab'));
+        $this->assertFalse(data_get($page->blocks, '0.show_filters'));
         $this->assertSame(TourScope::Domestic->value, data_get($page->blocks, '0.scope'));
         $this->assertSame('region', data_get($page->blocks, '0.tabs.0.source_type'));
         $this->assertSame('mien-bac', data_get($page->blocks, '0.tabs.0.source_slug'));
         $this->assertSame('Tour theo Hà Nội', data_get($page->blocks, '0.tabs.1.title'));
         $this->assertSame('tour-gia-dinh', data_get($page->blocks, '0.tabs.2.source_slug'));
+        $this->assertSame('Hà Nội', data_get($page->blocks, '0.popular_searches.0.label'));
+        $this->assertSame(data_get($page->blocks, '0.tabs.1.uuid'), data_get($page->blocks, '0.popular_searches.0.filter_uuid'));
+    }
+
+    public function test_landing_page_can_store_slider_choice_for_tour_list_and_flash_sale(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $page = LandingPage::query()->where('page_key', 'about')->firstOrFail();
+        $tourList = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_TOUR_LIST);
+        $flashSale = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_FLASH_SALE);
+
+        unset($tourList['is_slider'], $flashSale['is_slider']);
+        $this->assertFalse(data_get(LandingPageBlocks::normalize([$tourList]), '0.is_slider'));
+        $this->assertFalse(data_get(LandingPageBlocks::normalize([$flashSale]), '0.is_slider'));
+
+        $tourList['is_slider'] = true;
+        $flashSale['is_slider'] = true;
+
+        $this->actingAs($user);
+
+        Livewire::withQueryParams(['page' => $page->id])
+            ->test(LandingPagesManager::class)
+            ->set('form.blocks', [$tourList, $flashSale])
+            ->call('save')
+            ->assertHasNoErrors()
+            ->assertRedirect(route('admin.landing-pages.edit', $page));
+
+        $page->refresh();
+
+        $this->assertSame(LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS, data_get($page->blocks, '0.type'));
+        $this->assertSame('list', data_get($page->blocks, '0.display_mode'));
+        $this->assertTrue(data_get($page->blocks, '0.is_slider'));
+        $this->assertTrue(data_get($page->blocks, '1.is_slider'));
+    }
+
+    public function test_flash_sale_widget_can_be_hidden_and_override_its_view_more_button(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $page = LandingPage::query()->where('page_key', 'about')->firstOrFail();
+        $flashSale = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_FLASH_SALE);
+        $flashSale['is_enabled'] = false;
+        $flashSale['show_view_more'] = false;
+        $flashSale['view_more_label'] = 'Xem toàn bộ ưu đãi';
+        $flashSale['view_more_url'] = '/tim-tour?flash_sale=1';
+
+        $this->actingAs($user);
+
+        Livewire::withQueryParams(['page' => $page->id])
+            ->test(LandingPagesManager::class)
+            ->set('form.blocks', [$flashSale])
+            ->assertSeeHtml('wire:model.defer="form.blocks.0.show_view_more"')
+            ->assertSeeHtml('wire:model.defer="form.blocks.0.view_more_url"')
+            ->call('save')
+            ->assertHasNoErrors();
+
+        $page->refresh();
+        $this->assertFalse(data_get($page->blocks, '0.is_enabled'));
+        $this->assertFalse(data_get($page->blocks, '0.show_view_more'));
+        $this->assertSame('Xem toàn bộ ưu đãi', data_get($page->blocks, '0.view_more_label'));
+        $this->assertSame('/tim-tour?flash_sale=1', data_get($page->blocks, '0.view_more_url'));
+
+        Livewire::withQueryParams(['page' => $page->id])
+            ->test(LandingPagesManager::class)
+            ->set('form.blocks.0.view_more_url', 'javascript:alert(1)')
+            ->call('save')
+            ->assertHasErrors(['form.blocks.0.view_more_url']);
+    }
+
+    public function test_legacy_tour_list_and_tab_widget_use_one_cms_type_without_losing_configuration(): void
+    {
+        $homeTourWidgets = collect(LandingPageBlocks::presetBlocks('home'))
+            ->filter(fn (array $block) => ($block['type'] ?? null) === LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS)
+            ->values();
+        $this->assertSame(['list', 'tabs'], $homeTourWidgets->pluck('display_mode')->all());
+
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $page = LandingPage::query()->where('page_key', 'about')->firstOrFail();
+        $list = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_TOUR_LIST);
+        $list['title'] = 'Tour thường';
+        $list['scope'] = TourScope::Group->value;
+        $list['category_slug'] = 'team-building';
+        $tabs = LandingPageBlocks::defaultBlock(LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS);
+        $tabs['title'] = 'Tour đoàn theo vùng';
+        $page->update(['blocks' => [$list, $tabs]]);
+
+        $this->actingAs($user);
+
+        Livewire::withQueryParams(['page' => $page->id])
+            ->test(LandingPagesManager::class)
+            ->assertSet('form.blocks.0.type', LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS)
+            ->assertSet('form.blocks.0.display_mode', 'list')
+            ->assertSet('form.blocks.0.category_slug', 'team-building')
+            ->assertSet('form.blocks.1.display_mode', 'tabs')
+            ->call('save')
+            ->assertHasNoErrors();
+
+        $page->refresh();
+        $this->assertSame($list['uuid'], data_get($page->blocks, '0.uuid'));
+        $this->assertSame(LandingPageBlocks::TYPE_TOUR_TAXONOMY_TABS, data_get($page->blocks, '0.type'));
+        $this->assertSame('list', data_get($page->blocks, '0.display_mode'));
+        $this->assertSame(TourScope::Group->value, data_get($page->blocks, '0.scope'));
+        $this->assertSame('tabs', data_get($page->blocks, '1.display_mode'));
     }
 
     public function test_landing_page_can_clone_blocks_and_media_from_another_page_before_save(): void
@@ -755,34 +1099,46 @@ HTML;
 
     public function test_home_landing_page_can_store_trust_section_config(): void
     {
+        Storage::fake('public');
         $this->seed(CmsBootstrapSeeder::class);
 
         $user = User::query()->where('email', 'test@example.com')->firstOrFail();
         $page = LandingPage::query()->where('page_key', 'home')->firstOrFail();
+        $awardMedia = $page
+            ->addMedia(UploadedFile::fake()->image('travel-award.jpg', 1200, 1200))
+            ->usingFileName('travel-award.jpg')
+            ->withCustomProperties(['alt' => 'Giải thưởng du lịch tiêu biểu'])
+            ->toMediaCollection('award-library', 'public');
 
         $this->actingAs($user);
 
-        Livewire::withQueryParams(['page' => $page->id])
+        $component = Livewire::withQueryParams(['page' => $page->id])
             ->test(LandingPagesManager::class)
-            ->set('form.home_config.trust.title', 'Lý do chọn Hải Đăng Travel')
-            ->set('form.home_config.trust.description', 'Giữ proof ngắn, rõ đầu mối xử lý và giúp khách quyết định gửi yêu cầu nhanh hơn.')
-            ->set('form.home_config.trust.cards.0.highlight', 'Tư vấn sát nhu cầu')
-            ->set('form.home_config.trust.cards.0.title', 'Tư vấn rõ nhu cầu thực tế')
-            ->set('form.home_config.trust.cards.0.text', 'Đội ngũ tiếp nhận đúng bài toán lịch trình, ngân sách và quy mô đoàn trước khi gợi ý tour.')
+            ->set('form.home_config.trust.title', 'Về Hải Đăng Travel')
+            ->set('form.home_config.trust.subtitle', 'Tận tâm trên từng hành trình')
+            ->set('form.home_config.trust.description', 'Giới thiệu ngắn về năng lực, kinh nghiệm và giá trị phục vụ của doanh nghiệp.')
+            ->set('form.home_config.trust.stats.0.value', '19+')
+            ->set('form.home_config.trust.stats.0.label', 'Năm kinh nghiệm')
+            ->set('form.home_config.trust.awards.0.title', 'Giải thưởng du lịch tiêu biểu');
+
+        $awardUuid = data_get($component->get('form'), 'home_config.trust.awards.0.uuid');
+
+        $component
+            ->call('selectHomeTrustAwardLibraryMedia', $awardUuid, $awardMedia->id, null)
             ->call('save')
             ->assertHasNoErrors()
             ->assertRedirect(route('admin.landing-pages.edit', $page));
 
         $page->refresh();
 
-        $this->assertSame('Lý do chọn Hải Đăng Travel', data_get($page->home_config, 'trust.title'));
-        $this->assertSame('Giữ proof ngắn, rõ đầu mối xử lý và giúp khách quyết định gửi yêu cầu nhanh hơn.', data_get($page->home_config, 'trust.description'));
-        $this->assertSame('Tư vấn sát nhu cầu', data_get($page->home_config, 'trust.cards.0.highlight'));
-        $this->assertSame('Tư vấn rõ nhu cầu thực tế', data_get($page->home_config, 'trust.cards.0.title'));
-        $this->assertSame(
-            'Đội ngũ tiếp nhận đúng bài toán lịch trình, ngân sách và quy mô đoàn trước khi gợi ý tour.',
-            data_get($page->home_config, 'trust.cards.0.text'),
-        );
+        $this->assertSame('Về Hải Đăng Travel', data_get($page->home_config, 'trust.title'));
+        $this->assertSame('Tận tâm trên từng hành trình', data_get($page->home_config, 'trust.subtitle'));
+        $this->assertSame('Giới thiệu ngắn về năng lực, kinh nghiệm và giá trị phục vụ của doanh nghiệp.', data_get($page->home_config, 'trust.description'));
+        $this->assertSame('19+', data_get($page->home_config, 'trust.stats.0.value'));
+        $this->assertSame('Năm kinh nghiệm', data_get($page->home_config, 'trust.stats.0.label'));
+        $this->assertSame('Giải thưởng du lịch tiêu biểu', data_get($page->home_config, 'trust.awards.0.title'));
+        $this->assertSame((string) $awardMedia->getUrl(), data_get($page->home_config, 'trust.awards.0.image_url'));
+        $this->assertSame('Giải thưởng du lịch tiêu biểu', data_get($page->home_config, 'trust.awards.0.image_alt'));
     }
 
     public function test_home_landing_page_can_store_extended_home_block_config(): void
@@ -833,8 +1189,12 @@ HTML;
             ->set('form.home_config.topic_rail.eyebrow', 'Duyệt theo gu chuyến đi')
             ->set('form.home_config.topic_rail.title', 'Chủ đề tour dễ chọn')
             ->set('form.home_config.topic_rail.description', 'Nhóm các hành trình theo nhu cầu để khách mở đúng hub chủ đề trước khi so sánh tour.')
+            ->set('form.home_config.topic_rail.show_card_titles', false)
             ->set('form.home_config.featured_tours.cta_label', 'Xem tab tour')
-            ->set('form.home_config.featured_tours.tabs.domestic.title', 'Tour trong nước đang được quan tâm')
+            ->set('form.home_config.featured_tours.card_cta_variant', 'green')
+            ->set('form.home_config.featured_tours.is_slider', true)
+            ->set('form.home_config.featured_tours.show_filters', false)
+            ->set('form.home_config.featured_tours.filters.1.title', 'Tour trong nước đang được quan tâm')
             ->set('form.home_config.destination_slider.title', 'Điểm đến nên xem ngay')
             ->set('form.home_config.services.title', 'Dịch vụ đồng hành')
             ->set('form.home_config.services.is_enabled', false)
@@ -865,8 +1225,12 @@ HTML;
         $this->assertSame('Duyệt theo gu chuyến đi', data_get($page->home_config, 'topic_rail.eyebrow'));
         $this->assertSame('Chủ đề tour dễ chọn', data_get($page->home_config, 'topic_rail.title'));
         $this->assertSame('Nhóm các hành trình theo nhu cầu để khách mở đúng hub chủ đề trước khi so sánh tour.', data_get($page->home_config, 'topic_rail.description'));
+        $this->assertFalse(data_get($page->home_config, 'topic_rail.show_card_titles'));
         $this->assertSame('Xem tab tour', data_get($page->home_config, 'featured_tours.cta_label'));
-        $this->assertSame('Tour trong nước đang được quan tâm', data_get($page->home_config, 'featured_tours.tabs.domestic.title'));
+        $this->assertSame('green', data_get($page->home_config, 'featured_tours.card_cta_variant'));
+        $this->assertTrue(data_get($page->home_config, 'featured_tours.is_slider'));
+        $this->assertFalse(data_get($page->home_config, 'featured_tours.show_filters'));
+        $this->assertSame('Tour trong nước đang được quan tâm', data_get($page->home_config, 'featured_tours.filters.1.title'));
         $this->assertSame('Điểm đến nên xem ngay', data_get($page->home_config, 'destination_slider.title'));
         $this->assertSame('Dịch vụ đồng hành', data_get($page->home_config, 'services.title'));
         $this->assertFalse((bool) data_get($page->home_config, 'services.is_enabled'));
@@ -878,5 +1242,73 @@ HTML;
         $this->assertSame('Bài viết nên đọc trước chuyến đi', data_get($page->home_config, 'blog_preview.title'));
         $this->assertSame([$service->slug], data_get($page->home_config, 'featured_service_slugs'));
         $this->assertSame([$post->slug], data_get($page->home_config, 'featured_blog_slugs'));
+    }
+
+    public function test_home_featured_tour_filters_and_popular_searches_are_configurable_and_validated(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $page = LandingPage::query()->where('page_key', 'home')->firstOrFail();
+        $destination = Destination::query()->create([
+            'name' => 'Phú Quốc',
+            'slug' => 'phu-quoc-cms-filter',
+            'status' => 'published',
+        ]);
+        $region = Region::query()->create([
+            'name' => 'Châu Á',
+            'slug' => 'chau-a-cms-filter',
+            'scope' => TourScope::International->value,
+            'status' => 'published',
+        ]);
+        Region::query()->create([
+            'name' => 'Châu Phi bản nháp',
+            'slug' => 'chau-phi-draft-cms-filter',
+            'scope' => TourScope::International->value,
+            'status' => 'draft',
+        ]);
+
+        $this->actingAs($user);
+
+        $component = Livewire::withQueryParams(['page' => $page->id])
+            ->test(LandingPagesManager::class)
+            ->call('addHomeFeaturedTourFilter')
+            ->call('addHomeFeaturedTourPopularSearch');
+
+        $filterIndex = count(data_get($component->get('form'), 'home_config.featured_tours.filters', [])) - 1;
+        $popularIndex = count(data_get($component->get('form'), 'home_config.featured_tours.popular_searches', [])) - 1;
+        $filterUuid = (string) data_get($component->get('form'), 'home_config.featured_tours.filters.'.$filterIndex.'.uuid');
+
+        $component
+            ->set('form.home_config.featured_tours.filters.'.$filterIndex.'.source_type', TravelHomePageConfig::FEATURED_TOUR_FILTER_REGION)
+            ->set('form.home_config.featured_tours.filters.'.$filterIndex.'.source_value', 'chau-phi-draft-cms-filter')
+            ->set('form.home_config.featured_tours.popular_searches.'.$popularIndex.'.label', 'Tìm tour nhanh')
+            ->set('form.home_config.featured_tours.popular_searches.'.$popularIndex.'.url', 'javascript:alert(1)')
+            ->set('form.home_config.featured_tours.popular_searches.'.$popularIndex.'.filter_uuid', 'filter-khong-ton-tai')
+            ->call('save')
+            ->assertHasErrors([
+                'form.home_config.featured_tours.filters.'.$filterIndex.'.source_value',
+                'form.home_config.featured_tours.popular_searches.'.$popularIndex.'.url',
+                'form.home_config.featured_tours.popular_searches.'.$popularIndex.'.filter_uuid',
+            ]);
+
+        $component
+            ->set('form.home_config.featured_tours.filters.'.$filterIndex.'.source_value', $region->slug)
+            ->set('form.home_config.featured_tours.popular_searches.'.$popularIndex.'.url', '/tim-tour?destination='.$destination->slug)
+            ->set('form.home_config.featured_tours.popular_searches.'.$popularIndex.'.filter_uuid', $filterUuid)
+            ->call('save')
+            ->assertHasNoErrors()
+            ->assertRedirect(route('admin.landing-pages.edit', $page));
+
+        $page->refresh();
+
+        $this->assertSame(
+            TravelHomePageConfig::FEATURED_TOUR_FILTER_REGION,
+            data_get($page->home_config, 'featured_tours.filters.'.$filterIndex.'.source_type'),
+        );
+        $this->assertSame($region->slug, data_get($page->home_config, 'featured_tours.filters.'.$filterIndex.'.source_value'));
+        $this->assertSame('Tìm tour nhanh', data_get($page->home_config, 'featured_tours.popular_searches.'.$popularIndex.'.label'));
+        $this->assertSame('/tim-tour?destination='.$destination->slug, data_get($page->home_config, 'featured_tours.popular_searches.'.$popularIndex.'.url'));
+        $this->assertSame($filterUuid, data_get($page->home_config, 'featured_tours.popular_searches.'.$popularIndex.'.filter_uuid'));
     }
 }

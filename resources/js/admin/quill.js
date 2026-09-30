@@ -119,11 +119,13 @@ function createMediaBrowser(modal) {
         closeButtons: modal.querySelectorAll('[data-media-close]'),
         collection: modal.querySelector('[data-media-collection]'),
         empty: modal.querySelector('[data-media-empty]'),
+        first: modal.querySelector('[data-media-first]'),
         editorFields: modal.querySelector('[data-media-editor-fields]'),
         grid: modal.querySelector('[data-media-grid]'),
         imageClass: modal.querySelector('[data-media-class]'),
         insertButton: modal.querySelector('[data-media-insert]'),
         insertText: modal.querySelector('[data-media-insert-text]'),
+        last: modal.querySelector('[data-media-last]'),
         manageLink: modal.querySelector('[data-media-manage-link]'),
         model: modal.querySelector('[data-media-model]'),
         next: modal.querySelector('[data-media-next]'),
@@ -188,6 +190,15 @@ function createMediaBrowser(modal) {
         fetchImages();
     });
 
+    elements.first?.addEventListener('click', () => {
+        if (state.page <= 1) {
+            return;
+        }
+
+        state.page = 1;
+        fetchImages();
+    });
+
     elements.prev?.addEventListener('click', () => {
         if (state.page <= 1) {
             return;
@@ -203,6 +214,15 @@ function createMediaBrowser(modal) {
         }
 
         state.page += 1;
+        fetchImages();
+    });
+
+    elements.last?.addEventListener('click', () => {
+        if (state.page >= state.totalPages) {
+            return;
+        }
+
+        state.page = state.totalPages;
         fetchImages();
     });
 
@@ -430,8 +450,10 @@ function createMediaBrowser(modal) {
         const total = meta.total || state.items.length;
 
         elements.pagination.textContent = `Trang ${currentPage}/${state.totalPages} · Tổng ${total} ảnh`;
+        elements.first.disabled = currentPage <= 1;
         elements.prev.disabled = currentPage <= 1;
         elements.next.disabled = currentPage >= state.totalPages;
+        elements.last.disabled = currentPage >= state.totalPages;
     }
 
     function renderSelection() {

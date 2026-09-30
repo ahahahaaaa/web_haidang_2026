@@ -1,0 +1,3 @@
+[    1215ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://localhost:8001/_boost/browser-logs @ http://localhost:8001/:69
+[    3190ms] [LOG] Zalo Social Plugin is loaded successfully @ http://localhost:8001/:128
+[    3191ms] [LOG] socialPluginsShare:  [] @ http://localhost:8001/:128

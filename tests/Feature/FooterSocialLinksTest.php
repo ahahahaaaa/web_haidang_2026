@@ -89,14 +89,14 @@ class FooterSocialLinksTest extends TestCase
             ->assertSee('https://zalo.me/haidangtravel', false)
             ->assertSee('aria-label="Zalo hỗ trợ"', false)
             ->assertSee('Zalo hỗ trợ')
-            ->assertSee('images/zalo-footer-logo.svg', false)
+            ->assertSee('images/zalo-footer-logo-orange.svg', false)
             ->assertSee('Đi nhanh hơn')
             ->assertSee('Hỗ trợ nhanh')
             ->assertSee('/chinh-sach', false)
             ->assertSee('Chính sách');
     }
 
-    public function test_homepage_footer_uses_configured_social_buttons_with_labels_and_descriptions(): void
+    public function test_homepage_footer_uses_configured_social_icons_with_accessible_labels(): void
     {
         $this->seed(CmsBootstrapSeeder::class);
 
@@ -133,11 +133,12 @@ class FooterSocialLinksTest extends TestCase
         $this->get(route('home'))
             ->assertOk()
             ->assertSee('https://facebook.com/haidang-support', false)
-            ->assertSee('Facebook hỗ trợ')
-            ->assertSee('Tư vấn nhanh qua fanpage')
+            ->assertSee('aria-label="Facebook hỗ trợ"', false)
             ->assertSee('fa-brands fa-facebook-f', false)
             ->assertSee('https://youtube.com/@haidangtravel', false)
-            ->assertSee('Video hành trình')
+            ->assertSee('aria-label="YouTube Channel"', false)
+            ->assertDontSee('Tư vấn nhanh qua fanpage')
+            ->assertDontSee('Video hành trình')
             ->assertDontSee('TikTok tạm ẩn');
     }
 }

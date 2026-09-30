@@ -64,7 +64,7 @@ Block heading rule:
 - Primary orange: `#FF6A00`
 - Primary orange hover: `#E65F00`
 - Primary gradient: `linear-gradient(135deg, #FF6A00, #FF8C00)`
-- Secondary blue: `#004A99`
+- Secondary graphite: `#334155`
 - Accent dark: `#222222`
 - Background main: `#F8FAFC`
 - Background soft: `#FDFAF7`
@@ -79,12 +79,11 @@ Block heading rule:
 - Price highlight: `#E31C25`
 - Rating / warning: `#FFB800`
 - Zalo green: `#25D366`
-- Zalo blue: `#0068FF`
 - White: `#FFFFFF`
 
 ### Usage rules
 - Orange is for primary CTA, emphasis, badges, key actions.
-- Blue is for headings, navigation accents, trust cues, and brand anchors.
+- Graphite gray is for headings, navigation accents, trust cues, and brand anchors.
 - Do not let orange dominate large surfaces; keep it under roughly 20% of visible page area.
 - Text should not use pure black `#000000`.
 - Backgrounds should stay bright and airy.
@@ -248,7 +247,7 @@ Header CTA & Navigation rules:
 The hero is the homepage poster, not a dashboard.
 
 ### Hero requirements
-- clear H1,
+- one semantic H1; keep it visible on normal pages, while the homepage alone uses the standard `sr-only` 1x1-pixel treatment,
 - short supporting paragraph,
 - one primary CTA,
 - one optional secondary CTA,
@@ -274,10 +273,11 @@ Recommended content:
 - giấy phép / pháp lý / company trust cue,
 - booking lookup or quick support link if it is genuinely useful.
 
-Homepage implementation note:
-- the support/search surface directly below the hero should use the same shared search-bar language as the public listing pages,
-- keep it to one clear tour query input plus one submit action inside a single rounded surface,
-- do not reintroduce quick-intent rails, date, budget, or multi-step filter controls into this homepage block unless a later task explicitly changes the product rule.
+Eligible hero implementation note:
+- discovery, listing, and applicable landing heroes use the desktop advanced tour filter contract in `TOUR_FILTER_DESIGN.md`, positioned inside the hero at `bottom: 20px`; tour-detail and blog/article-detail heroes do not render it,
+- keep scope, departure location, destination, departure date, and one submit action inside a single rounded surface,
+- product tabs must resolve to real published travel domains and canonical routes; do not render hotel/combo placeholders without a matching runtime,
+- hide this full panel on mobile and use the header discovery surface: departure selector, real product/tour shortcuts, and a scrollbar-free `Nổi bật` rail.
 
 Inquiry UX note:
 - if a quick support block offers an inquiry action, it should reuse the same shared inquiry modal as the header CTA,
@@ -291,7 +291,10 @@ Inquiry UX note:
 This block helps users who know their need but not the exact tour.
 
 Recommended inputs:
-- one text query for the destination, route, or tour intent the user is looking for.
+- tour scope,
+- departure location,
+- destination,
+- one exact public departure date.
 
 Rules:
 - keep it lighter than a full travel portal search engine,
@@ -299,13 +302,13 @@ Rules:
 - fields must be keyboard-usable and mobile-usable,
 - every state should map cleanly to a crawl-safe listing URL.
 
-Homepage search bar contract:
-- use one prominent tour search text field as the primary field, phrased in plain travel language such as `Bạn muốn đi đâu?`,
-- the homepage search surface should use the same shared search bar partial and visual contract as listing pages,
-- the homepage search surface should stay aligned with the shared listing search pattern: one text field plus one submit action inside the same rounded surface,
-- the homepage search field should behave like a true text query for tours, not like a disguised category select,
-- the search action should resolve to an existing travel browse URL such as a tour listing page instead of inventing a second homepage-only results state,
-- do not reintroduce date, budget, or quick-intent rails into this homepage search bar unless a later task explicitly changes the product rule.
+Eligible hero search contract:
+- hero surfaces share `tour-search-panel` on desktop, with the exact data/URL contract in `TOUR_FILTER_DESIGN.md`,
+- the search action resolves to `GET /tim-tour`; filter state must remain shareable and pagination-safe,
+- destination, origin and departure-date options come from published/current runtime records, never hard-coded campaign values,
+- preserve legacy `q`, `category`, `transport`, and `budget` parameters when they are already present,
+- render the advanced panel once in the first eligible hero and do not repeat it inside homepage or `/tim-tour` content; tour-detail and article-detail heroes remain excluded,
+- the advanced panel does not replace crawlable taxonomy rails elsewhere on the homepage.
 
 Frontsite form control contract:
 - all public-facing `select` fields in theme `haidangtravel` should use the shared `Tom Select` enhancement layer for one consistent dropdown/search surface,
@@ -314,11 +317,12 @@ Frontsite form control contract:
 - when a frontsite date/select control is still needed elsewhere, keep the shared control stack `Tom Select` for selects and `Flatpickr` for date fields unless a future task explicitly replaces them repo-wide.
 
 Listing search contract:
-- homepage and public listing pages such as `Blog`, `Dịch vụ`, `Tour`, `Danh mục tour`, `Điểm đến`, `Vùng miền`, and `Quốc gia` should share one simple search bar pattern,
+- `/tim-tour` uses the advanced tour search panel in its hero; homepage and other hero pages share that same desktop overlay,
+- other public listing pages such as `Blog`, `Dịch vụ`, `Danh mục tour`, `Điểm đến`, `Vùng miền`, and `Quốc gia` continue using the simple search bar pattern,
 - the default shared listing search bar should contain only one text query field and one submit action grouped in the same surface,
 - `/tour-trong-nuoc` and `/tour-nuoc-ngoai` may extend that same bar with one `Chủ đề` select so users can narrow tours by thematic intent without leaving the current scope page,
 - this `Chủ đề` select should use the same `Tom Select` control family, stay inside the same rounded search surface, and remain clearly secondary to the main text query,
-- do not reintroduce extra select/date/budget controls into other listing search bars unless a later task explicitly redefines that listing UX.
+- do not copy the advanced panel into other listing pages unless their page contract is explicitly redefined.
 
 #### 5. Tour scope discovery
 
@@ -348,7 +352,11 @@ Rules:
 - prioritize 4 to 8 strong tours instead of a crowded wall,
 - cards must be comparable at a glance,
 - do not hide all featured tours inside a carousel only.
-- the homepage featured-tour tablist (`home-featured-tab-international`, `home-featured-tab-domestic`, `home-featured-tab-group`) should use the same mobile horizontal-scroll treatment as taxonomy tablists, then wrap normally from tablet/desktop upward.
+- the homepage featured-tour tablist starts with `home-featured-tab-all` active by default. Following tabs are configured in CMS and may filter featured tours by tour scope, published destination, published tour topic, or published region/continent; use the same mobile horizontal-scroll treatment as taxonomy tablists, then wrap normally from tablet/desktop upward.
+- each configured tab label comes from the selected source object, while the block heading and description remain the shared `Tất cả` copy instead of changing per filter.
+- featured-tour filter buttons contain only their labels; omit the numeric tour counter from the tab row.
+- the `Tất cả` panel combines the current featured tours from all three scopes. In static-grid mode, this block keeps the normal column gap but reduces row gap by 50% so the combined multi-row list remains compact.
+- optional `Tìm kiếm nổi bật` links render below the tab panels in CMS order; preserve the configured label and safe internal/HTTP(S) URL. The `Tất cả` tab shows every link, while each configured tab shows only items whose `filter_uuid` matches its stable tab id; items without an assignment remain available only in `Tất cả`, and the rail is hidden when no item matches.
 
 #### 7. Destination / region discovery
 
@@ -434,12 +442,15 @@ Recommended content:
 Rules:
 - every metric must be real,
 - if numbers are weak or unavailable, use proof-based statements instead of fake counters.
-- default visual treatment should not be a flat row of equally weighted long-text cards; prefer one featured proof card plus shorter supporting proof cards.
+- homepage `trust` uses a two-column about layout: editorial company copy and up to three real metrics on the left, award imagery on the right.
+- compose the homepage `trust` heading from the brand logo and a serif slogan; use graphite for the slogan and theme orange for the divider and metric numbers, with no blue accent.
+- homepage award imagery comes from the CMS Media Library, uses a contained image fit, and becomes an autoplay carousel only when at least two valid images exist.
+- do not use the company logo as a substitute for award imagery; if no award image is configured, collapse the right column cleanly.
+- landing-page `trust_proof` should not be a flat row of equally weighted long-text cards; prefer one featured proof card plus shorter supporting proof cards.
 - each proof card should read in this order: short highlight label, decision-oriented title, then one concise supporting sentence.
 - proof cards should support Font Awesome icon classes from CMS, with frontsite fallbacks for older saved data.
 - mobile trust proof rendering should stay compact and low-noise; large decorative background icons are desktop/tablet-only.
 - landing-page `trust_proof` blocks may render optional trust metrics only when the editor enters real value/label/icon rows.
-- homepage `trust` block and landing-page `trust_proof` block should share the same visual language so the brand proof system feels consistent across campaign pages.
 
 #### 11. Booking process / workflow
 
@@ -552,7 +563,7 @@ Footer contract for theme `haidangtravel`:
 
 ### Homepage SEO and conversion rules
 
-- The homepage H1 should state the primary brand + travel offer clearly.
+- The homepage H1 should state the primary brand + travel offer clearly in the document outline, but remain visually hidden with the standard `sr-only` 1x1-pixel treatment.
 - Hero copy and first support block should mention the site’s core offer in plain language.
 - Internal links from homepage should point to the 3 tour scopes, key services, selected destination clusters, and featured blog guides.
 - When homepage renders the visible `Chủ đề tour` browse-entry rail, the page schema should include `WebPage` + `ItemList` for that rail and keep the list items pointed at canonical `/danh-muc-tour/{slug}` hubs.
@@ -638,6 +649,8 @@ Behavior rules:
 - when published `departures` exist, tour-detail pricing surfaces must prefer `departure_date`, `standard_label`, and `sale_price` / `base_price` from those departure rows instead of inventing a separate summary source,
 - one visible pricing row must stay internally consistent: the `Ngày khởi hành`, `Tiêu chuẩn`, and `Giá` shown together must come from the same departure row, not from mixed fallback rows,
 - `pricing_table` on tour detail should be treated as supplemental pricing notes such as phụ thu or ghi chú thêm, and should render as its own notes block instead of repeating departure-backed pricing rows,
+- hero của tour detail mặc định hiển thị và có thể tắt toàn site qua `Theme Settings -> Cấu hình giao diện`; khi tắt hero, trang vẫn phải render đúng một H1 hiển thị ở khu vực tiêu đề gọn dưới breadcrumb,
+- H1 tour detail dùng wrapper toàn chiều ngang và scale riêng nhỏ hơn khoảng 50% so với H1 hero chung: hero `text-lg / sm:text-2xl / lg:text-3xl`, trạng thái ẩn hero `0.9375rem / sm:text-lg / lg:text-2xl`,
 - `tour_terms_items` on the current `Tour` should be rendered ahead of FAQ when present; if a tour has no own term items, the frontsite should fallback to the shared template from `SiteSetting`,
 - schema and metadata must be generated from visible tour content and real CMS fields only.
 
@@ -655,12 +668,11 @@ Behavior rules:
 Detail-page presentation refinements:
 - all visible price strings on the tour detail page must use a no-wrap treatment such as `whitespace-nowrap` or an equivalent CSS rule; this applies to departure tables, departure cards, pricing rows, sticky/sidebar price clusters, and related-tour price labels so the currency string never breaks across lines,
 - the supplemental pricing block on tour detail should be titled `Phụ thu và ghi chú thêm`; departure-backed prices stay in the departure schedule section and should not be repeated again as a second `Ngày khởi hành / Tiêu chuẩn / Giá` table,
-- the `Lịch trình chi tiết` block on tour detail uses the shared single-open accordion behavior, but its trigger row should read like editorial content instead of a generic FAQ card,
-- itinerary item titles should sit flush at the start of the content line; do not prepend a separate orange day chip, day badge, or left-side label block in the trigger row by default,
-- the visible itinerary title text itself should carry the orange emphasis color at `1.2rem`, while the `+ / -` affordance remains a smaller secondary control on the right,
-- itinerary item spacing stays compact: only a small gap between cards, and trigger/panel padding reduced by about 50% from the older roomy version,
-- the expanded `tour-itinerary-panel-*` content surface should stay clean and borderless; do not add an inner outline or ring treatment around the itinerary content panel,
-- when a `tour-itinerary-trigger-*` item is opened, the page should scroll that accordion item back to the top of the viewport below the sticky header so the expanded content starts in an easy reading position,
+- the tour content nav is sticky below the main header only while its `data-tour-content-shell` remains in view; its scrollspy marks the current section with `aria-current="location"` and keeps the active chip visible in the horizontal mobile rail,
+- the desktop price sidebar uses a combined dynamic offset for the main header and tour section nav, so its sticky card never overlaps either layer,
+- `Lịch trình chi tiết` is a vertical route timeline with one orange location marker per day; each day is an independent `<details>` item and starts open,
+- each day summary contains `Ngày N`, the route title, optional meal text with an utensils icon, and an optional CMS image; the expanded editorial content remains below that summary,
+- when a day image exists, it fills the right edge of the summary with `object-cover`; the `+ / -` control overlays the image's top-right corner instead of reserving a separate control column,
 - the main media/gallery section on a tour detail page represents the album of the current tour being viewed, but frontsite gallery sliders should go straight into the media shell; do not render a separate section heading, eyebrow, or helper intro copy above the gallery by default,
 - gallery cards that open a lightbox must expose an explicit zoom/open cue such as `Phóng to` with a magnifying-glass style icon; do not rely on image hover alone to imply the action,
 - thumbnail rails in frontsite gallery sliders should show image previews only; do not render titles, descriptions, numbering, badges, or helper text above or inside the thumbnail strip by default,
@@ -814,7 +826,7 @@ Baseline target:
 ### Search and crawl rules
 
 Preserve or implement:
-- one visible H1 per page,
+- one semantic H1 per page; it remains visible except for the homepage-specific `sr-only` treatment,
 - meaningful H2/H3 hierarchy with no skipped structure for core sections,
 - descriptive `<title>`, meta description, canonical, Open Graph, and index directives,
 - HTML-first rendering for primary tour facts, price/contact state, itinerary, FAQ, breadcrumbs, and internal links,
@@ -903,3 +915,14 @@ When generating frontsite code/docs, return:
 - why the structure supports conversion,
 - how the change respects the tour object contract and the SEO/ADA baseline,
 - what should be validated in browser/build.
+
+---
+
+## 18. Flash Sale tour
+
+- Block `flash_sale` lấy một campaign đã cấu hình trong CMS và tự ẩn khi campaign chưa bắt đầu, đã hết hạn, bị tắt hoặc không còn lịch khởi hành hợp lệ.
+- `is_enabled` của widget cho phép ẩn/hiện độc lập với trạng thái campaign; khi widget hiện, nút `Xem thêm` chỉ render nếu `show_view_more` bật và URL hợp lệ. Nhãn/URL của widget nếu có sẽ ghi đè nhãn/URL từ campaign.
+- Mỗi giá Flash Sale phải gắn với một `TourDeparture`; không ghi đè `Tour.sale_price` hoặc `TourDeparture.sale_price`.
+- Link card phải mang cả `flash_sale` và `flash_departure`. Trang chi tiết chỉ áp giá ưu đãi sau khi server xác minh campaign, tour, lịch khởi hành và thời gian hiệu lực.
+- Canonical của tour luôn là URL tour gốc; giá hiển thị và schema `Offer` phải đồng nhất theo ngữ cảnh Flash Sale hợp lệ.
+- Card tour thường và detail dùng `TourUiIcons` cùng nhãn thời lượng rút gọn.

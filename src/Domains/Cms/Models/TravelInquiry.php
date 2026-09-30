@@ -13,6 +13,8 @@ class TravelInquiry extends Model
     protected $fillable = [
         'source',
         'tour_id',
+        'tour_departure_id',
+        'tour_flash_sale_item_id',
         'service_id',
         'context_title',
         'status',
@@ -21,6 +23,11 @@ class TravelInquiry extends Model
         'customer_email',
         'travel_date',
         'party_size',
+        'quoted_unit_price',
+        'regular_unit_price',
+        'price_type',
+        'ticket_count',
+        'quoted_at',
         'message',
         'page_url',
         'mail_status',
@@ -35,6 +42,11 @@ class TravelInquiry extends Model
             'mailed_at' => 'datetime',
             'meta' => 'array',
             'party_size' => 'integer',
+            'quoted_at' => 'datetime',
+            'quoted_unit_price' => 'integer',
+            'regular_unit_price' => 'integer',
+            'ticket_count' => 'integer',
+            'travel_date' => 'date',
             'source' => TravelInquirySource::class,
         ];
     }
@@ -47,5 +59,15 @@ class TravelInquiry extends Model
     public function tour(): BelongsTo
     {
         return $this->belongsTo(Tour::class, 'tour_id');
+    }
+
+    public function tourDeparture(): BelongsTo
+    {
+        return $this->belongsTo(TourDeparture::class, 'tour_departure_id');
+    }
+
+    public function tourFlashSaleItem(): BelongsTo
+    {
+        return $this->belongsTo(TourFlashSaleItem::class, 'tour_flash_sale_item_id');
     }
 }

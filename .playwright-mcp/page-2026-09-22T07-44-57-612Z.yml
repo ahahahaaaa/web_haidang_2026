@@ -1,0 +1,1270 @@
+- generic [active] [ref=f3e1]:
+  - link "Bỏ qua điều hướng & tới nội dung chính" [ref=f3e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f3e3]:
+    - generic [ref=f3e4]:
+      - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=f3e5] [cursor=pointer]:
+        - /url: http://localhost:8001
+        - img "Du Lịch Hải Đăng Travel" [ref=f3e7]
+      - group [ref=f3e8]:
+        - generic "TP. Hồ Chí Minh" [ref=f3e9] [cursor=pointer]
+      - group [ref=f3e13]:
+        - generic "Mở menu" [ref=f3e14]
+    - region "Khám phá dịch vụ du lịch" [ref=f3e17]:
+      - generic [ref=f3e18]:
+        - navigation "Đi nhanh" [ref=f3e19]:
+          - link "Tour trọn gói" [ref=f3e20] [cursor=pointer]:
+            - /url: http://localhost:8001/tim-tour
+          - link "Vé máy bay" [ref=f3e24] [cursor=pointer]:
+            - /url: http://localhost:8001/dich-vu/danh-muc/ve-may-bay
+          - link "Dịch vụ cộng thêm" [ref=f3e28] [cursor=pointer]:
+            - /url: http://localhost:8001/dich-vu
+          - link "Tour trong nước" [ref=f3e32] [cursor=pointer]:
+            - /url: http://localhost:8001/tour-trong-nuoc
+          - link "Tour nước ngoài" [ref=f3e36] [cursor=pointer]:
+            - /url: http://localhost:8001/tour-nuoc-ngoai
+          - link "Tour đoàn" [ref=f3e40] [cursor=pointer]:
+            - /url: http://localhost:8001/tour-doan
+        - generic [ref=f3e44]:
+          - generic [ref=f3e45]: "Nổi bật:"
+          - generic [ref=f3e47]:
+            - link "Hành hương Châu Á" [ref=f3e48] [cursor=pointer]:
+              - /url: http://localhost:8001/danh-muc-tour/tour-hanh-huong
+            - link "Tour Lễ 2 Tháng 9 2026 - Trọn Gói Trong Nước & Nước Ngoài" [ref=f3e50] [cursor=pointer]:
+              - /url: http://localhost:8001/danh-muc-tour/tour-le-2-thang-9
+            - link "Tour Du lịch xe Limousine" [ref=f3e52] [cursor=pointer]:
+              - /url: http://localhost:8001/danh-muc-tour/du-lich-xe-limousine
+            - link "Du Lịch Đảo Việt Nam" [ref=f3e54] [cursor=pointer]:
+              - /url: http://localhost:8001/danh-muc-tour/tour-du-lich-dao
+            - link "Tour Mùa Đông Châu Úc" [ref=f3e56] [cursor=pointer]:
+              - /url: http://localhost:8001/danh-muc-tour/du-lich-mua-dong-chau-uc
+            - link "Du Lịch Tàu Lửa" [ref=f3e58] [cursor=pointer]:
+              - /url: http://localhost:8001/danh-muc-tour/du-lich-tau-lua
+            - link "Du lich máy bay" [ref=f3e60] [cursor=pointer]:
+              - /url: http://localhost:8001/danh-muc-tour/du-lich-may-bay
+  - main [ref=f3e62]:
+    - generic [ref=f3e64]:
+      - article [ref=f3e65]:
+        - img "dao-nami-mua-thu-06092019-1" [ref=f3e67]
+      - article [aria-hidden]
+      - generic:
+        - button "Xem slide trước" [ref=f3e70]
+        - button "Xem slide tiếp theo" [ref=f3e72]
+      - generic [ref=f3e74]:
+        - button "Đi tới slide 1" [ref=f3e75]
+        - button "Đi tới slide 2" [ref=f3e76]
+    - heading "Trang chủ" [level=1] [ref=f3e77]
+    - generic [ref=f3e80]:
+      - generic [ref=f3e82]:
+        - heading "CHỦ ĐỀ TOUR" [level=2] [ref=f3e83]
+        - paragraph [ref=f3e84]: Chủ đề tour tiêu biểu năm 2026 với lịch trình độc bản. Từ hành trình hành hương tâm linh đến nghỉ dưỡng biển đảo đẳng cấp, Haidangtravel mang đến những trải nghiệm tinh tế và trọn gói nhất.
+      - generic [ref=f3e85]:
+        - generic:
+          - button "Xem chủ đề tour trước" [disabled] [ref=f3e86]
+          - button "Xem chủ đề tour tiếp theo" [ref=f3e88]
+        - generic [ref=f3e90]:
+          - link [ref=f3e92] [cursor=pointer]:
+            - /url: http://localhost:8001/danh-muc-tour/tour-hanh-huong
+            - img "tour-hanh-huong-tam-linh-chiem-bai-dat-phat-haidangtravel" [ref=f3e94]
+            - heading "Hành hương Châu Á" [level=3] [ref=f3e95]
+          - link [ref=f3e97] [cursor=pointer]:
+            - /url: http://localhost:8001/danh-muc-tour/tour-le-2-thang-9
+            - img "tour du lịch lễ 2 tháng 9" [ref=f3e99]
+            - heading "Tour Lễ 2 Tháng 9 2026 - Trọn Gói Trong Nước & Nước Ngoài" [level=3] [ref=f3e100]
+          - link [ref=f3e102] [cursor=pointer]:
+            - /url: http://localhost:8001/danh-muc-tour/du-lich-chau-au-le-hoi
+            - img "tour du lịch giao mùa xuân hè châu âu" [ref=f3e104]
+            - heading "Tour Giao Mùa Xuân hè Châu Âu" [level=3] [ref=f3e105]
+          - link [ref=f3e107] [cursor=pointer]:
+            - /url: http://localhost:8001/danh-muc-tour/du-lich-xe-limousine
+            - img "tour du lich xe limousine da lat nha trang mui ne mien tay haidangtravel" [ref=f3e109]
+            - heading "Tour Du lịch xe Limousine" [level=3] [ref=f3e110]
+          - link [ref=f3e112] [cursor=pointer]:
+            - /url: http://localhost:8001/danh-muc-tour/tour-du-lich-dao
+            - img "tour du lich dao phu quoc nam du con dao binh ba ky co cu lao cham haidangtravel" [ref=f3e114]
+            - heading "Du Lịch Đảo Việt Nam" [level=3] [ref=f3e115]
+          - link [ref=f3e117] [cursor=pointer]:
+            - /url: http://localhost:8001/danh-muc-tour/du-lich-mua-dong-chau-uc
+            - img "tour-du-lich-uc-sydney" [ref=f3e119]
+            - heading "Tour Mùa Đông Châu Úc" [level=3] [ref=f3e120]
+          - link [ref=f3e122] [cursor=pointer]:
+            - /url: http://localhost:8001/danh-muc-tour/du-lich-tau-lua
+            - img "tour du lich tau lua sai gon nha trang tau ket noi di san hue da nang tau lua da lat haidangtravel" [ref=f3e124]
+            - heading "Du Lịch Tàu Lửa" [level=3] [ref=f3e125]
+          - link [ref=f3e127] [cursor=pointer]:
+            - /url: http://localhost:8001/danh-muc-tour/du-lich-may-bay
+            - img "tour du lich may bay noi dia phu quoc da nang ha noi sapa haidangtravel" [ref=f3e129]
+            - heading "Du lich máy bay" [level=3] [ref=f3e130]
+    - generic [ref=f3e133]:
+      - generic [ref=f3e139]:
+        - heading "Mã ưu đãi tặng bạn" [level=2] [ref=f3e140]
+        - paragraph [ref=f3e141]: Khám phá ưu đãi dành riêng cho bạn — tiết kiệm nhiều hơn cho mỗi hành trình, mỗi điểm đến.
+      - generic [ref=f3e153]:
+        - generic:
+          - button "Xem mã ưu đãi trước" [disabled] [ref=f3e154]
+          - button "Xem mã ưu đãi tiếp theo" [ref=f3e156]
+        - generic "Danh sách mã ưu đãi du lịch" [ref=f3e158]:
+          - article [ref=f3e160]:
+            - generic [ref=f3e161]:
+              - generic [ref=f3e162]: Voucher ưu đãi
+              - heading "200.000đ Voucher du lịch" [level=3] [ref=f3e163]:
+                - generic [ref=f3e164]: 200.000đ
+                - generic [ref=f3e165]: Voucher du lịch
+            - generic [ref=f3e166]:
+              - generic [ref=f3e167]:
+                - paragraph [ref=f3e171]: Áp dụng cho tour trong nước và nước ngoài theo điều kiện chương trình.
+                - paragraph [ref=f3e175]: Mã voucher được lưu trên trình duyệt này để bạn có thể xem lại sau khi đăng ký.
+              - generic [ref=f3e176]:
+                - generic [ref=f3e177]:
+                  - paragraph [ref=f3e178]: "HSD: 20/11/2026"
+                  - paragraph [ref=f3e179]: HDTRAVEL200
+                - button "Sao chép mã ưu đãi HDTRAVEL200" [ref=f3e180]:
+                  - generic [ref=f3e182]: Sao chép
+                - status [ref=f3e183]
+          - article [ref=f3e185]:
+            - generic [ref=f3e186]:
+              - generic [ref=f3e187]: Voucher ưu đãi
+              - heading "150K Tặng bạn eVoucher" [level=3] [ref=f3e188]:
+                - generic [ref=f3e189]: 150K
+                - generic [ref=f3e190]: Tặng bạn eVoucher
+            - generic [ref=f3e191]:
+              - generic [ref=f3e192]:
+                - paragraph [ref=f3e196]: Áp dụng cho tour nội địa và Đông Nam Á.
+                - paragraph [ref=f3e200]: Giảm 150.000đ cho đơn hàng online từ 8.000.000đ.
+              - generic [ref=f3e201]:
+                - generic [ref=f3e202]:
+                  - paragraph [ref=f3e203]: "HSD: 20/11/2026"
+                  - paragraph [ref=f3e204]: TRIP150
+                - button "Sao chép mã ưu đãi TRIP150" [ref=f3e205]:
+                  - generic [ref=f3e207]: Sao chép
+                - status [ref=f3e208]
+          - article [ref=f3e210]:
+            - generic [ref=f3e211]:
+              - generic [ref=f3e212]: Voucher ưu đãi
+              - heading "300K Tặng bạn eVoucher" [level=3] [ref=f3e213]:
+                - generic [ref=f3e214]: 300K
+                - generic [ref=f3e215]: Tặng bạn eVoucher
+            - generic [ref=f3e216]:
+              - generic [ref=f3e217]:
+                - paragraph [ref=f3e221]: Áp dụng cho tour nội địa và Đông Nam Á.
+                - paragraph [ref=f3e225]: Giảm 300.000đ cho đơn hàng online từ 16.000.000đ.
+              - generic [ref=f3e226]:
+                - generic [ref=f3e227]:
+                  - paragraph [ref=f3e228]: "HSD: 20/11/2026"
+                  - paragraph [ref=f3e229]: TRIP300
+                - button "Sao chép mã ưu đãi TRIP300" [ref=f3e230]:
+                  - generic [ref=f3e232]: Sao chép
+                - status [ref=f3e233]
+          - article [ref=f3e235]:
+            - generic [ref=f3e236]:
+              - generic [ref=f3e237]: Voucher ưu đãi
+              - heading "500K Tặng bạn eVoucher" [level=3] [ref=f3e238]:
+                - generic [ref=f3e239]: 500K
+                - generic [ref=f3e240]: Tặng bạn eVoucher
+            - generic [ref=f3e241]:
+              - generic [ref=f3e242]:
+                - paragraph [ref=f3e246]: Áp dụng cho tour nội địa, Đông Nam Á và Đông Bắc Á.
+                - paragraph [ref=f3e250]: Giảm 500.000đ cho đơn hàng online từ 26.000.000đ.
+              - generic [ref=f3e251]:
+                - generic [ref=f3e252]:
+                  - paragraph [ref=f3e253]: "HSD: 20/11/2026"
+                  - paragraph [ref=f3e254]: TRIP500
+                - button "Sao chép mã ưu đãi TRIP500" [ref=f3e255]:
+                  - generic [ref=f3e257]: Sao chép
+                - status [ref=f3e258]
+          - article [ref=f3e260]:
+            - generic [ref=f3e261]:
+              - generic [ref=f3e262]: Voucher ưu đãi
+              - heading "800K Tặng bạn eVoucher" [level=3] [ref=f3e263]:
+                - generic [ref=f3e264]: 800K
+                - generic [ref=f3e265]: Tặng bạn eVoucher
+            - generic [ref=f3e266]:
+              - generic [ref=f3e267]:
+                - paragraph [ref=f3e271]: Áp dụng cho tour nước ngoài theo điều kiện chương trình.
+                - paragraph [ref=f3e275]: Giảm 800.000đ cho đơn hàng online từ 40.000.000đ.
+              - generic [ref=f3e276]:
+                - generic [ref=f3e277]:
+                  - paragraph [ref=f3e278]: "HSD: 20/11/2026"
+                  - paragraph [ref=f3e279]: TRIP800
+                - button "Sao chép mã ưu đãi TRIP800" [ref=f3e280]:
+                  - generic [ref=f3e282]: Sao chép
+                - status [ref=f3e283]
+          - article [ref=f3e285]:
+            - generic [ref=f3e286]:
+              - generic [ref=f3e287]: Voucher ưu đãi
+              - heading "1 triệu Tặng bạn eVoucher" [level=3] [ref=f3e288]:
+                - generic [ref=f3e289]: 1 triệu
+                - generic [ref=f3e290]: Tặng bạn eVoucher
+            - generic [ref=f3e291]:
+              - generic [ref=f3e292]:
+                - paragraph [ref=f3e296]: Áp dụng cho tour nước ngoài và tour đoàn theo điều kiện chương trình.
+                - paragraph [ref=f3e300]: Giảm 1.000.000đ cho đơn hàng online từ 60.000.000đ.
+              - generic [ref=f3e301]:
+                - generic [ref=f3e302]:
+                  - paragraph [ref=f3e303]: "HSD: 20/11/2026"
+                  - paragraph [ref=f3e304]: TRIP1000
+                - button "Sao chép mã ưu đãi TRIP1000" [ref=f3e305]:
+                  - generic [ref=f3e307]: Sao chép
+                - status [ref=f3e308]
+    - region [ref=f3e309]:
+      - generic [ref=f3e311]:
+        - generic [ref=f3e312]:
+          - generic [ref=f3e316]:
+            - heading "Ưu đãi giờ chót" [level=2] [ref=f3e317]
+            - paragraph [ref=f3e318]: Khám phá tour sắp khởi hành với giá ưu đãi trong thời gian giới hạn.
+          - link "Xem thêm" [ref=f3e319] [cursor=pointer]:
+            - /url: /tim-tour
+        - generic [ref=f3e323]:
+          - generic:
+            - button "Xem tour ưu đãi trước" [disabled] [ref=f3e324]
+            - button "Xem tour ưu đãi tiếp theo" [ref=f3e326]
+          - generic [ref=f3e328]:
+            - article [ref=f3e330]:
+              - link "tour du lich trung quoc an thi truong gia gioi phuong hoang co tran 5 ngay 4 dem haidangtravel 00 42:10:04 Thời gian ưu đãi còn lại Xem nhanh" [ref=f3e331] [cursor=pointer]:
+                - /url: http://localhost:8001/chuong-trinh/tour-trung-quoc-an-thi-truong-gia-gioi-phuong-hoang-co-tran-5-ngay-4-dem?flash_sale=demo-uu-dai-gio-chot&flash_departure=446
+                - img "tour du lich trung quoc an thi truong gia gioi phuong hoang co tran 5 ngay 4 dem haidangtravel" [ref=f3e332]
+                - generic [ref=f3e334]:
+                  - generic [ref=f3e335]: "00"
+                  - text: 42:10:04
+                  - generic [ref=f3e336]: Thời gian ưu đãi còn lại
+                - generic [ref=f3e337]: Xem nhanh
+              - generic [ref=f3e339]:
+                - heading [level=3] [ref=f3e340]:
+                  - link "Tour Trung Quốc Ân Thi Trương Gia Giới Phượng Hoàng Cổ Trấn 5 Ngày 4 Đêm" [ref=f3e341] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-trung-quoc-an-thi-truong-gia-gioi-phuong-hoang-co-tran-5-ngay-4-dem?flash_sale=demo-uu-dai-gio-chot&flash_departure=446
+                - generic [ref=f3e342]:
+                  - paragraph [ref=f3e343]:
+                    - generic [ref=f3e345]: 23/09/2026
+                    - generic [ref=f3e346]: Liên hệ chỗ
+                  - paragraph [ref=f3e348]:
+                    - generic [ref=f3e350]: HCM
+                    - generic [ref=f3e351]: 5N4Đ
+                  - paragraph [ref=f3e353]:
+                    - generic [ref=f3e355]: Máy Bay
+                - generic [ref=f3e356]:
+                  - generic [ref=f3e357]:
+                    - paragraph [ref=f3e358]: 15.990.000 đ
+                    - paragraph [ref=f3e359]: 14.400.000 đ
+                  - link "Đặt ngay" [ref=f3e361] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-trung-quoc-an-thi-truong-gia-gioi-phuong-hoang-co-tran-5-ngay-4-dem?flash_sale=demo-uu-dai-gio-chot&flash_departure=446
+            - article [ref=f3e365]:
+              - link "tour-du-lich-dong-tay-au-duc-ao-y-thuy-sy-phap 00 42:10:04 Thời gian ưu đãi còn lại Xem nhanh" [ref=f3e366] [cursor=pointer]:
+                - /url: http://localhost:8001/chuong-trinh/tour-du-lich-dong-tay-au-duc-ao-y-thuy-sy-phap?flash_sale=demo-uu-dai-gio-chot&flash_departure=512
+                - img "tour-du-lich-dong-tay-au-duc-ao-y-thuy-sy-phap" [ref=f3e367]
+                - generic [ref=f3e369]:
+                  - generic [ref=f3e370]: "00"
+                  - text: 42:10:04
+                  - generic [ref=f3e371]: Thời gian ưu đãi còn lại
+                - generic [ref=f3e372]: Xem nhanh
+              - generic [ref=f3e374]:
+                - heading [level=3] [ref=f3e375]:
+                  - 'link "Tour Đông Tây Âu: Hành Trình 6 Nước Đức - Hà Lan - Bỉ - Ý - Thụy Sỹ - Pháp 9N8Đ" [ref=f3e376] [cursor=pointer]':
+                    - /url: http://localhost:8001/chuong-trinh/tour-du-lich-dong-tay-au-duc-ao-y-thuy-sy-phap?flash_sale=demo-uu-dai-gio-chot&flash_departure=512
+                - generic [ref=f3e377]:
+                  - paragraph [ref=f3e378]:
+                    - generic [ref=f3e380]: 23/09/2026
+                    - generic [ref=f3e381]: Liên hệ chỗ
+                  - paragraph [ref=f3e383]:
+                    - generic [ref=f3e385]: Sân bay Tân Sơn Nhất
+                    - generic [ref=f3e386]: 9N8Đ
+                  - paragraph [ref=f3e388]:
+                    - generic [ref=f3e390]: Máy Bay
+                - generic [ref=f3e391]:
+                  - generic [ref=f3e392]:
+                    - paragraph [ref=f3e393]: 61.990.000 đ
+                    - paragraph [ref=f3e394]: 55.800.000 đ
+                  - link "Đặt ngay" [ref=f3e396] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-du-lich-dong-tay-au-duc-ao-y-thuy-sy-phap?flash_sale=demo-uu-dai-gio-chot&flash_departure=512
+            - article [ref=f3e400]:
+              - link "tour-singapore-malaysia-5-ngay-4-dem 00 42:10:04 Thời gian ưu đãi còn lại Xem nhanh" [ref=f3e401] [cursor=pointer]:
+                - /url: http://localhost:8001/chuong-trinh/tour-du-lich-singapore-malaysia-5-ngay-4-dem?flash_sale=demo-uu-dai-gio-chot&flash_departure=550
+                - img "tour-singapore-malaysia-5-ngay-4-dem" [ref=f3e402]
+                - generic [ref=f3e404]:
+                  - generic [ref=f3e405]: "00"
+                  - text: 42:10:04
+                  - generic [ref=f3e406]: Thời gian ưu đãi còn lại
+                - generic [ref=f3e407]: Xem nhanh
+              - generic [ref=f3e409]:
+                - heading [level=3] [ref=f3e410]:
+                  - 'link "Tour Singapore Malaysia 5N4Đ: Chinh Phục Đỉnh Genting & Đại Tiệc Cua Sốt – Ưu Đãi Cực Cháy!" [ref=f3e411] [cursor=pointer]':
+                    - /url: http://localhost:8001/chuong-trinh/tour-du-lich-singapore-malaysia-5-ngay-4-dem?flash_sale=demo-uu-dai-gio-chot&flash_departure=550
+                - generic [ref=f3e412]:
+                  - paragraph [ref=f3e413]:
+                    - generic [ref=f3e415]: 23/09/2026
+                    - generic [ref=f3e416]: Liên hệ chỗ
+                  - paragraph [ref=f3e418]:
+                    - generic [ref=f3e420]: HCM
+                    - generic [ref=f3e421]: 5N4Đ
+                  - paragraph [ref=f3e423]:
+                    - generic [ref=f3e425]: Máy Bay
+                - generic [ref=f3e426]:
+                  - generic [ref=f3e427]:
+                    - paragraph [ref=f3e428]: 12.690.000 đ
+                    - paragraph [ref=f3e429]: 11.430.000 đ
+                  - link "Đặt ngay" [ref=f3e431] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-du-lich-singapore-malaysia-5-ngay-4-dem?flash_sale=demo-uu-dai-gio-chot&flash_departure=550
+            - article [ref=f3e435]:
+              - link "tour-thai-lan-bangkok-pattaya-muang-boran 00 42:10:04 Thời gian ưu đãi còn lại Xem nhanh" [ref=f3e436] [cursor=pointer]:
+                - /url: http://localhost:8001/chuong-trinh/tour-du-lich-thai-lan-bangkok-pattaya?flash_sale=demo-uu-dai-gio-chot&flash_departure=686
+                - img "tour-thai-lan-bangkok-pattaya-muang-boran" [ref=f3e437]
+                - generic [ref=f3e439]:
+                  - generic [ref=f3e440]: "00"
+                  - text: 42:10:04
+                  - generic [ref=f3e441]: Thời gian ưu đãi còn lại
+                - generic [ref=f3e442]: Xem nhanh
+              - generic [ref=f3e444]:
+                - heading [level=3] [ref=f3e445]:
+                  - 'link "Tour Thái Lan: Bangkok - Pattaya - Suan Thai trọn gói 5 Ngày 4 Đêm" [ref=f3e446] [cursor=pointer]':
+                    - /url: http://localhost:8001/chuong-trinh/tour-du-lich-thai-lan-bangkok-pattaya?flash_sale=demo-uu-dai-gio-chot&flash_departure=686
+                - generic [ref=f3e447]:
+                  - paragraph [ref=f3e448]:
+                    - generic [ref=f3e450]: 23/09/2026
+                    - generic [ref=f3e451]: Liên hệ chỗ
+                  - paragraph [ref=f3e453]:
+                    - generic [ref=f3e455]: HCM
+                    - generic [ref=f3e456]: 5N4Đ
+                  - paragraph [ref=f3e458]:
+                    - generic [ref=f3e460]: Máy Bay
+                - generic [ref=f3e461]:
+                  - generic [ref=f3e462]:
+                    - paragraph [ref=f3e463]: 7.390.000 đ
+                    - paragraph [ref=f3e464]: 6.660.000 đ
+                  - link "Đặt ngay" [ref=f3e466] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-du-lich-thai-lan-bangkok-pattaya?flash_sale=demo-uu-dai-gio-chot&flash_departure=686
+            - article [ref=f3e470]:
+              - link "Nhật bản Lâu đài Osaka 00 42:10:04 Thời gian ưu đãi còn lại Xem nhanh" [ref=f3e471] [cursor=pointer]:
+                - /url: http://localhost:8001/chuong-trinh/tour-nhat-ban-6-ngay-5-dem?flash_sale=demo-uu-dai-gio-chot&flash_departure=766
+                - img "Nhật bản Lâu đài Osaka" [ref=f3e472]
+                - generic [ref=f3e474]:
+                  - generic [ref=f3e475]: "00"
+                  - text: 42:10:04
+                  - generic [ref=f3e476]: Thời gian ưu đãi còn lại
+                - generic [ref=f3e477]: Xem nhanh
+              - generic [ref=f3e479]:
+                - heading [level=3] [ref=f3e480]:
+                  - link "Tour Nhật Bản 6 Ngày 5 Đêm | Osaka – Kobe – Kyoto – Nagoya – Yamanashi – Tokyo" [ref=f3e481] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-nhat-ban-6-ngay-5-dem?flash_sale=demo-uu-dai-gio-chot&flash_departure=766
+                - generic [ref=f3e482]:
+                  - paragraph [ref=f3e483]:
+                    - generic [ref=f3e485]: 23/09/2026
+                    - generic [ref=f3e486]: Liên hệ chỗ
+                  - paragraph [ref=f3e488]:
+                    - generic [ref=f3e490]: HCM
+                    - generic [ref=f3e491]: 6N5Đ
+                  - paragraph [ref=f3e493]:
+                    - generic [ref=f3e495]: Máy Bay
+                - generic [ref=f3e496]:
+                  - generic [ref=f3e497]:
+                    - paragraph [ref=f3e498]: 31.890.000 đ
+                    - paragraph [ref=f3e499]: 28.710.000 đ
+                  - link "Đặt ngay" [ref=f3e501] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-nhat-ban-6-ngay-5-dem?flash_sale=demo-uu-dai-gio-chot&flash_departure=766
+            - article [ref=f3e505]:
+              - link "tour-binh-hung-ninh-chu-da-lat-limousine 00 42:10:04 Thời gian ưu đãi còn lại Xem nhanh" [ref=f3e506] [cursor=pointer]:
+                - /url: http://localhost:8001/chuong-trinh/tour-binh-hung-ninh-chu-da-lat-limousine?flash_sale=demo-uu-dai-gio-chot&flash_departure=816
+                - img "tour-binh-hung-ninh-chu-da-lat-limousine" [ref=f3e507]
+                - generic [ref=f3e509]:
+                  - generic [ref=f3e510]: "00"
+                  - text: 42:10:04
+                  - generic [ref=f3e511]: Thời gian ưu đãi còn lại
+                - generic [ref=f3e512]: Xem nhanh
+              - generic [ref=f3e514]:
+                - heading [level=3] [ref=f3e515]:
+                  - link "Tour Bình Hưng Ninh Chữ Đà Lạt 4N4Đ Xe Limousine - Tắm Biển - Tôm Hùm" [ref=f3e516] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-binh-hung-ninh-chu-da-lat-limousine?flash_sale=demo-uu-dai-gio-chot&flash_departure=816
+                - generic [ref=f3e517]:
+                  - paragraph [ref=f3e518]:
+                    - generic [ref=f3e520]: 23/09/2026
+                    - generic [ref=f3e521]: Liên hệ chỗ
+                  - paragraph [ref=f3e523]:
+                    - generic [ref=f3e525]: HCM
+                    - generic [ref=f3e526]: 4N4Đ
+                  - paragraph [ref=f3e528]:
+                    - generic [ref=f3e530]: Xe Limousine 28 chỗ
+                - generic [ref=f3e531]:
+                  - generic [ref=f3e532]:
+                    - paragraph [ref=f3e533]: 4.180.000 đ
+                    - paragraph [ref=f3e534]: 3.770.000 đ
+                  - link "Đặt ngay" [ref=f3e536] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-binh-hung-ninh-chu-da-lat-limousine?flash_sale=demo-uu-dai-gio-chot&flash_departure=816
+    - generic [ref=f3e540]:
+      - generic [ref=f3e541]:
+        - generic [ref=f3e542]:
+          - heading "TOUR HOT TRONG THÁNG" [level=2] [ref=f3e543]
+          - paragraph [ref=f3e544]: Tổng hợp các tour trọn gói và tour du lịch đoàn cho nghiệp đang được ưu thích nhất trong tháng
+        - link "Xem thêm" [ref=f3e545] [cursor=pointer]:
+          - /url: http://localhost:8001/tour-nuoc-ngoai
+      - tablist "Nhóm tour" [ref=f3e549]:
+        - tab "TOUR NƯỚC NGOÀI 4" [selected] [ref=f3e550]:
+          - text: TOUR NƯỚC NGOÀI
+          - generic [ref=f3e551]: "4"
+        - tab "TOUR TRONG NƯỚC 4" [ref=f3e552]:
+          - text: TOUR TRONG NƯỚC
+          - generic [ref=f3e553]: "4"
+        - tab "TOUR ĐOÀN DOANH NGHIỆP 4" [ref=f3e554]:
+          - text: TOUR ĐOÀN DOANH NGHIỆP
+          - generic [ref=f3e555]: "4"
+      - tabpanel "TOUR NƯỚC NGOÀI 4" [ref=f3e557]:
+        - generic [ref=f3e559]:
+          - article [ref=f3e560]:
+            - link [ref=f3e561] [cursor=pointer]:
+              - /url: http://localhost:8001/chuong-trinh/tour-du-lich-trung-quoc-le-giang
+              - img "tour-du-lich-trung-quoc-le-giang-haidangtravel" [ref=f3e562]
+            - generic [ref=f3e563]:
+              - generic "Đánh giá 4,9 trên 5 từ 21 lượt đánh giá" [ref=f3e564]:
+                - text: 4,9/5
+                - generic [ref=f3e566]: • 21 đánh giá
+              - generic [ref=f3e567]:
+                - heading [level=3] [ref=f3e568]:
+                  - link "Tour Trung Quốc Lệ Giang – Đại Lý – Shangrila 6 Ngày 5 Đêm 2026 | No Shopping – Núi Tuyết Ngọc Long" [ref=f3e569] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-du-lich-trung-quoc-le-giang
+                - img "Tiêu chuẩn 4 sao" [ref=f3e570]
+                - generic [ref=f3e575]:
+                  - list "Thông tin nhanh của tour" [ref=f3e576]:
+                    - 'listitem "Điểm khởi hành: HCM" [ref=f3e577]':
+                      - generic [ref=f3e579]: HCM
+                    - 'listitem "Phương tiện: Máy Bay" [ref=f3e580]':
+                      - generic [ref=f3e582]: Máy Bay
+                    - 'listitem "Thời gian: 6N5Đ" [ref=f3e583]':
+                      - strong [ref=f3e585]: 6N5Đ
+                  - generic "Các ngày khởi hành gần nhất" [ref=f3e586]:
+                    - button "Xem ngày khởi hành phía trước" [disabled] [ref=f3e587]
+                    - generic [ref=f3e590]:
+                      - generic [ref=f3e591]: 24/09
+                      - generic [ref=f3e592]: 26/09
+                      - generic [ref=f3e593]: 01/10
+                      - generic [ref=f3e594]: 03/10
+                      - generic [ref=f3e595]: 08/10
+                    - button "Xem ngày khởi hành tiếp theo" [disabled] [ref=f3e596]
+                  - paragraph [ref=f3e598]: Đang nhận khách
+                - generic [ref=f3e600]:
+                  - generic [ref=f3e601]:
+                    - paragraph [ref=f3e603]: Giá từ
+                    - paragraph [ref=f3e604]: 21.490.000 đ
+                  - link "Đặt ngay" [ref=f3e606] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-du-lich-trung-quoc-le-giang
+          - article [ref=f3e609]:
+            - link [ref=f3e610] [cursor=pointer]:
+              - /url: http://localhost:8001/chuong-trinh/tour-siem-reap-phnom-penh-4-ngay-3-dem
+              - img "tour campuchia 4 ngày 3 đêm" [ref=f3e611]
+            - generic [ref=f3e612]:
+              - generic "Đánh giá 4,8 trên 5 từ 124 lượt đánh giá" [ref=f3e613]:
+                - text: 4,8/5
+                - generic [ref=f3e615]: • 124 đánh giá
+              - generic [ref=f3e616]:
+                - heading [level=3] [ref=f3e617]:
+                  - 'link "Tour Siem Reap – Phnom Penh 4 Ngày 3 Đêm: Khám Phá Angkor Wat & Thủ Đô Campuchia" [ref=f3e618] [cursor=pointer]':
+                    - /url: http://localhost:8001/chuong-trinh/tour-siem-reap-phnom-penh-4-ngay-3-dem
+                - img "Tiêu chuẩn 4 sao" [ref=f3e619]
+                - generic [ref=f3e624]:
+                  - list "Thông tin nhanh của tour" [ref=f3e625]:
+                    - 'listitem "Điểm khởi hành: HCM" [ref=f3e626]':
+                      - generic [ref=f3e628]: HCM
+                    - 'listitem "Phương tiện: Xe Ô Tô" [ref=f3e629]':
+                      - generic [ref=f3e631]: Xe Ô Tô
+                    - 'listitem "Thời gian: 4N3Đ" [ref=f3e632]':
+                      - strong [ref=f3e634]: 4N3Đ
+                  - paragraph [ref=f3e635]: Tư vấn thêm
+                - generic [ref=f3e637]:
+                  - generic [ref=f3e638]:
+                    - generic [ref=f3e639]:
+                      - paragraph [ref=f3e640]: Giá từ
+                      - paragraph [ref=f3e641]: 7.650.000 đ
+                    - paragraph [ref=f3e642]: 5.650.000 đ
+                  - link "Đặt ngay" [ref=f3e644] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-siem-reap-phnom-penh-4-ngay-3-dem
+          - article [ref=f3e647]:
+            - link "Tour Singapore Tech Week 2026 | Kết Nối Công Nghệ & Đổi Mới Du lịch hè 2026" [ref=f3e648] [cursor=pointer]:
+              - /url: http://localhost:8001/chuong-trinh/tour-singapore-gia-re
+              - img "Tour Singapore Tech Week 2026 | Kết Nối Công Nghệ & Đổi Mới" [ref=f3e649]
+              - generic [ref=f3e650]: Du lịch hè 2026
+            - generic [ref=f3e654]:
+              - generic "Đánh giá 4,9 trên 5 từ 31 lượt đánh giá" [ref=f3e655]:
+                - text: 4,9/5
+                - generic [ref=f3e657]: • 31 đánh giá
+              - generic [ref=f3e658]:
+                - heading [level=3] [ref=f3e659]:
+                  - link "Tour Singapore - Kết Nối Công Nghệ & Đổi Mới Sáng Tạo Tech Week Singapore 2026" [ref=f3e660] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-singapore-gia-re
+                - img "Tiêu chuẩn 4 sao" [ref=f3e661]
+                - generic [ref=f3e666]:
+                  - list "Thông tin nhanh của tour" [ref=f3e667]:
+                    - 'listitem "Điểm khởi hành: HCM" [ref=f3e668]':
+                      - generic [ref=f3e670]: HCM
+                    - 'listitem "Phương tiện: Máy bay" [ref=f3e671]':
+                      - generic [ref=f3e673]: Máy bay
+                    - 'listitem "Thời gian: 3N2Đ" [ref=f3e674]':
+                      - strong [ref=f3e676]: 3N2Đ
+                  - generic "Các ngày khởi hành gần nhất" [ref=f3e677]:
+                    - button "Xem ngày khởi hành phía trước" [disabled] [ref=f3e678]
+                    - generic [ref=f3e680]: 28/09
+                    - button "Xem ngày khởi hành tiếp theo" [disabled] [ref=f3e683]
+                  - paragraph [ref=f3e685]: Đang nhận khách
+                - generic [ref=f3e687]:
+                  - generic [ref=f3e688]:
+                    - generic [ref=f3e689]:
+                      - paragraph [ref=f3e690]: Giá từ
+                      - paragraph [ref=f3e691]: 15.990.000 đ
+                    - paragraph [ref=f3e692]: 13.990.000 đ
+                  - link "Đặt ngay" [ref=f3e694] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-singapore-gia-re
+          - article [ref=f3e697]:
+            - link "tour-du-lich-bhutan-thimphu-punakha-paro Hành hương Châu Á" [ref=f3e698] [cursor=pointer]:
+              - /url: http://localhost:8001/chuong-trinh/tour-du-lich-bhutan-thimphu-punakha-paro
+              - img "tour-du-lich-bhutan-thimphu-punakha-paro" [ref=f3e699]
+              - generic [ref=f3e700]: Hành hương Châu Á
+            - generic [ref=f3e704]:
+              - generic "Đánh giá 5,0 trên 5 từ 211 lượt đánh giá" [ref=f3e705]:
+                - text: 5,0/5
+                - generic [ref=f3e707]: • 211 đánh giá
+              - generic [ref=f3e708]:
+                - heading [level=3] [ref=f3e709]:
+                  - 'link "Tour Bhutan 5N4Đ Trọn Gói: Hành Trình Tìm Về Hạnh Phúc Tại Vương Quốc Rồng Sấm" [ref=f3e710] [cursor=pointer]':
+                    - /url: http://localhost:8001/chuong-trinh/tour-du-lich-bhutan-thimphu-punakha-paro
+                - img "Tiêu chuẩn 3 sao" [ref=f3e711]
+                - generic [ref=f3e715]:
+                  - list "Thông tin nhanh của tour" [ref=f3e716]:
+                    - 'listitem "Điểm khởi hành: HCM" [ref=f3e717]':
+                      - generic [ref=f3e719]: HCM
+                    - 'listitem "Phương tiện: Máy Bay" [ref=f3e720]':
+                      - generic [ref=f3e722]: Máy Bay
+                    - 'listitem "Thời gian: 5N4Đ" [ref=f3e723]':
+                      - strong [ref=f3e725]: 5N4Đ
+                  - generic "Các ngày khởi hành gần nhất" [ref=f3e726]:
+                    - button "Xem ngày khởi hành phía trước" [disabled] [ref=f3e727]
+                    - generic [ref=f3e730]:
+                      - generic [ref=f3e731]: 30/09
+                      - generic [ref=f3e732]: 04/11
+                      - generic [ref=f3e733]: 30/12
+                    - button "Xem ngày khởi hành tiếp theo" [disabled] [ref=f3e734]
+                  - paragraph [ref=f3e736]: Đang nhận khách
+                - generic [ref=f3e738]:
+                  - generic [ref=f3e739]:
+                    - paragraph [ref=f3e741]: Giá từ
+                    - paragraph [ref=f3e742]: 54.990.000 đ
+                  - link "Đặt ngay" [ref=f3e744] [cursor=pointer]:
+                    - /url: http://localhost:8001/chuong-trinh/tour-du-lich-bhutan-thimphu-punakha-paro
+    - generic [ref=f3e748]:
+      - heading "TOUR THEO VÙNG MIỀN" [level=2] [ref=f3e750]
+      - generic [ref=f3e751]:
+        - tablist "Vùng miền" [ref=f3e753]:
+          - tab "Châu Á 8" [selected] [ref=f3e754]:
+            - generic [ref=f3e755]: Châu Á
+            - generic [ref=f3e756]: "8"
+          - tab "Châu Âu 5" [ref=f3e757]:
+            - generic [ref=f3e758]: Châu Âu
+            - generic [ref=f3e759]: "5"
+          - tab "Đông Nam Á 7" [ref=f3e760]:
+            - generic [ref=f3e761]: Đông Nam Á
+            - generic [ref=f3e762]: "7"
+          - tab "Miền Bắc 5" [ref=f3e763]:
+            - generic [ref=f3e764]: Miền Bắc
+            - generic [ref=f3e765]: "5"
+          - tab "Miền Nam 4" [ref=f3e766]:
+            - generic [ref=f3e767]: Miền Nam
+            - generic [ref=f3e768]: "4"
+          - tab "Miền Tây 6" [ref=f3e769]:
+            - generic [ref=f3e770]: Miền Tây
+            - generic [ref=f3e771]: "6"
+          - tab "Miền Trung 8" [ref=f3e772]:
+            - generic [ref=f3e773]: Miền Trung
+            - generic [ref=f3e774]: "8"
+          - tab "Tây Nguyên 5" [ref=f3e775]:
+            - generic [ref=f3e776]: Tây Nguyên
+            - generic [ref=f3e777]: "5"
+        - generic [ref=f3e778]:
+          - generic [ref=f3e779]:
+            - generic [ref=f3e780]:
+              - heading "Châu Á" [level=3] [ref=f3e781]
+              - paragraph [ref=f3e782]: Khám phá sự đa dạng văn hóa và cảnh quan kỳ thú tại lục địa lớn nhất thế giới. Từ thiên đường mua sắm Thái Lan, vẻ đẹp hiện đại của Nhật Bản, Hàn Quốc đến những vùng đất huyền bí như Bhutan hay kỳ quan Trương Gia Giới. Các Tour du lịch Châu Á tại Haidangtravel mang đến trải nghiệm độc đáo, lịch trình mới lạ với chi phí tối ưu nhất.
+            - link "Xem tất cả tour" [ref=f3e783] [cursor=pointer]:
+              - /url: http://localhost:8001/vung-mien/du-lich-chau-a
+          - tabpanel "Châu Á 8" [ref=f3e788]:
+            - generic [ref=f3e789]:
+              - generic:
+                - button "Xem điểm đến trước" [disabled] [ref=f3e790]
+                - button "Xem điểm đến tiếp theo" [ref=f3e792]
+              - generic [ref=f3e794]:
+                - link [ref=f3e796] [cursor=pointer]:
+                  - /url: http://localhost:8001/tour-du-lich-an-do
+                  - generic [ref=f3e797]:
+                    - img "du lich an do nepal tu dong tam den taj mahal song hang kathmandu" [ref=f3e798]
+                    - generic:
+                      - generic:
+                        - heading "Tour Ấn Độ 2026 Trọn Gói – Hành Hương Đất Phật" [level=3]
+                        - generic:
+                          - paragraph: Tour Ấn Độ 2026 đưa du khách khám phá nền văn minh lâu đời, chiêm ngưỡng Taj Mahal và hành hương về những thánh tích Phậ...
+                - link [ref=f3e801] [cursor=pointer]:
+                  - /url: http://localhost:8001/tour-du-lich-han-quoc
+                  - generic [ref=f3e802]:
+                    - img "du lich han quoc seoul dao nami dao jeju cung dien gyeongbokgung" [ref=f3e803]
+                    - generic:
+                      - generic:
+                        - heading "Tour Du Lịch Hàn Quốc Trọn Gói 2026 – Seoul, Nami, Everland, Jeju" [level=3]
+                        - generic:
+                          - paragraph: Tại Hải Đăng Travel, chúng tôi cung cấp các chương trình tour Hàn Quốc trọn gói với dịch vụ chất lượng, hỗ trợ visa, vé...
+                - link [ref=f3e806] [cursor=pointer]:
+                  - /url: http://localhost:8001/tour-du-lich-dai-loan
+                  - generic [ref=f3e807]:
+                    - img "du lich dai loan taipei 101 cuu phan thap phan phat quang son ho nhat nguyet" [ref=f3e808]
+                    - generic:
+                      - generic:
+                        - heading "Du Lịch Đài Loan" [level=3]
+                        - generic:
+                          - paragraph: Khám phá Đài Loan – hòn đảo xinh đẹp nơi hiện đại hòa quyện cùng nét cổ kính. Trải nghiệm thả đèn trời tại Thập Phần, dạ...
+                - link [ref=f3e811] [cursor=pointer]:
+                  - /url: http://localhost:8001/tour-du-lich-malaysia
+                  - generic [ref=f3e812]:
+                    - img "du lich malaysia thap doi petronas cao nguyen genting dong batu malacca" [ref=f3e813]
+                    - generic:
+                      - generic:
+                        - heading "Du Lịch Malaysia" [level=3]
+                        - generic:
+                          - paragraph: Khám phá Malaysia – vùng đất giao thoa văn hóa độc đáo với những biểu tượng kiến trúc thế kỷ, cao nguyên quanh năm mây p...
+                - link [ref=f3e816] [cursor=pointer]:
+                  - /url: http://localhost:8001/tour-du-lich-singapore
+                  - generic [ref=f3e817]:
+                    - img "du lịch đông nam á" [ref=f3e818]
+                    - generic:
+                      - generic:
+                        - heading "Du Lịch Singapore" [level=3]
+                        - generic:
+                          - paragraph: Khám phá Singapore – quốc đảo sư tử hiện đại bậc nhất Châu Á với những công trình kiến trúc tương lai, không gian xanh p...
+                - link [ref=f3e821] [cursor=pointer]:
+                  - /url: http://localhost:8001/tour-du-lich-tay-tang
+                  - generic [ref=f3e822]:
+                    - img "tour-du-lich-tay-tang-cung-dien-potala" [ref=f3e823]
+                    - generic:
+                      - generic:
+                        - heading "Du Lịch Tây Tạng" [level=3]
+                        - generic:
+                          - paragraph: Khám phá Tây Tạng – vùng đất huyền bí nằm trên cao nguyên cao nhất thế giới, nơi sở hữu những tu viện uy nghiêm, hồ nước...
+                - link [ref=f3e826] [cursor=pointer]:
+                  - /url: http://localhost:8001/tour-du-lich-thai-lan
+                  - generic [ref=f3e827]:
+                    - img "du lich thai lan bangkok pattaya chua phat ngoc muang boran" [ref=f3e828]
+                    - generic:
+                      - generic:
+                        - heading "Du Lịch Thái Lan" [level=3]
+                        - generic:
+                          - paragraph: Khám phá Thái Lan – thiên đường du lịch Đông Nam Á với những cung điện lộng lẫy, các khu chợ sầm uất và những hòn đảo xa...
+                - link [ref=f3e831] [cursor=pointer]:
+                  - /url: http://localhost:8001/tour-du-lich-trung-quoc
+                  - generic [ref=f3e832]:
+                    - img "du lich trung quoc truong gia gioi phuong hoang co tran thien mon son" [ref=f3e833]
+                    - generic:
+                      - generic:
+                        - heading "Du Lịch Trung Quốc" [level=3]
+                        - generic:
+                          - paragraph: Khám phá Trung Quốc – hành trình lạc vào tiên cảnh với những di sản ngàn năm, những dãy núi hùng vĩ và các cổ trấn thơ m...
+    - generic [ref=f3e836]:
+      - generic [ref=f3e837]:
+        - generic [ref=f3e838]:
+          - heading "Tour Du lịch xe Limousine" [level=2] [ref=f3e839]
+          - paragraph [ref=f3e840]: Khám phá vẻ đẹp Việt Nam cùng dòng xe Limousine cao cấp từ Haidangtravel. Trải nghiệm hành trình êm ái với ghế massage, nội thất sang trọng và dịch vụ chuyên nghiệp. Các tuyến tour từ TP.HCM đi Đà Lạt, Nha Trang, Mũi Né, Miền Tây... được thiết kế nhóm nhỏ, riêng tư, mang lại sự thoải mái tối đa cho quý khách.
+        - link "Xem thêm" [ref=f3e841] [cursor=pointer]:
+          - /url: http://localhost:8001/danh-muc-tour/du-lich-xe-limousine
+      - tablist "Nhóm tour theo taxonomy" [ref=f3e845]:
+        - tab "Tour Du lịch xe Limousine 8" [selected] [ref=f3e846]:
+          - text: Tour Du lịch xe Limousine
+          - generic [ref=f3e847]: "8"
+        - tab "Du Lịch Tàu Lửa 8" [ref=f3e848]:
+          - text: Du Lịch Tàu Lửa
+          - generic [ref=f3e849]: "8"
+        - tab "Hành hương Châu Á 6" [ref=f3e850]:
+          - text: Hành hương Châu Á
+          - generic [ref=f3e851]: "6"
+      - tabpanel "Tour Du lịch xe Limousine 8" [ref=f3e853]:
+        - generic [ref=f3e854]:
+          - generic:
+            - button "Xem nhóm tour trước" [disabled] [ref=f3e855]
+            - button "Xem nhóm tour tiếp theo" [ref=f3e857]
+          - generic [ref=f3e859]:
+            - article [ref=f3e861]:
+              - link "tour du lich da nang Tour Du lịch xe Limousine" [ref=f3e862] [cursor=pointer]:
+                - /url: http://localhost:8001/chuong-trinh/tour-du-lich-da-nang-hue-hoi-an-5-ngay-4-dem-xe-limousine
+                - img "tour du lich da nang" [ref=f3e863]
+                - generic [ref=f3e864]: Tour Du lịch xe Limousine
+              - generic [ref=f3e868]:
+                - generic "Đánh giá 4,8 trên 5 từ 41 lượt đánh giá" [ref=f3e869]:
+                  - text: 4,8/5
+                  - generic [ref=f3e871]: • 41 đánh giá
+                - generic [ref=f3e872]:
+                  - heading [level=3] [ref=f3e873]:
+                    - link "Tour Du Lịch Đà Nẵng – Huế – Hội An 5 Ngày 4 Đêm 2026 | Xe Limousine" [ref=f3e874] [cursor=pointer]:
+                      - /url: http://localhost:8001/chuong-trinh/tour-du-lich-da-nang-hue-hoi-an-5-ngay-4-dem-xe-limousine
+                  - img "Tiêu chuẩn 3 sao" [ref=f3e875]
+                  - generic [ref=f3e879]:
+                    - list "Thông tin nhanh của tour" [ref=f3e880]:
+                      - 'listitem "Điểm khởi hành: HCM" [ref=f3e881]':
+                        - generic [ref=f3e883]: HCM
+                      - 'listitem "Phương tiện: Xe Limousine" [ref=f3e884]':
+                        - generic [ref=f3e886]: Xe Limousine
+                      - 'listitem "Thời gian: 5N4Đ" [ref=f3e887]':
+                        - strong [ref=f3e889]: 5N4Đ
+                    - paragraph [ref=f3e890]: Tư vấn thêm
+                  - generic [ref=f3e892]:
+                    - generic [ref=f3e893]:
+                      - generic [ref=f3e894]:
+                        - paragraph [ref=f3e895]: Giá từ
+                        - paragraph [ref=f3e896]: 5.990.000 đ
+                      - paragraph [ref=f3e897]: 4.990.000 đ
+                    - link "Đặt ngay" [ref=f3e899] [cursor=pointer]:
+                      - /url: http://localhost:8001/chuong-trinh/tour-du-lich-da-nang-hue-hoi-an-5-ngay-4-dem-xe-limousine
+            - article [ref=f3e903]:
+              - link "tour-ta-dung-buon-me-thuot Tour Du lịch xe Limousine" [ref=f3e904] [cursor=pointer]:
+                - /url: http://localhost:8001/chuong-trinh/tour-ta-dung-buon-me-thuot
+                - img "tour-ta-dung-buon-me-thuot" [ref=f3e905]
+                - generic [ref=f3e906]: Tour Du lịch xe Limousine
+              - generic [ref=f3e910]:
+                - generic "Đánh giá 5,0 trên 5 từ 41 lượt đánh giá" [ref=f3e911]:
+                  - text: 5,0/5
+                  - generic [ref=f3e913]: • 41 đánh giá
+                - generic [ref=f3e914]:
+                  - heading [level=3] [ref=f3e915]:
+                    - link "Tour Tà Đùng – Buôn Mê Thuột 3 Ngày 3 Đêm 2026" [ref=f3e916] [cursor=pointer]:
+                      - /url: http://localhost:8001/chuong-trinh/tour-ta-dung-buon-me-thuot
+                  - img "Tiêu chuẩn 3 sao" [ref=f3e917]
+                  - generic [ref=f3e921]:
+                    - list "Thông tin nhanh của tour" [ref=f3e922]:
+                      - 'listitem "Điểm khởi hành: Hồ Chí Minh" [ref=f3e923]':
+                        - generic [ref=f3e925]: HCM
+                      - 'listitem "Phương tiện: Xe Limousine 24 chỗ" [ref=f3e926]':
+                        - generic [ref=f3e928]: Xe Limousine 24 chỗ
+                      - 'listitem "Thời gian: 3N3Đ" [ref=f3e929]':
+                        - strong [ref=f3e931]: 3N3Đ
+                    - generic "Các ngày khởi hành gần nhất" [ref=f3e932]:
+                      - button "Xem ngày khởi hành phía trước" [disabled] [ref=f3e933]
+                      - generic [ref=f3e936]:
+                        - generic [ref=f3e937]: 08/10
+                        - generic [ref=f3e938]: 15/10
+                        - generic [ref=f3e939]: 22/10
+                        - generic [ref=f3e940]: 29/10
+                      - button "Xem ngày khởi hành tiếp theo" [disabled] [ref=f3e941]
+                    - paragraph [ref=f3e943]: Đang nhận khách
+                  - generic [ref=f3e945]:
+                    - generic [ref=f3e946]:
+                      - paragraph [ref=f3e948]: Giá từ
+                      - paragraph [ref=f3e949]: 3.850.000 đ
+                    - link "Đặt ngay" [ref=f3e951] [cursor=pointer]:
+                      - /url: http://localhost:8001/chuong-trinh/tour-ta-dung-buon-me-thuot
+            - article [ref=f3e955]:
+              - link "tour-vinh-hy-cam-ranh-resort-5-sao Tour Du lịch xe Limousine" [ref=f3e956] [cursor=pointer]:
+                - /url: http://localhost:8001/chuong-trinh/tour-du-lich-vinh-hy-cam-ranh
+                - img "tour-vinh-hy-cam-ranh-resort-5-sao" [ref=f3e957]
+                - generic [ref=f3e958]: Tour Du lịch xe Limousine
+              - generic [ref=f3e962]:
+                - generic "Đánh giá 5,0 trên 5 từ 54 lượt đánh giá" [ref=f3e963]:
+                  - text: 5,0/5
+                  - generic [ref=f3e965]: • 54 đánh giá
+                - generic [ref=f3e966]:
+                  - heading [level=3] [ref=f3e967]:
+                    - link "Tour Vĩnh Hy – Cam Ranh Resort 5 Sao 2 Ngày 2 Đêm 2026 | Tặng Tối Hải Sản – xe Limousine" [ref=f3e968] [cursor=pointer]:
+                      - /url: http://localhost:8001/chuong-trinh/tour-du-lich-vinh-hy-cam-ranh
+                  - img "Tiêu chuẩn 5 sao" [ref=f3e969]
+                  - generic [ref=f3e975]:
+                    - list "Thông tin nhanh của tour" [ref=f3e976]:
+                      - 'listitem "Điểm khởi hành: Hồ Chí Minh" [ref=f3e977]':
+                        - generic [ref=f3e979]: HCM
+                      - 'listitem "Phương tiện: Xe Limousine 24 chỗ" [ref=f3e980]':
+                        - generic [ref=f3e982]: Xe Limousine 24 chỗ
+                      - 'listitem "Thời gian: 2N2Đ" [ref=f3e983]':
+                        - strong [ref=f3e985]: 2N2Đ
+                    - generic "Các ngày khởi hành gần nhất" [ref=f3e986]:
+                      - button "Xem ngày khởi hành phía trước" [disabled] [ref=f3e987]
+                      - generic [ref=f3e990]:
+                        - generic [ref=f3e991]: 20/08
+                        - generic [ref=f3e992]: 27/08
+                        - generic [ref=f3e993]: 11/08
+                        - generic [ref=f3e994]: 25/08
+                      - button "Xem ngày khởi hành tiếp theo" [disabled] [ref=f3e995]
+                    - paragraph [ref=f3e997]: Đang nhận khách
+                  - generic [ref=f3e999]:
+                    - generic [ref=f3e1000]:
+                      - paragraph [ref=f3e1002]: Giá từ
+                      - paragraph [ref=f3e1003]: 3.390.000 đ
+                    - link "Đặt ngay" [ref=f3e1005] [cursor=pointer]:
+                      - /url: http://localhost:8001/chuong-trinh/tour-du-lich-vinh-hy-cam-ranh
+            - article [ref=f3e1009]:
+              - link "tour-ninh-chu-vinh-hy-cam-ranh-resort-5-sao-toi-hai-san Tour Du lịch xe Limousine" [ref=f3e1010] [cursor=pointer]:
+                - /url: http://localhost:8001/chuong-trinh/tour-ninh-chu-vinh-hy-cam-ranh
+                - img "tour-ninh-chu-vinh-hy-cam-ranh-resort-5-sao-toi-hai-san" [ref=f3e1011]
+                - generic [ref=f3e1012]: Tour Du lịch xe Limousine
+              - generic [ref=f3e1016]:
+                - generic "Đánh giá 5,0 trên 5 từ 31 lượt đánh giá" [ref=f3e1017]:
+                  - text: 5,0/5
+                  - generic [ref=f3e1019]: • 31 đánh giá
+                - generic [ref=f3e1020]:
+                  - heading [level=3] [ref=f3e1021]:
+                    - link "Tour Ninh Chữ – Vĩnh Hy – Cam Ranh 3 Ngày 2 Đêm 2026 | Resort 5 Sao – Tối Hải Sản – Limousine" [ref=f3e1022] [cursor=pointer]:
+                      - /url: http://localhost:8001/chuong-trinh/tour-ninh-chu-vinh-hy-cam-ranh
+                  - img "Tiêu chuẩn 5 sao" [ref=f3e1023]
+                  - generic [ref=f3e1029]:
+                    - list "Thông tin nhanh của tour" [ref=f3e1030]:
+                      - 'listitem "Điểm khởi hành: Hồ Chí Minh" [ref=f3e1031]':
+                        - generic [ref=f3e1033]: HCM
+                      - 'listitem "Phương tiện: Xe Limousine 24 chỗ" [ref=f3e1034]':
+                        - generic [ref=f3e1036]: Xe Limousine 24 chỗ
+                      - 'listitem "Thời gian: 3N2Đ" [ref=f3e1037]':
+                        - strong [ref=f3e1039]: 3N2Đ
+                    - generic "Các ngày khởi hành gần nhất" [ref=f3e1040]:
+                      - button "Xem ngày khởi hành phía trước" [disabled] [ref=f3e1041]
+                      - generic [ref=f3e1043]: 25/09
+                      - button "Xem ngày khởi hành tiếp theo" [disabled] [ref=f3e1046]
+                    - paragraph [ref=f3e1048]: Đang nhận khách
+                  - generic [ref=f3e1050]:
+                    - generic [ref=f3e1051]:
+                      - paragraph [ref=f3e1053]: Giá từ
+                      - paragraph [ref=f3e1054]: 3.790.000 đ
+                    - link "Đặt ngay" [ref=f3e1056] [cursor=pointer]:
+                      - /url: http://localhost:8001/chuong-trinh/tour-ninh-chu-vinh-hy-cam-ranh
+            - article [ref=f3e1060]:
+              - link "Tour Bình Hưng – Ninh Chữ 2 Ngày 2 Đêm 2026 | Bao Tôm Hùm – Mẹt Gà Trứ Danh – xe Limousine Tour Du lịch xe Limousine" [ref=f3e1061] [cursor=pointer]:
+                - /url: http://localhost:8001/chuong-trinh/tour-binh-hung-ninh-chu
+                - img "Tour Bình Hưng – Ninh Chữ 2 Ngày 2 Đêm 2026 | Bao Tôm Hùm – Mẹt Gà Trứ Danh – xe Limousine" [ref=f3e1062]
+                - generic [ref=f3e1063]: Tour Du lịch xe Limousine
+              - generic [ref=f3e1067]:
+                - generic "Đánh giá 5,0 trên 5 từ 41 lượt đánh giá" [ref=f3e1068]:
+                  - text: 5,0/5
+                  - generic [ref=f3e1070]: • 41 đánh giá
+                - generic [ref=f3e1071]:
+                  - heading [level=3] [ref=f3e1072]:
+                    - link "Tour Bình Hưng – Ninh Chữ 2 Ngày 2 Đêm 2026 | Bao Tôm Hùm – Mẹt Gà Trứ Danh – xe Limousine" [ref=f3e1073] [cursor=pointer]:
+                      - /url: http://localhost:8001/chuong-trinh/tour-binh-hung-ninh-chu
+                  - img "Tiêu chuẩn 2 sao" [ref=f3e1074]
+                  - generic [ref=f3e1077]:
+                    - list "Thông tin nhanh của tour" [ref=f3e1078]:
+                      - 'listitem "Điểm khởi hành: Hồ Chí Minh" [ref=f3e1079]':
+                        - generic [ref=f3e1081]: HCM
+                      - 'listitem "Phương tiện: Xe Limousine 24 chỗ" [ref=f3e1082]':
+                        - generic [ref=f3e1084]: Xe Limousine 24 chỗ
+                      - 'listitem "Thời gian: 2N2Đ" [ref=f3e1085]':
+                        - strong [ref=f3e1087]: 2N2Đ
+                    - generic "Các ngày khởi hành gần nhất" [ref=f3e1088]:
+                      - button "Xem ngày khởi hành phía trước" [disabled] [ref=f3e1089]
+                      - generic [ref=f3e1092]:
+                        - generic [ref=f3e1093]: 25/09
+                        - generic [ref=f3e1094]: 09/10
+                        - generic [ref=f3e1095]: 23/10
+                      - button "Xem ngày khởi hành tiếp theo" [disabled] [ref=f3e1096]
+                    - paragraph [ref=f3e1098]: Đang nhận khách
+                  - generic [ref=f3e1100]:
+                    - generic [ref=f3e1101]:
+                      - paragraph [ref=f3e1103]: Giá từ
+                      - paragraph [ref=f3e1104]: 2.590.000 đ
+                    - link "Đặt ngay" [ref=f3e1106] [cursor=pointer]:
+                      - /url: http://localhost:8001/chuong-trinh/tour-binh-hung-ninh-chu
+            - article [ref=f3e1110]:
+              - link "Tour Bình Hưng Cam Ranh Resort 5 Sao 2 Ngày 2 Đêm Tour Du lịch xe Limousine" [ref=f3e1111] [cursor=pointer]:
+                - /url: http://localhost:8001/chuong-trinh/tour-du-lich-binh-hung-cam-ranh
+                - img "Tour Bình Hưng Cam Ranh Resort 5 Sao 2 Ngày 2 Đêm" [ref=f3e1112]
+                - generic [ref=f3e1113]: Tour Du lịch xe Limousine
+              - generic [ref=f3e1117]:
+                - generic "Đánh giá 5,0 trên 5 từ 51 lượt đánh giá" [ref=f3e1118]:
+                  - text: 5,0/5
+                  - generic [ref=f3e1120]: • 51 đánh giá
+                - generic [ref=f3e1121]:
+                  - heading [level=3] [ref=f3e1122]:
+                    - link "Tour Bình Hưng – Cam Ranh Resort 5 Sao 2 Ngày 2 Đêm 2026 | Tặng Tôm Hùm – Limousine Cao Cấp" [ref=f3e1123] [cursor=pointer]:
+                      - /url: http://localhost:8001/chuong-trinh/tour-du-lich-binh-hung-cam-ranh
+                  - img "Tiêu chuẩn 5 sao" [ref=f3e1124]
+                  - generic [ref=f3e1130]:
+                    - list "Thông tin nhanh của tour" [ref=f3e1131]:
+                      - 'listitem "Điểm khởi hành: Hồ Chí Minh" [ref=f3e1132]':
+                        - generic [ref=f3e1134]: HCM
+                      - 'listitem "Phương tiện: Xe Limousine 24 chỗ" [ref=f3e1135]':
+                        - generic [ref=f3e1137]: Xe Limousine 24 chỗ
+                      - 'listitem "Thời gian: 2N2Đ" [ref=f3e1138]':
+                        - strong [ref=f3e1140]: 2N2Đ
+                    - generic "Các ngày khởi hành gần nhất" [ref=f3e1141]:
+                      - button "Xem ngày khởi hành phía trước" [disabled] [ref=f3e1142]
+                      - generic [ref=f3e1145]:
+                        - generic [ref=f3e1146]: 09/10
+                        - generic [ref=f3e1147]: 23/10
+                        - generic [ref=f3e1148]: 06/11
+                        - generic [ref=f3e1149]: 20/11
+                        - generic [ref=f3e1150]: 24/09
+                      - button "Xem ngày khởi hành tiếp theo" [ref=f3e1151]
+                    - paragraph [ref=f3e1153]: Đang nhận khách
+                  - generic [ref=f3e1155]:
+                    - generic [ref=f3e1156]:
+                      - paragraph [ref=f3e1158]: Giá từ
+                      - paragraph [ref=f3e1159]: 3.490.000 đ
+                    - link "Đặt ngay" [ref=f3e1161] [cursor=pointer]:
+                      - /url: http://localhost:8001/chuong-trinh/tour-du-lich-binh-hung-cam-ranh
+            - article [ref=f3e1165]:
+              - link "Khách hàng tận hưởng kỳ nghỉ thượng lưu trên xe Limousine HAIDANGTRAVEL trong hành trình chinh phục đảo Hòn Nưa và Cực Đông. Tour Du lịch xe Limousine" [ref=f3e1166] [cursor=pointer]:
+                - /url: http://localhost:8001/chuong-trinh/tour-phu-yen-3n3d-limousine
+                - img "Khách hàng tận hưởng kỳ nghỉ thượng lưu trên xe Limousine HAIDANGTRAVEL trong hành trình chinh phục đảo Hòn Nưa và Cực Đông." [ref=f3e1167]
+                - generic [ref=f3e1168]: Tour Du lịch xe Limousine
+              - generic [ref=f3e1172]:
+                - generic "Đánh giá 5,0 trên 5 từ 124 lượt đánh giá" [ref=f3e1173]:
+                  - text: 5,0/5
+                  - generic [ref=f3e1175]: • 124 đánh giá
+                - generic [ref=f3e1176]:
+                  - heading [level=3] [ref=f3e1177]:
+                    - 'link "Tour Phú Yên Limousine: Khám Phá Đảo Hòn Nưa – Tặng Thố Mắt Cá Ngừ & Tiệc Hải Sản VIP" [ref=f3e1178] [cursor=pointer]':
+                      - /url: http://localhost:8001/chuong-trinh/tour-phu-yen-3n3d-limousine
+                  - img "Tiêu chuẩn 4 sao" [ref=f3e1179]
+                  - generic [ref=f3e1184]:
+                    - list "Thông tin nhanh của tour" [ref=f3e1185]:
+                      - 'listitem "Điểm khởi hành: HCM" [ref=f3e1186]':
+                        - generic [ref=f3e1188]: HCM
+                      - 'listitem "Phương tiện: Xe Limousine 28 chỗ" [ref=f3e1189]':
+                        - generic [ref=f3e1191]: Xe Limousine 28 chỗ
+                      - 'listitem "Thời gian: 3N3Đ" [ref=f3e1192]':
+                        - strong [ref=f3e1194]: 3N3Đ
+                    - generic "Các ngày khởi hành gần nhất" [ref=f3e1195]:
+                      - button "Xem ngày khởi hành phía trước" [disabled] [ref=f3e1196]
+                      - generic [ref=f3e1199]:
+                        - generic [ref=f3e1200]: 24/09
+                        - generic [ref=f3e1201]: 01/10
+                        - generic [ref=f3e1202]: 08/10
+                        - generic [ref=f3e1203]: 15/10
+                        - generic [ref=f3e1204]: 22/10
+                      - button "Xem ngày khởi hành tiếp theo" [ref=f3e1205]
+                    - paragraph [ref=f3e1207]: Đang nhận khách
+                  - generic [ref=f3e1209]:
+                    - generic [ref=f3e1210]:
+                      - paragraph [ref=f3e1212]: Giá từ
+                      - paragraph [ref=f3e1213]: 3.890.000 đ
+                    - link "Đặt ngay" [ref=f3e1215] [cursor=pointer]:
+                      - /url: http://localhost:8001/chuong-trinh/tour-phu-yen-3n3d-limousine
+            - article [ref=f3e1219]:
+              - 'link "Tour Bình Ba Limousine: Khám Phá Đảo Bình Ba Tôm Hùm Tour Du lịch xe Limousine" [ref=f3e1220] [cursor=pointer]':
+                - /url: http://localhost:8001/chuong-trinh/tour-binh-ba-dao-tom-hum
+                - 'img "Tour Bình Ba Limousine: Khám Phá Đảo Bình Ba Tôm Hùm" [ref=f3e1221]'
+                - generic [ref=f3e1222]: Tour Du lịch xe Limousine
+              - generic [ref=f3e1226]:
+                - generic "Đánh giá 5,0 trên 5 từ 51 lượt đánh giá" [ref=f3e1227]:
+                  - text: 5,0/5
+                  - generic [ref=f3e1229]: • 51 đánh giá
+                - generic [ref=f3e1230]:
+                  - heading [level=3] [ref=f3e1231]:
+                    - 'link "Tour Bình Ba Limousine: Khám Phá Đảo Bình Ba Tôm Hùm" [ref=f3e1232] [cursor=pointer]':
+                      - /url: http://localhost:8001/chuong-trinh/tour-binh-ba-dao-tom-hum
+                  - generic [ref=f3e1233]:
+                    - list "Thông tin nhanh của tour" [ref=f3e1234]:
+                      - 'listitem "Điểm khởi hành: HCM" [ref=f3e1235]':
+                        - generic [ref=f3e1237]: HCM
+                      - 'listitem "Phương tiện: Xe Limousine 28 chỗ" [ref=f3e1238]':
+                        - generic [ref=f3e1240]: Xe Limousine 28 chỗ
+                      - 'listitem "Thời gian: 2N2Đ" [ref=f3e1241]':
+                        - strong [ref=f3e1243]: 2N2Đ
+                    - generic "Các ngày khởi hành gần nhất" [ref=f3e1244]:
+                      - button "Xem ngày khởi hành phía trước" [disabled] [ref=f3e1245]
+                      - generic [ref=f3e1248]:
+                        - generic [ref=f3e1249]: 24/09
+                        - generic [ref=f3e1250]: 01/10
+                        - generic [ref=f3e1251]: 08/10
+                        - generic [ref=f3e1252]: 15/10
+                        - generic [ref=f3e1253]: 22/10
+                      - button "Xem ngày khởi hành tiếp theo" [ref=f3e1254]
+                    - paragraph [ref=f3e1256]: Đang nhận khách
+                  - generic [ref=f3e1258]:
+                    - generic [ref=f3e1259]:
+                      - paragraph [ref=f3e1261]: Giá từ
+                      - paragraph [ref=f3e1262]: 3.890.000 đ
+                    - link "Đặt ngay" [ref=f3e1264] [cursor=pointer]:
+                      - /url: http://localhost:8001/chuong-trinh/tour-binh-ba-dao-tom-hum
+    - generic [ref=f3e1268]:
+      - generic [ref=f3e1269]:
+        - heading "DỊCH VỤ KHÁC" [level=2] [ref=f3e1270]
+        - paragraph [ref=f3e1271]: Giải pháp toàn diện đáp ứng mọi nhu cầu di chuyển và lưu trú của quý khách
+      - generic [ref=f3e1272]:
+        - link [ref=f3e1273] [cursor=pointer]:
+          - /url: https://haidangtravel.com/thue-xe-du-lich
+          - generic [ref=f3e1274]:
+            - heading "Cho thuê xe" [level=3] [ref=f3e1277]
+            - paragraph [ref=f3e1278]: Đa dạng xe từ 4 chỗ đến 45 chỗ, xe giường nằm, xe Limousine. Tài xế chuyên nghiệp, giá tốt nhất.
+            - generic [ref=f3e1279]: Xem chi tiết
+        - link [ref=f3e1281] [cursor=pointer]:
+          - /url: https://haidangtravel.com/ve-may-bay-gia-re
+          - generic [ref=f3e1282]:
+            - heading "Vé máy bay" [level=3] [ref=f3e1285]
+            - paragraph [ref=f3e1286]: Đại lý chính thức của các hãng bay nội địa và quốc tế. Giá tốt, hỗ trợ đổi/hoàn vé linh hoạt.
+            - generic [ref=f3e1287]: Xem chi tiết
+        - link [ref=f3e1289] [cursor=pointer]:
+          - /url: https://haidangtravel.com/visa-passport
+          - generic [ref=f3e1290]:
+            - heading "Dịch vụ Visa" [level=3] [ref=f3e1293]
+            - paragraph [ref=f3e1294]: Hỗ trợ xin visa các nước Châu Á, Châu Âu, Châu Mỹ, Châu Úc. Tỷ lệ đậu cao, thủ tục nhanh.
+            - generic [ref=f3e1295]: Xem chi tiết
+        - link [ref=f3e1297] [cursor=pointer]:
+          - /url: https://haidangtravel.com/tu-van-du-hoc
+          - generic [ref=f3e1298]:
+            - heading "Tư vấn du học" [level=3] [ref=f3e1301]
+            - paragraph [ref=f3e1302]: Định hướng lộ trình, chọn trường, hoàn thiện hồ sơ du học các nước. Hỗ trợ săn học bổng.
+            - generic [ref=f3e1303]: Xem chi tiết
+    - generic [ref=f3e1307]:
+      - generic [ref=f3e1309]:
+        - heading "TOUR THEO ĐIỂM ĐẾN" [level=2] [ref=f3e1310]
+        - paragraph [ref=f3e1311]: Tổng hợp các tour du lịch theo điểm đến đang được quan tâm nhất trong tháng
+      - generic [ref=f3e1312]:
+        - generic:
+          - button "Xem điểm đến trước" [disabled] [ref=f3e1313]
+          - button "Xem điểm đến tiếp theo" [ref=f3e1315]
+        - generic [ref=f3e1317]:
+          - link "du lich mang den ho dak ke duc me mang den thac pa sy 4 tour Tour Du Lịch Măng Đen 2026 Khám phá Măng Đen – thiên đường nghỉ dưỡng giữa đại ngàn Kon Tum với khí hậu se lạnh quanh năm, những rừng thông bạt ngàn và hồ Đă... Xem tất cả" [ref=f3e1319] [cursor=pointer]:
+            - /url: http://localhost:8001/tour-du-lich-mang-den
+            - generic [ref=f3e1320]:
+              - img "du lich mang den ho dak ke duc me mang den thac pa sy" [ref=f3e1321]
+              - generic [ref=f3e1322]: 4 tour
+            - generic [ref=f3e1323]:
+              - heading "Tour Du Lịch Măng Đen 2026" [level=3] [ref=f3e1324]
+              - paragraph [ref=f3e1325]: Khám phá Măng Đen – thiên đường nghỉ dưỡng giữa đại ngàn Kon Tum với khí hậu se lạnh quanh năm, những rừng thông bạt ngàn và hồ Đă...
+              - generic [ref=f3e1326]: Xem tất cả
+          - link "du lich phu quoc grand world vinwonders bai sao cap treo hon thom 2 tour Du Lịch Phú Quốc Khám phá Phú Quốc – hòn đảo lớn nhất Việt Nam với những bãi cát trắng mịn, nước biển xanh màu ngọc bích và các tổ hợp giải trí hàn... Xem tất cả" [ref=f3e1329] [cursor=pointer]:
+            - /url: http://localhost:8001/tour-du-lich-phu-quoc
+            - generic [ref=f3e1330]:
+              - img "du lich phu quoc grand world vinwonders bai sao cap treo hon thom" [ref=f3e1331]
+              - generic [ref=f3e1332]: 2 tour
+            - generic [ref=f3e1333]:
+              - heading "Du Lịch Phú Quốc" [level=3] [ref=f3e1334]
+              - paragraph [ref=f3e1335]: Khám phá Phú Quốc – hòn đảo lớn nhất Việt Nam với những bãi cát trắng mịn, nước biển xanh màu ngọc bích và các tổ hợp giải trí hàn...
+              - generic [ref=f3e1336]: Xem tất cả
+          - link "du lich ta dung dak nong vinh ha long tay nguyen 5 tour Tour du lịch Tà Đùng 2026 Hải Đăng Travel chuyên tổ chức tour du lịch Tà Đùng trọn gói với nhiều lịch trình đa dạng, phù hợp cho khách lẻ, gia đình, nhóm bạ... Xem tất cả" [ref=f3e1339] [cursor=pointer]:
+            - /url: http://localhost:8001/tour-du-lich-ta-dung
+            - generic [ref=f3e1340]:
+              - img "du lich ta dung dak nong vinh ha long tay nguyen" [ref=f3e1341]
+              - generic [ref=f3e1342]: 5 tour
+            - generic [ref=f3e1343]:
+              - heading "Tour du lịch Tà Đùng 2026" [level=3] [ref=f3e1344]
+              - paragraph [ref=f3e1345]: Hải Đăng Travel chuyên tổ chức tour du lịch Tà Đùng trọn gói với nhiều lịch trình đa dạng, phù hợp cho khách lẻ, gia đình, nhóm bạ...
+              - generic [ref=f3e1346]: Xem tất cả
+          - link "du lich da lat langbiang thung lung tinh yeu ho xuan huong 7 tour Tour Du Lịch Đà Lạt 2026 Khám phá Đà Lạt – \"Thành phố ngàn hoa\" với khí hậu ôn đới quanh năm, những đồi thông mộng mơ và vô vàn điểm check-in cực hot. Trải... Xem tất cả" [ref=f3e1349] [cursor=pointer]:
+            - /url: http://localhost:8001/tour-du-lich-da-lat
+            - generic [ref=f3e1350]:
+              - img "du lich da lat langbiang thung lung tinh yeu ho xuan huong" [ref=f3e1351]
+              - generic [ref=f3e1352]: 7 tour
+            - generic [ref=f3e1353]:
+              - heading "Tour Du Lịch Đà Lạt 2026" [level=3] [ref=f3e1354]
+              - paragraph [ref=f3e1355]: Khám phá Đà Lạt – "Thành phố ngàn hoa" với khí hậu ôn đới quanh năm, những đồi thông mộng mơ và vô vàn điểm check-in cực hot. Trải...
+              - generic [ref=f3e1356]: Xem tất cả
+    - generic [ref=f3e1359]:
+      - generic [ref=f3e1360]:
+        - heading "HAIDANGTRAVEL – HỆ SINH THÁI LỮ HÀNH TOÀN CẦU" [level=2] [ref=f3e1361]
+        - paragraph [ref=f3e1362]: Với mạng lưới đối tác toàn cầu và hệ thống vận hành chuyên nghiệp, Haidangtravel tự hào là đơn vị lữ hành uy tín hàng đầu, cung cấp giải pháp du lịch toàn diện cho hàng triệu khách hàng cá nhân và doanh nghiệp mỗi năm.
+      - generic [ref=f3e1363]:
+        - article [ref=f3e1364]:
+          - generic [ref=f3e1366]:
+            - generic [ref=f3e1367]:
+              - generic [ref=f3e1368]: DỊCH VỤ TOÀN DIỆN
+              - generic [ref=f3e1369]: "01"
+            - generic [ref=f3e1373]:
+              - heading "Một Điểm Đến, Trọn Dịch Vụ" [level=3] [ref=f3e1374]
+              - paragraph [ref=f3e1375]: "Cung ứng toàn diện: Tour nội địa & Quốc tế, Visa, Vé máy bay, Xe cao cấp và Sự kiện (MICE). Quản lý tập trung, tối ưu ngân sách cho mọi đoàn khách."
+        - generic [ref=f3e1376]:
+          - article [ref=f3e1377]:
+            - generic [ref=f3e1381]:
+              - generic [ref=f3e1382]:
+                - generic [ref=f3e1383]: VẬN HÀNH CHUYÊN NGHIỆP
+                - generic [ref=f3e1384]: "02"
+              - heading "Quy Trình Tinh Gọn, Chốt Tour Tức Thì" [level=3] [ref=f3e1385]
+              - paragraph [ref=f3e1386]: Hệ thống giữ chỗ trực tuyến và báo giá siêu tốc. Logic xử lý thông tin chuyên nghiệp giúp khách hàng chọn phương án tốt nhất trong thời gian ngắn nhất.
+          - article [ref=f3e1387]:
+            - generic [ref=f3e1391]:
+              - generic [ref=f3e1392]:
+                - generic [ref=f3e1393]: CAM KẾT VỮNG BỀN
+                - generic [ref=f3e1394]: "03"
+              - heading "Hành Trình An Tâm, Hỗ Trợ Toàn Cầu" [level=3] [ref=f3e1395]
+              - paragraph [ref=f3e1396]: Phục vụ tận tâm 24/7 từ lúc khởi hành đến khi kết thúc. Đội ngũ chuyên gia giàu kinh nghiệm luôn sẵn sàng xử lý mọi tình huống, đảm bảo trải nghiệm hoàn mỹ.
+      - generic [ref=f3e1397]:
+        - generic [ref=f3e1401]:
+          - paragraph [ref=f3e1402]: 19+
+          - paragraph [ref=f3e1403]: Năm kinh nghiệm
+        - generic [ref=f3e1407]:
+          - paragraph [ref=f3e1408]: "50.000"
+          - paragraph [ref=f3e1409]: Lượt khách & chương trình
+        - generic [ref=f3e1413]:
+          - paragraph [ref=f3e1414]: 150+
+          - paragraph [ref=f3e1415]: Nhân sự hỗ trợ
+        - generic [ref=f3e1419]:
+          - paragraph [ref=f3e1420]: 79-723/2017/TCDL-GP LHQT
+          - paragraph [ref=f3e1421]: Pháp lý & năng lực
+    - generic [ref=f3e1423]:
+      - heading "DỊCH VỤ TOUR DOANH NGHIỆP" [level=2] [ref=f3e1425]
+      - generic [ref=f3e1426]:
+        - article [ref=f3e1427]:
+          - generic [ref=f3e1428]:
+            - generic [ref=f3e1429]: "01"
+            - heading "THIẾT KẾ TOUR ĐOÀN" [level=3] [ref=f3e1430]
+            - paragraph [ref=f3e1431]: Tư vấn và thiết kế lịch trình tour trong và ngoài nước riêng biệt, tối ưu ngân sách và phù hợp với đặc thù từng doanh nghiệp.
+        - article [ref=f3e1432]:
+          - generic [ref=f3e1433]:
+            - generic [ref=f3e1434]: "02"
+            - heading "TỔ CHỨC TEAMBUILDING" [level=3] [ref=f3e1435]
+            - paragraph [ref=f3e1436]: Xây dựng kịch bản Teambuilding sáng tạo, truyền tải thông điệp thương hiệu và thắt chặt tinh thần đồng đội cho tập thể.
+        - article [ref=f3e1437]:
+          - generic [ref=f3e1438]:
+            - generic [ref=f3e1439]: "03"
+            - heading "TỔ CHỨC MICE" [level=3] [ref=f3e1440]
+            - paragraph [ref=f3e1441]: Giải pháp tổ chức hội nghị, hội thảo và du lịch khen thưởng trọn gói tại các không gian sang trọng, đảm bảo vận hành chỉn chu.
+        - article [ref=f3e1442]:
+          - generic [ref=f3e1443]:
+            - generic [ref=f3e1444]: "04"
+            - heading "TỔ CHỨC GALA DINNER" [level=3] [ref=f3e1445]
+            - paragraph [ref=f3e1446]: Hiện thực hóa đêm tiệc Gala Dinner ấn tượng, kết hợp dịch vụ bổ trợ trọn gói (Visa, xe, vé máy bay) mang lại trải nghiệm hoàn hảo.
+    - generic [ref=f3e1448]:
+      - generic [ref=f3e1449]:
+        - heading "TIN TỨC KHUYẾN MÃI" [level=2] [ref=f3e1451]
+        - link "Xem tất cả bài viết" [ref=f3e1453] [cursor=pointer]:
+          - /url: http://localhost:8001/danh-muc/khuyen-mai-haidangtravel
+      - generic [ref=f3e1457]:
+        - article [ref=f3e1458]:
+          - link [ref=f3e1459] [cursor=pointer]:
+            - /url: http://localhost:8001/kinh-nghiem-du-lich/di-du-lich-phu-quoc-nen-mang-theo-gi-goi-y-checklist-do-dung-can-thiet
+            - img "Checklist đồ dùng cần thiết khi đi du lịch Phú Quốc – hành lý gọn nhẹ đầy đủ" [ref=f3e1460]
+            - generic [ref=f3e1461]:
+              - generic [ref=f3e1462]: Mùa đẹp
+              - generic [ref=f3e1464]: 10 phút đọc
+          - generic [ref=f3e1466]:
+            - generic [ref=f3e1467]: HĐ
+            - generic [ref=f3e1469]:
+              - generic [ref=f3e1470]: 28/04/2026
+              - generic [ref=f3e1471]: "|"
+              - generic [ref=f3e1472]: Hải Đăng Travel
+              - generic [ref=f3e1473]: "|"
+              - generic [ref=f3e1474]: Cẩm nang du lịch / Kinh nghiệm du lịch
+          - generic [ref=f3e1475]:
+            - heading [level=3] [ref=f3e1476]:
+              - link "Đi du lịch Phú Quốc nên mang theo gì? Gợi ý checklist đồ dùng cần thiết" [ref=f3e1477] [cursor=pointer]:
+                - /url: http://localhost:8001/kinh-nghiem-du-lich/di-du-lich-phu-quoc-nen-mang-theo-gi-goi-y-checklist-do-dung-can-thiet
+            - paragraph [ref=f3e1478]: Giúp bạn chọn thời điểm đi phù hợp để không lệch mùa trải nghiệm và ngân sách. Đi Phú Quốc muốn vui trọn vẹn thì chuẩn bị hành lý đúng là bước quan trọng nhất. Bài viết này sẽ gợi ý che...
+            - link "Xem thêm" [ref=f3e1480] [cursor=pointer]:
+              - /url: http://localhost:8001/kinh-nghiem-du-lich/di-du-lich-phu-quoc-nen-mang-theo-gi-goi-y-checklist-do-dung-can-thiet
+        - article [ref=f3e1482]:
+          - link [ref=f3e1483] [cursor=pointer]:
+            - /url: http://localhost:8001/kinh-nghiem-du-lich/kinh-nghiem-du-lich-phu-quoc-tu-tuc-2026-lich-trinh-an-choi-tu-a-z
+            - img "Kinh nghiệm du lịch Phú Quốc tự túc 2026 cho người đi lần đầu" [ref=f3e1484]
+            - generic [ref=f3e1485]:
+              - generic [ref=f3e1486]: Mùa đẹp
+              - generic [ref=f3e1488]: 4 phút đọc
+          - generic [ref=f3e1490]:
+            - generic [ref=f3e1491]: HĐ
+            - generic [ref=f3e1493]:
+              - generic [ref=f3e1494]: 28/04/2026
+              - generic [ref=f3e1495]: "|"
+              - generic [ref=f3e1496]: Hải Đăng Travel
+              - generic [ref=f3e1497]: "|"
+              - generic [ref=f3e1498]: Cẩm nang du lịch / Kinh nghiệm du lịch
+          - generic [ref=f3e1499]:
+            - heading [level=3] [ref=f3e1500]:
+              - 'link "Kinh nghiệm du lịch Phú Quốc tự túc 2026: Lịch trình ăn chơi từ A-Z" [ref=f3e1501] [cursor=pointer]':
+                - /url: http://localhost:8001/kinh-nghiem-du-lich/kinh-nghiem-du-lich-phu-quoc-tu-tuc-2026-lich-trinh-an-choi-tu-a-z
+            - paragraph [ref=f3e1502]: Giúp bạn chọn thời điểm đi phù hợp để không lệch mùa trải nghiệm và ngân sách. Phú Quốc không chỉ là "Đảo Ngọc" với biển xanh cát trắng, mà còn là thiên đường của những trải nghiệm nghỉ...
+            - link "Xem thêm" [ref=f3e1504] [cursor=pointer]:
+              - /url: http://localhost:8001/kinh-nghiem-du-lich/kinh-nghiem-du-lich-phu-quoc-tu-tuc-2026-lich-trinh-an-choi-tu-a-z
+        - article [ref=f3e1506]:
+          - link [ref=f3e1507] [cursor=pointer]:
+            - /url: http://localhost:8001/kinh-nghiem-du-lich/review-lich-trinh-du-lich-phu-quoc-3-ngay-2-dem-toi-uu-va-tiet-kiem-nhat
+            - img "Review lịch trình du lịch Phú Quốc 3 ngày 2 đêm tối ưu và tiết kiệm nhất" [ref=f3e1508]
+            - generic [ref=f3e1509]:
+              - generic [ref=f3e1510]: Mùa đẹp
+              - generic [ref=f3e1512]: 4 phút đọc
+          - generic [ref=f3e1514]:
+            - generic [ref=f3e1515]: HĐ
+            - generic [ref=f3e1517]:
+              - generic [ref=f3e1518]: 28/04/2026
+              - generic [ref=f3e1519]: "|"
+              - generic [ref=f3e1520]: Hải Đăng Travel
+              - generic [ref=f3e1521]: "|"
+              - generic [ref=f3e1522]: Cẩm nang du lịch / Kinh nghiệm du lịch
+          - generic [ref=f3e1523]:
+            - heading [level=3] [ref=f3e1524]:
+              - link "Review lịch trình du lịch Phú Quốc 3 ngày 2 đêm tối ưu và tiết kiệm nhất" [ref=f3e1525] [cursor=pointer]:
+                - /url: http://localhost:8001/kinh-nghiem-du-lich/review-lich-trinh-du-lich-phu-quoc-3-ngay-2-dem-toi-uu-va-tiet-kiem-nhat
+            - paragraph [ref=f3e1526]: Giúp bạn chọn thời điểm đi phù hợp để không lệch mùa trải nghiệm và ngân sách. Bạn chỉ có 3 ngày 2 đêm nhưng vẫn muốn khám phá Phú Quốc trọn vẹn mà không “đau ví”? Bài review này sẽ gợi...
+            - link "Xem thêm" [ref=f3e1528] [cursor=pointer]:
+              - /url: http://localhost:8001/kinh-nghiem-du-lich/review-lich-trinh-du-lich-phu-quoc-3-ngay-2-dem-toi-uu-va-tiet-kiem-nhat
+        - article [ref=f3e1530]:
+          - link [ref=f3e1531] [cursor=pointer]:
+            - /url: http://localhost:8001/kinh-nghiem-du-lich/du-lich-phu-quoc-mua-nao-dep-nhat-de-co-nhung-tam-anh-trieu-view
+            - img "thời điểm du lịch Phú Quốc đẹp nhất để chụp ảnh biển và hoàng hôn" [ref=f3e1532]
+            - generic [ref=f3e1533]:
+              - generic [ref=f3e1534]: Mùa đẹp
+              - generic [ref=f3e1536]: 9 phút đọc
+          - generic [ref=f3e1538]:
+            - generic [ref=f3e1539]: HĐ
+            - generic [ref=f3e1541]:
+              - generic [ref=f3e1542]: 07/05/2026
+              - generic [ref=f3e1543]: "|"
+              - generic [ref=f3e1544]: Hải Đăng Travel
+              - generic [ref=f3e1545]: "|"
+              - generic [ref=f3e1546]: Cẩm nang du lịch / Kinh nghiệm du lịch
+          - generic [ref=f3e1547]:
+            - heading [level=3] [ref=f3e1548]:
+              - link "Du lịch Phú Quốc mùa nào đẹp nhất để có những tấm ảnh triệu view?" [ref=f3e1549] [cursor=pointer]:
+                - /url: http://localhost:8001/kinh-nghiem-du-lich/du-lich-phu-quoc-mua-nao-dep-nhat-de-co-nhung-tam-anh-trieu-view
+            - paragraph [ref=f3e1550]: Giúp bạn chọn thời điểm đi phù hợp để không lệch mùa trải nghiệm và ngân sách. Phú Quốc mỗi mùa lại mang một vẻ đẹp rất riêng, nhưng đâu mới là “thời điểm vàng” để săn ảnh biển xanh – c...
+            - link "Xem thêm" [ref=f3e1552] [cursor=pointer]:
+              - /url: http://localhost:8001/kinh-nghiem-du-lich/du-lich-phu-quoc-mua-nao-dep-nhat-de-co-nhung-tam-anh-trieu-view
+  - contentinfo [ref=f3e1554]:
+    - generic [ref=f3e1555]:
+      - generic [ref=f3e1556]:
+        - link "Về trang chủ Du Lịch Hải Đăng Travel" [ref=f3e1557] [cursor=pointer]:
+          - /url: http://localhost:8001
+          - img "Du Lịch Hải Đăng Travel" [ref=f3e1559]
+        - paragraph [ref=f3e1560]: Haidang Travel chuyên tổ chức du lịch, teambuilding, event trong và ngoài nước.
+        - generic [ref=f3e1561]:
+          - paragraph [ref=f3e1562]:
+            - generic [ref=f3e1565]: Tòa nhà Building Haidang 367 Tân Sơn, Phường Tân Sơn, thành phố Hồ Chí Minh
+          - paragraph [ref=f3e1566]:
+            - generic [ref=f3e1569]: 19002011 · 0911222288
+          - paragraph [ref=f3e1570]:
+            - generic [ref=f3e1573]: info@haidangtravel.com
+          - paragraph [ref=f3e1574]:
+            - generic [ref=f3e1577]: "Giấy phép lữ hành: 79-723/2017/TCDL-GP LHQT"
+      - generic [ref=f3e1578]:
+        - generic [ref=f3e1579]:
+          - heading "Đi nhanh" [level=2] [ref=f3e1580]
+          - list [ref=f3e1581]:
+            - listitem [ref=f3e1582]:
+              - link "Tour trong nước" [ref=f3e1583] [cursor=pointer]:
+                - /url: /tour-trong-nuoc
+            - listitem [ref=f3e1584]:
+              - link "Tour nước ngoài" [ref=f3e1585] [cursor=pointer]:
+                - /url: /tour-nuoc-ngoai
+            - listitem [ref=f3e1586]:
+              - link "Tour đoàn" [ref=f3e1587] [cursor=pointer]:
+                - /url: /tour-doan
+            - listitem [ref=f3e1588]:
+              - link "Dịch vụ" [ref=f3e1589] [cursor=pointer]:
+                - /url: /dich-vu
+            - listitem [ref=f3e1590]:
+              - link "Tin Tức & Cẩm Nang" [ref=f3e1591] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=f3e1592]:
+              - link "Liên hệ" [ref=f3e1593] [cursor=pointer]:
+                - /url: /lien-he
+        - generic [ref=f3e1594]:
+          - heading "Thông tin" [level=2] [ref=f3e1595]
+          - list [ref=f3e1596]:
+            - listitem [ref=f3e1597]:
+              - link "Login CMS" [ref=f3e1598] [cursor=pointer]:
+                - /url: /login
+            - listitem [ref=f3e1599]:
+              - link "Login agency" [ref=f3e1600] [cursor=pointer]:
+                - /url: https://agency.haidangtravel.com
+            - listitem [ref=f3e1601]:
+              - link "Chính Sách Mua Đổi Trả" [ref=f3e1602] [cursor=pointer]:
+                - /url: /chinh-sach-dat-tour-huy-doi-hoan-tien
+      - generic [ref=f3e1603]:
+        - heading "Kênh hỗ trợ" [level=2] [ref=f3e1604]
+        - generic [ref=f3e1605]:
+          - link "Zalo hỗ trợ" [ref=f3e1606] [cursor=pointer]:
+            - /url: https://zalo.me/0911222288
+          - link "Fanpage chính thức" [ref=f3e1611] [cursor=pointer]:
+            - /url: https://www.facebook.com/haidangtraveltanson
+          - link "YouTube Channel" [ref=f3e1616] [cursor=pointer]:
+            - /url: https://www.youtube.com/@haidangtraveltanson
+          - link "TikTok Channel" [ref=f3e1621] [cursor=pointer]:
+            - /url: https://www.tiktok.com/@hddiscovery
+        - generic [ref=f3e1626]:
+          - link "Đã thông báo Bộ Công Thương":
+            - /url: http://online.gov.vn/Home/WebDetails/15656
+            - img "Đã thông báo Bộ Công Thương"
+          - link "DMCA.com Protection Status" [ref=f3e1627] [cursor=pointer]:
+            - /url: https://www.dmca.com/Protection/Status.aspx?ID=0b22a7b7-ed93-4820-acbf-7bd6d1caaf34
+            - img "DMCA.com Protection Status" [ref=f3e1628]
+    - generic [ref=f3e1629]: © Công ty CPXD Du Lịch Hải Đăng

@@ -502,6 +502,10 @@ class ContentWriteContractService
             ],
             LandingPageBlocks::TYPE_TOUR_LIST => $listing,
             LandingPageBlocks::TYPE_BLOG_LIST => $listing,
+            LandingPageBlocks::TYPE_VOUCHER_RAIL => [
+                'title' => $this->plain('Tiêu đề', 255),
+                'description' => $this->plain('Mô tả'),
+            ],
             LandingPageBlocks::TYPE_VOUCHER_PROMOTION => $this->voucherDefinitions(),
             LandingPageBlocks::TYPE_VOUCHER_PROMOTION_PREMIUM => $this->voucherDefinitions(),
         ];

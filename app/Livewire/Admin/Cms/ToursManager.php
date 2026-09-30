@@ -73,6 +73,8 @@ class ToursManager extends Component
 
     public array $galleryUploads = [];
 
+    public array $itineraryImageUploads = [];
+
     public string $managerFilter = '';
 
     public array $regionForm = [];
@@ -147,6 +149,7 @@ class ToursManager extends Component
                 'departures',
                 'destination',
                 'manager',
+                'media',
                 'primaryCategory',
                 'region',
                 'regions',
@@ -166,6 +169,7 @@ class ToursManager extends Component
             'saleUsers' => $saleUsers,
             'scopeOptions' => TourScope::cases(),
             'selectedGalleryLibraryMedia' => $this->resolveSelectedMediaPayload($this->selectedGalleryLibraryMediaIds),
+            'selectedItineraryLibraryMedia' => $this->resolveSelectedUploadMediaPayloadByPrefix('itineraryImageUploads'),
             'selectedLibraryAvatarMedia' => $this->selectedLibraryAvatarMediaId
                 ? Media::query()->whereKey($this->selectedLibraryAvatarMediaId)->where('mime_type', 'like', 'image/%')->first()
                 : null,
@@ -611,6 +615,7 @@ class ToursManager extends Component
                 'destinations',
                 'destination',
                 'manager',
+                'media',
                 'primaryCategory',
                 'region',
                 'regions',
@@ -624,6 +629,8 @@ class ToursManager extends Component
         $this->selectedId = $tour->id;
         $this->avatarUpload = null;
         $this->galleryUploads = [];
+        $this->itineraryImageUploads = [];
+        $this->selectedLibraryMediaSelections = [];
         $this->selectedLibraryAvatarMediaId = $coverMedia
             ? (int) data_get($coverMedia->custom_properties, 'source_library_media_id')
             : null;
@@ -666,7 +673,14 @@ class ToursManager extends Component
 
     public function removeItineraryItem(int $index): void
     {
+        $uuid = trim((string) data_get($this->form, 'itinerary_items.'.$index.'.uuid'));
+
         $this->removeIndexedValue('form.itinerary_items', $index);
+
+        if ($uuid !== '') {
+            unset($this->itineraryImageUploads[$uuid]);
+            $this->clearLibraryMediaSelectionForUpload('itineraryImageUploads.'.$uuid);
+        }
 
         if (($this->form['itinerary_items'] ?? []) === []) {
             $this->form['itinerary_items'][] = $this->blankItineraryItem();
@@ -951,7 +965,11 @@ class ToursManager extends Component
     protected function blankItineraryItem(): array
     {
         return [
+            'uuid' => (string) Str::uuid(),
             'title' => '',
+            'meals' => '',
+            'image_alt' => '',
+            'image_url' => '',
             'content' => '',
         ];
     }
@@ -1480,8 +1498,10 @@ class ToursManager extends Component
     {
         $this->selectedLibraryAvatarMediaId = null;
         $this->selectedGalleryLibraryMediaIds = [];
+        $this->selectedLibraryMediaSelections = [];
         $this->avatarUpload = null;
         $this->galleryUploads = [];
+        $this->itineraryImageUploads = [];
         $this->form = [
             'title' => '',
             'slug' => '',
@@ -1916,16 +1936,24 @@ class ToursManager extends Component
         return collect($items)
             ->filter(fn ($item) => is_array($item))
             ->map(function (array $item): ?array {
+                $uuid = trim((string) ($item['uuid'] ?? '')) ?: (string) Str::uuid();
                 $title = $this->plainEditorContent($item['title'] ?? null);
+                $meals = $this->plainEditorContent($item['meals'] ?? null);
+                $imageAlt = $this->plainEditorContent($item['image_alt'] ?? null);
+                $imageUrl = trim((string) ($item['image_url'] ?? ''));
                 $content = $this->richEditorContent($item['content'] ?? null);
                 $plainContent = $this->plainEditorContent($item['content'] ?? null);
 
-                if ($title === '' && $plainContent === '') {
+                if ($title === '' && $plainContent === '' && $meals === '' && $imageAlt === '' && $imageUrl === '') {
                     return null;
                 }
 
                 return [
+                    'uuid' => $uuid,
                     'title' => $title,
+                    'meals' => $meals,
+                    'image_alt' => $imageAlt,
+                    'image_url' => $imageUrl,
                     'content' => $content,
                 ];
             })
@@ -1961,15 +1989,23 @@ class ToursManager extends Component
         $prepared = collect($items ?? [])
             ->filter(fn ($item) => is_array($item))
             ->map(function (array $item): ?array {
+                $uuid = trim((string) data_get($item, 'uuid')) ?: (string) Str::uuid();
                 $title = trim((string) data_get($item, 'title'));
+                $meals = trim((string) data_get($item, 'meals'));
+                $imageAlt = trim((string) data_get($item, 'image_alt'));
+                $imageUrl = trim((string) data_get($item, 'image_url'));
                 $content = trim((string) data_get($item, 'content'));
 
-                if ($title === '' && $this->plainEditorContent($content) === '') {
+                if ($title === '' && $this->plainEditorContent($content) === '' && $meals === '' && $imageAlt === '' && $imageUrl === '') {
                     return null;
                 }
 
                 return [
+                    'uuid' => $uuid,
                     'title' => $title,
+                    'meals' => $meals,
+                    'image_alt' => $imageAlt,
+                    'image_url' => $imageUrl,
                     'content' => $content,
                 ];
             })
@@ -2014,6 +2050,7 @@ class ToursManager extends Component
         $departures = $this->normalizeDepartures($form['departures'] ?? []);
         $reviewBatches = $this->normalizeReviewBatches($form['review_batches'] ?? []);
         $existingTour = $this->selectedId ? $this->scopedTourQuery()->findOrFail($this->selectedId) : null;
+        $oldItinerary = $existingTour?->itinerary ?? [];
         $oldGallery = $existingTour?->gallery ?? [];
         $managerId = $this->currentUserIsSale()
             ? auth()->id()
@@ -2096,6 +2133,7 @@ class ToursManager extends Component
             ]);
         }
 
+        $this->syncItineraryMedia($tour, $oldItinerary, $itineraryItems);
         $this->syncGalleryMedia($tour, $oldGallery, $gallery, fn (string $uuid) => ContentGallery::tourCollection($uuid));
         $deletedAgencyDepartures = $this->syncTourDepartures($tour, $departures);
         $firstReviewBatch = $this->syncReviewBatches($tour, $reviewBatches);
@@ -2109,6 +2147,7 @@ class ToursManager extends Component
         $this->dispatchAgencyPushSync($tour, $deletedAgencyDepartures);
         $this->avatarUpload = null;
         $this->galleryUploads = [];
+        $this->itineraryImageUploads = [];
         $this->editTour($tour->id);
 
         session()->flash('status', 'Đã lưu tour.');
@@ -2274,6 +2313,42 @@ class ToursManager extends Component
 
             if (filled($item['image_url'] ?? null)) {
                 $model->clearMediaCollection($collection);
+            }
+        }
+    }
+
+    protected function syncItineraryMedia(Tour $tour, array $oldItinerary, array $newItinerary): void
+    {
+        $oldUuids = collect($oldItinerary)->pluck('uuid')->filter()->values()->all();
+        $newUuids = collect($newItinerary)->pluck('uuid')->filter()->values()->all();
+
+        foreach (array_diff($oldUuids, $newUuids) as $uuid) {
+            $tour->clearMediaCollection(ContentGallery::tourItineraryCollection((string) $uuid));
+        }
+
+        foreach ($newItinerary as $item) {
+            $uuid = trim((string) ($item['uuid'] ?? ''));
+
+            if ($uuid === '') {
+                continue;
+            }
+
+            $uploadProperty = 'itineraryImageUploads.'.$uuid;
+            $collection = ContentGallery::tourItineraryCollection($uuid);
+            $uploadedImage = $this->itineraryImageUploads[$uuid] ?? null;
+
+            if ($this->syncUploadedImageSelection(
+                $tour,
+                $uploadedImage,
+                $uploadProperty,
+                $collection,
+                ['alt' => $item['image_alt'] ?: $item['title'] ?: 'Ảnh lịch trình tour'],
+            )) {
+                continue;
+            }
+
+            if (filled($item['image_url'] ?? null)) {
+                $tour->clearMediaCollection($collection);
             }
         }
     }
@@ -2616,7 +2691,11 @@ class ToursManager extends Component
             'form.canonical_url' => ['nullable', 'url', 'max:2048'],
             'form.robots_directive' => ['nullable', 'string', 'max:255'],
             'form.itinerary_items' => ['nullable', 'array'],
+            'form.itinerary_items.*.uuid' => ['nullable', 'string', 'max:100', 'distinct'],
             'form.itinerary_items.*.title' => ['nullable', 'string', 'max:255'],
+            'form.itinerary_items.*.meals' => ['nullable', 'string', 'max:255'],
+            'form.itinerary_items.*.image_alt' => ['nullable', 'string', 'max:255'],
+            'form.itinerary_items.*.image_url' => ['nullable', 'url', 'max:2048'],
             'form.itinerary_items.*.content' => ['nullable', 'string', 'max:20000'],
             'form.pricing_items' => ['nullable', 'array'],
             'form.pricing_items.*.label' => ['nullable', 'string', 'max:255'],
@@ -2663,6 +2742,7 @@ class ToursManager extends Component
             'form.review_batches.*.token' => ['nullable', 'string', 'max:64'],
             'form.review_batches.*.sort_order' => ['nullable', 'integer', 'min:0'],
             'galleryUploads.*' => ['nullable', 'image', 'max:4096'],
+            'itineraryImageUploads.*' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
         ], $this->geoValidationRules('form.geo_config'));
     }
 

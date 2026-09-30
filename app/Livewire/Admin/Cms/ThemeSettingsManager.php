@@ -9,6 +9,7 @@ use App\Services\Frontsite\FrontsiteCache;
 use App\Services\Travel\CustomerLoyaltyApi;
 use App\Services\Travel\CustomerLoyaltyApiException;
 use App\Support\FooterSocialLinks;
+use App\Support\FrontsiteAppearance;
 use App\Support\FrontsiteSectionHeadings;
 use App\Support\GoogleMapsEmbedUrl;
 use App\Support\SitewideHtmlSnippets;
@@ -42,6 +43,10 @@ class ThemeSettingsManager extends Component
     public mixed $logoUpload = null;
 
     public mixed $ogImageUpload = null;
+
+    public mixed $customerLoyaltyHeroUpload = null;
+
+    public bool $removeCustomerLoyaltyHero = false;
 
     public SiteSetting $settings;
 
@@ -83,6 +88,13 @@ class ThemeSettingsManager extends Component
         ));
 
         $this->form['structured_data'][FooterSocialLinks::STRUCTURED_DATA_KEY] = $items;
+    }
+
+    public function removeCustomerLoyaltyHeroImage(): void
+    {
+        $this->customerLoyaltyHeroUpload = null;
+        $this->clearLibraryMediaSelectionForUpload('customerLoyaltyHeroUpload');
+        $this->removeCustomerLoyaltyHero = true;
     }
 
     public function moveFooterSocialLink(int $index, string $direction): void
@@ -180,10 +192,13 @@ class ThemeSettingsManager extends Component
             'form.customer_loyalty_api_base_url' => ['nullable', 'url', 'max:500'],
             'form.customer_loyalty_api_username' => ['nullable', 'string', 'max:255'],
             'form.customer_loyalty_api_password' => ['nullable', 'string', 'max:2000'],
+            'customerLoyaltyHeroUpload' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:10240'],
             'form.frontsite_section_headings' => ['nullable', 'array'],
             'form.frontsite_section_headings.*.is_visible' => ['boolean'],
             'form.frontsite_section_headings.*.title' => ['nullable', 'string', 'max:255'],
             'form.frontsite_section_headings.*.description' => ['nullable', 'string', 'max:1000'],
+            'form.structured_data.'.FrontsiteAppearance::STRUCTURED_DATA_KEY => ['required', 'array'],
+            'form.structured_data.'.FrontsiteAppearance::STRUCTURED_DATA_KEY.'.tour_detail.show_hero' => ['required', 'boolean'],
             'form.structured_data.organization.image_url' => ['nullable', 'string', 'max:500'],
             'form.structured_data.local_business.price_range' => ['nullable', 'string', 'max:255'],
             'form.structured_data.company.legal_name' => ['nullable', 'string', 'max:255'],
@@ -229,6 +244,9 @@ class ThemeSettingsManager extends Component
         $structuredData[FooterSocialLinks::STRUCTURED_DATA_KEY] = FooterSocialLinks::storedConfig(
             data_get($structuredData, FooterSocialLinks::STRUCTURED_DATA_KEY, []),
         );
+        $structuredData[FrontsiteAppearance::STRUCTURED_DATA_KEY] = FrontsiteAppearance::prepare(
+            data_get($structuredData, FrontsiteAppearance::STRUCTURED_DATA_KEY),
+        );
         unset($validatedForm['frontsite_section_headings']);
 
         $this->settings->fill([
@@ -242,13 +260,20 @@ class ThemeSettingsManager extends Component
         ]);
         $this->settings->save();
 
+        if ($this->removeCustomerLoyaltyHero) {
+            $this->settings->clearMediaCollection('customer_loyalty_hero');
+        }
+
         $this->syncSingleImageSelection($this->settings, 'logoUpload', 'logo');
         $this->syncSingleImageSelection($this->settings, 'faviconUpload', 'favicon');
         $this->syncSingleImageSelection($this->settings, 'ogImageUpload', 'og_image');
+        $this->syncSingleImageSelection($this->settings, 'customerLoyaltyHeroUpload', 'customer_loyalty_hero');
 
         $this->logoUpload = null;
         $this->faviconUpload = null;
         $this->ogImageUpload = null;
+        $this->customerLoyaltyHeroUpload = null;
+        $this->removeCustomerLoyaltyHero = false;
         $this->selectedLibraryMediaSelections = [];
 
         $site->refresh();
@@ -334,6 +359,7 @@ class ThemeSettingsManager extends Component
             'selectedFaviconLibraryMedia' => data_get($this->resolveSelectedUploadMediaPayload(['faviconUpload']), 'faviconUpload'),
             'selectedLogoLibraryMedia' => data_get($this->resolveSelectedUploadMediaPayload(['logoUpload']), 'logoUpload'),
             'selectedOgImageLibraryMedia' => data_get($this->resolveSelectedUploadMediaPayload(['ogImageUpload']), 'ogImageUpload'),
+            'selectedCustomerLoyaltyHeroLibraryMedia' => data_get($this->resolveSelectedUploadMediaPayload(['customerLoyaltyHeroUpload']), 'customerLoyaltyHeroUpload'),
             'customerLoyaltyApiStatus' => $this->customerLoyaltyApiStatus(),
         ]);
     }
@@ -399,6 +425,9 @@ class ThemeSettingsManager extends Component
                 data_get($this->settings->structured_data, FrontsiteSectionHeadings::STRUCTURED_DATA_KEY),
             ),
             'structured_data' => [
+                FrontsiteAppearance::STRUCTURED_DATA_KEY => FrontsiteAppearance::prepare(
+                    data_get($this->settings->structured_data, FrontsiteAppearance::STRUCTURED_DATA_KEY),
+                ),
                 FooterSocialLinks::STRUCTURED_DATA_KEY => FooterSocialLinks::formItems(
                     data_get($this->settings->structured_data, FooterSocialLinks::STRUCTURED_DATA_KEY),
                     $this->settings,

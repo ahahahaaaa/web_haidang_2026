@@ -1,2 +1,2 @@
-@import 'flatpickr/dist/flatpickr.css';
+@import 'flatpickr/dist/flatpickr.css' layer(frontsite-vendor);
 @import 'tom-select/dist/css/tom-select.css';

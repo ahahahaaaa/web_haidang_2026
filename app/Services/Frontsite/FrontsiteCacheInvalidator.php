@@ -10,6 +10,7 @@ use Src\Domains\Cms\Models\Destination;
 use Src\Domains\Cms\Models\LandingPage;
 use Src\Domains\Cms\Models\Menu;
 use Src\Domains\Cms\Models\MenuItem;
+use Src\Domains\Cms\Models\PublicUrlMapping;
 use Src\Domains\Cms\Models\Region;
 use Src\Domains\Cms\Models\Service;
 use Src\Domains\Cms\Models\SiteSetting;
@@ -18,15 +19,15 @@ use Src\Domains\Cms\Models\SliderItem;
 use Src\Domains\Cms\Models\Tour;
 use Src\Domains\Cms\Models\TourCategory;
 use Src\Domains\Cms\Models\TourDeparture;
+use Src\Domains\Cms\Models\TourFlashSale;
+use Src\Domains\Cms\Models\TourFlashSaleItem;
 use Src\Domains\Cms\Models\TourReviewBatch;
 use Src\Domains\Cms\Models\TravelReview;
 use Src\Domains\Cms\Models\VoucherCampaign;
 
 class FrontsiteCacheInvalidator
 {
-    public function __construct(protected FrontsiteCache $cache)
-    {
-    }
+    public function __construct(protected FrontsiteCache $cache) {}
 
     public function modelChanged(Model $model): void
     {
@@ -50,6 +51,10 @@ class FrontsiteCacheInvalidator
 
     public function groupsFor(Model $model): array
     {
+        if ($model instanceof PublicUrlMapping) {
+            return ['sitemap'];
+        }
+
         if ($model instanceof SiteSetting) {
             return ['chrome', 'settings'];
         }
@@ -77,6 +82,7 @@ class FrontsiteCacheInvalidator
 
             return array_filter([
                 'home',
+                'landing',
                 'sitemap',
                 'taxonomies',
                 'tours',
@@ -92,6 +98,19 @@ class FrontsiteCacheInvalidator
             return array_filter([
                 'home',
                 'sitemap',
+                'tours',
+                filled($model->tour_id) ? 'tour:'.$model->tour_id : null,
+            ]);
+        }
+
+        if ($model instanceof TourFlashSale) {
+            return ['home', 'landing', 'tours'];
+        }
+
+        if ($model instanceof TourFlashSaleItem) {
+            return array_filter([
+                'home',
+                'landing',
                 'tours',
                 filled($model->tour_id) ? 'tour:'.$model->tour_id : null,
             ]);
@@ -119,6 +138,7 @@ class FrontsiteCacheInvalidator
         if ($model instanceof Destination) {
             return array_filter([
                 'home',
+                'landing',
                 'sitemap',
                 'taxonomies',
                 'destinations',
@@ -133,6 +153,7 @@ class FrontsiteCacheInvalidator
         if ($model instanceof Region) {
             return [
                 'home',
+                'landing',
                 'sitemap',
                 'taxonomies',
                 'regions',
@@ -197,7 +218,7 @@ class FrontsiteCacheInvalidator
         }
 
         if ($model instanceof VoucherCampaign) {
-            return ['landing', 'tours', 'taxonomies', 'tour-categories', 'destinations'];
+            return ['home', 'landing', 'tours', 'taxonomies', 'tour-categories', 'destinations'];
         }
 
         return [];

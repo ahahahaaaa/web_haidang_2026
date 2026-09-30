@@ -50,7 +50,7 @@
                                 <div class="frontsite-slider-nav">
                                     <button
                                         type="button"
-                                        class="frontsite-hero-nav-button hidden h-11 w-11 items-center justify-center rounded-sm border border-white/15 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/16 sm:inline-flex"
+                                        class="frontsite-hero-nav-button inline-flex h-11 w-11 items-center justify-center rounded-sm border border-white/15 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/16"
                                         data-tour-gallery-prev
                                         aria-label="Media trước"
                                     >
@@ -58,7 +58,7 @@
                                     </button>
                                     <button
                                         type="button"
-                                        class="frontsite-hero-nav-button hidden h-11 w-11 items-center justify-center rounded-sm border border-white/15 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/16 sm:inline-flex"
+                                        class="frontsite-hero-nav-button inline-flex h-11 w-11 items-center justify-center rounded-sm border border-white/15 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/16"
                                         data-tour-gallery-next
                                         aria-label="Media tiếp theo"
                                     >

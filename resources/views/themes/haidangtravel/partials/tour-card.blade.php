@@ -3,6 +3,7 @@
     'variant' => 'default',
     'revealDelay' => null,
     'showRating' => true,
+    'ctaVariant' => null,
 ])
 
 @php
@@ -10,44 +11,48 @@
     $isCompact = $variant === 'compact';
     $isHorizontal = $variant === 'horizontal';
     $imageUrl = $card['image_url'] ?? null;
-    $nextDepartureChip = $card['next_departure_label'] !== 'Liên hệ' ? $card['next_departure_label'] : 'Tư vấn lịch';
+    $imageFullUrl = $card['image_full_url'] ?? null;
+    $imageSrcset = filled($imageFullUrl) && filled($imageUrl) && $imageFullUrl !== $imageUrl
+        ? $imageUrl.' 1x, '.$imageFullUrl.' 2x'
+        : null;
     $topicChip = $card['primary_topic_label'] ?? null;
     $hasTopicChip = filled($topicChip);
-    $horizontalHighlightChip = $topicChip;
-    $transportText = \Illuminate\Support\Str::lower($card['transport_label']);
-    $transportIcon = \Illuminate\Support\Str::contains($transportText, ['bay', 'plane', 'air'])
-        ? 'fa-solid fa-plane-departure'
-        : (\Illuminate\Support\Str::contains($transportText, ['xe', 'bus', 'car']) ? 'fa-solid fa-bus-simple' : 'fa-solid fa-route');
+    $transportIcon = \App\Support\TourUiIcons::transport($card['transport_label']);
+    $departureDateLabels = collect($card['departure_date_labels'] ?? []);
     $horizontalGalleryItems = $isHorizontal ? \App\Support\FrontsiteCardData::tourGallerySlides($tour) : [];
     $activeHorizontalGalleryItem = $horizontalGalleryItems[0] ?? null;
     $horizontalGalleryCount = count($horizontalGalleryItems);
     $hasHorizontalGallery = $isHorizontal && $activeHorizontalGalleryItem !== null;
     $hasHorizontalGalleryNavigation = $horizontalGalleryCount > 1;
     $horizontalSliderHeightClasses = 'lg:h-[24rem] lg:min-h-[24rem] lg:max-h-[24rem]';
-    $defaultImageClasses = 'frontsite-media-panel relative block aspect-[16/9] min-h-[12.75rem] overflow-hidden bg-[linear-gradient(145deg,#08284f_0%,#004A99_52%,#FF8C00_100%)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35';
+    $defaultImageClasses = 'frontsite-media-panel relative block aspect-[4/3] overflow-hidden bg-[linear-gradient(145deg,#08284f_0%,#004A99_52%,#FF8C00_100%)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35';
     $articleClasses = $isHorizontal
-        ? 'theme-panel frontsite-spotlight-card group frontsite-text-reveal flex h-full flex-col overflow-hidden lg:grid lg:grid-cols-2 lg:items-stretch'
-        : 'theme-panel frontsite-spotlight-card group frontsite-text-reveal flex h-full flex-col overflow-hidden';
+        ? 'theme-panel frontsite-spotlight-card frontsite-tour-card group frontsite-text-reveal flex h-full flex-col overflow-hidden lg:grid lg:grid-cols-2 lg:items-stretch'
+        : 'theme-panel frontsite-spotlight-card frontsite-tour-card group frontsite-text-reveal flex h-full flex-col overflow-hidden';
     $horizontalImageClasses = 'frontsite-media-panel relative overflow-hidden bg-[linear-gradient(145deg,#08284f_0%,#004A99_52%,#FF8C00_100%)] hidden lg:block lg:aspect-auto '.$horizontalSliderHeightClasses;
     $imageClasses = $isHorizontal
         ? $defaultImageClasses.' lg:h-full lg:min-h-full lg:aspect-auto'
         : $defaultImageClasses;
-    $contentPadding = $isCompact ? 'p-4' : ($isHorizontal ? 'p-4 lg:px-6 lg:py-5' : 'p-4');
+    $contentWrapperClasses = $isHorizontal
+        ? 'relative z-10 mx-1.5 -mt-[22.5%] mb-1.5 flex flex-1 flex-col lg:m-0 lg:h-full'
+        : 'relative z-10 mx-1.5 -mt-[22.5%] mb-1.5 flex flex-1 flex-col';
+    $contentClasses = $isHorizontal
+        ? 'flex flex-1 flex-col gap-3 rounded-[1.15rem] border border-slate-200/90 bg-white p-4 shadow-[0_18px_40px_-30px_rgba(15,23,42,0.4)] lg:gap-4 lg:border-0 lg:bg-transparent lg:px-6 lg:py-5 lg:shadow-none'
+        : 'flex flex-1 flex-col gap-3 rounded-[1.15rem] border border-slate-200/90 bg-white p-4 shadow-[0_18px_40px_-30px_rgba(15,23,42,0.4)]';
     $titleClasses = $isCompact ? 'text-lg' : ($isHorizontal ? 'text-[14px] lg:text-[1.35rem]' : 'text-[14px]');
-    $priceClasses = $isCompact ? 'text-[1.25rem]' : ($isHorizontal ? 'text-[1.15rem] lg:text-[1.4rem]' : 'text-[1.15rem]');
-    $metaGridClasses = $isCompact
-        ? 'grid gap-2.5 text-[15px] text-slate-700'
-        : ($isHorizontal ? 'grid gap-2 text-[14px] text-slate-700 lg:grid-cols-3 lg:gap-3' : 'grid gap-2 text-[14px] text-slate-700');
-    $metaRowClasses = 'flex items-center gap-2.5';
-    $metaIconClasses = $isCompact
-        ? 'inline-flex size-9 shrink-0 items-center justify-center rounded-[0.9rem] bg-slate-50 text-secondary'
-        : 'inline-flex size-8 shrink-0 items-center justify-center rounded-[0.8rem] bg-slate-50 text-secondary';
-    $metaLabelClasses = $isCompact
-        ? 'text-[12px] font-semibold uppercase text-slate-500'
-        : 'text-[11px] font-semibold uppercase text-slate-500';
-    $metaValueClasses = $isCompact ? 'font-medium leading-5 text-slate-950' : 'font-medium leading-5 text-slate-950';
+    $priceClasses = $isCompact
+        ? 'text-[clamp(1rem,4.8vw,1.25rem)]'
+        : ($isHorizontal
+            ? 'text-[clamp(1rem,4.8vw,1.15rem)] lg:text-[1.4rem]'
+            : 'text-[clamp(1rem,4.8vw,1.15rem)]');
     $ctaLabel = trim((string) ($card['cta_label'] ?? ''));
-    $ctaLabel = $ctaLabel === 'Nhận tư vấn tour' ? 'Tư vấn' : $ctaLabel;
+    $ctaLabel = $ctaLabel === 'Xem' ? 'Đặt ngay' : ($ctaLabel === 'Nhận tư vấn tour' ? 'Tư vấn' : $ctaLabel);
+    $resolvedCtaVariant = \App\Support\TourCardStyle::normalizeCtaVariant($ctaVariant);
+    $ctaVariantClasses = \App\Support\TourCardStyle::ctaClasses($resolvedCtaVariant);
+    $standardStarCount = is_numeric($card['standard_star_count'] ?? null)
+        ? max(1, min(5, (int) $card['standard_star_count']))
+        : 0;
+    $showRatingBadge = $showRating && filled($card['rating_label']) && filled($card['rating_count']);
     $basePriceLabel = null;
 
     if (($card['base_price_value'] ?? null) !== null && $card['price_label'] !== 'Liên hệ') {
@@ -70,48 +75,28 @@
                 <img
                     src="{{ $imageUrl }}"
                     alt="{{ $card['image_alt'] }}"
-                    class="frontsite-media-asset h-full w-full object-cover"
-                    width="960"
-                    height="600"
+                    class="frontsite-media-asset frontsite-tour-card-image h-full w-full object-cover"
+                    @if ($imageSrcset) srcset="{{ $imageSrcset }}" @endif
+                    width="1200"
+                    height="900"
                     loading="lazy"
                     decoding="async"
                 >
             @else
                 <div class="theme-grid-pattern flex h-full w-full items-end bg-[linear-gradient(145deg,#08284f_0%,#004A99_52%,#FF8C00_100%)] p-4">
-                    <div class="space-y-1 text-white">
-                        <p class="text-[10px] font-semibold uppercase text-white/72">{{ $card['scope_label'] }}</p>
-                        <p class="max-w-[16rem] text-lg font-semibold leading-tight">{{ $card['destination_label'] }}</p>
-                    </div>
+                    <p class="max-w-[16rem] text-lg font-semibold leading-tight text-white">{{ $card['destination_label'] }}</p>
                 </div>
             @endif
 
-            <div class="frontsite-media-content absolute inset-x-3 top-3 flex items-start justify-between gap-2">
-                <span class="inline-flex items-center gap-1.5 rounded-full border border-white/16 bg-white/14 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white shadow-[0_16px_38px_-28px_rgba(15,23,42,0.68)] backdrop-blur-sm">
-                    <i class="fa-solid fa-compass text-orange-200"></i>
-                    {{ $card['scope_label'] }}
-                </span>
-                @if ($hasTopicChip)
-                    <span class="inline-flex items-center gap-1.5 rounded-full border border-white/16 bg-slate-950/24 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white shadow-[0_16px_38px_-28px_rgba(15,23,42,0.68)] backdrop-blur-sm">
-                        <i class="fa-solid fa-tag text-orange-200"></i>
-                        {{ $horizontalHighlightChip }}
+            @if ($hasTopicChip)
+                <div class="absolute inset-x-3 top-3 z-20 flex items-start justify-between gap-2">
+                    <span class="inline-flex max-w-full items-center gap-1.5 rounded-full border border-white/30 bg-slate-950/80 px-3 py-1.5 text-[10px] font-bold uppercase text-white shadow-md backdrop-blur-sm" data-tour-card-category-overlay>
+                        <i class="fa-solid fa-tag text-orange-200" aria-hidden="true"></i>
+                        <span class="truncate">{{ $topicChip }}</span>
                     </span>
-                @endif
-            </div>
-
-            <div class="frontsite-media-content absolute inset-x-3 bottom-3 flex items-end justify-between gap-2 text-white">
-                <div class="min-w-0 space-y-1">
-                    <p class="inline-flex max-w-full items-center gap-1.5 rounded-full border border-white/12 bg-white/10 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white/88 backdrop-blur-sm">
-                        <i class="fa-solid fa-location-dot text-orange-200"></i>
-                        <span class="truncate">{{ $card['destination_label'] }}</span>
-                    </p>
-                    <p class="line-clamp-1 text-[12px] font-semibold leading-4">{{ $card['departure_place'] }}</p>
                 </div>
+            @endif
 
-                <span class="inline-flex items-center gap-1.5 rounded-full border border-white/16 bg-slate-950/24 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white shadow-[0_16px_38px_-28px_rgba(15,23,42,0.68)] backdrop-blur-sm">
-                    <i class="fa-solid fa-users text-[9px] text-orange-200"></i>
-                    {{ $card['slot_label'] }}
-                </span>
-            </div>
         </a>
 
         <div
@@ -122,20 +107,17 @@
         >
             <div class="theme-grid-pattern absolute inset-0 opacity-15"></div>
 
-            <div class="absolute inset-x-3 top-3 z-10 flex items-start justify-between gap-2">
-                <span class="inline-flex items-center gap-1.5 rounded-full border border-white/16 bg-white/14 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white shadow-[0_16px_38px_-28px_rgba(15,23,42,0.68)] backdrop-blur-sm">
-                    <i class="fa-solid fa-compass text-orange-200"></i>
-                    {{ $card['scope_label'] }}
-                </span>
-
-                <div class="flex flex-col items-end gap-2">
+            <div class="absolute inset-x-3 top-3 z-20 flex items-start justify-between gap-2">
+                <div class="flex min-w-0 flex-col items-start gap-2">
                     @if ($hasTopicChip)
-                        <span class="inline-flex items-center gap-1.5 rounded-full border border-white/16 bg-slate-950/24 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white shadow-[0_16px_38px_-28px_rgba(15,23,42,0.68)] backdrop-blur-sm">
-                            <i class="fa-solid fa-tag text-orange-200"></i>
-                            {{ $horizontalHighlightChip }}
+                        <span class="inline-flex max-w-full items-center gap-1.5 rounded-full border border-white/30 bg-slate-950/80 px-3 py-1.5 text-[10px] font-bold uppercase text-white shadow-md backdrop-blur-sm" data-tour-card-category-overlay>
+                            <i class="fa-solid fa-tag text-orange-200" aria-hidden="true"></i>
+                            <span class="truncate">{{ $topicChip }}</span>
                         </span>
                     @endif
+                </div>
 
+                <div class="flex flex-col items-end gap-2">
                     <span data-tour-gallery-counter class="inline-flex min-w-[4.6rem] items-center justify-center rounded-full border border-white/12 bg-slate-950/35 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
                         1 / {{ $horizontalGalleryCount }}
                     </span>
@@ -168,7 +150,7 @@
                 <img
                     src="{{ $activeHorizontalGalleryItem['src'] }}"
                     alt="{{ $activeHorizontalGalleryItem['alt'] }}"
-                    class="frontsite-media-asset absolute inset-0 h-full w-full object-cover"
+                    class="frontsite-media-asset frontsite-tour-card-image absolute inset-0 h-full w-full object-cover"
                     width="960"
                     height="600"
                     loading="lazy"
@@ -238,69 +220,62 @@
                 <img
                     src="{{ $imageUrl }}"
                     alt="{{ $card['image_alt'] }}"
-                    class="frontsite-media-asset h-full w-full object-cover"
-                    width="960"
-                    height="600"
+                    class="frontsite-media-asset frontsite-tour-card-image h-full w-full object-cover"
+                    @if ($imageSrcset) srcset="{{ $imageSrcset }}" @endif
+                    width="1200"
+                    height="900"
                     loading="lazy"
                     decoding="async"
                 >
             @else
                 <div class="theme-grid-pattern flex h-full w-full items-end bg-[linear-gradient(145deg,#08284f_0%,#004A99_52%,#FF8C00_100%)] p-4">
-                    <div class="space-y-1 text-white">
-                        <p class="text-[10px] font-semibold uppercase text-white/72">{{ $card['scope_label'] }}</p>
-                        <p class="max-w-[16rem] text-lg font-semibold leading-tight">{{ $card['destination_label'] }}</p>
-                    </div>
+                    <p class="max-w-[16rem] text-lg font-semibold leading-tight text-white">{{ $card['destination_label'] }}</p>
                 </div>
             @endif
 
-            <div class="frontsite-media-content absolute inset-x-3 top-3 flex items-start justify-between gap-2">
-                <span class="inline-flex items-center gap-1.5 rounded-full border border-white/16 bg-white/14 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white shadow-[0_16px_38px_-28px_rgba(15,23,42,0.68)] backdrop-blur-sm">
-                    <i class="fa-solid fa-compass text-orange-200"></i>
-                    {{ $card['scope_label'] }}
-                </span>
-                <span class="inline-flex items-center gap-1.5 rounded-full border border-white/16 bg-slate-950/24 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white shadow-[0_16px_38px_-28px_rgba(15,23,42,0.68)] backdrop-blur-sm">
-                    <i class="fa-regular fa-calendar-days text-orange-200"></i>
-                    {{ $nextDepartureChip }}
-                </span>
-            </div>
-
-            <div class="frontsite-media-content absolute inset-x-3 bottom-3 flex items-end justify-between gap-2 text-white">
-                <div class="min-w-0 space-y-1">
-                    <p class="inline-flex max-w-full items-center gap-1.5 rounded-full border border-white/12 bg-white/10 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white/88 backdrop-blur-sm">
-                        <i class="fa-solid fa-location-dot text-orange-200"></i>
-                        <span class="truncate">{{ $card['destination_label'] }}</span>
-                    </p>
-                    <p class="line-clamp-1 text-[12px] font-semibold leading-4">{{ $card['departure_place'] }}</p>
+            @if ($hasTopicChip)
+                <div class="absolute inset-x-3 top-3 z-20 flex items-start justify-between gap-2">
+                    <span class="inline-flex max-w-full items-center gap-1.5 rounded-full border border-white/30 bg-slate-950/80 px-3 py-1.5 text-[10px] font-bold uppercase text-white shadow-md backdrop-blur-sm" data-tour-card-category-overlay>
+                        <i class="fa-solid fa-tag text-orange-200" aria-hidden="true"></i>
+                        <span class="truncate">{{ $topicChip }}</span>
+                    </span>
                 </div>
+            @endif
 
-                <span class="inline-flex items-center gap-1.5 rounded-full border border-white/16 bg-slate-950/24 px-2.5 py-0.5 text-[9px] font-semibold uppercase text-white shadow-[0_16px_38px_-28px_rgba(15,23,42,0.68)] backdrop-blur-sm">
-                    <i class="fa-solid fa-users text-[9px] text-orange-200"></i>
-                    {{ $card['slot_label'] }}
-                </span>
-            </div>
         </a>
     @endif
 
-    <div class="flex flex-1 flex-col gap-3 {{ $contentPadding }} {{ $isHorizontal ? 'lg:h-full lg:gap-4' : '' }}">
-        <div class="flex flex-wrap items-center gap-1.5 text-[10px] font-semibold uppercase text-slate-500">
-            <span class="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5">{{ $card['standard_label'] }}</span>
-            @if ($showRating && filled($card['rating_label']) && filled($card['rating_count']))
-                <span class="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-0.5 text-[10px] font-semibold normal-case text-amber-700">
-                    <i class="fa-solid fa-star text-[9px] text-amber-500"></i>
-                    {{ $card['rating_label'] }}/5
-                    <span class="text-amber-700/80">• {{ number_format((int) $card['rating_count'], 0, ',', '.') }} đánh giá</span>
-                </span>
-            @endif
-            @if (! $isHorizontal && $hasTopicChip)
-                <span class="rounded-full bg-[color:var(--color-primary-soft)] px-2.5 py-0.5 text-primary">{{ $topicChip }}</span>
-            @endif
-        </div>
-
+    <div class="{{ $contentWrapperClasses }}">
+        @if ($showRatingBadge)
+            <span
+                class="absolute bottom-full right-2 mb-2 inline-flex max-w-[calc(100%_-_1rem)] items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50/95 px-2.5 py-1 text-[10px] font-semibold normal-case text-amber-700 shadow-sm backdrop-blur-sm {{ $isHorizontal ? 'lg:static lg:mb-0 lg:self-start' : '' }}"
+                data-tour-card-rating-overlay
+                aria-label="Đánh giá {{ $card['rating_label'] }} trên 5 từ {{ number_format((int) $card['rating_count'], 0, ',', '.') }} lượt đánh giá"
+            >
+                <i class="fa-solid fa-star text-[9px] text-amber-500" aria-hidden="true"></i>
+                {{ $card['rating_label'] }}/5
+                <span class="truncate text-amber-700/80">• {{ number_format((int) $card['rating_count'], 0, ',', '.') }} đánh giá</span>
+            </span>
+        @endif
+        <div class="{{ $contentClasses }}" data-tour-card-info-panel>
         <h3 class="font-heading {{ $titleClasses }} font-bold leading-[1.3] text-slate-950">
             <a href="{{ $card['detail_url'] }}" class="line-clamp-2 transition hover:text-primary focus-visible:outline-none focus-visible:text-primary">
                 {{ $card['title'] }}
             </a>
         </h3>
+
+        @if ($standardStarCount > 0)
+            <div
+                class="inline-flex w-fit items-center gap-1 text-[15px] text-amber-400"
+                role="img"
+                aria-label="Tiêu chuẩn {{ $standardStarCount }} sao"
+                data-tour-card-standard-stars="{{ $standardStarCount }}"
+            >
+                @for ($starIndex = 0; $starIndex < $standardStarCount; $starIndex++)
+                    <i class="fa-solid fa-star" aria-hidden="true"></i>
+                @endfor
+            </div>
+        @endif
 
         @if ($isHorizontal)
             <p class="hidden text-sm leading-6 text-slate-600 lg:block">
@@ -308,63 +283,86 @@
             </p>
         @endif
 
-        <div class="{{ $metaGridClasses }}">
-            <div class="{{ $metaRowClasses }}">
-                <span class="{{ $metaIconClasses }}">
-                    <i class="fa-regular fa-calendar-days"></i>
-                </span>
-                <div class="min-w-0 flex flex-wrap items-center gap-1.5">
-                    <span class="{{ $metaLabelClasses }}">Khởi Hành:</span>
-                    <span class="{{ $metaValueClasses }}">{{ $card['next_departure_label'] }}</span>
+        <div class="space-y-2 text-[13px] leading-5 text-slate-600">
+            <ul class="grid grid-cols-3 gap-1.5" data-tour-card-meta-list aria-label="Thông tin nhanh của tour">
+                <li class="flex min-w-0 items-center gap-1.5 rounded-lg bg-slate-50 px-2 py-1.5" title="Điểm khởi hành: {{ $card['departure_place'] }}">
+                    <i class="{{ \App\Support\TourUiIcons::DEPARTURE_LOCATION }} shrink-0 text-slate-500" aria-hidden="true"></i>
+                    <span class="truncate text-[11px] font-medium text-slate-700" data-tour-card-location-short>{{ $card['departure_place_short'] }}</span>
+                </li>
+                <li class="flex min-w-0 items-center gap-1.5 rounded-lg bg-slate-50 px-2 py-1.5" title="Phương tiện: {{ $card['transport_label'] }}">
+                    <i class="{{ $transportIcon }} shrink-0 text-slate-500" aria-hidden="true"></i>
+                    <span class="truncate text-[11px] font-medium text-slate-700">{{ $card['transport_label'] }}</span>
+                </li>
+                <li class="flex min-w-0 items-center gap-1.5 rounded-lg bg-slate-50 px-2 py-1.5" title="Thời gian: {{ $card['duration_compact_label'] }}">
+                    <i class="{{ \App\Support\TourUiIcons::DURATION }} shrink-0 text-slate-500" aria-hidden="true"></i>
+                    <strong class="truncate text-[11px] font-semibold text-slate-800">{{ $card['duration_compact_label'] }}</strong>
+                </li>
+            </ul>
+            @if ($departureDateLabels->isNotEmpty())
+                <div class="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-1.5" data-tour-card-departure-rail aria-label="Các ngày khởi hành gần nhất">
+                    <button
+                        type="button"
+                        class="inline-flex size-8 items-center justify-center rounded-full border border-orange-200 bg-white text-primary transition hover:border-primary hover:bg-orange-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 disabled:cursor-not-allowed disabled:opacity-35"
+                        data-tour-card-departure-prev
+                        aria-label="Xem ngày khởi hành phía trước"
+                    >
+                        <i class="fa-solid fa-play rotate-180 text-[0.6rem]" aria-hidden="true"></i>
+                    </button>
+                    <div class="min-w-0 overflow-x-auto scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-tour-card-departure-track>
+                        <div class="flex min-w-max items-center gap-1.5">
+                            @foreach ($departureDateLabels as $departureDateLabel)
+                                <span class="rounded-md border border-rose-200 bg-white px-2.5 py-1 text-[11px] font-semibold text-rose-600" data-tour-card-departure-date>{{ $departureDateLabel }}</span>
+                            @endforeach
+                        </div>
+                    </div>
+                    <button
+                        type="button"
+                        class="inline-flex size-8 items-center justify-center rounded-full border border-orange-200 bg-white text-primary transition hover:border-primary hover:bg-orange-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 disabled:cursor-not-allowed disabled:opacity-35"
+                        data-tour-card-departure-next
+                        aria-label="Xem ngày khởi hành tiếp theo"
+                    >
+                        <i class="fa-solid fa-play text-[0.6rem]" aria-hidden="true"></i>
+                    </button>
                 </div>
-            </div>
-
-            <div class="{{ $metaRowClasses }}">
-                <span class="{{ $metaIconClasses }}">
-                    <i class="fa-regular fa-clock"></i>
-                </span>
-                <div class="min-w-0 flex flex-wrap items-center gap-1.5">
-                    <span class="{{ $metaValueClasses }}">{{ $card['duration_label'] }}</span>
-                </div>
-            </div>
-
-            <div class="{{ $metaRowClasses }}">
-                <span class="{{ $metaIconClasses }}">
-                    <i class="{{ $transportIcon }}"></i>
-                </span>
-                <div class="min-w-0 flex flex-wrap items-center gap-1.5">
-                    <span class="{{ $metaValueClasses }}">{{ $card['transport_label'] }}</span>
-                </div>
-            </div>
+            @endif
+            <p class="inline-flex items-center gap-1.5 text-[12px] font-semibold text-rose-600">
+                <i class="{{ \App\Support\TourUiIcons::SLOTS }}" aria-hidden="true"></i>
+                {{ $card['slot_label'] }}
+            </p>
         </div>
 
-        <div class="mt-auto flex items-end justify-between gap-2.5 border-t border-slate-200 pt-2.5">
-            <div class="space-y-1">
+        <div class="mt-auto -mb-[1.375rem] -mr-[1.375rem] grid h-[58px] grid-cols-[minmax(0,1fr)_auto] items-start justify-between gap-2 border-t border-slate-200 pt-2.5 sm:h-auto sm:items-end sm:justify-normal {{ $isHorizontal ? 'lg:-mb-5 lg:-mr-6' : '' }}" data-tour-card-price-action>
+            <div class="min-w-0 space-y-1 pb-3">
                 @if ($isHorizontal)
                     <p class="text-[10px] font-semibold uppercase text-slate-500">Giá từ</p>
-                    <div class="flex flex-nowrap items-baseline gap-2">
-                        <p class="font-heading {{ $priceClasses }} whitespace-nowrap font-bold leading-none text-[color:var(--color-price)]">{{ $card['price_label'] }}</p>
+                    <div class="flex min-w-0 flex-nowrap items-baseline gap-1.5 overflow-hidden">
+                        <p class="min-w-0 whitespace-nowrap font-heading {{ $priceClasses }} font-bold leading-none tracking-[-0.015em] text-[color:var(--color-price)]">{{ $card['price_label'] }}</p>
                         @if ($basePriceLabel)
-                            <p class="whitespace-nowrap text-[12px] text-slate-400 line-through">{{ $basePriceLabel }}</p>
+                            <p class="min-w-0 truncate whitespace-nowrap text-[10px] text-slate-400 line-through sm:text-[12px]">{{ $basePriceLabel }}</p>
                         @endif
                     </div>
                 @else
-                    <div class="inline-flex flex-wrap items-center gap-y-1">
-                        <p class="text-[10px] font-semibold uppercase leading-none text-slate-500">Giá từ</p>
+                    <div class="flex min-w-0 max-w-full flex-nowrap items-center gap-1.5 overflow-hidden">
+                        <p class="shrink-0 text-[10px] font-semibold uppercase leading-none text-slate-500">Giá từ</p>
                         @if ($basePriceLabel)
-                            <p class="pl-2 whitespace-nowrap text-[12px] leading-none text-slate-400 line-through">{{ $basePriceLabel }}</p>
+                            <p class="min-w-0 truncate whitespace-nowrap text-[10px] leading-none text-slate-400 line-through sm:text-[12px]">{{ $basePriceLabel }}</p>
                         @endif
                     </div>
-                    <p class="font-heading {{ $priceClasses }} whitespace-nowrap font-bold leading-none text-[color:var(--color-price)]">{{ $card['price_label'] }}</p>
+                    <p class="max-w-full whitespace-nowrap font-heading {{ $priceClasses }} font-bold leading-none tracking-[-0.015em] text-[color:var(--color-price)]">{{ $card['price_label'] }}</p>
                 @endif
             </div>
 
-            <div class="ml-auto flex shrink-0 items-center justify-end">
-                <a href="{{ $card['detail_url'] }}" class="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-[0.9rem] border border-orange-200 px-4 py-2.5 text-[13px] font-semibold text-primary transition hover:bg-orange-50">
-                    {{ $ctaLabel }}
-                    <i class="fa-solid fa-arrow-right"></i>
+            <div class="frontsite-tour-card-cta-wrap relative -top-3.5 flex shrink-0 items-end justify-end self-end sm:relative sm:-left-1.5 sm:-top-1.5">
+                <a
+                    href="{{ $card['detail_url'] }}"
+                    class="frontsite-tour-card-cta inline-flex min-h-11 items-center justify-center gap-1.5 border py-2.5 pl-5 pr-4 text-[13px] font-bold shadow-sm transition focus-visible:outline-none sm:pr-5 {{ $ctaVariantClasses }}"
+                    data-tour-card-cta-variant="{{ $resolvedCtaVariant }}"
+                >
+                    <span>{{ $ctaLabel }}</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>
+        </div>
         </div>
     </div>
 </article>

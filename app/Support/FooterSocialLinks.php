@@ -49,7 +49,7 @@ class FooterSocialLinks
             ],
             'zalo' => [
                 'label' => 'Zalo',
-                'image' => 'images/zalo-footer-logo.svg',
+                'image' => 'images/zalo-footer-logo-orange.svg',
             ],
         ];
     }

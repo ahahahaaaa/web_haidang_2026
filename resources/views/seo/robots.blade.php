@@ -10,3 +10,4 @@ Disallow: /*?filter=
 Disallow: /*?departure=
 
 Sitemap: {{ \App\Support\FrontsiteUrls::canonicalUrl($sitemapUrl) }}
+Sitemap: {{ \App\Support\FrontsiteUrls::canonicalUrl($sitemapIndexUrl) }}

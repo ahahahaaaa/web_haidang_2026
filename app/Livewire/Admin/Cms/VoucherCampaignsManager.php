@@ -78,6 +78,9 @@ class VoucherCampaignsManager extends Component
             'ends_at' => $campaign->ends_at?->format('d/m/Y') ?? '',
             'code_valid_until' => $campaign->code_valid_until?->format('d/m/Y') ?? '',
             'is_active' => $campaign->is_active,
+            'public_widget_enabled' => (bool) data_get($campaign->meta, 'public_widget_enabled', false),
+            'public_code' => (string) data_get($campaign->meta, 'public_code', ''),
+            'public_terms' => (string) data_get($campaign->meta, 'public_terms', ''),
         ];
     }
 
@@ -248,6 +251,7 @@ class VoucherCampaignsManager extends Component
             ],
             'form.description' => ['nullable', 'string', 'max:1000'],
             'form.landing_page_id' => [
+                Rule::requiredIf(fn (): bool => (bool) ($this->form['public_widget_enabled'] ?? false)),
                 'nullable',
                 'integer',
                 'exists:landing_pages,id',
@@ -263,6 +267,21 @@ class VoucherCampaignsManager extends Component
 
                     if ($isAlreadyUsed) {
                         $fail('Landing page này đã được gắn với một campaign voucher khác. Hãy sửa campaign hiện có hoặc chọn landing page khác.');
+
+                        return;
+                    }
+
+                    if ((bool) ($this->form['public_widget_enabled'] ?? false)) {
+                        $hasPublicLanding = LandingPage::query()
+                            ->whereKey((int) $value)
+                            ->whereNull('page_key')
+                            ->whereNotNull('slug')
+                            ->where('is_active', true)
+                            ->exists();
+
+                        if (! $hasPublicLanding) {
+                            $fail('Campaign hiển thị trên widget phải gắn với một landing page custom đang hoạt động.');
+                        }
                     }
                 },
             ],
@@ -297,12 +316,30 @@ class VoucherCampaignsManager extends Component
                 },
             ],
             'form.is_active' => ['boolean'],
+            'form.public_widget_enabled' => ['boolean'],
+            'form.public_code' => [
+                Rule::requiredIf(fn (): bool => (bool) ($this->form['public_widget_enabled'] ?? false)),
+                'nullable',
+                'string',
+                'max:80',
+            ],
+            'form.public_terms' => ['nullable', 'string', 'max:500'],
         ]);
 
         $payload = $validated['form'];
+        $publicWidgetMeta = [
+            'public_widget_enabled' => (bool) ($payload['public_widget_enabled'] ?? false),
+            'public_code' => filled($payload['public_code'] ?? null) ? trim((string) $payload['public_code']) : null,
+            'public_terms' => filled($payload['public_terms'] ?? null) ? trim((string) $payload['public_terms']) : null,
+        ];
+        unset($payload['public_widget_enabled'], $payload['public_code'], $payload['public_terms']);
         $payload['starts_at'] = $this->adminDateFromValue($payload['starts_at'] ?? null)?->startOfDay();
         $payload['ends_at'] = $this->adminDateFromValue($payload['ends_at'] ?? null)?->endOfDay();
         $payload['code_valid_until'] = $this->adminDateFromValue($payload['code_valid_until'] ?? null)?->endOfDay();
+        $existingMeta = $this->selectedId
+            ? VoucherCampaign::query()->find($this->selectedId)?->meta
+            : [];
+        $payload['meta'] = array_merge(is_array($existingMeta) ? $existingMeta : [], $publicWidgetMeta);
 
         $campaign = VoucherCampaign::query()->updateOrCreate(
             ['id' => $this->selectedId],
@@ -355,6 +392,11 @@ class VoucherCampaignsManager extends Component
         $this->form['code_prefix'] = Str::of((string) ($this->form['code_prefix'] ?? 'HDTRAVEL'))->upper()->replaceMatches('/[^A-Z0-9]+/', '-')->trim('-')->value() ?: 'HDTRAVEL';
         $this->form['code_quantity'] = (int) ($this->form['code_quantity'] ?? 1);
         $this->form['landing_page_id'] = filled($this->form['landing_page_id'] ?? null) ? (int) $this->form['landing_page_id'] : null;
+        $this->form['public_widget_enabled'] = (bool) ($this->form['public_widget_enabled'] ?? false);
+        $this->form['public_code'] = filled($this->form['public_code'] ?? null)
+            ? Str::of((string) $this->form['public_code'])->upper()->trim()->value()
+            : null;
+        $this->form['public_terms'] = filled($this->form['public_terms'] ?? null) ? trim((string) $this->form['public_terms']) : null;
         foreach (['starts_at', 'ends_at', 'code_valid_until'] as $dateKey) {
             $this->form[$dateKey] = filled($this->form[$dateKey] ?? null) ? trim((string) $this->form[$dateKey]) : null;
         }
@@ -416,6 +458,9 @@ class VoucherCampaignsManager extends Component
             'ends_at' => now()->addMonth()->endOfDay()->format('d/m/Y'),
             'code_valid_until' => now()->addMonth()->endOfDay()->format('d/m/Y'),
             'is_active' => true,
+            'public_widget_enabled' => false,
+            'public_code' => '',
+            'public_terms' => '',
         ];
     }
 }

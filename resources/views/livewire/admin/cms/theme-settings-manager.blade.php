@@ -33,23 +33,31 @@
                 <button
                     type="button"
                     role="tab"
-                    data-theme-settings-tab="frontsite-headings"
-                    :aria-selected="activeThemeSettingsTab === 'frontsite-headings'"
-                    @click="activeThemeSettingsTab = 'frontsite-headings'"
+                    data-theme-settings-tab="appearance"
+                    :aria-selected="activeThemeSettingsTab === 'appearance'"
+                    @click="activeThemeSettingsTab = 'appearance'"
                     class="inline-flex items-center gap-2 rounded-2xl border px-4 py-3 text-sm font-semibold transition"
-                    :class="activeThemeSettingsTab === 'frontsite-headings' ? 'border-red-200 bg-red-50 text-red-700 dark:border-red-500/30 dark:bg-red-500/10 dark:text-red-300' : 'border-transparent text-zinc-600 hover:bg-zinc-50 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-white'"
+                    :class="activeThemeSettingsTab === 'appearance' ? 'border-red-200 bg-red-50 text-red-700 dark:border-red-500/30 dark:bg-red-500/10 dark:text-red-300' : 'border-transparent text-zinc-600 hover:bg-zinc-50 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-white'"
                 >
-                    <i class="fa-solid fa-heading"></i>
-                    Heading section frontsite
+                    <i class="fa-solid fa-palette"></i>
+                    Cấu hình giao diện
                 </button>
             </div>
         </section>
 
-        <div x-show="activeThemeSettingsTab === 'general'" class="grid gap-6">
+        <div x-show="activeThemeSettingsTab === 'appearance'" style="display: none;" class="grid gap-6">
         <section class="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
             <div class="mb-5">
-                <h2 class="text-lg font-semibold text-zinc-900 dark:text-white">Media chính</h2>
-                <p class="text-sm text-zinc-500 dark:text-zinc-400">Dàn ảnh nhận diện chính theo một hàng full-width để biên tập nhanh logo, favicon và OG image.</p>
+                <h2 class="text-lg font-semibold text-zinc-900 dark:text-white">Nhận diện và theme</h2>
+                <p class="text-sm text-zinc-500 dark:text-zinc-400">Chọn theme runtime và quản lý logo, favicon, ảnh chia sẻ mặc định của frontsite.</p>
+            </div>
+
+            <div class="mb-5 max-w-xl space-y-2">
+                <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Theme đang dùng</label>
+                <select wire:model.defer="form.active_theme" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-red-400 focus:bg-white dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
+                    <option value="haidangtravel">haidangtravel</option>
+                </select>
+                @error('form.active_theme') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
             </div>
 
             <div class="grid gap-5 xl:grid-cols-3">
@@ -143,9 +151,28 @@
         </section>
 
         <section class="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+            <div class="mb-5">
+                <h2 class="text-lg font-semibold text-zinc-900 dark:text-white">Trang chi tiết tour</h2>
+                <p class="text-sm text-zinc-500 dark:text-zinc-400">Điều khiển các thành phần giao diện dùng chung cho toàn bộ trang chi tiết tour.</p>
+            </div>
+
+            <label class="flex items-start justify-between gap-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-950/50">
+                <span>
+                    <span class="block text-sm font-semibold text-zinc-900 dark:text-white">Hiện hero đầu trang</span>
+                    <span class="mt-1 block text-xs leading-5 text-zinc-500 dark:text-zinc-400">Khi tắt, ảnh nền, thông tin nhanh và CTA trong hero sẽ được ẩn; tiêu đề H1 gọn vẫn hiển thị dưới breadcrumb.</span>
+                </span>
+                <input type="checkbox" wire:model.defer="form.structured_data.frontsite_appearance.tour_detail.show_hero" class="mt-1 rounded border-zinc-300 text-red-600 focus:ring-red-500 dark:border-zinc-700 dark:bg-zinc-900">
+            </label>
+            @error('form.structured_data.frontsite_appearance.tour_detail.show_hero') <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
+        </section>
+        </div>
+
+        <div x-show="activeThemeSettingsTab === 'general'" class="grid gap-6">
+
+        <section class="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
                 <div class="mb-5">
                     <h2 class="text-lg font-semibold text-zinc-900 dark:text-white">Thông tin hệ thống</h2>
-                    <p class="text-sm text-zinc-500 dark:text-zinc-400">Tên site, theme đang dùng và mô tả tổng quan.</p>
+                    <p class="text-sm text-zinc-500 dark:text-zinc-400">Tên site và mô tả tổng quan dùng chung trên frontsite.</p>
                 </div>
 
                 <div class="grid gap-4 md:grid-cols-2">
@@ -155,16 +182,9 @@
                         @error('form.site_name') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
                     </div>
 
-                    <div class="space-y-2">
+                    <div class="space-y-2 md:col-span-2">
                         <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Tagline</label>
                         <input type="text" wire:model.defer="form.site_tagline" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-red-400 focus:bg-white dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
-                    </div>
-
-                    <div class="space-y-2">
-                        <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Theme đang dùng</label>
-                        <select wire:model.defer="form.active_theme" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:border-red-400 focus:bg-white dark:border-zinc-700 dark:bg-zinc-800 dark:text-white">
-                            <option value="haidangtravel">haidangtravel</option>
-                        </select>
                     </div>
 
                     <div class="space-y-2 md:col-span-2">
@@ -279,6 +299,57 @@
                 </div>
             @endif
         </section>
+        </div>
+
+        <div x-show="activeThemeSettingsTab === 'appearance'" style="display: none;" class="grid gap-6">
+
+        <section class="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+            <div class="mb-5">
+                <h2 class="text-lg font-semibold text-zinc-900 dark:text-white">Trang điểm thưởng</h2>
+                <p class="text-sm text-zinc-500 dark:text-zinc-400">Ảnh nền hero cho trang /diem-thuong. Để trống sẽ dùng nền chuyển sắc mặc định.</p>
+            </div>
+
+            <div class="max-w-2xl space-y-4">
+                <x-admin.image-dropzone
+                    label="Ảnh hero điểm thưởng"
+                    model="customerLoyaltyHeroUpload"
+                    :preview="$customerLoyaltyHeroUpload ? $customerLoyaltyHeroUpload->temporaryUrl() : (($selectedCustomerLoyaltyHeroLibraryMedia?->getUrl()) ?: ($removeCustomerLoyaltyHero ? null : $settings->getFirstMediaUrl('customer_loyalty_hero')))"
+                    hint="Nên dùng ảnh ngang; tối đa 10 MB."
+                />
+                <div class="flex flex-wrap items-center gap-3">
+                    <button
+                        type="button"
+                        data-admin-media-picker-trigger
+                        data-pick-method="selectLibraryMediaForUpload"
+                        data-pick-target="customerLoyaltyHeroUpload"
+                        data-button-label="Chọn ảnh này làm hero điểm thưởng"
+                        class="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-zinc-700 transition hover:border-red-300 hover:text-red-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-red-500/40 dark:hover:text-red-300"
+                    >
+                        <i class="fa-regular fa-images"></i>
+                        Chọn từ Media popup
+                    </button>
+
+                    @if ($selectedCustomerLoyaltyHeroLibraryMedia)
+                        <button type="button" wire:click="clearLibraryMediaSelectionForUpload('customerLoyaltyHeroUpload')" class="text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white">
+                            Bỏ chọn ảnh thư viện
+                        </button>
+                    @endif
+
+                    @if ($settings->getFirstMedia('customer_loyalty_hero') && ! $removeCustomerLoyaltyHero)
+                        <button type="button" wire:click="removeCustomerLoyaltyHeroImage" class="text-sm font-medium text-red-600 hover:text-red-700 dark:text-red-300 dark:hover:text-red-200">
+                            Xóa ảnh hero
+                        </button>
+                    @endif
+                </div>
+                @if ($removeCustomerLoyaltyHero && ! $customerLoyaltyHeroUpload && ! $selectedCustomerLoyaltyHeroLibraryMedia)
+                    <p class="text-sm text-amber-700 dark:text-amber-300">Ảnh hiện tại sẽ được xóa sau khi lưu cấu hình.</p>
+                @endif
+            </div>
+        </section>
+
+        </div>
+
+        <div x-show="activeThemeSettingsTab === 'general'" class="grid gap-6">
 
         <section class="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
             @php
@@ -647,7 +718,7 @@
 
         </div>
 
-        <div x-show="activeThemeSettingsTab === 'frontsite-headings'" style="display: none;" class="grid gap-6">
+        <div x-show="activeThemeSettingsTab === 'appearance'" style="display: none;" class="grid gap-6">
         <section class="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
             @php($frontsiteHeadingGroups = \App\Support\FrontsiteSectionHeadings::definitions())
 

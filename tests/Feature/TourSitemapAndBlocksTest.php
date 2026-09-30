@@ -7,11 +7,13 @@ use App\Support\FrontsiteCardData;
 use App\Support\FrontsiteMedia;
 use App\Support\FrontsiteUrls;
 use App\Support\LandingPageBlocks;
+use App\Support\TourDepartureSchedule;
 use App\Support\TravelHomePageConfig;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Carbon;
 use Src\Domains\Cms\Enums\TourScope;
 use Src\Domains\Cms\Models\BlogPost;
 use Src\Domains\Cms\Models\ContentCategory;
@@ -640,7 +642,7 @@ class TourSitemapAndBlocksTest extends TestCase
             'published_at' => now()->subDay(),
         ]);
 
-        $this->get(route('tour-categories.show', $category))
+        $categoryResponse = $this->get(route('tour-categories.show', $category))
             ->assertOk()
             ->assertSee('name="scope"', false)
             ->assertSeeText('Tất cả')
@@ -649,6 +651,8 @@ class TourSitemapAndBlocksTest extends TestCase
             ->assertSeeText('Tour đoàn')
             ->assertSeeText($domesticTour->title)
             ->assertSeeText($internationalTour->title);
+
+        $this->assertSame(2, substr_count($categoryResponse->getContent(), 'name="scope"'));
 
         $this->get(route('tour-categories.show', [
             'category' => $category,
@@ -660,9 +664,11 @@ class TourSitemapAndBlocksTest extends TestCase
             ->assertDontSeeText($domesticTour->title)
             ->assertSee('meta name="robots" content="noindex,follow"', false);
 
-        $this->get(route('destinations.show', $domesticTour->destination))
+        $destinationResponse = $this->get(route('destinations.show', $domesticTour->destination))
             ->assertOk()
-            ->assertDontSee('name="scope"', false);
+            ->assertSee('data-sitewide-tour-search-overlay', false);
+
+        $this->assertSame(1, substr_count($destinationResponse->getContent(), 'name="scope"'));
     }
 
     public function test_tour_detail_outputs_product_offer_and_visible_taxonomy_links(): void
@@ -725,6 +731,50 @@ class TourSitemapAndBlocksTest extends TestCase
         $this->assertSame(1, preg_match('/<section id="tour-itinerary"[\s\S]*?<\/section>/', $html, $matches));
         $this->assertSame(2, substr_count($matches[0], '<details open'));
         $this->assertSame(2, substr_count($matches[0], '<summary'));
+    }
+
+    public function test_tour_detail_navigation_and_price_sidebar_share_sticky_offsets(): void
+    {
+        [, $tour] = $this->travelFixture();
+
+        $html = $this->get(route('tours.show', $tour))
+            ->assertOk()
+            ->getContent();
+
+        $this->assertStringContainsString('data-tour-content-shell', $html);
+        $this->assertStringContainsString('data-tour-section-nav', $html);
+        $this->assertStringContainsString('data-tour-section-link', $html);
+        $this->assertStringContainsString('top-[var(--tour-sticky-header-offset)]', $html);
+        $this->assertStringContainsString('data-tour-price-sidebar', $html);
+        $this->assertStringContainsString('lg:top-[calc(var(--tour-sticky-header-offset)+var(--tour-section-nav-height)+1rem)]', $html);
+    }
+
+    public function test_tour_itinerary_renders_orange_map_markers_meals_and_day_image(): void
+    {
+        Storage::fake('public');
+
+        [, $tour] = $this->travelFixture();
+        $itinerary = $tour->itinerary;
+        $itinerary[0] = array_merge($itinerary[0], [
+            'uuid' => 'ha-noi-day-one',
+            'meals' => 'Sáng, trưa, chiều',
+            'image_alt' => 'Hồ Hoàn Kiếm trong ngày đầu tiên',
+            'image_url' => '',
+        ]);
+        $tour->update(['itinerary' => $itinerary]);
+        $tour->addMedia(UploadedFile::fake()->image('ho-hoan-kiem.jpg', 1400, 900))
+            ->toMediaCollection(ContentGallery::tourItineraryCollection('ha-noi-day-one'), 'public');
+
+        $html = $this->get(route('tours.show', $tour))
+            ->assertOk()
+            ->getContent();
+
+        $this->assertSame(1, preg_match('/<section id="tour-itinerary"[\s\S]*?<\/section>/', $html, $matches));
+        $this->assertSame(2, substr_count($matches[0], 'fa-location-dot'));
+        $this->assertStringContainsString('fa-utensils', $matches[0]);
+        $this->assertStringContainsString('Sáng, trưa, chiều', $matches[0]);
+        $this->assertStringContainsString('alt="Hồ Hoàn Kiếm trong ngày đầu tiên"', $matches[0]);
+        $this->assertStringContainsString('ho-hoan-kiem', $matches[0]);
     }
 
     public function test_tour_detail_product_sku_prefers_api_sync_tour_code(): void
@@ -946,6 +996,28 @@ class TourSitemapAndBlocksTest extends TestCase
         $this->assertStringContainsString('fetchpriority="high"', $heroHtml);
     }
 
+    public function test_tour_card_uses_medium_image_and_full_image_for_high_density_screens(): void
+    {
+        Storage::fake('public');
+
+        [, $tour] = $this->travelFixture();
+        $tour->update(['cover_image_url' => '']);
+        $tour->addMedia(UploadedFile::fake()->image('tour-card-cover.jpg', 1600, 900))
+            ->toMediaCollection('cover');
+
+        $tour = $tour->fresh('media');
+        $mediumUrl = FrontsiteMedia::modelUrl($tour, 'cover', FrontsiteMedia::SIZE_MEDIUM);
+        $fullUrl = FrontsiteMedia::modelUrl($tour, 'cover', FrontsiteMedia::SIZE_FULL);
+        $card = FrontsiteCardData::tour($tour);
+        $html = view('themes.haidangtravel.partials.tour-card', ['tour' => $tour])->render();
+
+        $this->assertSame($mediumUrl, $card['image_url']);
+        $this->assertSame($fullUrl, $card['image_full_url']);
+        $this->assertStringContainsString('src="'.$mediumUrl.'"', $html);
+        $this->assertStringContainsString('srcset="'.$mediumUrl.' 1x, '.$fullUrl.' 2x"', $html);
+        $this->assertStringNotContainsString(' 500w,', $html);
+    }
+
     public function test_tour_detail_hero_falls_back_to_first_gallery_image_when_cover_is_missing(): void
     {
         [, $tour] = $this->travelFixture();
@@ -1160,6 +1232,38 @@ class TourSitemapAndBlocksTest extends TestCase
             strpos($html, 'tour-listing-faq'),
             strpos($html, 'id="tour-listing-reviews"'),
             'Khối đánh giá của trang điểm đến nên đứng trước FAQ như nhịp ở tour detail.',
+        );
+    }
+
+    public function test_destination_h1_prefers_meta_title_and_falls_back_to_name(): void
+    {
+        [, , $destination] = $this->travelFixture();
+        $metaTitle = 'Tour Hà Nội trọn gói giá tốt';
+        $destination->update(['meta_title' => $metaTitle]);
+
+        $html = $this->get(route('destinations.show', $destination))
+            ->assertOk()
+            ->getContent();
+
+        $this->assertSame(1, preg_match_all('/<h1(?:\s|>)/i', $html));
+        $this->assertSame(1, preg_match('/<h1\b[^>]*>\s*'.preg_quote($metaTitle, '/').'\s*<\/h1>/u', $html));
+        $this->assertSame(
+            $destination->name,
+            data_get($this->schemaNodeById($html, route('destinations.show', $destination).'#webpage'), 'name'),
+        );
+        $this->assertSame(
+            $destination->name,
+            data_get($this->schemaNodeById($html, route('destinations.show', $destination).'#product'), 'name'),
+        );
+
+        $destination->update(['meta_title' => null]);
+        $fallbackHtml = $this->get(route('destinations.show', $destination))
+            ->assertOk()
+            ->getContent();
+
+        $this->assertSame(
+            1,
+            preg_match('/<h1\b[^>]*>\s*'.preg_quote($destination->name, '/').'\s*<\/h1>/u', $fallbackHtml),
         );
     }
 
@@ -1585,6 +1689,69 @@ class TourSitemapAndBlocksTest extends TestCase
         $this->assertSame('Lịch linh hoạt theo yêu cầu', $card['next_departure_label']);
         $this->assertSame('Xe mặc định', $card['transport_label']);
         $this->assertSame('Tiêu chuẩn mặc định', $card['standard_label']);
+    }
+
+    public function test_tour_card_and_detail_only_show_today_and_future_departure_dates(): void
+    {
+        $this->travelTo(Carbon::parse('2026-09-15 12:00:00', config('app.timezone')));
+
+        [, $tour] = $this->travelFixture();
+        $tour->departures()->firstOrFail()->update(['departure_date' => '2026-09-15']);
+
+        foreach (['2026-09-14', '2026-09-16'] as $date) {
+            TourDeparture::query()->create([
+                'tour_id' => $tour->getKey(),
+                'departure_date' => $date,
+                'status' => 'scheduled',
+            ]);
+        }
+
+        $tour = $tour->fresh(['departures', 'destination', 'region', 'primaryCategory']);
+        $card = FrontsiteCardData::tour($tour);
+
+        $this->assertSame(['15/09', '16/09'], $card['departure_date_labels']);
+        $this->assertSame('15/09/2026', $card['next_departure_label']);
+
+        $cardHtml = view('themes.haidangtravel.partials.tour-card', ['tour' => $tour])->render();
+        $this->assertStringContainsString('data-tour-card-departure-date>15/09</span>', $cardHtml);
+        $this->assertStringContainsString('data-tour-card-departure-date>16/09</span>', $cardHtml);
+        $this->assertStringNotContainsString('data-tour-card-departure-date>14/09</span>', $cardHtml);
+
+        $detailHtml = $this->get(route('tours.show', $tour))->assertOk()->getContent();
+        $this->assertStringContainsString('15/09/2026', $detailHtml);
+        $this->assertStringContainsString('16/09/2026', $detailHtml);
+        $this->assertStringNotContainsString('14/09/2026', $detailHtml);
+    }
+
+    public function test_past_legacy_schedule_dates_are_hidden_from_card_and_detail_sidebar(): void
+    {
+        $this->travelTo(Carbon::parse('2026-09-15 12:00:00', config('app.timezone')));
+
+        [, $tour] = $this->travelFixture();
+        $tour->update([
+            'departure_schedules' => ['14/09/2026', '2026-09-13', '2026-09-16', 'Lịch linh hoạt theo yêu cầu'],
+        ]);
+        $tour->departures()->firstOrFail()->update(['departure_date' => '2026-09-14']);
+
+        $card = FrontsiteCardData::tour($tour->fresh(['departures', 'destination', 'region', 'primaryCategory']));
+        $this->assertSame([], $card['departure_date_labels']);
+        $this->assertSame('2026-09-16', $card['next_departure_label']);
+
+        $sidebarHtml = $this->tourDetailSidebarHtml($this->get(route('tours.show', $tour))->assertOk()->getContent());
+        $this->assertStringContainsString('2026-09-16', $sidebarHtml);
+        $this->assertStringNotContainsString('14/09/2026', $sidebarHtml);
+        $this->assertStringNotContainsString('2026-09-13', $sidebarHtml);
+
+        $this->assertSame(
+            'Lịch linh hoạt theo yêu cầu',
+            TourDepartureSchedule::firstCurrentLabel(['14-09-2026', 'Lịch linh hoạt theo yêu cầu']),
+        );
+        $this->assertSame('15/09/2026', TourDepartureSchedule::firstCurrentLabel(['14/09/2026', '15/09/2026']));
+        $this->assertSame(
+            'Khởi hành 16/09/2026',
+            TourDepartureSchedule::firstCurrentLabel(['Khởi hành 14/09/2026', 'Khởi hành 16/09/2026']),
+        );
+        $this->assertNull(TourDepartureSchedule::firstCurrentLabel(['14/09/2026', '2026-09-13']));
     }
 
     public function test_tour_card_data_standard_falls_back_to_tour_when_future_departure_has_no_standard(): void

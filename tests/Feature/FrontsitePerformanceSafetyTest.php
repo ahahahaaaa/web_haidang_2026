@@ -4,6 +4,8 @@ namespace Tests\Feature;
 
 use Database\Seeders\CmsBootstrapSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Vite;
 use Src\Domains\Cms\Models\SiteSetting;
 use Tests\TestCase;
 
@@ -51,6 +53,36 @@ class FrontsitePerformanceSafetyTest extends TestCase
         );
     }
 
+    public function test_public_html_cache_refreshes_when_local_date_changes(): void
+    {
+        config()->set('frontsite_cache.enabled', true);
+        config()->set('frontsite_cache.middleware.enabled', true);
+        $this->seed(CmsBootstrapSeeder::class);
+        $this->travelTo(Carbon::parse('2026-09-22 23:59:00', config('app.timezone')));
+
+        $this->get(route('home'))->assertOk()->assertHeader('X-Frontsite-Cache', 'MISS');
+        $this->get(route('home'))->assertOk()->assertHeader('X-Frontsite-Cache', 'HIT');
+
+        $this->travelTo(Carbon::parse('2026-09-23 00:01:00', config('app.timezone')));
+
+        $this->get(route('home'))->assertOk()->assertHeader('X-Frontsite-Cache', 'MISS');
+    }
+
+    public function test_public_html_cache_refreshes_when_vite_manifest_changes(): void
+    {
+        config()->set('frontsite_cache.enabled', true);
+        config()->set('frontsite_cache.middleware.enabled', true);
+        $this->seed(CmsBootstrapSeeder::class);
+
+        Vite::partialMock()
+            ->shouldReceive('manifestHash')
+            ->andReturn('first-build', 'first-build', 'second-build');
+
+        $this->get(route('home'))->assertOk()->assertHeader('X-Frontsite-Cache', 'MISS');
+        $this->get(route('home'))->assertOk()->assertHeader('X-Frontsite-Cache', 'HIT');
+        $this->get(route('home'))->assertOk()->assertHeader('X-Frontsite-Cache', 'MISS');
+    }
+
     public function test_zalo_end_body_embed_keeps_widget_div_and_defers_sdk_script(): void
     {
         $this->seed(CmsBootstrapSeeder::class);
@@ -63,10 +95,12 @@ class FrontsitePerformanceSafetyTest extends TestCase
 
         $this->get(route('home'))
             ->assertOk()
-            ->assertSee($zaloWidget, false)
+            ->assertSee('class="zalo-chat-widget"', false)
+            ->assertSee('data-left-side="false"', false)
+            ->assertSee('right: 16px !important;', false)
             ->assertSee('const loadZalo = () => {', false)
             ->assertSee("script.src = 'https://sp.zalo.me/plugins/sdk.js';", false)
-            ->assertSee('requestIdleCallback(loadZalo, { timeout: 3500 });', false)
+            ->assertSee('window.setTimeout(loadZalo, 12000)', false)
             ->assertDontSee('<script src="https://sp.zalo.me/plugins/sdk.js"></script>', false);
     }
 

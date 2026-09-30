@@ -1,0 +1,13 @@
+[     536ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://localhost:8001/_boost/browser-logs @ http://localhost:8001/chuong-trinh/tour-mang-den-nga-3-dong-duong:69
+[    2112ms] [LOG] Zalo Social Plugin is loaded successfully @ http://localhost:8001/chuong-trinh/tour-mang-den-nga-3-dong-duong:128
+[    2112ms] [LOG] socialPluginsShare:  [] @ http://localhost:8001/chuong-trinh/tour-mang-den-nga-3-dong-duong:128
+[  312017ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://localhost:8001/_boost/browser-logs @ http://localhost:8001/chuong-trinh/tour-mang-den-nga-3-dong-duong:69
+[  312618ms] [LOG] Zalo Social Plugin is loaded successfully @ http://localhost:8001/chuong-trinh/tour-mang-den-nga-3-dong-duong:128
+[  312618ms] [LOG] socialPluginsShare:  [] @ http://localhost:8001/chuong-trinh/tour-mang-den-nga-3-dong-duong:128
+[  384281ms] [ERROR] Failed to load resource: the server responded with a status of 422 (Unprocessable Content) @ http://localhost:8001/yeu-cau-tu-van:0
+[  478818ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://localhost:8001/_boost/browser-logs @ http://localhost:8001/chuong-trinh/tour-mang-den-nga-3-dong-duong:69
+[  479220ms] [LOG] Zalo Social Plugin is loaded successfully @ http://localhost:8001/chuong-trinh/tour-mang-den-nga-3-dong-duong:128
+[  479220ms] [LOG] socialPluginsShare:  [] @ http://localhost:8001/chuong-trinh/tour-mang-den-nga-3-dong-duong:128
+[  479941ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://localhost:8001/_boost/browser-logs @ http://localhost:8001/chuong-trinh/tour-mang-den-nga-3-dong-duong:69
+[  480154ms] [LOG] Zalo Social Plugin is loaded successfully @ http://localhost:8001/chuong-trinh/tour-mang-den-nga-3-dong-duong:128
+[  480154ms] [LOG] socialPluginsShare:  [] @ http://localhost:8001/chuong-trinh/tour-mang-den-nga-3-dong-duong:128

@@ -6,6 +6,7 @@ use App\Livewire\Admin\Cms\ThemeSettingsManager;
 use App\Models\User;
 use App\Services\Frontsite\FrontsiteCache;
 use App\Support\FooterSocialLinks;
+use App\Support\FrontsiteMedia;
 use Database\Seeders\CmsBootstrapSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
@@ -80,7 +81,7 @@ class ThemeSettingsManagerTest extends TestCase
         $this->assertSame('Câu hỏi nhanh về {title}', data_get($settings->structured_data, 'frontsite_section_headings.service_related_questions.title'));
     }
 
-    public function test_theme_settings_manager_renders_frontsite_section_headings_as_a_separate_tab(): void
+    public function test_theme_settings_manager_groups_frontsite_appearance_controls_in_a_separate_tab(): void
     {
         $this->seed(CmsBootstrapSeeder::class);
 
@@ -90,9 +91,30 @@ class ThemeSettingsManagerTest extends TestCase
         Livewire::test(ThemeSettingsManager::class)
             ->assertSee('role="tablist"', false)
             ->assertSee('data-theme-settings-tab="general"', false)
-            ->assertSee('data-theme-settings-tab="frontsite-headings"', false)
+            ->assertSee('data-theme-settings-tab="appearance"', false)
             ->assertSeeText('Cấu hình chung')
+            ->assertSeeText('Cấu hình giao diện')
+            ->assertSeeText('Nhận diện và theme')
+            ->assertSeeText('Trang chi tiết tour')
             ->assertSeeText('Heading section frontsite');
+    }
+
+    public function test_theme_settings_manager_can_store_tour_detail_hero_visibility(): void
+    {
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $this->actingAs($user);
+
+        Livewire::test(ThemeSettingsManager::class)
+            ->assertSet('form.structured_data.frontsite_appearance.tour_detail.show_hero', true)
+            ->set('form.structured_data.frontsite_appearance.tour_detail.show_hero', false)
+            ->call('save')
+            ->assertHasNoErrors();
+
+        $settings = SiteSetting::query()->findOrFail(1);
+
+        $this->assertFalse(data_get($settings->structured_data, 'frontsite_appearance.tour_detail.show_hero'));
     }
 
     public function test_theme_settings_can_use_library_images_from_media_popup_for_primary_assets(): void
@@ -141,6 +163,53 @@ class ThemeSettingsManagerTest extends TestCase
         $this->assertSame($logoMedia->id, (int) data_get($logo?->custom_properties, 'source_library_media_id'));
         $this->assertSame($faviconMedia->id, (int) data_get($favicon?->custom_properties, 'source_library_media_id'));
         $this->assertSame($ogMedia->id, (int) data_get($ogImage?->custom_properties, 'source_library_media_id'));
+    }
+
+    public function test_customer_loyalty_hero_can_be_selected_and_removed_in_theme_settings(): void
+    {
+        Storage::fake('public');
+        $this->seed(CmsBootstrapSeeder::class);
+
+        $user = User::query()->where('email', 'test@example.com')->firstOrFail();
+        $settings = SiteSetting::query()->findOrFail(1);
+        $libraryImage = $settings
+            ->addMedia(UploadedFile::fake()->image('diem-thuong-hero.jpg', 1600, 900))
+            ->toMediaCollection('library', 'public');
+
+        $this->actingAs($user);
+
+        Livewire::test(ThemeSettingsManager::class)
+            ->assertSeeText('Trang điểm thưởng')
+            ->call('selectLibraryMediaForUpload', 'customerLoyaltyHeroUpload', $libraryImage->id)
+            ->call('save')
+            ->assertHasNoErrors();
+
+        $hero = $settings->fresh()->getFirstMedia('customer_loyalty_hero');
+        $this->assertNotNull($hero);
+        $this->assertSame($libraryImage->id, (int) data_get($hero->custom_properties, 'source_library_media_id'));
+        $heroUrl = FrontsiteMedia::mediaUrl($hero);
+        $this->assertNotNull($heroUrl);
+
+        $this->get(route('customer-loyalty.index'))
+            ->assertOk()
+            ->assertSee('src="'.$heroUrl.'"', false);
+
+        Livewire::test(ThemeSettingsManager::class)
+            ->call('removeCustomerLoyaltyHeroImage')
+            ->call('save')
+            ->assertHasNoErrors();
+
+        $this->assertNull($settings->fresh()->getFirstMedia('customer_loyalty_hero'));
+        $this->get(route('customer-loyalty.index'))
+            ->assertOk()
+            ->assertDontSee('src="'.$heroUrl.'"', false);
+
+        Livewire::test(ThemeSettingsManager::class)
+            ->set('customerLoyaltyHeroUpload', UploadedFile::fake()->image('diem-thuong-moi.jpg', 1600, 900))
+            ->call('save')
+            ->assertHasNoErrors();
+
+        $this->assertNotNull($settings->fresh()->getFirstMedia('customer_loyalty_hero'));
     }
 
     public function test_theme_settings_manager_can_store_instagram_url(): void

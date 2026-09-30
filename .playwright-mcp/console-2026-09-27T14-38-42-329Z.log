@@ -1,0 +1,13 @@
+[     725ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://localhost:8001/_boost/browser-logs @ http://localhost:8001/login:57
+[   26234ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://localhost:8001/_boost/browser-logs @ http://localhost:8001/admin/landing-pages:58
+[   98539ms] TypeError: Cannot read properties of null (reading 'before')
+    at Block.appendChild (http://localhost:8001/livewire-4559111e/livewire.js?id=ab6b028c:13656:23)
+    at context.patchChildren (http://localhost:8001/livewire-4559111e/livewire.js?id=ab6b028c:13487:20)
+    at context.patchChildren (http://localhost:8001/livewire-4559111e/livewire.js?id=ab6b028c:13529:19)
+    at context.patchChildren (http://localhost:8001/livewire-4559111e/livewire.js?id=ab6b028c:13529:19)
+    at context.patchChildren (http://localhost:8001/livewire-4559111e/livewire.js?id=ab6b028c:13529:19)
+    at context.patchChildren (http://localhost:8001/livewire-4559111e/livewire.js?id=ab6b028c:13529:19)
+    at context.patchChildren (http://localhost:8001/livewire-4559111e/livewire.js?id=ab6b028c:13529:19)
+    at context.patchChildren (http://localhost:8001/livewire-4559111e/livewire.js?id=ab6b028c:13529:19)
+    at context.patchChildren (http://localhost:8001/livewire-4559111e/livewire.js?id=ab6b028c:13529:19)
+    at context.patch (http://localhost:8001/livewire-4559111e/livewire.js?id=ab6b028c:13405:17)

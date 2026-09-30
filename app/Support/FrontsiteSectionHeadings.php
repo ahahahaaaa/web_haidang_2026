@@ -92,8 +92,8 @@ class FrontsiteSectionHeadings
                     ],
                     'tour_cta' => [
                         'label' => 'CTA cuối trang tour',
-                        'title' => 'Cần tư vấn nhanh cho tour này?',
-                        'description' => 'Nếu bạn chưa chốt được ngày đi, chỉ cần để lại số điện thoại và nhu cầu, Hải Đăng Travel sẽ gọi lại để kiểm tra chỗ và tư vấn đúng lịch phù hợp.',
+                        'title' => 'Chuyến đi đáng nhớ, ưu đãi dành cho bạn',
+                        'description' => 'Bạn đang tìm một hành trình thật đáng đi? Chia sẻ mong muốn để Hải Đăng Travel gợi ý tour hấp dẫn và kiểm tra ưu đãi phù hợp với lịch đi của bạn.',
                     ],
                 ],
             ],
